@@ -1,0 +1,131 @@
+{
+  "$t('不可用优惠券({count})', { count: coupon.unusable.length })": {
+    "kind": "interp",
+    "reason": "co noi suy/placeholder",
+    "files": [
+      "pc/pages/confirm_order.vue"
+    ]
+  },
+  "$t('可用优惠券({count})', { count: coupon.usable.length })": {
+    "kind": "interp",
+    "reason": "co noi suy/placeholder",
+    "files": [
+      "pc/pages/confirm_order.vue"
+    ]
+  },
+  "·1积分可抵扣{integral_limit}元\\n·单次扣减积分不能低于{integral_config}积分": {
+    "kind": "interp",
+    "reason": "co noi suy/placeholder",
+    "files": [
+      "pc/pages/confirm_order.vue"
+    ]
+  },
+  "仅退款": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: value == this.$t('仅退款') ? this.f",
+    "files": [
+      "pc/pages/user/after_sales/apply_sale.vue"
+    ]
+  },
+  "价格": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: {{ activity.type == 1 ? $t('秒杀价') : $t('价格') }}",
+    "files": [
+      "pc/pages/goods_details/_id.vue"
+    ]
+  },
+  "共{count}件商品": {
+    "kind": "interp",
+    "reason": "co noi suy/placeholder",
+    "files": [
+      "pc/components/deliverSearch.vue",
+      "pc/components/orderList.vue"
+    ]
+  },
+  "共{count}积分": {
+    "kind": "interp",
+    "reason": "co noi suy/placeholder",
+    "files": [
+      "pc/pages/confirm_order.vue"
+    ]
+  },
+  "加入购物车": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: <div class=\"btn primary addcart\" @click=\"onAddCart\" v-if=\"ac",
+    "files": [
+      "pc/pages/goods_details/_id.vue"
+    ]
+  },
+  "原价": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: {{ activity.type == 1 ? $t('日常价') : $t('原价') }}",
+    "files": [
+      "pc/pages/goods_details/_id.vue"
+    ]
+  },
+  "填写快递单号": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: ale.status==2\" size=\"small\" @click.stop=\"showInput(items.aft",
+    "files": [
+      "pc/components/afterSalesList.vue",
+      "pc/pages/user/after_sales/after_sale_details.vue"
+    ]
+  },
+  "已选择": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: <div class=\"choose xs\" v-if=\"type == 4 && id == item.id\">{{ ",
+    "files": [
+      "pc/components/couponsList.vue"
+    ]
+  },
+  "撤销申请": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: == 'apply'\" size=\"small\" @click.stop=\"cancelApply(items.afte",
+    "files": [
+      "pc/components/afterSalesList.vue",
+      "pc/pages/user/after_sales/after_sale_details.vue"
+    ]
+  },
+  "日常价": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: {{ activity.type == 1 ? $t('日常价') : $t('原价",
+    "files": [
+      "pc/pages/goods_details/_id.vue"
+    ]
+  },
+  "查看详情": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: \"type != 'normal'\" size=\"small\" @click=\"goToDetail(items.aft",
+    "files": [
+      "pc/components/afterSalesList.vue"
+    ]
+  },
+  "申请售后": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: ck.stop=\"goPage(items.order_id, item.item_id)\" v-if=\"type ==",
+    "files": [
+      "pc/components/afterSalesList.vue"
+    ]
+  },
+  "秒杀价": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: {{ activity.type == 1 ? $t('秒杀价') : $t('价格",
+    "files": [
+      "pc/pages/goods_details/_id.vue"
+    ]
+  },
+  "设为默认": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: lass=\"{'primary': scope.row.is_default == 1}\">{{scope.row.is",
+    "files": [
+      "pc/pages/user/address/index.vue"
+    ]
+  },
+  "默认": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: ass=\"nr\" :class=\"{'primary': scope.row.is_default == 1}\">{{s",
+    "files": [
+      "pc/pages/user/address/index.vue"
+    ]
+  }
+}

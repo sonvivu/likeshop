@@ -1,0 +1,46 @@
+{
+  "两次密码输入不一致": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: nction(value,item){password = layui.$('[name=password]').val",
+    "files": [
+      "server/application/admin/view/my/test.html"
+    ]
+  },
+  "显示": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: if (info_state == '显示'){",
+    "files": [
+      "server/application/admin/view/goods_comment/lists.html"
+    ]
+  },
+  "满足以下任一条件": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: dio\" name=\"update_relation\" value=\"1\" {if $detail.update_rel",
+    "files": [
+      "server/application/admin/view/distribution_level/edit.html"
+    ]
+  },
+  "满足以下全部条件": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: dio\" name=\"update_relation\" value=\"2\" {if $detail.update_rel",
+    "files": [
+      "server/application/admin/view/distribution_level/edit.html"
+    ]
+  },
+  "系统": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: {{# if(d.first_leader_info != '系统'){}}",
+    "files": [
+      "server/application/admin/view/user/fans.html",
+      "server/application/admin/view/user/info.html",
+      "server/application/admin/view/user/lists.html"
+    ]
+  },
+  "隐藏": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: }else if (info_state == '隐藏') {",
+    "files": [
+      "server/application/admin/view/goods_comment/lists.html"
+    ]
+  }
+}

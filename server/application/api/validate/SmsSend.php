@@ -1,0 +1,120 @@
+<?php
+// +----------------------------------------------------------------------
+// | likeshop开源商城系统
+// +----------------------------------------------------------------------
+// | 欢迎阅读学习系统程序代码，建议反馈是我们前进的动力
+// | gitee下载：https://gitee.com/likeshop_gitee
+// | github下载：https://github.com/likeshop-github
+// | 访问官网：https://www.likeshop.cn
+// | 访问社区：https://home.likeshop.cn
+// | 访问手册：http://doc.likeshop.cn
+// | 微信公众号：likeshop技术社区
+// | likeshop系列产品在gitee、github等公开渠道开源版本可免费商用，未经许可不能去除前后端官方版权标识
+// |  likeshop系列产品收费版本务必购买商业授权，购买去版权授权后，方可去除前后端官方版权标识
+// | 禁止对系统程序代码以任何目的，任何形式的再发布
+// | likeshop团队版权所有并拥有最终解释权
+// +----------------------------------------------------------------------
+// | author: likeshop.cn.team
+// +----------------------------------------------------------------------
+namespace app\api\validate;
+
+use app\api\logic\LoginLogic;
+use app\api\model\User;
+use app\common\model\NoticeSetting;
+use app\common\server\CaptchaService;
+use think\{
+    Db,
+    Validate
+};
+
+class SmsSend extends Validate
+{
+    public function __construct(array $rules = [], array $message = [], array $field = [])
+    {
+        parent::__construct($rules, $message, $field);
+        foreach ($this->message as $key => $value) {
+            $this->message[$key] = lang($value);
+        }
+        foreach ($this->rule as $key => $rule) {
+            if (strpos($key, '|') !== false) {
+                list($attr, $title) = explode('|', $key, 2);
+                $newKey = $attr . '|' . lang($title);
+                if ($newKey !== $key) {
+                    $this->rule[$newKey] = $rule;
+                    unset($this->rule[$key]);
+                }
+            }
+        }
+    }
+
+    protected $rule = [
+        'mobile' => 'require|mobile|checkSms',
+        'key' => 'checkMobile',
+        'captcha_key' => 'require',
+        'captcha' => 'require|checkCaptcha',
+    ];
+    protected $message = [
+        'mobile.require' => '请输入手机号码',
+        'mobile.mobile' => '请输入正确的手机号码',
+    ];
+
+    protected function checkSms($value, $rule, $data)
+    {
+        $message_key = NoticeSetting::SMS_SCENE[$data['key']];
+        $send_time = Db::name('sms_log')
+            ->where(['message_key' => $message_key, 'mobile' => $value, 'is_verify' => 0])
+            ->order('id desc')
+            ->value('send_time');
+        //一分钟内不能频繁发送
+        if ($send_time && $send_time + 60 > time()) {
+            return lang('验证码发送频繁，请稍后在发送');
+        }
+        return true;
+    }
+
+    protected function checkMobile($value, $rule, $data)
+    {
+        $user = User::get(['mobile' => $data['mobile'], 'del' => 0]);
+        switch ($value) {
+            case 'ZCYZ':    //注册验证
+            case 'BDSJHM':  //绑定手机号码
+            case 'BGSJHM':  //变更手机号码
+                if ($user) return lang('该手机号码已存在');
+                break;
+            case 'YZMDL':   //验证码登录
+                if (empty($user) || !$user) { //账号不存在, 给他注册
+                    $post = request()->post();
+                    $post['password'] = '';
+                    LoginLogic::register($post);
+                }
+                break;
+            case 'ZHMM':    //找回密码
+            case 'ZHZFMM':  // 找回支付密码
+                if (empty($user)) return lang('手机号码不存在');
+                break;
+
+        }
+        return true;
+    }
+
+    /**
+     * @notes 校验图形验证码
+     * @param $captcha
+     * @param $rule
+     * @param $data
+     * @return string|true
+     */
+    public function checkCaptcha($captcha, $rule, $data)
+    {
+
+        unset($rule);
+        $key = trim($data['captcha_key'] ?? '');
+
+        if (CaptchaService::verify($key, (string) $captcha)) {
+            return true;
+        }
+
+        return lang('图形验证码错误');
+    }
+
+}

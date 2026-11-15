@@ -1,0 +1,263 @@
+{
+  "'color: ' + (item.status == '待返佣' ? '#F95F2F' : '#07CE1B')": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: <view class=\"static\" :style=\"'color: ' + (item.status == '待返",
+    "files": [
+      "uniapp/bundle/pages/user_spread_month_bill_detail/user_spread_month_bill_detail.vue"
+    ]
+  },
+  "{color: item.status == '待返佣' ? '#FF2C3C' : item.status == '已失效' ? '#909090' : '#00c735'}": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: <view class=\"static sm\" :style=\"{color: item.status == '待返佣'",
+    "files": [
+      "uniapp/components/spread-order/spread-order.vue"
+    ]
+  },
+  "一级粉丝": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: ' + (active == 'first' ? 'item-active' : '')\" @tap=\"changeTa",
+    "files": [
+      "uniapp/bundle/pages/user_fans/user_fans.vue"
+    ]
+  },
+  "二级粉丝": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: + (active == 'second' ? 'item-active' : '')\" @tap=\"changeTab",
+    "files": [
+      "uniapp/bundle/pages/user_fans/user_fans.vue"
+    ]
+  },
+  "仅退款": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: <view class=\"return-explain\">{{lists.refund_type == 0 ? $t('",
+    "files": [
+      "uniapp/bundle/pages/after_sales_detail/after_sales_detail.vue"
+    ]
+  },
+  "全部粉丝": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: nter ' + (active == 'all' ? 'item-active' : '')\" @tap=\"chang",
+    "files": [
+      "uniapp/bundle/pages/user_fans/user_fans.vue"
+    ]
+  },
+  "分销会员": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: <view class=\"avatar-tag white\" v-if=\"vipState==2\">{{ $t('分销会",
+    "files": [
+      "uniapp/bundle/pages/user_spread/user_spread.vue"
+    ]
+  },
+  "售后保障": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: title: type == 0 ? this.$t('服务协议') : type == 1 ? this.$t('隐私",
+    "files": [
+      "uniapp/bundle/pages/server_explan/server_explan.vue"
+    ]
+  },
+  "团队排序": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: <view :class=\"sortType == 0 ? 'item-active' : ''\">{{ $t('团队排",
+    "files": [
+      "uniapp/bundle/pages/user_fans/user_fans.vue"
+    ]
+  },
+  "填写快递单号": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: v-show=\"lists.status == 2\">{{ $t('填写快递单号') }}</navi",
+    "files": [
+      "uniapp/bundle/pages/after_sales_detail/after_sales_detail.vue"
+    ]
+  },
+  "女": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: {{ userInfo.sex == 0 ? $t('未设置') : userInfo.sex == 1 ? $t('男",
+    "files": [
+      "uniapp/bundle/pages/user_set/user_set.vue"
+    ]
+  },
+  "已签到": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: nSign == 1 ? 'gray' : 'primary-button')\" @tap=\"userSignFun\" ",
+    "files": [
+      "uniapp/bundle/pages/user_sign/user_sign.vue"
+    ]
+  },
+  "已解锁": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: <view v-else-if=\"item.current_level_status == 0\" class=\"row ",
+    "files": [
+      "uniapp/pages/user_vip/user_vip.vue"
+    ]
+  },
+  "已选择 {spec} {num} 件": {
+    "kind": "interp",
+    "reason": "co noi suy/placeholder",
+    "files": [
+      "uniapp/components/spec-popup/spec-popup.vue"
+    ]
+  },
+  "当前等级": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: <view v-if=\"item.current_level_status == 1\" class=\"row grade",
+    "files": [
+      "uniapp/pages/user_vip/user_vip.vue"
+    ]
+  },
+  "当前高于该等级": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: {{item.current_level_status == 0 ? $t('当前高于该等级') : item.c",
+    "files": [
+      "uniapp/pages/user_vip/user_vip.vue"
+    ]
+  },
+  "拼团价": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: <text v-if=\"order_type === 2\">{{ $t('拼团价') }}</text",
+    "files": [
+      "uniapp/components/order-goods/order-goods.vue"
+    ]
+  },
+  "更换手机号": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: title: this.userInfo.mobile == '' ? this.$t('绑定手机号') : this.",
+    "files": [
+      "uniapp/bundle/pages/bind_phone/bind_phone.vue"
+    ]
+  },
+  "服务协议": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: title: type == 0 ? this.$t('服务协议') : type =",
+    "files": [
+      "uniapp/bundle/pages/server_explan/server_explan.vue"
+    ]
+  },
+  "未解锁": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: <view v-else-if=\"item.current_level_status == -1\" class=\"row",
+    "files": [
+      "uniapp/pages/user_vip/user_vip.vue"
+    ]
+  },
+  "未设置": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: {{ userInfo.sex == 0 ? $t('未设置') : userIn",
+    "files": [
+      "uniapp/bundle/pages/user_set/user_set.vue"
+    ]
+  },
+  "男": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: {{ userInfo.sex == 0 ? $t('未设置') : userInfo.sex == 1 ? $t('男",
+    "files": [
+      "uniapp/bundle/pages/user_set/user_set.vue"
+    ]
+  },
+  "短信验证码登录": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: loginType == 0 ? $t('短信验证码登录') : $t('账号",
+    "files": [
+      "uniapp/pages/login/login.vue"
+    ]
+  },
+  "砍价": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: <text v-if=\"order_type === 3\">{{ $t('砍价') }}</text",
+    "files": [
+      "uniapp/components/order-goods/order-goods.vue"
+    ]
+  },
+  "秒杀价": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: <text v-if=\"order_type === 1\">{{ $t('秒杀价') }}</text",
+    "files": [
+      "uniapp/components/order-goods/order-goods.vue"
+    ]
+  },
+  "立即签到": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: 'gray' : 'primary-button')\" @tap=\"userSignFun\" size=\"md\">{{c",
+    "files": [
+      "uniapp/bundle/pages/user_sign/user_sign.vue"
+    ]
+  },
+  "绑定手机号": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: title: this.userInfo.mobile == '' ? this.$t('绑定手机号') : this.",
+    "files": [
+      "uniapp/bundle/pages/bind_phone/bind_phone.vue"
+    ]
+  },
+  "订单排序": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: <view :class=\"sortType == 2 ? 'item-active' : ''\">{{ $t('订单排",
+    "files": [
+      "uniapp/bundle/pages/user_fans/user_fans.vue"
+    ]
+  },
+  "请输入核销码": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: if(this.code === '') return this.$toast({title: this.$t('请输入",
+    "files": [
+      "uniapp/bundle/pages/writeoff_order/writeoff_order.vue"
+    ]
+  },
+  "请选择": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: reasonIndex == -1 ? $t('请选择') : reason",
+    "files": [
+      "uniapp/bundle/pages/apply_refund/apply_refund.vue",
+      "uniapp/components/spec-popup/spec-popup.vue"
+    ]
+  },
+  "请选择 {spec}": {
+    "kind": "interp",
+    "reason": "co noi suy/placeholder",
+    "files": [
+      "uniapp/components/spec-popup/spec-popup.vue"
+    ]
+  },
+  "账号登录": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: loginType == 0 ? $t('短信验证码登录') : $t('账号登录')",
+    "files": [
+      "uniapp/pages/login/login.vue"
+    ]
+  },
+  "退款退货": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: <view class=\"return-explain\">{{lists.refund_type == 0 ? $t('",
+    "files": [
+      "uniapp/bundle/pages/after_sales_detail/after_sales_detail.vue"
+    ]
+  },
+  "重新申请": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: ass=\"mr20 btn br60\" @tap=\"goRefund\" v-show=\"lists.status == ",
+    "files": [
+      "uniapp/bundle/pages/after_sales_detail/after_sales_detail.vue",
+      "uniapp/bundle/pages/user_spread/user_spread.vue"
+    ]
+  },
+  "金额排序": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: <view :class=\"sortType == 1 ? 'item-active' : ''\">{{ $t('金额排",
+    "files": [
+      "uniapp/bundle/pages/user_fans/user_fans.vue"
+    ]
+  },
+  "隐私政策": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: title: type == 0 ? this.$t('服务协议') : type == 1 ? this.$t('隐私",
+    "files": [
+      "uniapp/bundle/pages/server_explan/server_explan.vue"
+    ]
+  },
+  "需": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: <text v-if=\"orderDetail.order_status === 0\">{{ $t('需') }}</t",
+    "files": [
+      "uniapp/pages/order_details/order_details.vue"
+    ]
+  }
+}

@@ -1,0 +1,185 @@
+<?php
+// +----------------------------------------------------------------------
+// | likeshop开源商城系统
+// +----------------------------------------------------------------------
+// | 欢迎阅读学习系统程序代码，建议反馈是我们前进的动力
+// | gitee下载：https://gitee.com/likeshop_gitee
+// | github下载：https://github.com/likeshop-github
+// | 访问官网：https://www.likeshop.cn
+// | 访问社区：https://home.likeshop.cn
+// | 访问手册：http://doc.likeshop.cn
+// | 微信公众号：likeshop技术社区
+// | likeshop系列产品在gitee、github等公开渠道开源版本可免费商用，未经许可不能去除前后端官方版权标识
+// |  likeshop系列产品收费版本务必购买商业授权，购买去版权授权后，方可去除前后端官方版权标识
+// | 禁止对系统程序代码以任何目的，任何形式的再发布
+// | likeshop团队版权所有并拥有最终解释权
+// +----------------------------------------------------------------------
+// | author: likeshop.cn.team
+// +----------------------------------------------------------------------
+
+
+namespace app\api\validate;
+
+
+use app\common\model\Client_;
+use http\Client;
+use think\Db;
+use think\facade\Cache;
+use think\Validate;
+use app\common\logic\SmsLogic;
+use app\common\server\CaptchaService;
+class Login extends Validate
+{
+
+
+    public function __construct(array $rules = [], array $message = [], array $field = [])
+    {
+        parent::__construct($rules, $message, $field);
+        foreach ($this->message as $key => $value) {
+            $this->message[$key] = lang($value);
+        }
+        foreach ($this->rule as $key => $rule) {
+            if (strpos($key, '|') !== false) {
+                list($attr, $title) = explode('|', $key, 2);
+                $newKey = $attr . '|' . lang($title);
+                if ($newKey !== $key) {
+                    $this->rule[$newKey] = $rule;
+                    unset($this->rule[$key]);
+                }
+            }
+        }
+    }
+
+
+    protected $rule = [
+        'account' => 'require',
+        'captcha_key' => 'require',
+        'captcha' => 'require|checkCaptcha',
+        'password' => 'require|password',
+        'client' => 'require|in:'. Client_::mnp . ','  . Client_::oa . ',' . Client_::ios . ',' . Client_::android. ',' .Client_::pc. ','. Client_::h5,
+        'code'=>'require|checkCode',
+    ];
+
+    protected $message = [
+        'account.require' => '请输入账号或手机号',
+        'captcha_key.require' => '图形验证码已失效，请重新获取',
+        'captcha.require' => '请输入图形验证码',
+        'password.require' => '请输入密码',
+        'password.password' => '密码错误',
+        'client.in' => '当前只支持h5和app登录',
+        'code.require'=>'请输入验证码',
+    ];
+
+    public function scenePassword()
+    {
+        $this->remove(['code']);
+    }
+
+    public function sceneCode()
+    {
+        $this->only(['account','code','client']);
+    }
+
+    /**
+     * @notes 校验图形验证码
+     * @param $captcha
+     * @param $rule
+     * @param $data
+     * @return string|true
+     */
+    public function checkCaptcha($captcha, $rule, $data)
+    {
+        unset($rule);
+        $key = trim($data['captcha_key'] ?? '');
+
+        if (CaptchaService::verify($key, (string) $captcha)) {
+            return true;
+        }
+
+        return lang('图形验证码错误');
+    }
+
+
+    public static function checkCode($value,$rule,$data){
+        $sms_logic = new SmsLogic($data['message_key'],$data['account'],$value);
+        $check = $sms_logic->checkCode();
+        //检查验证码是否正确
+        if($check !== true){
+            return $check;
+        }
+        //标记验证码已验证
+        $sms_logic->cancelCode();
+
+        $user_info = Db::name('user')
+            ->field(['disable'])
+            ->where(['account|mobile' => $data['account']])
+            ->find();
+
+        if(empty($user_info)) {
+            return lang('登录失败:user');
+        }
+
+        if ($user_info['disable']) {
+            return lang('账号已被禁用');
+        }
+
+        return true;
+    }
+
+    /**
+     * 账号密码验证码
+     * @param $password
+     * @param $other
+     * @param $data
+     * @return bool
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    protected function password($password, $other, $data)
+    {
+        if ($this->safe() === false) {
+            $this->message['password.password'] .= lang(':多次输入错误');
+            return false;
+        }
+
+        $admin_info = Db::name('user')
+            ->where(['account|mobile' => $data['account'], 'del' => 0])
+            ->find();
+
+        if (empty($admin_info)) {
+            $this->safe(true);
+            return false;
+        }
+        if ($admin_info['disable']) {
+            return lang('账号已被禁用');
+        }
+        $password = create_password($password, $admin_info['salt']);
+        if ($password != $admin_info['password']) {
+            $this->safe(true);
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * 连续30分钟内15次输错密码，无法登录
+     * @param bool $add
+     * @return bool
+     */
+    protected function safe($add = false)
+    {
+        $cache_name = 'app_login_error_count' . request()->ip();
+        if ($add) {
+            $admin_login_error_count = Cache::get($cache_name);
+            $admin_login_error_count++;
+            Cache::tag('app_login_error_count')->set($cache_name, $admin_login_error_count, 1800);
+        }
+        $count = Cache::get($cache_name);
+        if (!empty($count) && $count >= 15) {
+            return false;
+        }
+        return true;
+    }
+
+}

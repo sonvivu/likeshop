@@ -1,0 +1,16 @@
+{
+  "请输入市场价": "Vui lòng nhập giá thị trường",
+  "请输入广告宽度": "Vui lòng nhập chiều rộng quảng cáo",
+  "请输入广告高度": "Vui lòng nhập chiều cao quảng cáo",
+  "请输入正确广告宽度": "Vui lòng nhập chiều rộng quảng cáo hợp lệ",
+  "请输入正确广告高度": "Vui lòng nhập chiều cao quảng cáo hợp lệ",
+  "商品：{:goods_name} 当前处于售后中，不能发货": "Sản phẩm: {:goods_name} hiện đang trong quá trình hậu mãi, không thể giao hàng",
+  "用户昵称": "Biệt danh người dùng",
+  "营业周天": "Ngày mở cửa trong tuần",
+  "营业开始时段": "Khung giờ mở cửa",
+  "营业结束时段": "Khung giờ đóng cửa",
+  "详细地址": "Địa chỉ chi tiết",
+  "请选择快递": "Vui lòng chọn đơn vị vận chuyển",
+  "请选择配送方式": "Vui lòng chọn phương thức giao hàng",
+  "门店LOGO": "Logo cửa hàng"
+}

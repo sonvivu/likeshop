@@ -1,0 +1,233 @@
+{
+  "FROM_UNIXTIME(d.create_time,'%Y年%m月') as date": {
+    "kind": "sql",
+    "reason": "sql/url/filename",
+    "files": [
+      "server/application/api/logic/DistributionLogic.php"
+    ]
+  },
+  "上传图片不允许上传{$ext}文件": {
+    "kind": "interp",
+    "reason": "co noi suy/placeholder",
+    "files": [
+      "server/application/common/server/FileServer.php"
+    ]
+  },
+  "上传视频不允许上传{$ext}文件": {
+    "kind": "interp",
+    "reason": "co noi suy/placeholder",
+    "files": [
+      "server/application/common/server/FileServer.php"
+    ]
+  },
+  "任意金额": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: $detail['payment_where'] = $detail['bargain_snap']['payment_",
+    "files": [
+      "server/application/admin/logic/BargainLogic.php"
+    ]
+  },
+  "分享给朋友{$num}": {
+    "kind": "interp",
+    "reason": "co noi suy/placeholder",
+    "files": [
+      "server/application/common/model/UserTask.php"
+    ]
+  },
+  "商品：{$goods['goods_name']} 当前处于售后中，不能发货": {
+    "kind": "interp",
+    "reason": "co noi suy/placeholder",
+    "files": [
+      "server/application/admin/validate/Order.php"
+    ]
+  },
+  "已结束": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: $liveStatus = [101 => '直播中', 102 => '未开始', 103 => '已结束', 104",
+    "files": [
+      "server/application/admin/logic/LiveRoomLogic.php"
+    ]
+  },
+  "异常": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: $liveStatus = [101 => '直播中', 102 => '未开始', 103 => '已结束', 104",
+    "files": [
+      "server/application/admin/logic/LiveRoomLogic.php"
+    ]
+  },
+  "待取货": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: r::STATUS_WAIT_DELIVERY && $list['delivery_type'] == CommonO",
+    "files": [
+      "server/application/api/logic/OrderLogic.php"
+    ]
+  },
+  "暂停": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: $liveStatus = [101 => '直播中', 102 => '未开始', 103 => '已结束', 104",
+    "files": [
+      "server/application/admin/logic/LiveRoomLogic.php"
+    ]
+  },
+  "未开始": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: $liveStatus = [101 => '直播中', 102 => '未开始', 103 => '",
+    "files": [
+      "server/application/admin/logic/LiveRoomLogic.php"
+    ]
+  },
+  "未知": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: em['express'] = Db::name('express')->where(['id'=>$item['exp",
+    "files": [
+      "server/application/admin/logic/FaceSheetLogic.php"
+    ]
+  },
+  "权限": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: $lists[$k]['type_str'] = $v['type'] == 1 ? '菜单' : '权限';",
+    "files": [
+      "server/application/admin/logic/AuthLogic.php"
+    ]
+  },
+  "消费{$num}": {
+    "kind": "interp",
+    "reason": "co noi suy/placeholder",
+    "files": [
+      "server/application/common/model/UserTask.php"
+    ]
+  },
+  "消费满{$num}": {
+    "kind": "interp",
+    "reason": "co noi suy/placeholder",
+    "files": [
+      "server/application/common/model/UserTask.php"
+    ]
+  },
+  "满足积分{$num}": {
+    "kind": "interp",
+    "reason": "co noi suy/placeholder",
+    "files": [
+      "server/application/common/model/UserTask.php"
+    ]
+  },
+  "父级分类不能是第三级": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: if($partner['level'] == 3) return '父级分类不能是第三级';",
+    "files": [
+      "server/application/admin/validate/GoodsCategory.php"
+    ]
+  },
+  "父级分类不能是自己": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: if($category['id'] == $partner['id']) return '父级分类不能是自己';",
+    "files": [
+      "server/application/admin/validate/GoodsCategory.php"
+    ]
+  },
+  "用户：{$order['user_id']} openid不存在,订单ID：{$order['id']}": {
+    "kind": "interp",
+    "reason": "co noi suy/placeholder",
+    "files": [
+      "server/application/common/server/WechatMiniExpressSendSyncServer.php"
+    ]
+  },
+  "用户：{$recharge['user_id']} openid不存在,订单ID：{$recharge['id']}": {
+    "kind": "interp",
+    "reason": "co noi suy/placeholder",
+    "files": [
+      "server/application/common/server/WechatMiniExpressSendSyncServer.php"
+    ]
+  },
+  "直播中": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: $liveStatus = [101 => '直播中', 102 => '",
+    "files": [
+      "server/application/admin/logic/LiveRoomLogic.php"
+    ]
+  },
+  "相关通知未开启": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: if ($this->sms['status'] == 0) { return '相关通知未开启'; }",
+    "files": [
+      "server/application/common/behavior/SmsSend.php"
+    ]
+  },
+  "砍到指定底价": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: $detail['payment_where'] = $detail['bargain_snap']['payment_",
+    "files": [
+      "server/application/admin/logic/BargainLogic.php"
+    ]
+  },
+  "禁播": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: $liveStatus = [101 => '直播中', 102 => '未开始', 103 => '已结束', 104",
+    "files": [
+      "server/application/admin/logic/LiveRoomLogic.php"
+    ]
+  },
+  "累计签到{$num}": {
+    "kind": "interp",
+    "reason": "co noi suy/placeholder",
+    "files": [
+      "server/application/common/model/UserTask.php"
+    ]
+  },
+  "自动领取失败，请联系客服人员": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: item['send_tips'] = !$item['is_send'] && $item['prize_type']",
+    "files": [
+      "server/application/api/logic/LuckdrawLogic.php"
+    ]
+  },
+  "自提订单": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: list['order_type_desc'] = ($list['delivery_type'] == CommonO",
+    "files": [
+      "server/application/api/logic/OrderLogic.php"
+    ]
+  },
+  "菜单": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: $lists[$k]['type_str'] = $v['type'] == 1 ? '菜单' : '权限';",
+    "files": [
+      "server/application/admin/logic/AuthLogic.php"
+    ]
+  },
+  "该分类下有子分类,请先调整该分类下的子分类": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: if($partner['level'] == 2 && $level != 1) return '该分类下有子分类,请",
+    "files": [
+      "server/application/admin/validate/GoodsCategory.php"
+    ]
+  },
+  "该分类有完整的子分类，不可修改父级": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: if($level == 3 && $partner) return '该分类有完整的子分类，不可修改父级';",
+    "files": [
+      "server/application/admin/validate/GoodsCategory.php"
+    ]
+  },
+  "邀请好友{$num}成为下线": {
+    "kind": "interp",
+    "reason": "co noi suy/placeholder",
+    "files": [
+      "server/application/common/model/UserTask.php"
+    ]
+  },
+  "邀请好友{$num}成为会员": {
+    "kind": "interp",
+    "reason": "co noi suy/placeholder",
+    "files": [
+      "server/application/common/model/UserTask.php"
+    ]
+  },
+  "顺丰快递": {
+    "kind": "data",
+    "reason": "ngu canh du lieu: if ($data['template']['expressName'] != '顺丰快递') {",
+    "files": [
+      "server/application/common/server/printing/Kuaidi100.php"
+    ]
+  }
+}

@@ -1,0 +1,2078 @@
+{
+  "'color: ' + (item.status == '待返佣' ? '#F95F2F' : '#07CE1B')": [
+    "uniapp/bundle/pages/user_spread_month_bill_detail/user_spread_month_bill_detail.vue:39"
+  ],
+  "(请上传快递单号凭证）": [
+    "uniapp/bundle/pages/input_express_info/input_express_info.vue:22"
+  ],
+  "* 审核通过后约72小时内到账，请留意账户明细": [
+    "uniapp/bundle/pages/widthdraw_result/widthdraw_result.vue:71"
+  ],
+  "100%开源免费商用电商系统": [
+    "uniapp/mixins/app.js:45"
+  ],
+  "<canvas id='lime-painter'>不支持cavnas</canvas>": [
+    "uniapp/components/lime-painter/components/l-painter/nvue.js:77"
+  ],
+  "defaultRegion非有效格式": [
+    "uniapp/components/pick-regions/pick-regions.vue:46"
+  ],
+  "h5暂不支持扫码": [
+    "uniapp/bundle/pages/writeoff_order/writeoff_order.vue:77"
+  ],
+  "hasPayPwd ? $t('请输入新的转账密码') : $t('请输入转账密码')": [
+    "uniapp/bundle/pages/set_pay_pwd/set_pay_pwd.vue:19"
+  ],
+  "likeshop已经把小程序、安卓APP、苹果APP都免费开源出来了": [
+    "uniapp/mixins/app.js:49"
+  ],
+  "mobile ? $t('请输入新手机号') : $t('请输入手机号')": [
+    "uniapp/bundle/pages/bind_phone/bind_phone.vue:18"
+  ],
+  "team.need + $t('人团')": [
+    "uniapp/components/order-goods/order-goods.vue:19"
+  ],
+  "{color: item.status == '待返佣' ? '#FF2C3C' : item.status == '已失效' ? '#909090' : '#00c735'}": [
+    "uniapp/components/spread-order/spread-order.vue:30"
+  ],
+  "《xxx隐私保护指引》": [
+    "uniapp/pages/index/index.vue:378"
+  ],
+  "《服务协议》": [
+    "uniapp/components/lyg-popup/lyg-popup.vue:10",
+    "uniapp/pages/login/login.vue:420",
+    "uniapp/pages/register/register.vue:130",
+    "uniapp/pages/register/register.vue:169"
+  ],
+  "《隐私协议》": [
+    "uniapp/pages/login/login.vue:428",
+    "uniapp/pages/register/register.vue:138",
+    "uniapp/pages/register/register.vue:177"
+  ],
+  "《隐私政策》": [
+    "uniapp/components/lyg-popup/lyg-popup.vue:11"
+  ],
+  "一级粉丝": [
+    "uniapp/bundle/pages/user_fans/user_fans.vue:6"
+  ],
+  "上传凭证": [
+    "uniapp/bundle/pages/apply_refund/apply_refund.vue:87",
+    "uniapp/bundle/pages/input_express_info/input_express_info.vue:21"
+  ],
+  "上传失败": [
+    "uniapp/bundle/pages/goods_reviews/goods_reviews.vue:201",
+    "uniapp/bundle/pages/user_profile/user_profile.vue:640",
+    "uniapp/bundle/pages/user_set/user_set.vue:545",
+    "uniapp/components/mplogin-popup/mplogin-popup.vue:102"
+  ],
+  "下单时间": [
+    "uniapp/pages/order_details/order_details.vue:239"
+  ],
+  "不在营业中": [
+    "uniapp/bundle/pages/store_list/store_list.vue:180"
+  ],
+  "不支持cavnas": [
+    "uniapp/components/lime-painter/components/l-painter/nvue.js:77"
+  ],
+  "两次密码输入不一致": [
+    "uniapp/bundle/pages/forget_pay_pwd/forget_pay_pwd.vue:125",
+    "uniapp/bundle/pages/set_pay_pwd/set_pay_pwd.vue:89",
+    "uniapp/bundle/pages/user_profile/user_profile.vue:571",
+    "uniapp/bundle/pages/user_set/user_set.vue:476",
+    "uniapp/components/set-pay-pwd/set-pay-pwd.vue:108",
+    "uniapp/pages/register/register.vue:256"
+  ],
+  "个人中心": [
+    "uniapp/components/navbar/navbar.vue:72"
+  ],
+  "中评": [
+    "uniapp/bundle/pages/goods_reviews/goods_reviews.vue:123"
+  ],
+  "主要说明：我们所处理的信息种类、方式和目的；你所享有的权益；第三方插件信息等。": [
+    "uniapp/components/privacy-popup/privacy-popup.vue:22"
+  ],
+  "买家留言": [
+    "uniapp/pages/confirm_order/confirm_order.vue:136",
+    "uniapp/pages/order_details/order_details.vue:221"
+  ],
+  "二级粉丝": [
+    "uniapp/bundle/pages/user_fans/user_fans.vue:7"
+  ],
+  "二维码保存成功": [
+    "uniapp/components/tki-qrcode/tki-qrcode.vue:130"
+  ],
+  "二维码内容不能为空": [
+    "uniapp/components/tki-qrcode/tki-qrcode.vue:113"
+  ],
+  "二维码生成中": [
+    "uniapp/components/tki-qrcode/tki-qrcode.vue:81"
+  ],
+  "交易已完成，感谢您的购买！": [
+    "uniapp/pages/order_details/order_details.vue:66"
+  ],
+  "人": [
+    "uniapp/bundle/pages/user_fans/user_fans.vue:62"
+  ],
+  "仅退款": [
+    "uniapp/bundle/pages/after_sales_detail/after_sales_detail.vue:59",
+    "uniapp/bundle/pages/apply_refund/apply_refund.vue:23"
+  ],
+  "付款后可查看": [
+    "uniapp/pages/order_details/order_details.vue:388"
+  ],
+  "付款时间": [
+    "uniapp/pages/order_details/order_details.vue:243",
+    "uniapp/pages/pay_result/pay_result.vue:31"
+  ],
+  "价格": [
+    "uniapp/components/cate-four/cate-four.vue:80",
+    "uniapp/components/cate-list/cate-list.vue:29",
+    "uniapp/pages/goods_search/goods_search.vue:12"
+  ],
+  "优惠券": [
+    "uniapp/pages/confirm_order/confirm_order.vue:147",
+    "uniapp/pages/confirm_order/confirm_order.vue:200",
+    "uniapp/pages/confirm_order/confirm_order.vue:235",
+    "uniapp/pages/order_details/order_details.vue:177",
+    "uniapp/pages/user/user.vue:95"
+  ],
+  "会员价": [
+    "uniapp/components/order-goods/order-goods.vue:42",
+    "uniapp/components/spec-popup/spec-popup.vue:31"
+  ],
+  "会员权益": [
+    "uniapp/pages/user_vip/user_vip.vue:60"
+  ],
+  "会员积分 限时兑换": [
+    "uniapp/bundle/pages/user_wallet/user_wallet.vue:47"
+  ],
+  "位置": [
+    "uniapp/utils/permission.js:242"
+  ],
+  "余额": [
+    "uniapp/pages/user/user.vue:81"
+  ],
+  "余额转账": [
+    "uniapp/bundle/pages/user_wallet/user_wallet.vue:25"
+  ],
+  "你的微信版本过低，请更新至最新版本。": [
+    "uniapp/bundle/pages/widthdraw_result/widthdraw_result.vue:181",
+    "uniapp/utils/wechath5.js:168"
+  ],
+  "佣金转入": [
+    "uniapp/bundle/pages/user_payment/user_payment.vue:88"
+  ],
+  "使用说明": [
+    "uniapp/components/coupon-list/coupon-list.vue:24"
+  ],
+  "保存二维码": [
+    "uniapp/bundle/pages/contact_offical/contact_offical.vue:70"
+  ],
+  "保存到相册": [
+    "uniapp/bundle/pages/invite_fans/invite_fans.vue:22"
+  ],
+  "保存失败": [
+    "uniapp/bundle/pages/contact_offical/contact_offical.vue:163",
+    "uniapp/bundle/pages/invite_fans/invite_fans.vue:100",
+    "uniapp/components/share-popup/share-popup.vue:232"
+  ],
+  "保存成功": [
+    "uniapp/bundle/pages/contact_offical/contact_offical.vue:157",
+    "uniapp/bundle/pages/invite_fans/invite_fans.vue:95",
+    "uniapp/components/share-popup/share-popup.vue:226"
+  ],
+  "保障": [
+    "uniapp/pages/goods_details/goods_details.vue:314",
+    "uniapp/pages/goods_details/goods_details.vue:471"
+  ],
+  "修改用户名": [
+    "uniapp/bundle/pages/user_profile/user_profile.vue:193",
+    "uniapp/bundle/pages/user_set/user_set.vue:120"
+  ],
+  "元": [
+    "uniapp/bundle/pages/bargain_process/bargain_process.vue:290",
+    "uniapp/bundle/pages/user_fans/user_fans.vue:64",
+    "uniapp/bundle/pages/user_payment/user_payment.vue:33",
+    "uniapp/pages/goods_details/goods_details.vue:496"
+  ],
+  "元即可发货": [
+    "uniapp/bundle/pages/bargain_process/bargain_process.vue:87"
+  ],
+  "充值": [
+    "uniapp/bundle/pages/user_wallet/user_wallet.vue:19"
+  ],
+  "充值成功": [
+    "uniapp/bundle/pages/user_payment/user_payment.vue:43"
+  ],
+  "充值记录": [
+    "uniapp/bundle/pages/user_wallet/user_wallet.vue:38"
+  ],
+  "全选": [
+    "uniapp/pages/shop_cart/shop_cart.vue:112"
+  ],
+  "全部": [
+    "uniapp/bundle/pages/balance_transfer/balance_transfer.vue:21",
+    "uniapp/bundle/pages/bargain_code/bargain_code.vue:19",
+    "uniapp/bundle/pages/user_group/user_group.vue:20",
+    "uniapp/bundle/pages/user_order/user_order.vue:40",
+    "uniapp/bundle/pages/user_spread_order/user_spread_order.vue:35"
+  ],
+  "全部提现": [
+    "uniapp/bundle/pages/user_withdraw/user_withdraw.vue:106",
+    "uniapp/bundle/pages/user_withdraw/user_withdraw.vue:12",
+    "uniapp/bundle/pages/user_withdraw/user_withdraw.vue:151",
+    "uniapp/bundle/pages/user_withdraw/user_withdraw.vue:59"
+  ],
+  "全部粉丝": [
+    "uniapp/bundle/pages/user_fans/user_fans.vue:5"
+  ],
+  "关于我们": [
+    "uniapp/bundle/pages/user_profile/user_profile.vue:113"
+  ],
+  "关闭时间": [
+    "uniapp/pages/order_details/order_details.vue:255"
+  ],
+  "内可砍": [
+    "uniapp/bundle/pages/bargain_process/bargain_process.vue:124"
+  ],
+  "再次输入新密码确认": [
+    "uniapp/bundle/pages/user_profile/user_profile.vue:565",
+    "uniapp/bundle/pages/user_set/user_set.vue:470"
+  ],
+  "出示核销码": [
+    "uniapp/pages/order_details/order_details.vue:127"
+  ],
+  "分享": [
+    "uniapp/pages/goods_details/goods_details.vue:203"
+  ],
+  "分享成功": [
+    "uniapp/components/share-popup/share-popup.vue:209"
+  ],
+  "分享至": [
+    "uniapp/components/share-popup/share-popup.vue:5"
+  ],
+  "分销会员": [
+    "uniapp/bundle/pages/user_spread/user_spread.vue:13"
+  ],
+  "分销订单": [
+    "uniapp/bundle/pages/user_spread/user_spread.vue:153"
+  ],
+  "前往授权": [
+    "uniapp/pages/payment/payment.vue:201",
+    "uniapp/pages/payment/payment.vue:216"
+  ],
+  "加入购物车": [
+    "uniapp/components/spec-popup/spec-popup.vue:188",
+    "uniapp/pages/goods_details/goods_details.vue:802"
+  ],
+  "加载中...": [
+    "uniapp/components/loading-footer/loading-footer.vue:36"
+  ],
+  "加载失败": [
+    "uniapp/components/custom-image/custom-image.vue:24"
+  ],
+  "加载失败，点击重新加载": [
+    "uniapp/components/loading-footer/loading-footer.vue:32"
+  ],
+  "单": [
+    "uniapp/bundle/pages/user_fans/user_fans.vue:63"
+  ],
+  "单独购买": [
+    "uniapp/pages/goods_details/goods_details.vue:797"
+  ],
+  "即将打电话给": [
+    "uniapp/bundle/pages/contact_offical/contact_offical copy.vue:61",
+    "uniapp/bundle/pages/contact_offical/contact_offical copy.vue:85",
+    "uniapp/bundle/pages/contact_offical/contact_offical.vue:119"
+  ],
+  "历史搜索": [
+    "uniapp/pages/goods_search/goods_search.vue:42"
+  ],
+  "原价": [
+    "uniapp/components/cate-four/cate-four.vue:131",
+    "uniapp/components/goods-list/goods-list.vue:178"
+  ],
+  "原密码": [
+    "uniapp/bundle/pages/set_pay_pwd/set_pay_pwd.vue:5"
+  ],
+  "去使用": [
+    "uniapp/components/coupon-list/coupon-list.vue:93"
+  ],
+  "去参团": [
+    "uniapp/pages/goods_details/goods_details.vue:292"
+  ],
+  "去拼团": [
+    "uniapp/bundle/pages/goods_combination/goods_combination.vue:73"
+  ],
+  "去登录": [
+    "uniapp/pages/shop_cart/shop_cart.vue:104"
+  ],
+  "去结算": [
+    "uniapp/pages/shop_cart/shop_cart.vue:122"
+  ],
+  "去购买": [
+    "uniapp/components/goods-list/goods-list.vue:145",
+    "uniapp/pages/user_collection/user_collection.vue:14"
+  ],
+  "去逛逛": [
+    "uniapp/pages/shop_cart/shop_cart.vue:96"
+  ],
+  "发货时间": [
+    "uniapp/pages/order_details/order_details.vue:247"
+  ],
+  "发起砍价": [
+    "uniapp/bundle/pages/bargain_process/bargain_process.vue:65"
+  ],
+  "取消": [
+    "uniapp/components/privacy-popup/privacy-popup.vue:35",
+    "uniapp/components/share-popup/share-popup.vue:24",
+    "uniapp/utils/permission.js:229"
+  ],
+  "取消收藏": [
+    "uniapp/pages/goods_details/goods_details.vue:675"
+  ],
+  "取消收货": [
+    "uniapp/components/order-list/order-list.vue:258",
+    "uniapp/pages/order_details/order_details.vue:447"
+  ],
+  "取消选择": [
+    "uniapp/pages/user_address/user_address.vue:228"
+  ],
+  "可使用": [
+    "uniapp/pages/user_coupon/user_coupon.vue:19"
+  ],
+  "可用": [
+    "uniapp/pages/confirm_order/confirm_order.vue:167"
+  ],
+  "合计：": [
+    "uniapp/pages/confirm_order/confirm_order.vue:211",
+    "uniapp/pages/shop_cart/shop_cart.vue:115"
+  ],
+  "同意并继续": [
+    "uniapp/components/lyg-popup/lyg-popup.vue:19"
+  ],
+  "周一": [
+    "uniapp/pages/order_details/order_details.vue:593"
+  ],
+  "周三": [
+    "uniapp/pages/order_details/order_details.vue:593"
+  ],
+  "周二": [
+    "uniapp/pages/order_details/order_details.vue:593"
+  ],
+  "周五": [
+    "uniapp/pages/order_details/order_details.vue:593"
+  ],
+  "周六": [
+    "uniapp/pages/order_details/order_details.vue:593"
+  ],
+  "周四": [
+    "uniapp/pages/order_details/order_details.vue:593"
+  ],
+  "周日": [
+    "uniapp/pages/order_details/order_details.vue:593"
+  ],
+  "售后保障": [
+    "uniapp/bundle/pages/server_explan/server_explan.vue:52"
+  ],
+  "售后申请": [
+    "uniapp/bundle/pages/post_sale/post_sale.vue:41"
+  ],
+  "商品好评率": [
+    "uniapp/pages/all_comments/all_comments.vue:6"
+  ],
+  "商品已签收，期待再次购买！": [
+    "uniapp/pages/order_details/order_details.vue:51"
+  ],
+  "商品总价": [
+    "uniapp/pages/order_details/order_details.vue:164"
+  ],
+  "商品描述": [
+    "uniapp/bundle/pages/goods_reviews/goods_reviews.vue:41"
+  ],
+  "商品评价": [
+    "uniapp/bundle/pages/goods_reviews/goods_reviews.vue:5",
+    "uniapp/pages/user/user.vue:154"
+  ],
+  "商品详情": [
+    "uniapp/pages/goods_details/goods_details.vue:363"
+  ],
+  "商品金额": [
+    "uniapp/pages/confirm_order/confirm_order.vue:192"
+  ],
+  "商城资讯": [
+    "uniapp/pages/news_list/news_list.vue:100"
+  ],
+  "团满即成新团": [
+    "uniapp/pages/goods_details/goods_details.vue:233"
+  ],
+  "团长": [
+    "uniapp/components/group-list/group-list.vue:19"
+  ],
+  "团队排序": [
+    "uniapp/bundle/pages/user_fans/user_fans.vue:21"
+  ],
+  "图形验证码": [
+    "uniapp/bundle/pages/forget_pay_pwd/forget_pay_pwd.vue:9",
+    "uniapp/bundle/pages/user_profile/user_profile.vue:137",
+    "uniapp/bundle/pages/user_profile/user_profile.vue:217",
+    "uniapp/bundle/pages/user_set/user_set.vue:144"
+  ],
+  "图形验证码已失效，请重新获取": [
+    "uniapp/bundle/pages/bind_phone/bind_phone.vue:124",
+    "uniapp/bundle/pages/forget_pay_pwd/forget_pay_pwd.vue:163",
+    "uniapp/bundle/pages/user_profile/user_profile.vue:435",
+    "uniapp/bundle/pages/user_set/user_set.vue:342",
+    "uniapp/pages/forget_pwd/forget_pwd.vue:223",
+    "uniapp/pages/login/login.vue:580",
+    "uniapp/pages/login/login.vue:697",
+    "uniapp/pages/register/register.vue:315"
+  ],
+  "图片凭证：": [
+    "uniapp/bundle/pages/after_sales_detail/after_sales_detail.vue:82"
+  ],
+  "图片跨域了，得后端处理咯": [
+    "uniapp/components/lime-painter/components/l-painter/utils.js:294"
+  ],
+  "在线客服": [
+    "uniapp/bundle/pages/contact_offical/contact_offical copy.vue:17",
+    "uniapp/bundle/pages/contact_offical/contact_offical copy.vue:22"
+  ],
+  "填写": [
+    "uniapp/bundle/pages/user_spread/user_spread.vue:21"
+  ],
+  "填写上级分销商": [
+    "uniapp/bundle/pages/user_spread/user_spread.vue:165"
+  ],
+  "填写快递单号": [
+    "uniapp/bundle/pages/after_sales_detail/after_sales_detail.vue:93"
+  ],
+  "处理中": [
+    "uniapp/bundle/pages/post_sale/post_sale.vue:45"
+  ],
+  "备忘录": [
+    "uniapp/utils/permission.js:174"
+  ],
+  "备忘录权限已经开启": [
+    "uniapp/utils/permission.js:167"
+  ],
+  "备忘录权限没有开启": [
+    "uniapp/utils/permission.js:169"
+  ],
+  "备注": [
+    "uniapp/bundle/pages/user_withdraw/user_withdraw.vue:142",
+    "uniapp/bundle/pages/user_withdraw/user_withdraw.vue:38",
+    "uniapp/bundle/pages/user_withdraw/user_withdraw.vue:85"
+  ],
+  "备注说明": [
+    "uniapp/bundle/pages/apply_refund/apply_refund.vue:76",
+    "uniapp/bundle/pages/input_express_info/input_express_info.vue:15"
+  ],
+  "备注说明：": [
+    "uniapp/bundle/pages/after_sales_detail/after_sales_detail.vue:78"
+  ],
+  "复制": [
+    "uniapp/bundle/pages/after_sales_detail/after_sales_detail.vue:29",
+    "uniapp/bundle/pages/contact_offical/contact_offical copy.vue:37",
+    "uniapp/bundle/pages/goods_logistics/goods_logistics.vue:33",
+    "uniapp/pages/user/user.vue:29"
+  ],
+  "复制成功": [
+    "uniapp/utils/tools.js:300"
+  ],
+  "复制链接": [
+    "uniapp/pages/payment/payment.vue:102"
+  ],
+  "失败": [
+    "uniapp/bundle/pages/contact_offical/contact_offical copy.vue:94"
+  ],
+  "女": [
+    "uniapp/bundle/pages/user_profile/user_profile.vue:297",
+    "uniapp/bundle/pages/user_set/user_set.vue:222",
+    "uniapp/bundle/pages/user_set/user_set.vue:36"
+  ],
+  "好友下单最高可赚": [
+    "uniapp/pages/goods_details/goods_details.vue:498"
+  ],
+  "好物优选": [
+    "uniapp/components/recommend/recommend.vue:11",
+    "uniapp/pages/index/index.vue:243"
+  ],
+  "好的，谢谢": [
+    "uniapp/bundle/pages/user_payment/user_payment.vue:49"
+  ],
+  "好评": [
+    "uniapp/bundle/pages/goods_reviews/goods_reviews.vue:125"
+  ],
+  "完成": [
+    "uniapp/pages/address_edit/address_edit.vue:67"
+  ],
+  "定位": [
+    "uniapp/utils/permission.js:62"
+  ],
+  "定位权限开启：": [
+    "uniapp/utils/permission.js:47"
+  ],
+  "实": [
+    "uniapp/pages/order_details/order_details.vue:193"
+  ],
+  "实时更新热销火爆商品": [
+    "uniapp/bundle/pages/hot_list/hot_list.vue:24"
+  ],
+  "实际到账": [
+    "uniapp/bundle/pages/widthdraw_result/widthdraw_result.vue:44"
+  ],
+  "客服": [
+    "uniapp/pages/goods_details/goods_details.vue:379"
+  ],
+  "客服微信": [
+    "uniapp/bundle/pages/contact_offical/contact_offical copy.vue:9"
+  ],
+  "密码加密失败": [
+    "uniapp/utils/request.js:61"
+  ],
+  "导航自提点": [
+    "uniapp/pages/order_details/order_details.vue:135"
+  ],
+  "导购订单": [
+    "uniapp/bundle/pages/user_spread_month_bill_detail/user_spread_month_bill_detail.vue:24"
+  ],
+  "小刀一砍，惊喜满满": [
+    "uniapp/bundle/pages/bargain_process/bargain_process.vue:212",
+    "uniapp/bundle/pages/bargain_process/bargain_process.vue:268"
+  ],
+  "差评": [
+    "uniapp/bundle/pages/goods_reviews/goods_reviews.vue:121"
+  ],
+  "已使用": [
+    "uniapp/components/coupon-list/coupon-list.vue:96",
+    "uniapp/pages/user_coupon/user_coupon.vue:23"
+  ],
+  "已关闭": [
+    "uniapp/bundle/pages/user_order/user_order.vue:60"
+  ],
+  "已发货": [
+    "uniapp/pages/order_details/order_details.vue:46"
+  ],
+  "已取消！": [
+    "uniapp/pages/user_address/user_address.vue:245"
+  ],
+  "已处理": [
+    "uniapp/bundle/pages/post_sale/post_sale.vue:49"
+  ],
+  "已失效": [
+    "uniapp/bundle/pages/user_spread_order/user_spread_order.vue:47"
+  ],
+  "已完成": [
+    "uniapp/bundle/pages/user_order/user_order.vue:55",
+    "uniapp/bundle/pages/user_sign/user_sign.vue:56",
+    "uniapp/components/order-list/order-list.vue:427",
+    "uniapp/pages/order_details/order_details.vue:50",
+    "uniapp/pages/order_details/order_details.vue:65"
+  ],
+  "已提货": [
+    "uniapp/bundle/pages/writeoff_detail/writeoff_detail.vue:15"
+  ],
+  "已收到货，需退还收到的实物": [
+    "uniapp/bundle/pages/apply_refund/apply_refund.vue:36"
+  ],
+  "已核销": [
+    "uniapp/bundle/pages/writeoff_order/writeoff_order.vue:59"
+  ],
+  "已确认收货": [
+    "uniapp/components/order-list/order-list.vue:273",
+    "uniapp/pages/order_details/order_details.vue:462"
+  ],
+  "已签到": [
+    "uniapp/bundle/pages/user_sign/user_sign.vue:38"
+  ],
+  "已经开启推送功能!": [
+    "uniapp/utils/permission.js:23",
+    "uniapp/utils/permission.js:32"
+  ],
+  "已结束": [
+    "uniapp/bundle/pages/goods_seckill/goods_seckill.vue:102"
+  ],
+  "已结算": [
+    "uniapp/bundle/pages/user_spread_order/user_spread_order.vue:43"
+  ],
+  "已获取的权限：": [
+    "uniapp/utils/permission.js:187"
+  ],
+  "已解锁": [
+    "uniapp/pages/user_vip/user_vip.vue:23"
+  ],
+  "已过期": [
+    "uniapp/components/coupon-list/coupon-list.vue:99",
+    "uniapp/pages/user_coupon/user_coupon.vue:27"
+  ],
+  "已选": [
+    "uniapp/pages/goods_details/goods_details.vue:306"
+  ],
+  "已选择 {spec} {num} 件": [
+    "uniapp/components/spec-popup/spec-popup.vue:226"
+  ],
+  "已选：": [
+    "uniapp/bundle/pages/bargain_process/bargain_process.vue:56"
+  ],
+  "帮助中心": [
+    "uniapp/pages/news_list/news_list.vue:96"
+  ],
+  "帮助详情": [
+    "uniapp/pages/news_details/news_details.vue:68"
+  ],
+  "帮忙砍一刀": [
+    "uniapp/components/share-popup/poster.vue:118"
+  ],
+  "平台退款": [
+    "uniapp/bundle/pages/after_sales_detail/after_sales_detail.vue:94"
+  ],
+  "广东省": [
+    "uniapp/pages/address_edit/address_edit.vue:112"
+  ],
+  "广州市": [
+    "uniapp/pages/address_edit/address_edit.vue:112"
+  ],
+  "开团/参团": [
+    "uniapp/pages/goods_details/goods_details.vue:228"
+  ],
+  "张可用": [
+    "uniapp/pages/confirm_order/confirm_order.vue:153"
+  ],
+  "当前环境不支持": [
+    "uniapp/bundle/pages/contact_offical/contact_offical.vue:227"
+  ],
+  "当前等级": [
+    "uniapp/pages/user_vip/user_vip.vue:21"
+  ],
+  "当前账号未微信授权，请前往个人设置授权": [
+    "uniapp/pages/payment/payment.vue:200",
+    "uniapp/pages/payment/payment.vue:215"
+  ],
+  "当前选择库存不足": [
+    "uniapp/components/spec-popup/spec-popup.vue:308"
+  ],
+  "当前高于该等级": [
+    "uniapp/pages/user_vip/user_vip.vue:39"
+  ],
+  "待付款": [
+    "uniapp/bundle/pages/user_order/user_order.vue:45",
+    "uniapp/pages/user/user.vue:118"
+  ],
+  "待发货": [
+    "uniapp/components/order-list/order-list.vue:421",
+    "uniapp/pages/user/user.vue:130"
+  ],
+  "待取货": [
+    "uniapp/pages/order_details/order_details.vue:61"
+  ],
+  "待支付": [
+    "uniapp/components/order-list/order-list.vue:418"
+  ],
+  "待收货": [
+    "uniapp/bundle/pages/user_order/user_order.vue:50",
+    "uniapp/components/order-list/order-list.vue:424",
+    "uniapp/pages/user/user.vue:142"
+  ],
+  "待核销": [
+    "uniapp/bundle/pages/writeoff_order/writeoff_order.vue:56"
+  ],
+  "待返佣": [
+    "uniapp/bundle/pages/user_spread_order/user_spread_order.vue:39"
+  ],
+  "微信好友": [
+    "uniapp/components/share-popup/share-popup.vue:14",
+    "uniapp/components/share-popup/share-popup.vue:20"
+  ],
+  "微信导入": [
+    "uniapp/pages/user_address/user_address.vue:77"
+  ],
+  "微信授权": [
+    "uniapp/bundle/pages/user_profile/user_profile.vue:76",
+    "uniapp/bundle/pages/user_profile/user_profile.vue:86"
+  ],
+  "微信账号": [
+    "uniapp/bundle/pages/user_withdraw/user_withdraw.vue:30"
+  ],
+  "忘记原密码？": [
+    "uniapp/bundle/pages/set_pay_pwd/set_pay_pwd.vue:36"
+  ],
+  "忘记密码": [
+    "uniapp/pages/login/login.vue:279",
+    "uniapp/pages/login/login.vue:84"
+  ],
+  "忘记登录密码": [
+    "uniapp/pages/forget_pwd/forget_pwd.vue:23"
+  ],
+  "快递单号": [
+    "uniapp/bundle/pages/input_express_info/input_express_info.vue:11"
+  ],
+  "快递配送": [
+    "uniapp/pages/confirm_order/confirm_order.vue:296"
+  ],
+  "性别": [
+    "uniapp/bundle/pages/user_set/user_set.vue:34"
+  ],
+  "总资产（元）": [
+    "uniapp/bundle/pages/user_wallet/user_wallet.vue:7"
+  ],
+  "恭喜您获得": [
+    "uniapp/bundle/pages/user_payment/user_payment.vue:45"
+  ],
+  "您已拒绝地理位置权限": [
+    "uniapp/bundle/pages/store_list/store_list.vue:114"
+  ],
+  "您已拒绝导入微信地址权限": [
+    "uniapp/pages/user_address/user_address.vue:235"
+  ],
+  "您未授权": [
+    "uniapp/utils/permission.js:227"
+  ],
+  "您的商品正在打包中，请耐心等待…": [
+    "uniapp/pages/order_details/order_details.vue:43"
+  ],
+  "您的商品正在路中，请耐心等待…": [
+    "uniapp/pages/order_details/order_details.vue:47"
+  ],
+  "您还没有选择商品哦": [
+    "uniapp/pages/shop_cart/shop_cart.vue:309"
+  ],
+  "成为分销会员，推广下级可获得额外收益，推广越多收益越多": [
+    "uniapp/bundle/pages/user_spread/user_spread.vue:6"
+  ],
+  "成交时间": [
+    "uniapp/pages/order_details/order_details.vue:251"
+  ],
+  "成交笔数": [
+    "uniapp/bundle/pages/user_spread_month_bill/user_spread_month_bill.vue:14",
+    "uniapp/bundle/pages/user_spread_month_bill_detail/user_spread_month_bill_detail.vue:10"
+  ],
+  "成功": [
+    "uniapp/bundle/pages/contact_offical/contact_offical copy.vue:91"
+  ],
+  "成长值": [
+    "uniapp/bundle/pages/user_payment/user_payment.vue:48"
+  ],
+  "成长值规则": [
+    "uniapp/pages/user_vip/user_vip.vue:51"
+  ],
+  "我可是有底线的～": [
+    "uniapp/components/loading-footer/loading-footer.vue:40"
+  ],
+  "我正在参与砍价 还差一步": [
+    "uniapp/components/share-popup/poster.vue:114"
+  ],
+  "我的功能": [
+    "uniapp/pages/user/user.vue:173"
+  ],
+  "我的奖品": [
+    "uniapp/bundle/pages/luckly_wheel/luckly_wheel.vue:10"
+  ],
+  "我的订单": [
+    "uniapp/pages/user/user.vue:101"
+  ],
+  "我的资产": [
+    "uniapp/pages/user/user.vue:74"
+  ],
+  "我的邀请码": [
+    "uniapp/bundle/pages/invite_fans/invite_fans.vue:15",
+    "uniapp/bundle/pages/user_spread/user_spread.vue:140"
+  ],
+  "我知道了": [
+    "uniapp/pages/goods_details/goods_details.vue:485"
+  ],
+  "所在地区": [
+    "uniapp/pages/address_edit/address_edit.vue:28"
+  ],
+  "手动核销": [
+    "uniapp/bundle/pages/writeoff_order/writeoff_order.vue:22"
+  ],
+  "手机": [
+    "uniapp/bundle/pages/user_set/user_set.vue:41"
+  ],
+  "手机号": [
+    "uniapp/bundle/pages/forget_pay_pwd/forget_pay_pwd.vue:5",
+    "uniapp/bundle/pages/user_profile/user_profile.vue:133",
+    "uniapp/bundle/pages/user_set/user_set.vue:74"
+  ],
+  "手机号登录": [
+    "uniapp/pages/login/login.vue:225",
+    "uniapp/pages/login/login.vue:31"
+  ],
+  "扫码核销": [
+    "uniapp/bundle/pages/writeoff_order/writeoff_order.vue:21"
+  ],
+  "抱歉，该订单不存在！": [
+    "uniapp/bundle/pages/writeoff_detail/writeoff_detail.vue:24"
+  ],
+  "拒绝本次申请的权限：": [
+    "uniapp/utils/permission.js:192"
+  ],
+  "拒绝，仅浏览": [
+    "uniapp/components/lyg-popup/lyg-popup.vue:16"
+  ],
+  "拨打": [
+    "uniapp/bundle/pages/contact_offical/contact_offical copy.vue:32",
+    "uniapp/bundle/pages/contact_offical/contact_offical copy.vue:35"
+  ],
+  "拨打客服热线": [
+    "uniapp/bundle/pages/contact_offical/contact_offical.vue:61"
+  ],
+  "拨打电话": [
+    "uniapp/bundle/pages/contact_offical/contact_offical.vue:75",
+    "uniapp/utils/permission.js:290"
+  ],
+  "拼团中": [
+    "uniapp/bundle/pages/user_group/user_group.vue:24",
+    "uniapp/components/group-list/group-list.vue:117",
+    "uniapp/pages/order_details/order_details.vue:634"
+  ],
+  "拼团价": [
+    "uniapp/components/order-goods/order-goods.vue:60"
+  ],
+  "拼团优惠": [
+    "uniapp/pages/goods_details/goods_details.vue:65"
+  ],
+  "拼团失败": [
+    "uniapp/bundle/pages/user_group/user_group.vue:32",
+    "uniapp/components/group-list/group-list.vue:123",
+    "uniapp/pages/order_details/order_details.vue:638"
+  ],
+  "拼团成功": [
+    "uniapp/bundle/pages/user_group/user_group.vue:28",
+    "uniapp/components/group-list/group-list.vue:120",
+    "uniapp/pages/order_details/order_details.vue:636"
+  ],
+  "拼团状态": [
+    "uniapp/pages/order_details/order_details.vue:143"
+  ],
+  "拼团玩法": [
+    "uniapp/pages/goods_details/goods_details.vue:224"
+  ],
+  "拼团订单": [
+    "uniapp/pages/order_details/order_details.vue:650"
+  ],
+  "推荐充值": [
+    "uniapp/bundle/pages/user_payment/user_payment.vue:25"
+  ],
+  "推送权限没有开启": [
+    "uniapp/utils/permission.js:20"
+  ],
+  "推送权限没有开启!": [
+    "uniapp/utils/permission.js:29"
+  ],
+  "描述相符": [
+    "uniapp/bundle/pages/goods_reviews/goods_reviews.vue:23"
+  ],
+  "提交": [
+    "uniapp/bundle/pages/input_express_info/input_express_info.vue:29"
+  ],
+  "提交成功": [
+    "uniapp/bundle/pages/apply_refund/apply_refund.vue:276",
+    "uniapp/bundle/pages/input_express_info/input_express_info.vue:156",
+    "uniapp/bundle/pages/user_withdraw/user_withdraw.vue:379"
+  ],
+  "提交成功后，我们将会在1-2个工作日内给您回复": [
+    "uniapp/bundle/pages/user_spread/user_spread.vue:58",
+    "uniapp/bundle/pages/user_spread/user_spread.vue:92"
+  ],
+  "提交时间": [
+    "uniapp/bundle/pages/widthdraw_result/widthdraw_result.vue:30"
+  ],
+  "提现至": [
+    "uniapp/bundle/pages/widthdraw_result/widthdraw_result.vue:34"
+  ],
+  "提现记录": [
+    "uniapp/bundle/pages/user_withdraw/user_withdraw.vue:25",
+    "uniapp/bundle/pages/user_withdraw/user_withdraw.vue:72"
+  ],
+  "提现银行": [
+    "uniapp/bundle/pages/user_withdraw/user_withdraw.vue:134"
+  ],
+  "提示": [
+    "uniapp/utils/permission.js:226"
+  ],
+  "提货人": [
+    "uniapp/pages/confirm_order/confirm_order.vue:100"
+  ],
+  "搜索": [
+    "uniapp/components/navbar/navbar.vue:62",
+    "uniapp/pages/goods_search/goods_search.vue:202"
+  ],
+  "摄像头": [
+    "uniapp/utils/permission.js:248"
+  ],
+  "撤销申请": [
+    "uniapp/bundle/pages/after_sales_detail/after_sales_detail.vue:89",
+    "uniapp/components/after-sales-list/after-sales-list.vue:139"
+  ],
+  "支付剩余时间": [
+    "uniapp/pages/payment/payment.vue:16"
+  ],
+  "支付失败": [
+    "uniapp/pages/payment/payment.vue:307"
+  ],
+  "支付宝": [
+    "uniapp/pages/payment/payment.vue:90"
+  ],
+  "支付宝账号": [
+    "uniapp/bundle/pages/user_withdraw/user_withdraw.vue:77"
+  ],
+  "支付成功": [
+    "uniapp/pages/payment/payment.vue:287",
+    "uniapp/pages/payment/payment.vue:297"
+  ],
+  "支付方式": [
+    "uniapp/pages/order_details/order_details.vue:235",
+    "uniapp/pages/pay_result/pay_result.vue:35",
+    "uniapp/pages/payment/payment.vue:89"
+  ],
+  "支付金额": [
+    "uniapp/pages/pay_result/pay_result.vue:39"
+  ],
+  "收益通知": [
+    "uniapp/bundle/pages/notice/notice.vue:71"
+  ],
+  "收藏": [
+    "uniapp/pages/goods_details/goods_details.vue:212"
+  ],
+  "收藏成功": [
+    "uniapp/pages/goods_details/goods_details.vue:671"
+  ],
+  "收货人": [
+    "uniapp/pages/address_edit/address_edit.vue:7"
+  ],
+  "收起": [
+    "uniapp/pages/order_details/order_details.vue:211"
+  ],
+  "数量": [
+    "uniapp/bundle/pages/apply_refund/apply_refund.vue:46",
+    "uniapp/components/spec-popup/spec-popup.vue:101",
+    "uniapp/components/spread-order/spread-order.vue:17"
+  ],
+  "新增收货地址": [
+    "uniapp/pages/user_address/user_address.vue:81"
+  ],
+  "新手机号": [
+    "uniapp/bundle/pages/user_profile/user_profile.vue:169",
+    "uniapp/bundle/pages/user_set/user_set.vue:96"
+  ],
+  "新版本已经准备好，是否重启应用？": [
+    "uniapp/pages/index/index.vue:438"
+  ],
+  "无": [
+    "uniapp/bundle/pages/user_spread/user_spread.vue:21",
+    "uniapp/pages/order_details/order_details.vue:222",
+    "uniapp/pages/user_vip/user_vip.vue:9"
+  ],
+  "无优惠券可用": [
+    "uniapp/pages/confirm_order/confirm_order.vue:155"
+  ],
+  "日历": [
+    "uniapp/utils/permission.js:156"
+  ],
+  "日历权限已经开启": [
+    "uniapp/utils/permission.js:149"
+  ],
+  "日历权限没有开启": [
+    "uniapp/utils/permission.js:151"
+  ],
+  "日历读取": [
+    "uniapp/utils/permission.js:278"
+  ],
+  "是否确认下单?": [
+    "uniapp/pages/confirm_order/confirm_order.vue:471"
+  ],
+  "是否要撤销申请？": [
+    "uniapp/bundle/pages/after_sales_detail/after_sales_detail.vue:101",
+    "uniapp/components/after-sales-list/after-sales-list.vue:239"
+  ],
+  "是否进入权限管理，调整授权？": [
+    "uniapp/bundle/pages/store_list/store_list.vue:115",
+    "uniapp/pages/user_address/user_address.vue:236"
+  ],
+  "昵称": [
+    "uniapp/bundle/pages/user_set/user_set.vue:29"
+  ],
+  "普通订单": [
+    "uniapp/pages/order_details/order_details.vue:646"
+  ],
+  "暂不登录": [
+    "uniapp/components/mplogin-popup/mplogin-popup.vue:53"
+  ],
+  "暂无中奖名单": [
+    "uniapp/bundle/pages/win_prize_code/win_prize_code.vue:20"
+  ],
+  "暂无优惠券可领～": [
+    "uniapp/pages/user_getcoupon/user_getcoupon.vue:6"
+  ],
+  "暂无优惠券～": [
+    "uniapp/components/coupon-obj/coupon-obj.vue:29",
+    "uniapp/components/my-coupons/my-coupons.vue:7"
+  ],
+  "暂无其他记录～": [
+    "uniapp/bundle/pages/sign_detail/sign_detail.vue:23"
+  ],
+  "暂无其他评价～": [
+    "uniapp/components/comment-list/comment-list.vue:78",
+    "uniapp/components/spread-order/spread-order.vue:36"
+  ],
+  "暂无售后数据～": [
+    "uniapp/components/after-sales-list/after-sales-list.vue:224"
+  ],
+  "暂无商品": [
+    "uniapp/components/cate-four/cate-four.vue:153",
+    "uniapp/components/cate-list/cate-list.vue:62",
+    "uniapp/pages/goods_search/goods_search.vue:62"
+  ],
+  "暂无商品~": [
+    "uniapp/bundle/pages/hot_list/hot_list.vue:37"
+  ],
+  "暂无商品～": [
+    "uniapp/bundle/pages/goods_seckill/goods_seckill.vue:114"
+  ],
+  "暂无抽奖记录～": [
+    "uniapp/bundle/pages/prize_record/prize_record.vue:21"
+  ],
+  "暂无拼团": [
+    "uniapp/components/group-list/group-list.vue:41"
+  ],
+  "暂无拼团商品": [
+    "uniapp/bundle/pages/goods_combination/goods_combination.vue:85"
+  ],
+  "暂无提现记录～": [
+    "uniapp/bundle/pages/user_withdraw_code/user_withdraw_code.vue:43"
+  ],
+  "暂无支付方式": [
+    "uniapp/pages/payment/payment.vue:53"
+  ],
+  "暂无支出记录～": [
+    "uniapp/bundle/pages/user_bill/user_bill.vue:44"
+  ],
+  "暂无收入记录～": [
+    "uniapp/bundle/pages/user_bill/user_bill.vue:65"
+  ],
+  "暂无收藏～": [
+    "uniapp/pages/user_collection/user_collection.vue:21"
+  ],
+  "暂无数据": [
+    "uniapp/components/loading-footer/loading-footer.vue:10"
+  ],
+  "暂无数据～": [
+    "uniapp/pages/news_list/news_list.vue:38"
+  ],
+  "暂无活动商品～": [
+    "uniapp/bundle/pages/activity_detail/activity_detail.vue:49"
+  ],
+  "暂无消息通知～": [
+    "uniapp/bundle/pages/notice/notice.vue:16"
+  ],
+  "暂无添加地址，请添加~": [
+    "uniapp/pages/user_address/user_address.vue:6"
+  ],
+  "暂无直播~": [
+    "uniapp/bundle/pages/live_broadcast/live_broadcast.vue:29"
+  ],
+  "暂无相关数据...": [
+    "uniapp/bundle/pages/user_fans/user_fans.vue:45",
+    "uniapp/bundle/pages/user_fans/user_fans.vue:70"
+  ],
+  "暂无相关数据～": [
+    "uniapp/bundle/pages/user_spread_month_bill/user_spread_month_bill.vue:26"
+  ],
+  "暂无订单": [
+    "uniapp/bundle/pages/writeoff_order/writeoff_order.vue:17",
+    "uniapp/components/order-list/order-list.vue:159"
+  ],
+  "暂无记录～": [
+    "uniapp/bundle/pages/recharge_code/recharge_code.vue:15",
+    "uniapp/bundle/pages/transfer_record/transfer_record.vue:24",
+    "uniapp/bundle/pages/user_bill/user_bill.vue:22"
+  ],
+  "暂无评价": [
+    "uniapp/pages/all_comments/all_comments.vue:76",
+    "uniapp/pages/goods_details/goods_details.vue:356"
+  ],
+  "暂无账单明细": [
+    "uniapp/bundle/pages/user_spread_month_bill_detail/user_spread_month_bill_detail.vue:45"
+  ],
+  "暂无转入记录～": [
+    "uniapp/bundle/pages/transfer_record/transfer_record.vue:70"
+  ],
+  "暂无转出记录～": [
+    "uniapp/bundle/pages/transfer_record/transfer_record.vue:47"
+  ],
+  "暂无通知": [
+    "uniapp/bundle/pages/luckly_wheel/luckly_wheel.vue:29"
+  ],
+  "暂无门店～": [
+    "uniapp/bundle/pages/store_list/store_list.vue:59"
+  ],
+  "更换手机号": [
+    "uniapp/bundle/pages/bind_phone/bind_phone.vue:184",
+    "uniapp/bundle/pages/user_profile/user_profile.vue:127",
+    "uniapp/bundle/pages/user_set/user_set.vue:47",
+    "uniapp/bundle/pages/user_set/user_set.vue:68"
+  ],
+  "更改": [
+    "uniapp/bundle/pages/user_profile/user_profile.vue:174",
+    "uniapp/bundle/pages/user_set/user_set.vue:101"
+  ],
+  "更新提示": [
+    "uniapp/pages/index/index.vue:437"
+  ],
+  "最近转账": [
+    "uniapp/bundle/pages/balance_transfer/balance_transfer.vue:38"
+  ],
+  "月": [
+    "uniapp/bundle/pages/user_spread_month_bill_detail/user_spread_month_bill_detail.vue:79"
+  ],
+  "月份": [
+    "uniapp/bundle/pages/user_spread_month_bill_detail/user_spread_month_bill_detail.vue:6"
+  ],
+  "月度账单": [
+    "uniapp/bundle/pages/user_spread/user_spread.vue:157"
+  ],
+  "服务协议": [
+    "uniapp/bundle/pages/server_explan/server_explan.vue:52",
+    "uniapp/bundle/pages/user_profile/user_profile.vue:101"
+  ],
+  "服务态度": [
+    "uniapp/bundle/pages/goods_reviews/goods_reviews.vue:27"
+  ],
+  "服务费": [
+    "uniapp/bundle/pages/widthdraw_result/widthdraw_result.vue:38"
+  ],
+  "未完成": [
+    "uniapp/bundle/pages/user_sign/user_sign.vue:56"
+  ],
+  "未开始": [
+    "uniapp/bundle/pages/goods_seckill/goods_seckill.vue:105"
+  ],
+  "未收到货，与卖家协商同意无需退货只需退款": [
+    "uniapp/bundle/pages/apply_refund/apply_refund.vue:25"
+  ],
+  "未满足使用条件": [
+    "uniapp/pages/confirm_order/confirm_order.vue:414"
+  ],
+  "未确认收货": [
+    "uniapp/components/order-list/order-list.vue:275",
+    "uniapp/pages/order_details/order_details.vue:464"
+  ],
+  "未绑定": [
+    "uniapp/bundle/pages/user_set/user_set.vue:43"
+  ],
+  "未解锁": [
+    "uniapp/pages/user_vip/user_vip.vue:22"
+  ],
+  "未设置": [
+    "uniapp/bundle/pages/user_set/user_set.vue:36"
+  ],
+  "本活动的所有奖品，均由商城提供": [
+    "uniapp/bundle/pages/luckly_wheel/luckly_wheel.vue:60"
+  ],
+  "权限,是否去应用设置里授权？": [
+    "uniapp/utils/permission.js:227"
+  ],
+  "查看会员权益": [
+    "uniapp/pages/user/user.vue:67"
+  ],
+  "查看全部": [
+    "uniapp/pages/goods_details/goods_details.vue:342"
+  ],
+  "查看历史提现记录": [
+    "uniapp/bundle/pages/widthdraw_result/widthdraw_result.vue:57"
+  ],
+  "查看更多": [
+    "uniapp/pages/order_details/order_details.vue:212"
+  ],
+  "查看物流": [
+    "uniapp/pages/order_details/order_details.vue:280"
+  ],
+  "查看订单": [
+    "uniapp/pages/pay_result/pay_result.vue:53"
+  ],
+  "核销码": [
+    "uniapp/pages/order_details/order_details.vue:318"
+  ],
+  "正在上传中...": [
+    "uniapp/bundle/pages/apply_refund/apply_refund.vue:292",
+    "uniapp/bundle/pages/goods_reviews/goods_reviews.vue:189",
+    "uniapp/bundle/pages/input_express_info/input_express_info.vue:91",
+    "uniapp/bundle/pages/user_profile/user_profile.vue:629",
+    "uniapp/bundle/pages/user_set/user_set.vue:534",
+    "uniapp/bundle/pages/user_withdraw/user_withdraw.vue:292",
+    "uniapp/components/mplogin-popup/mplogin-popup.vue:91"
+  ],
+  "正在生成中": [
+    "uniapp/components/share-popup/share-popup.vue:140"
+  ],
+  "每日领券": [
+    "uniapp/components/home-coupon/home-coupon.vue:22"
+  ],
+  "永久拒绝申请的权限：": [
+    "uniapp/utils/permission.js:197"
+  ],
+  "注册新账号": [
+    "uniapp/pages/register/register.vue:23"
+  ],
+  "注册时间": [
+    "uniapp/bundle/pages/user_set/user_set.vue:62"
+  ],
+  "注册账号": [
+    "uniapp/pages/login/login.vue:191",
+    "uniapp/pages/login/login.vue:386"
+  ],
+  "活动暂未开始": [
+    "uniapp/bundle/pages/bargain/bargain.vue:57"
+  ],
+  "活动规则": [
+    "uniapp/bundle/pages/luckly_wheel/luckly_wheel.vue:54"
+  ],
+  "流水号": [
+    "uniapp/bundle/pages/widthdraw_result/widthdraw_result.vue:24"
+  ],
+  "消费票据签发失败": [
+    "uniapp/utils/consumeToken.js:56"
+  ],
+  "添加到“我的小程序”": [
+    "uniapp/pages/index/index.vue:42"
+  ],
+  "添加地址": [
+    "uniapp/pages/address_edit/address_edit.vue:132"
+  ],
+  "清空": [
+    "uniapp/pages/goods_search/goods_search.vue:43"
+  ],
+  "温馨提示": [
+    "uniapp/pages/confirm_order/confirm_order.vue:470"
+  ],
+  "满员发货": [
+    "uniapp/pages/goods_details/goods_details.vue:238"
+  ],
+  "点击修改头像": [
+    "uniapp/bundle/pages/user_set/user_set.vue:21"
+  ],
+  "点击复制": [
+    "uniapp/bundle/pages/invite_fans/invite_fans.vue:18",
+    "uniapp/bundle/pages/user_spread/user_spread.vue:142"
+  ],
+  "点击屏幕右上角将本页面分享给好友": [
+    "uniapp/components/share-popup/share-popup.vue:49"
+  ],
+  "点击登录": [
+    "uniapp/pages/user/user.vue:34"
+  ],
+  "点击设置": [
+    "uniapp/bundle/pages/user_profile/user_profile.vue:95"
+  ],
+  "热门充值": [
+    "uniapp/bundle/pages/user_payment/user_payment.vue:29"
+  ],
+  "热门搜索": [
+    "uniapp/pages/goods_search/goods_search.vue:35"
+  ],
+  "版权信息": [
+    "uniapp/bundle/pages/user_profile/user_profile.vue:109"
+  ],
+  "物流公司": [
+    "uniapp/bundle/pages/input_express_info/input_express_info.vue:7"
+  ],
+  "猜你喜欢": [
+    "uniapp/components/goods-like/goods-like.vue:7"
+  ],
+  "现住省份：": [
+    "uniapp/bundle/pages/user_spread/user_spread.vue:43",
+    "uniapp/bundle/pages/user_spread/user_spread.vue:82"
+  ],
+  "生成失败": [
+    "uniapp/components/share-popup/share-popup.vue:189"
+  ],
+  "生成海报": [
+    "uniapp/components/share-popup/share-popup.vue:9"
+  ],
+  "用户一键登录": [
+    "uniapp/pages/login/login.vue:216",
+    "uniapp/pages/login/login.vue:220",
+    "uniapp/pages/login/login.vue:27"
+  ],
+  "用户使用及隐私保护政策提示": [
+    "uniapp/components/lyg-popup/lyg-popup.vue:32"
+  ],
+  "用户评价": [
+    "uniapp/pages/goods_details/goods_details.vue:338"
+  ],
+  "申请原因：": [
+    "uniapp/bundle/pages/user_spread/user_spread.vue:49",
+    "uniapp/bundle/pages/user_spread/user_spread.vue:86"
+  ],
+  "申请成为分销会员": [
+    "uniapp/bundle/pages/user_spread/user_spread.vue:33",
+    "uniapp/bundle/pages/user_spread/user_spread.vue:65"
+  ],
+  "申请时间：": [
+    "uniapp/bundle/pages/after_sales_detail/after_sales_detail.vue:74"
+  ],
+  "申请权限错误：": [
+    "uniapp/utils/permission.js:210"
+  ],
+  "申请状态": [
+    "uniapp/components/after-sales-list/after-sales-list.vue:131",
+    "uniapp/components/after-sales-list/after-sales-list.vue:215"
+  ],
+  "申请退款": [
+    "uniapp/components/order-goods/order-goods.vue:109"
+  ],
+  "男": [
+    "uniapp/bundle/pages/user_profile/user_profile.vue:297",
+    "uniapp/bundle/pages/user_set/user_set.vue:222",
+    "uniapp/bundle/pages/user_set/user_set.vue:36"
+  ],
+  "番禺区": [
+    "uniapp/pages/address_edit/address_edit.vue:112"
+  ],
+  "登录中...": [
+    "uniapp/pages/login/login.vue:540",
+    "uniapp/pages/login/login.vue:734"
+  ],
+  "登录体验更多功能": [
+    "uniapp/pages/user/user.vue:35"
+  ],
+  "登录后才能查看购物车哦": [
+    "uniapp/pages/shop_cart/shop_cart.vue:101"
+  ],
+  "登录密码": [
+    "uniapp/bundle/pages/user_profile/user_profile.vue:93"
+  ],
+  "登录查看会员权益": [
+    "uniapp/pages/user/user.vue:63"
+  ],
+  "相册": [
+    "uniapp/utils/permission.js:120"
+  ],
+  "相册权限已经开启": [
+    "uniapp/utils/permission.js:113"
+  ],
+  "相册权限没有开启": [
+    "uniapp/utils/permission.js:115"
+  ],
+  "相册读取": [
+    "uniapp/utils/permission.js:254"
+  ],
+  "相机": [
+    "uniapp/utils/permission.js:101"
+  ],
+  "相机权限已经开启": [
+    "uniapp/utils/permission.js:94"
+  ],
+  "相机权限没有开启": [
+    "uniapp/utils/permission.js:96"
+  ],
+  "真实姓名": [
+    "uniapp/bundle/pages/user_withdraw/user_withdraw.vue:130",
+    "uniapp/bundle/pages/user_withdraw/user_withdraw.vue:34",
+    "uniapp/bundle/pages/user_withdraw/user_withdraw.vue:81"
+  ],
+  "真实姓名：": [
+    "uniapp/bundle/pages/user_spread/user_spread.vue:38",
+    "uniapp/bundle/pages/user_spread/user_spread.vue:78"
+  ],
+  "短信验证码登录": [
+    "uniapp/pages/login/login.vue:188",
+    "uniapp/pages/login/login.vue:383"
+  ],
+  "砍价": [
+    "uniapp/components/order-goods/order-goods.vue:61"
+  ],
+  "砍价中": [
+    "uniapp/bundle/pages/bargain_code/bargain_code.vue:24"
+  ],
+  "砍价失败": [
+    "uniapp/bundle/pages/bargain_code/bargain_code.vue:34"
+  ],
+  "砍价成功": [
+    "uniapp/bundle/pages/bargain_code/bargain_code.vue:29"
+  ],
+  "砍价订单": [
+    "uniapp/pages/order_details/order_details.vue:652"
+  ],
+  "砍价记录": [
+    "uniapp/bundle/pages/bargain_process/bargain_process.vue:188",
+    "uniapp/bundle/pages/bargain_process/bargain_process.vue:247"
+  ],
+  "确定": [
+    "uniapp/bundle/pages/bargain_process/bargain_process.vue:303",
+    "uniapp/bundle/pages/user_profile/user_profile.vue:177",
+    "uniapp/bundle/pages/user_profile/user_profile.vue:205",
+    "uniapp/bundle/pages/user_profile/user_profile.vue:256",
+    "uniapp/bundle/pages/user_set/user_set.vue:104",
+    "uniapp/bundle/pages/user_set/user_set.vue:132",
+    "uniapp/bundle/pages/user_set/user_set.vue:183",
+    "uniapp/bundle/pages/user_sign/user_sign.vue:76",
+    "uniapp/bundle/pages/user_spread/user_spread.vue:170"
+  ],
+  "确认": [
+    "uniapp/bundle/pages/bind_phone/bind_phone.vue:65",
+    "uniapp/utils/permission.js:228"
+  ],
+  "确认删除订单吗?": [
+    "uniapp/components/order-dialog/order-dialog.vue:68"
+  ],
+  "确认删除该商品吗？": [
+    "uniapp/pages/shop_cart/shop_cart.vue:136"
+  ],
+  "确认删除该地址吗？": [
+    "uniapp/pages/user_address/user_address.vue:70"
+  ],
+  "确认删除该收藏吗？": [
+    "uniapp/pages/user_collection/user_collection.vue:36"
+  ],
+  "确认取消订单吗？": [
+    "uniapp/components/order-dialog/order-dialog.vue:66"
+  ],
+  "确认密码": [
+    "uniapp/bundle/pages/forget_pay_pwd/forget_pay_pwd.vue:49",
+    "uniapp/bundle/pages/set_pay_pwd/set_pay_pwd.vue:23",
+    "uniapp/bundle/pages/user_profile/user_profile.vue:253",
+    "uniapp/bundle/pages/user_set/user_set.vue:180"
+  ],
+  "确认收货": [
+    "uniapp/components/order-list/order-list.vue:256",
+    "uniapp/pages/order_details/order_details.vue:445"
+  ],
+  "确认收货吗?": [
+    "uniapp/components/order-dialog/order-dialog.vue:70"
+  ],
+  "秒杀价": [
+    "uniapp/components/order-goods/order-goods.vue:59"
+  ],
+  "秒杀订单": [
+    "uniapp/pages/order_details/order_details.vue:648"
+  ],
+  "积分": [
+    "uniapp/bundle/pages/user_payment/user_payment.vue:46",
+    "uniapp/bundle/pages/user_sign/user_sign.vue:53",
+    "uniapp/pages/user/user.vue:88"
+  ],
+  "积分使用说明": [
+    "uniapp/pages/confirm_order/confirm_order.vue:425"
+  ],
+  "积分抵扣": [
+    "uniapp/pages/confirm_order/confirm_order.vue:163",
+    "uniapp/pages/confirm_order/confirm_order.vue:204",
+    "uniapp/pages/order_details/order_details.vue:184"
+  ],
+  "积分明细": [
+    "uniapp/bundle/pages/user_sign/user_sign.vue:20"
+  ],
+  "积分签到抵现金": [
+    "uniapp/bundle/pages/user_wallet/user_wallet.vue:48"
+  ],
+  "立即分享给好友吧": [
+    "uniapp/components/share-popup/share-popup.vue:48"
+  ],
+  "立即参与": [
+    "uniapp/bundle/pages/user_wallet/user_wallet.vue:49"
+  ],
+  "立即开团": [
+    "uniapp/pages/goods_details/goods_details.vue:796"
+  ],
+  "立即抢购": [
+    "uniapp/bundle/pages/goods_seckill/goods_seckill.vue:104",
+    "uniapp/components/goods-list/goods-list.vue:197",
+    "uniapp/pages/goods_details/goods_details.vue:791"
+  ],
+  "立即提现": [
+    "uniapp/bundle/pages/user_spread/user_spread.vue:102"
+  ],
+  "立即支付": [
+    "uniapp/pages/payment/payment.vue:65"
+  ],
+  "立即收款": [
+    "uniapp/bundle/pages/widthdraw_result/widthdraw_result.vue:74"
+  ],
+  "立即签到": [
+    "uniapp/bundle/pages/user_sign/user_sign.vue:38"
+  ],
+  "立即购买": [
+    "uniapp/components/spec-popup/spec-popup.vue:184",
+    "uniapp/pages/goods_details/goods_details.vue:801"
+  ],
+  "立即领取": [
+    "uniapp/components/home-coupon/home-coupon.vue:42",
+    "uniapp/pages/index/index.vue:284"
+  ],
+  "等待买家付款": [
+    "uniapp/pages/order_details/order_details.vue:25"
+  ],
+  "等待商家发货": [
+    "uniapp/pages/order_details/order_details.vue:42"
+  ],
+  "系统定位开启:": [
+    "uniapp/utils/permission.js:329",
+    "uniapp/utils/permission.js:338"
+  ],
+  "系统通知": [
+    "uniapp/bundle/pages/notice/notice.vue:65"
+  ],
+  "累计充值(元)": [
+    "uniapp/bundle/pages/user_wallet/user_wallet.vue:12"
+  ],
+  "累计消费(元)": [
+    "uniapp/bundle/pages/user_wallet/user_wallet.vue:16"
+  ],
+  "累计预估收益": [
+    "uniapp/bundle/pages/user_spread_month_bill_detail/user_spread_month_bill_detail.vue:16"
+  ],
+  "绑定": [
+    "uniapp/bundle/pages/user_profile/user_profile.vue:174",
+    "uniapp/bundle/pages/user_set/user_set.vue:101"
+  ],
+  "绑定手机号": [
+    "uniapp/bundle/pages/bind_phone/bind_phone.vue:184",
+    "uniapp/bundle/pages/user_profile/user_profile.vue:127",
+    "uniapp/bundle/pages/user_set/user_set.vue:47",
+    "uniapp/bundle/pages/user_set/user_set.vue:68"
+  ],
+  "综合": [
+    "uniapp/components/cate-four/cate-four.vue:77",
+    "uniapp/components/cate-list/cate-list.vue:27",
+    "uniapp/pages/goods_search/goods_search.vue:10"
+  ],
+  "编辑地址": [
+    "uniapp/pages/address_edit/address_edit.vue:127"
+  ],
+  "缺少参数，无法查看商品": [
+    "uniapp/pages/goods_details/goods_details.vue:574"
+  ],
+  "网络异常，请重新进入页面": [
+    "uniapp/pages/confirm_order/confirm_order.vue:539"
+  ],
+  "网络重试刷": [
+    "uniapp/pages/index/index.vue:499"
+  ],
+  "联系企业微信客服": [
+    "uniapp/bundle/pages/contact_offical/contact_offical.vue:88"
+  ],
+  "联系微信小程序客服": [
+    "uniapp/bundle/pages/contact_offical/contact_offical.vue:99"
+  ],
+  "联系方式": [
+    "uniapp/pages/address_edit/address_edit.vue:17",
+    "uniapp/pages/confirm_order/confirm_order.vue:111"
+  ],
+  "联系系统客服": [
+    "uniapp/bundle/pages/contact_offical/contact_offical.vue:82"
+  ],
+  "联系自提点": [
+    "uniapp/pages/order_details/order_details.vue:131"
+  ],
+  "获取base64图片失败": [
+    "uniapp/components/lime-painter/components/l-painter/painter.js:15",
+    "uniapp/components/lime-painter/components/l-painter/utils.js:191"
+  ],
+  "获取密码加密密钥失败": [
+    "uniapp/utils/request.js:51"
+  ],
+  "获取用户信息，完善用户资料": [
+    "uniapp/utils/login.js:28"
+  ],
+  "获取验证码": [
+    "uniapp/bundle/pages/bind_phone/bind_phone.vue:45",
+    "uniapp/bundle/pages/forget_pay_pwd/forget_pay_pwd.vue:22",
+    "uniapp/pages/forget_pwd/forget_pwd.vue:54",
+    "uniapp/pages/login/login.vue:135",
+    "uniapp/pages/login/login.vue:330",
+    "uniapp/pages/register/register.vue:62"
+  ],
+  "营业时间：": [
+    "uniapp/pages/confirm_order/confirm_order.vue:78"
+  ],
+  "订单已关闭": [
+    "uniapp/components/order-list/order-list.vue:430",
+    "uniapp/pages/order_details/order_details.vue:54",
+    "uniapp/pages/order_details/order_details.vue:69"
+  ],
+  "订单排序": [
+    "uniapp/bundle/pages/user_fans/user_fans.vue:35"
+  ],
+  "订单支付成功": [
+    "uniapp/pages/pay_result/pay_result.vue:20"
+  ],
+  "订单类型": [
+    "uniapp/pages/order_details/order_details.vue:231"
+  ],
+  "订单编号": [
+    "uniapp/pages/order_details/order_details.vue:227",
+    "uniapp/pages/pay_result/pay_result.vue:25"
+  ],
+  "设为默认": [
+    "uniapp/pages/user_address/user_address.vue:35"
+  ],
+  "设置为默认": [
+    "uniapp/pages/address_edit/address_edit.vue:63"
+  ],
+  "设置密码": [
+    "uniapp/bundle/pages/user_profile/user_profile.vue:211",
+    "uniapp/bundle/pages/user_profile/user_profile.vue:249",
+    "uniapp/bundle/pages/user_set/user_set.vue:138",
+    "uniapp/bundle/pages/user_set/user_set.vue:176"
+  ],
+  "设置密码成功": [
+    "uniapp/bundle/pages/user_profile/user_profile.vue:585",
+    "uniapp/bundle/pages/user_set/user_set.vue:490"
+  ],
+  "设置收货地址": [
+    "uniapp/components/address-item/address-item.vue:5"
+  ],
+  "评价商品": [
+    "uniapp/components/comment-list/comment-list.vue:49"
+  ],
+  "评价成功": [
+    "uniapp/bundle/pages/goods_reviews/goods_reviews.vue:161"
+  ],
+  "评价晒图": [
+    "uniapp/components/order-goods/order-goods.vue:97"
+  ],
+  "评分": [
+    "uniapp/components/comment-list/comment-list.vue:34"
+  ],
+  "该功能暂未开放": [
+    "uniapp/bundle/pages/contact_offical/contact_offical copy.vue:78"
+  ],
+  "该商品不支持快递配送": [
+    "uniapp/components/order-goods/order-goods.vue:82"
+  ],
+  "该商品不支持门店自提": [
+    "uniapp/components/order-goods/order-goods.vue:85"
+  ],
+  "该商品已下架或不存在，去逛逛别的吧~": [
+    "uniapp/pages/goods_details/goods_details.vue:412"
+  ],
+  "请上传收款码": [
+    "uniapp/bundle/pages/user_withdraw/user_withdraw.vue:341"
+  ],
+  "请先设置手机号": [
+    "uniapp/bundle/pages/user_profile/user_profile.vue:418",
+    "uniapp/bundle/pages/user_set/user_set.vue:325"
+  ],
+  "请先阅读并同意": [
+    "uniapp/pages/login/login.vue:413",
+    "uniapp/pages/register/register.vue:162"
+  ],
+  "请前往指定门店取货": [
+    "uniapp/pages/order_details/order_details.vue:62"
+  ],
+  "请在后台配置企业微信客服": [
+    "uniapp/bundle/pages/contact_offical/contact_offical.vue:195",
+    "uniapp/bundle/pages/contact_offical/contact_offical.vue:201"
+  ],
+  "请在后台配置客服电话号码": [
+    "uniapp/bundle/pages/contact_offical/contact_offical.vue:171"
+  ],
+  "请在微信环境内打开": [
+    "uniapp/bundle/pages/widthdraw_result/widthdraw_result.vue:206"
+  ],
+  "请填写小区、街道、门牌号等信息": [
+    "uniapp/pages/address_edit/address_edit.vue:174"
+  ],
+  "请填写快递单号": [
+    "uniapp/bundle/pages/input_express_info/input_express_info.vue:114"
+  ],
+  "请填写手机号": [
+    "uniapp/pages/forget_pwd/forget_pwd.vue:144",
+    "uniapp/pages/login/login.vue:606",
+    "uniapp/pages/register/register.vue:248"
+  ],
+  "请填写手机号信息～": [
+    "uniapp/pages/login/login.vue:685"
+  ],
+  "请填写手机号码": [
+    "uniapp/pages/address_edit/address_edit.vue:166"
+  ],
+  "请填写手机验证码": [
+    "uniapp/pages/login/login.vue:612"
+  ],
+  "请填写收货人姓名": [
+    "uniapp/pages/address_edit/address_edit.vue:162"
+  ],
+  "请填写正确的手机号信息": [
+    "uniapp/pages/forget_pwd/forget_pwd.vue:208",
+    "uniapp/pages/register/register.vue:300"
+  ],
+  "请填写物流公司名称": [
+    "uniapp/bundle/pages/input_express_info/input_express_info.vue:111"
+  ],
+  "请填写真实姓名": [
+    "uniapp/bundle/pages/user_spread/user_spread.vue:343"
+  ],
+  "请填写短信验证码": [
+    "uniapp/bundle/pages/user_profile/user_profile.vue:553",
+    "uniapp/bundle/pages/user_set/user_set.vue:458",
+    "uniapp/pages/forget_pwd/forget_pwd.vue:150"
+  ],
+  "请填写确认密码": [
+    "uniapp/bundle/pages/set_pay_pwd/set_pay_pwd.vue:83",
+    "uniapp/components/set-pay-pwd/set-pay-pwd.vue:102"
+  ],
+  "请填写转账密码": [
+    "uniapp/components/set-pay-pwd/set-pay-pwd.vue:96"
+  ],
+  "请填写重置密码": [
+    "uniapp/pages/forget_pwd/forget_pwd.vue:156"
+  ],
+  "请复制链接,粘贴至浏览器并支付": [
+    "uniapp/pages/payment/payment.vue:100"
+  ],
+  "请对商品进行评分": [
+    "uniapp/bundle/pages/goods_reviews/goods_reviews.vue:135"
+  ],
+  "请对描述相符进行评分": [
+    "uniapp/bundle/pages/goods_reviews/goods_reviews.vue:139"
+  ],
+  "请对服务态度进行评分": [
+    "uniapp/bundle/pages/goods_reviews/goods_reviews.vue:143"
+  ],
+  "请对配送服务进行评分": [
+    "uniapp/bundle/pages/goods_reviews/goods_reviews.vue:147"
+  ],
+  "请将二维码展示给店员或者提供数字核销码": [
+    "uniapp/pages/order_details/order_details.vue:319"
+  ],
+  "请添加头像": [
+    "uniapp/components/mplogin-popup/mplogin-popup.vue:110"
+  ],
+  "请绑定手机后再设置密码": [
+    "uniapp/bundle/pages/user_profile/user_profile.vue:539",
+    "uniapp/bundle/pages/user_set/user_set.vue:445"
+  ],
+  "请设置密码": [
+    "uniapp/pages/register/register.vue:252"
+  ],
+  "请输入原来的转账密码": [
+    "uniapp/bundle/pages/set_pay_pwd/set_pay_pwd.vue:70"
+  ],
+  "请输入图形验证码": [
+    "uniapp/bundle/pages/bind_phone/bind_phone.vue:118",
+    "uniapp/bundle/pages/forget_pay_pwd/forget_pay_pwd.vue:157",
+    "uniapp/bundle/pages/user_profile/user_profile.vue:429",
+    "uniapp/bundle/pages/user_set/user_set.vue:336",
+    "uniapp/pages/forget_pwd/forget_pwd.vue:217",
+    "uniapp/pages/login/login.vue:574",
+    "uniapp/pages/login/login.vue:691",
+    "uniapp/pages/register/register.vue:309"
+  ],
+  "请输入对方会员ID/手机号码": [
+    "uniapp/bundle/pages/balance_transfer/balance_transfer.vue:134"
+  ],
+  "请输入手机号": [
+    "uniapp/bundle/pages/bind_phone/bind_phone.vue:112"
+  ],
+  "请输入提现金额": [
+    "uniapp/bundle/pages/user_withdraw/user_withdraw.vue:361"
+  ],
+  "请输入提现银行": [
+    "uniapp/bundle/pages/user_withdraw/user_withdraw.vue:352"
+  ],
+  "请输入新密码": [
+    "uniapp/bundle/pages/user_profile/user_profile.vue:559",
+    "uniapp/bundle/pages/user_set/user_set.vue:464"
+  ],
+  "请输入新的手机号码": [
+    "uniapp/bundle/pages/bind_phone/bind_phone.vue:159",
+    "uniapp/bundle/pages/user_profile/user_profile.vue:485",
+    "uniapp/bundle/pages/user_set/user_set.vue:391"
+  ],
+  "请输入新的昵称": [
+    "uniapp/bundle/pages/user_profile/user_profile.vue:379",
+    "uniapp/bundle/pages/user_set/user_set.vue:286"
+  ],
+  "请输入新的转账密码": [
+    "uniapp/bundle/pages/forget_pay_pwd/forget_pay_pwd.vue:112",
+    "uniapp/bundle/pages/set_pay_pwd/set_pay_pwd.vue:77"
+  ],
+  "请输入昵称": [
+    "uniapp/components/mplogin-popup/mplogin-popup.vue:113"
+  ],
+  "请输入核销码": [
+    "uniapp/bundle/pages/writeoff_order/writeoff_order.vue:114"
+  ],
+  "请输入真实姓名": [
+    "uniapp/bundle/pages/user_withdraw/user_withdraw.vue:338",
+    "uniapp/bundle/pages/user_withdraw/user_withdraw.vue:349"
+  ],
+  "请输入确认密码": [
+    "uniapp/bundle/pages/forget_pay_pwd/forget_pay_pwd.vue:118"
+  ],
+  "请输入账户信息": [
+    "uniapp/bundle/pages/user_withdraw/user_withdraw.vue:335",
+    "uniapp/bundle/pages/user_withdraw/user_withdraw.vue:346"
+  ],
+  "请输入转账金额": [
+    "uniapp/bundle/pages/balance_transfer/balance_transfer.vue:138"
+  ],
+  "请输入银行支行": [
+    "uniapp/bundle/pages/user_withdraw/user_withdraw.vue:355"
+  ],
+  "请输入长度为4-8位的密码": [
+    "uniapp/bundle/pages/forget_pay_pwd/forget_pay_pwd.vue:131",
+    "uniapp/bundle/pages/set_pay_pwd/set_pay_pwd.vue:95",
+    "uniapp/components/set-pay-pwd/set-pay-pwd.vue:114"
+  ],
+  "请输入验证码": [
+    "uniapp/bundle/pages/bind_phone/bind_phone.vue:153",
+    "uniapp/bundle/pages/forget_pay_pwd/forget_pay_pwd.vue:106",
+    "uniapp/bundle/pages/user_profile/user_profile.vue:479",
+    "uniapp/bundle/pages/user_set/user_set.vue:385"
+  ],
+  "请选择": [
+    "uniapp/bundle/pages/apply_refund/apply_refund.vue:67",
+    "uniapp/components/spec-popup/spec-popup.vue:113",
+    "uniapp/components/spec-popup/spec-popup.vue:302",
+    "uniapp/components/spec-popup/spec-popup.vue:73"
+  ],
+  "请选择 {spec}": [
+    "uniapp/components/spec-popup/spec-popup.vue:227"
+  ],
+  "请选择商品规格": [
+    "uniapp/bundle/pages/bargain_process/bargain_process.vue:371",
+    "uniapp/bundle/pages/bargain_process/bargain_process.vue:53"
+  ],
+  "请选择收货地址": [
+    "uniapp/pages/confirm_order/confirm_order.vue:55"
+  ],
+  "请选择省、市、区": [
+    "uniapp/pages/address_edit/address_edit.vue:170"
+  ],
+  "请选择省市区": [
+    "uniapp/bundle/pages/user_spread/user_spread.vue:350"
+  ],
+  "请选择退款原因": [
+    "uniapp/bundle/pages/apply_refund/apply_refund.vue:219",
+    "uniapp/bundle/pages/apply_refund/apply_refund.vue:260"
+  ],
+  "请选择门店地址": [
+    "uniapp/pages/confirm_order/confirm_order.vue:87"
+  ],
+  "账号登录": [
+    "uniapp/pages/login/login.vue:188",
+    "uniapp/pages/login/login.vue:383"
+  ],
+  "账户充值": [
+    "uniapp/bundle/pages/user_payment/user_payment.vue:88"
+  ],
+  "账户明细": [
+    "uniapp/bundle/pages/user_wallet/user_wallet.vue:29"
+  ],
+  "购物车": [
+    "uniapp/components/navbar/navbar.vue:67",
+    "uniapp/pages/goods_details/goods_details.vue:389"
+  ],
+  "购物车暂无任何商品~": [
+    "uniapp/pages/shop_cart/shop_cart.vue:90"
+  ],
+  "资讯详情": [
+    "uniapp/pages/news_details/news_details.vue:72"
+  ],
+  "赚积分": [
+    "uniapp/bundle/pages/user_sign/user_sign.vue:44"
+  ],
+  "起": [
+    "uniapp/pages/goods_details/goods_details.vue:109",
+    "uniapp/pages/goods_details/goods_details.vue:75"
+  ],
+  "超值秒杀": [
+    "uniapp/pages/index/index.vue:167"
+  ],
+  "距离活动结束": [
+    "uniapp/pages/goods_details/goods_details.vue:47",
+    "uniapp/pages/goods_details/goods_details.vue:80"
+  ],
+  "距离结束": [
+    "uniapp/components/group-list/group-list.vue:9"
+  ],
+  "转账": [
+    "uniapp/bundle/pages/balance_transfer/balance_transfer.vue:28"
+  ],
+  "转账密码": [
+    "uniapp/bundle/pages/forget_pay_pwd/forget_pay_pwd.vue:40",
+    "uniapp/bundle/pages/set_pay_pwd/set_pay_pwd.vue:14",
+    "uniapp/bundle/pages/user_profile/user_profile.vue:71"
+  ],
+  "转账记录": [
+    "uniapp/bundle/pages/user_wallet/user_wallet.vue:34"
+  ],
+  "转账金额": [
+    "uniapp/bundle/pages/balance_transfer/balance_transfer.vue:12"
+  ],
+  "运费": [
+    "uniapp/pages/confirm_order/confirm_order.vue:196",
+    "uniapp/pages/order_details/order_details.vue:170"
+  ],
+  "返回核销列表": [
+    "uniapp/bundle/pages/writeoff_detail/writeoff_detail.vue:17",
+    "uniapp/bundle/pages/writeoff_detail/writeoff_detail.vue:27"
+  ],
+  "返回首页": [
+    "uniapp/bundle/pages/widthdraw_result/widthdraw_result.vue:65",
+    "uniapp/pages/pay_result/pay_result.vue:61"
+  ],
+  "进入领券中心": [
+    "uniapp/components/home-coupon/home-coupon.vue:24"
+  ],
+  "退出成功": [
+    "uniapp/bundle/pages/user_profile/user_profile.vue:394",
+    "uniapp/bundle/pages/user_set/user_set.vue:301"
+  ],
+  "退出登录": [
+    "uniapp/bundle/pages/user_profile/user_profile.vue:117"
+  ],
+  "退款/售后": [
+    "uniapp/pages/user/user.vue:166"
+  ],
+  "退款原因": [
+    "uniapp/bundle/pages/apply_refund/apply_refund.vue:107",
+    "uniapp/bundle/pages/apply_refund/apply_refund.vue:64"
+  ],
+  "退款原因：": [
+    "uniapp/bundle/pages/after_sales_detail/after_sales_detail.vue:62"
+  ],
+  "退款方式：": [
+    "uniapp/bundle/pages/after_sales_detail/after_sales_detail.vue:58"
+  ],
+  "退款编号：": [
+    "uniapp/bundle/pages/after_sales_detail/after_sales_detail.vue:70"
+  ],
+  "退款退货": [
+    "uniapp/bundle/pages/after_sales_detail/after_sales_detail.vue:59"
+  ],
+  "退款金额": [
+    "uniapp/bundle/pages/apply_refund/apply_refund.vue:50",
+    "uniapp/components/after-sales-list/after-sales-list.vue:126",
+    "uniapp/components/after-sales-list/after-sales-list.vue:210"
+  ],
+  "退款金额：": [
+    "uniapp/bundle/pages/after_sales_detail/after_sales_detail.vue:66"
+  ],
+  "退货地址：": [
+    "uniapp/bundle/pages/after_sales_detail/after_sales_detail.vue:26"
+  ],
+  "退货退款": [
+    "uniapp/bundle/pages/apply_refund/apply_refund.vue:35"
+  ],
+  "选择": [
+    "uniapp/pages/shop_cart/shop_cart.vue:22"
+  ],
+  "通讯录": [
+    "uniapp/utils/permission.js:138"
+  ],
+  "通讯录权限已经开启": [
+    "uniapp/utils/permission.js:131"
+  ],
+  "通讯录权限没有开启": [
+    "uniapp/utils/permission.js:133"
+  ],
+  "通讯录读取": [
+    "uniapp/utils/permission.js:272"
+  ],
+  "邀请好友帮忙砍价 —— 砍至": [
+    "uniapp/bundle/pages/bargain_process/bargain_process.vue:87"
+  ],
+  "邀请好友帮砍": [
+    "uniapp/bundle/pages/bargain_process/bargain_process.vue:303"
+  ],
+  "邀请码：": [
+    "uniapp/bundle/pages/user_spread/user_spread.vue:167"
+  ],
+  "配送服务": [
+    "uniapp/bundle/pages/goods_reviews/goods_reviews.vue:31"
+  ],
+  "重新申请": [
+    "uniapp/bundle/pages/after_sales_detail/after_sales_detail.vue:90",
+    "uniapp/bundle/pages/user_spread/user_spread.vue:91"
+  ],
+  "金额排序": [
+    "uniapp/bundle/pages/user_fans/user_fans.vue:28"
+  ],
+  "银行卡账号": [
+    "uniapp/bundle/pages/user_withdraw/user_withdraw.vue:126"
+  ],
+  "银行支行": [
+    "uniapp/bundle/pages/user_withdraw/user_withdraw.vue:138"
+  ],
+  "销量": [
+    "uniapp/components/cate-four/cate-four.vue:95",
+    "uniapp/components/cate-list/cate-list.vue:37",
+    "uniapp/pages/goods_search/goods_search.vue:20"
+  ],
+  "长按保存到相册": [
+    "uniapp/bundle/pages/invite_fans/invite_fans.vue:25"
+  ],
+  "长按图片保存": [
+    "uniapp/bundle/pages/contact_offical/contact_offical.vue:149"
+  ],
+  "门店自提": [
+    "uniapp/pages/confirm_order/confirm_order.vue:301"
+  ],
+  "限时秒杀": [
+    "uniapp/pages/goods_details/goods_details.vue:23"
+  ],
+  "隐私政策": [
+    "uniapp/bundle/pages/server_explan/server_explan.vue:52",
+    "uniapp/bundle/pages/user_profile/user_profile.vue:105"
+  ],
+  "隐私政策概要": [
+    "uniapp/components/privacy-popup/privacy-popup.vue:20"
+  ],
+  "需": [
+    "uniapp/pages/order_details/order_details.vue:192"
+  ],
+  "非小程序端暂不支持直播~": [
+    "uniapp/bundle/pages/live_broadcast/live_broadcast.vue:36"
+  ],
+  "页面参数有误": [
+    "uniapp/pages/payment/payment.vue:322"
+  ],
+  "须同意后才可继续使用": [
+    "uniapp/components/privacy-popup/privacy-popup.vue:70"
+  ],
+  "预估收入": [
+    "uniapp/bundle/pages/user_spread_month_bill/user_spread_month_bill.vue:10"
+  ],
+  "领券": [
+    "uniapp/pages/goods_details/goods_details.vue:177",
+    "uniapp/pages/goods_details/goods_details.vue:452"
+  ],
+  "领取": [
+    "uniapp/components/coupon-list/coupon-list.vue:102"
+  ],
+  "首页": [
+    "uniapp/components/navbar/navbar.vue:57"
+  ],
+  "验证码": [
+    "uniapp/bundle/pages/forget_pay_pwd/forget_pay_pwd.vue:19",
+    "uniapp/bundle/pages/user_profile/user_profile.vue:151",
+    "uniapp/bundle/pages/user_profile/user_profile.vue:231",
+    "uniapp/bundle/pages/user_set/user_set.vue:158",
+    "uniapp/bundle/pages/user_set/user_set.vue:78"
+  ],
+  "麦克风": [
+    "uniapp/utils/permission.js:260",
+    "uniapp/utils/permission.js:82"
+  ],
+  "麦克风权限已经开启": [
+    "uniapp/utils/permission.js:77"
+  ],
+  "麦克风权限没有开启": [
+    "uniapp/utils/permission.js:74"
+  ],
+  "默认": [
+    "uniapp/pages/goods_details/goods_details.vue:308"
+  ],
+  "（选填，最多可上传1张）": [
+    "uniapp/bundle/pages/apply_refund/apply_refund.vue:88"
+  ],
+  "，满": [
+    "uniapp/pages/confirm_order/confirm_order.vue:167"
+  ]
+}

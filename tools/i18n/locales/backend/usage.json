@@ -1,0 +1,5711 @@
+{
+  " 手机:": [
+    "server/application/admin/logic/UserLogic.php:205"
+  ],
+  " 数量:": [
+    "server/application/admin/logic/OrderLogic.php:272",
+    "server/application/admin/logic/VerificationLogic.php:222"
+  ],
+  " 的体积必须大于0": [
+    "server/application/admin/validate/GoodsMoreSpecLists.php:74"
+  ],
+  " 的重量必须大于0": [
+    "server/application/admin/validate/GoodsMoreSpecLists.php:69"
+  ],
+  " 等级:": [
+    "server/application/admin/logic/UserLogic.php:205"
+  ],
+  " 编号:": [
+    "server/application/admin/logic/UserLogic.php:205"
+  ],
+  " 规格:": [
+    "server/application/admin/logic/OrderLogic.php:272",
+    "server/application/admin/logic/VerificationLogic.php:222"
+  ],
+  ")级": [
+    "server/application/common/model/DistributionLevel.php:52"
+  ],
+  ",单次抵扣积分不能低于": [
+    "server/application/common/logic/IntegralLogic.php:230"
+  ],
+  "1.使用余额充值，每元赠送": [
+    "server/application/api/logic/UserLevelLogic.php:111"
+  ],
+  "1小时前": [
+    "server/application/common/model/FootprintRecord.php:52"
+  ],
+  "7天无理由退换货": [
+    "server/application/common/model/AfterSale.php:92"
+  ],
+  ":多次输入错误": [
+    "server/application/admin/validate/Login.php:76",
+    "server/application/api/validate/Login.php:129"
+  ],
+  "<FS2>商品信息</FS2>": [
+    "server/application/common/server/YlyPrinter.php:173"
+  ],
+  "<FS2>收货信息</FS2>": [
+    "server/application/common/server/YlyPrinter.php:164"
+  ],
+  "<FS2>自提信息</FS2>": [
+    "server/application/common/server/YlyPrinter.php:157"
+  ],
+  "APP商城": [
+    "server/application/admin/logic/ServiceConfigLogic.php:53"
+  ],
+  "FROM_UNIXTIME(d.create_time,'%Y年%m月') as date": [
+    "server/application/api/logic/DistributionLogic.php:380"
+  ],
+  "H5商城": [
+    "server/application/admin/logic/ServiceConfigLogic.php:43"
+  ],
+  "ID不可为空": [
+    "server/application/admin/validate/Bargain.php:45"
+  ],
+  "ID必须为数字": [
+    "server/application/admin/validate/Bargain.php:46"
+  ],
+  "LikeShop管理后台": [
+    "server/application/admin/config/project.php:28"
+  ],
+  "PC商城": [
+    "server/application/admin/logic/ServiceConfigLogic.php:48"
+  ],
+  "SKU最低价": [
+    "server/application/admin/logic/GoodsLogic.php:218"
+  ],
+  "SKU最高价": [
+    "server/application/admin/logic/GoodsLogic.php:218"
+  ],
+  "address|详细地址": [
+    "server/application/admin/validate/SelffetchShop.php:37"
+  ],
+  "apiclient_cert或apiclient_key不能为空": [
+    "server/application/admin/controller/PayConfig.php:77"
+  ],
+  "business_end_time|营业结束时段": [
+    "server/application/admin/validate/SelffetchShop.php:41"
+  ],
+  "business_start_time|营业开始时段": [
+    "server/application/admin/validate/SelffetchShop.php:40"
+  ],
+  "change_type|参数缺失": [
+    "server/application/admin/validate/DistributionMember.php:31"
+  ],
+  "contact|联系人": [
+    "server/application/admin/validate/SelffetchShop.php:32"
+  ],
+  "end_time|结束时间": [
+    "server/application/admin/controller/AfterSale.php:42"
+  ],
+  "h5商城": [
+    "server/application/common/model/Client_.php:59"
+  ],
+  "id|参数缺失": [
+    "server/application/admin/validate/DistributionMember.php:28"
+  ],
+  "id不可为空": [
+    "server/application/admin/validate/Ad.php:38",
+    "server/application/admin/validate/Article.php:34",
+    "server/application/admin/validate/ArticleCategory.php:34",
+    "server/application/admin/validate/FileCate.php:36",
+    "server/application/admin/validate/GoodsCategory.php:37",
+    "server/application/admin/validate/Help.php:35",
+    "server/application/admin/validate/HelpCategory.php:34",
+    "server/application/admin/validate/LuckDraw.php:37"
+  ],
+  "id不能为空": [
+    "server/application/admin/validate/AdPosition.php:36",
+    "server/application/admin/validate/AdPosition.php:37",
+    "server/application/api/validate/UserAddress.php:40"
+  ],
+  "id参数错误": [
+    "server/application/api/validate/UserAddress.php:41"
+  ],
+  "image|门店LOGO": [
+    "server/application/admin/validate/SelffetchShop.php:31"
+  ],
+  "invoice_no|快递单号": [
+    "server/application/admin/validate/Order.php:34"
+  ],
+  "keyword|关键词": [
+    "server/application/admin/controller/AfterSale.php:40"
+  ],
+  "latitude|请在地图上标记地址": [
+    "server/application/admin/validate/SelffetchShop.php:39"
+  ],
+  "limit|每页数量": [
+    "server/application/admin/controller/AfterSale.php:44"
+  ],
+  "longitude|请在地图上标记地址": [
+    "server/application/admin/validate/SelffetchShop.php:38"
+  ],
+  "mobile|联系电话": [
+    "server/application/admin/validate/SelffetchShop.php:33",
+    "server/application/admin/validate/SelffetchVerifier.php:33"
+  ],
+  "name|核销员名称": [
+    "server/application/admin/validate/SelffetchVerifier.php:30"
+  ],
+  "name|门店名称": [
+    "server/application/admin/validate/SelffetchShop.php:30"
+  ],
+  "order_id|参数缺失": [
+    "server/application/admin/validate/Order.php:31"
+  ],
+  "page|页码": [
+    "server/application/admin/controller/AfterSale.php:43"
+  ],
+  "pc商城": [
+    "server/application/common/model/Client_.php:58"
+  ],
+  "pc端商城": [
+    "server/application/common/model/Ad.php:30"
+  ],
+  "province|门店地址": [
+    "server/application/admin/validate/SelffetchShop.php:34"
+  ],
+  "search_key|搜索类型": [
+    "server/application/admin/controller/AfterSale.php:39"
+  ],
+  "selffetch_shop_id|自提门店": [
+    "server/application/admin/validate/SelffetchVerifier.php:32"
+  ],
+  "send_type|请选择配送方式": [
+    "server/application/admin/validate/Order.php:32"
+  ],
+  "shipping_id|请选择快递": [
+    "server/application/admin/validate/Order.php:33"
+  ],
+  "start_time|开始时间": [
+    "server/application/admin/controller/AfterSale.php:41"
+  ],
+  "status|核销员状态": [
+    "server/application/admin/validate/SelffetchVerifier.php:34"
+  ],
+  "status|状态": [
+    "server/application/admin/controller/AfterSale.php:38"
+  ],
+  "status|门店状态": [
+    "server/application/admin/validate/SelffetchShop.php:43"
+  ],
+  "type|参数缺失": [
+    "server/application/admin/validate/DistributionMember.php:29"
+  ],
+  "type|售后状态": [
+    "server/application/admin/controller/AfterSale.php:37"
+  ],
+  "url不能为空": [
+    "server/application/api/validate/MakeMnQrcode.php:37"
+  ],
+  "user_id|参数缺失": [
+    "server/application/admin/validate/DistributionMember.php:30"
+  ],
+  "user_id|用户昵称": [
+    "server/application/admin/validate/SelffetchVerifier.php:31"
+  ],
+  "weekdays|营业周天": [
+    "server/application/admin/validate/SelffetchShop.php:42"
+  ],
+  "【昵称:": [
+    "server/application/admin/logic/UserLogic.php:205"
+  ],
+  "一个商户默认同一日付款总额限额10万元": [
+    "server/application/admin/logic/WechatMerchantTransferLogic.php:81"
+  ],
+  "一天一个用户累计提现金额(不算手续费)不能超过5000元": [
+    "server/application/admin/logic/WechatCorporatePaymentLogic.php:84"
+  ],
+  "一级佣金比例须在0-100之间": [
+    "server/application/admin/validate/DistributionLevelValidate.php:48"
+  ],
+  "七牛云存储": [
+    "server/application/admin/controller/StorageConfig.php:45"
+  ],
+  "上传": [
+    "server/application/admin/controller/FileNew.php:46"
+  ],
+  "上传图片": [
+    "server/application/admin/controller/FileNew.php:43"
+  ],
+  "上传图片不允许上传{$ext}文件": [
+    "server/application/common/server/FileServer.php:125"
+  ],
+  "上传失败": [
+    "server/application/common/server/FileServer.php:242"
+  ],
+  "上传成功": [
+    "server/application/admin/controller/LiveGoods.php:95",
+    "server/application/admin/controller/LiveRoom.php:122"
+  ],
+  "上传文件不能为空": [
+    "server/application/admin/validate/DeliveryBatchImport.php:12"
+  ],
+  "上传文件失败:": [
+    "server/application/common/server/FileServer.php:152",
+    "server/application/common/server/FileServer.php:209",
+    "server/application/common/server/FileServer.php:262",
+    "server/application/common/server/FileServer.php:352",
+    "server/application/common/server/FileServer.php:88"
+  ],
+  "上传文件成功": [
+    "server/application/common/server/FileServer.php:148",
+    "server/application/common/server/FileServer.php:205",
+    "server/application/common/server/FileServer.php:258",
+    "server/application/common/server/FileServer.php:347",
+    "server/application/common/server/FileServer.php:84"
+  ],
+  "上传目录不合法": [
+    "server/application/admin/controller/File.php:93"
+  ],
+  "上传视频": [
+    "server/application/admin/controller/FileNew.php:40"
+  ],
+  "上传视频不允许上传{$ext}文件": [
+    "server/application/common/server/FileServer.php:188"
+  ],
+  "上传视频失败:": [
+    "server/application/common/server/FileServer.php:407"
+  ],
+  "上传视频成功": [
+    "server/application/common/server/FileServer.php:403"
+  ],
+  "上架": [
+    "server/application/admin/logic/ActivityAreaLogic.php:39",
+    "server/application/admin/logic/ActivityAreaLogic.php:84",
+    "server/application/common/model/Goods.php:41"
+  ],
+  "上架失败": [
+    "server/application/admin/controller/Goods.php:335",
+    "server/application/admin/logic/GoodsLogic.php:842",
+    "server/application/admin/logic/GoodsLogic.php:844"
+  ],
+  "上架成功": [
+    "server/application/admin/controller/Goods.php:333"
+  ],
+  "上级分类不能为自身或自己的子分类": [
+    "server/application/admin/logic/FileNewLogic.php:123"
+  ],
+  "上级分类不能是自己": [
+    "server/application/admin/validate/FileCate.php:100"
+  ],
+  "上级推荐人不能是自己": [
+    "server/application/admin/validate/DistributionMember.php:83"
+  ],
+  "上门自提": [
+    "server/application/common/model/Order.php:88"
+  ],
+  "下单任意商品": [
+    "server/application/api/logic/SignLogic.php:136"
+  ],
+  "下单失败,超出限制时间": [
+    "server/application/api/logic/OrderLogic.php:563"
+  ],
+  "下单扣减余额": [
+    "server/application/common/model/AccountLog.php:100"
+  ],
+  "下单时间": [
+    "server/application/admin/logic/OrderLogic.php:261",
+    "server/application/admin/logic/VerificationLogic.php:205"
+  ],
+  "下单时间：": [
+    "server/application/common/server/YlyPrinter.php:152"
+  ],
+  "下单积分抵扣": [
+    "server/application/common/model/AccountLog.php:93"
+  ],
+  "下单结算": [
+    "server/application/common/model/Footprint.php:49"
+  ],
+  "下单赠送成长值": [
+    "server/application/admin/logic/AccountLogLogic.php:153",
+    "server/application/common/model/AccountLog.php:113"
+  ],
+  "下单赠送积分": [
+    "server/application/common/model/AccountLog.php:92"
+  ],
+  "下架": [
+    "server/application/admin/logic/ActivityAreaLogic.php:38",
+    "server/application/admin/logic/ActivityAreaLogic.php:80",
+    "server/application/common/model/Goods.php:42"
+  ],
+  "下架成功": [
+    "server/application/admin/controller/Goods.php:317"
+  ],
+  "不允许填写负数": [
+    "server/application/admin/logic/DistributionSettingLogic.php:44"
+  ],
+  "不可使用": [
+    "server/application/admin/validate/Coupon.php:77",
+    "server/application/common/validate/Coupon.php:92"
+  ],
+  "不可大于当前时间": [
+    "server/application/admin/validate/CommentHelper.php:52"
+  ],
+  "不可用": [
+    "server/application/api/logic/CouponLogic.php:225"
+  ],
+  "不喜欢/不想要": [
+    "server/application/common/model/AfterSale.php:99"
+  ],
+  "不在售后时间内": [
+    "server/application/api/validate/AfterSale.php:169"
+  ],
+  "不在活动时间内或活动已结束": [
+    "server/application/api/validate/Team.php:76"
+  ],
+  "不是待提现申请单": [
+    "server/application/admin/logic/WithdrawLogic.php:121"
+  ],
+  "不是提现中的微信零钱申请单，无法查询": [
+    "server/application/admin/logic/WithdrawLogic.php:312"
+  ],
+  "不是有效的图像文件": [
+    "server/application/admin/controller/LiveRoom.php:111",
+    "server/application/common/server/FileServer.php:119",
+    "server/application/common/server/FileServer.php:56"
+  ],
+  "不是有效的视频文件": [
+    "server/application/common/server/FileServer.php:182",
+    "server/application/common/server/FileServer.php:379"
+  ],
+  "不是自提订单，不允许提货": [
+    "server/application/api/logic/OrderLogic.php:1438"
+  ],
+  "不是自提订单，不允许核销": [
+    "server/application/api/validate/Order.php:231"
+  ],
+  "不能助力自己的砍价活动": [
+    "server/application/api/validate/Bargain.php:122"
+  ],
+  "不能填写自己下级的邀请码": [
+    "server/application/api/validate/DistributionCode.php:84"
+  ],
+  "不能填自己的邀请码": [
+    "server/application/api/validate/DistributionCode.php:71"
+  ],
+  "不能循环推荐": [
+    "server/application/admin/validate/DistributionMember.php:92"
+  ],
+  "不能指定上级是自己": [
+    "server/application/admin/logic/UserLogic.php:721"
+  ],
+  "不能指定推荐人为自己的下级": [
+    "server/application/admin/logic/UserLogic.php:725"
+  ],
+  "不能自己转账给自己": [
+    "server/application/api/logic/UserLogic.php:427"
+  ],
+  "不限制数量": [
+    "server/application/admin/model/Coupon.php:144"
+  ],
+  "不限制领取次数": [
+    "server/application/admin/model/Coupon.php:152"
+  ],
+  "两次密码输入不一致": [
+    "server/application/admin/validate/Admin.php:45",
+    "server/application/admin/validate/Admin.php:46",
+    "server/application/admin/validate/Password.php:38",
+    "server/application/api/validate/LoginPassword.php:42"
+  ],
+  "个SKU规格值超过了64个字符": [
+    "server/application/admin/controller/Goods.php:118"
+  ],
+  "个人中心": [
+    "server/application/common/model/Ad.php:114",
+    "server/application/common/model/Ad.php:52"
+  ],
+  "中奖概率合计不能大于100%": [
+    "server/application/admin/logic/LuckDrawLogic.php:185"
+  ],
+  "中评": [
+    "server/application/admin/logic/GoodsCommentLogic.php:133",
+    "server/application/api/logic/GoodsCommentLogic.php:232"
+  ],
+  "二级佣金比例须在0-100之间": [
+    "server/application/admin/validate/DistributionLevelValidate.php:50"
+  ],
+  "交易完成": [
+    "server/application/api/logic/OrderLogic.php:1200",
+    "server/application/api/logic/OrderLogic.php:1252"
+  ],
+  "人": [
+    "server/application/common/model/UserTask.php:71",
+    "server/application/common/model/UserTask.php:79"
+  ],
+  "仅能添加二级分类": [
+    "server/application/admin/validate/FileCate.php:75",
+    "server/application/admin/validate/FileCate.php:96"
+  ],
+  "仅退款": [
+    "server/application/common/model/AfterSale.php:78"
+  ],
+  "今天抽奖次数已用完": [
+    "server/application/api/validate/Luckdraw.php:67"
+  ],
+  "件": [
+    "server/application/common/logic/PayNotifyLogic.php:137"
+  ],
+  "件)\\n": [
+    "server/application/admin/logic/FaceSheetOrderLogic.php:203"
+  ],
+  "价格不合法": [
+    "server/application/admin/validate/LiveGoods.php:53",
+    "server/application/admin/validate/LiveGoods.php:60",
+    "server/application/admin/validate/LiveGoods.php:65"
+  ],
+  "价格必须大于或等于0.01": [
+    "server/application/admin/validate/GoodsMoreSpecLists.php:43",
+    "server/application/admin/validate/GoodsOneSpec.php:43"
+  ],
+  "价格输入不合规": [
+    "server/application/admin/logic/LiveGoodsLogic.php:226"
+  ],
+  "价格：": [
+    "server/application/admin/logic/AdLogic.php:88"
+  ],
+  "任意金额": [
+    "server/application/admin/logic/BargainLogic.php:477"
+  ],
+  "企业ID": [
+    "server/application/admin/logic/ServiceConfigLogic.php:85"
+  ],
+  "企业客服链接": [
+    "server/application/admin/logic/ServiceConfigLogic.php:86"
+  ],
+  "企业微信客服": [
+    "server/application/admin/logic/ServiceConfigLogic.php:72"
+  ],
+  "优化:": [
+    "server/application/admin/logic/UpgradeLogic.php:122"
+  ],
+  "优惠券": [
+    "server/application/api/logic/LuckdrawLogic.php:445",
+    "server/application/common/behavior/Footprint.php:72",
+    "server/application/common/model/Luckdraw.php:73"
+  ],
+  "优惠券不在使用时间范围内": [
+    "server/application/api/logic/CouponLogic.php:389",
+    "server/application/api/logic/CouponLogic.php:397",
+    "server/application/api/validate/Order.php:105",
+    "server/application/api/validate/Order.php:97"
+  ],
+  "优惠券不存在": [
+    "server/application/api/validate/Order.php:90"
+  ],
+  "优惠券信息错误": [
+    "server/application/admin/validate/SendCoupon.php:42"
+  ],
+  "优惠券关闭失败，请重新关闭": [
+    "server/application/admin/controller/Coupon.php:124"
+  ],
+  "优惠券关闭成功": [
+    "server/application/admin/controller/Coupon.php:122"
+  ],
+  "优惠券发放总数量,超出库存数量,不能发放": [
+    "server/application/api/logic/LuckdrawLogic.php:355"
+  ],
+  "优惠券名称长度最多16个字符": [
+    "server/application/admin/validate/Coupon.php:48",
+    "server/application/common/validate/Coupon.php:51"
+  ],
+  "优惠券已下架": [
+    "server/application/api/validate/GetCoupon.php:34"
+  ],
+  "优惠券已失效，不能发放": [
+    "server/application/api/logic/LuckdrawLogic.php:350"
+  ],
+  "优惠券已领完": [
+    "server/application/api/validate/GetCoupon.php:45"
+  ],
+  "优惠券面额必须大于零": [
+    "server/application/admin/validate/Coupon.php:52",
+    "server/application/common/validate/Coupon.php:55"
+  ],
+  "优惠金额": [
+    "server/application/admin/logic/OrderLogic.php:261",
+    "server/application/admin/logic/VerificationLogic.php:208"
+  ],
+  "优惠：￥": [
+    "server/application/common/server/YlyPrinter.php:185"
+  ],
+  "会员": [
+    "server/application/common/model/Verification.php:38"
+  ],
+  "会员中心": [
+    "server/application/common/model/Ad.php:62",
+    "server/application/common/model/Menu_.php:104"
+  ],
+  "会员分组": [
+    "server/application/admin/logic/UserLogic.php:212"
+  ],
+  "会员列表": [
+    "server/application/admin/logic/UserLogic.php:214"
+  ],
+  "会员删除订单": [
+    "server/application/common/model/OrderLog.php:55"
+  ],
+  "会员发起售后退款通知": [
+    "server/application/common/model/NoticeSetting.php:165"
+  ],
+  "会员取消订单": [
+    "server/application/common/model/OrderLog.php:54"
+  ],
+  "会员填写退货物流信息": [
+    "server/application/common/model/AfterSaleLog.php:49"
+  ],
+  "会员提交订单": [
+    "server/application/common/model/OrderLog.php:53"
+  ],
+  "会员提货核销": [
+    "server/application/common/model/OrderLog.php:58"
+  ],
+  "会员撤销售后申请": [
+    "server/application/common/model/AfterSaleLog.php:50"
+  ],
+  "会员支付下单通知平台": [
+    "server/application/common/model/NoticeSetting.php:164"
+  ],
+  "会员支付订单": [
+    "server/application/common/model/OrderLog.php:57"
+  ],
+  "会员昵称": [
+    "server/application/admin/logic/OrderLogic.php:261",
+    "server/application/admin/logic/UserLogic.php:212",
+    "server/application/admin/logic/VerificationLogic.php:206"
+  ],
+  "会员权益信息错误": [
+    "server/application/admin/validate/UserLevel.php:63"
+  ],
+  "会员权益已关联": [
+    "server/application/admin/validate/UserPrivilege.php:51"
+  ],
+  "会员每天签到，赠送": [
+    "server/application/api/logic/UserLevelLogic.php:116"
+  ],
+  "会员申请退款": [
+    "server/application/common/model/AfterSaleLog.php:48"
+  ],
+  "会员确认收货": [
+    "server/application/common/model/OrderLog.php:56"
+  ],
+  "会员等级": [
+    "server/application/admin/logic/OrderLogic.php:261",
+    "server/application/admin/logic/UserLogic.php:212",
+    "server/application/admin/logic/VerificationLogic.php:206"
+  ],
+  "会员等级，请解除关联后再删除": [
+    "server/application/admin/validate/UserPrivilege.php:51"
+  ],
+  "会员编号": [
+    "server/application/admin/logic/OrderLogic.php:261",
+    "server/application/admin/logic/UserLogic.php:212",
+    "server/application/admin/logic/VerificationLogic.php:206"
+  ],
+  "会员转账(支出方)": [
+    "server/application/common/model/AccountLog.php:112"
+  ],
+  "会员转账(收入方)": [
+    "server/application/common/model/AccountLog.php:111"
+  ],
+  "会员转账支出": [
+    "server/application/api/logic/UserLogic.php:441"
+  ],
+  "会员转账收入": [
+    "server/application/api/logic/UserLogic.php:445"
+  ],
+  "会员连续签到": [
+    "server/application/api/logic/UserLevelLogic.php:119"
+  ],
+  "会员重新提交申请": [
+    "server/application/common/model/AfterSaleLog.php:51"
+  ],
+  "会话失效，请重新登录": [
+    "server/application/api/validate/Token.php:48"
+  ],
+  "体积必须为大于或等于0": [
+    "server/application/admin/validate/GoodsOneSpec.php:37"
+  ],
+  "体积必须大于或等于0": [
+    "server/application/admin/validate/GoodsMoreSpecLists.php:37"
+  ],
+  "余额": [
+    "server/application/common/model/Luckdraw.php:74"
+  ],
+  "余额不足": [
+    "server/application/api/logic/UserLogic.php:411",
+    "server/application/common/logic/PaymentLogic.php:152",
+    "server/application/common/server/BalancePayServer.php:35"
+  ],
+  "余额充值": [
+    "server/application/common/server/WechatMiniExpressSendSyncServer.php:168"
+  ],
+  "余额备注不能超过100字": [
+    "server/application/admin/validate/AdjustAccount.php:37"
+  ],
+  "余额支付": [
+    "server/application/common/model/Pay.php:68"
+  ],
+  "你已参加该团，无法再次参加了！": [
+    "server/application/api/validate/Team.php:113"
+  ],
+  "佣金备注不能超过100字": [
+    "server/application/admin/validate/AdjustAccount.php:40"
+  ],
+  "佣金提现": [
+    "server/application/admin/logic/AccountLogLogic.php:107",
+    "server/application/admin/logic/WechatCorporatePaymentLogic.php:113",
+    "server/application/common/model/AccountLog.php:103"
+  ],
+  "使用场景类型错误": [
+    "server/application/common/validate/Coupon.php:57"
+  ],
+  "使用门槛类型错误": [
+    "server/application/admin/validate/Coupon.php:56",
+    "server/application/common/validate/Coupon.php:63"
+  ],
+  "供货商名称不能为空": [
+    "server/application/admin/validate/Supplier.php:31"
+  ],
+  "保存失败": [
+    "server/application/admin/controller/Order.php:181"
+  ],
+  "保存成功": [
+    "server/application/admin/controller/Order.php:179",
+    "server/application/admin/controller/SignDaily.php:144",
+    "server/application/admin/controller/SiteStatistic.php:13",
+    "server/application/admin/controller/User.php:122",
+    "server/application/admin/controller/UserSetting.php:52",
+    "server/application/api/controller/Pc.php:66"
+  ],
+  "信息获取错误": [
+    "server/application/api/controller/Recharge.php:45"
+  ],
+  "信息错误": [
+    "server/application/api/validate/ChangeMobile.php:41",
+    "server/application/common/behavior/Notice.php:66"
+  ],
+  "修复:": [
+    "server/application/admin/logic/UpgradeLogic.php:125"
+  ],
+  "修复任务正在执行中": [
+    "server/application/api/logic/DistributionLogic.php:580"
+  ],
+  "修复失败": [
+    "server/application/admin/controller/Upgrade.php:110"
+  ],
+  "修复成功": [
+    "server/application/admin/controller/Upgrade.php:108",
+    "server/application/api/logic/DistributionLogic.php:607"
+  ],
+  "修改失败": [
+    "server/application/admin/controller/Ad.php:125",
+    "server/application/admin/controller/AdPosition.php:131",
+    "server/application/admin/controller/GoodsBrand.php:107",
+    "server/application/admin/controller/GoodsCategory.php:116",
+    "server/application/admin/controller/MenuDecorate.php:185",
+    "server/application/admin/controller/MnpMessage.php:62",
+    "server/application/admin/controller/OaMessage.php:63",
+    "server/application/admin/controller/Recharge.php:118",
+    "server/application/admin/controller/WechatReply.php:93",
+    "server/application/admin/logic/CommonLogic.php:63",
+    "server/application/api/controller/User.php:305",
+    "server/application/api/controller/UserAddress.php:116"
+  ],
+  "修改失败:": [
+    "server/application/admin/controller/SelffetchShop.php:116",
+    "server/application/admin/controller/SelffetchShop.php:89",
+    "server/application/admin/controller/SelffetchVerifier.php:106",
+    "server/application/admin/controller/SelffetchVerifier.php:133"
+  ],
+  "修改密码成功": [
+    "server/application/admin/controller/My.php:43"
+  ],
+  "修改成功": [
+    "server/application/admin/controller/Ad.php:123",
+    "server/application/admin/controller/AdPosition.php:129",
+    "server/application/admin/controller/Admin.php:62",
+    "server/application/admin/controller/Admin.php:87",
+    "server/application/admin/controller/Article.php:113",
+    "server/application/admin/controller/ArticleCategory.php:96",
+    "server/application/admin/controller/AssuranceService.php:81",
+    "server/application/admin/controller/Auth.php:111",
+    "server/application/admin/controller/Auth.php:88",
+    "server/application/admin/controller/Basic.php:144",
+    "server/application/admin/controller/Basic.php:190",
+    "server/application/admin/controller/Basic.php:229",
+    "server/application/admin/controller/Basic.php:277",
+    "server/application/admin/controller/Basic.php:87",
+    "server/application/admin/controller/Crontab.php:75",
+    "server/application/admin/controller/Express.php:87",
+    "server/application/admin/controller/FaceSheet.php:48",
+    "server/application/admin/controller/Goods.php:257",
+    "server/application/admin/controller/Goods.php:302",
+    "server/application/admin/controller/GoodsBrand.php:105",
+    "server/application/admin/controller/GoodsBrand.php:72",
+    "server/application/admin/controller/GoodsCategory.php:114",
+    "server/application/admin/controller/GoodsCategory.php:80",
+    "server/application/admin/controller/GoodsComment.php:55",
+    "server/application/admin/controller/Help.php:107",
+    "server/application/admin/controller/HelpCategory.php:101",
+    "server/application/admin/controller/MenuDecorate.php:116",
+    "server/application/admin/controller/MenuDecorate.php:183",
+    "server/application/admin/controller/MenuDecorate.php:95",
+    "server/application/admin/controller/MnpMessage.php:60",
+    "server/application/admin/controller/OaMessage.php:61",
+    "server/application/admin/controller/PayConfig.php:107",
+    "server/application/admin/controller/PayConfig.php:56",
+    "server/application/admin/controller/PayConfig.php:81",
+    "server/application/admin/controller/Recharge.php:116",
+    "server/application/admin/controller/Recharge.php:83",
+    "server/application/admin/controller/Role.php:80",
+    "server/application/admin/controller/SelffetchShop.php:118",
+    "server/application/admin/controller/SelffetchShop.php:91",
+    "server/application/admin/controller/SelffetchVerifier.php:108",
+    "server/application/admin/controller/SelffetchVerifier.php:135",
+    "server/application/admin/controller/ShopSetting.php:101",
+    "server/application/admin/controller/ShopSetting.php:75",
+    "server/application/admin/controller/SignDaily.php:104",
+    "server/application/admin/controller/Supplier.php:61",
+    "server/application/admin/controller/UserGroup.php:76",
+    "server/application/admin/controller/WechatReply.php:91",
+    "server/application/api/controller/User.php:303",
+    "server/application/api/controller/UserAddress.php:114",
+    "server/application/api/logic/LoginPasswordLogic.php:121"
+  ],
+  "修改超级管理密码": [
+    "server/application/common/command/Password.php:25"
+  ],
+  "做工粗糙/有瑕疵": [
+    "server/application/common/model/AfterSale.php:95"
+  ],
+  "停用": [
+    "server/application/admin/logic/ArticleCategoryLogic.php:41",
+    "server/application/admin/model/HelpCategory.php:41",
+    "server/application/common/model/SelffetchShop.php:42",
+    "server/application/common/model/SelffetchVerifier.php:41"
+  ],
+  "元": [
+    "server/application/admin/validate/AdjustAccount.php:184",
+    "server/application/admin/validate/AdjustAccount.php:94",
+    "server/application/api/logic/LuckdrawLogic.php:448",
+    "server/application/api/logic/RechargeLogic.php:35",
+    "server/application/api/validate/Withdraw.php:83",
+    "server/application/api/validate/Withdraw.php:89",
+    "server/application/common/model/Luckdraw.php:53",
+    "server/application/common/model/UserTask.php:39"
+  ],
+  "元减": [
+    "server/application/api/logic/CouponLogic.php:171",
+    "server/application/api/logic/CouponLogic.php:206",
+    "server/application/api/logic/CouponLogic.php:73",
+    "server/application/api/logic/IndexLogic.php:75"
+  ],
+  "元可用": [
+    "server/application/admin/model/Coupon.php:147",
+    "server/application/admin/model/Coupon.php:79"
+  ],
+  "充": [
+    "server/application/api/logic/RechargeLogic.php:35"
+  ],
+  "充值": [
+    "server/application/api/logic/RechargeLogic.php:122",
+    "server/application/api/logic/RechargeLogic.php:124",
+    "server/application/common/server/WeChatPayServer.php:198"
+  ],
+  "充值功能已关闭，无法充值": [
+    "server/application/api/validate/Recharge.php:34"
+  ],
+  "充值赠送成长值": [
+    "server/application/admin/logic/AccountLogLogic.php:149",
+    "server/application/common/model/AccountLog.php:99"
+  ],
+  "充值赠送积分": [
+    "server/application/admin/logic/AccountLogLogic.php:128",
+    "server/application/common/model/AccountLog.php:91"
+  ],
+  "充值金额必须大于零": [
+    "server/application/admin/validate/RechargeTemplate.php:28"
+  ],
+  "入参错误": [
+    "server/application/admin/logic/LiveGoodsLogic.php:223"
+  ],
+  "全匹配": [
+    "server/application/admin/logic/WechatReplyLogic.php:40"
+  ],
+  "全国": [
+    "server/application/admin/logic/FreightLogic.php:157"
+  ],
+  "全场可用": [
+    "server/application/api/logic/CouponLogic.php:143"
+  ],
+  "全场店铺可用": [
+    "server/application/api/logic/CouponLogic.php:334"
+  ],
+  "全场通用": [
+    "server/application/api/logic/CouponLogic.php:208",
+    "server/application/api/logic/CouponLogic.php:212",
+    "server/application/api/logic/CouponLogic.php:342",
+    "server/application/api/logic/CouponLogic.php:519",
+    "server/application/api/logic/CouponLogic.php:57"
+  ],
+  "全场通用券": [
+    "server/application/admin/model/Coupon.php:67"
+  ],
+  "全网通256G，银色": [
+    "server/application/admin/logic/PrinterLogic.php:351"
+  ],
+  "全网通256G，黑色": [
+    "server/application/admin/logic/PrinterLogic.php:358",
+    "server/application/admin/logic/PrinterLogic.php:365"
+  ],
+  "全部": [
+    "server/application/api/logic/GoodsCommentLogic.php:217",
+    "server/application/common/logic/FileCateLogic.php:126"
+  ],
+  "公众号": [
+    "server/application/common/model/Client_.php:49"
+  ],
+  "公众号商城": [
+    "server/application/common/model/Client_.php:60"
+  ],
+  "公众号配置出错": [
+    "server/application/api/logic/WeChatLogic.php:68"
+  ],
+  "关注回复": [
+    "server/application/common/model/WeChat.php:49"
+  ],
+  "关注赠送积分": [
+    "server/application/admin/logic/AccountLogLogic.php:116"
+  ],
+  "关键词回复": [
+    "server/application/common/model/WeChat.php:50"
+  ],
+  "关闭": [
+    "server/application/admin/logic/GoodsLogic.php:135",
+    "server/application/admin/logic/GoodsLogic.php:223",
+    "server/application/admin/logic/PrinterLogic.php:46",
+    "server/application/admin/logic/PrinterLogic.php:47",
+    "server/application/admin/logic/SmsLogic.php:30",
+    "server/application/common/model/Pay.php:93"
+  ],
+  "关闭订单": [
+    "server/application/common/command/OrderClose.php:36"
+  ],
+  "其他": [
+    "server/application/common/model/AfterSale.php:104",
+    "server/application/common/model/Pay.php:75"
+  ],
+  "减": [
+    "server/application/api/logic/CouponLogic.php:338"
+  ],
+  "分": [
+    "server/application/admin/validate/AdjustAccount.php:123",
+    "server/application/common/model/UserTask.php:31"
+  ],
+  "分享给朋友": [
+    "server/application/common/model/UserTask.php:60"
+  ],
+  "分享给朋友{$num}": [
+    "server/application/common/model/UserTask.php:59"
+  ],
+  "分类下有图片,不可删除": [
+    "server/application/admin/validate/FileCate.php:111"
+  ],
+  "分类下有子分类,不可删除": [
+    "server/application/admin/validate/FileCate.php:117"
+  ],
+  "分类不允许超过3级": [
+    "server/application/admin/logic/FileNewLogic.php:82"
+  ],
+  "分类名称不能为空！": [
+    "server/application/admin/validate/ArticleCategory.php:35",
+    "server/application/admin/validate/FileCate.php:37",
+    "server/application/admin/validate/FileCateNew.php:34",
+    "server/application/admin/validate/GoodsCategory.php:38",
+    "server/application/admin/validate/HelpCategory.php:35"
+  ],
+  "分类名称已存在": [
+    "server/application/admin/validate/ArticleCategory.php:36",
+    "server/application/admin/validate/FileCate.php:137",
+    "server/application/admin/validate/FileCate.php:38",
+    "server/application/admin/validate/GoodsCategory.php:39",
+    "server/application/admin/validate/GoodsCategory.php:74",
+    "server/application/admin/validate/HelpCategory.php:36"
+  ],
+  "分类名称最多16个字符": [
+    "server/application/admin/validate/UserGroup.php:38"
+  ],
+  "分类名称须在2-10个汉字之间": [
+    "server/application/admin/validate/FileCateNew.php:35"
+  ],
+  "分类层级不允许超过3级": [
+    "server/application/admin/logic/FileNewLogic.php:129"
+  ],
+  "分组名称不能为空": [
+    "server/application/admin/validate/UserGroup.php:39"
+  ],
+  "分组名称已存在": [
+    "server/application/admin/validate/UserGroup.php:40"
+  ],
+  "分钟前": [
+    "server/application/common/model/FootprintRecord.php:50"
+  ],
+  "分销推广": [
+    "server/application/common/model/Menu_.php:177"
+  ],
+  "分销比例不能小于0": [
+    "server/application/admin/logic/DistributionGoodsLogic.php:242"
+  ],
+  "分销资格只能选择一种": [
+    "server/application/admin/logic/UserSettingLogic.php:77"
+  ],
+  "切换失败: ": [
+    "server/application/admin/controller/StorageConfig.php:166"
+  ],
+  "切换成功": [
+    "server/application/admin/controller/StorageConfig.php:168"
+  ],
+  "刚刚": [
+    "server/application/common/model/FootprintRecord.php:50"
+  ],
+  "创建成功": [
+    "server/application/admin/controller/LiveRoom.php:64"
+  ],
+  "创建时间": [
+    "server/application/admin/logic/SelffetchShopLogic.php:203",
+    "server/application/admin/logic/SelffetchVerifierLogic.php:236"
+  ],
+  "初始化数据完成": [
+    "server/application/admin/controller/DistributionCenter.php:65"
+  ],
+  "删除失败": [
+    "server/application/admin/controller/Activity.php:150",
+    "server/application/admin/controller/Ad.php:110",
+    "server/application/admin/controller/AdPosition.php:115",
+    "server/application/admin/controller/Admin.php:110",
+    "server/application/admin/controller/AssuranceService.php:104",
+    "server/application/admin/controller/Auth.php:126",
+    "server/application/admin/controller/Bargain.php:107",
+    "server/application/admin/controller/Coupon.php:89",
+    "server/application/admin/controller/Crontab.php:92",
+    "server/application/admin/controller/Express.php:110",
+    "server/application/admin/controller/FileNew.php:154",
+    "server/application/admin/controller/Goods.php:281",
+    "server/application/admin/controller/GoodsBrand.php:94",
+    "server/application/admin/controller/GoodsComment.php:45",
+    "server/application/admin/controller/LuckDraw.php:114",
+    "server/application/admin/controller/MenuDecorate.php:301",
+    "server/application/admin/controller/NoticeSetting.php:103",
+    "server/application/admin/controller/Recharge.php:102",
+    "server/application/admin/controller/Seckill.php:171",
+    "server/application/admin/controller/Seckill.php:99",
+    "server/application/admin/controller/Supplier.php:79",
+    "server/application/admin/controller/TeamActivity.php:111",
+    "server/application/api/controller/Cart.php:78",
+    "server/application/api/controller/UserAddress.php:133"
+  ],
+  "删除失败:": [
+    "server/application/admin/controller/SelffetchShop.php:138",
+    "server/application/admin/controller/SelffetchVerifier.php:155"
+  ],
+  "删除成功": [
+    "server/application/admin/controller/Activity.php:148",
+    "server/application/admin/controller/Activity.php:93",
+    "server/application/admin/controller/Ad.php:108",
+    "server/application/admin/controller/AdPosition.php:113",
+    "server/application/admin/controller/Admin.php:108",
+    "server/application/admin/controller/Article.php:99",
+    "server/application/admin/controller/ArticleCategory.php:83",
+    "server/application/admin/controller/AssuranceService.php:102",
+    "server/application/admin/controller/Auth.php:130",
+    "server/application/admin/controller/Bargain.php:105",
+    "server/application/admin/controller/Coupon.php:87",
+    "server/application/admin/controller/Crontab.php:89",
+    "server/application/admin/controller/DistributionLevel.php:84",
+    "server/application/admin/controller/Express.php:108",
+    "server/application/admin/controller/FaceSheet.php:135",
+    "server/application/admin/controller/FaceSheetSender.php:96",
+    "server/application/admin/controller/FileCate.php:82",
+    "server/application/admin/controller/FileNew.php:152",
+    "server/application/admin/controller/Goods.php:279",
+    "server/application/admin/controller/GoodsBrand.php:92",
+    "server/application/admin/controller/GoodsComment.php:43",
+    "server/application/admin/controller/Help.php:93",
+    "server/application/admin/controller/HelpCategory.php:87",
+    "server/application/admin/controller/LiveGoods.php:119",
+    "server/application/admin/controller/LiveRoom.php:84",
+    "server/application/admin/controller/LuckDraw.php:112",
+    "server/application/admin/controller/MenuDecorate.php:137",
+    "server/application/admin/controller/MenuDecorate.php:151",
+    "server/application/admin/controller/MenuDecorate.php:299",
+    "server/application/admin/controller/NoticeSetting.php:101",
+    "server/application/admin/controller/Order.php:101",
+    "server/application/admin/controller/Printer.php:135",
+    "server/application/admin/controller/Recharge.php:100",
+    "server/application/admin/controller/Role.php:101",
+    "server/application/admin/controller/Seckill.php:169",
+    "server/application/admin/controller/Seckill.php:97",
+    "server/application/admin/controller/SelffetchShop.php:140",
+    "server/application/admin/controller/SelffetchVerifier.php:157",
+    "server/application/admin/controller/SignDaily.php:121",
+    "server/application/admin/controller/Supplier.php:77",
+    "server/application/admin/controller/TeamActivity.php:109",
+    "server/application/admin/controller/UserGroup.php:95",
+    "server/application/admin/controller/UserLevel.php:94",
+    "server/application/admin/controller/UserPrivilege.php:84",
+    "server/application/admin/controller/WechatReply.php:75",
+    "server/application/admin/logic/FileNewLogic.php:158",
+    "server/application/api/controller/Cart.php:76",
+    "server/application/api/controller/UserAddress.php:131",
+    "server/application/api/logic/OrderLogic.php:1129"
+  ],
+  "删除成功！": [
+    "server/application/admin/controller/Freight.php:97",
+    "server/application/admin/controller/GoodsCategory.php:103"
+  ],
+  "删除系统更新临时文件失败": [
+    "server/application/admin/logic/UpgradeLogic.php:247"
+  ],
+  "加入成功": [
+    "server/application/api/controller/Cart.php:47"
+  ],
+  "加入购物车": [
+    "server/application/common/model/Footprint.php:43"
+  ],
+  "助力失败：": [
+    "server/application/api/logic/BargainLogic.php:335"
+  ],
+  "助力成功": [
+    "server/application/api/logic/BargainLogic.php:330"
+  ],
+  "包含不存在或已下架的商品,无法下单": [
+    "server/application/api/logic/OrderLogic.php:749"
+  ],
+  "区不能为空": [
+    "server/application/api/validate/UserAddress.php:51"
+  ],
+  "升级关系状态值错误": [
+    "server/application/admin/validate/DistributionLevelValidate.php:52"
+  ],
+  "升级条件不允许小于0": [
+    "server/application/admin/logic/DistributionLevelLogic.php:92"
+  ],
+  "升级条件数据未填写": [
+    "server/application/admin/validate/DistributionLevelValidate.php:141"
+  ],
+  "升级条件数据格式错误": [
+    "server/application/admin/validate/DistributionLevelValidate.php:54"
+  ],
+  "华为 P40": [
+    "server/application/admin/logic/PrinterLogic.php:364"
+  ],
+  "单号(": [
+    "server/application/admin/logic/AfterSaleLogic.php:199"
+  ],
+  "单次最多导入2000条发货信息": [
+    "server/application/admin/validate/DeliveryBatchImport.php:23"
+  ],
+  "单笔消费金额须大于0": [
+    "server/application/admin/validate/DistributionLevelValidate.php:55"
+  ],
+  "卖家发错货": [
+    "server/application/common/model/AfterSale.php:97"
+  ],
+  "即可发货": [
+    "server/application/api/logic/BargainLogic.php:142",
+    "server/application/api/logic/BargainLogic.php:442"
+  ],
+  "原支付密码不能为空": [
+    "server/application/api/controller/User.php:289"
+  ],
+  "原支付密码错误": [
+    "server/application/api/controller/User.php:296"
+  ],
+  "参数缺失": [
+    "server/application/admin/validate/AfterSale.php:33",
+    "server/application/admin/validate/AssuranceServiceValidate.php:34",
+    "server/application/admin/validate/DistributionLevelValidate.php:60",
+    "server/application/admin/validate/Freight.php:36",
+    "server/application/admin/validate/Order.php:38",
+    "server/application/admin/validate/Upgrade.php:35",
+    "server/application/admin/validate/Upgrade.php:36",
+    "server/application/api/controller/Account.php:267",
+    "server/application/api/controller/Account.php:282",
+    "server/application/api/controller/Account.php:299",
+    "server/application/api/controller/Account.php:302",
+    "server/application/api/controller/Account.php:319",
+    "server/application/api/controller/Account.php:343",
+    "server/application/api/controller/Article.php:51",
+    "server/application/api/controller/Payment.php:203",
+    "server/application/api/controller/Payment.php:56",
+    "server/application/api/controller/Share.php:49",
+    "server/application/api/logic/LoginLogic.php:486",
+    "server/application/api/logic/ShareLogic.php:73",
+    "server/application/api/validate/ChangeMobile.php:36",
+    "server/application/api/validate/ChangeMobile.php:40",
+    "server/application/api/validate/Luckdraw.php:37",
+    "server/application/api/validate/Order.php:49",
+    "server/application/api/validate/Order.php:74",
+    "server/application/api/validate/SetWechatUser.php:39",
+    "server/application/api/validate/SetWechatUser.php:40",
+    "server/application/api/validate/SetWechatUser.php:41",
+    "server/application/api/validate/Team.php:46",
+    "server/application/api/validate/Team.php:47",
+    "server/application/api/validate/Team.php:48",
+    "server/application/api/validate/UpdateUser.php:35",
+    "server/application/api/validate/Withdraw.php:41",
+    "server/application/common/behavior/Notice.php:40"
+  ],
+  "参数缺失,删除失败": [
+    "server/application/admin/controller/NoticeSetting.php:97"
+  ],
+  "参数错误": [
+    "server/application/api/controller/Order.php:101",
+    "server/application/api/controller/Order.php:112",
+    "server/application/api/controller/Order.php:123",
+    "server/application/api/controller/Order.php:132",
+    "server/application/api/validate/AfterSale.php:41",
+    "server/application/api/validate/AfterSale.php:43",
+    "server/application/api/validate/AfterSale.php:44",
+    "server/application/api/validate/AfterSale.php:45",
+    "server/application/api/validate/Cart.php:40",
+    "server/application/api/validate/Cart.php:41",
+    "server/application/api/validate/Cart.php:42",
+    "server/application/api/validate/Cart.php:43",
+    "server/application/api/validate/Order.php:48",
+    "server/application/api/validate/Withdraw.php:42",
+    "server/application/api/validate/Withdraw.php:44"
+  ],
+  "参格式不符合规范": [
+    "server/application/admin/logic/LiveGoodsLogic.php:222"
+  ],
+  "发奖成功": [
+    "server/application/api/logic/LuckdrawLogic.php:304"
+  ],
+  "发布时间": [
+    "server/application/admin/logic/GoodsLogic.php:218"
+  ],
+  "发放开始时间和结束时间不能相同": [
+    "server/application/admin/validate/Coupon.php:93",
+    "server/application/common/validate/Coupon.php:108"
+  ],
+  "发放总量类型错误": [
+    "server/application/admin/validate/Coupon.php:54",
+    "server/application/common/validate/Coupon.php:61"
+  ],
+  "发放总量：": [
+    "server/application/admin/model/Coupon.php:171"
+  ],
+  "发放总量：不限量": [
+    "server/application/admin/model/Coupon.php:167"
+  ],
+  "发放成功": [
+    "server/application/admin/controller/Coupon.php:142"
+  ],
+  "发放结束时间不能小于发放开始时间": [
+    "server/application/admin/validate/Coupon.php:97"
+  ],
+  "发货信息：第": [
+    "server/application/admin/validate/DeliveryBatchImport.php:28",
+    "server/application/admin/validate/DeliveryBatchImport.php:32",
+    "server/application/admin/validate/DeliveryBatchImport.php:36",
+    "server/application/admin/validate/DeliveryBatchImport.php:40"
+  ],
+  "发货录入发生错误": [
+    "server/application/common/server/WechatMiniExpressSendSyncServer.php:120",
+    "server/application/common/server/WechatMiniExpressSendSyncServer.php:123",
+    "server/application/common/server/WechatMiniExpressSendSyncServer.php:201",
+    "server/application/common/server/WechatMiniExpressSendSyncServer.php:204",
+    "server/application/common/server/WechatMiniExpressSendSyncServer.php:248",
+    "server/application/common/server/WechatMiniExpressSendSyncServer.php:252"
+  ],
+  "发货成功": [
+    "server/application/admin/controller/Order.php:131"
+  ],
+  "发起砍价失败：": [
+    "server/application/api/logic/BargainLogic.php:245"
+  ],
+  "发起砍价成功": [
+    "server/application/api/logic/BargainLogic.php:241"
+  ],
+  "发送中": [
+    "server/application/common/model/SmsLog.php:29"
+  ],
+  "发送失败": [
+    "server/application/common/model/SmsLog.php:31"
+  ],
+  "发送成功": [
+    "server/application/api/controller/Sms.php:57",
+    "server/application/api/controller/User.php:331",
+    "server/application/common/model/SmsLog.php:30"
+  ],
+  "取消成功": [
+    "server/application/admin/controller/Order.php:82",
+    "server/application/api/logic/OrderLogic.php:1087"
+  ],
+  "取消订单退回余额": [
+    "server/application/common/model/AccountLog.php:101"
+  ],
+  "取消订单退回积分": [
+    "server/application/common/model/AccountLog.php:107"
+  ],
+  "取货人不能为空": [
+    "server/application/api/logic/OrderLogic.php:536",
+    "server/application/api/logic/TeamLogic.php:278"
+  ],
+  "变更手机号短信通知": [
+    "server/application/common/model/NoticeSetting.php:154"
+  ],
+  "可升级": [
+    "server/application/api/logic/UserLevelLogic.php:55"
+  ],
+  "可提现金额不足": [
+    "server/application/api/logic/WithdrawLogic.php:102",
+    "server/application/api/logic/WithdrawLogic.php:109",
+    "server/application/api/validate/Withdraw.php:74"
+  ],
+  "可用": [
+    "server/application/api/logic/CouponLogic.php:219"
+  ],
+  "可用余额:": [
+    "server/application/api/controller/Payment.php:222"
+  ],
+  "合计：￥": [
+    "server/application/common/server/YlyPrinter.php:187"
+  ],
+  "同一个用户一天最多可付款10次": [
+    "server/application/admin/logic/WechatCorporatePaymentLogic.php:70"
+  ],
+  "同一个用户一天最多可付款7次": [
+    "server/application/admin/logic/WechatMerchantTransferLogic.php:68"
+  ],
+  "同一自提门店不可以存在两个相同的用户": [
+    "server/application/admin/validate/SelffetchVerifier.php:121"
+  ],
+  "同一规格的规格值不能重复": [
+    "server/application/admin/validate/GoodsMoreSpec.php:55"
+  ],
+  "同一门店内不可以存在相同的核销员名称": [
+    "server/application/admin/validate/SelffetchVerifier.php:79"
+  ],
+  "同步失败,请检查配置信息": [
+    "server/application/admin/controller/MnpMessage.php:75",
+    "server/application/admin/controller/OaMessage.php:76"
+  ],
+  "同步成功": [
+    "server/application/admin/controller/MnpMessage.php:73",
+    "server/application/admin/controller/OaMessage.php:74"
+  ],
+  "同级下已存在该名称的分类": [
+    "server/application/admin/logic/FileNewLogic.php:118"
+  ],
+  "同级别下已存在同名分类": [
+    "server/application/admin/logic/FileNewLogic.php:76"
+  ],
+  "同级已有相同分类存在": [
+    "server/application/admin/validate/FileCate.php:78"
+  ],
+  "名称不能为空": [
+    "server/application/admin/validate/Admin.php:47"
+  ],
+  "名称长度不符合规则": [
+    "server/application/admin/logic/LiveGoodsLogic.php:225"
+  ],
+  "后台减少佣金": [
+    "server/application/common/model/AccountLog.php:115"
+  ],
+  "后台增加佣金": [
+    "server/application/common/model/AccountLog.php:114"
+  ],
+  "后台开通分销": [
+    "server/application/admin/logic/DistributionMemberLogic.php:140"
+  ],
+  "否": [
+    "server/application/admin/logic/ArticleLogic.php:66",
+    "server/application/admin/logic/GoodsLogic.php:224",
+    "server/application/admin/logic/GoodsLogic.php:225",
+    "server/application/admin/logic/GoodsLogic.php:226",
+    "server/application/admin/logic/UserLogic.php:259",
+    "server/application/admin/logic/UserLogic.php:565",
+    "server/application/admin/model/User.php:114",
+    "server/application/common/model/User.php:117"
+  ],
+  "启用": [
+    "server/application/admin/logic/ArticleCategoryLogic.php:39",
+    "server/application/admin/model/HelpCategory.php:39",
+    "server/application/common/model/Pay.php:91",
+    "server/application/common/model/SelffetchShop.php:43",
+    "server/application/common/model/SelffetchVerifier.php:42"
+  ],
+  "品牌名称不能为空": [
+    "server/application/admin/validate/GoodsBrand.php:41"
+  ],
+  "品牌推荐": [
+    "server/application/api/logic/GoodsCategoryLogic.php:95"
+  ],
+  "品牌首字母不能为空": [
+    "server/application/admin/validate/GoodsBrand.php:43"
+  ],
+  "售后中": [
+    "server/application/api/logic/OrderLogic.php:980"
+  ],
+  "售后成功": [
+    "server/application/api/logic/OrderLogic.php:983"
+  ],
+  "售后退回余额": [
+    "server/application/common/model/AccountLog.php:102"
+  ],
+  "商品": [
+    "server/application/admin/logic/FaceSheetOrderLogic.php:281",
+    "server/application/admin/logic/OrderLogic.php:461",
+    "server/application/api/logic/CouponLogic.php:219",
+    "server/application/api/logic/CouponLogic.php:225",
+    "server/application/common/behavior/Notice.php:116",
+    "server/application/common/logic/PayNotifyLogic.php:138",
+    "server/application/common/server/WeChatPayServer.php:187",
+    "server/application/common/server/printing/Kuaidi100.php:101"
+  ],
+  "商品ID:": [
+    "server/application/admin/validate/SeckillGoods.php:119",
+    "server/application/admin/validate/SeckillGoods.php:82"
+  ],
+  "商品ID：": [
+    "server/application/admin/validate/Coupon.php:77",
+    "server/application/common/validate/Coupon.php:92"
+  ],
+  "商品id不存在": [
+    "server/application/admin/logic/LiveGoodsLogic.php:221"
+  ],
+  "商品不存在": [
+    "server/application/api/controller/Goods.php:47",
+    "server/application/api/validate/MakeMnQrcode.php:54"
+  ],
+  "商品不支持快递配送！": [
+    "server/application/api/logic/TeamLogic.php:306"
+  ],
+  "商品不支持门店自提！": [
+    "server/application/api/logic/TeamLogic.php:299"
+  ],
+  "商品信息": [
+    "server/application/admin/logic/OrderLogic.php:261",
+    "server/application/admin/logic/VerificationLogic.php:207"
+  ],
+  "商品信息修改成功,该商品属于分销商品，请重新设置分销信息": [
+    "server/application/admin/logic/GoodsLogic.php:739"
+  ],
+  "商品分类": [
+    "server/application/admin/logic/GoodsLogic.php:218",
+    "server/application/common/model/Ad.php:104",
+    "server/application/common/model/Ad.php:42",
+    "server/application/common/model/Menu_.php:139"
+  ],
+  "商品列表": [
+    "server/application/admin/logic/GoodsLogic.php:231"
+  ],
+  "商品参数缺失": [
+    "server/application/admin/validate/CommentHelper.php:39"
+  ],
+  "商品发货通知": [
+    "server/application/common/model/MessageScene_.php:41"
+  ],
+  "商品名": [
+    "server/application/common/logic/AliPayLogic.php:33"
+  ],
+  "商品名称": [
+    "server/application/admin/logic/GoodsLogic.php:218"
+  ],
+  "商品名称存在违规违法内容": [
+    "server/application/admin/logic/LiveGoodsLogic.php:227"
+  ],
+  "商品名称已存在，请重新输入": [
+    "server/application/admin/validate/Goods.php:52"
+  ],
+  "商品名称必须为3-14个字符": [
+    "server/application/admin/validate/LiveGoods.php:37",
+    "server/application/admin/validate/LiveGoods.php:38"
+  ],
+  "商品名称长度最多64个字符": [
+    "server/application/admin/validate/Goods.php:54"
+  ],
+  "商品名称长度至少3个字符": [
+    "server/application/admin/validate/Goods.php:53"
+  ],
+  "商品审核撤回失败": [
+    "server/application/admin/logic/LiveGoodsLogic.php:232"
+  ],
+  "商品审核状态不对": [
+    "server/application/admin/logic/LiveGoodsLogic.php:233"
+  ],
+  "商品封面不存在，请上传商品封面": [
+    "server/application/admin/logic/LiveGoodsLogic.php:190"
+  ],
+  "商品封面图片存在违规违法内容": [
+    "server/application/admin/logic/LiveGoodsLogic.php:228"
+  ],
+  "商品封面图片尺寸过大": [
+    "server/application/admin/logic/LiveGoodsLogic.php:239"
+  ],
+  "商品已下架": [
+    "server/application/api/validate/Cart.php:86"
+  ],
+  "商品已出库": [
+    "server/application/api/logic/OrderLogic.php:1247"
+  ],
+  "商品已评论，请勿重复评论": [
+    "server/application/api/logic/GoodsCommentLogic.php:138"
+  ],
+  "商品库存不足,无法下单": [
+    "server/application/api/logic/OrderLogic.php:752"
+  ],
+  "商品待退货": [
+    "server/application/common/model/AfterSale.php:61"
+  ],
+  "商品总金额": [
+    "server/application/admin/logic/OrderLogic.php:261",
+    "server/application/admin/logic/VerificationLogic.php:208"
+  ],
+  "商品数量": [
+    "server/application/admin/logic/OrderLogic.php:261",
+    "server/application/admin/logic/VerificationLogic.php:207"
+  ],
+  "商品数量不能为0": [
+    "server/application/api/validate/Cart.php:37"
+  ],
+  "商品数量错误": [
+    "server/application/api/validate/Team.php:43"
+  ],
+  "商品数量需为整数": [
+    "server/application/api/validate/Cart.php:39"
+  ],
+  "商品数量需大于0": [
+    "server/application/api/validate/Cart.php:38"
+  ],
+  "商品未提审": [
+    "server/application/admin/logic/LiveGoodsLogic.php:238"
+  ],
+  "商品正在参与拼团活动, 请先移除活动再添加": [
+    "server/application/admin/logic/BargainLogic.php:164"
+  ],
+  "商品正在参与砍价活动，无法修改": [
+    "server/application/admin/validate/Goods.php:102"
+  ],
+  "商品正在参与秒杀活动，无法修改": [
+    "server/application/admin/logic/BargainLogic.php:173",
+    "server/application/admin/validate/Goods.php:96"
+  ],
+  "商品正在参加拼团活动，无法修改": [
+    "server/application/admin/validate/Goods.php:99"
+  ],
+  "商品添加成功，审核失败": [
+    "server/application/admin/logic/LiveGoodsLogic.php:240"
+  ],
+  "商品简述": [
+    "server/application/common/logic/AliPayLogic.php:32"
+  ],
+  "商品编码已存在,请重新输入": [
+    "server/application/admin/validate/Goods.php:55"
+  ],
+  "商品规格:": [
+    "server/application/admin/validate/SeckillGoods.php:126",
+    "server/application/admin/validate/SeckillGoods.php:86",
+    "server/application/admin/validate/SeckillGoods.php:91"
+  ],
+  "商品轮播图只能上传1~8张": [
+    "server/application/admin/validate/Goods.php:59"
+  ],
+  "商品金额：￥": [
+    "server/application/common/server/YlyPrinter.php:184"
+  ],
+  "商品链接不合法": [
+    "server/application/admin/validate/LiveGoods.php:74"
+  ],
+  "商品页面:": [
+    "server/application/admin/logic/AdLogic.php:88"
+  ],
+  "商品：{$goods['goods_name']} 当前处于售后中，不能发货": [
+    "server/application/admin/validate/Order.php:161"
+  ],
+  "商城小程序未上线或商城小程序页面发布": [
+    "server/application/common/logic/QrCodeLogic.php:575"
+  ],
+  "商城小程序码，先提交审核并通过": [
+    "server/application/common/logic/QrCodeLogic.php:241"
+  ],
+  "商城直播": [
+    "server/application/common/model/Menu_.php:160"
+  ],
+  "商城资讯": [
+    "server/application/common/model/Ad.php:139",
+    "server/application/common/model/Ad.php:92",
+    "server/application/common/model/Menu_.php:118"
+  ],
+  "商城页面：": [
+    "server/application/admin/logic/AdLogic.php:76"
+  ],
+  "商家删除订单": [
+    "server/application/common/model/OrderLog.php:61"
+  ],
+  "商家发货": [
+    "server/application/common/model/OrderLog.php:62"
+  ],
+  "商家取消订单": [
+    "server/application/common/model/OrderLog.php:60"
+  ],
+  "商家同意退款": [
+    "server/application/common/model/AfterSaleLog.php:52"
+  ],
+  "商家待收货": [
+    "server/application/common/model/AfterSale.php:62"
+  ],
+  "商家拒收货": [
+    "server/application/common/model/AfterSale.php:63"
+  ],
+  "商家拒绝": [
+    "server/application/common/model/AfterSale.php:60"
+  ],
+  "商家拒绝收货": [
+    "server/application/common/model/AfterSaleLog.php:55"
+  ],
+  "商家拒绝退款": [
+    "server/application/common/model/AfterSaleLog.php:53"
+  ],
+  "商家提货核销": [
+    "server/application/common/model/OrderLog.php:64"
+  ],
+  "商家收货": [
+    "server/application/common/model/AfterSaleLog.php:54"
+  ],
+  "商家确认收货": [
+    "server/application/common/model/OrderLog.php:63"
+  ],
+  "商家确认退款": [
+    "server/application/common/model/AfterSaleLog.php:56"
+  ],
+  "商家转账到零钱查询": [
+    "server/application/common/command/WechatMerchantTransfer.php:40"
+  ],
+  "商家转账到零钱查询失败": [
+    "server/application/admin/logic/WithdrawLogic.php:306",
+    "server/application/common/command/WechatMerchantTransfer.php:88"
+  ],
+  "回复不能为空": [
+    "server/application/admin/validate/GoodsComment.php:34"
+  ],
+  "回复成功！": [
+    "server/application/admin/controller/GoodsComment.php:66"
+  ],
+  "回收站": [
+    "server/application/common/model/Goods.php:43"
+  ],
+  "团员": [
+    "server/application/admin/logic/TeamFoundLogic.php:179",
+    "server/application/api/logic/UserLogic.php:319"
+  ],
+  "团长": [
+    "server/application/admin/logic/TeamFoundLogic.php:179",
+    "server/application/api/logic/UserLogic.php:319"
+  ],
+  "图形验证码已失效，请重新获取": [
+    "server/application/admin/validate/Login.php:38",
+    "server/application/api/validate/Login.php:52"
+  ],
+  "图形验证码错误": [
+    "server/application/admin/validate/Login.php:60",
+    "server/application/api/validate/Login.php:86",
+    "server/application/api/validate/SmsSend.php:99"
+  ],
+  "图片上传失败": [
+    "server/application/admin/logic/LiveGoodsLogic.php:229",
+    "server/application/common/server/FileServer.php:60"
+  ],
+  "图片保存出错:": [
+    "server/application/common/logic/QrCodeLogic.php:402"
+  ],
+  "图片解析失败": [
+    "server/application/common/logic/QrCodeLogic.php:597"
+  ],
+  "图片读取失败": [
+    "server/application/common/logic/QrCodeLogic.php:593"
+  ],
+  "地址不存在": [
+    "server/application/admin/validate/Auth.php:38"
+  ],
+  "处理活动专区错误,删除": [
+    "server/application/common/command/Update.php:57"
+  ],
+  "备注": [
+    "server/application/admin/logic/ServiceConfigLogic.php:81"
+  ],
+  "备注:": [
+    "server/application/admin/logic/AfterSaleLogic.php:205"
+  ],
+  "备注不能超过100个字符": [
+    "server/application/admin/validate/AdjustUserLevel.php:34"
+  ],
+  "备注信息不能超过100个字符": [
+    "server/application/admin/validate/DistributionMember.php:41"
+  ],
+  "备注最多64个字符": [
+    "server/application/admin/validate/UserGroup.php:41"
+  ],
+  "备注说明(": [
+    "server/application/admin/logic/AfterSaleLogic.php:199"
+  ],
+  "大小尺寸与商品描述不符": [
+    "server/application/common/model/AfterSale.php:93"
+  ],
+  "天": [
+    "server/application/common/model/UserTask.php:55"
+  ],
+  "天内可用": [
+    "server/application/admin/model/Coupon.php:107",
+    "server/application/admin/model/Coupon.php:110"
+  ],
+  "天，赠送": [
+    "server/application/api/logic/UserLevelLogic.php:119"
+  ],
+  "失败:": [
+    "server/application/api/logic/UserLogic.php:193"
+  ],
+  "失败原因": [
+    "server/application/admin/controller/DeliveryBatch.php:118"
+  ],
+  "头像保存失败:": [
+    "server/application/api/logic/UserLogic.php:361",
+    "server/application/api/server/UserServer.php:211",
+    "server/application/api/server/UserServer.php:80"
+  ],
+  "头像地址不合法": [
+    "server/application/api/logic/UserLogic.php:357",
+    "server/application/api/server/UserServer.php:207",
+    "server/application/api/server/UserServer.php:76"
+  ],
+  "女": [
+    "server/application/admin/logic/CouponLogic.php:284",
+    "server/application/admin/logic/GoodsCommentLogic.php:126",
+    "server/application/admin/logic/SignDailyLogic.php:92",
+    "server/application/admin/model/User.php:48",
+    "server/application/common/model/User.php:90"
+  ],
+  "好物优选": [
+    "server/application/admin/logic/GoodsLogic.php:218",
+    "server/application/common/model/Ad.php:129"
+  ],
+  "好评": [
+    "server/application/admin/logic/GoodsCommentLogic.php:131",
+    "server/application/api/logic/GoodsCommentLogic.php:227"
+  ],
+  "存储在七牛云，请前往七牛云开通存储服务": [
+    "server/application/admin/controller/StorageConfig.php:46"
+  ],
+  "存储在本地服务器": [
+    "server/application/admin/controller/StorageConfig.php:40"
+  ],
+  "存储在腾讯云，请前往腾讯云开通存储服务": [
+    "server/application/admin/controller/StorageConfig.php:58"
+  ],
+  "存储在阿里云，请前往阿里云开通存储服务": [
+    "server/application/admin/controller/StorageConfig.php:52"
+  ],
+  "存在售后订单，无法取消": [
+    "server/application/api/logic/OrderLogic.php:1070"
+  ],
+  "安卓": [
+    "server/application/common/model/Client_.php:46"
+  ],
+  "安卓APP商城": [
+    "server/application/common/model/Client_.php:63"
+  ],
+  "定时任务": [
+    "server/application/common/command/Crontab.php:36",
+    "server/application/common/model/Crontab_.php:27"
+  ],
+  "定时任务的规则不能为空": [
+    "server/application/admin/validate/Crontab.php:64"
+  ],
+  "定时任务规则设置错误": [
+    "server/application/admin/validate/Crontab.php:39"
+  ],
+  "审核中": [
+    "server/application/admin/logic/LiveGoodsLogic.php:62"
+  ],
+  "审核中，无法删除": [
+    "server/application/admin/logic/LiveGoodsLogic.php:237"
+  ],
+  "审核失败，请重新提交审核": [
+    "server/application/api/logic/DistributionLogic.php:181"
+  ],
+  "审核拒绝": [
+    "server/application/admin/model/DistributionMemberApply.php:48",
+    "server/application/common/model/DistributionMember.php:46",
+    "server/application/common/model/ShopWithdraw.php:35"
+  ],
+  "审核通过": [
+    "server/application/admin/logic/LiveGoodsLogic.php:62",
+    "server/application/admin/model/DistributionMemberApply.php:47",
+    "server/application/common/model/DistributionMember.php:45"
+  ],
+  "审核通过，提现中": [
+    "server/application/admin/logic/WithdrawLogic.php:174"
+  ],
+  "审核驳回": [
+    "server/application/admin/logic/LiveGoodsLogic.php:62"
+  ],
+  "客服二维码": [
+    "server/application/admin/logic/ServiceConfigLogic.php:84"
+  ],
+  "密码不正确": [
+    "server/application/api/logic/LoginPasswordLogic.php:57"
+  ],
+  "密码不能为空": [
+    "server/application/admin/validate/Admin.php:43",
+    "server/application/admin/validate/Login.php:40"
+  ],
+  "密码加密密钥已失效，请刷新后重试": [
+    "server/application/common/server/PasswordCryptoService.php:84"
+  ],
+  "密码必须加密传输": [
+    "server/application/common/server/PasswordCryptoService.php:78",
+    "server/application/common/server/PasswordCryptoService.php:90"
+  ],
+  "密码未改动": [
+    "server/application/api/logic/LoginPasswordLogic.php:109"
+  ],
+  "密码格式错误": [
+    "server/application/api/validate/LoginPassword.php:40",
+    "server/application/api/validate/Register.php:39"
+  ],
+  "密码解密失败": [
+    "server/application/common/server/PasswordCryptoService.php:95"
+  ],
+  "密码错误": [
+    "server/application/api/validate/Login.php:55"
+  ],
+  "密码长度为6~16位": [
+    "server/application/admin/validate/User.php:39"
+  ],
+  "密码长度必须为6到16位之间": [
+    "server/application/admin/validate/Admin.php:44",
+    "server/application/admin/validate/Password.php:37"
+  ],
+  "密码：": [
+    "server/application/common/command/Password.php:50"
+  ],
+  "对方不是分销会员": [
+    "server/application/admin/validate/DistributionMember.php:87"
+  ],
+  "导入的文件发货信息为空": [
+    "server/application/admin/validate/DeliveryBatchImport.php:19"
+  ],
+  "导航名称不能为空": [
+    "server/application/admin/logic/MenuDecorateLogic.php:180",
+    "server/application/admin/logic/MenuDecorateLogic.php:255"
+  ],
+  "导航名称已存在": [
+    "server/application/admin/logic/MenuDecorateLogic.php:190",
+    "server/application/admin/logic/MenuDecorateLogic.php:266"
+  ],
+  "小程序": [
+    "server/application/common/model/Client_.php:37"
+  ],
+  "小程序商城": [
+    "server/application/common/model/Client_.php:61"
+  ],
+  "小米手机Plus": [
+    "server/application/admin/logic/PrinterLogic.php:357"
+  ],
+  "少件（含缺少配件）": [
+    "server/application/common/model/AfterSale.php:98"
+  ],
+  "属性为\"系统默认\"不可删除": [
+    "server/application/admin/validate/AdPosition.php:42",
+    "server/application/admin/validate/AdPosition.php:77",
+    "server/application/admin/validate/AdPosition.php:81"
+  ],
+  "岗位类型": [
+    "server/application/admin/logic/WechatMerchantTransferLogic.php:116"
+  ],
+  "差评": [
+    "server/application/admin/logic/GoodsCommentLogic.php:135",
+    "server/application/api/logic/GoodsCommentLogic.php:237"
+  ],
+  "已下单": [
+    "server/application/api/logic/OrderLogic.php:1191",
+    "server/application/api/logic/OrderLogic.php:1277"
+  ],
+  "已下架": [
+    "server/application/admin/validate/SeckillGoods.php:119",
+    "server/application/admin/validate/SeckillGoods.php:82"
+  ],
+  "已为最新版本。": [
+    "server/application/admin/validate/Upgrade.php:83"
+  ],
+  "已使用": [
+    "server/application/admin/logic/CouponLogic.php:270"
+  ],
+  "已关闭": [
+    "server/application/admin/model/Coupon.php:135",
+    "server/application/common/model/Order.php:58"
+  ],
+  "已发放": [
+    "server/application/common/model/LuckdrawRecord.php:48"
+  ],
+  "已发放：": [
+    "server/application/admin/model/Coupon.php:165"
+  ],
+  "已发生分佣, 无法再次发起售后": [
+    "server/application/api/validate/AfterSale.php:182"
+  ],
+  "已发生分佣, 无法重新申请售后": [
+    "server/application/api/validate/AfterSale.php:105"
+  ],
+  "已发货": [
+    "server/application/api/logic/OrderLogic.php:1195"
+  ],
+  "已在活动中，请勿重复添加": [
+    "server/application/admin/validate/SeckillGoods.php:86"
+  ],
+  "已失效": [
+    "server/application/common/model/DistributionOrder.php:45",
+    "server/application/common/model/DistributionOrderGoods.php:18"
+  ],
+  "已完成": [
+    "server/application/common/model/Order.php:57"
+  ],
+  "已拒绝提现": [
+    "server/application/admin/controller/Withdraw.php:93"
+  ],
+  "已提交，等待客服审核...": [
+    "server/application/api/logic/DistributionLogic.php:175"
+  ],
+  "已提现成功": [
+    "server/application/admin/logic/WechatCorporatePaymentLogic.php:221"
+  ],
+  "已支付": [
+    "server/application/common/model/Pay.php:50"
+  ],
+  "已支付的拼团订单需要有拼团结果才可以取消": [
+    "server/application/admin/validate/Order.php:93"
+  ],
+  "已支付的拼团订单需要等待拼团得出结果后才能取消喔~": [
+    "server/application/api/logic/OrderLogic.php:1064"
+  ],
+  "已支付的拼团订单需要等待拼团成功后才能发货": [
+    "server/application/admin/validate/Order.php:144"
+  ],
+  "已有会员属于该分组,不能删除": [
+    "server/application/admin/validate/UserGroup.php:60"
+  ],
+  "已有邀请人": [
+    "server/application/api/validate/DistributionCode.php:61"
+  ],
+  "已核销": [
+    "server/application/common/model/Order.php:108"
+  ],
+  "已结束": [
+    "server/application/admin/logic/LiveRoomLogic.php:66",
+    "server/application/api/logic/LiveRoomLogic.php:52",
+    "server/application/api/logic/SeckillLogic.php:39"
+  ],
+  "已结算": [
+    "server/application/common/model/DistributionOrder.php:44",
+    "server/application/common/model/DistributionOrderGoods.php:17"
+  ],
+  "已结算佣金收入须大于0": [
+    "server/application/admin/validate/DistributionLevelValidate.php:59"
+  ],
+  "已设置支付密码": [
+    "server/application/api/controller/User.php:221"
+  ],
+  "已超过下单时间，无法下单": [
+    "server/application/api/logic/BargainLogic.php:465"
+  ],
+  "已转账": [
+    "server/application/common/model/ShopWithdraw.php:34"
+  ],
+  "已过拼团活动截止时间": [
+    "server/application/api/validate/Team.php:125"
+  ],
+  "已过期": [
+    "server/application/admin/logic/CouponLogic.php:272",
+    "server/application/admin/logic/LiveRoomLogic.php:66",
+    "server/application/api/logic/LiveRoomLogic.php:52"
+  ],
+  "已退款": [
+    "server/application/common/model/Pay.php:51"
+  ],
+  "市不能为空": [
+    "server/application/api/validate/UserAddress.php:50"
+  ],
+  "市场价不能小于0": [
+    "server/application/admin/validate/GoodsMoreSpecLists.php:41",
+    "server/application/admin/validate/GoodsOneSpec.php:41"
+  ],
+  "帮助中心": [
+    "server/application/common/model/Ad.php:144",
+    "server/application/common/model/Ad.php:97",
+    "server/application/common/model/Menu_.php:125",
+    "server/application/common/model/Menu_.php:198"
+  ],
+  "帮忙砍一刀": [
+    "server/application/common/logic/QrCodeLogic.php:526"
+  ],
+  "平台": [
+    "server/application/admin/logic/NoticeSettingLogic.php:174"
+  ],
+  "平台名称": [
+    "server/application/admin/logic/ServiceConfigLogic.php:80"
+  ],
+  "平台拒绝售后退款通知": [
+    "server/application/common/model/NoticeSetting.php:152"
+  ],
+  "平台赠送": [
+    "server/application/admin/model/Coupon.php:119"
+  ],
+  "平台通过售后退款通知": [
+    "server/application/common/model/NoticeSetting.php:151"
+  ],
+  "广东省广州市天河区XXXX科技园": [
+    "server/application/admin/logic/PrinterLogic.php:346"
+  ],
+  "广告标题已存在": [
+    "server/application/admin/validate/Ad.php:40",
+    "server/application/admin/validate/AdPosition.php:39"
+  ],
+  "广告标题过长": [
+    "server/application/admin/validate/Ad.php:41",
+    "server/application/admin/validate/AdPosition.php:40"
+  ],
+  "库存不足": [
+    "server/application/api/validate/Team.php:81"
+  ],
+  "库存必须为整型": [
+    "server/application/admin/validate/GoodsOneSpec.php:47"
+  ],
+  "库存必须为整数": [
+    "server/application/admin/validate/GoodsMoreSpecLists.php:47"
+  ],
+  "库存必须大于或等于0": [
+    "server/application/admin/validate/GoodsMoreSpecLists.php:48"
+  ],
+  "库存必须大于零": [
+    "server/application/admin/validate/GoodsOneSpec.php:48"
+  ],
+  "库存预警必须大于等于0": [
+    "server/application/admin/validate/Goods.php:70"
+  ],
+  "应付金额": [
+    "server/application/admin/logic/OrderLogic.php:261",
+    "server/application/admin/logic/VerificationLogic.php:208"
+  ],
+  "店铺提现": [
+    "server/application/common/model/ShopAccountLog.php:31"
+  ],
+  "店铺提现拒绝": [
+    "server/application/common/model/ShopAccountLog.php:32"
+  ],
+  "店铺结算": [
+    "server/application/common/model/ShopAccountLog.php:30"
+  ],
+  "建议上传广告图片宽*高, ": [
+    "server/application/admin/logic/AdLogic.php:238"
+  ],
+  "开启": [
+    "server/application/admin/logic/GoodsLogic.php:137",
+    "server/application/admin/logic/GoodsLogic.php:223",
+    "server/application/admin/logic/PrinterLogic.php:46",
+    "server/application/admin/logic/PrinterLogic.php:47",
+    "server/application/admin/logic/SmsLogic.php:32"
+  ],
+  "开团人数必须为数字": [
+    "server/application/admin/validate/TeamActivity.php:48"
+  ],
+  "开团状态选择异常": [
+    "server/application/admin/validate/TeamActivity.php:53"
+  ],
+  "开始抽奖": [
+    "server/application/api/logic/LuckdrawLogic.php:380"
+  ],
+  "开始时间不能大于结束时间": [
+    "server/application/admin/validate/SeckillTime.php:37"
+  ],
+  "开播时间需要在当前时间的10分钟后": [
+    "server/application/admin/logic/LiveRoomLogic.php:110"
+  ],
+  "开通成功": [
+    "server/application/admin/controller/DistributionMember.php:41"
+  ],
+  "异常": [
+    "server/application/admin/logic/LiveRoomLogic.php:66",
+    "server/application/api/logic/LiveRoomLogic.php:52"
+  ],
+  "异步通知验签失败": [
+    "server/application/common/server/AliPayServer.php:185"
+  ],
+  "张": [
+    "server/application/admin/model/Coupon.php:171"
+  ],
+  "张先生": [
+    "server/application/admin/logic/PrinterLogic.php:344"
+  ],
+  "当前分类下有子分类,请先调整该分类下的子分类": [
+    "server/application/admin/validate/FileCate.php:92"
+  ],
+  "当前只支持h5和app登录": [
+    "server/application/api/validate/Login.php:56"
+  ],
+  "当前商品规格参数错误": [
+    "server/application/admin/logic/CommentHelperLogic.php:95"
+  ],
+  "当前密码不能为空": [
+    "server/application/admin/validate/Password.php:34"
+  ],
+  "当前密码输入不正确": [
+    "server/application/admin/validate/Password.php:35"
+  ],
+  "当前成长值 ": [
+    "server/application/api/logic/UserLevelLogic.php:49"
+  ],
+  "当前状态不能收款": [
+    "server/application/api/logic/WithdrawLogic.php:192"
+  ],
+  "当前系统无法升级到该版本，请重新选择更新版本。": [
+    "server/application/admin/validate/Upgrade.php:67",
+    "server/application/admin/validate/Upgrade.php:87"
+  ],
+  "当前订单状态不能发货": [
+    "server/application/admin/validate/Order.php:134"
+  ],
+  "当前运费模板是按体积计算运费，规格：": [
+    "server/application/admin/validate/GoodsMoreSpecLists.php:74"
+  ],
+  "当前运费模板是按体积计算运费，请输入体积": [
+    "server/application/admin/validate/GoodsOneSpec.php:76"
+  ],
+  "当前运费模板是按重量计算运费，规格：": [
+    "server/application/admin/validate/GoodsMoreSpecLists.php:69"
+  ],
+  "当前运费模板是按重量计算运费，请输入重量": [
+    "server/application/admin/validate/GoodsOneSpec.php:71"
+  ],
+  "待付款": [
+    "server/application/common/model/Order.php:54"
+  ],
+  "待发放：": [
+    "server/application/admin/model/Coupon.php:171"
+  ],
+  "待发放：不限量": [
+    "server/application/admin/model/Coupon.php:167"
+  ],
+  "待发货": [
+    "server/application/common/model/Order.php:55"
+  ],
+  "待取货": [
+    "server/application/api/logic/OrderLogic.php:1005",
+    "server/application/api/logic/OrderLogic.php:896",
+    "server/application/api/logic/OrderLogic.php:901"
+  ],
+  "待审核": [
+    "server/application/admin/model/DistributionMemberApply.php:46",
+    "server/application/common/model/DistributionMember.php:44",
+    "server/application/common/model/ShopWithdraw.php:32"
+  ],
+  "待提现": [
+    "server/application/common/model/Withdraw.php:52"
+  ],
+  "待支付": [
+    "server/application/common/model/Pay.php:49"
+  ],
+  "待收款": [
+    "server/application/common/model/Withdraw.php:58"
+  ],
+  "待收货": [
+    "server/application/common/model/Order.php:56"
+  ],
+  "待核销": [
+    "server/application/common/model/Order.php:107"
+  ],
+  "待转账": [
+    "server/application/common/model/ShopWithdraw.php:33"
+  ],
+  "待返佣": [
+    "server/application/common/model/DistributionOrder.php:43",
+    "server/application/common/model/DistributionOrderGoods.php:16"
+  ],
+  "很抱歉!订单已无法取消": [
+    "server/application/api/logic/OrderLogic.php:1057"
+  ],
+  "很抱歉!订单无法取消": [
+    "server/application/api/logic/OrderLogic.php:1050"
+  ],
+  "很抱歉,商品库存不足": [
+    "server/application/api/logic/CartLogic.php:49"
+  ],
+  "很抱歉,库存不足": [
+    "server/application/api/logic/CartLogic.php:99"
+  ],
+  "微信公众号": [
+    "server/application/admin/logic/ServiceConfigLogic.php:38"
+  ],
+  "微信小程序": [
+    "server/application/admin/logic/ServiceConfigLogic.php:33"
+  ],
+  "微信小程序发货同步": [
+    "server/application/common/command/WechatMiniExpressSendSync.php:18"
+  ],
+  "微信小程序客服": [
+    "server/application/admin/logic/ServiceConfigLogic.php:76"
+  ],
+  "微信快捷支付": [
+    "server/application/api/controller/Payment.php:216"
+  ],
+  "微信支付": [
+    "server/application/common/model/Pay.php:66"
+  ],
+  "微信支付退款失败": [
+    "server/application/common/logic/OrderRefundLogic.php:168"
+  ],
+  "微信收款码": [
+    "server/application/common/model/Withdraw.php:73"
+  ],
+  "微信证书不存在,请联系管理员!": [
+    "server/application/common/logic/OrderRefundLogic.php:138"
+  ],
+  "微信配置错误：": [
+    "server/application/common/logic/QrCodeLogic.php:103",
+    "server/application/common/logic/QrCodeLogic.php:318",
+    "server/application/common/logic/QrCodeLogic.php:468"
+  ],
+  "微信零钱": [
+    "server/application/common/model/Withdraw.php:71"
+  ],
+  "快递/物流一直未送到": [
+    "server/application/common/model/AfterSale.php:100"
+  ],
+  "快递/物流无跟踪记录": [
+    "server/application/common/model/AfterSale.php:102"
+  ],
+  "快递公司(": [
+    "server/application/admin/logic/AfterSaleLogic.php:199"
+  ],
+  "快递公司不存在": [
+    "server/application/admin/logic/OrderDeliveryBatchLogic.php:50"
+  ],
+  "快递公司名称": [
+    "server/application/admin/controller/DeliveryBatch.php:116"
+  ],
+  "快递单号": [
+    "server/application/admin/controller/DeliveryBatch.php:117"
+  ],
+  "快递发货": [
+    "server/application/common/model/Order.php:87"
+  ],
+  "性别设置错误": [
+    "server/application/api/validate/ChangeUserInfo.php:30"
+  ],
+  "总库存": [
+    "server/application/admin/logic/GoodsLogic.php:218"
+  ],
+  "总销量": [
+    "server/application/admin/logic/GoodsLogic.php:218"
+  ],
+  "恭喜": [
+    "server/application/api/logic/LuckdrawLogic.php:435",
+    "server/application/api/logic/LuckdrawLogic.php:76"
+  ],
+  "恭喜您获得": [
+    "server/application/api/logic/LuckdrawLogic.php:196"
+  ],
+  "恭喜您，砍价成功": [
+    "server/application/api/logic/BargainLogic.php:458",
+    "server/application/common/model/BargainLaunch.php:197"
+  ],
+  "您今天已签到过了": [
+    "server/application/api/validate/Sign.php:35"
+  ],
+  "您已下单了, 请勿重复操作": [
+    "server/application/api/logic/OrderLogic.php:566"
+  ],
+  "您已助力过了": [
+    "server/application/api/validate/Bargain.php:136"
+  ],
+  "您已达到领取次数了": [
+    "server/application/api/validate/GetCoupon.php:53",
+    "server/application/api/validate/GetCoupon.php:65"
+  ],
+  "您正在发起砍价": [
+    "server/application/api/logic/BargainLogic.php:141"
+  ],
+  "您的系统当前处于此版本": [
+    "server/application/admin/logic/UpgradeLogic.php:84"
+  ],
+  "您设置的存储引擎不存在!": [
+    "server/application/admin/controller/StorageConfig.php:124"
+  ],
+  "成功": [
+    "server/application/api/controller/Order.php:219",
+    "server/application/api/controller/Withdraw.php:81"
+  ],
+  "成功下单": [
+    "server/application/common/behavior/Footprint.php:76"
+  ],
+  "成功提现至微信零钱": [
+    "server/application/admin/logic/WechatCorporatePaymentLogic.php:142"
+  ],
+  "成功邀请1位好友": [
+    "server/application/api/logic/SignLogic.php:149"
+  ],
+  "成本价必须大于或等于0.01": [
+    "server/application/admin/validate/GoodsMoreSpecLists.php:45",
+    "server/application/admin/validate/GoodsOneSpec.php:45"
+  ],
+  "成长值": [
+    "server/application/admin/logic/SignDailyLogic.php:49"
+  ],
+  "成长值。": [
+    "server/application/api/logic/UserLevelLogic.php:111"
+  ],
+  "成长值不能为空": [
+    "server/application/admin/validate/SignDaily.php:46"
+  ],
+  "成长值备注不能超过100字": [
+    "server/application/admin/validate/AdjustAccount.php:39"
+  ],
+  "成长值必须为整数": [
+    "server/application/admin/validate/SignDaily.php:47"
+  ],
+  "成长值必须大于0": [
+    "server/application/admin/validate/SignDaily.php:48"
+  ],
+  "成长值必须大于等于零": [
+    "server/application/admin/validate/UserLevel.php:38"
+  ],
+  "成长值必须大于零": [
+    "server/application/admin/validate/AdjustAccount.php:147"
+  ],
+  "成长值；": [
+    "server/application/api/logic/UserLevelLogic.php:116",
+    "server/application/api/logic/UserLevelLogic.php:119"
+  ],
+  "我正在参与砍价 还差一步": [
+    "server/application/common/logic/QrCodeLogic.php:522"
+  ],
+  "我的优惠券": [
+    "server/application/common/model/Menu_.php:184"
+  ],
+  "我的拼团": [
+    "server/application/common/model/Menu_.php:226"
+  ],
+  "我的收藏": [
+    "server/application/common/model/Menu_.php:111",
+    "server/application/common/model/Menu_.php:212"
+  ],
+  "我的钱包": [
+    "server/application/common/model/Menu_.php:170"
+  ],
+  "所传page页面不存在，或者小程序没有发布": [
+    "server/application/common/server/QrCodeServer.php:61"
+  ],
+  "所填设置参数不能小于0": [
+    "server/application/admin/validate/Freight.php:84"
+  ],
+  "所结算的商品中包含指定不可用商品": [
+    "server/application/api/logic/CouponLogic.php:458",
+    "server/application/api/validate/Order.php:185"
+  ],
+  "所结算的商品中未包含指定商品": [
+    "server/application/api/logic/CouponLogic.php:429",
+    "server/application/api/logic/CouponLogic.php:487",
+    "server/application/api/validate/Order.php:163"
+  ],
+  "所结算的商品中未满足使用的金额": [
+    "server/application/api/logic/CouponLogic.php:421",
+    "server/application/api/logic/CouponLogic.php:448",
+    "server/application/api/logic/CouponLogic.php:477",
+    "server/application/api/logic/OrderLogic.php:467",
+    "server/application/api/validate/Order.php:156",
+    "server/application/api/validate/Order.php:177",
+    "server/application/api/validate/Order.php:201"
+  ],
+  "所选分类不存在": [
+    "server/application/admin/validate/Help.php:70"
+  ],
+  "所选分类已绑定商品": [
+    "server/application/admin/validate/GoodsCategory.php:137"
+  ],
+  "所选地区不能为空": [
+    "server/application/api/validate/UserAddress.php:45"
+  ],
+  "手机号已被使用": [
+    "server/application/admin/validate/User.php:41",
+    "server/application/admin/validate/User.php:56"
+  ],
+  "手机号已被其他账号绑定": [
+    "server/application/api/logic/UserLogic.php:185"
+  ],
+  "手机号码": [
+    "server/application/admin/logic/OrderLogic.php:261"
+  ],
+  "手机号码不存在": [
+    "server/application/api/validate/SmsSend.php:75"
+  ],
+  "手机号码不能为空": [
+    "server/application/api/controller/User.php:341"
+  ],
+  "手机号码：": [
+    "server/application/common/server/YlyPrinter.php:160",
+    "server/application/common/server/YlyPrinter.php:167"
+  ],
+  "打印成功": [
+    "server/application/admin/controller/FaceSheetOrder.php:74",
+    "server/application/admin/controller/Printer.php:122"
+  ],
+  "打印成功，如未出小票，请检查打印机是否在线": [
+    "server/application/admin/controller/Order.php:195"
+  ],
+  "打印机离线": [
+    "server/application/admin/logic/PrinterLogic.php:310"
+  ],
+  "打印机缺纸": [
+    "server/application/admin/logic/PrinterLogic.php:313"
+  ],
+  "打印机配置错误": [
+    "server/application/admin/validate/Printer.php:61",
+    "server/application/admin/validate/Printer.php:74"
+  ],
+  "打印电子面单异常,原因未知": [
+    "server/application/common/server/printing/Kuaidi100.php:147"
+  ],
+  "打印配置错误": [
+    "server/application/admin/validate/Printer.php:80"
+  ],
+  "扣除手续费后提现金额不能小于1元": [
+    "server/application/admin/logic/WechatCorporatePaymentLogic.php:57",
+    "server/application/admin/logic/WechatMerchantTransferLogic.php:55"
+  ],
+  "扣除首单积分": [
+    "server/application/common/model/AccountLog.php:108"
+  ],
+  "扫二维码": [
+    "server/application/admin/logic/ServiceConfigLogic.php:60"
+  ],
+  "找回支付密码": [
+    "server/application/common/model/NoticeSetting.php:161"
+  ],
+  "抢购中": [
+    "server/application/api/logic/SeckillLogic.php:43"
+  ],
+  "报酬说明": [
+    "server/application/admin/logic/WechatMerchantTransferLogic.php:117"
+  ],
+  "抽中了": [
+    "server/application/api/logic/LuckdrawLogic.php:439",
+    "server/application/api/logic/LuckdrawLogic.php:76"
+  ],
+  "抽奖失败": [
+    "server/application/api/controller/Luckdraw.php:44"
+  ],
+  "抽奖活动已结束": [
+    "server/application/api/validate/Luckdraw.php:50"
+  ],
+  "抽奖限制8个抽奖奖品": [
+    "server/application/admin/logic/LuckDrawLogic.php:180"
+  ],
+  "拒绝提现返还佣金": [
+    "server/application/common/model/AccountLog.php:105"
+  ],
+  "拒绝退款": [
+    "server/application/common/model/Pay.php:52"
+  ],
+  "拨打电话": [
+    "server/application/admin/logic/ServiceConfigLogic.php:64"
+  ],
+  "拼团ID不可为空": [
+    "server/application/admin/validate/TeamActivity.php:41"
+  ],
+  "拼团ID必须为数字": [
+    "server/application/admin/validate/TeamActivity.php:42"
+  ],
+  "拼团中": [
+    "server/application/api/logic/UserLogic.php:315",
+    "server/application/common/model/Team.php:40"
+  ],
+  "拼团商品": [
+    "server/application/admin/logic/CommonLogic.php:104",
+    "server/application/admin/logic/GoodsLogic.php:162"
+  ],
+  "拼团失败": [
+    "server/application/api/logic/UserLogic.php:315",
+    "server/application/common/model/Team.php:42"
+  ],
+  "拼团成功": [
+    "server/application/api/logic/UserLogic.php:315",
+    "server/application/common/model/Team.php:41"
+  ],
+  "拼团成功后才能核销": [
+    "server/application/admin/validate/Verification.php:82",
+    "server/application/api/validate/Order.php:243"
+  ],
+  "拼团未成功禁止打印：": [
+    "server/application/admin/logic/FaceSheetOrderLogic.php:176"
+  ],
+  "拼团活动": [
+    "server/application/common/model/Ad.php:77",
+    "server/application/common/model/Menu_.php:77"
+  ],
+  "拼团规格格式错误": [
+    "server/application/admin/validate/TeamActivity.php:44"
+  ],
+  "拼团订单": [
+    "server/application/common/model/Order.php:73"
+  ],
+  "拼购退款失败:": [
+    "server/application/common/command/TeamEnd.php:142",
+    "server/application/common/command/TeamEnd.php:146",
+    "server/application/common/command/TeamEnd.php:150"
+  ],
+  "指定商品不可用": [
+    "server/application/api/logic/CouponLogic.php:149",
+    "server/application/api/logic/CouponLogic.php:222",
+    "server/application/api/logic/CouponLogic.php:348",
+    "server/application/api/logic/CouponLogic.php:525",
+    "server/application/api/logic/CouponLogic.php:70"
+  ],
+  "指定商品可用": [
+    "server/application/api/logic/CouponLogic.php:146",
+    "server/application/api/logic/CouponLogic.php:216",
+    "server/application/api/logic/CouponLogic.php:345",
+    "server/application/api/logic/CouponLogic.php:522",
+    "server/application/api/logic/CouponLogic.php:67"
+  ],
+  "按件计费": [
+    "server/application/admin/model/Freight.php:51",
+    "server/application/common/model/Freight.php:41"
+  ],
+  "按体积计费": [
+    "server/application/admin/model/Freight.php:50",
+    "server/application/common/model/Freight.php:40"
+  ],
+  "按重量计费": [
+    "server/application/admin/model/Freight.php:49",
+    "server/application/common/model/Freight.php:39"
+  ],
+  "授权信息失效": [
+    "server/application/common/server/WeChatPayServer.php:85"
+  ],
+  "排序": [
+    "server/application/admin/logic/GoodsLogic.php:218"
+  ],
+  "排序值不合法": [
+    "server/application/admin/validate/GoodsBrand.php:45",
+    "server/application/admin/validate/GoodsCategory.php:42"
+  ],
+  "排序值不能为空": [
+    "server/application/admin/validate/FileCateNew.php:36"
+  ],
+  "排序值须为整数": [
+    "server/application/admin/validate/FileCateNew.php:37"
+  ],
+  "排序值须大于0": [
+    "server/application/admin/validate/FileCateNew.php:38"
+  ],
+  "排序号需为数字": [
+    "server/application/admin/validate/LuckDraw.php:40"
+  ],
+  "排序必须为正整数": [
+    "server/application/admin/validate/Auth.php:39"
+  ],
+  "排序范围必须在1到1000之间": [
+    "server/application/admin/validate/Auth.php:40"
+  ],
+  "排序请输入整数": [
+    "server/application/admin/validate/GoodsBrand.php:44",
+    "server/application/admin/validate/GoodsCategory.php:41"
+  ],
+  "推荐人不存在": [
+    "server/application/admin/logic/UserLogic.php:718",
+    "server/application/admin/validate/DistributionMember.php:79"
+  ],
+  "推荐人信息": [
+    "server/application/admin/logic/UserLogic.php:212"
+  ],
+  "提交成功": [
+    "server/application/api/logic/AfterSaleLogic.php:242",
+    "server/application/api/logic/AfterSaleLogic.php:294",
+    "server/application/api/logic/AfterSaleLogic.php:401"
+  ],
+  "提审失败": [
+    "server/application/admin/logic/LiveGoodsLogic.php:236"
+  ],
+  "提现": [
+    "server/application/admin/logic/WechatMerchantTransferLogic.php:112"
+  ],
+  "提现中": [
+    "server/application/common/model/Withdraw.php:53"
+  ],
+  "提现单号：": [
+    "server/application/common/model/ShopAccountLog.php:43"
+  ],
+  "提现失败": [
+    "server/application/common/model/Withdraw.php:55"
+  ],
+  "提现失败已回退佣金": [
+    "server/application/admin/controller/Withdraw.php:176"
+  ],
+  "提现成功": [
+    "server/application/admin/logic/WithdrawLogic.php:280",
+    "server/application/common/model/Withdraw.php:54"
+  ],
+  "提现手续费须在0-100区间内": [
+    "server/application/admin/controller/ShopSetting.php:133"
+  ],
+  "提现扣减佣金": [
+    "server/application/common/model/AccountLog.php:104"
+  ],
+  "提现类型错误": [
+    "server/application/api/validate/Withdraw.php:43"
+  ],
+  "提现至": [
+    "server/application/api/logic/WithdrawLogic.php:144"
+  ],
+  "提现至微信零钱失败": [
+    "server/application/admin/logic/WechatCorporatePaymentLogic.php:248",
+    "server/application/admin/logic/WithdrawLogic.php:300"
+  ],
+  "提现至钱包余额成功": [
+    "server/application/admin/logic/WithdrawLogic.php:146"
+  ],
+  "提现记录不存在": [
+    "server/application/api/logic/WithdrawLogic.php:189"
+  ],
+  "提现金额不正确": [
+    "server/application/api/validate/Withdraw.php:70"
+  ],
+  "提货人：": [
+    "server/application/common/server/YlyPrinter.php:159"
+  ],
+  "提货成功": [
+    "server/application/api/controller/Order.php:187"
+  ],
+  "提货码": [
+    "server/application/admin/logic/VerificationLogic.php:209"
+  ],
+  "提货码不正确或订单不存在": [
+    "server/application/api/validate/Order.php:225"
+  ],
+  "提货码不能为空": [
+    "server/application/api/validate/Order.php:55"
+  ],
+  "提货门店：": [
+    "server/application/common/server/YlyPrinter.php:161"
+  ],
+  "撤销成功": [
+    "server/application/api/controller/AfterSale.php:82"
+  ],
+  "播时间和结束时间间隔不得短于30分钟": [
+    "server/application/admin/logic/LiveRoomLogic.php:114"
+  ],
+  "操作失败": [
+    "server/application/admin/controller/HotSearch.php:43",
+    "server/application/admin/controller/User.php:104",
+    "server/application/admin/controller/User.php:83",
+    "server/application/api/controller/User.php:103",
+    "server/application/api/controller/User.php:168",
+    "server/application/api/validate/UpdateUser.php:62"
+  ],
+  "操作成功": [
+    "server/application/admin/controller/AfterSale.php:100",
+    "server/application/admin/controller/AfterSale.php:117",
+    "server/application/admin/controller/AfterSale.php:134",
+    "server/application/admin/controller/AfterSale.php:153",
+    "server/application/admin/controller/AfterSale.php:83",
+    "server/application/admin/controller/CommentHelper.php:74",
+    "server/application/admin/controller/DistributionApply.php:35",
+    "server/application/admin/controller/DistributionGoods.php:55",
+    "server/application/admin/controller/DistributionMember.php:101",
+    "server/application/admin/controller/Express.php:128",
+    "server/application/admin/controller/File.php:48",
+    "server/application/admin/controller/Freight.php:44",
+    "server/application/admin/controller/HotSearch.php:41",
+    "server/application/admin/controller/NoticeSetting.php:67",
+    "server/application/admin/controller/Order.php:218",
+    "server/application/admin/controller/ShopSetting.php:141",
+    "server/application/admin/controller/ShopSetting.php:162",
+    "server/application/admin/controller/User.php:102",
+    "server/application/admin/controller/User.php:81",
+    "server/application/api/controller/User.php:101",
+    "server/application/api/controller/User.php:166",
+    "server/application/api/controller/User.php:62",
+    "server/application/api/logic/LoginLogic.php:706",
+    "server/application/api/logic/UserLogic.php:190"
+  ],
+  "操作非法": [
+    "server/application/admin/logic/LiveGoodsLogic.php:234"
+  ],
+  "操作频繁": [
+    "server/application/api/logic/UserLogic.php:399"
+  ],
+  "支付失败:": [
+    "server/application/common/server/WeChatPayServer.php:128",
+    "server/application/common/server/WeChatPayServer.php:129"
+  ],
+  "支付宝": [
+    "server/application/common/model/ShopWithdraw.php:57"
+  ],
+  "支付宝支付": [
+    "server/application/common/model/Pay.php:67"
+  ],
+  "支付宝收款码": [
+    "server/application/common/model/Withdraw.php:74"
+  ],
+  "支付宝退款失败": [
+    "server/application/common/logic/OrderRefundLogic.php:193"
+  ],
+  "支付密码不能为空": [
+    "server/application/api/validate/User.php:16"
+  ],
+  "支付密码必须在4-8位之间": [
+    "server/application/api/validate/User.php:17"
+  ],
+  "支付密码错误": [
+    "server/application/api/logic/UserLogic.php:415"
+  ],
+  "支付密码须为字母、数字、下划线或破折号": [
+    "server/application/api/validate/User.php:18"
+  ],
+  "支付成功": [
+    "server/application/api/controller/Payment.php:120",
+    "server/application/api/controller/Payment.php:130",
+    "server/application/api/controller/Payment.php:136",
+    "server/application/api/controller/Payment.php:139",
+    "server/application/api/controller/Payment.php:77"
+  ],
+  "支付方式": [
+    "server/application/admin/logic/OrderLogic.php:261",
+    "server/application/admin/logic/VerificationLogic.php:208"
+  ],
+  "支付方式错误": [
+    "server/application/common/server/AliPayServer.php:164"
+  ],
+  "支付时间": [
+    "server/application/admin/logic/OrderLogic.php:261",
+    "server/application/admin/logic/VerificationLogic.php:205"
+  ],
+  "支付状态": [
+    "server/application/admin/logic/OrderLogic.php:261"
+  ],
+  "支付类型错误": [
+    "server/application/common/logic/PaymentLogic.php:167"
+  ],
+  "支出": [
+    "server/application/api/logic/UserLogic.php:530"
+  ],
+  "收入": [
+    "server/application/api/logic/UserLogic.php:533"
+  ],
+  "收款人不能为空": [
+    "server/application/api/validate/User.php:20"
+  ],
+  "收款会员不存在": [
+    "server/application/api/controller/User.php:275"
+  ],
+  "收款会员信息不能为空": [
+    "server/application/api/controller/User.php:269"
+  ],
+  "收款用户不存在": [
+    "server/application/api/logic/UserLogic.php:423"
+  ],
+  "收益通知": [
+    "server/application/common/logic/NoticeLogic.php:134"
+  ],
+  "收货人": [
+    "server/application/admin/logic/OrderLogic.php:261"
+  ],
+  "收货人不能为空": [
+    "server/application/api/validate/UserAddress.php:42"
+  ],
+  "收货地址": [
+    "server/application/admin/logic/OrderLogic.php:261",
+    "server/application/common/model/Menu_.php:132",
+    "server/application/common/model/Menu_.php:205"
+  ],
+  "收货地址：": [
+    "server/application/common/server/YlyPrinter.php:168"
+  ],
+  "数据": [
+    "server/application/common/command/Update.php:57"
+  ],
+  "数据异常": [
+    "server/application/admin/logic/ServiceConfigLogic.php:137"
+  ],
+  "文件不存在": [
+    "server/application/admin/controller/DeliveryBatch.php:99"
+  ],
+  "文本": [
+    "server/application/admin/logic/WechatReplyLogic.php:37"
+  ],
+  "新品推荐": [
+    "server/application/admin/logic/GoodsLogic.php:218",
+    "server/application/common/model/Ad.php:124"
+  ],
+  "新增:": [
+    "server/application/admin/logic/UpgradeLogic.php:119"
+  ],
+  "新增失败": [
+    "server/application/admin/controller/Bargain.php:61",
+    "server/application/admin/controller/Coupon.php:47",
+    "server/application/admin/controller/LuckDraw.php:69",
+    "server/application/admin/controller/Seckill.php:118",
+    "server/application/admin/controller/TeamActivity.php:65"
+  ],
+  "新增成功": [
+    "server/application/admin/controller/Activity.php:108",
+    "server/application/admin/controller/Activity.php:128",
+    "server/application/admin/controller/Activity.php:60",
+    "server/application/admin/controller/Bargain.php:59",
+    "server/application/admin/controller/Coupon.php:45",
+    "server/application/admin/controller/FaceSheet.php:93",
+    "server/application/admin/controller/FaceSheetSender.php:56",
+    "server/application/admin/controller/LuckDraw.php:67",
+    "server/application/admin/controller/Seckill.php:116",
+    "server/application/admin/controller/Seckill.php:60",
+    "server/application/admin/controller/TeamActivity.php:63"
+  ],
+  "新密码不能为空": [
+    "server/application/admin/validate/Password.php:36"
+  ],
+  "新支付密码不能为空": [
+    "server/application/api/controller/User.php:292",
+    "server/application/api/controller/User.php:347"
+  ],
+  "无效的支付方式": [
+    "server/application/common/logic/PaymentLogic.php:179"
+  ],
+  "无效的邀请码": [
+    "server/application/api/validate/DistributionCode.php:68"
+  ],
+  "无旧数据需要处理": [
+    "server/application/admin/controller/DistributionOrderGoods.php:50"
+  ],
+  "无权限操作": [
+    "server/application/admin/controller/Upgrade.php:119"
+  ],
+  "无法初始化密码加密密钥": [
+    "server/application/common/server/PasswordCryptoService.php:31",
+    "server/application/common/server/PasswordCryptoService.php:36",
+    "server/application/common/server/PasswordCryptoService.php:41"
+  ],
+  "无法获取当前用户信息": [
+    "server/application/api/validate/DistributionCode.php:58"
+  ],
+  "无等级": [
+    "server/application/admin/logic/GoodsCommentLogic.php:117",
+    "server/application/admin/logic/OrderLogic.php:169",
+    "server/application/admin/logic/OrderLogic.php:267",
+    "server/application/admin/logic/TeamActivityLogic.php:458",
+    "server/application/admin/logic/TeamFoundLogic.php:125",
+    "server/application/admin/logic/TeamFoundLogic.php:148",
+    "server/application/admin/logic/TeamFoundLogic.php:182",
+    "server/application/admin/logic/TeamFoundLogic.php:220",
+    "server/application/admin/logic/UserLogic.php:100",
+    "server/application/admin/logic/UserLogic.php:182",
+    "server/application/admin/logic/UserLogic.php:616",
+    "server/application/admin/logic/UserLogic.php:620",
+    "server/application/admin/logic/UserLogic.php:796",
+    "server/application/admin/logic/VerificationLogic.php:158",
+    "server/application/admin/logic/VerificationLogic.php:217",
+    "server/application/admin/logic/WithdrawLogic.php:100",
+    "server/application/common/model/UserLevel.php:49"
+  ],
+  "无金额门槛": [
+    "server/application/api/logic/CouponLogic.php:166",
+    "server/application/api/logic/CouponLogic.php:230",
+    "server/application/api/logic/CouponLogic.php:352",
+    "server/application/api/logic/CouponLogic.php:60",
+    "server/application/api/logic/IndexLogic.php:69"
+  ],
+  "无门槛": [
+    "server/application/admin/model/Coupon.php:76"
+  ],
+  "无需快递": [
+    "server/application/admin/logic/OrderLogic.php:460",
+    "server/application/admin/logic/OrderLogic.php:478"
+  ],
+  "旧数据处理完成": [
+    "server/application/admin/controller/DistributionOrderGoods.php:48"
+  ],
+  "易联云：": [
+    "server/application/admin/logic/OrderLogic.php:647",
+    "server/application/admin/logic/OrderLogic.php:654",
+    "server/application/admin/logic/PrinterLogic.php:118",
+    "server/application/admin/logic/PrinterLogic.php:126",
+    "server/application/admin/logic/PrinterLogic.php:172",
+    "server/application/admin/logic/PrinterLogic.php:180",
+    "server/application/admin/logic/PrinterLogic.php:321",
+    "server/application/admin/logic/PrinterLogic.php:328",
+    "server/application/admin/logic/PrinterLogic.php:404",
+    "server/application/admin/logic/PrinterLogic.php:412"
+  ],
+  "是": [
+    "server/application/admin/logic/ArticleLogic.php:63",
+    "server/application/admin/logic/GoodsLogic.php:224",
+    "server/application/admin/logic/GoodsLogic.php:225",
+    "server/application/admin/logic/GoodsLogic.php:226",
+    "server/application/admin/logic/UserLogic.php:263",
+    "server/application/admin/logic/UserLogic.php:571",
+    "server/application/admin/model/User.php:112",
+    "server/application/common/model/User.php:115"
+  ],
+  "是否开启分销": [
+    "server/application/admin/logic/GoodsLogic.php:218"
+  ],
+  "昵称最大长度32": [
+    "server/application/api/validate/UpdateUser.php:57"
+  ],
+  "昵称长度不能超过32": [
+    "server/application/api/validate/SetWechatUser.php:42"
+  ],
+  "显示": [
+    "server/application/admin/logic/ArticleLogic.php:57",
+    "server/application/admin/logic/GoodsCommentLogic.php:138",
+    "server/application/admin/logic/GoodsCommentLogic.php:142",
+    "server/application/admin/logic/HelpLogic.php:55"
+  ],
+  "晒图": [
+    "server/application/api/logic/GoodsCommentLogic.php:222"
+  ],
+  "普通买家": [
+    "server/application/api/model/User.php:35"
+  ],
+  "普通商品": [
+    "server/application/admin/logic/CommonLogic.php:100",
+    "server/application/admin/logic/GoodsLogic.php:158"
+  ],
+  "普通订单": [
+    "server/application/common/model/Order.php:71"
+  ],
+  "暂停": [
+    "server/application/admin/logic/LiveRoomLogic.php:66",
+    "server/application/api/logic/LiveRoomLogic.php:52"
+  ],
+  "暂无": [
+    "server/application/admin/logic/AfterSaleLogic.php:190",
+    "server/application/admin/logic/AfterSaleLogic.php:198",
+    "server/application/admin/logic/AfterSaleLogic.php:204"
+  ],
+  "暂无收益消息": [
+    "server/application/common/logic/NoticeLogic.php:135"
+  ],
+  "暂无物流信息": [
+    "server/application/admin/logic/OrderLogic.php:564",
+    "server/application/api/controller/Order.php:138",
+    "server/application/api/logic/OrderLogic.php:1235"
+  ],
+  "暂无系统消息": [
+    "server/application/common/logic/NoticeLogic.php:128"
+  ],
+  "暂未开启快递配送方式": [
+    "server/application/api/logic/OrderLogic.php:594",
+    "server/application/api/logic/TeamLogic.php:303",
+    "server/application/api/validate/Order.php:280"
+  ],
+  "暂未开启门店自提配送方式": [
+    "server/application/api/logic/OrderLogic.php:581",
+    "server/application/api/logic/TeamLogic.php:296",
+    "server/application/api/validate/Order.php:262"
+  ],
+  "更新代码、同步数据以后执行": [
+    "server/application/common/command/Update.php:35"
+  ],
+  "更新会员分销信息": [
+    "server/application/common/command/UserDistribution.php:33"
+  ],
+  "更新失败": [
+    "server/application/admin/controller/Bargain.php:124",
+    "server/application/admin/controller/Footprint.php:66",
+    "server/application/admin/controller/LuckDraw.php:126",
+    "server/application/admin/controller/LuckDraw.php:143",
+    "server/application/admin/controller/TeamActivity.php:128",
+    "server/application/admin/controller/TeamActivity.php:89",
+    "server/application/admin/controller/Upgrade.php:84"
+  ],
+  "更新成功": [
+    "server/application/admin/controller/Bargain.php:122",
+    "server/application/admin/controller/Footprint.php:64",
+    "server/application/admin/controller/LuckDraw.php:124",
+    "server/application/admin/controller/LuckDraw.php:141",
+    "server/application/admin/controller/LuckDraw.php:162",
+    "server/application/admin/controller/TeamActivity.php:126",
+    "server/application/admin/controller/TeamActivity.php:87",
+    "server/application/admin/controller/Upgrade.php:80"
+  ],
+  "更新数据库失败": [
+    "server/application/admin/logic/UpgradeLogic.php:213"
+  ],
+  "更新数据库结构失败": [
+    "server/application/admin/logic/UpgradeLogic.php:234"
+  ],
+  "更新文件失败": [
+    "server/application/admin/logic/UpgradeLogic.php:218"
+  ],
+  "更新日志添加失败:": [
+    "server/application/admin/logic/UpgradeLogic.php:279"
+  ],
+  "更新至当前版本后需重新发布PC商城端": [
+    "server/application/admin/logic/UpgradeLogic.php:102"
+  ],
+  "更新至当前版本后需重新发布PC管理端": [
+    "server/application/admin/logic/UpgradeLogic.php:105"
+  ],
+  "更新至当前版本后需重新发布前端商城": [
+    "server/application/admin/logic/UpgradeLogic.php:99"
+  ],
+  "更新至当前版本后需重新发布移动端商城": [
+    "server/application/admin/logic/UpgradeLogic.php:108"
+  ],
+  "最低充值金额为": [
+    "server/application/api/validate/Recharge.php:53"
+  ],
+  "最低提现": [
+    "server/application/api/validate/Withdraw.php:83"
+  ],
+  "最低提现金额不能小于0": [
+    "server/application/admin/controller/ShopSetting.php:130"
+  ],
+  "最低提现金额未设置": [
+    "server/application/api/validate/Withdraw.php:80"
+  ],
+  "最后登录时间": [
+    "server/application/admin/logic/UserLogic.php:212"
+  ],
+  "最高提现": [
+    "server/application/api/validate/Withdraw.php:89"
+  ],
+  "有商品处于售后中，不能核销": [
+    "server/application/admin/validate/Verification.php:97",
+    "server/application/api/logic/OrderLogic.php:1460"
+  ],
+  "有效期至:": [
+    "server/application/api/logic/CouponLogic.php:157",
+    "server/application/api/logic/CouponLogic.php:161",
+    "server/application/api/logic/CouponLogic.php:238",
+    "server/application/api/logic/CouponLogic.php:242",
+    "server/application/api/logic/CouponLogic.php:360",
+    "server/application/api/logic/CouponLogic.php:365",
+    "server/application/api/logic/CouponLogic.php:80",
+    "server/application/api/logic/CouponLogic.php:84"
+  ],
+  "有文件正在使用该分类不允许删除": [
+    "server/application/admin/logic/FileNewLogic.php:155"
+  ],
+  "服务名称不能为空": [
+    "server/application/admin/validate/AssuranceServiceValidate.php:35"
+  ],
+  "服务时间": [
+    "server/application/admin/logic/ServiceConfigLogic.php:83"
+  ],
+  "未使用": [
+    "server/application/admin/logic/CouponLogic.php:261"
+  ],
+  "未到领取时间": [
+    "server/application/api/validate/GetCoupon.php:38"
+  ],
+  "未发放": [
+    "server/application/common/model/LuckdrawRecord.php:48"
+  ],
+  "未命名sheet": [
+    "server/application/common/server/excel/Excel.php:42"
+  ],
+  "未审核": [
+    "server/application/admin/logic/LiveGoodsLogic.php:62"
+  ],
+  "未开始": [
+    "server/application/admin/logic/LiveRoomLogic.php:66",
+    "server/application/api/logic/LiveRoomLogic.php:52",
+    "server/application/api/logic/SeckillLogic.php:46"
+  ],
+  "未找到上传文件的信息": [
+    "server/application/admin/controller/LiveRoom.php:101",
+    "server/application/common/server/storage/engine/Server.php:42"
+  ],
+  "未找到发件人模板信息": [
+    "server/application/admin/logic/FaceSheetOrderLogic.php:183"
+  ],
+  "未找到存储引擎类: ": [
+    "server/application/common/server/storage/Driver.php:120"
+  ],
+  "未找到快递公司信息": [
+    "server/application/admin/logic/FaceSheetOrderLogic.php:195"
+  ],
+  "未找到电子面单模板信息": [
+    "server/application/admin/logic/FaceSheetOrderLogic.php:189"
+  ],
+  "未支付": [
+    "server/application/common/model/Order.php:130"
+  ],
+  "未申请退款": [
+    "server/application/common/model/OrderGoods.php:51"
+  ],
+  "未知": [
+    "server/application/admin/logic/AfterSaleLogic.php:189",
+    "server/application/admin/logic/CouponLogic.php:263",
+    "server/application/admin/logic/FaceSheetLogic.php:46",
+    "server/application/admin/logic/GoodsCommentLogic.php:120",
+    "server/application/admin/logic/SignDailyLogic.php:95",
+    "server/application/admin/model/DistributionMemberApply.php:53",
+    "server/application/admin/model/Freight.php:58",
+    "server/application/admin/model/User.php:50",
+    "server/application/common/model/BargainLaunch.php:52",
+    "server/application/common/model/Client_.php:68",
+    "server/application/common/model/DistributionMember.php:51",
+    "server/application/common/model/DistributionOrder.php:50",
+    "server/application/common/model/Freight.php:48",
+    "server/application/common/model/Order.php:114",
+    "server/application/common/model/Order.php:63",
+    "server/application/common/model/Order.php:80",
+    "server/application/common/model/Order.php:94",
+    "server/application/common/model/OrderGoods.php:60",
+    "server/application/common/model/Pay.php:58",
+    "server/application/common/model/SelffetchShop.php:48",
+    "server/application/common/model/SelffetchVerifier.php:47",
+    "server/application/common/model/User.php:92",
+    "server/application/common/model/Verification.php:43"
+  ],
+  "未知原因": [
+    "server/application/common/server/WeChatPayServer.php:124"
+  ],
+  "未知类型": [
+    "server/application/admin/logic/UpgradeLogic.php:474"
+  ],
+  "未知错误": [
+    "server/application/common/server/AliPayServer.php:36",
+    "server/application/common/server/BalancePayServer.php:28",
+    "server/application/common/server/WeChatPayServer.php:39"
+  ],
+  "未设置app下载链接": [
+    "server/application/index/controller/Index.php:50"
+  ],
+  "未设置支付密码": [
+    "server/application/api/controller/User.php:224"
+  ],
+  "未选择开团商品": [
+    "server/application/admin/validate/TeamActivity.php:45"
+  ],
+  "未选择砍价商品": [
+    "server/application/admin/validate/Bargain.php:47"
+  ],
+  "本地存储": [
+    "server/application/admin/controller/StorageConfig.php:39"
+  ],
+  "本地环境-": [
+    "server/application/admin/config/project.php:27"
+  ],
+  "权益名称重复": [
+    "server/application/admin/validate/UserPrivilege.php:33"
+  ],
+  "权限": [
+    "server/application/admin/logic/AuthLogic.php:47"
+  ],
+  "权限不足，无法访问": [
+    "server/application/admin/http/middleware/Auth.php:55"
+  ],
+  "权限错误": [
+    "server/application/admin/validate/Role.php:36"
+  ],
+  "来自": [
+    "server/application/api/logic/BargainLogic.php:422",
+    "server/application/common/logic/QrCodeLogic.php:155",
+    "server/application/common/logic/QrCodeLogic.php:514"
+  ],
+  "查询不到该用户的openid": [
+    "server/application/admin/logic/WechatCorporatePaymentLogic.php:190",
+    "server/application/admin/logic/WechatCorporatePaymentLogic.php:94",
+    "server/application/admin/logic/WechatMerchantTransferLogic.php:289",
+    "server/application/admin/logic/WechatMerchantTransferLogic.php:95"
+  ],
+  "标准快递": [
+    "server/application/common/server/printing/Kuaidi100.php:106"
+  ],
+  "标题不能重复！": [
+    "server/application/admin/validate/Article.php:36",
+    "server/application/admin/validate/Help.php:37"
+  ],
+  "核销员": [
+    "server/application/admin/logic/VerificationLogic.php:210"
+  ],
+  "核销员不存在": [
+    "server/application/admin/validate/SelffetchVerifier.php:97"
+  ],
+  "核销员列表": [
+    "server/application/admin/logic/SelffetchVerifierLogic.php:242"
+  ],
+  "核销员名称": [
+    "server/application/admin/logic/SelffetchVerifierLogic.php:236"
+  ],
+  "核销员状态": [
+    "server/application/admin/logic/SelffetchVerifierLogic.php:236"
+  ],
+  "核销员编号": [
+    "server/application/admin/logic/SelffetchVerifierLogic.php:236"
+  ],
+  "核销失败:": [
+    "server/application/admin/controller/Verification.php:82"
+  ],
+  "核销成功": [
+    "server/application/admin/controller/Verification.php:84"
+  ],
+  "核销时间": [
+    "server/application/admin/logic/VerificationLogic.php:210"
+  ],
+  "核销状态": [
+    "server/application/admin/logic/VerificationLogic.php:210"
+  ],
+  "核销订单": [
+    "server/application/common/model/Menu_.php:240"
+  ],
+  "模板设置成功": [
+    "server/application/admin/controller/Printer.php:108"
+  ],
+  "模糊匹配": [
+    "server/application/admin/logic/WechatReplyLogic.php:43"
+  ],
+  "次": [
+    "server/application/admin/model/Coupon.php:155",
+    "server/application/admin/model/Coupon.php:158",
+    "server/application/common/model/UserTask.php:47",
+    "server/application/common/model/UserTask.php:63"
+  ],
+  "正在处理中": [
+    "server/application/admin/logic/WithdrawLogic.php:303",
+    "server/application/common/command/WechatMerchantTransfer.php:85"
+  ],
+  "正在审核中，请勿重复提交": [
+    "server/application/api/validate/DistributionApply.php:57"
+  ],
+  "正在执行更新，请1分钟后重试……": [
+    "server/application/admin/validate/Upgrade.php:60"
+  ],
+  "正在浏览": [
+    "server/application/common/behavior/Footprint.php:63"
+  ],
+  "正在购买": [
+    "server/application/common/behavior/Footprint.php:68"
+  ],
+  "正在领取": [
+    "server/application/common/behavior/Footprint.php:72"
+  ],
+  "此手机号已被使用": [
+    "server/application/api/validate/ChangeMobile.php:66",
+    "server/application/api/validate/Register.php:84",
+    "server/application/api/validate/UpdateUser.php:52"
+  ],
+  "此模板已有商品使用!": [
+    "server/application/admin/validate/Freight.php:99"
+  ],
+  "此用户没有填写评论": [
+    "server/application/api/logic/GoodsCommentLogic.php:294",
+    "server/application/api/logic/GoodsCommentLogic.php:95",
+    "server/application/api/model/Goods.php:159"
+  ],
+  "此订单不可删除": [
+    "server/application/admin/validate/Order.php:113"
+  ],
+  "此订单不可取消": [
+    "server/application/admin/validate/Order.php:75"
+  ],
+  "此订单商品已退款成功": [
+    "server/application/api/validate/AfterSale.php:148"
+  ],
+  "此订单已发货": [
+    "server/application/admin/validate/Order.php:138"
+  ],
+  "此订单已退款": [
+    "server/application/admin/validate/AfterSale.php:86"
+  ],
+  "此订单暂不可申请售后": [
+    "server/application/api/validate/AfterSale.php:136",
+    "server/application/api/validate/AfterSale.php:157"
+  ],
+  "此订单暂不可重新申请": [
+    "server/application/api/validate/AfterSale.php:117"
+  ],
+  "此订单正在审核中": [
+    "server/application/api/validate/AfterSale.php:140",
+    "server/application/api/validate/AfterSale.php:203"
+  ],
+  "此订单等待退款中": [
+    "server/application/api/validate/AfterSale.php:144"
+  ],
+  "每天限制领取": [
+    "server/application/admin/model/Coupon.php:158"
+  ],
+  "每日签到": [
+    "server/application/api/logic/SignLogic.php:119"
+  ],
+  "每日签到赠送成长值": [
+    "server/application/common/model/AccountLog.php:98"
+  ],
+  "每日签到赠送积分": [
+    "server/application/common/model/AccountLog.php:90"
+  ],
+  "没有提审额度（每天500次提审额度）": [
+    "server/application/admin/logic/LiveGoodsLogic.php:235"
+  ],
+  "没有用户，无需修复": [
+    "server/application/api/logic/DistributionLogic.php:588"
+  ],
+  "注册成功": [
+    "server/application/api/controller/Account.php:72",
+    "server/application/common/model/NoticeSetting.php:156"
+  ],
+  "注册赠送积分": [
+    "server/application/common/model/AccountLog.php:94"
+  ],
+  "注册通知": [
+    "server/application/common/model/NoticeSetting.php:153"
+  ],
+  "活动名称重复": [
+    "server/application/admin/validate/ActivityArea.php:32"
+  ],
+  "活动标题重复": [
+    "server/application/admin/validate/ActivityArea.php:34"
+  ],
+  "活动赠送": [
+    "server/application/admin/model/Coupon.php:121"
+  ],
+  "浏览商品": [
+    "server/application/common/model/Footprint.php:40"
+  ],
+  "海报生成成功": [
+    "server/application/common/logic/QrCodeLogic.php:186",
+    "server/application/common/logic/QrCodeLogic.php:458",
+    "server/application/common/logic/QrCodeLogic.php:552",
+    "server/application/common/logic/QrCodeLogic.php:93"
+  ],
+  "海报生成错误:": [
+    "server/application/common/logic/QrCodeLogic.php:189",
+    "server/application/common/logic/QrCodeLogic.php:555"
+  ],
+  "消耗": [
+    "server/application/api/logic/LuckdrawLogic.php:382"
+  ],
+  "消费Token签发失败": [
+    "server/application/common/server/ConsumeTokenService.php:59"
+  ],
+  "消费{$num}": [
+    "server/application/common/model/UserTask.php:43"
+  ],
+  "消费次数": [
+    "server/application/common/model/UserTask.php:44"
+  ],
+  "消费满{$num}": [
+    "server/application/common/model/UserTask.php:35"
+  ],
+  "消费赠送积分": [
+    "server/application/admin/logic/AccountLogLogic.php:132"
+  ],
+  "消费金额": [
+    "server/application/admin/logic/UserLogic.php:212",
+    "server/application/common/model/UserTask.php:36"
+  ],
+  "添加商品失败": [
+    "server/application/admin/logic/LiveGoodsLogic.php:231"
+  ],
+  "添加失败": [
+    "server/application/admin/controller/Ad.php:57",
+    "server/application/admin/controller/AdPosition.php:60",
+    "server/application/admin/controller/UserLevel.php:51",
+    "server/application/admin/controller/UserLevel.php:74",
+    "server/application/admin/logic/FileNewLogic.php:100",
+    "server/application/admin/logic/MenuDecorateLogic.php:209",
+    "server/application/api/controller/UserAddress.php:99",
+    "server/application/api/logic/CartLogic.php:74"
+  ],
+  "添加失败:": [
+    "server/application/admin/controller/Goods.php:158",
+    "server/application/admin/controller/Goods.php:255",
+    "server/application/admin/controller/SelffetchShop.php:61",
+    "server/application/admin/controller/SelffetchVerifier.php:63"
+  ],
+  "添加成功": [
+    "server/application/admin/controller/Auth.php:60",
+    "server/application/admin/controller/Crontab.php:56",
+    "server/application/admin/controller/DistributionLevel.php:40",
+    "server/application/admin/controller/Express.php:60",
+    "server/application/admin/controller/FileCate.php:44",
+    "server/application/admin/controller/Goods.php:160",
+    "server/application/admin/controller/LiveGoods.php:81",
+    "server/application/admin/controller/Printer.php:49",
+    "server/application/admin/controller/Printer.php:71",
+    "server/application/admin/controller/Role.php:53",
+    "server/application/admin/controller/SelffetchShop.php:63",
+    "server/application/admin/controller/SelffetchVerifier.php:65",
+    "server/application/admin/controller/SignDaily.php:82",
+    "server/application/admin/controller/Supplier.php:44",
+    "server/application/admin/controller/UserGroup.php:54",
+    "server/application/admin/controller/UserLevel.php:49",
+    "server/application/admin/controller/UserLevel.php:72",
+    "server/application/admin/controller/UserPrivilege.php:47",
+    "server/application/admin/controller/UserPrivilege.php:65",
+    "server/application/admin/logic/FileNewLogic.php:98",
+    "server/application/admin/logic/MenuDecorateLogic.php:204",
+    "server/application/api/controller/UserAddress.php:97"
+  ],
+  "添加成功！": [
+    "server/application/admin/controller/Ad.php:55",
+    "server/application/admin/controller/AdPosition.php:58",
+    "server/application/admin/controller/Article.php:55",
+    "server/application/admin/controller/ArticleCategory.php:46",
+    "server/application/admin/controller/AssuranceService.php:59",
+    "server/application/admin/controller/Freight.php:79",
+    "server/application/admin/controller/GoodsBrand.php:50",
+    "server/application/admin/controller/GoodsCategory.php:56",
+    "server/application/admin/controller/Help.php:54",
+    "server/application/admin/controller/HelpCategory.php:50",
+    "server/application/admin/controller/Recharge.php:65"
+  ],
+  "添加超过": [
+    "server/application/admin/controller/WechatReply.php:43",
+    "server/application/admin/controller/WechatReply.php:60"
+  ],
+  "清理失败": [
+    "server/application/api/controller/Goods.php:87"
+  ],
+  "清理成功": [
+    "server/application/api/controller/Goods.php:85"
+  ],
+  "清除成功": [
+    "server/application/admin/controller/Cache.php:35"
+  ],
+  "游客": [
+    "server/application/admin/logic/NoticeSettingLogic.php:181"
+  ],
+  "满": [
+    "server/application/api/logic/CouponLogic.php:171",
+    "server/application/api/logic/CouponLogic.php:206",
+    "server/application/api/logic/CouponLogic.php:338",
+    "server/application/api/logic/CouponLogic.php:73",
+    "server/application/api/logic/IndexLogic.php:75"
+  ],
+  "满足积分{$num}": [
+    "server/application/common/model/UserTask.php:27"
+  ],
+  "热销榜单": [
+    "server/application/common/model/Ad.php:119",
+    "server/application/common/model/Ad.php:87",
+    "server/application/common/model/Menu_.php:84"
+  ],
+  "热门品牌": [
+    "server/application/api/logic/GoodsCategoryLogic.php:100"
+  ],
+  "热门搜索关键字不能为空": [
+    "server/application/admin/validate/HotSearch.php:33"
+  ],
+  "父级分类不存在，请重新选择": [
+    "server/application/admin/validate/GoodsCategory.php:89"
+  ],
+  "父级分类不能是第三级": [
+    "server/application/admin/validate/GoodsCategory.php:108"
+  ],
+  "父级分类不能是自己": [
+    "server/application/admin/validate/GoodsCategory.php:105"
+  ],
+  "状态选择不在范围内": [
+    "server/application/admin/validate/LuckDraw.php:43"
+  ],
+  "状态错误": [
+    "server/application/admin/validate/Admin.php:50",
+    "server/application/admin/validate/Admin.php:51"
+  ],
+  "猜你喜欢": [
+    "server/application/admin/logic/GoodsLogic.php:218"
+  ],
+  "用券时间开始时间和结束时间不能相同": [
+    "server/application/admin/validate/Coupon.php:86",
+    "server/application/common/validate/Coupon.php:101"
+  ],
+  "用户": [
+    "server/application/api/logic/LoginLogic.php:80",
+    "server/application/api/server/UserServer.php:97"
+  ],
+  "用户不存在": [
+    "server/application/admin/logic/DistributionMemberLogic.php:122",
+    "server/application/api/validate/Luckdraw.php:44",
+    "server/application/api/validate/Token.php:77"
+  ],
+  "用户余额仅剩下": [
+    "server/application/admin/validate/AdjustAccount.php:94"
+  ],
+  "用户佣金仅剩下": [
+    "server/application/admin/validate/AdjustAccount.php:184"
+  ],
+  "用户充值余额": [
+    "server/application/common/model/AccountLog.php:87"
+  ],
+  "用户名称": [
+    "server/application/admin/logic/SelffetchVerifierLogic.php:236"
+  ],
+  "用户已是分销会员": [
+    "server/application/admin/logic/DistributionMemberLogic.php:126"
+  ],
+  "用户成长值仅剩下": [
+    "server/application/admin/validate/AdjustAccount.php:153"
+  ],
+  "用户积分仅剩下": [
+    "server/application/admin/validate/AdjustAccount.php:123"
+  ],
+  "用户等级错误，请刷新页面": [
+    "server/application/admin/logic/UserSettingLogic.php:89"
+  ],
+  "用户类型不能为空": [
+    "server/application/api/validate/User.php:19"
+  ],
+  "用户被禁用": [
+    "server/application/api/validate/Token.php:80"
+  ],
+  "用户：{$order['user_id']} openid不存在,订单ID：{$order['id']}": [
+    "server/application/common/server/WechatMiniExpressSendSyncServer.php:51"
+  ],
+  "用户：{$recharge['user_id']} openid不存在,订单ID：{$recharge['id']}": [
+    "server/application/common/server/WechatMiniExpressSendSyncServer.php:160"
+  ],
+  "申请退款": [
+    "server/application/common/model/AfterSale.php:59",
+    "server/application/common/model/OrderGoods.php:52"
+  ],
+  "电话": [
+    "server/application/admin/logic/ServiceConfigLogic.php:82"
+  ],
+  "男": [
+    "server/application/admin/logic/CouponLogic.php:282",
+    "server/application/admin/logic/GoodsCommentLogic.php:123",
+    "server/application/admin/logic/SignDailyLogic.php:89",
+    "server/application/admin/model/User.php:46",
+    "server/application/common/model/User.php:88"
+  ],
+  "登录失败:": [
+    "server/application/api/logic/LoginLogic.php:125",
+    "server/application/api/logic/LoginLogic.php:127",
+    "server/application/api/logic/LoginLogic.php:214",
+    "server/application/api/logic/LoginLogic.php:216",
+    "server/application/api/logic/LoginLogic.php:285",
+    "server/application/api/logic/LoginLogic.php:287",
+    "server/application/api/logic/LoginLogic.php:493",
+    "server/application/api/logic/LoginLogic.php:495",
+    "server/application/api/logic/LoginLogic.php:617",
+    "server/application/api/logic/LoginLogic.php:619",
+    "server/application/api/logic/LoginLogic.php:665",
+    "server/application/api/logic/LoginLogic.php:667"
+  ],
+  "登录失败:user": [
+    "server/application/api/logic/LoginLogic.php:154",
+    "server/application/api/logic/LoginLogic.php:238",
+    "server/application/api/logic/LoginLogic.php:308",
+    "server/application/api/logic/LoginLogic.php:586",
+    "server/application/api/validate/Login.php:106"
+  ],
+  "登录成功": [
+    "server/application/admin/controller/Account.php:61",
+    "server/application/api/controller/Account.php:103",
+    "server/application/api/controller/Account.php:122",
+    "server/application/api/logic/LoginLogic.php:163",
+    "server/application/api/logic/LoginLogic.php:251",
+    "server/application/api/logic/LoginLogic.php:321",
+    "server/application/api/logic/LoginLogic.php:525",
+    "server/application/api/logic/LoginLogic.php:639",
+    "server/application/api/logic/LoginLogic.php:686",
+    "server/application/api/logic/LoginPasswordLogic.php:53",
+    "server/application/api/logic/LoginPasswordLogic.php:84"
+  ],
+  "登录超时，请重新登录": [
+    "server/application/api/validate/Token.php:51"
+  ],
+  "的分享": [
+    "server/application/api/logic/BargainLogic.php:422",
+    "server/application/common/logic/QrCodeLogic.php:155",
+    "server/application/common/logic/QrCodeLogic.php:514"
+  ],
+  "的发放的总量已达到限制": [
+    "server/application/admin/validate/SendCoupon.php:51"
+  ],
+  "的秒杀价格高于原价": [
+    "server/application/admin/validate/SeckillGoods.php:126",
+    "server/application/admin/validate/SeckillGoods.php:91"
+  ],
+  "的配置": [
+    "server/application/admin/validate/Printer.php:64",
+    "server/application/admin/validate/Printer.php:83"
+  ],
+  "直接领取": [
+    "server/application/admin/model/Coupon.php:117"
+  ],
+  "直播中": [
+    "server/application/admin/logic/LiveRoomLogic.php:66",
+    "server/application/api/logic/LiveRoomLogic.php:52"
+  ],
+  "相关通知未开启": [
+    "server/application/common/behavior/SmsSend.php:125"
+  ],
+  "省不能为空": [
+    "server/application/api/validate/UserAddress.php:49"
+  ],
+  "真实评价": [
+    "server/application/admin/logic/GoodsCommentLogic.php:105"
+  ],
+  "短信功能未开启": [
+    "server/application/common/behavior/SmsSend.php:116"
+  ],
+  "短信模板不存在": [
+    "server/application/common/behavior/SmsSend.php:124"
+  ],
+  "短信渠道不存在": [
+    "server/application/common/behavior/SmsSend.php:98"
+  ],
+  "短信通知": [
+    "server/application/admin/logic/SmsLogic.php:72"
+  ],
+  "短信配置错误：": [
+    "server/application/common/behavior/SmsSend.php:76",
+    "server/application/common/behavior/SmsSend.php:94"
+  ],
+  "砍价中": [
+    "server/application/api/logic/BargainLogic.php:447",
+    "server/application/api/logic/BargainLogic.php:452",
+    "server/application/common/model/BargainLaunch.php:45"
+  ],
+  "砍价商品": [
+    "server/application/admin/logic/CommonLogic.php:106",
+    "server/application/admin/logic/GoodsLogic.php:164"
+  ],
+  "砍价失败": [
+    "server/application/api/logic/BargainLogic.php:480",
+    "server/application/common/model/BargainLaunch.php:47"
+  ],
+  "砍价失败,禁止下单": [
+    "server/application/api/logic/OrderLogic.php:560"
+  ],
+  "砍价已结束，去看看其他商品吧~": [
+    "server/application/api/logic/BargainLogic.php:427"
+  ],
+  "砍价异常": [
+    "server/application/api/logic/OrderLogic.php:557"
+  ],
+  "砍价成功": [
+    "server/application/api/logic/BargainLogic.php:457",
+    "server/application/common/model/BargainLaunch.php:100",
+    "server/application/common/model/BargainLaunch.php:46"
+  ],
+  "砍价活动": [
+    "server/application/common/model/Ad.php:82",
+    "server/application/common/model/Menu_.php:153"
+  ],
+  "砍价活动有效期必须为数字": [
+    "server/application/admin/validate/Bargain.php:50"
+  ],
+  "砍价活动有效期必须大于0小时": [
+    "server/application/admin/validate/Bargain.php:51"
+  ],
+  "砍价活动有效期必须小于1000小时": [
+    "server/application/admin/validate/Bargain.php:52"
+  ],
+  "砍价状态选择异常": [
+    "server/application/admin/validate/Bargain.php:60"
+  ],
+  "砍价订单": [
+    "server/application/common/model/Order.php:74"
+  ],
+  "砍价记录": [
+    "server/application/common/model/Menu_.php:233"
+  ],
+  "砍到指定底价": [
+    "server/application/admin/logic/BargainLogic.php:477"
+  ],
+  "砍至任意金额可直接购买": [
+    "server/application/common/model/BargainLaunch.php:152"
+  ],
+  "确认成功": [
+    "server/application/admin/controller/Order.php:148",
+    "server/application/api/logic/OrderLogic.php:1170"
+  ],
+  "确认收款": [
+    "server/application/common/model/NoticeSetting.php:162"
+  ],
+  "禁播": [
+    "server/application/admin/logic/LiveRoomLogic.php:66",
+    "server/application/api/logic/LiveRoomLogic.php:52"
+  ],
+  "禁止创建/更新商品": [
+    "server/application/admin/logic/LiveGoodsLogic.php:224"
+  ],
+  "禁用状态参数错误": [
+    "server/application/admin/validate/User.php:43"
+  ],
+  "秒杀商品": [
+    "server/application/admin/logic/CommonLogic.php:102",
+    "server/application/admin/logic/GoodsLogic.php:160"
+  ],
+  "秒杀时间段冲突": [
+    "server/application/admin/validate/SeckillTime.php:49",
+    "server/application/admin/validate/SeckillTime.php:53"
+  ],
+  "秒杀时间段已被调整，请重新选择时间段": [
+    "server/application/admin/validate/SeckillGoods.php:38"
+  ],
+  "秒杀订单": [
+    "server/application/common/model/Order.php:72"
+  ],
+  "积分": [
+    "server/application/admin/logic/UserLogic.php:212",
+    "server/application/api/logic/LuckdrawLogic.php:139",
+    "server/application/api/logic/LuckdrawLogic.php:382",
+    "server/application/api/logic/LuckdrawLogic.php:441",
+    "server/application/common/model/Luckdraw.php:46",
+    "server/application/common/model/Luckdraw.php:71"
+  ],
+  "积分不可抵扣": [
+    "server/application/common/logic/IntegralLogic.php:226"
+  ],
+  "积分不能为空": [
+    "server/application/admin/validate/SignDaily.php:42"
+  ],
+  "积分不足": [
+    "server/application/api/logic/OrderLogic.php:548",
+    "server/application/api/logic/TeamLogic.php:364",
+    "server/application/api/validate/Luckdraw.php:56"
+  ],
+  "积分可抵扣1元": [
+    "server/application/common/logic/IntegralLogic.php:228"
+  ],
+  "积分备注不能超过100字": [
+    "server/application/admin/validate/AdjustAccount.php:38"
+  ],
+  "积分必须为整数": [
+    "server/application/admin/validate/SignDaily.php:43"
+  ],
+  "积分必须大于0": [
+    "server/application/admin/validate/SignDaily.php:44"
+  ],
+  "积分抵扣": [
+    "server/application/admin/logic/VerificationLogic.php:208"
+  ],
+  "积分抽奖": [
+    "server/application/common/model/Ad.php:67",
+    "server/application/common/model/Menu_.php:146"
+  ],
+  "积分抽奖中奖": [
+    "server/application/common/model/AccountLog.php:109"
+  ],
+  "积分抽奖中奖余额": [
+    "server/application/common/model/AccountLog.php:117"
+  ],
+  "积分抽奖消耗积分": [
+    "server/application/common/model/AccountLog.php:116"
+  ],
+  "积分数": [
+    "server/application/common/model/UserTask.php:28"
+  ],
+  "积分签到": [
+    "server/application/common/model/Ad.php:57",
+    "server/application/common/model/Menu_.php:98"
+  ],
+  "积分；": [
+    "server/application/admin/logic/SignDailyLogic.php:46"
+  ],
+  "移动端商城": [
+    "server/application/common/model/Ad.php:29"
+  ],
+  "空包裹": [
+    "server/application/common/model/AfterSale.php:101"
+  ],
+  "第": [
+    "server/application/admin/controller/Goods.php:118"
+  ],
+  "等待下次执行": [
+    "server/application/common/server/WechatMiniExpressSendSyncServer.php:120",
+    "server/application/common/server/WechatMiniExpressSendSyncServer.php:201",
+    "server/application/common/server/WechatMiniExpressSendSyncServer.php:248"
+  ],
+  "等待退款": [
+    "server/application/common/model/AfterSale.php:64",
+    "server/application/common/model/OrderGoods.php:53"
+  ],
+  "等级不存在": [
+    "server/application/admin/logic/DistributionLevelLogic.php:183",
+    "server/application/admin/logic/DistributionLevelLogic.php:236"
+  ],
+  "等级名称已存在": [
+    "server/application/admin/validate/DistributionLevelValidate.php:101",
+    "server/application/admin/validate/UserLevel.php:36"
+  ],
+  "等级服务": [
+    "server/application/common/model/Menu_.php:191"
+  ],
+  "等级级别已存在": [
+    "server/application/admin/validate/DistributionLevelValidate.php:123"
+  ],
+  "签到成功": [
+    "server/application/api/controller/Sign.php:66"
+  ],
+  "签到规则说明不能为空": [
+    "server/application/admin/validate/SignDaily.php:53"
+  ],
+  "签到赠送成长值": [
+    "server/application/admin/logic/AccountLogLogic.php:145"
+  ],
+  "签到赠送积分": [
+    "server/application/admin/logic/AccountLogLogic.php:124"
+  ],
+  "管理员": [
+    "server/application/common/model/Verification.php:37"
+  ],
+  "管理员列表存在该角色，无法删除": [
+    "server/application/admin/validate/Role.php:37"
+  ],
+  "类型不能为空": [
+    "server/application/api/validate/MakeMnQrcode.php:38"
+  ],
+  "类型为权限的不能设置为顶级": [
+    "server/application/admin/validate/Auth.php:81"
+  ],
+  "类型错误": [
+    "server/application/api/validate/MakeMnQrcode.php:39"
+  ],
+  "类型错误，必须设置与同一级一样": [
+    "server/application/admin/validate/Auth.php:89"
+  ],
+  "系统": [
+    "server/application/common/model/User.php:105",
+    "server/application/common/model/Verification.php:36"
+  ],
+  "系统取消订单": [
+    "server/application/common/model/OrderLog.php:66"
+  ],
+  "系统可更新至此版本": [
+    "server/application/admin/logic/UpgradeLogic.php:88"
+  ],
+  "系统增加余额": [
+    "server/application/common/model/AccountLog.php:85"
+  ],
+  "系统增加成长值": [
+    "server/application/common/model/AccountLog.php:96"
+  ],
+  "系统增加积分": [
+    "server/application/common/model/AccountLog.php:88"
+  ],
+  "系统客服": [
+    "server/application/admin/logic/ServiceConfigLogic.php:68"
+  ],
+  "系统已关闭邀请功能": [
+    "server/application/api/validate/DistributionCode.php:53"
+  ],
+  "系统扣减余额": [
+    "server/application/common/model/AccountLog.php:86"
+  ],
+  "系统扣减成长值": [
+    "server/application/common/model/AccountLog.php:97"
+  ],
+  "系统扣减积分": [
+    "server/application/common/model/AccountLog.php:89"
+  ],
+  "系统确认收货": [
+    "server/application/common/model/OrderLog.php:67"
+  ],
+  "系统管理员": [
+    "server/application/admin/controller/Index.php:54"
+  ],
+  "系统通知": [
+    "server/application/common/logic/NoticeLogic.php:127"
+  ],
+  "系统错误": [
+    "server/application/admin/controller/Upgrade.php:95",
+    "server/application/admin/logic/LiveGoodsLogic.php:220",
+    "server/application/api/logic/ShareLogic.php:94"
+  ],
+  "系统默认等级不允许删除": [
+    "server/application/admin/logic/DistributionLevelLogic.php:239"
+  ],
+  "累计消费次数须为整数": [
+    "server/application/admin/validate/DistributionLevelValidate.php:58"
+  ],
+  "累计消费次数须大于0": [
+    "server/application/admin/validate/DistributionLevelValidate.php:57"
+  ],
+  "累计消费金额须大于0": [
+    "server/application/admin/validate/DistributionLevelValidate.php:56"
+  ],
+  "累计签到": [
+    "server/application/common/model/UserTask.php:52"
+  ],
+  "累计签到{$num}": [
+    "server/application/common/model/UserTask.php:51"
+  ],
+  "级": [
+    "server/application/common/model/DistributionLevel.php:37"
+  ],
+  "级(默认等级)": [
+    "server/application/common/model/DistributionLevel.php:37"
+  ],
+  "级别须为整型": [
+    "server/application/admin/validate/DistributionLevelValidate.php:45"
+  ],
+  "级别须大于1": [
+    "server/application/admin/logic/DistributionLevelLogic.php:198",
+    "server/application/admin/validate/DistributionLevelValidate.php:46"
+  ],
+  "线上小程序版本不存在该链接": [
+    "server/application/admin/logic/LiveGoodsLogic.php:230"
+  ],
+  "终端号重复": [
+    "server/application/admin/validate/Printer.php:51"
+  ],
+  "绑定成功": [
+    "server/application/api/controller/Account.php:328",
+    "server/application/api/controller/Account.php:353"
+  ],
+  "绑定手机号": [
+    "server/application/common/model/NoticeSetting.php:160"
+  ],
+  "结束已超时的拼团": [
+    "server/application/common/command/TeamEnd.php:43"
+  ],
+  "结束已超时的砍价": [
+    "server/application/common/command/BargainEnd.php:45"
+  ],
+  "结束时间不能少于当前时间": [
+    "server/application/admin/validate/Bargain.php:72",
+    "server/application/admin/validate/TeamActivity.php:65"
+  ],
+  "结束时间不能少于或等于开始时间": [
+    "server/application/admin/validate/Bargain.php:75",
+    "server/application/admin/validate/TeamActivity.php:68"
+  ],
+  "结束砍价活动失败:": [
+    "server/application/common/command/BargainEnd.php:99"
+  ],
+  "结算分佣订单错误:": [
+    "server/application/common/command/DistributionOrder.php:131"
+  ],
+  "结算分销订单": [
+    "server/application/common/command/DistributionOrder.php:52"
+  ],
+  "结算单号：": [
+    "server/application/common/model/ShopAccountLog.php:42"
+  ],
+  "继续砍价": [
+    "server/application/common/model/BargainLaunch.php:102"
+  ],
+  "编辑失败": [
+    "server/application/admin/controller/Ad.php:85",
+    "server/application/admin/controller/AdPosition.php:86",
+    "server/application/admin/controller/Bargain.php:84",
+    "server/application/admin/controller/Coupon.php:69",
+    "server/application/admin/controller/Footprint.php:50",
+    "server/application/admin/controller/LuckDraw.php:92",
+    "server/application/admin/controller/Seckill.php:142",
+    "server/application/admin/logic/MenuDecorateLogic.php:284"
+  ],
+  "编辑成功": [
+    "server/application/admin/controller/Activity.php:78",
+    "server/application/admin/controller/Bargain.php:82",
+    "server/application/admin/controller/Coupon.php:67",
+    "server/application/admin/controller/DistributionLevel.php:63",
+    "server/application/admin/controller/FaceSheet.php:113",
+    "server/application/admin/controller/FaceSheetSender.php:75",
+    "server/application/admin/controller/FileCate.php:64",
+    "server/application/admin/controller/Footprint.php:48",
+    "server/application/admin/controller/LuckDraw.php:90",
+    "server/application/admin/controller/Seckill.php:140",
+    "server/application/admin/controller/Seckill.php:79",
+    "server/application/admin/logic/FileNewLogic.php:139",
+    "server/application/admin/logic/MenuDecorateLogic.php:279"
+  ],
+  "编辑成功！": [
+    "server/application/admin/controller/Ad.php:83",
+    "server/application/admin/controller/AdPosition.php:84",
+    "server/application/admin/controller/Article.php:78",
+    "server/application/admin/controller/ArticleCategory.php:64",
+    "server/application/admin/controller/Freight.php:130",
+    "server/application/admin/controller/Help.php:73",
+    "server/application/admin/controller/HelpCategory.php:68"
+  ],
+  "缺少id": [
+    "server/application/api/validate/MakeMnQrcode.php:47"
+  ],
+  "缺少参数": [
+    "server/application/admin/validate/MenuDecorate.php:33",
+    "server/application/api/controller/Seckill.php:76",
+    "server/application/api/controller/Share.php:35",
+    "server/application/api/validate/Bargain.php:36"
+  ],
+  "缺少场景scene参数": [
+    "server/application/api/controller/Subscribe.php:33"
+  ],
+  "网站名称不可为空": [
+    "server/application/admin/validate/Basic.php:36"
+  ],
+  "网站设置": [
+    "server/application/admin/controller/Sites.php:28"
+  ],
+  "联系人": [
+    "server/application/admin/logic/SelffetchShopLogic.php:203",
+    "server/application/admin/logic/VerificationLogic.php:209"
+  ],
+  "联系人姓名不能为空": [
+    "server/application/admin/validate/Supplier.php:33"
+  ],
+  "联系人：": [
+    "server/application/common/server/YlyPrinter.php:166"
+  ],
+  "联系地址不能为空": [
+    "server/application/admin/validate/Supplier.php:35"
+  ],
+  "联系客服": [
+    "server/application/common/model/Menu_.php:219"
+  ],
+  "联系手机": [
+    "server/application/admin/logic/VerificationLogic.php:209"
+  ],
+  "联系方式不能为空": [
+    "server/application/api/validate/UserAddress.php:43"
+  ],
+  "联系电话": [
+    "server/application/admin/logic/SelffetchShopLogic.php:203",
+    "server/application/admin/logic/SelffetchVerifierLogic.php:236"
+  ],
+  "联系电话不能为空": [
+    "server/application/admin/validate/Supplier.php:34",
+    "server/application/api/logic/OrderLogic.php:539",
+    "server/application/api/logic/TeamLogic.php:281"
+  ],
+  "联系电话格式不正确": [
+    "server/application/api/logic/OrderLogic.php:542",
+    "server/application/api/logic/TeamLogic.php:284"
+  ],
+  "背景图解析失败": [
+    "server/application/common/logic/QrCodeLogic.php:144",
+    "server/application/common/logic/QrCodeLogic.php:347",
+    "server/application/common/logic/QrCodeLogic.php:503"
+  ],
+  "背景图读取失败": [
+    "server/application/common/logic/QrCodeLogic.php:136",
+    "server/application/common/logic/QrCodeLogic.php:140",
+    "server/application/common/logic/QrCodeLogic.php:339",
+    "server/application/common/logic/QrCodeLogic.php:343",
+    "server/application/common/logic/QrCodeLogic.php:495",
+    "server/application/common/logic/QrCodeLogic.php:499"
+  ],
+  "腾讯云COS": [
+    "server/application/admin/controller/StorageConfig.php:57"
+  ],
+  "自动确认收货(待收货订单)": [
+    "server/application/common/command/OrderFinish.php:44"
+  ],
+  "自动领取失败,请联系客服": [
+    "server/application/api/logic/LuckdrawLogic.php:206"
+  ],
+  "自动领取失败，请联系客服人员": [
+    "server/application/api/logic/LuckdrawLogic.php:138"
+  ],
+  "自定义链接：": [
+    "server/application/admin/logic/AdLogic.php:92"
+  ],
+  "自提地址": [
+    "server/application/admin/logic/VerificationLogic.php:209"
+  ],
+  "自提订单": [
+    "server/application/api/logic/OrderLogic.php:1002",
+    "server/application/api/logic/OrderLogic.php:911"
+  ],
+  "自提订单列表": [
+    "server/application/admin/logic/VerificationLogic.php:242"
+  ],
+  "自提门店": [
+    "server/application/admin/logic/SelffetchShopLogic.php:209",
+    "server/application/admin/logic/VerificationLogic.php:209"
+  ],
+  "自提门店不能为空": [
+    "server/application/api/logic/OrderLogic.php:527",
+    "server/application/api/logic/TeamLogic.php:269"
+  ],
+  "自提门店已产生自提订单，不允许删除": [
+    "server/application/admin/validate/SelffetchShop.php:128"
+  ],
+  "至": [
+    "server/application/admin/model/Coupon.php:104",
+    "server/application/admin/model/Coupon.php:98"
+  ],
+  "至少保留一种配送方式": [
+    "server/application/admin/controller/Freight.php:40"
+  ],
+  "至少有一个规格的库存大于0": [
+    "server/application/admin/controller/Goods.php:150",
+    "server/application/admin/controller/Goods.php:234"
+  ],
+  "至少添加一个规格": [
+    "server/application/admin/controller/Goods.php:133",
+    "server/application/admin/controller/Goods.php:217"
+  ],
+  "至少选择一种提现方式": [
+    "server/application/admin/controller/ShopSetting.php:127"
+  ],
+  "至少需要选择一项配送方式": [
+    "server/application/admin/validate/Goods.php:75",
+    "server/application/admin/validate/Goods.php:76"
+  ],
+  "苹果": [
+    "server/application/common/model/Client_.php:43"
+  ],
+  "苹果APP商城": [
+    "server/application/common/model/Client_.php:62"
+  ],
+  "获取openID失败": [
+    "server/application/api/logic/LoginLogic.php:122",
+    "server/application/api/logic/LoginLogic.php:571",
+    "server/application/api/logic/LoginLogic.php:725"
+  ],
+  "获取列表成功": [
+    "server/application/admin/controller/Withdraw.php:38"
+  ],
+  "获取失败": [
+    "server/application/api/controller/Account.php:74",
+    "server/application/api/controller/LoginPassword.php:55",
+    "server/application/api/controller/LoginPassword.php:86",
+    "server/application/api/controller/UserAddress.php:152",
+    "server/application/api/controller/UserAddress.php:52",
+    "server/application/api/controller/UserAddress.php:66"
+  ],
+  "获取成功": [
+    "server/application/admin/controller/Ad.php:35",
+    "server/application/admin/controller/AdPosition.php:38",
+    "server/application/admin/controller/Bargain.php:168",
+    "server/application/admin/controller/Bargain.php:180",
+    "server/application/admin/controller/Bargain.php:40",
+    "server/application/admin/controller/DistributionApply.php:14",
+    "server/application/admin/controller/FaceSheet.php:74",
+    "server/application/admin/controller/FaceSheetOrder.php:40",
+    "server/application/admin/controller/FaceSheetSender.php:37",
+    "server/application/admin/controller/Freight.php:61",
+    "server/application/admin/controller/Goods.php:76",
+    "server/application/admin/controller/LiveGoods.php:51",
+    "server/application/admin/controller/LiveRoom.php:44",
+    "server/application/admin/controller/LuckDraw.php:39",
+    "server/application/admin/controller/NoticeSetting.php:45",
+    "server/application/admin/controller/Order.php:171",
+    "server/application/admin/controller/StorageConfig.php:63",
+    "server/application/admin/controller/TeamActivity.php:143",
+    "server/application/admin/controller/TeamActivity.php:43",
+    "server/application/admin/controller/TeamFound.php:38",
+    "server/application/admin/controller/TeamFound.php:63",
+    "server/application/admin/controller/TeamFound.php:82",
+    "server/application/api/controller/Account.php:170",
+    "server/application/api/controller/ActivityArea.php:31",
+    "server/application/api/controller/Ad.php:57",
+    "server/application/api/controller/AdContent.php:57",
+    "server/application/api/controller/Article.php:35",
+    "server/application/api/controller/Article.php:42",
+    "server/application/api/controller/Article.php:54",
+    "server/application/api/controller/Bargain.php:109",
+    "server/application/api/controller/Bargain.php:32",
+    "server/application/api/controller/Bargain.php:43",
+    "server/application/api/controller/Bargain.php:55",
+    "server/application/api/controller/Bargain.php:96",
+    "server/application/api/controller/Collect.php:29",
+    "server/application/api/controller/Collect.php:38",
+    "server/application/api/controller/Coupon.php:30",
+    "server/application/api/controller/Coupon.php:68",
+    "server/application/api/controller/Coupon.php:78",
+    "server/application/api/controller/Coupon.php:86",
+    "server/application/api/controller/Footprint.php:32",
+    "server/application/api/controller/Goods.php:32",
+    "server/application/api/controller/Goods.php:45",
+    "server/application/api/controller/Goods.php:56",
+    "server/application/api/controller/Goods.php:65",
+    "server/application/api/controller/GoodsCategory.php:34",
+    "server/application/api/controller/GoodsComment.php:33",
+    "server/application/api/controller/GoodsComment.php:42",
+    "server/application/api/controller/GoodsComment.php:80",
+    "server/application/api/controller/Help.php:34",
+    "server/application/api/controller/Help.php:40",
+    "server/application/api/controller/Help.php:49",
+    "server/application/api/controller/Index.php:111",
+    "server/application/api/controller/LiveRoom.php:45",
+    "server/application/api/controller/Menu.php:31",
+    "server/application/api/controller/Notice.php:30",
+    "server/application/api/controller/Notice.php:39",
+    "server/application/api/controller/Order.php:136",
+    "server/application/api/controller/Order.php:153",
+    "server/application/api/controller/Order.php:171",
+    "server/application/api/controller/Order.php:198",
+    "server/application/api/controller/Order.php:41",
+    "server/application/api/controller/Order.php:82",
+    "server/application/api/controller/Order.php:93",
+    "server/application/api/controller/Policy.php:34",
+    "server/application/api/controller/Policy.php:42",
+    "server/application/api/controller/Policy.php:50",
+    "server/application/api/controller/Region.php:33",
+    "server/application/api/controller/Seckill.php:46",
+    "server/application/api/controller/Seckill.php:74",
+    "server/application/api/controller/SelffetchShop.php:37",
+    "server/application/api/controller/SelffetchShop.php:48",
+    "server/application/api/controller/Service.php:28",
+    "server/application/api/controller/Sign.php:44",
+    "server/application/api/controller/Sign.php:90",
+    "server/application/api/controller/Subscribe.php:36",
+    "server/application/api/controller/Team.php:40",
+    "server/application/api/controller/User.php:136",
+    "server/application/api/controller/User.php:149",
+    "server/application/api/controller/User.php:37",
+    "server/application/api/controller/User.php:46",
+    "server/application/api/controller/User.php:77",
+    "server/application/api/controller/UserAddress.php:150",
+    "server/application/api/controller/UserAddress.php:36",
+    "server/application/api/controller/UserAddress.php:50",
+    "server/application/api/controller/UserAddress.php:64",
+    "server/application/api/controller/UserLevel.php:25"
+  ],
+  "获取拼团商品异常": [
+    "server/application/api/logic/TeamLogic.php:124"
+  ],
+  "获取文件错误": [
+    "server/application/admin/logic/UpgradeLogic.php:203"
+  ],
+  "获取更新数据失败。": [
+    "server/application/admin/validate/Upgrade.php:74"
+  ],
+  "获得收益": [
+    "server/application/common/model/NoticeSetting.php:158"
+  ],
+  "菜单": [
+    "server/application/admin/logic/AuthLogic.php:47"
+  ],
+  "菜单不允许超出三级": [
+    "server/application/admin/logic/AuthLogic.php:130",
+    "server/application/admin/logic/AuthLogic.php:182"
+  ],
+  "菜单发布失败:": [
+    "server/application/admin/logic/OaLogic.php:81"
+  ],
+  "菜单发布成功": [
+    "server/application/admin/logic/OaLogic.php:79"
+  ],
+  "菜单名称不能为空": [
+    "server/application/admin/validate/Auth.php:37"
+  ],
+  "菜单名称已存在": [
+    "server/application/admin/validate/MenuDecorate.php:35"
+  ],
+  "营业开始时间不能大于营业结束时间": [
+    "server/application/admin/validate/SelffetchShop.php:147"
+  ],
+  "营业时段": [
+    "server/application/admin/logic/SelffetchShopLogic.php:203"
+  ],
+  "虚拟浏览量须大于等于0": [
+    "server/application/admin/validate/Goods.php:68"
+  ],
+  "虚拟浏览须为整数": [
+    "server/application/admin/validate/Goods.php:69"
+  ],
+  "虚拟评价": [
+    "server/application/admin/logic/GoodsCommentLogic.php:114"
+  ],
+  "虚拟销量必须大于等于0": [
+    "server/application/admin/validate/Goods.php:66"
+  ],
+  "虚拟销量须为整数": [
+    "server/application/admin/validate/Goods.php:67"
+  ],
+  "行发货信息 订单号 超过长度255": [
+    "server/application/admin/validate/DeliveryBatchImport.php:32"
+  ],
+  "行发货信息超过长度255": [
+    "server/application/admin/validate/DeliveryBatchImport.php:36",
+    "server/application/admin/validate/DeliveryBatchImport.php:40"
+  ],
+  "行存在未填写的发货信息": [
+    "server/application/admin/validate/DeliveryBatchImport.php:28"
+  ],
+  "规则名称重复": [
+    "server/application/admin/validate/WeChatReply.php:32"
+  ],
+  "规则设置错误": [
+    "server/application/admin/logic/CrontabLogic.php:78",
+    "server/application/admin/logic/CrontabLogic.php:84"
+  ],
+  "规格名称重复": [
+    "server/application/admin/validate/GoodsMoreSpec.php:45"
+  ],
+  "视频上传失败": [
+    "server/application/common/server/FileServer.php:383"
+  ],
+  "角色名不能为空": [
+    "server/application/admin/validate/Role.php:35"
+  ],
+  "解压文件错误": [
+    "server/application/admin/logic/UpgradeLogic.php:208"
+  ],
+  "订单:": [
+    "server/application/common/server/AliPayServer.php:129",
+    "server/application/common/server/AliPayServer.php:91"
+  ],
+  "订单不允许提货": [
+    "server/application/api/logic/OrderLogic.php:1435"
+  ],
+  "订单不允许核销": [
+    "server/application/api/validate/Order.php:228"
+  ],
+  "订单不存在": [
+    "server/application/admin/logic/FaceSheetOrderLogic.php:157",
+    "server/application/admin/logic/OrderDeliveryBatchLogic.php:43",
+    "server/application/admin/validate/Verification.php:53",
+    "server/application/api/controller/Payment.php:111",
+    "server/application/api/controller/Payment.php:71",
+    "server/application/api/logic/OrderLogic.php:1432"
+  ],
+  "订单不存在了!": [
+    "server/application/api/controller/Order.php:80"
+  ],
+  "订单交易完成": [
+    "server/application/api/logic/OrderLogic.php:1253"
+  ],
+  "订单信息错误": [
+    "server/application/admin/logic/TeamFoundLogic.php:248",
+    "server/application/api/validate/AfterSale.php:197",
+    "server/application/api/validate/AfterSale.php:215",
+    "server/application/api/validate/AfterSale.php:93"
+  ],
+  "订单列表": [
+    "server/application/admin/logic/OrderLogic.php:276"
+  ],
+  "订单备注：": [
+    "server/application/common/server/YlyPrinter.php:190"
+  ],
+  "订单失效": [
+    "server/application/admin/validate/Order.php:105",
+    "server/application/admin/validate/Order.php:123",
+    "server/application/admin/validate/Order.php:71"
+  ],
+  "订单存在不支持快递配送的商品！": [
+    "server/application/api/logic/OrderLogic.php:603",
+    "server/application/api/validate/Order.php:293"
+  ],
+  "订单存在不支持门店自提的商品！": [
+    "server/application/api/logic/OrderLogic.php:590",
+    "server/application/api/validate/Order.php:275"
+  ],
+  "订单存在售后，不能取消": [
+    "server/application/admin/validate/Order.php:87"
+  ],
+  "订单已关闭": [
+    "server/application/api/controller/Payment.php:115",
+    "server/application/api/controller/Payment.php:62"
+  ],
+  "订单已关闭，无法再发货": [
+    "server/application/admin/validate/Order.php:131"
+  ],
+  "订单已删除": [
+    "server/application/admin/validate/Order.php:109",
+    "server/application/admin/validate/Order.php:127"
+  ],
+  "订单已发货": [
+    "server/application/common/model/NoticeSetting.php:150"
+  ],
+  "订单已完成": [
+    "server/application/api/logic/OrderLogic.php:1145"
+  ],
+  "订单已支付": [
+    "server/application/common/model/NoticeSetting.php:149"
+  ],
+  "订单已核销": [
+    "server/application/admin/validate/Verification.php:77",
+    "server/application/api/logic/OrderLogic.php:1441",
+    "server/application/api/validate/Order.php:234"
+  ],
+  "订单异常": [
+    "server/application/common/logic/PaymentLogic.php:111"
+  ],
+  "订单异常,暂不可操作!": [
+    "server/application/admin/validate/AfterSale.php:74"
+  ],
+  "订单抵扣积分": [
+    "server/application/admin/logic/AccountLogLogic.php:136"
+  ],
+  "订单提交成功": [
+    "server/application/api/logic/OrderLogic.php:1278"
+  ],
+  "订单支付": [
+    "server/application/admin/logic/AccountLogLogic.php:99"
+  ],
+  "订单无法删除": [
+    "server/application/api/logic/OrderLogic.php:1116"
+  ],
+  "订单更改状态失败": [
+    "server/application/common/logic/PayNotifyLogic.php:83"
+  ],
+  "订单未发货": [
+    "server/application/api/logic/OrderLogic.php:1148"
+  ],
+  "订单未支付，不允许核销": [
+    "server/application/admin/validate/Verification.php:71"
+  ],
+  "订单来源": [
+    "server/application/admin/logic/OrderLogic.php:261",
+    "server/application/admin/logic/VerificationLogic.php:205"
+  ],
+  "订单满": [
+    "server/application/admin/model/Coupon.php:147",
+    "server/application/admin/model/Coupon.php:79"
+  ],
+  "订单状态": [
+    "server/application/admin/logic/OrderLogic.php:261",
+    "server/application/admin/logic/VerificationLogic.php:210"
+  ],
+  "订单等待退款或已退款,无法撤销售后": [
+    "server/application/api/validate/AfterSale.php:224"
+  ],
+  "订单类型": [
+    "server/application/admin/logic/OrderLogic.php:261",
+    "server/application/admin/logic/VerificationLogic.php:205"
+  ],
+  "订单结算获得佣金": [
+    "server/application/common/model/AccountLog.php:106"
+  ],
+  "订单编号": [
+    "server/application/admin/controller/DeliveryBatch.php:115",
+    "server/application/admin/logic/OrderLogic.php:261",
+    "server/application/admin/logic/VerificationLogic.php:205"
+  ],
+  "订单编号：": [
+    "server/application/common/server/YlyPrinter.php:153"
+  ],
+  "订单自动确认失败,失败原因:": [
+    "server/application/common/command/OrderFinish.php:93"
+  ],
+  "订单错误": [
+    "server/application/api/validate/Team.php:44"
+  ],
+  "设置失败": [
+    "server/application/admin/controller/Bargain.php:195",
+    "server/application/admin/controller/LuckDraw.php:159",
+    "server/application/api/controller/User.php:366",
+    "server/application/api/controller/UserAddress.php:81"
+  ],
+  "设置失败:": [
+    "server/application/admin/controller/StorageConfig.php:104",
+    "server/application/admin/controller/StorageConfig.php:119",
+    "server/application/admin/controller/StorageConfig.php:90"
+  ],
+  "设置成功": [
+    "server/application/admin/controller/Bargain.php:197",
+    "server/application/admin/controller/DistributionGoods.php:36",
+    "server/application/admin/controller/DistributionSetting.php:19",
+    "server/application/admin/controller/Hfive.php:40",
+    "server/application/admin/controller/MapConfig.php:39",
+    "server/application/admin/controller/MarketingConfig.php:31",
+    "server/application/admin/controller/MarketingConfig.php:46",
+    "server/application/admin/controller/MarketingConfig.php:60",
+    "server/application/admin/controller/MarketingConfig.php:84",
+    "server/application/admin/controller/MenuDecorate.php:196",
+    "server/application/admin/controller/MenuDecorate.php:218",
+    "server/application/admin/controller/MenuDecorate.php:228",
+    "server/application/admin/controller/MenuDecorate.php:315",
+    "server/application/admin/controller/Message.php:35",
+    "server/application/admin/controller/Mnp.php:37",
+    "server/application/admin/controller/Oa.php:33",
+    "server/application/admin/controller/Op.php:28",
+    "server/application/admin/controller/Pc.php:40",
+    "server/application/admin/controller/Printer.php:92",
+    "server/application/admin/controller/Recharge.php:50",
+    "server/application/admin/controller/ServiceConfig.php:28",
+    "server/application/admin/controller/Sms.php:48",
+    "server/application/admin/controller/StorageConfig.php:106",
+    "server/application/admin/controller/StorageConfig.php:121",
+    "server/application/admin/controller/StorageConfig.php:92",
+    "server/application/admin/controller/TeamSet.php:44",
+    "server/application/admin/controller/User.php:62",
+    "server/application/api/controller/User.php:364",
+    "server/application/api/controller/UserAddress.php:79"
+  ],
+  "设置支付密码失败": [
+    "server/application/api/controller/User.php:188"
+  ],
+  "设置支付密码成功": [
+    "server/application/api/controller/User.php:186"
+  ],
+  "访问了商城": [
+    "server/application/common/behavior/Footprint.php:57"
+  ],
+  "访问商城": [
+    "server/application/common/model/Footprint.php:37"
+  ],
+  "评论失败，请重新提交": [
+    "server/application/api/logic/GoodsCommentLogic.php:157"
+  ],
+  "评论成功": [
+    "server/application/api/controller/GoodsComment.php:57"
+  ],
+  "该会员等级已不存在，请重新选择": [
+    "server/application/admin/validate/AdjustUserLevel.php:45"
+  ],
+  "该供应商不存在，请重新选择": [
+    "server/application/admin/validate/Goods.php:128"
+  ],
+  "该充值模板不存在": [
+    "server/application/api/validate/Recharge.php:46"
+  ],
+  "该分类下有子分类,请先调整该分类下的子分类": [
+    "server/application/admin/validate/GoodsCategory.php:107"
+  ],
+  "该分类下有子级，不能删除": [
+    "server/application/admin/validate/GoodsCategory.php:124"
+  ],
+  "该分类下有文章，不可删除": [
+    "server/application/admin/validate/ArticleCategory.php:58",
+    "server/application/admin/validate/HelpCategory.php:60"
+  ],
+  "该分类下还有子分类不允许删除": [
+    "server/application/admin/logic/FileNewLogic.php:150"
+  ],
+  "该分类不存在，请重新选择": [
+    "server/application/admin/validate/Goods.php:109"
+  ],
+  "该分类已被停用": [
+    "server/application/admin/validate/Help.php:73"
+  ],
+  "该分类有完整的子分类，不可修改父级": [
+    "server/application/admin/validate/GoodsCategory.php:106"
+  ],
+  "该名称已存在": [
+    "server/application/admin/validate/Express.php:31",
+    "server/application/admin/validate/GoodsBrand.php:42",
+    "server/application/admin/validate/Supplier.php:32"
+  ],
+  "该品牌不存在，请重新选择": [
+    "server/application/admin/validate/Goods.php:119"
+  ],
+  "该商品已在该活动专区中，请勿重复添加": [
+    "server/application/admin/validate/ActivityGoods.php:44"
+  ],
+  "该商品已是拼团商品,换一个吧": [
+    "server/application/admin/logic/TeamActivityLogic.php:260"
+  ],
+  "该商品已是拼团商品,无需重复添加": [
+    "server/application/admin/logic/TeamActivityLogic.php:158"
+  ],
+  "该商品已超过售后期": [
+    "server/application/api/logic/AfterSaleLogic.php:100"
+  ],
+  "该商品库存不足": [
+    "server/application/api/validate/Bargain.php:92"
+  ],
+  "该商品开启了秒杀活动,请先移除": [
+    "server/application/admin/logic/TeamActivityLogic.php:167",
+    "server/application/admin/logic/TeamActivityLogic.php:269"
+  ],
+  "该商品正在参与拼团，请先关闭后才允许下架": [
+    "server/application/admin/controller/Goods.php:247"
+  ],
+  "该商品正在参与活动，请先关闭后才允许下架": [
+    "server/application/admin/logic/CommonLogic.php:57",
+    "server/application/admin/logic/GoodsLogic.php:830"
+  ],
+  "该商品正在参加拼团活动中，不能在参加秒杀活动": [
+    "server/application/admin/validate/SeckillGoods.php:60"
+  ],
+  "该商品正在参加砍价活动中，不能在参加秒杀活动": [
+    "server/application/admin/validate/SeckillGoods.php:67"
+  ],
+  "该团已结束": [
+    "server/application/api/validate/Team.php:100"
+  ],
+  "该微信已绑定其他用户": [
+    "server/application/api/logic/LoginLogic.php:733",
+    "server/application/api/logic/LoginLogic.php:778"
+  ],
+  "该手机号码已存在": [
+    "server/application/api/validate/SmsSend.php:64"
+  ],
+  "该拼团活动不存在": [
+    "server/application/admin/logic/TeamActivityLogic.php:348"
+  ],
+  "该文件类型不允许上传": [
+    "server/application/common/validate/Upload.php:31"
+  ],
+  "该时间段已存在相同的商品": [
+    "server/application/admin/validate/SeckillGoods.php:111"
+  ],
+  "该模板名称已存在": [
+    "server/application/admin/validate/Freight.php:39"
+  ],
+  "该用户不存在": [
+    "server/application/admin/validate/AdjustAccount.php:48"
+  ],
+  "该砍价已结束": [
+    "server/application/api/validate/Bargain.php:104",
+    "server/application/api/validate/Bargain.php:116",
+    "server/application/api/validate/Bargain.php:119",
+    "server/application/api/validate/MakeMnQrcode.php:65"
+  ],
+  "该砍价活动已下架": [
+    "server/application/api/validate/Bargain.php:79"
+  ],
+  "该砍价活动已成功": [
+    "server/application/api/validate/Bargain.php:125",
+    "server/application/api/validate/Bargain.php:129"
+  ],
+  "该等级被使用，不允许删除": [
+    "server/application/admin/validate/UserLevel.php:53"
+  ],
+  "该订单不是待发货状态的订单": [
+    "server/application/admin/logic/FaceSheetOrderLogic.php:161"
+  ],
+  "该订单已退款": [
+    "server/application/admin/logic/FaceSheetOrderLogic.php:169"
+  ],
+  "该订单未支付": [
+    "server/application/admin/logic/FaceSheetOrderLogic.php:165"
+  ],
+  "该连续签到天数已存在": [
+    "server/application/admin/validate/SignDaily.php:100"
+  ],
+  "详细地址不能为空": [
+    "server/application/api/validate/UserAddress.php:48"
+  ],
+  "请上传分享图": [
+    "server/application/admin/logic/LiveRoomLogic.php:122"
+  ],
+  "请上传分类图标": [
+    "server/application/admin/validate/GoodsCategory.php:40"
+  ],
+  "请上传商品主图": [
+    "server/application/admin/validate/Goods.php:57"
+  ],
+  "请上传商品封面": [
+    "server/application/admin/validate/LiveGoods.php:39"
+  ],
+  "请上传商品轮播图": [
+    "server/application/admin/validate/Goods.php:58"
+  ],
+  "请上传图片": [
+    "server/application/admin/validate/ActivityArea.php:35"
+  ],
+  "请上传封面图": [
+    "server/application/admin/logic/LiveRoomLogic.php:118"
+  ],
+  "请上传广告图片": [
+    "server/application/admin/validate/Ad.php:44"
+  ],
+  "请上传收款码": [
+    "server/application/api/validate/Withdraw.php:48"
+  ],
+  "请上传权益图标": [
+    "server/application/admin/validate/UserPrivilege.php:34"
+  ],
+  "请上传等级图标": [
+    "server/application/admin/validate/UserLevel.php:40"
+  ],
+  "请上传等级背景图": [
+    "server/application/admin/validate/UserLevel.php:41"
+  ],
+  "请上传背景图": [
+    "server/application/admin/logic/LiveRoomLogic.php:126"
+  ],
+  "请上传菜单图标": [
+    "server/application/admin/validate/MenuDecorate.php:36"
+  ],
+  "请上传转账凭证": [
+    "server/application/admin/logic/WithdrawLogic.php:365"
+  ],
+  "请临时关闭服务器本站点的跨域攻击设置，并重启 nginx，具体参考相关升级文档": [
+    "server/application/admin/validate/Upgrade.php:47"
+  ],
+  "请先删除引用该广告位的广告": [
+    "server/application/admin/validate/AdPosition.php:101",
+    "server/application/admin/validate/AdPosition.php:94"
+  ],
+  "请先到小票打印里面配置打印设置": [
+    "server/application/admin/validate/OrderPrint.php:35"
+  ],
+  "请先添加打印机": [
+    "server/application/admin/validate/OrderPrint.php:41"
+  ],
+  "请先联系客服获取授权": [
+    "server/application/admin/logic/UpgradeLogic.php:189",
+    "server/application/admin/logic/UpgradeLogic.php:495"
+  ],
+  "请先设置": [
+    "server/application/admin/validate/Printer.php:64",
+    "server/application/admin/validate/Printer.php:83"
+  ],
+  "请先配置微信公众号参数": [
+    "server/application/admin/logic/OaLogic.php:69"
+  ],
+  "请先配置打印机": [
+    "server/application/admin/logic/OrderLogic.php:636"
+  ],
+  "请再次输入密码": [
+    "server/application/api/validate/LoginPassword.php:41"
+  ],
+  "请勿添加相同规格值": [
+    "server/application/admin/logic/GoodsLogic.php:398",
+    "server/application/admin/logic/GoodsLogic.php:660"
+  ],
+  "请在后台配置好微信支付": [
+    "server/application/common/server/WeChatServer.php:123"
+  ],
+  "请在地图上标记地址": [
+    "server/application/admin/validate/SelffetchShop.php:47",
+    "server/application/admin/validate/SelffetchShop.php:48"
+  ],
+  "请填写0~10的折扣": [
+    "server/application/admin/validate/UserLevel.php:42"
+  ],
+  "请填写上级推荐人的编号": [
+    "server/application/admin/validate/DistributionMember.php:39"
+  ],
+  "请填写会员编号": [
+    "server/application/admin/validate/DistributionMember.php:40"
+  ],
+  "请填写县区": [
+    "server/application/api/validate/DistributionApply.php:45"
+  ],
+  "请填写城市": [
+    "server/application/api/validate/DistributionApply.php:44"
+  ],
+  "请填写奖品数量": [
+    "server/application/admin/validate/LuckDraw.php:69"
+  ],
+  "请填写奖品金额": [
+    "server/application/admin/validate/LuckDraw.php:80"
+  ],
+  "请填写完整": [
+    "server/application/api/validate/UpdateUser.php:36"
+  ],
+  "请填写完整设置参数": [
+    "server/application/admin/validate/Freight.php:75"
+  ],
+  "请填写开团人数": [
+    "server/application/admin/validate/TeamActivity.php:47"
+  ],
+  "请填写快递单号": [
+    "server/application/api/validate/AfterSale.php:47"
+  ],
+  "请填写成团有效期": [
+    "server/application/admin/validate/TeamActivity.php:49"
+  ],
+  "请填写手机号": [
+    "server/application/api/validate/ChangeMobile.php:39"
+  ],
+  "请填写手机号码": [
+    "server/application/api/validate/DistributionApply.php:41"
+  ],
+  "请填写抽奖概率": [
+    "server/application/admin/validate/LuckDraw.php:41"
+  ],
+  "请填写拒绝原因": [
+    "server/application/admin/validate/AfterSale.php:34"
+  ],
+  "请填写拼团规格": [
+    "server/application/admin/validate/TeamActivity.php:43"
+  ],
+  "请填写排序": [
+    "server/application/admin/validate/FileCate.php:39"
+  ],
+  "请填写排序号": [
+    "server/application/admin/validate/LuckDraw.php:39"
+  ],
+  "请填写提现银行": [
+    "server/application/api/validate/Withdraw.php:49"
+  ],
+  "请填写整数": [
+    "server/application/admin/validate/FileCate.php:40"
+  ],
+  "请填写昵称": [
+    "server/application/admin/validate/CommentHelper.php:41"
+  ],
+  "请填写正确的快递单号": [
+    "server/application/api/validate/AfterSale.php:48"
+  ],
+  "请填写正确的手机号": [
+    "server/application/api/validate/ChangeMobile.php:37",
+    "server/application/api/validate/ChangeMobile.php:38"
+  ],
+  "请填写正确的手机号码": [
+    "server/application/api/validate/DistributionApply.php:42"
+  ],
+  "请填写正确订单号": [
+    "server/application/admin/validate/Order.php:39"
+  ],
+  "请填写物流公司名称": [
+    "server/application/api/validate/AfterSale.php:46"
+  ],
+  "请填写申请原因": [
+    "server/application/api/validate/DistributionApply.php:46"
+  ],
+  "请填写省份": [
+    "server/application/api/validate/DistributionApply.php:43"
+  ],
+  "请填写真实姓名": [
+    "server/application/api/validate/DistributionApply.php:40",
+    "server/application/api/validate/Withdraw.php:46",
+    "server/application/api/validate/Withdraw.php:47"
+  ],
+  "请填写砍价活动有效期": [
+    "server/application/admin/validate/Bargain.php:49"
+  ],
+  "请填写等级名称": [
+    "server/application/admin/validate/DistributionLevelValidate.php:43"
+  ],
+  "请填写评价内容": [
+    "server/application/admin/validate/CommentHelper.php:45"
+  ],
+  "请填写账号": [
+    "server/application/api/validate/Withdraw.php:45"
+  ],
+  "请填写转账说明": [
+    "server/application/admin/logic/WithdrawLogic.php:325",
+    "server/application/admin/logic/WithdrawLogic.php:374"
+  ],
+  "请填写银行支行": [
+    "server/application/api/validate/Withdraw.php:50"
+  ],
+  "请填写验证码": [
+    "server/application/api/validate/ChangeMobile.php:75"
+  ],
+  "请求异常": [
+    "server/application/admin/controller/FaceSheetOrder.php:77"
+  ],
+  "请求类型错误": [
+    "server/application/api/controller/User.php:191"
+  ],
+  "请给uploads目录开启777权限": [
+    "server/application/admin/logic/LiveGoodsLogic.php:202"
+  ],
+  "请联系管理员设置微信相关配置!": [
+    "server/application/common/logic/OrderRefundLogic.php:130"
+  ],
+  "请联系管理员设置微信证书!": [
+    "server/application/common/logic/OrderRefundLogic.php:134"
+  ],
+  "请至少选择一种分销资格": [
+    "server/application/admin/logic/UserSettingLogic.php:72"
+  ],
+  "请设置快递100的授权key": [
+    "server/application/common/server/printing/Kuaidi100.php:74"
+  ],
+  "请设置快递100的授权secret": [
+    "server/application/common/server/printing/Kuaidi100.php:77"
+  ],
+  "请设置打印机设备编码": [
+    "server/application/common/server/printing/Kuaidi100.php:80"
+  ],
+  "请设置电子面单客户密钥partnerKey": [
+    "server/application/common/server/printing/Kuaidi100.php:88"
+  ],
+  "请设置电子面单客户账号partnerId": [
+    "server/application/common/server/printing/Kuaidi100.php:85"
+  ],
+  "请设置菜单": [
+    "server/application/admin/controller/Oa.php:56"
+  ],
+  "请输入一级佣金比例": [
+    "server/application/admin/validate/DistributionLevelValidate.php:47"
+  ],
+  "请输入二级佣金比例": [
+    "server/application/admin/validate/DistributionLevelValidate.php:49"
+  ],
+  "请输入价格": [
+    "server/application/admin/validate/GoodsMoreSpecLists.php:42",
+    "server/application/admin/validate/GoodsOneSpec.php:42"
+  ],
+  "请输入优惠券名称": [
+    "server/application/admin/validate/Coupon.php:47",
+    "server/application/common/validate/Coupon.php:50"
+  ],
+  "请输入优惠券面额": [
+    "server/application/admin/validate/Coupon.php:51",
+    "server/application/common/validate/Coupon.php:54"
+  ],
+  "请输入会员头像": [
+    "server/application/admin/validate/User.php:38"
+  ],
+  "请输入会员昵称": [
+    "server/application/admin/validate/User.php:37"
+  ],
+  "请输入体积": [
+    "server/application/admin/validate/GoodsMoreSpecLists.php:36",
+    "server/application/admin/validate/GoodsOneSpec.php:36"
+  ],
+  "请输入充值金额": [
+    "server/application/admin/validate/RechargeTemplate.php:27",
+    "server/application/api/validate/Recharge.php:38"
+  ],
+  "请输入关键词": [
+    "server/application/admin/validate/WeChatReply.php:33"
+  ],
+  "请输入商品名称": [
+    "server/application/admin/validate/Goods.php:51",
+    "server/application/admin/validate/LiveGoods.php:36"
+  ],
+  "请输入回复内容": [
+    "server/application/admin/validate/WeChatReply.php:34"
+  ],
+  "请输入图形验证码": [
+    "server/application/admin/validate/Login.php:39",
+    "server/application/api/validate/Login.php:53"
+  ],
+  "请输入大于0的调整余额": [
+    "server/application/admin/validate/AdjustAccount.php:85"
+  ],
+  "请输入大于0的调整佣金": [
+    "server/application/admin/validate/AdjustAccount.php:173"
+  ],
+  "请输入大于0的调整成长值": [
+    "server/application/admin/validate/AdjustAccount.php:144"
+  ],
+  "请输入大于0的调整积分": [
+    "server/application/admin/validate/AdjustAccount.php:114"
+  ],
+  "请输入大于等于0的排序值": [
+    "server/application/admin/validate/Ad.php:45"
+  ],
+  "请输入密码": [
+    "server/application/api/validate/Login.php:54",
+    "server/application/api/validate/LoginPassword.php:39",
+    "server/application/api/validate/Register.php:38",
+    "server/application/common/command/Password.php:40"
+  ],
+  "请输入平台分摊比例": [
+    "server/application/common/validate/Coupon.php:58"
+  ],
+  "请输入广告标题": [
+    "server/application/admin/validate/Ad.php:39",
+    "server/application/admin/validate/AdPosition.php:38"
+  ],
+  "请输入库存": [
+    "server/application/admin/validate/GoodsMoreSpecLists.php:46",
+    "server/application/admin/validate/GoodsOneSpec.php:46"
+  ],
+  "请输入应用ID": [
+    "server/application/admin/validate/SetConfig.php:30"
+  ],
+  "请输入应用秘钥": [
+    "server/application/admin/validate/SetConfig.php:31"
+  ],
+  "请输入店铺分摊比例": [
+    "server/application/common/validate/Coupon.php:59"
+  ],
+  "请输入成本价": [
+    "server/application/admin/validate/GoodsMoreSpecLists.php:44",
+    "server/application/admin/validate/GoodsOneSpec.php:44"
+  ],
+  "请输入成长值": [
+    "server/application/admin/validate/UserLevel.php:37"
+  ],
+  "请输入手机号": [
+    "server/application/api/validate/LoginPassword.php:38",
+    "server/application/api/validate/Register.php:37"
+  ],
+  "请输入手机号码": [
+    "server/application/api/validate/SmsSend.php:39"
+  ],
+  "请输入打印机名称": [
+    "server/application/admin/validate/Printer.php:49"
+  ],
+  "请输入打印联数": [
+    "server/application/admin/validate/Printer.php:53"
+  ],
+  "请输入文章标题": [
+    "server/application/admin/validate/Article.php:35",
+    "server/application/admin/validate/Help.php:36"
+  ],
+  "请输入昵称": [
+    "server/application/api/validate/ChangeUserInfo.php:28"
+  ],
+  "请输入权益名称": [
+    "server/application/admin/validate/UserPrivilege.php:32"
+  ],
+  "请输入标题": [
+    "server/application/admin/validate/ActivityArea.php:33"
+  ],
+  "请输入模板名称": [
+    "server/application/admin/validate/Freight.php:38"
+  ],
+  "请输入正确手机号": [
+    "server/application/admin/validate/User.php:40"
+  ],
+  "请输入正确的手机号码": [
+    "server/application/api/validate/SmsSend.php:40"
+  ],
+  "请输入正确的手机格式": [
+    "server/application/admin/validate/Supplier.php:36"
+  ],
+  "请输入活动名称": [
+    "server/application/admin/validate/ActivityArea.php:31"
+  ],
+  "请输入秘钥": [
+    "server/application/admin/validate/Printer.php:52"
+  ],
+  "请输入等级名称": [
+    "server/application/admin/validate/UserLevel.php:35"
+  ],
+  "请输入等级说明": [
+    "server/application/admin/validate/UserLevel.php:39"
+  ],
+  "请输入级别": [
+    "server/application/admin/validate/DistributionLevelValidate.php:44"
+  ],
+  "请输入终端号": [
+    "server/application/admin/validate/Printer.php:50"
+  ],
+  "请输入统一运费": [
+    "server/application/admin/validate/Goods.php:64"
+  ],
+  "请输入菜单名称": [
+    "server/application/admin/validate/MenuDecorate.php:34"
+  ],
+  "请输入规则名称": [
+    "server/application/admin/validate/WeChatReply.php:31"
+  ],
+  "请输入调整余额备注": [
+    "server/application/admin/validate/AdjustAccount.php:188",
+    "server/application/admin/validate/AdjustAccount.php:98"
+  ],
+  "请输入调整成长值备注": [
+    "server/application/admin/validate/AdjustAccount.php:157"
+  ],
+  "请输入调整积分备注": [
+    "server/application/admin/validate/AdjustAccount.php:128"
+  ],
+  "请输入账号或手机号": [
+    "server/application/api/validate/Login.php:51"
+  ],
+  "请输入赠送积分": [
+    "server/application/admin/validate/Goods.php:73"
+  ],
+  "请输入赠送积分比例": [
+    "server/application/admin/validate/Goods.php:71"
+  ],
+  "请输入邀请码": [
+    "server/application/api/validate/DistributionCode.php:36"
+  ],
+  "请输入重量": [
+    "server/application/admin/validate/GoodsMoreSpecLists.php:38",
+    "server/application/admin/validate/GoodsOneSpec.php:38"
+  ],
+  "请输入链接": [
+    "server/application/admin/validate/Ad.php:78",
+    "server/application/admin/validate/MenuDecorate.php:63"
+  ],
+  "请输入领取次数": [
+    "server/application/admin/validate/Coupon.php:66",
+    "server/application/admin/validate/Coupon.php:67",
+    "server/application/common/validate/Coupon.php:73",
+    "server/application/common/validate/Coupon.php:74"
+  ],
+  "请输入验证码": [
+    "server/application/api/validate/Login.php:57",
+    "server/application/api/validate/LoginPassword.php:43",
+    "server/application/api/validate/Register.php:40"
+  ],
+  "请进行商品评价": [
+    "server/application/api/validate/GoodsComment.php:38"
+  ],
+  "请进行描述相符评价": [
+    "server/application/api/validate/GoodsComment.php:39"
+  ],
+  "请进行服务态度评价": [
+    "server/application/api/validate/GoodsComment.php:40"
+  ],
+  "请进行配送服务评价": [
+    "server/application/api/validate/GoodsComment.php:41"
+  ],
+  "请选择一级分类": [
+    "server/application/admin/validate/Goods.php:56"
+  ],
+  "请选择优惠券": [
+    "server/application/admin/validate/SendCoupon.php:27",
+    "server/application/api/validate/GetCoupon.php:28"
+  ],
+  "请选择优惠券使用时间": [
+    "server/application/admin/validate/Coupon.php:58",
+    "server/application/admin/validate/Coupon.php:59",
+    "server/application/admin/validate/Coupon.php:60",
+    "server/application/admin/validate/Coupon.php:61",
+    "server/application/common/validate/Coupon.php:65",
+    "server/application/common/validate/Coupon.php:66",
+    "server/application/common/validate/Coupon.php:67",
+    "server/application/common/validate/Coupon.php:68"
+  ],
+  "请选择优惠券开始发放时间": [
+    "server/application/admin/validate/Coupon.php:49",
+    "server/application/common/validate/Coupon.php:52"
+  ],
+  "请选择优惠券结束发放时间": [
+    "server/application/admin/validate/Coupon.php:50",
+    "server/application/common/validate/Coupon.php:53"
+  ],
+  "请选择会员": [
+    "server/application/admin/validate/User.php:36"
+  ],
+  "请选择会员头像": [
+    "server/application/admin/validate/CommentHelper.php:40"
+  ],
+  "请选择会员等级": [
+    "server/application/admin/validate/AdjustUserLevel.php:33",
+    "server/application/admin/validate/CommentHelper.php:42"
+  ],
+  "请选择使用场景": [
+    "server/application/common/validate/Coupon.php:56"
+  ],
+  "请选择使用门槛": [
+    "server/application/admin/validate/Coupon.php:55",
+    "server/application/common/validate/Coupon.php:62"
+  ],
+  "请选择分类！": [
+    "server/application/admin/validate/Article.php:37"
+  ],
+  "请选择分组": [
+    "server/application/admin/validate/UserGroup.php:37"
+  ],
+  "请选择升级关系": [
+    "server/application/admin/logic/DistributionLevelLogic.php:201",
+    "server/application/admin/validate/DistributionLevelValidate.php:51"
+  ],
+  "请选择升级条件": [
+    "server/application/admin/logic/DistributionLevelLogic.php:204",
+    "server/application/admin/validate/DistributionLevelValidate.php:137",
+    "server/application/admin/validate/DistributionLevelValidate.php:53"
+  ],
+  "请选择发放总量": [
+    "server/application/admin/validate/Coupon.php:53",
+    "server/application/common/validate/Coupon.php:60"
+  ],
+  "请选择商品": [
+    "server/application/api/validate/Cart.php:36"
+  ],
+  "请选择商品数量": [
+    "server/application/api/validate/Team.php:42"
+  ],
+  "请选择商品规格": [
+    "server/application/api/validate/Team.php:41"
+  ],
+  "请选择回复": [
+    "server/application/admin/validate/WeChatReply.php:30"
+  ],
+  "请选择团开始时间": [
+    "server/application/admin/validate/TeamActivity.php:50"
+  ],
+  "请选择团结束时间": [
+    "server/application/admin/validate/TeamActivity.php:51"
+  ],
+  "请选择奖品": [
+    "server/application/admin/validate/LuckDraw.php:75"
+  ],
+  "请选择完整地址": [
+    "server/application/api/validate/UserAddress.php:46",
+    "server/application/api/validate/UserAddress.php:47"
+  ],
+  "请选择帮助分类！": [
+    "server/application/admin/validate/Help.php:38"
+  ],
+  "请选择广告位置": [
+    "server/application/admin/validate/Ad.php:43"
+  ],
+  "请选择广告类型": [
+    "server/application/admin/validate/AdPosition.php:41"
+  ],
+  "请选择广告终端": [
+    "server/application/admin/validate/Ad.php:42"
+  ],
+  "请选择库存显示": [
+    "server/application/admin/validate/Goods.php:62"
+  ],
+  "请选择开团状态": [
+    "server/application/admin/validate/TeamActivity.php:52"
+  ],
+  "请选择开始时间": [
+    "server/application/admin/validate/SeckillTime.php:29"
+  ],
+  "请选择快递运费模板": [
+    "server/application/admin/validate/Goods.php:65"
+  ],
+  "请选择快递运费类型": [
+    "server/application/admin/validate/Goods.php:63"
+  ],
+  "请选择性别": [
+    "server/application/api/validate/ChangeUserInfo.php:29"
+  ],
+  "请选择打印机": [
+    "server/application/admin/validate/Printer.php:47"
+  ],
+  "请选择打印机类型": [
+    "server/application/admin/validate/Printer.php:48"
+  ],
+  "请选择打印机配置": [
+    "server/application/admin/validate/SetConfig.php:29"
+  ],
+  "请选择抽奖类型": [
+    "server/application/admin/validate/LuckDraw.php:38"
+  ],
+  "请选择指定会员等级": [
+    "server/application/admin/logic/UserSettingLogic.php:82"
+  ],
+  "请选择推荐人": [
+    "server/application/admin/logic/UserLogic.php:711"
+  ],
+  "请选择支付图标": [
+    "server/application/admin/controller/PayConfig.php:104",
+    "server/application/admin/controller/PayConfig.php:53",
+    "server/application/admin/controller/PayConfig.php:74"
+  ],
+  "请选择收货地址": [
+    "server/application/api/logic/OrderLogic.php:523",
+    "server/application/api/logic/TeamLogic.php:350"
+  ],
+  "请选择文章分类": [
+    "server/application/admin/validate/Article.php:61"
+  ],
+  "请选择显示状态": [
+    "server/application/admin/validate/ArticleCategory.php:37",
+    "server/application/admin/validate/HelpCategory.php:37"
+  ],
+  "请选择权益": [
+    "server/application/admin/validate/UserPrivilege.php:31"
+  ],
+  "请选择活动": [
+    "server/application/api/validate/Bargain.php:34"
+  ],
+  "请选择活动专区": [
+    "server/application/admin/validate/ActivityGoods.php:31"
+  ],
+  "请选择活动开始时间": [
+    "server/application/admin/validate/Bargain.php:53"
+  ],
+  "请选择活动结束时间": [
+    "server/application/admin/validate/Bargain.php:54"
+  ],
+  "请选择状态": [
+    "server/application/admin/validate/LuckDraw.php:42"
+  ],
+  "请选择用券时间": [
+    "server/application/admin/validate/Coupon.php:57",
+    "server/application/common/validate/Coupon.php:64"
+  ],
+  "请选择用户": [
+    "server/application/admin/validate/AdjustAccount.php:35",
+    "server/application/admin/validate/AdjustUserLevel.php:32"
+  ],
+  "请选择砍价活动状态": [
+    "server/application/admin/validate/Bargain.php:59"
+  ],
+  "请选择砍价订单": [
+    "server/application/api/validate/Bargain.php:33"
+  ],
+  "请选择砍价金额方式": [
+    "server/application/admin/validate/Bargain.php:57"
+  ],
+  "请选择禁用状态": [
+    "server/application/admin/validate/User.php:42"
+  ],
+  "请选择秒杀商品": [
+    "server/application/admin/validate/SeckillGoods.php:31"
+  ],
+  "请选择秒杀时段": [
+    "server/application/admin/validate/SeckillGoods.php:30"
+  ],
+  "请选择积分奖励或成才值奖励": [
+    "server/application/admin/validate/SignDaily.php:90"
+  ],
+  "请选择结束时间": [
+    "server/application/admin/validate/SeckillTime.php:30"
+  ],
+  "请选择编辑的活动专区": [
+    "server/application/admin/validate/ActivityArea.php:30"
+  ],
+  "请选择自定义海报": [
+    "server/application/admin/logic/UserSettingLogic.php:69"
+  ],
+  "请选择规格": [
+    "server/application/api/validate/Bargain.php:35"
+  ],
+  "请选择规格类型": [
+    "server/application/admin/validate/Goods.php:60"
+  ],
+  "请选择角色": [
+    "server/application/admin/validate/Admin.php:49"
+  ],
+  "请选择计费方式": [
+    "server/application/admin/validate/Freight.php:37"
+  ],
+  "请选择订单": [
+    "server/application/api/controller/Order.php:76"
+  ],
+  "请选择评价时间": [
+    "server/application/admin/validate/CommentHelper.php:43"
+  ],
+  "请选择评价等级": [
+    "server/application/admin/validate/CommentHelper.php:44"
+  ],
+  "请选择评论的商品": [
+    "server/application/api/controller/GoodsComment.php:82"
+  ],
+  "请选择调整的类型": [
+    "server/application/admin/validate/AdjustAccount.php:52"
+  ],
+  "请选择购买方式": [
+    "server/application/admin/validate/Bargain.php:55"
+  ],
+  "请选择跳转商城页面": [
+    "server/application/admin/validate/Ad.php:68"
+  ],
+  "请选择跳转的商品": [
+    "server/application/admin/validate/Ad.php:73"
+  ],
+  "请选择退款原因": [
+    "server/application/api/validate/AfterSale.php:42"
+  ],
+  "请选择适用商品": [
+    "server/application/admin/validate/Coupon.php:68",
+    "server/application/common/validate/Coupon.php:75"
+  ],
+  "请选择销售状态": [
+    "server/application/admin/validate/Goods.php:61"
+  ],
+  "请选择领取方式": [
+    "server/application/admin/validate/Coupon.php:62",
+    "server/application/common/validate/Coupon.php:69"
+  ],
+  "请选择领取次数": [
+    "server/application/admin/validate/Coupon.php:64",
+    "server/application/common/validate/Coupon.php:71"
+  ],
+  "请配置好支付设置": [
+    "server/application/common/server/AliPayServer.php:61"
+  ],
+  "调整余额必须大于零": [
+    "server/application/admin/validate/AdjustAccount.php:88"
+  ],
+  "调整佣金必须大于零": [
+    "server/application/admin/validate/AdjustAccount.php:176"
+  ],
+  "调整成功": [
+    "server/application/admin/controller/DistributionMember.php:78",
+    "server/application/admin/controller/User.php:194"
+  ],
+  "调整积分必须大于零": [
+    "server/application/admin/validate/AdjustAccount.php:117"
+  ],
+  "调整类型参数缺失": [
+    "server/application/admin/validate/AdjustAccount.php:36"
+  ],
+  "谢谢您的助力，动动手指帮我砍一刀": [
+    "server/application/api/logic/BargainLogic.php:424"
+  ],
+  "谢谢惠顾": [
+    "server/application/common/model/Luckdraw.php:56",
+    "server/application/common/model/Luckdraw.php:72"
+  ],
+  "账号不存在": [
+    "server/application/api/logic/LoginPasswordLogic.php:103",
+    "server/application/api/logic/LoginPasswordLogic.php:55",
+    "server/application/api/logic/LoginPasswordLogic.php:86"
+  ],
+  "账号不能为空": [
+    "server/application/admin/validate/Admin.php:40",
+    "server/application/admin/validate/Login.php:37"
+  ],
+  "账号名已存在，请使用其他账号名": [
+    "server/application/admin/validate/Admin.php:41"
+  ],
+  "账号名的长度为1到32位之间": [
+    "server/application/admin/validate/Admin.php:42",
+    "server/application/admin/validate/Admin.php:48"
+  ],
+  "账号密码错误": [
+    "server/application/admin/validate/Login.php:41"
+  ],
+  "账号已被禁用": [
+    "server/application/api/logic/LoginLogic.php:149",
+    "server/application/api/logic/LoginLogic.php:242",
+    "server/application/api/logic/LoginLogic.php:312",
+    "server/application/api/logic/LoginLogic.php:590",
+    "server/application/api/validate/Login.php:110",
+    "server/application/api/validate/Login.php:142"
+  ],
+  "账号被禁用": [
+    "server/application/admin/validate/Login.php:87"
+  ],
+  "账号：": [
+    "server/application/common/command/Password.php:49"
+  ],
+  "账户余额": [
+    "server/application/admin/logic/UserLogic.php:212"
+  ],
+  "账户余额不足": [
+    "server/application/api/logic/TeamLogic.php:357"
+  ],
+  "账户变动": [
+    "server/application/common/model/ShopAccountLog.php:37"
+  ],
+  "账户调整类型错误": [
+    "server/application/admin/validate/AdjustAccount.php:69"
+  ],
+  "货物破损已拒签": [
+    "server/application/common/model/AfterSale.php:103"
+  ],
+  "质量问题": [
+    "server/application/common/model/AfterSale.php:96"
+  ],
+  "购买商品赠送积分": [
+    "server/application/common/model/AccountLog.php:110"
+  ],
+  "购买成功通知": [
+    "server/application/common/model/MessageScene_.php:38"
+  ],
+  "购物车不存在": [
+    "server/application/api/validate/Cart.php:71"
+  ],
+  "赠送": [
+    "server/application/admin/logic/SignDailyLogic.php:46",
+    "server/application/admin/logic/SignDailyLogic.php:49",
+    "server/application/api/logic/RechargeLogic.php:122",
+    "server/application/api/logic/RechargeLogic.php:35"
+  ],
+  "赠送奖励失败:": [
+    "server/application/common/behavior/GiveReward.php:61"
+  ],
+  "赠送积分比例须大于0": [
+    "server/application/admin/validate/Goods.php:72"
+  ],
+  "赠送积分须大于0": [
+    "server/application/admin/validate/Goods.php:74"
+  ],
+  "超级管理修改密码成功！": [
+    "server/application/common/command/Password.php:48"
+  ],
+  "超级管理员": [
+    "server/application/admin/logic/AdminLogic.php:62"
+  ],
+  "距离升级还差": [
+    "server/application/api/logic/UserLogic.php:77"
+  ],
+  "转账太频繁了，请3秒后再试": [
+    "server/application/api/validate/User.php:56"
+  ],
+  "转账失败": [
+    "server/application/api/controller/User.php:211"
+  ],
+  "转账失败，提现金额已退回佣金账户": [
+    "server/application/admin/logic/WithdrawLogic.php:353"
+  ],
+  "转账成功": [
+    "server/application/admin/logic/WithdrawLogic.php:388",
+    "server/application/api/controller/User.php:209"
+  ],
+  "转账金额 >= 2000元，收款用户真实姓名必填": [
+    "server/application/admin/logic/WechatMerchantTransferLogic.php:122"
+  ],
+  "转账金额不能为空": [
+    "server/application/api/validate/User.php:21"
+  ],
+  "转账金额必须大于0": [
+    "server/application/api/validate/User.php:22"
+  ],
+  "运费不能小于零": [
+    "server/application/admin/validate/Goods.php:148"
+  ],
+  "运费模板不存在": [
+    "server/application/admin/validate/GoodsMoreSpecLists.php:63",
+    "server/application/admin/validate/GoodsOneSpec.php:65"
+  ],
+  "运费模板不存在，请重新选择": [
+    "server/application/admin/validate/Goods.php:140"
+  ],
+  "运费金额": [
+    "server/application/admin/logic/OrderLogic.php:261",
+    "server/application/admin/logic/VerificationLogic.php:208"
+  ],
+  "运费：￥": [
+    "server/application/common/server/YlyPrinter.php:186"
+  ],
+  "运输中": [
+    "server/application/api/logic/OrderLogic.php:1272"
+  ],
+  "还需": [
+    "server/application/api/logic/UserLevelLogic.php:55"
+  ],
+  "这是用户备注": [
+    "server/application/admin/logic/PrinterLogic.php:347"
+  ],
+  "进行中": [
+    "server/application/admin/model/Coupon.php:137"
+  ],
+  "连续签到天数不能为空": [
+    "server/application/admin/validate/SignDaily.php:50"
+  ],
+  "连续签到天数必须为整数": [
+    "server/application/admin/validate/SignDaily.php:51"
+  ],
+  "连续签到天数必须大于0": [
+    "server/application/admin/validate/SignDaily.php:52"
+  ],
+  "退款原因(": [
+    "server/application/admin/logic/AfterSaleLogic.php:191"
+  ],
+  "退款失败": [
+    "server/application/admin/controller/TeamFound.php:101",
+    "server/application/common/model/AfterSaleLog.php:58"
+  ],
+  "退款成功": [
+    "server/application/admin/controller/TeamFound.php:99",
+    "server/application/common/logic/OrderRefundLogic.php:210",
+    "server/application/common/model/AfterSale.php:65",
+    "server/application/common/model/AfterSaleLog.php:57",
+    "server/application/common/model/OrderGoods.php:54"
+  ],
+  "退款成功通知": [
+    "server/application/common/model/MessageScene_.php:44"
+  ],
+  "退款说明(": [
+    "server/application/admin/logic/AfterSaleLogic.php:191"
+  ],
+  "退款退货": [
+    "server/application/common/model/AfterSale.php:79"
+  ],
+  "适用商品类型错误": [
+    "server/application/admin/validate/Coupon.php:69",
+    "server/application/common/validate/Coupon.php:76"
+  ],
+  "选择的商品不存在": [
+    "server/application/admin/logic/TeamActivityLogic.php:149",
+    "server/application/admin/logic/TeamActivityLogic.php:249"
+  ],
+  "选择的商品已不存在,可能已被删除": [
+    "server/application/admin/logic/BargainLogic.php:257"
+  ],
+  "选择的开团商品ID异常": [
+    "server/application/admin/validate/TeamActivity.php:46"
+  ],
+  "选择的砍价方式异常": [
+    "server/application/admin/validate/Bargain.php:58"
+  ],
+  "选择的购买方式异常": [
+    "server/application/admin/validate/Bargain.php:56"
+  ],
+  "选择砍价商品异常": [
+    "server/application/admin/validate/Bargain.php:48"
+  ],
+  "通信失败": [
+    "server/application/common/server/WeChatPayServer.php:278"
+  ],
+  "邀请下级资格未达到要求": [
+    "server/application/api/validate/DistributionCode.php:77"
+  ],
+  "邀请会员赠送积分": [
+    "server/application/common/model/AccountLog.php:95"
+  ],
+  "邀请你一起来赚大钱": [
+    "server/application/common/logic/QrCodeLogic.php:359"
+  ],
+  "邀请奖励提现": [
+    "server/application/admin/logic/WechatMerchantTransferLogic.php:117"
+  ],
+  "邀请好友{$num}成为下线": [
+    "server/application/common/model/UserTask.php:67"
+  ],
+  "邀请好友{$num}成为会员": [
+    "server/application/common/model/UserTask.php:75"
+  ],
+  "邀请好友帮忙砍价，砍至": [
+    "server/application/api/logic/BargainLogic.php:142"
+  ],
+  "邀请好友帮砍价，砍至": [
+    "server/application/api/logic/BargainLogic.php:442"
+  ],
+  "邀请好友成为下线": [
+    "server/application/common/model/UserTask.php:68"
+  ],
+  "邀请好友成为会员": [
+    "server/application/common/model/UserTask.php:76"
+  ],
+  "邀请成功": [
+    "server/application/common/model/NoticeSetting.php:157"
+  ],
+  "邀请海报": [
+    "server/application/common/model/Menu_.php:247"
+  ],
+  "邀请码 ": [
+    "server/application/common/logic/QrCodeLogic.php:362"
+  ],
+  "邀请者": [
+    "server/application/admin/logic/WechatMerchantTransferLogic.php:116"
+  ],
+  "邀请赠送积分": [
+    "server/application/admin/logic/AccountLogLogic.php:120"
+  ],
+  "配送方式": [
+    "server/application/admin/logic/OrderLogic.php:261",
+    "server/application/admin/logic/VerificationLogic.php:209"
+  ],
+  "配送方式不能为空": [
+    "server/application/api/validate/Order.php:50",
+    "server/application/api/validate/Team.php:49"
+  ],
+  "重置密码短信通知": [
+    "server/application/common/model/NoticeSetting.php:155"
+  ],
+  "重量必须为大于或等于0": [
+    "server/application/admin/validate/GoodsOneSpec.php:39"
+  ],
+  "重量必须大于或等于0": [
+    "server/application/admin/validate/GoodsMoreSpecLists.php:39"
+  ],
+  "钱包余额": [
+    "server/application/common/model/Withdraw.php:70"
+  ],
+  "钱包充值": [
+    "server/application/admin/logic/AccountLogLogic.php:103"
+  ],
+  "银行卡": [
+    "server/application/common/model/ShopWithdraw.php:55",
+    "server/application/common/model/Withdraw.php:72"
+  ],
+  "长按识别二维码": [
+    "server/application/common/logic/QrCodeLogic.php:159",
+    "server/application/common/logic/QrCodeLogic.php:518"
+  ],
+  "长按识别二维码 >>": [
+    "server/application/common/logic/QrCodeLogic.php:356"
+  ],
+  "门店不存在": [
+    "server/application/admin/validate/SelffetchShop.php:110"
+  ],
+  "门店名称": [
+    "server/application/admin/logic/SelffetchShopLogic.php:203"
+  ],
+  "门店名称已存在": [
+    "server/application/admin/validate/SelffetchShop.php:92"
+  ],
+  "门店地址": [
+    "server/application/admin/logic/SelffetchShopLogic.php:203"
+  ],
+  "门店地址：": [
+    "server/application/common/server/YlyPrinter.php:162"
+  ],
+  "门店状态": [
+    "server/application/admin/logic/SelffetchShopLogic.php:203"
+  ],
+  "阿里云OSS": [
+    "server/application/admin/controller/StorageConfig.php:51"
+  ],
+  "限制领取": [
+    "server/application/admin/model/Coupon.php:155"
+  ],
+  "限时秒杀": [
+    "server/application/common/model/Ad.php:134",
+    "server/application/common/model/Ad.php:72",
+    "server/application/common/model/Menu_.php:70"
+  ],
+  "隐藏": [
+    "server/application/admin/logic/ArticleLogic.php:59",
+    "server/application/admin/logic/GoodsCommentLogic.php:139",
+    "server/application/admin/logic/GoodsCommentLogic.php:141",
+    "server/application/admin/logic/HelpLogic.php:57"
+  ],
+  "零钱提现中": [
+    "server/application/admin/logic/WechatMerchantTransferLogic.php:169"
+  ],
+  "零钱提现请求失败": [
+    "server/application/admin/logic/WechatMerchantTransferLogic.php:135"
+  ],
+  "非常遗憾，砍价失败": [
+    "server/application/api/logic/BargainLogic.php:481"
+  ],
+  "非常遗憾，砍价失败了": [
+    "server/application/common/model/BargainLaunch.php:194"
+  ],
+  "非有效手机号": [
+    "server/application/api/validate/UserAddress.php:44"
+  ],
+  "非有效手机号码": [
+    "server/application/api/validate/LoginPassword.php:44",
+    "server/application/api/validate/Register.php:41"
+  ],
+  "非自提订单，不允许核销": [
+    "server/application/admin/validate/Verification.php:74"
+  ],
+  "非门店核销员，无法核销订单": [
+    "server/application/api/logic/OrderLogic.php:1446",
+    "server/application/api/validate/Order.php:238"
+  ],
+  "顺丰快递": [
+    "server/application/common/server/printing/Kuaidi100.php:83"
+  ],
+  "须砍至最低价才可支付购买": [
+    "server/application/common/model/BargainLaunch.php:150"
+  ],
+  "领券中心": [
+    "server/application/common/model/Ad.php:109",
+    "server/application/common/model/Ad.php:47",
+    "server/application/common/model/Menu_.php:91"
+  ],
+  "领取优惠券": [
+    "server/application/common/model/Footprint.php:46"
+  ],
+  "领取失败": [
+    "server/application/api/controller/Coupon.php:57"
+  ],
+  "领取当天起": [
+    "server/application/admin/model/Coupon.php:107"
+  ],
+  "领取成功": [
+    "server/application/api/controller/Coupon.php:55"
+  ],
+  "领取方式类型错误": [
+    "server/application/admin/validate/Coupon.php:63",
+    "server/application/common/validate/Coupon.php:70"
+  ],
+  "领取次数类型错误": [
+    "server/application/admin/validate/Coupon.php:65",
+    "server/application/common/validate/Coupon.php:72"
+  ],
+  "领取次日起": [
+    "server/application/admin/model/Coupon.php:110"
+  ],
+  "颜色/图案/款式不符": [
+    "server/application/common/model/AfterSale.php:94"
+  ],
+  "验证码不能为空": [
+    "server/application/api/controller/User.php:344"
+  ],
+  "验证码发送频繁，请稍后在发送": [
+    "server/application/api/validate/SmsSend.php:52"
+  ],
+  "验证码已过期": [
+    "server/application/common/logic/SmsLogic.php:58"
+  ],
+  "验证码登录": [
+    "server/application/common/model/NoticeSetting.php:159"
+  ],
+  "验证码错误": [
+    "server/application/api/controller/User.php:354",
+    "server/application/common/logic/SmsLogic.php:52"
+  ],
+  "默认": [
+    "server/application/admin/logic/GoodsLogic.php:359",
+    "server/application/admin/logic/GoodsLogic.php:361",
+    "server/application/admin/logic/GoodsLogic.php:367",
+    "server/application/admin/logic/GoodsLogic.php:593",
+    "server/application/admin/logic/GoodsLogic.php:595",
+    "server/application/admin/logic/GoodsLogic.php:600"
+  ],
+  "默认回复": [
+    "server/application/common/model/WeChat.php:51"
+  ],
+  "默认等级": [
+    "server/application/admin/controller/DistributionCenter.php:32",
+    "server/application/admin/controller/DistributionCenter.php:35"
+  ]
+}

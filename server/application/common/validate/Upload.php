@@ -1,0 +1,66 @@
+<?php
+// +----------------------------------------------------------------------
+// | likeshop100%开源免费商用商城系统
+// +----------------------------------------------------------------------
+// | 欢迎阅读学习系统程序代码，建议反馈是我们前进的动力
+// | 开源版本可自由商用，可去除界面版权logo
+// | 商业版本务必购买商业授权，以免引起法律纠纷
+// | 禁止对系统程序代码以任何目的，任何形式的再发布
+// | gitee下载：https://gitee.com/likeshop_gitee
+// | github下载：https://github.com/likeshop-github
+// | 访问官网：https://www.likeshop.cn
+// | 访问社区：https://home.likeshop.cn
+// | 访问手册：http://doc.likeshop.cn
+// | 微信公众号：likeshop技术社区
+// | likeshop团队 版权所有 拥有最终解释权
+// +----------------------------------------------------------------------
+// | author: likeshopTeam
+// +----------------------------------------------------------------------
+namespace app\common\validate;
+
+use think\Validate;
+
+class Upload extends Validate
+{
+
+    public function __construct(array $rules = [], array $message = [], array $field = [])
+    {
+        parent::__construct($rules, $message, $field);
+        foreach ($this->message as $key => $value) {
+            $this->message[$key] = lang($value);
+        }
+        foreach ($this->rule as $key => $rule) {
+            if (strpos($key, '|') !== false) {
+                list($attr, $title) = explode('|', $key, 2);
+                $newKey = $attr . '|' . lang($title);
+                if ($newKey !== $key) {
+                    $this->rule[$newKey] = $rule;
+                    unset($this->rule[$key]);
+                }
+            }
+        }
+    }
+
+    protected $rule = [
+        'file' => 'fileExt:pem,jpg,jpeg,gif,png,bmp,tga,tif,pdf,psd,avi,mp4,mp3,wmv,mpg,mpeg,mov,rm,ram,swf,flv,ico',
+    ];
+
+    protected $message = [
+        'file.fileExt' => '该文件类型不允许上传',
+    ];
+
+    /**
+     * 按上传场景收窄允许的文件后缀。
+     * @param array $extensions
+     * @return $this
+     */
+    public function setAllowedExtensions(array $extensions)
+    {
+        $extensions = array_filter(array_unique(array_map('strtolower', $extensions)));
+        if (!empty($extensions)) {
+            $this->rule['file'] = 'fileExt:' . implode(',', $extensions);
+        }
+        return $this;
+    }
+
+}

@@ -1,0 +1,1369 @@
+{
+  "$t('hh时mm分ss秒')": [
+    "pc/pages/payment.vue:13"
+  ],
+  "$t('ss秒')": [
+    "pc/pages/account/forget_pwd.vue:19",
+    "pc/pages/account/login.vue:32",
+    "pc/pages/account/register.vue:31",
+    "pc/pages/user/profile.vue:69",
+    "pc/pages/user/profile.vue:97"
+  ],
+  "$t('上一页')": [
+    "pc/components/commentList.vue:43",
+    "pc/pages/category.vue:109",
+    "pc/pages/goods_list/_type.vue:44",
+    "pc/pages/help_center/index.vue:51",
+    "pc/pages/news_list/index.vue:51",
+    "pc/pages/seckill.vue:40",
+    "pc/pages/user/after_sales/index.vue:19",
+    "pc/pages/user/collection.vue:37",
+    "pc/pages/user/evaluation/index.vue:18",
+    "pc/pages/user/order/index.vue:18"
+  ],
+  "$t('上传凭证：')": [
+    "pc/components/inputExpress.vue:31"
+  ],
+  "$t('下一页')": [
+    "pc/components/commentList.vue:44",
+    "pc/pages/category.vue:110",
+    "pc/pages/goods_list/_type.vue:45",
+    "pc/pages/help_center/index.vue:52",
+    "pc/pages/news_list/index.vue:52",
+    "pc/pages/seckill.vue:41",
+    "pc/pages/user/after_sales/index.vue:20",
+    "pc/pages/user/collection.vue:38",
+    "pc/pages/user/evaluation/index.vue:19",
+    "pc/pages/user/order/index.vue:19"
+  ],
+  "$t('不可用优惠券({count})', { count: coupon.unusable.length })": [
+    "pc/pages/confirm_order.vue:245"
+  ],
+  "$t('中国+86')": [
+    "pc/pages/account/login.vue:20"
+  ],
+  "$t('仅退款')": [
+    "pc/pages/user/after_sales/apply_sale.vue:39"
+  ],
+  "$t('再次输入密码')": [
+    "pc/pages/account/forget_pwd.vue:28",
+    "pc/pages/account/register.vue:51",
+    "pc/pages/user/profile.vue:105"
+  ],
+  "$t('取消')": [
+    "pc/pages/shop_cart.vue:57",
+    "pc/pages/shop_cart.vue:82",
+    "pc/pages/user/address/index.vue:31",
+    "pc/pages/user/after_sales/after_sale_details.vue:84",
+    "pc/pages/user/collection.vue:21"
+  ],
+  "$t('可用优惠券({count})', { count: coupon.usable.length })": [
+    "pc/pages/confirm_order.vue:232"
+  ],
+  "$t('品质好货 件件是精品')": [
+    "pc/pages/index.vue:43"
+  ],
+  "$t('商品评价')": [
+    "pc/pages/goods_details/_id.vue:149"
+  ],
+  "$t('商品详情')": [
+    "pc/pages/goods_details/_id.vue:146"
+  ],
+  "$t('图形验证码')": [
+    "pc/pages/account/forget_pwd.vue:12",
+    "pc/pages/account/login.vue:25",
+    "pc/pages/account/login.vue:56",
+    "pc/pages/account/register.vue:16",
+    "pc/pages/user/profile.vue:60",
+    "pc/pages/user/profile.vue:88"
+  ],
+  "$t('填写快递单号')": [
+    "pc/components/inputExpress.vue:4"
+  ],
+  "$t('备注说明：')": [
+    "pc/components/inputExpress.vue:21"
+  ],
+  "$t('好物优选')": [
+    "pc/pages/index.vue:49"
+  ],
+  "$t('实时更新热销火爆商品')": [
+    "pc/pages/index.vue:36"
+  ],
+  "$t('微信支付')": [
+    "pc/pages/payment.vue:65"
+  ],
+  "$t('快递单号：')": [
+    "pc/components/inputExpress.vue:18"
+  ],
+  "$t('所在地区：')": [
+    "pc/components/addressAdd.vue:23"
+  ],
+  "$t('手机号码')": [
+    "pc/pages/user/address/index.vue:13"
+  ],
+  "$t('操作')": [
+    "pc/pages/user/address/index.vue:22"
+  ],
+  "$t('收到商品您有什么想法或者反馈，用几个字来评价下商品吧～')": [
+    "pc/pages/user/evaluation/evaluate.vue:56"
+  ],
+  "$t('收货人')": [
+    "pc/pages/user/address/index.vue:8"
+  ],
+  "$t('收货人：')": [
+    "pc/components/addressAdd.vue:16"
+  ],
+  "$t('收货地区')": [
+    "pc/pages/user/address/index.vue:18"
+  ],
+  "$t('新人送券')": [
+    "pc/pages/index.vue:88"
+  ],
+  "$t('新品推荐')": [
+    "pc/pages/index.vue:42"
+  ],
+  "$t('时间')": [
+    "pc/components/userWalletTable.vue:19"
+  ],
+  "$t('暂无优惠券~')": [
+    "pc/pages/get_coupons.vue:20",
+    "pc/pages/user/coupons.vue:17"
+  ],
+  "$t('暂无商品~')": [
+    "pc/pages/category.vue:120",
+    "pc/pages/goods_list/_type.vue:56"
+  ],
+  "$t('暂无秒杀~')": [
+    "pc/pages/seckill.vue:52"
+  ],
+  "$t('暂无订单~')": [
+    "pc/pages/user/order/index.vue:29"
+  ],
+  "$t('暂无评价~')": [
+    "pc/components/commentList.vue:54",
+    "pc/pages/user/evaluation/index.vue:29"
+  ],
+  "$t('更换地址')": [
+    "pc/components/addressList.vue:3",
+    "pc/components/selffetchShopList.vue:3"
+  ],
+  "$t('热销榜单')": [
+    "pc/pages/index.vue:35"
+  ],
+  "$t('物流公司：')": [
+    "pc/components/inputExpress.vue:15"
+  ],
+  "$t('物流查询')": [
+    "pc/components/deliverSearch.vue:3"
+  ],
+  "$t('短信验证码')": [
+    "pc/pages/account/forget_pwd.vue:16",
+    "pc/pages/account/login.vue:29",
+    "pc/pages/account/register.vue:23",
+    "pc/pages/user/profile.vue:66",
+    "pc/pages/user/profile.vue:94"
+  ],
+  "$t('确定')": [
+    "pc/pages/shop_cart.vue:56",
+    "pc/pages/shop_cart.vue:81",
+    "pc/pages/user/address/index.vue:30",
+    "pc/pages/user/after_sales/after_sale_details.vue:83",
+    "pc/pages/user/collection.vue:20"
+  ],
+  "$t('确定删除该商品吗？')": [
+    "pc/pages/shop_cart.vue:55"
+  ],
+  "$t('确定删除该收藏吗？')": [
+    "pc/pages/user/collection.vue:19"
+  ],
+  "$t('确定删除选中商品吗？')": [
+    "pc/pages/shop_cart.vue:80"
+  ],
+  "$t('确定撤销商品吗？')": [
+    "pc/pages/user/after_sales/after_sale_details.vue:82"
+  ],
+  "$t('确定要删除地址吗？')": [
+    "pc/pages/user/address/index.vue:34"
+  ],
+  "$t('类型')": [
+    "pc/components/userWalletTable.vue:6"
+  ],
+  "$t('精挑细选 挑你喜欢')": [
+    "pc/pages/index.vue:50"
+  ],
+  "$t('联系方式：')": [
+    "pc/components/addressAdd.vue:19"
+  ],
+  "$t('设置登录密码')": [
+    "pc/pages/user/profile.vue:80"
+  ],
+  "$t('详细地址：')": [
+    "pc/components/addressAdd.vue:34"
+  ],
+  "$t('请输入内容')": [
+    "pc/pages/confirm_order.vue:106",
+    "pc/pages/confirm_order.vue:131"
+  ],
+  "$t('请输入密码 (数字与字母自由组合)')": [
+    "pc/pages/account/forget_pwd.vue:23",
+    "pc/pages/account/register.vue:40",
+    "pc/pages/user/profile.vue:102"
+  ],
+  "$t('请输入密码')": [
+    "pc/pages/account/login.vue:51"
+  ],
+  "$t('请输入快递单号')": [
+    "pc/components/inputExpress.vue:19"
+  ],
+  "$t('请输入手机号码')": [
+    "pc/pages/account/forget_pwd.vue:7",
+    "pc/pages/account/login.vue:18",
+    "pc/pages/account/register.vue:10",
+    "pc/pages/user/profile.vue:84"
+  ],
+  "$t('请输入新的手机号码')": [
+    "pc/pages/user/profile.vue:56"
+  ],
+  "$t('请输入物流公司名称')": [
+    "pc/components/inputExpress.vue:16"
+  ],
+  "$t('请输入要搜索的商品名称')": [
+    "pc/components/layout/header.vue:112"
+  ],
+  "$t('请输入详细内容，选填')": [
+    "pc/components/inputExpress.vue:26"
+  ],
+  "$t('请输入详细地址，如街道、门牌号等')": [
+    "pc/components/addressAdd.vue:37"
+  ],
+  "$t('请输入账号/手机号码')": [
+    "pc/pages/account/login.vue:46"
+  ],
+  "$t('请选择')": [
+    "pc/pages/account/login.vue:19",
+    "pc/pages/user/after_sales/apply_sale.vue:44"
+  ],
+  "$t('请选择省市区')": [
+    "pc/components/addressAdd.vue:28"
+  ],
+  "$t('退款原因：')": [
+    "pc/pages/user/after_sales/apply_sale.vue:43"
+  ],
+  "$t('退款类型：')": [
+    "pc/pages/user/after_sales/apply_sale.vue:37"
+  ],
+  "$t('退款说明（200字以内）')": [
+    "pc/pages/user/after_sales/apply_sale.vue:53"
+  ],
+  "$t('退款说明：')": [
+    "pc/pages/user/after_sales/apply_sale.vue:48"
+  ],
+  "$t('退货退款')": [
+    "pc/pages/user/after_sales/apply_sale.vue:40"
+  ],
+  "$t('选填，给商家备注留言，100字以内')": [
+    "pc/pages/confirm_order.vue:220"
+  ],
+  "$t('金额')": [
+    "pc/components/userWalletTable.vue:11"
+  ],
+  "aid ? $t('修改地址') : $t('添加地址')": [
+    "pc/components/addressAdd.vue:4"
+  ],
+  "mobile ? $t('更换手机号'): $t('绑定手机')": [
+    "pc/pages/user/profile.vue:52"
+  ],
+  "·1积分可抵扣{integral_limit}元\\n·单次扣减积分不能低于{integral_config}积分": [
+    "pc/pages/confirm_order.vue:580"
+  ],
+  "《服务协议》、": [
+    "pc/components/server-explan.vue:18",
+    "pc/pages/account/register.vue:65"
+  ],
+  "《隐私政策》": [
+    "pc/components/server-explan.vue:20",
+    "pc/pages/account/register.vue:74"
+  ],
+  "一级分类：": [
+    "pc/pages/category.vue:6"
+  ],
+  "三级分类：": [
+    "pc/pages/category.vue:38"
+  ],
+  "上传凭证": [
+    "pc/components/inputExpress.vue:36",
+    "pc/pages/user/after_sales/apply_sale.vue:64"
+  ],
+  "上传图片": [
+    "pc/components/public/upload.vue:16"
+  ],
+  "上传失败，请重新上传": [
+    "pc/components/public/upload.vue:65"
+  ],
+  "上传成功": [
+    "pc/components/public/upload.vue:58"
+  ],
+  "上传文件只能是 jpg, jpeg, png格式!": [
+    "pc/components/public/upload.vue:78"
+  ],
+  "上门自提": [
+    "pc/pages/confirm_order.vue:394"
+  ],
+  "下单时间：": [
+    "pc/components/orderList.vue:5",
+    "pc/pages/user/order/detail.vue:55"
+  ],
+  "不在营业中": [
+    "pc/components/selffetchShopList.vue:70"
+  ],
+  "专属服务": [
+    "pc/components/layout/footer.vue:15"
+  ],
+  "两次密码输入不一致": [
+    "pc/pages/account/register.vue:230",
+    "pc/pages/user/profile.vue:340"
+  ],
+  "两次输入密码不一致": [
+    "pc/pages/account/forget_pwd.vue:106"
+  ],
+  "个人中心": [
+    "pc/components/layout/header.vue:65"
+  ],
+  "个人资料": [
+    "pc/components/layout/aslideNav.vue:33",
+    "pc/pages/user/profile.vue:4"
+  ],
+  "中国+86": [
+    "pc/pages/account/login.vue:110"
+  ],
+  "中评": [
+    "pc/pages/user/evaluation/evaluate.vue:120"
+  ],
+  "为您推荐": [
+    "pc/pages/help_center/help_center_detail.vue:34",
+    "pc/pages/news_list/news_list_detail.vue:34"
+  ],
+  "买家留言": [
+    "pc/pages/confirm_order.vue:216"
+  ],
+  "买家留言：": [
+    "pc/pages/user/order/detail.vue:135"
+  ],
+  "二级分类：": [
+    "pc/pages/category.vue:19"
+  ],
+  "人浏览": [
+    "pc/pages/help_center/help_center_detail.vue:23",
+    "pc/pages/help_center/help_center_detail.vue:44",
+    "pc/pages/help_center/index.vue:34",
+    "pc/pages/news_list/index.vue:34",
+    "pc/pages/news_list/news_list_detail.vue:23",
+    "pc/pages/news_list/news_list_detail.vue:44"
+  ],
+  "人购买": [
+    "pc/components/goodsList.vue:28"
+  ],
+  "仅退款": [
+    "pc/pages/user/after_sales/apply_sale.vue:109",
+    "pc/pages/user/after_sales/apply_sale.vue:128"
+  ],
+  "件": [
+    "pc/pages/goods_details/_id.vue:107"
+  ],
+  "价格": [
+    "pc/pages/category.vue:70",
+    "pc/pages/goods_details/_id.vue:61",
+    "pc/pages/goods_list/_type.vue:19"
+  ],
+  "优惠": [
+    "pc/pages/goods_details/_id.vue:90"
+  ],
+  "优惠券": [
+    "pc/components/layout/aslideNav.vue:16",
+    "pc/components/layout/floatNav.vue:14",
+    "pc/components/layout/header.vue:41"
+  ],
+  "优惠券：": [
+    "pc/pages/confirm_order.vue:291",
+    "pc/pages/user/order/detail.vue:155"
+  ],
+  "会员价": [
+    "pc/pages/confirm_order.vue:202",
+    "pc/pages/goods_details/_id.vue:74",
+    "pc/pages/user/order/detail.vue:101"
+  ],
+  "保存": [
+    "pc/pages/user/profile.vue:48"
+  ],
+  "保存地址": [
+    "pc/components/addressAdd.vue:52"
+  ],
+  "修改": [
+    "pc/components/addressList.vue:34",
+    "pc/pages/confirm_order.vue:124",
+    "pc/pages/confirm_order.vue:26",
+    "pc/pages/confirm_order.vue:99",
+    "pc/pages/user/address/index.vue:27"
+  ],
+  "修改号码": [
+    "pc/pages/user/profile.vue:37"
+  ],
+  "修改密码": [
+    "pc/pages/user/profile.vue:45"
+  ],
+  "全选": [
+    "pc/pages/shop_cart.vue:11",
+    "pc/pages/shop_cart.vue:75"
+  ],
+  "全部": [
+    "pc/pages/category.vue:25",
+    "pc/pages/category.vue:44",
+    "pc/pages/help_center/index.vue:19",
+    "pc/pages/news_list/index.vue:19",
+    "pc/pages/user/order/index.vue:68"
+  ],
+  "全部商品分类": [
+    "pc/components/layout/category.vue:5"
+  ],
+  "全部记录": [
+    "pc/pages/user/user_wallet.vue:53"
+  ],
+  "公众号演示": [
+    "pc/components/layout/header.vue:90"
+  ],
+  "共{count}件商品": [
+    "pc/components/deliverSearch.vue:8",
+    "pc/components/orderList.vue:37"
+  ],
+  "共{count}积分": [
+    "pc/pages/confirm_order.vue:271"
+  ],
+  "删除": [
+    "pc/pages/user/address/index.vue:37"
+  ],
+  "删除商品成功": [
+    "pc/pages/shop_cart.vue:264"
+  ],
+  "删除成功": [
+    "pc/pages/user/address/index.vue:138"
+  ],
+  "删除订单": [
+    "pc/components/orderList.vue:90",
+    "pc/pages/user/order/detail.vue:207"
+  ],
+  "删除选中商品": [
+    "pc/pages/shop_cart.vue:87"
+  ],
+  "加入购物车": [
+    "pc/pages/goods_details/_id.vue:129"
+  ],
+  "协议声明": [
+    "pc/components/server-explan.vue:14"
+  ],
+  "单价": [
+    "pc/pages/confirm_order.vue:151",
+    "pc/pages/shop_cart.vue:15",
+    "pc/pages/user/after_sales/apply_sale.vue:6",
+    "pc/pages/user/evaluation/evaluate.vue:6",
+    "pc/pages/user/order/detail.vue:62"
+  ],
+  "原价": [
+    "pc/pages/goods_details/_id.vue:52"
+  ],
+  "去付款": [
+    "pc/components/orderList.vue:56",
+    "pc/pages/user/order/detail.vue:214"
+  ],
+  "去结算": [
+    "pc/pages/shop_cart.vue:98"
+  ],
+  "去评价": [
+    "pc/components/evaluationList.vue:17"
+  ],
+  "去购买": [
+    "pc/pages/user/collection.vue:17"
+  ],
+  "去逛逛～": [
+    "pc/pages/shop_cart.vue:111"
+  ],
+  "去领券": [
+    "pc/pages/goods_details/_id.vue:100"
+  ],
+  "发布时间：": [
+    "pc/pages/help_center/help_center_detail.vue:19",
+    "pc/pages/help_center/index.vue:31",
+    "pc/pages/news_list/index.vue:31",
+    "pc/pages/news_list/news_list_detail.vue:19"
+  ],
+  "发送成功": [
+    "pc/pages/account/forget_pwd.vue:162",
+    "pc/pages/user/profile.vue:276"
+  ],
+  "取消": [
+    "pc/components/addressAdd.vue:53",
+    "pc/components/addressList.vue:42",
+    "pc/components/inputExpress.vue:43",
+    "pc/components/orderList.vue:132",
+    "pc/components/selffetchShopList.vue:30",
+    "pc/pages/confirm_order.vue:113",
+    "pc/pages/confirm_order.vue:138",
+    "pc/pages/user/order/detail.vue:330",
+    "pc/pages/user/profile.vue:111",
+    "pc/pages/user/profile.vue:77"
+  ],
+  "取消收藏": [
+    "pc/pages/user/collection.vue:26"
+  ],
+  "取消收藏成功": [
+    "pc/pages/goods_details/_id.vue:373"
+  ],
+  "取消订单": [
+    "pc/components/orderList.vue:83",
+    "pc/pages/user/order/detail.vue:186"
+  ],
+  "可使用": [
+    "pc/pages/user/coupons.vue:47"
+  ],
+  "可用": [
+    "pc/pages/confirm_order.vue:273"
+  ],
+  "合计": [
+    "pc/pages/confirm_order.vue:153",
+    "pc/pages/shop_cart.vue:17",
+    "pc/pages/user/after_sales/apply_sale.vue:8",
+    "pc/pages/user/evaluation/evaluate.vue:8",
+    "pc/pages/user/order/detail.vue:64"
+  ],
+  "同意并继续": [
+    "pc/components/server-explan.vue:29"
+  ],
+  "售后无忧": [
+    "pc/components/layout/footer.vue:19"
+  ],
+  "售后申请": [
+    "pc/pages/user/after_sales/index.vue:51"
+  ],
+  "商品信息": [
+    "pc/pages/confirm_order.vue:148",
+    "pc/pages/confirm_order.vue:150",
+    "pc/pages/shop_cart.vue:14",
+    "pc/pages/user/after_sales/apply_sale.vue:5",
+    "pc/pages/user/evaluation/evaluate.vue:5",
+    "pc/pages/user/order/detail.vue:61"
+  ],
+  "商品名称：": [
+    "pc/pages/payment.vue:38"
+  ],
+  "商品总价：": [
+    "pc/pages/confirm_order.vue:283",
+    "pc/pages/shop_cart.vue:92",
+    "pc/pages/user/order/detail.vue:143"
+  ],
+  "商品评价": [
+    "pc/pages/user/evaluation/evaluate.vue:30",
+    "pc/pages/user/evaluation/evaluate.vue:52"
+  ],
+  "商城资讯": [
+    "pc/components/layout/header.vue:152",
+    "pc/pages/news_list/news_list_detail.vue:7"
+  ],
+  "商家回复：": [
+    "pc/components/commentList.vue:30",
+    "pc/components/evaluationList.vue:49"
+  ],
+  "图形验证码已失效，请重新获取": [
+    "pc/pages/account/forget_pwd.vue:146",
+    "pc/pages/account/login.vue:193",
+    "pc/pages/account/login.vue:259",
+    "pc/pages/account/register.vue:171",
+    "pc/pages/user/profile.vue:254"
+  ],
+  "地址管理": [
+    "pc/components/layout/aslideNav.vue:30"
+  ],
+  "填写快递单号": [
+    "pc/components/afterSalesList.vue:39",
+    "pc/pages/user/after_sales/after_sale_details.vue:91"
+  ],
+  "处理中": [
+    "pc/pages/user/after_sales/index.vue:58"
+  ],
+  "复制": [
+    "pc/components/deliverSearch.vue:22",
+    "pc/pages/user/after_sales/after_sale_details.vue:28",
+    "pc/pages/user/order/detail.vue:43"
+  ],
+  "复制失败": [
+    "pc/pages/user/order/detail.vue:309"
+  ],
+  "复制成功": [
+    "pc/components/deliverSearch.vue:170",
+    "pc/pages/user/after_sales/after_sale_details.vue:136",
+    "pc/pages/user/order/detail.vue:306"
+  ],
+  "头像": [
+    "pc/pages/user/profile.vue:8"
+  ],
+  "女": [
+    "pc/pages/user/profile.vue:30"
+  ],
+  "好物优选": [
+    "pc/components/layout/header.vue:143"
+  ],
+  "好评": [
+    "pc/pages/user/evaluation/evaluate.vue:120"
+  ],
+  "好评率": [
+    "pc/pages/goods_details/_id.vue:153",
+    "pc/pages/goods_details/_id.vue:85"
+  ],
+  "完成支付, 超时后将取消订单": [
+    "pc/pages/payment.vue:17"
+  ],
+  "官方小程序": [
+    "pc/components/layout/header.vue:82"
+  ],
+  "定位获取失败": [
+    "pc/pages/confirm_order.vue:512"
+  ],
+  "实付": [
+    "pc/pages/user/after_sales/apply_sale.vue:9"
+  ],
+  "实付金额：": [
+    "pc/pages/confirm_order.vue:299",
+    "pc/pages/user/order/detail.vue:169"
+  ],
+  "客服": [
+    "pc/components/layout/floatNav.vue:34",
+    "pc/components/layout/floatNav.vue:55"
+  ],
+  "密码加密失败": [
+    "pc/plugins/axios.js:38"
+  ],
+  "差评": [
+    "pc/pages/user/evaluation/evaluate.vue:120"
+  ],
+  "已使用": [
+    "pc/pages/user/coupons.vue:53"
+  ],
+  "已关闭": [
+    "pc/pages/user/order/index.vue:96"
+  ],
+  "已取消收藏": [
+    "pc/pages/user/collection.vue:96"
+  ],
+  "已处理": [
+    "pc/pages/user/after_sales/index.vue:65"
+  ],
+  "已完成": [
+    "pc/components/orderList.vue:194",
+    "pc/pages/payment.vue:211",
+    "pc/pages/user/order/detail.vue:393",
+    "pc/pages/user/order/index.vue:89"
+  ],
+  "已有账号，去登录": [
+    "pc/pages/account/register.vue:83"
+  ],
+  "已结束": [
+    "pc/components/goodsList.vue:63"
+  ],
+  "已评价": [
+    "pc/pages/user/evaluation/index.vue:76"
+  ],
+  "已过期": [
+    "pc/pages/user/coupons.vue:59"
+  ],
+  "已选": [
+    "pc/pages/shop_cart.vue:78"
+  ],
+  "已选择": [
+    "pc/components/couponsList.vue:56"
+  ],
+  "已阅读并同意": [
+    "pc/pages/account/register.vue:58"
+  ],
+  "帮助": [
+    "pc/components/layout/floatNav.vue:26"
+  ],
+  "帮助中心": [
+    "pc/components/layout/header.vue:155",
+    "pc/components/layout/header.vue:68",
+    "pc/pages/help_center/help_center_detail.vue:7"
+  ],
+  "应付金额：": [
+    "pc/components/orderList.vue:39"
+  ],
+  "当前位置：": [
+    "pc/pages/help_center/help_center_detail.vue:4",
+    "pc/pages/news_list/news_list_detail.vue:4"
+  ],
+  "待付款": [
+    "pc/pages/user/order/index.vue:75"
+  ],
+  "待发货": [
+    "pc/components/orderList.vue:188",
+    "pc/pages/payment.vue:205",
+    "pc/pages/user/order/detail.vue:387"
+  ],
+  "待支付": [
+    "pc/components/orderList.vue:185",
+    "pc/pages/payment.vue:202",
+    "pc/pages/user/order/detail.vue:384"
+  ],
+  "待收货": [
+    "pc/components/orderList.vue:191",
+    "pc/pages/payment.vue:208",
+    "pc/pages/user/order/detail.vue:390",
+    "pc/pages/user/order/index.vue:82"
+  ],
+  "待评价": [
+    "pc/pages/user/evaluation/index.vue:69"
+  ],
+  "微信扫一扫，完成支付": [
+    "pc/pages/payment.vue:73"
+  ],
+  "忘记密码": [
+    "pc/pages/account/forget_pwd.vue:4"
+  ],
+  "忘记密码？": [
+    "pc/pages/account/login.vue:63"
+  ],
+  "快递公司：": [
+    "pc/components/deliverSearch.vue:16"
+  ],
+  "快递单号：": [
+    "pc/components/deliverSearch.vue:20"
+  ],
+  "快递发货": [
+    "pc/pages/confirm_order.vue:386"
+  ],
+  "性别": [
+    "pc/pages/user/profile.vue:27"
+  ],
+  "您可能输错了网址，或该网页已被删除、不存在等": [
+    "pc/layouts/error.vue:4"
+  ],
+  "您好，欢迎来到": [
+    "pc/components/layout/header.vue:32"
+  ],
+  "您还没有选择商品哦": [
+    "pc/pages/shop_cart.vue:296"
+  ],
+  "我的余额": [
+    "pc/pages/user/user_wallet.vue:9"
+  ],
+  "我的收藏": [
+    "pc/components/layout/aslideNav.vue:27",
+    "pc/components/layout/header.vue:44"
+  ],
+  "我的服务": [
+    "pc/components/layout/aslideNav.vue:21"
+  ],
+  "我的订单": [
+    "pc/components/layout/aslideNav.vue:7",
+    "pc/components/layout/header.vue:62"
+  ],
+  "我的钱包": [
+    "pc/components/layout/aslideNav.vue:24",
+    "pc/components/layout/header.vue:38",
+    "pc/pages/user/user_wallet.vue:4"
+  ],
+  "手机号": [
+    "pc/pages/user/profile.vue:35"
+  ],
+  "手机端": [
+    "pc/components/layout/header.vue:72"
+  ],
+  "抱歉，您访问的页面出错了": [
+    "pc/layouts/error.vue:3"
+  ],
+  "排序方式：": [
+    "pc/pages/category.vue:58",
+    "pc/pages/goods_list/_type.vue:7"
+  ],
+  "描述相符": [
+    "pc/pages/user/evaluation/evaluate.vue:39"
+  ],
+  "提交成功": [
+    "pc/components/inputExpress.vue:102",
+    "pc/pages/user/after_sales/apply_sale.vue:176",
+    "pc/pages/user/after_sales/apply_sale.vue:202"
+  ],
+  "提交申请": [
+    "pc/pages/user/after_sales/apply_result.vue:6",
+    "pc/pages/user/after_sales/apply_sale.vue:70"
+  ],
+  "提交订单": [
+    "pc/pages/confirm_order.vue:306"
+  ],
+  "提交评价": [
+    "pc/pages/user/evaluation/evaluate.vue:74"
+  ],
+  "提货人": [
+    "pc/pages/confirm_order.vue:94"
+  ],
+  "提货人信息": [
+    "pc/pages/confirm_order.vue:91"
+  ],
+  "提货码:": [
+    "pc/pages/user/order/detail.vue:40"
+  ],
+  "搜索": [
+    "pc/components/layout/header.vue:119"
+  ],
+  "撤销申请": [
+    "pc/components/afterSalesList.vue:38",
+    "pc/pages/user/after_sales/after_sale_details.vue:89"
+  ],
+  "操作": [
+    "pc/pages/shop_cart.vue:18",
+    "pc/pages/user/order/detail.vue:65"
+  ],
+  "支付成功": [
+    "pc/pages/payment.vue:22"
+  ],
+  "收 件 人 ：": [
+    "pc/pages/user/after_sales/after_sale_details.vue:10"
+  ],
+  "收件人：": [
+    "pc/pages/user/order/detail.vue:12"
+  ],
+  "收入记录": [
+    "pc/pages/user/user_wallet.vue:60"
+  ],
+  "收藏": [
+    "pc/components/layout/floatNav.vue:22",
+    "pc/pages/user/collection.vue:4"
+  ],
+  "收藏成功": [
+    "pc/pages/goods_details/_id.vue:368"
+  ],
+  "收藏该商品": [
+    "pc/pages/goods_details/_id.vue:139"
+  ],
+  "收货地址": [
+    "pc/pages/confirm_order.vue:7",
+    "pc/pages/user/address/index.vue:3"
+  ],
+  "收货地址：": [
+    "pc/pages/payment.vue:31",
+    "pc/pages/user/order/detail.vue:22"
+  ],
+  "收起": [
+    "pc/components/couponsList.vue:61"
+  ],
+  "数据请求失败，请稍后重试": [
+    "pc/pages/confirm_order.vue:435"
+  ],
+  "数量": [
+    "pc/pages/confirm_order.vue:152",
+    "pc/pages/goods_details/_id.vue:124",
+    "pc/pages/shop_cart.vue:16",
+    "pc/pages/user/after_sales/after_sale_details.vue:44",
+    "pc/pages/user/after_sales/apply_sale.vue:7",
+    "pc/pages/user/evaluation/evaluate.vue:7",
+    "pc/pages/user/order/detail.vue:63"
+  ],
+  "新品推荐": [
+    "pc/components/layout/header.vue:140"
+  ],
+  "日常价": [
+    "pc/pages/goods_details/_id.vue:52"
+  ],
+  "昵称": [
+    "pc/pages/user/profile.vue:23"
+  ],
+  "暂无不可用优惠券": [
+    "pc/pages/confirm_order.vue:254"
+  ],
+  "暂无可用优惠券": [
+    "pc/pages/confirm_order.vue:242"
+  ],
+  "暂无地址记录～": [
+    "pc/pages/user/address/index.vue:55"
+  ],
+  "暂无收藏商品～": [
+    "pc/pages/user/collection.vue:46"
+  ],
+  "暂无数据": [
+    "pc/components/nullData.vue:18"
+  ],
+  "暂无消息记录～": [
+    "pc/pages/help_center/index.vue:61",
+    "pc/pages/news_list/index.vue:61"
+  ],
+  "更多": [
+    "pc/components/activityArea.vue:9",
+    "pc/components/couponsList.vue:61",
+    "pc/pages/index.vue:73"
+  ],
+  "更换地址": [
+    "pc/pages/confirm_order.vue:27"
+  ],
+  "更换头像": [
+    "pc/pages/user/profile.vue:431"
+  ],
+  "更换门店": [
+    "pc/pages/confirm_order.vue:62"
+  ],
+  "最多可上传3张图片，支持jpg、png格式，图片大小1M以内": [
+    "pc/pages/user/after_sales/apply_sale.vue:67"
+  ],
+  "最多可上传9张图片，支持jpg、png格式，图片大小1M以内": [
+    "pc/pages/user/evaluation/evaluate.vue:67"
+  ],
+  "服务态度": [
+    "pc/pages/user/evaluation/evaluate.vue:43"
+  ],
+  "未开始": [
+    "pc/components/goodsList.vue:61"
+  ],
+  "极速配送": [
+    "pc/components/layout/footer.vue:23"
+  ],
+  "查看订单": [
+    "pc/pages/payment.vue:61"
+  ],
+  "查看详情": [
+    "pc/components/afterSalesList.vue:37",
+    "pc/components/orderList.vue:93"
+  ],
+  "次": [
+    "pc/pages/goods_details/_id.vue:108"
+  ],
+  "正品保障": [
+    "pc/components/layout/footer.vue:11"
+  ],
+  "每日领券": [
+    "pc/pages/get_coupons.vue:9"
+  ],
+  "没有选择商品": [
+    "pc/pages/shop_cart.vue:275"
+  ],
+  "注册": [
+    "pc/components/layout/header.vue:59"
+  ],
+  "注册成功": [
+    "pc/pages/account/register.vue:243"
+  ],
+  "注册时间": [
+    "pc/pages/user/profile.vue:40"
+  ],
+  "注册账号": [
+    "pc/pages/account/login.vue:77",
+    "pc/pages/account/register.vue:4"
+  ],
+  "浏览量：": [
+    "pc/pages/goods_details/_id.vue:108"
+  ],
+  "消费票据签发失败": [
+    "pc/utils/consumeToken.js:54"
+  ],
+  "消费记录": [
+    "pc/pages/user/user_wallet.vue:67"
+  ],
+  "添加地址": [
+    "pc/pages/confirm_order.vue:31",
+    "pc/pages/user/address/index.vue:50",
+    "pc/pages/user/address/index.vue:57"
+  ],
+  "温馨提示": [
+    "pc/components/orderList.vue:129",
+    "pc/pages/user/order/detail.vue:327"
+  ],
+  "热销榜单": [
+    "pc/components/layout/header.vue:137"
+  ],
+  "物流查询": [
+    "pc/components/orderList.vue:76",
+    "pc/pages/user/order/detail.vue:193"
+  ],
+  "物流状态：": [
+    "pc/components/deliverSearch.vue:12"
+  ],
+  "猜你喜欢": [
+    "pc/pages/goods_details/_id.vue:185"
+  ],
+  "用户ID": [
+    "pc/pages/user/profile.vue:19"
+  ],
+  "申请售后": [
+    "pc/components/afterSalesList.vue:36",
+    "pc/pages/user/order/detail.vue:118"
+  ],
+  "申请已提交，请耐心等待商家处理…": [
+    "pc/pages/user/after_sales/apply_result.vue:7"
+  ],
+  "申请时间：": [
+    "pc/components/afterSalesList.vue:7",
+    "pc/pages/user/after_sales/after_sale_details.vue:35"
+  ],
+  "申请状态：": [
+    "pc/components/afterSalesList.vue:10"
+  ],
+  "男": [
+    "pc/pages/user/profile.vue:29"
+  ],
+  "登录": [
+    "pc/components/layout/header.vue:57"
+  ],
+  "登录密码": [
+    "pc/pages/user/profile.vue:44"
+  ],
+  "确定": [
+    "pc/components/inputExpress.vue:42",
+    "pc/components/orderList.vue:131",
+    "pc/pages/account/forget_pwd.vue:33",
+    "pc/pages/confirm_order.vue:582",
+    "pc/pages/index.vue:122",
+    "pc/pages/user/order/detail.vue:329"
+  ],
+  "确认": [
+    "pc/components/addressList.vue:41",
+    "pc/components/selffetchShopList.vue:29",
+    "pc/pages/confirm_order.vue:110",
+    "pc/pages/confirm_order.vue:135",
+    "pc/pages/user/profile.vue:110",
+    "pc/pages/user/profile.vue:76"
+  ],
+  "确认删除订单吗?": [
+    "pc/components/orderList.vue:168",
+    "pc/pages/user/order/detail.vue:372"
+  ],
+  "确认取消订单吗？": [
+    "pc/components/orderList.vue:166",
+    "pc/pages/user/order/detail.vue:370"
+  ],
+  "确认收货": [
+    "pc/components/orderList.vue:69",
+    "pc/pages/user/order/detail.vue:200"
+  ],
+  "确认收货吗?": [
+    "pc/components/orderList.vue:170",
+    "pc/pages/user/order/detail.vue:374"
+  ],
+  "秒杀": [
+    "pc/components/orderList.vue:24",
+    "pc/pages/confirm_order.vue:175",
+    "pc/pages/user/order/detail.vue:81"
+  ],
+  "秒杀价": [
+    "pc/components/goodsList.vue:14",
+    "pc/pages/goods_details/_id.vue:61"
+  ],
+  "积分使用说明": [
+    "pc/pages/confirm_order.vue:583"
+  ],
+  "积分抵扣": [
+    "pc/pages/confirm_order.vue:261",
+    "pc/pages/confirm_order.vue:268",
+    "pc/pages/user/order/detail.vue:162"
+  ],
+  "积分抵扣：": [
+    "pc/pages/confirm_order.vue:295"
+  ],
+  "立即抢购": [
+    "pc/components/goodsList.vue:62"
+  ],
+  "立即注册": [
+    "pc/pages/account/register.vue:80"
+  ],
+  "立即登录": [
+    "pc/pages/account/login.vue:39",
+    "pc/pages/account/login.vue:66"
+  ],
+  "立即购买": [
+    "pc/pages/goods_details/_id.vue:128"
+  ],
+  "立即领取": [
+    "pc/components/couponsList.vue:47"
+  ],
+  "累计消费": [
+    "pc/pages/user/user_wallet.vue:13"
+  ],
+  "综合": [
+    "pc/pages/category.vue:64",
+    "pc/pages/goods_list/_type.vue:13"
+  ],
+  "联系方式": [
+    "pc/pages/confirm_order.vue:119"
+  ],
+  "联系方式：": [
+    "pc/pages/user/after_sales/after_sale_details.vue:16",
+    "pc/pages/user/order/detail.vue:16"
+  ],
+  "自提门店": [
+    "pc/pages/confirm_order.vue:38"
+  ],
+  "自营商城": [
+    "pc/components/layout/footer.vue:7"
+  ],
+  "获取密码加密密钥失败": [
+    "pc/plugins/axios.js:28"
+  ],
+  "获取验证码": [
+    "pc/pages/account/forget_pwd.vue:18",
+    "pc/pages/account/login.vue:31",
+    "pc/pages/account/register.vue:27",
+    "pc/pages/user/profile.vue:68",
+    "pc/pages/user/profile.vue:96"
+  ],
+  "规格：": [
+    "pc/components/commentList.vue:14"
+  ],
+  "订单": [
+    "pc/components/layout/floatNav.vue:18"
+  ],
+  "订单价格：": [
+    "pc/pages/payment.vue:28"
+  ],
+  "订单已关闭": [
+    "pc/components/orderList.vue:197",
+    "pc/pages/payment.vue:214",
+    "pc/pages/user/order/detail.vue:396"
+  ],
+  "订单状态": [
+    "pc/pages/user/order/detail.vue:4"
+  ],
+  "订单管理": [
+    "pc/components/layout/aslideNav.vue:4"
+  ],
+  "订单类型：": [
+    "pc/components/orderList.vue:7",
+    "pc/pages/user/order/detail.vue:57"
+  ],
+  "订单编号：": [
+    "pc/components/orderList.vue:6",
+    "pc/pages/payment.vue:26",
+    "pc/pages/user/order/detail.vue:56"
+  ],
+  "记住账号": [
+    "pc/pages/account/login.vue:37",
+    "pc/pages/account/login.vue:62"
+  ],
+  "设为默认": [
+    "pc/components/addressAdd.vue:46",
+    "pc/components/addressList.vue:36",
+    "pc/pages/user/address/index.vue:42"
+  ],
+  "设置成功": [
+    "pc/pages/user/address/index.vue:113"
+  ],
+  "评价中心": [
+    "pc/components/layout/aslideNav.vue:10"
+  ],
+  "评价成功": [
+    "pc/pages/user/evaluation/evaluate.vue:168"
+  ],
+  "评价时间：": [
+    "pc/components/evaluationList.vue:30"
+  ],
+  "评分": [
+    "pc/pages/goods_details/_id.vue:157"
+  ],
+  "该商品不支持快递配送": [
+    "pc/pages/confirm_order.vue:190"
+  ],
+  "该商品不支持门店自提": [
+    "pc/pages/confirm_order.vue:185"
+  ],
+  "请上传快递单号凭证，选填": [
+    "pc/components/inputExpress.vue:32"
+  ],
+  "请勾选已阅读并同意《服务协议》、《政策协议》": [
+    "pc/pages/account/register.vue:202"
+  ],
+  "请在": [
+    "pc/pages/payment.vue:10"
+  ],
+  "请对商品进行评分": [
+    "pc/pages/user/evaluation/evaluate.vue:139"
+  ],
+  "请对描述相符进行评分": [
+    "pc/pages/user/evaluation/evaluate.vue:144"
+  ],
+  "请对服务态度进行评分": [
+    "pc/pages/user/evaluation/evaluate.vue:149"
+  ],
+  "请对配送服务进行评分": [
+    "pc/pages/user/evaluation/evaluate.vue:154"
+  ],
+  "请您仔细阅读以上协议，其中有对您权利义务的特别约定等重要条款，请点击同意后方可正常使用": [
+    "pc/components/server-explan.vue:22"
+  ],
+  "请联系管理员配置支付方式": [
+    "pc/pages/payment.vue:140"
+  ],
+  "请输入商品名称": [
+    "pc/components/layout/header.vue:192"
+  ],
+  "请输入图形验证码": [
+    "pc/pages/account/forget_pwd.vue:139",
+    "pc/pages/account/login.vue:186",
+    "pc/pages/account/login.vue:252",
+    "pc/pages/account/register.vue:164",
+    "pc/pages/user/profile.vue:247"
+  ],
+  "请输入密码": [
+    "pc/pages/account/register.vue:223",
+    "pc/pages/user/profile.vue:326"
+  ],
+  "请输入密码信息": [
+    "pc/pages/account/forget_pwd.vue:99"
+  ],
+  "请输入快递单号": [
+    "pc/components/inputExpress.vue:68"
+  ],
+  "请输入手机号": [
+    "pc/pages/account/login.vue:179",
+    "pc/pages/account/register.vue:157",
+    "pc/pages/account/register.vue:209",
+    "pc/pages/user/profile.vue:240"
+  ],
+  "请输入手机号码": [
+    "pc/pages/account/forget_pwd.vue:132",
+    "pc/pages/account/forget_pwd.vue:85"
+  ],
+  "请输入收货人": [
+    "pc/components/addressAdd.vue:82"
+  ],
+  "请输入新的手机号码": [
+    "pc/pages/user/profile.vue:291"
+  ],
+  "请输入物流公司": [
+    "pc/components/inputExpress.vue:67"
+  ],
+  "请输入短信验证码": [
+    "pc/pages/account/register.vue:216"
+  ],
+  "请输入确认密码": [
+    "pc/pages/user/profile.vue:333"
+  ],
+  "请输入联系方式": [
+    "pc/components/addressAdd.vue:84"
+  ],
+  "请输入详细地址": [
+    "pc/components/addressAdd.vue:89"
+  ],
+  "请输入验证码": [
+    "pc/pages/account/forget_pwd.vue:92",
+    "pc/pages/user/profile.vue:298",
+    "pc/pages/user/profile.vue:319"
+  ],
+  "请选择支付方式": [
+    "pc/pages/payment.vue:51"
+  ],
+  "请选择省市区": [
+    "pc/components/addressAdd.vue:98"
+  ],
+  "请选择退款原因": [
+    "pc/pages/user/after_sales/apply_sale.vue:120"
+  ],
+  "请选择退款类型": [
+    "pc/pages/user/after_sales/apply_sale.vue:117"
+  ],
+  "请选择门店": [
+    "pc/pages/confirm_order.vue:70"
+  ],
+  "账号密码登录": [
+    "pc/pages/account/login.vue:12"
+  ],
+  "购物车": [
+    "pc/components/layout/floatNav.vue:8",
+    "pc/components/layout/header.vue:123"
+  ],
+  "购物车是空的～": [
+    "pc/pages/shop_cart.vue:108"
+  ],
+  "距离结束还有": [
+    "pc/pages/goods_details/_id.vue:32"
+  ],
+  "运费：": [
+    "pc/pages/confirm_order.vue:287",
+    "pc/pages/user/order/detail.vue:149"
+  ],
+  "返回官网": [
+    "pc/components/layout/header.vue:95"
+  ],
+  "退出成功": [
+    "pc/components/layout/header.vue:203"
+  ],
+  "退出登录": [
+    "pc/components/layout/header.vue:47"
+  ],
+  "退款/售后": [
+    "pc/components/layout/aslideNav.vue:13"
+  ],
+  "退款信息": [
+    "pc/pages/user/after_sales/after_sale_details.vue:41"
+  ],
+  "退款原因": [
+    "pc/pages/user/after_sales/after_sale_details.vue:50"
+  ],
+  "退款原因：": [
+    "pc/pages/user/after_sales/apply_result.vue:16"
+  ],
+  "退款类型：": [
+    "pc/pages/user/after_sales/apply_result.vue:12"
+  ],
+  "退款编号：": [
+    "pc/pages/user/after_sales/after_sale_details.vue:36"
+  ],
+  "退款说明：": [
+    "pc/pages/user/after_sales/apply_result.vue:26"
+  ],
+  "退款金额": [
+    "pc/pages/user/after_sales/after_sale_details.vue:47"
+  ],
+  "退款金额：": [
+    "pc/pages/user/after_sales/apply_result.vue:20"
+  ],
+  "退货地址：": [
+    "pc/pages/user/after_sales/after_sale_details.vue:22"
+  ],
+  "退货类型": [
+    "pc/pages/user/after_sales/after_sale_details.vue:4"
+  ],
+  "配送方式": [
+    "pc/pages/confirm_order.vue:75"
+  ],
+  "配送服务": [
+    "pc/pages/user/evaluation/evaluate.vue:47"
+  ],
+  "销量": [
+    "pc/pages/category.vue:84",
+    "pc/pages/goods_list/_type.vue:27"
+  ],
+  "销量：": [
+    "pc/pages/goods_details/_id.vue:107"
+  ],
+  "门店地址：": [
+    "pc/pages/user/order/detail.vue:29"
+  ],
+  "限时秒杀": [
+    "pc/components/layout/header.vue:146",
+    "pc/pages/goods_details/_id.vue:30"
+  ],
+  "需支付金额：": [
+    "pc/pages/payment.vue:75"
+  ],
+  "领券中心": [
+    "pc/components/layout/header.vue:149"
+  ],
+  "首页": [
+    "pc/components/layout/header.vue:134",
+    "pc/pages/help_center/help_center_detail.vue:6",
+    "pc/pages/news_list/news_list_detail.vue:6"
+  ],
+  "验证码登录": [
+    "pc/pages/account/login.vue:9"
+  ],
+  "默认": [
+    "pc/components/addressList.vue:19",
+    "pc/pages/confirm_order.vue:18",
+    "pc/pages/user/address/index.vue:42"
+  ],
+  "，满": [
+    "pc/pages/confirm_order.vue:273"
+  ]
+}

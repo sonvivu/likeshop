@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{$config.name}</title>
+    <link rel="shortcut icon" href="{$storageUrl}{$config.web_favicon}"/>
+    <link rel="stylesheet" href="__PUBLIC__/static/plug/layui-admin/dist/layuiadmin/layui/css/layui.css" media="all">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/static/common/css/login.css"/>
+</head>
+<style>
+    #logo{
+        width: 176px;height: 42px
+    }
+    .captcha-box input {
+        width: 178px !important;
+    }
+    .captcha-img {
+        width: 100px;
+        height: 38px;
+        margin-left: 12px;
+        cursor: pointer;
+    }
+</style>
+<body>
+<div class="login">
+    <div class="logo">
+        <img style="width: auto;height: 42px" src="{$storageUrl}{$config.login_logo}"/>
+    </div>
+    <div class="login-form-box">
+        <div class="login-left">
+            <div class="login-left-img">
+                <img  src="{$storageUrl}{$config.admin_image}"/>
+            </div>
+        </div>
+        <div class="login-right">
+            <div class="login-form layui-form">
+                <div class="login-title">
+                    {$config.admin_title}
+                </div>
+                <div class="form-box-item">
+                    <div class="icon">
+                        <img src="__PUBLIC__/static/common/image/login/login_number.png"/>
+                    </div>
+                    <div>
+                        <input type="text" name="account" lay-verify="required" lay-vertype="tips"
+                               class="layui-input" style="border:none;width: 300px;padding-left: 20px;"
+                               placeholder="{:lang('请输入账号')}" value="{$account}"/>
+                    </div>
+                </div>
+                <div class="form-box-item">
+                    <div class="icon">
+                        <img src="__PUBLIC__/static/common/image/login/login_password.png"/>
+                    </div>
+                    <div>
+                        <input type="password" name="password" lay-verify="required" lay-vertype="tips"
+                               class="layui-input" style="border:none;width: 300px;padding-left: 20px;"
+                               placeholder="{:lang('请输入密码')}"/>
+                    </div>
+                </div>
+                <div class="form-box-item captcha-box">
+                    <div class="icon">
+                        <img src="__PUBLIC__/static/common/image/login/login_code.png"/>
+                    </div>
+                    <div style="display: flex;align-items: center;">
+                        <input type="text" name="captcha" lay-verify="required" lay-vertype="tips"
+                               class="layui-input" style="border:none;padding-left: 20px;"
+                               placeholder="{:lang('请输入图形验证码')}"/>
+                        <img id="captcha-img" class="captcha-img" src="" title="{:lang('点击刷新验证码')}"/>
+                        <input type="hidden" name="captcha_key" value=""/>
+                    </div>
+                </div>
+
+                <div class="form-box-checked">
+                    <div>
+                        <input type="checkbox" lay-skin="primary" name="remember_account" title="{:lang('记住账号')}" {notempty name="account"}checked=""{/notempty}>
+                    </div>
+                </div>
+                <button id="login" lay-filter="login" class="submit-btn" lay-submit style="background-color: #2C85EA">{:lang('登录')}</button>
+            </div>
+        </div>
+    </div>
+    <footer>
+        {$config.company_name}&nbsp;&nbsp;<a target="_blank" href="{$config.link}">{$config.number}</a>&nbsp;&nbsp;
+    </footer>
+</div>
+<script src="__PUBLIC__/static/plug/layui-admin/dist/layuiadmin/layui/layui.js"></script>
+<script src="__PUBLIC__/static/common/js/jsencrypt.min.js?v={$front_version}"></script>
+</body>
+<script>
+    if (self != top) {
+        parent.window.location.replace(window.location.href);
+    }
+    layui.config({
+        version:"{$front_version}",
+        base: '/static/plug/layui-admin/dist/layuiadmin/' //静态资源所在路径
+    }).extend({
+        index: 'lib/index' //主入口模块
+    }).use(['index', 'user', 'like'], function () {
+        var $ = layui.$
+            , like = layui.like
+            , form = layui.form
+        form.render();
+
+        function getCaptcha() {
+            $.get('{:url("account/captcha")}', function (res) {
+                if (res.code == 1) {
+                    $('#captcha-img').attr('src', res.data.image || '');
+                    $('[name="captcha_key"]').val(res.data.key || '');
+                }
+            });
+        }
+
+        $('#captcha-img').on('click', function () {
+            getCaptcha();
+        });
+        getCaptcha();
+
+        function login(obj) {
+            $.getJSON('{:url("account/passwordKey")}', function (keyRes) {
+                if (keyRes.code !== 1 || !keyRes.data || !keyRes.data.key) {
+                    layer.msg(keyRes.msg || '{:lang('获取密码加密密钥失败')}', {icon: 2});
+                    return;
+                }
+                var encryptor = new JSEncrypt();
+                encryptor.setPublicKey(keyRes.data.key);
+                var encrypted = encryptor.encrypt(obj.field.password);
+                if (!encrypted) {
+                    layer.msg('{:lang('密码加密失败')}', {icon: 2});
+                    return;
+                }
+                var field = $.extend({}, obj.field, {
+                    password: 'RSA:' + encrypted,
+                    password_key_id: keyRes.data.key_id || keyRes.data.keyId
+                });
+            like.ajax({
+                url: '{:url("account/login")}' //实际使用请改成服务端真实接口
+                , data: field
+                , type: 'post'
+                , passwordEncrypted: true
+                , success: function (res) {
+                    if (res.code == 1) {
+                        layer.msg(res.msg, {
+                            offset: '15px'
+                            , icon: 1
+                            , time: 1000
+                        }, function () {
+                            location.href = '../'; //后台主页
+                        });
+                    } else {
+                        getCaptcha();
+                        $('[name="captcha"]').val('');
+                    }
+                },
+            });
+            }).fail(function () {
+                layer.msg('{:lang('获取密码加密密钥失败')}', {icon: 2});
+            });
+        }
+
+        //提交
+        form.on('submit(login)', function (obj) {
+            login(obj);
+        });
+
+
+        $('[name="account"]').keyup(function (event) {
+            if (event.keyCode == 13) {
+                $('#login').trigger('click');
+            }
+        });
+        $('[name="password"]').keyup(function (event) {
+            if (event.keyCode == 13) {
+                $('#login').trigger('click');
+            }
+        });
+        $('[name="captcha"]').keyup(function (event) {
+            if (event.keyCode == 13) {
+                $('#login').trigger('click');
+            }
+        });
+    });
+</script>
+</html>
