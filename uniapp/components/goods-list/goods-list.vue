@@ -67,7 +67,7 @@
                 </view>
                 <view class="goods-info ml20">
                     <view class="goods-name line2 mb10">{{ item.name }}</view>
-                    <text class="sale br60 xxs">{$t('已有')} {{ item.sales_sum }} {$t('人购买')}</text>
+                    <text class="sale br60 xxs">{{ $t('已有') }} {{ item.sales_sum }} {{ $t('人购买') }}</text>
                     <view class="row-between mt10">
                         <view class="price mt10 row">
                             <price-format
@@ -120,7 +120,7 @@
                 </view>
                 <view class="goods-info ml20 mr20">
                     <view class="goods-name line2 mb10">{{ item.name }}</view>
-                    <text class="sale br60 xxs">{$t('已有')} {{ item.sales_sum }} {$t('人购买')}</text>
+                    <text class="sale br60 xxs">{{ $t('已有') }} {{ item.sales_sum }} {{ $t('人购买') }}</text>
                     <view class="row-between mt10">
                         <view class="price mt10 row">
                             <price-format
@@ -183,7 +183,7 @@
                                 :price="item.market_price"
                             ></price-format>
                         </view>
-                        <view>{{ item.sales_sum }}人购买</view>
+                        <view>{{ item.sales_sum }}{{ $t('人购买') }}</view>
                     </view>
                     <view class="row-between mt10">
                         <price-format
