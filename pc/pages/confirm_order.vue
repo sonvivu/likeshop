@@ -41,7 +41,7 @@
             <div>
               <span class="bold">{{ checkedSelffetchShop.name }}</span>
               <span class="muted ml10">
-                <i class="el-icon-position"></i>
+                <el-icon><Position /></el-icon>
                 {{ checkedSelffetchShop.distance }}
               </span>
             </div>
@@ -50,7 +50,7 @@
             </div>
 
             <div class="muted mt8">
-              <i class="el-icon-time"></i>
+              <el-icon><Timer /></el-icon>
               <span>{{
                 checkedSelffetchShop.business_start_time +
                 "-" +
@@ -258,7 +258,7 @@
       </div>
       <div class="integral" v-if="orderInfo.integral_switch">
         <div class="title">
-          {{ $t('积分抵扣') }} <i class="el-icon-question" @click="showTipsDialog"></i>
+          {{ $t('积分抵扣') }} <el-icon @click="showTipsDialog"><QuestionFilled /></el-icon>
         </div>
         <div class="row check-box">
           <el-checkbox
@@ -325,31 +325,32 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
-import { Message } from "element-ui";
+import { mapActions } from "pinia";
+import { ElMessage } from "element-plus";
+import { Position, Timer, QuestionFilled } from "@element-plus/icons-vue";
+import { useAppStore } from "~/stores/app";
 import { importCDN } from "../utils/tools";
 import SelffetchShopList from "../components/selffetchShopList.vue";
 
 export default {
-  head() {
-    return {
-      title: this.$store.getters.headTitle,
+  async setup() {
+    const store = useAppStore();
+    const route = useRoute();
+    const { $get, $post } = useNuxtApp();
+    const { t } = useI18n();
+    useHead({
+      title: computed(() => store.headTitle),
       link: [
         {
           rel: "icon",
           type: "image/x-icon",
-          href: this.$store.getters.favicon,
+          href: computed(() => store.favicon),
         },
       ],
-    };
-  },
+    });
+    let { goods } = JSON.parse(decodeURIComponent(route.query.data));
 
-  components: { SelffetchShopList },
-
-  async asyncData({ query, $post, $get }) {
-    let { goods } = JSON.parse(decodeURIComponent(query.data));
-
-    const asyncData = {};
+    const setupData = {};
 
     // const getCurrentPosition = (key) => {
     //     return new Promise((resolve, reject) => {
@@ -383,7 +384,7 @@ export default {
           deliveries.push({
             id: 1,
             sign: "express",
-            name: this.$t('快递发货'),
+            name: t('快递发货'),
           });
         }
 
@@ -391,11 +392,11 @@ export default {
           deliveries.push({
             id: 2,
             sign: "store",
-            name: this.$t('上门自提'),
+            name: t('上门自提'),
           });
         }
-        asyncData.deliveries = deliveries;
-        asyncData.delivery = deliveries[0]["id"];
+        setupData.deliveries = deliveries;
+        setupData.delivery = deliveries[0]["id"];
         return deliveries;
       })
       .then(async (data) => {
@@ -410,8 +411,8 @@ export default {
             return data;
           })
           .then((data) => {
-            asyncData.orderInfo = data;
-            asyncData.address = data?.address;
+            setupData.orderInfo = data;
+            setupData.address = data?.address;
           })
           .catch((err) => {
             throw new Error(err);
@@ -425,28 +426,31 @@ export default {
             return data;
           })
           .then((data) => {
-            asyncData.coupon = data;
+            setupData.coupon = data;
           })
           .catch((err) => {
             throw new Error(err);
           });
       })
       .catch((err) => {
-        Message.error(this.$t('数据请求失败，请稍后重试'));
+        ElMessage.error(t('数据请求失败，请稍后重试'));
         console.log(err);
       });
 
-    return asyncData;
-  },
-
-  data() {
     return {
       orderInfo: {},
       address: {},
-      coupon: {
-        usable: [],
-        unusable: [],
-      },
+      coupon: { usable: [], unusable: [] },
+      deliveries: [],
+      delivery: 1,
+      ...setupData,
+    };
+  },
+
+  components: { SelffetchShopList, Position, Timer, QuestionFilled },
+
+  data() {
+    return {
       active: 0,
       userRemark: "",
       showAddress: false,
@@ -473,7 +477,7 @@ export default {
   },
 
   methods: {
-    ...mapActions(["getPublicData"]),
+    ...mapActions(useAppStore, ["getPublicData"]),
     useCoupon(id) {
       this.couponId = id;
       this.orderBuy();
@@ -509,7 +513,7 @@ export default {
           this.lng = lng;
         })
         .catch((err) => {
-          Message.error(this.$t('定位获取失败'));
+          ElMessage.error(this.$t('定位获取失败'));
           console.log(err);
         });
     },

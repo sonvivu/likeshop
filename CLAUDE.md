@@ -6,16 +6,16 @@
 
 ## 项目记忆
 
-这是 Likeshop 单商户 B2C 商城免费企业版 `v3.5.1`，不是参考项目 `php-amdj` 的新技术栈：
+这是 Likeshop 单商户 B2C 商城免费企业版 `v3.5.1`：
 
 - `server/`：PHP 8.x + ThinkPHP 8.1.4 单体工程（分支 `upgrade/tp8-php82`，2026-11-16 从 ThinkPHP 6.1.5 升级；迁移细节见 `AGENTS.md` 的“ThinkPHP 8 迁移”，TP6 迁移见“ThinkPHP 6 迁移”）。
 - admin：`server/application/admin/` 中的服务端渲染后台，使用 Think 模板、Layui/Layui Admin、jQuery；没有独立 admin 前端工程。
-- mobile：`uniapp/` 中的 Vue 2 + uni-app + Vuex + uView JavaScript 工程，面向 H5、微信小程序和 App。
-- PC 商城：最新 `php-b2c` Nuxt 2/Vue 2 源码位于 `pc/`；`server/public/pc/` 是生成部署目录。
+- mobile：`uniapp/` 中的 Vue 3 + uni-app（CLI + Vite）+ Vuex 4 + uview-plus JavaScript 工程，面向 H5、微信小程序和 App（分支 `upgrade/frontend-major`，2026-11-16 从 Vue 2 + uView 升级）。
+- PC 商城：Nuxt 4.6.4/Vue 3 + Element Plus + Pinia 源码位于 `pc/`；`server/public/pc/` 是生成部署目录。
 - `server/public/mobile/`：H5 编译产物，不是源码。
-- 当前业务代码没有可用自动化测试套件，也没有完整的前端 CLI 开发、lint 或 type-check 流程。
+- 当前业务代码没有可用自动化测试套件，也没有完整的 lint 或 type-check 流程；前端已有 CLI 开发/构建流程（`npm run build:h5`、`nuxi generate`）。
 
-不要引入 Vue 3、TypeScript、Vite、Element Plus、Pinia 等参考项目约定，除非用户明确批准独立升级任务。
+不要引入 TypeScript 等参考项目约定，除非用户明确批准独立升级任务（Vue 3、Vite、Element Plus、Pinia 现已是本仓库的实际技术栈）。
 
 ## 目录速记
 
@@ -28,7 +28,7 @@
 - `server/public/install/db/like.sql`：新安装数据库基线，默认表前缀 `ls_`。
 - `uniapp/pages/`：主包页面；`uniapp/bundle/pages/`：分包页面。
 - `uniapp/api/`：业务接口封装；`uniapp/utils/request.js`：统一请求和响应拦截。
-- `uniapp/store/`：Vuex；`uniapp/components/`：业务组件和本地 uView。
+- `uniapp/store/`：Vuex 4；`uniapp/components/`：业务组件（uview-plus 来自 npm，不再 vendored）。
 - `uniapp/pages.json`、`uniapp/manifest.json`：页面/分包与平台配置。
 - `docker/`：旧版开发容器配置，仅作为环境参考。
 
@@ -77,24 +77,24 @@
 
 - `server/route/route.php` 的 `/pc/:any`。
 - `server/application/index/controller/Index.php` 的桌面模板选择。
-- admin 的 PC 配置入口和数据库开关；PC 构建使用 Nuxt 2 的 `npm run generate`，发布脚本会将 `dist/` 复制到 `server/public/pc/`。
+- admin 的 PC 配置入口和数据库开关；PC 构建使用 Nuxt 4 的 `npm run generate`，发布脚本会将 `.output/public/` 复制到 `server/public/pc/`。
 
 PC 页面需求直接在 `pc/` 源码中实现，必须保持现有 API、账号、支付、SEO 和 `/pc/` history 部署约定；不要修改生成后的 `server/public/pc/` 代替源码。
 
 PC 本地构建/启动约定：
 
-- 已验证 Node `16.20.2` + npm `8.19.4`；Nuxt 2/webpack 4 不要优先使用 Node 24/npm 11。
-- 在 `pc/` 使用 `npm ci --legacy-peer-deps --no-audit --no-fund` 安装。不要混用 npm 与 pnpm；pnpm 的 `node_modules/.pnpm/` 会使 npm 产生错误的 `ERESOLVE` 依赖树。
-- `npm run dev` 启动开发服务，默认访问 `http://localhost:1800/pc/`。
-- `npm run generate` 生成静态产物到 `pc/dist/`；确认发布后再运行 `bash autoRelease.sh` 复制到 `server/public/pc/`。
-- `npm run build` + `npm run start` 是 Nuxt Node 生产运行方式，不替代静态发布。旧 `package-lock.json` 如含 `registry.nlark.com`/旧淘宝源，需先修复锁文件下载地址。
+- 已验证 Node `24.22.1` + npm 11（Nuxt 4 要求 Node >= 20.19）。
+- 在 `pc/` 使用 `npm ci --no-audit --no-fund` 安装。不要混用 npm 与 pnpm；pnpm 的 `node_modules/.pnpm/` 会使 npm 产生错误的 `ERESOLVE` 依赖树。
+- `npm run dev` 启动开发服务，默认访问 `http://localhost:3000/pc/`。
+- `npm run generate` 生成静态产物到 `pc/.output/public/`；确认发布后再运行 `bash autoRelease.sh` 复制到 `server/public/pc/`。
+- `npm run build` + `npm run start` 是 Nuxt Node 生产运行方式，不替代静态发布。旧 `package-lock.json`（`registry.nlark.com`）已删除重建。
 
 ## 多语言 i18n（分支 `vi`）
 
 - 键 = 中文原文；语言 `vi` 默认、`zh` 回退；译文唯一来源 `tools/i18n/locales/<surface>/vi.part*.json`，用 `merge.py <surface>` 合并。不要对已包 `$t()`/`lang()` 的代码重跑 `--scan`，会污染 locale。
-- 后端 `lang()`、Admin `{:lang()}`、uniapp vue-i18n v8、PC `nuxt-i18n@6.28.1`（`@nuxtjs/i18n` v6 不存在）。货币按 VND 显示，唯一来源 `server/config/currency.php`（`symbol: ₫`）：PHP 用 `config('currency.symbol')`，Admin 模板用 `{:config('currency.symbol')}`；`server/application/` 内已无 `￥` hardcode（uniapp 5 处未动，见 `AGENTS.md`）。新文件须 www-data 可读，否则配置静默为空（2026-11-16 曾因此丢符号）。
-- `pc/plugins/axios.js` 的 `onResponse` 必须 `return response`，缺失会使首页报错。`server/public/pc/` 是生成目录，发布前确认再跑 `autoRelease.sh`。
-- Validate 的 `$message` 在 `__construct` 里逐条 `lang()` 翻译（含 rule-key 标题）。中文拼接 `lang().$var` 在越南语会粘字：冒号结尾的 key 在 part 文件值尾加空格，其余在代码里显式加 `' '`；`积分`/`级` 两份 locale 前导空格不一致，用 `ltrim()` 处理。uView 内部文案用 `$t`/`this.$t`，prop 默认值用 `default() { return this.$t('key') }`。`.vue` 的 CRLF 文件改写须用 `newline=''`。
+- 后端 `lang()`、Admin `{:lang()}`、uniapp vue-i18n v11 legacy、PC `@nuxtjs/i18n@10.6.0` + vue-i18n v11。货币按 VND 显示，唯一来源 `server/config/currency.php`（`symbol: ₫`）：PHP 用 `config('currency.symbol')`，Admin 模板用 `{:config('currency.symbol')}`；`server/application/` 内已无 `￥` hardcode（uniapp 9 file chưa động，见 `AGENTS.md`）。新文件须 www-data 可读，否则配置静默为空（2026-11-16 曾因此丢符号）。
+- `pc/plugins/api.ts` 的拦截器必须返回 response，缺失会使首页报错。`server/public/pc/` 是生成目录，发布前确认再跑 `autoRelease.sh`。
+- Validate 的 `$message` 在 `__construct` 里逐条 `lang()` 翻译（含 rule-key 标题）。中文拼接 `lang().$var` 在越南语会粘字：冒号结尾的 key 在 part 文件值尾加空格，其余在代码里显式加 `' '`；`积分`/`级` 两份 locale 前导空格不一致，用 `ltrim()` 处理。uview-plus 内部文案用 `$t`/`this.$t`，prop 默认值用 `default() { return this.$t('key') }`。`.vue` 的 CRLF 文件改写须用 `newline=''`。
 
 ## 后端开发规则
 
@@ -113,7 +113,7 @@ PC 本地构建/启动约定：
 
 ## Mobile 开发规则
 
-- 使用现有 Vue 2 Options API、Vuex、uView 和 JavaScript 风格。
+- 使用现有 Vue 3 Options API、Vuex 4、uview-plus 和 JavaScript 风格。
 - 新页面注册到 `pages.json`；按体积和业务归入主包或 `bundle` 分包。
 - 复用 `api/`、`utils/`、Vuex、mixin 和现有组件，避免页面内重复基础能力。
 - 使用 uni-app 条件编译处理 H5、`MP-WEIXIN`、`APP-PLUS` 差异。
@@ -121,10 +121,10 @@ PC 本地构建/启动约定：
 - H5 history base 是 `/mobile/`；修改它时同步 `manifest.json`、后端路由和 Nginx。
 - 平台 AppID、SDK key、支付/微信/短信配置不得写入文档、输出或新硬编码。
 
-`uniapp/package.json` 没有标准 uni-app CLI 工具链。编译使用匹配版本的 HBuilderX：
+`uniapp/package.json` 已有标准 uni-app CLI（Vite）工具链。H5 用 CLI 编译：
 
-- H5 输出：`uniapp/unpackage/dist/build/web/`。
-- 微信小程序/App：在 HBuilderX 对应发行入口构建并用目标平台工具验证。
+- H5 输出：`uniapp/unpackage/dist/build/web/`（`npm run build:h5`）。
+- 微信小程序/App：在 HBuilderX 对应发行入口构建并用目标平台工具验证（`manifest.json` 的 runtimeVersion 仍为 3.3.13）。
 - `npm run build` 只是执行 `autoRelease.sh`：它会删除 `server/public/mobile/`，再复制已有 web 构建。它不是编译命令，普通源码任务禁止顺手运行。
 
 ## 任务执行流程

@@ -6,7 +6,7 @@
         <div class="lg muted">{{ desc }}</div>
       </div>
       <nuxt-link :to="url" class="more"
-        >{{ $t('更多') }} <i class="el-icon-arrow-right"></i
+        >{{ $t('更多') }} <el-icon><ArrowRight /></el-icon
       ></nuxt-link>
     </div>
     <div v-if="banner.image">
@@ -19,8 +19,9 @@
 </template>
 
 <script>
+import { ArrowRight } from "@element-plus/icons-vue";
 export default {
-  components: {},
+  components: { ArrowRight },
   props: {
     url: {
       type: String,

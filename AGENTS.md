@@ -8,16 +8,16 @@
 
 ## 项目定位与当前基线
 
-Likeshop 是单商户 B2C 商城。当前仓库是免费企业版 `v3.5.1`，包含一个 ThinkPHP 单体服务端、服务端渲染的 PC 管理后台，以及一个 Vue 2 uni-app 移动商城源码。
+Likeshop 是单商户 B2C 商城。当前仓库是免费企业版 `v3.5.1`，包含一个 ThinkPHP 单体服务端、服务端渲染的 PC 管理后台，以及一个 Vue 3 uni-app 移动商城源码。
 
 - 服务端：PHP `>= 8.0`、ThinkPHP `8.1.4`、MySQL，Composer 管理依赖（分支 `upgrade/tp8-php82`，2026-11-16 从 ThinkPHP 6.1.5 升级；见下文“ThinkPHP 8 迁移”。TP6 迁移记录保留在“ThinkPHP 6 迁移”一节）。
 - 管理后台：admin 模块服务端渲染，Think 模板 + Layui/Layui Admin + jQuery；不是 Vue/React 独立工程。
-- 移动商城：Vue 2 + uni-app + Vuex + 本地 uView 组件，JavaScript 项目；主要通过 HBuilderX 构建。
-- PC 商城：最新 `php-b2c` Nuxt 2/Vue 2 源码已迁入 `pc/`；构建产物按发布步骤输出到 `server/public/pc/`，该目录未必存在于源码工作区。
+- 移动商城：Vue 3 + uni-app（CLI + Vite）+ Vuex 4 + uview-plus（npm），JavaScript 项目；H5 用 `npm run build:h5` 构建（分支 `upgrade/frontend-major`，2026-11-16 从 Vue 2 + uView 1.8.3 升级；uni-app CLI 目前是 3.0.0-alpha，`manifest.json` 的 runtimeVersion 仍为 3.3.13）。
+- PC 商城：Nuxt 4.6.4/Vue 3 + Element Plus + Pinia（分支 `upgrade/frontend-major`，2026-11-16 从 Nuxt 2.15.8/Vue 2 升级）；构建产物按发布步骤输出到 `server/public/pc/`，该目录未必存在于源码工作区。
 - 基础设施：Nginx、PHP-FPM、MySQL、Redis；`docker/` 提供旧版 Compose 开发配置。
 - 自动化测试：当前业务代码没有可用的 PHPUnit/Jest/Vitest 测试套件，也没有统一 lint/type-check 脚本。
 
-不要把参考项目 `php-amdj` 的 Vue 3、TypeScript、Vite、ThinkPHP 8 或多 uni-app 目录约定套用到本仓库。
+不要把参考项目 `php-amdj` 的 TypeScript 或多 uni-app 目录约定套用到本仓库（Vue 3、Vite、ThinkPHP 8 现已是本仓库的实际技术栈，见上文）。
 
 ## 仓库目录职责
 
@@ -45,7 +45,7 @@ Likeshop 是单商户 B2C 商城。当前仓库是免费企业版 `v3.5.1`，包
 - `uniapp/store/`：Vuex store。
 - `uniapp/config/`：API 地址、版本号和缓存键等运行配置。
 - `uniapp/manifest.json`、`uniapp/pages.json`：平台能力、H5 路由、页面与分包注册的权威配置。
-- `uniapp/unpackage/`：HBuilderX 构建输出；如本地生成，视为临时产物。
+- `uniapp/unpackage/`：uni-app CLI（Vite）构建输出；如本地生成，视为临时产物。
 - `docker/`：旧版容器编排和 Nginx/PHP/MySQL 配置。
 - `doc/`：安装相关补充资料。
 
@@ -183,42 +183,41 @@ admin 是 `server/` 内的服务端渲染模块，不存在独立安装或前端
 必须区分“PC 管理后台”和“PC 商城前台”：
 
 - PC 管理后台源码完整，位于 `server/application/admin/`。
-- PC 商城前台源码位于根目录 `pc/`，是 Nuxt 2.14/Vue 2 + Element UI 工程；`server/route/route.php`、`application/index/controller/Index.php` 和配置表负责接入与开关。
+- PC 商城前台源码位于根目录 `pc/`，是 Nuxt 4.6.4/Vue 3 + Element Plus + Pinia 工程（2026-11-16 从 Nuxt 2.15.8/Vue 2 + Element UI 升级，分支 `upgrade/frontend-major`；`nuxi generate` 已验证通过，31 route）；`server/route/route.php`、`application/index/controller/Index.php` 和配置表负责接入与开关。
 - `server/public/pc/` 是 PC 的生成部署目录，不是编辑源码目录。在 `pc/` 下运行 `npm run generate` 生成后，再按发布确认执行 `autoRelease.sh`；该脚本会删除并重建目标目录。
 
 PC 页面修改应优先复用 `pc/` 现有 API、路由、Nuxt 插件和 Element UI 约定；涉及后端新字段时同步检查移动端兼容响应、登录/支付、SEO 与部署路径。不要把 admin 当作 PC 商城，也不要直接在 `server/public/pc/` 的构建产物中手写源码。
 
 ### PC 构建与本地启动
 
-- 已验证的本地环境为 Node `16.20.2` + npm `8.19.4`；Nuxt 2/webpack 4 不要优先使用 Node 24/npm 11。
-- 依赖安装优先使用锁文件：在 `pc/` 执行 `npm ci --legacy-peer-deps --no-audit --no-fund`。不要在同一目录混用 npm 和 pnpm；pnpm 生成的 `node_modules/.pnpm/` 会导致 npm 扫描错误的依赖树并触发 `ERESOLVE`。
-- `pc/package-lock.json` 是 npm 6 时代的 `lockfileVersion: 1`。如果锁文件仍含 `registry.nlark.com` 或 `registry.npm.taobao.org`，先将下载地址迁移到可用镜像，再安装；单纯设置 npm registry 不一定覆盖锁文件中的 `resolved` 地址。
-- 本地开发执行 `npm run dev`，默认端口为 `1800`，访问 `http://localhost:1800/pc/`；`router.base` 固定为 `/pc/`。
-- 生产静态构建执行 `npm run generate`，产物在 `pc/dist/`，应检查 `dist/index.html`、`dist/200.html` 和 `dist/_nuxt/`。
+- 已验证的本地环境为 Node `24.22.1` + npm 11（Nuxt 4 要求 Node >= 20.19；Nuxt 2 时代的 Node 16.20.2 已不再适用）。
+- 依赖安装优先使用锁文件：在 `pc/` 执行 `npm ci --no-audit --no-fund`（lockfile 已重建为 npm 11 格式，registry npmjs；旧 lock `lockfileVersion: 1` 含 `registry.nlark.com` 已删除）。不要在同一目录混用 npm 和 pnpm；pnpm 生成的 `node_modules/.pnpm/` 会导致 npm 扫描错误的依赖树并触发 `ERESOLVE`。
+- 本地开发执行 `npm run dev`，默认端口为 `3000`，访问 `http://localhost:3000/pc/`；`app.baseURL` 固定为 `/pc/`。
+- 生产静态构建执行 `npm run generate`（`nuxi generate`），产物在 `pc/.output/public/`，应检查 `index.html`、`200.html` 和 `_nuxt/`。
 - `npm run build` 是 Nuxt 的 Node 生产构建，需配合 `npm run start`；它不是静态发布命令。静态发布仍使用 `npm run generate`，确认发布后再在 Git Bash/WSL 中运行 `bash autoRelease.sh`。
 
 ## 多语言 i18n（分支 `vi`，2026-11-15）
 
 - 键 = 中文原文（gettext 风格 msgid）；语言 `vi`（默认）/`zh`；缺译回退到 msgid。新增语言只需加一份 locale 文件。货币按 VND 显示（元→"đồng"，￥→"₫"），数据库金额仍为纯数字；越南支付网关接入另行立项。
-- **货币配置（2026-11-16，分支 `upgrade/tp8-php82`）**：显示用货币符号不再 hardcode，唯一来源是 **`server/config/currency.php`**（`code: VND` / `symbol: ₫` / `name: đồng`；换货币只改这一个文件）。PHP 用 `config('currency.symbol')`（28 处，14 文件），Admin 模板用 `{:config('currency.symbol')}`（23 处，14 文件），`YlyPrinter.php` 的 4 处打印金额把符号拼在 `lang()` 外面。4 个带 `￥` 的 lang key 已去掉符号（`商品金额：￥`→`商品金额：` 等，值尾保留空格）；`server/application/` 内 PHP+HTML 已无 `￥`。uniapp 还有 5 处 `￥` hardcode（confirm_order、shop_cart、bargain-list、share-popup poster），前端读不到 PHP config，要做须另立前端常量——本次未动。注意：`config/currency.php` 必须是 www-data 可读（见上文“ThinkPHP 8 迁移”部署注意），否则配置静默为空。
-- 唯一译文来源：`tools/i18n/locales/<surface>/vi.part*.json`；`tools/i18n/extract.py`（扫描/替换）、`merge.py`（合并并校验）、`build_lang_php.py`（生成 PHP 语言文件）。`uniapp/locales/` 与 `pc/locales/` 是运行时副本，须与合并结果一致。详细设计见 `docs/i18n-VIETNAMESE.md`。
-- 四端实现：后端 ThinkPHP `lang()`（`server/application/lang/{vi,zh-cn}.php`）；Admin 模板 `{:lang('...')}`（`server/application/admin/lang/`，模块语言文件优先于应用级）；uniapp vue-i18n v8（`uniapp/utils/i18n.js`，空值回退 msgid）；PC `nuxt-i18n@6.28.1` + vue-i18n v8（注意：`@nuxtjs/i18n` v6 不存在，v7+ 仅支持 Nuxt 3；`pc/locales/{vi,zh}.json`）。
+- **货币配置（2026-11-16，分支 `upgrade/tp8-php82`）**：显示用货币符号不再 hardcode，唯一来源是 **`server/config/currency.php`**（`code: VND` / `symbol: ₫` / `name: đồng`；换货币只改这一个文件）。PHP 用 `config('currency.symbol')`（28 处，14 文件），Admin 模板用 `{:config('currency.symbol')}`（23 处，14 文件），`YlyPrinter.php` 的 4 处打印金额把符号拼在 `lang()` 外面。4 个带 `￥` 的 lang key 已去掉符号（`商品金额：￥`→`商品金额：` 等，值尾保留空格）；`server/application/` 内 PHP+HTML 已无 `￥`。uniapp 还有 9 file chứa `￥` hardcode（confirm_order、shop_cart、bargain-list、share-popup poster、balance_transfer、bargain_process、user_payment、user_withdraw、after_sales_detail），前端读不到 PHP config，要做须另立前端常量——本次未动。注意：`config/currency.php` 必须是 www-data 可读（见上文“ThinkPHP 8 迁移”部署注意），否则配置静默为空。
+- 唯一译文来源：`tools/i18n/locales/<surface>/vi.part*.json`；`tools/i18n/extract.py`（扫描/替换）、`merge.py`（合并并校验）、`build_lang_php.py`（生成 PHP 语言文件）。`uniapp/locales/` 与 `pc/i18n/locales/` 是运行时副本，须与合并结果一致。详细设计见 `docs/i18n-VIETNAMESE.md`。
+- 四端实现：后端 ThinkPHP `lang()`（`server/application/lang/{vi,zh-cn}.php`）；Admin 模板 `{:lang('...')}`（`server/application/admin/lang/`，模块语言文件优先于应用级）；uniapp vue-i18n v11 legacy（`uniapp/utils/i18n.js`，空值回退 msgid）；PC `@nuxtjs/i18n@10.6.0` + vue-i18n v11（`pc/i18n/locales/{vi,zh}.json`）。
 - `extract.py --scan` 只能在替换前对未翻译代码运行；已包 `$t()`/`lang()` 的代码再扫会污染 locale（属性 `:placeholder="$t('x')"` 会被当成新键，分类器会把 display 误判为 data）。需要重建 `zh.json`/`vi.json` 时，从 part 文件生成（`zh` 为 key 的恒等映射）再跑 `merge.py <surface>`，不要重扫。
 - `uniapp/utils/area.js` 与 `pc/utils/area.js` 是中国地名数据，不翻译。图片内嵌中文（如 `header_notice.png`、banner）属于素材，不在代码 i18n 范围。
-- PC 的 axios 拦截器必须 `return response`（`pc/plugins/axios.js`）；曾因缺失导致全部 `$get` 解析为 `undefined`，首页报错。
+- PC 的请求层在 `pc/plugins/api.ts`（$fetch/ofetch，承接旧 `plugins/axios.js` 的 RSA 密码加密 + retry consume-token）；旧 axios 拦截器曾因缺 `return response` 导致全部 `$get` 解析为 `undefined`，首页报错——新版拦截器同样必须返回 response。
 - 后端 Validate 的 `$message` 不能直接包 `lang()`（类属性只接受常量）：在各 Validate 类的 `__construct` 里逐条 `lang($value)` 翻译，rule-key 标题（`'field|标题'`）也要重命名翻译；`api/index/pcLists` 曾因白名单有 action 而无方法返回 404。
 - 中文拼接 `lang('X').$var.lang('Y')` 在越南语里会粘字（如 `Tặng10…`）：冒号结尾的 key（68 个）在 part 文件里值尾加一个空格，一次修复约 100 处；其余约 45 处在代码里显式加 `' '`；值自带前导空格的 key（`积分`、`级`，admin/app 两份 locale 不一致）用 `ltrim(lang(...))` 处理，不要全局改值。显示字符串不一定来自模板——`SignDailyLogic::lists()` 在 PHP 里拼接 `award_tips`，先用 DOM/API 确认字符串来源再改。
-- uView 内部文案：模板 `{{$t}}`、脚本 `this.$t`、prop 默认值用 `default() { return this.$t('key') }`。`.vue` 文件很多是 CRLF 或混合换行，改写脚本必须用 `newline=''` 打开，混合文件按字节从 HEAD 重做。
+- uview-plus 内部文案：模板 `{{$t}}`、脚本 `this.$t`、prop 默认值用 `default() { return this.$t('key') }`。`.vue` 文件很多是 CRLF 或混合换行，改写脚本必须用 `newline=''` 打开，混合文件按字节从 HEAD 重做。
 - Admin session 只有几分钟，每次 headless 截图前重新登录（captcha + RSA）；Chrome 须用新 profile + `Network.setCacheDisabled`，否则会命中旧页面缓存。`merge.py` 之后须把 `tools/i18n/locales/<surface>/*.json` 同步到 `uniapp/locales/` 与 `pc/locales/`（保持 0 diff）。
 
 ## Mobile / uni-app 架构
 
 ### 技术栈与入口
 
-- Vue 2 Options API，入口为 `uniapp/main.js`，根生命周期位于 `uniapp/App.vue`。
-- Vuex store 位于 `uniapp/store/`。
-- uView 以源码形式放在 `uniapp/components/uview-ui/`，通过 `main.js` 注册，并在 `pages.json` 的 easycom 中映射 `u-*` 组件。
-- 页面采用主包 `pages/` + 分包 `bundle/pages/`；新增页面必须同步 `pages.json`。
+- Vue 3（页面仍用 Options API），入口为 `uniapp/main.js`（`createSSRApp` + `app.config.globalProperties` + `app.use`），根生命周期位于 `uniapp/App.vue`。
+- Vuex 4 store 位于 `uniapp/store/`（`createStore`）。
+- uview-plus 通过 npm 安装，在 `main.js` 注册（`app.use(uviewPlus)`）；`pages.json` 不再需要 easycom 映射 `u-*`（规则已删除）；全局样式由 `uni.scss` 引入 `uview-plus/theme.scss`。
+- 页面采用主包 `pages/` + 分包 `bundle/pages/`；新增页面必须同步 `pages.json`。头像裁剪页在 `pages/avatar_cropper/`（2026-11-16 从分包移出，因其依赖已删的 vendored uView 目录）。
 - 全局样式入口在 `App.vue`，主要引入 `styles/base.scss` 和 uView 样式；公共变量位于 `uni.scss`。
 - 平台差异使用 uni-app 条件编译，如 `#ifdef H5`、`#ifdef MP-WEIXIN`、`#ifdef APP-PLUS`。
 
@@ -229,7 +228,7 @@ PC 页面修改应优先复用 `pc/` 现有 API、路由、Nuxt 插件和 Elemen
 - 登录 token、消费票据、回跳和平台登录逻辑集中在 `utils/request.js`、`utils/consumeToken.js`、`utils/login.js`、`config/cachekey.js`，修改认证流程时必须一起追踪。
 - 复用 `utils/tools.js`、`utils/cache.js`、现有 mixin 和组件，不要重复实现 toast、复制、缓存、路由参数等公共能力。
 - 业务状态值先在后端模型/logic 和前端现有用法中确认，不要仅凭数字猜语义。
-- 尺寸和移动布局优先沿用现有 `rpx`、uView 和 uni-app 原生组件风格。
+- 尺寸和移动布局优先沿用现有 `rpx`、uview-plus 和 uni-app 原生组件风格。
 
 ### H5、微信小程序与 App
 
@@ -240,8 +239,8 @@ PC 页面修改应优先复用 `pc/` 现有 API、路由、Nuxt 插件和 Elemen
 
 ### 构建产物边界
 
-- 推荐使用与项目版本匹配的 HBuilderX 打开 `uniapp/`，进行 H5、微信小程序和 App 构建/发行。
-- `uniapp/package.json` 没有标准 uni-app CLI 依赖，也没有 `dev`、`lint`、`test` 脚本。
+- H5 构建用 uni-app CLI：开发 `npm run dev:h5`，生产 `npm run build:h5`（`UNI_INPUT_DIR=. UNI_OUTPUT_DIR=unpackage/dist/build/web`），产物在 `unpackage/dist/build/web/`；微信小程序/App 仍可用 HBuilderX 打开（`manifest.json` 的 runtimeVersion 仍为 3.3.13，未随 CLI 升级）。
+- `uniapp/package.json` 已有标准 uni-app CLI（Vite）依赖和 `build:h5`/`dev:h5` 脚本；`npm run build` 仍是发布脚本 `autoRelease.sh`（见下）。
 - `npm run build` **不是编译命令**；它只运行 Bash 脚本 `autoRelease.sh`，删除 `server/public/mobile/` 后，把已存在的 `unpackage/dist/build/web/` 复制过去。
 - 只有在 HBuilderX 已成功生成 web 构建、任务明确要求更新发布产物、并确认删除目标目录可接受时，才能运行发布脚本。
 - 普通 mobile 源码修改不要顺手改 `server/public/mobile/` 的压缩 JS/CSS；发布产物更新应作为独立、可核验的步骤。

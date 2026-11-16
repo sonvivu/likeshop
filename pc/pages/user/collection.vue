@@ -19,11 +19,13 @@
               :title="$t('确定删除该收藏吗？')"
               :confirm-button-text="$t('确定')"
               :cancel-button-text="$t('取消')"
-              icon="el-icon-info"
+              :icon="InfoFilled"
               icon-color="red"
               @confirm="cancelCollection(item.id)"
             >
-              <div class="cancel-btn lighter row-center" slot="reference">{{ $t('取消收藏') }}</div>
+              <template #reference>
+                <div class="cancel-btn lighter row-center">{{ $t('取消收藏') }}</div>
+              </template>
             </el-popconfirm>
           </div>
         </div>
@@ -49,15 +51,17 @@
 </template>
 
 <script>
+import { InfoFilled } from "@element-plus/icons-vue";
+import { useAppStore } from "~/stores/app";
 export default {
-  head() {
-    return {
-      title: this.$store.getters.headTitle,
-       link: [{ rel: "icon", type: "image/x-icon", href: this.$store.getters.favicon}],
-    };
-  },
-  layout: "user_lauout",
-  async asyncData({$post, $get}) {
+  async setup() {
+    setPageLayout('user_lauout')
+    const store = useAppStore();
+    const { $get } = useNuxtApp();
+    useHead({
+      title: computed(() => store.headTitle),
+      link: [{ rel: "icon", type: "image/x-icon", href: computed(() => store.favicon) }],
+    });
     let collectList = [];
     let goodsCount = 0;
     let pageSize = 5
@@ -71,6 +75,9 @@ export default {
       goodsCount,
       pageSize,
     }
+  },
+  components: {
+    InfoFilled
   },
   data() {
     return {

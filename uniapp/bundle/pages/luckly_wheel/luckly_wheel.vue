@@ -59,7 +59,7 @@
 			</view>
 			<view class="xs row-center" style="color: #FFF2D9;margin-top: 30rpx">{{ $t('本活动的所有奖品，均由商城提供') }}</view>
 		</view>
-		<u-popup v-model="showResult" mode="center">
+		<u-popup v-model:show="showResult" mode="center">
 			<view class="result-popup column-center">
 				<view class="result-container column-between">
 					<view class="row-center" style="padding:0 118rpx;margin-top: 90rpx">

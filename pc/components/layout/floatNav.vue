@@ -50,10 +50,12 @@
           <div class="xxs muted mt8">{{ server.remarks }}</div>
           <!-- <div class="sm mt10">在线时间：{{ server.business_time }}</div> -->
         </div>
-        <div class="item column-center lighter" slot="reference">
-          <span class="iconfont icon-service"></span>
-          <div class="sm">{{ $t('客服') }}</div>
-        </div>
+        <template #reference>
+          <div class="item column-center lighter">
+            <span class="iconfont icon-service"></span>
+            <div class="sm">{{ $t('客服') }}</div>
+          </div>
+        </template>
       </el-popover>
     </div>
     <div class="back-top">
@@ -63,7 +65,8 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState } from "pinia";
+import { useAppStore } from "~/stores/app";
 export default {
   data() {
     return {
@@ -99,7 +102,7 @@ export default {
     }
   },
   computed: {
-    ...mapState(["publicData"])
+    ...mapState(useAppStore, ["publicData"])
   }
 };
 </script>

@@ -3,13 +3,10 @@
         <!-- #ifdef H5 -->
         <download-nav v-if="isShowDownload"></download-nav>
         <!-- #endif -->
-        <u-sticky offset-top="0" h5-nav-height="0" bg-color="transparent" :enable="enable">
+        <u-sticky offset-top="0" custom-nav-height="0" bg-color="transparent" :disabled="!enable">
             <u-navbar
-                :border-bottom="false"
-                :is-fixed="false"
-                custom-class="home-bg"
-                :background="navBackground"
-                :is-back="false"
+                :fixed="false"
+                bg-color="transparent"
             >
                 <view class="row logo-wrap flex1" v-show="navBg < 1 && showLogo">
                     <image :src="logo" mode="heightFix" class="logo ml30"></image>
@@ -27,7 +24,7 @@
                         url="/pages/goods_search/goods_search"
                     >
                         <u-search
-                            wrap-bg-color="transparent"
+                            :custom-style="{background:'transparent'}"
                             :bg-color="'#fff'"
                             :disabled="true"
                             :height="62"
@@ -56,7 +53,7 @@
                 url="/pages/goods_search/goods_search"
             >
                 <u-search
-                    wrap-bg-color="transparent"
+                    :custom-style="{background:'transparent'}"
                     :bg-color="'#fff'"
                     :disabled="true"
                     :height="62"
@@ -157,8 +154,8 @@
                 <!-- 秒杀 -->
                 <view class="seckill mt20" v-if="seckillGoods.length">
                     <active-area type="seckill" progressBarColor="#FF2C3C" :lists="seckillGoods">
-                        <navigator
-                            slot="header"
+                                                <template #header><navigator
+                           
                             hover-class="none"
                             class="row activity-header white"
                             open-type="navigate"
@@ -170,28 +167,23 @@
                                     >{{ seckill.start_time }}点场</text
                                 >
                                 <view class="dec ml20 row-center mr20 br60">
-                                    <u-count-down
-                                        :timestamp="remainTime"
-                                        separator-color="#FF2C3C"
-                                        color="#FF2C3C"
-                                        :separator-size="24"
-                                        :font-size="24"
-                                        bg-color="transparent"
-                                    ></u-count-down>
+                                                                        <u-count-down :time="remainTime * 1000" format="HH:mm:ss">
+                                        <template #default="{days, hours, minutes, seconds}"><text style="color:#FF2C3C">{{ String(hours).padStart(2, '0') }}:{{ String(minutes).padStart(2, '0') }}:{{ String(seconds).padStart(2, '0') }}</text></template>
+                                    </u-count-down>
                                 </view>
                             </view>
                             <view class="row xs">
                                 {$t('更多')}
                                 <u-icon name="arrow-right" size="28"></u-icon>
                             </view>
-                        </navigator>
+                        </navigator></template>
                     </active-area>
                 </view>
                 <!-- 热销 -->
                 <view class="hot mt20" v-if="hotGoods.length && seting.hots">
                     <active-area type="hot" progressBarColor="#9912FE" :lists="hotGoods">
-                        <navigator
-                            slot="header"
+                                                <template #header><navigator
+                           
                             hover-class="none"
                             class="row activity-header"
                             open-type="navigate"
@@ -207,14 +199,14 @@
                                 {$t('更多')}
                                 <u-icon name="arrow-right" size="28"></u-icon>
                             </view>
-                        </navigator>
+                        </navigator></template>
                     </active-area>
                 </view>
                 <!-- 新品推荐 -->
                 <view v-if="newGoods.length && seting.news" class="new-goods">
                     <active-area type="news" progressBarColor="#9912FE" :lists="newGoods">
-                        <navigator
-                            slot="header"
+                                                <template #header><navigator
+                           
                             hover-class="none"
                             class="row activity-header"
                             open-type="navigate"
@@ -230,7 +222,7 @@
 								{$t('更多')}
 								<u-icon name="arrow-right" size="28"></u-icon>
 							</view> -->
-                        </navigator>
+                        </navigator></template>
                     </active-area>
                 </view>
             </view>
@@ -255,7 +247,7 @@
             </a>
         </view>
         <!-- #endif -->
-        <u-popup class="coupons-popup" v-model="showCoupop" mode="center">
+        <u-popup class="coupons-popup" v-model:show="showCoupop" mode="center">
             <view class="wrap">
                 <image class="coupon-bg" src="/static/images/home_coupon_bg.png"></image>
                 <scroll-view :scroll-y="true" style="height: 460rpx; margin-top: 300rpx">
@@ -305,11 +297,6 @@
         <u-back-top
             :scroll-top="scrollTop"
             :top="1000"
-            :customStyle="{
-                backgroundColor: '#FFF',
-                color: '#000',
-                boxShadow: '0px 3px 6px rgba(0, 0, 0, 0.1)'
-            }"
         ></u-back-top>
     </view>
 </template>

@@ -38,10 +38,10 @@
                 </navigator>
             </view>
             <loading-footer :status="loadingStatus" slotEmpty>
-                <view class="data-null column-center" slot="empty">
+                                <template #empty><view class="data-null column-center">
                     <image src="/static/images/order_null.png" class="img-null"></image>
                     <text class="muted">{{ $t('暂无提现记录～') }}</text>
-                </view>
+                </view></template>
             </loading-footer>
         </view>
     </view>

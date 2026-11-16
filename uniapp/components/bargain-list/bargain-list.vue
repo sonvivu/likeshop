@@ -41,12 +41,12 @@
             </view>
         </view> 
         <loading-footer :status="loadingStatus" slotEmpty>
-            <view class="data-null column-center" slot="empty">
+                        <template #empty><view class="data-null column-center">
                 <image class="img-null" src="/static/images/order_null.png" />
                 <view class="xs muted">
                     {$t('暂无砍价记录～')}
                 </view>
-            </view>
+            </view></template>
         </loading-footer>
     </view>
 </template>

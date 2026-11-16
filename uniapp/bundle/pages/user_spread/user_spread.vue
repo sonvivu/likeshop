@@ -47,7 +47,7 @@
                         </view>
                         <view class="form-item bg-white row" style="height: 74px;padding: 24rpx 20rpx 24rpx 30rpx">
                             <view class="label md" style="width: 150rpx;align-self: flex-start;">{{ $t('申请原因：') }}</view>
-                            <u-input type="textarea" v-model="reason" :placeholder="$t('（选填）')" :custom-style="{paddingLeft: '10rpx'}" :fixed="true" style="flex: 1" />
+                            <u-input type="textarea" v-model="reason" :placeholder="$t('（选填）')"  :fixed="true" style="flex: 1; padding-left: 10rpx" border="none" />
                             <!-- <textarea name="reason" style="height: 150rpx;padding-top: 30rpx;" type="textarea" fixed="true" placeholder="（必填）" border="false" title-width="150rpx" @input="textareaChange" /> -->
                         </view>
                     </view>
@@ -160,7 +160,7 @@
             </view>
         </view>
     </view>
-    <u-popup v-model="showPop" @close="onClose" closeable mode="center" border-radius="30">
+    <u-popup v-model:show="showPop" @close="onClose" closeable mode="center" round="30">
         <view class="inviteformContain column-center">
             <view class="title xl">{{ $t('填写上级分销商') }}</view>
             <view class="input-row row">
@@ -170,7 +170,7 @@
             <view class="btn bg-primary white row-center" @tap="inputInviteCodeFun">{{ $t('确定') }}</view>
         </view>
     </u-popup>
-    <u-select v-model="showRegion" mode="mutil-column-auto" @confirm="regionChange" :list="regionLists" ></u-select>
+    <u-picker v-model:show="showRegion" :columns="regionColumns" :default-index="regionIndex" @change="onRegionChange" @confirm="regionChange"></u-picker>
 </view>
 </template>
 
@@ -222,6 +222,7 @@ export default {
       // 邀请人状态
       inviteStatus: false,
       showRegion: false,
+      regionIndex: [0, 0, 0],
       regionLists: area,
       able_withdrawal: 0,
       history_earnings: 0,
@@ -233,6 +234,18 @@ export default {
 
   components: {
   },
+
+  computed: {
+    regionColumns() {
+      const provinces = this.regionLists || []
+      const province = provinces[this.regionIndex[0]] || {}
+      const cities = province.children || []
+      const city = cities[this.regionIndex[1]] || {}
+      const districts = city.children || []
+      return [provinces, cities, districts]
+    }
+  },
+
   props: {},
 
   /**
@@ -322,7 +335,19 @@ export default {
       this.vipState = 0
     },
 
-    regionChange(region) {
+    onRegionChange(e) {
+      const indexs = e.indexs.slice()
+      if (e.columnIndex === 0) {
+        indexs[1] = 0
+        indexs[2] = 0
+      } else if (e.columnIndex === 1) {
+        indexs[2] = 0
+      }
+      this.regionIndex = indexs
+    },
+
+    regionChange(e) {
+      const region = e.value
       this.region = region[0].label + " " + region[1].label + " " + region[2].label
       this.provinceId = region[0].value;;
       this.cityId = region[1].value;

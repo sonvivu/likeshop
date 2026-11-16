@@ -16,10 +16,10 @@
 			</view>
 		</view>
 		<loading-footer slotEmpty :status="loadingStatus">
-			<view class="data-null column-center" slot="empty">
+						<template #empty><view class="data-null column-center">
 				<image src="../../static/images/null_gift.png" class="img-null"></image>
 				<text class="xs muted">{{ $t('暂无抽奖记录～') }}</text>
-			</view>
+			</view></template>
 		</loading-footer>
 	</view>
 </template>

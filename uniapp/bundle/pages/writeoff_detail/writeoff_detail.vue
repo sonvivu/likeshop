@@ -29,7 +29,7 @@
 				</view>
 			</view>
 		</template>
-		<u-modal ref="uModalInput" v-model="showModal" show-cancel-button :confirm-color="primaryColor"
+		<u-modal ref="uModalInput" v-model:show="showModal" show-cancel-button :confirm-color="primaryColor"
 			:confirm-text="$t('确定')" @confirm="handleVerificationConfirm" :title="$t('确认核销')" :content="$t('是否确认核销？')">
 		</u-modal>
 		

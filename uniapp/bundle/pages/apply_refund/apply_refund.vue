@@ -102,7 +102,7 @@
       </view>
     </view>
 
-    <u-popup id="popup" v-model="showPop" mode="bottom">
+    <u-popup id="popup" v-model:show="showPop" mode="bottom">
       <view class="pop-container bg-white">
         <view class="pop-header row-center md normal"> {{ $t('退款原因') }} </view>
         <scroll-view style="height: 800rpx" :scroll-y="true">

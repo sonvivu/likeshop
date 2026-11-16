@@ -1,8 +1,8 @@
 <template>
   <u-popup
-    v-model="showPop"
+    v-model:show="showPop"
     mode="bottom"
-    border-radius="14"
+    round="14"
     :closeable="true"
     @close="onClose"
     :safe-area-inset-bottom="true"

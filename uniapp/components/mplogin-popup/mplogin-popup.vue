@@ -1,11 +1,11 @@
 <template>
     <view>
         <u-popup
-            v-model="showPop"
+            v-model:show="showPop"
             mode="bottom"
-            border-radius="14"
+            round="14"
             :safe-area-inset-bottom="true"
-			:maskCloseAble="false"
+			:close-on-click-overlay="false"
         >
             <view class="popup-content">
                 <view class="popup-header">
@@ -67,7 +67,7 @@ export default {
             type: String,
             required: true
         },
-		value: {
+		modelValue: {
 			type: Boolean,
             required: true
 		},
@@ -125,10 +125,10 @@ export default {
 	computed: {
 		showPop: {
 			get() {
-				return this.value
+				return this.modelValue
 			},
 			set(val) {
-				this.$emit('input', val)
+				this.$emit('update:modelValue', val)
 			}
 		}
 	}

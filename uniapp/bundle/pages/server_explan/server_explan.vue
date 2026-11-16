@@ -2,7 +2,7 @@
 <view>
 <!--pages/server_explan/server_explan.wxml-->
 <view class="main">
-  <u-parse :html="article_content" />
+  <u-parse :content="article_content" />
 </view>
 
 <!--<import src="/wxParse/wxParse.wxml"></import>-->

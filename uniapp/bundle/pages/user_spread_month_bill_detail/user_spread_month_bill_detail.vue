@@ -40,14 +40,14 @@
                     </view>
                 </view>
                 <loading-footer :status="loadingStatus" slotEmpty>                    
-                    <view class="data-null column-center" slot="empty">
+                                        <template #empty><view class="data-null column-center">
                         <image class="img-null" src="/static/images/order_null.png"></image>
                         <view class="xs muted">{{ $t('暂无账单明细') }}</view>
-                    </view>
+                    </view></template>
                 </loading-footer>
         </view>
     </view>
-    <u-select v-model="showPop" :list="months" mode="single-column" @confirm="changeMonths" ></u-select>
+    <u-picker v-model:show="showPop" :columns="[months]" @confirm="changeMonths"></u-picker>
 </view>
 </template>
 
@@ -71,14 +71,6 @@
 // +----------------------------------------------------------------------
 import { getMonthOrderDetail } from "@/api/user";
 import { loadingType } from '@/utils/type';
-const months = [];
-
-for(let i = 1; i <= 12; i ++) {
-    months.push({
-        value: i,
-        label: i + this.$t('月')
-    })
-}
 
 export default {
   data() {
@@ -93,7 +85,10 @@ export default {
       // 成交笔数
       order: 0,
       // 选择器月份
-      months: months,
+      months: Array.from({ length: 12 }, (_, i) => ({
+        value: i + 1,
+        label: i + 1 + this.$t('月')
+      })),
       chooseMonth: 1,
       showPop: false
     };
@@ -174,7 +169,7 @@ export default {
     },
 
     changeMonths(e) {
-      const val = e[0].value;
+      const val = e.value[0].value;
       this.chooseMonth = val
       this.selectMonth()
     },

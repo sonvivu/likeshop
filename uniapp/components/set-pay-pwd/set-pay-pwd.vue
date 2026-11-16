@@ -1,11 +1,10 @@
 <template>
     <view>
         <u-modal
-            :value="showTips"
+            :show="showTips"
             ref="uModal"
             show-cancel-button
             :confirm-color="primaryColor"
-            async-close
             :confirm-text="$t('前往绑定')"
             @confirm="toSetting"
             @cancel="goBack"
@@ -16,11 +15,10 @@
         </u-modal>
         <u-modal
             ref="uModalSet"
-            :value="!showTips && showSetPwd"
+            :show="!showTips && showSetPwd"
             :title="$t('设置转账密码')"
             show-cancel-button
             :confirm-color="primaryColor"
-            async-close
             :confirm-text="$t('确定')"
             @confirm="onSetPwd"
             @cancel="goBack"
@@ -31,7 +29,7 @@
                     <u-input
                         type="password"
                         v-model="setPwd"
-                        :border="true"
+                        border="surround"
                         :placeholder="$t('请设置您的转账密码')"
                         style="width: 100%"
                     />
@@ -40,7 +38,7 @@
                     <u-input
                         type="password"
                         v-model="comfirmPwd"
-                        :border="true"
+                        border="surround"
                         :placeholder="$t('再次确认转账密码')"
                         style="width: 100%"
                     />
@@ -49,10 +47,9 @@
         </u-modal>
         <u-modal
             ref="uModalInput"
-            :value="showConfirm"
+            :show="showConfirm"
             show-cancel-button
             :confirm-color="primaryColor"
-            async-close
             :confirm-text="$t('确定')"
             @confirm="onConfirm"
             @cancel="toSetting"
@@ -64,7 +61,7 @@
                 <u-input
                     type="password"
                     v-model="pwd"
-                    :border="true"
+                    border="surround"
                     :placeholder="$t('请输入您的转账密码')"
                     style="width: 100%"
                 />
@@ -90,7 +87,6 @@ export default {
     methods: {
         onSetPwd() {
             let { setPwd, comfirmPwd } = this
-            this.$refs.uModalSet.clearLoading()
             if (!setPwd) {
                 this.$toast({
                     title: this.$t('请填写转账密码')
@@ -136,7 +132,6 @@ export default {
             uni.navigateTo({
                 url: '/bundle/pages/user_profile/user_profile'
             })
-            this.$refs.uModal.clearLoading()
         },
         hasPayWord() {
             console.log(11)
@@ -149,7 +144,6 @@ export default {
             })
         },
         onConfirm() {
-            this.$refs.uModalInput.clearLoading()
             this.$emit('confirm', this.pwd)
         },
         showInputPwd() {

@@ -2,14 +2,12 @@
     <view class="user" :style="[background]">
         <view class="header">
             <!-- #ifndef  H5 -->
-            <u-sticky offset-top="0" h5-nav-height="0" bg-color="transparent">
+            <u-sticky offset-top="0" custom-nav-height="0" bg-color="transparent">
                 <u-navbar
-                    :is-back="false"
                     :title="$t('个人中心')"
-                    :title-bold="true"
-                    :is-fixed="false"
-                    :border-bottom="false"
-                    :background="{ background: 'rgba(256,256, 256,' + navBg + ')' }"
+                    :title-style="{fontWeight:'bold'}"
+                    :fixed="false"
+                    :bg-color="'rgba(256,256,256,' + navBg + ')'"
                     :title-color="navBg > 0.5 ? '#000' : '#fff'"
                 ></u-navbar>
             </u-sticky>

@@ -1,11 +1,8 @@
-import Vue from 'vue'
-import VueI18n from 'vue-i18n'
+import { createI18n } from 'vue-i18n'
 import Cache from './cache'
 import { LOCALE } from '../config/cachekey'
 import zh from '../locales/zh.json'
 import vi from '../locales/vi.json'
-
-Vue.use(VueI18n)
 
 // vi.json co mot so key chua dich (gia tri rong). Loai bo de $t fallback
 // ve msgid (chu Trung) thay vi tra ve chuoi rong lam trang giao dien.
@@ -24,11 +21,12 @@ function getSavedLocale() {
     return saved === 'vi' || saved === 'zh' ? saved : DEFAULT_LOCALE
 }
 
-const i18n = new VueI18n({
+const i18n = createI18n({
+    legacy: true,
     locale: getSavedLocale(),
     fallbackLocale: 'zh',
-    silentTranslationWarn: true,
-    silentFallbackWarn: true,
+    missingWarn: false,
+    fallbackWarn: false,
     messages: {
         vi: stripEmpty(vi),
         zh
@@ -36,12 +34,12 @@ const i18n = new VueI18n({
 })
 
 export function getLocale() {
-    return i18n.locale
+    return i18n.global.locale
 }
 
 export function setLocale(locale) {
     const next = locale === 'zh' ? 'zh' : 'vi'
-    i18n.locale = next
+    i18n.global.locale = next
     Cache.set(LOCALE, next)
     return next
 }

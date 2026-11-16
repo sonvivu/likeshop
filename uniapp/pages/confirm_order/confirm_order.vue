@@ -18,11 +18,10 @@ likeshop.cn.team // +-----------------------------------------------------------
                 <view class="contain">
                     <u-tabs
                         :list="addressTabsList"
-                        :is-scroll="addressTabsList.length === 1"
+                        :scrollable="addressTabsList.length === 1"
                         :current="addressTabsIndex"
-                        :active-color="primaryColor"
-                        bar-width="100"
-                        :bar-style="{ top: '100%' }"
+                        :active-style="{color: primaryColor}"
+                        line-width="100"
                         @change="changeDelivery"
                     />
                     <!-- 快递配送 -->
@@ -104,8 +103,7 @@ likeshop.cn.team // +-----------------------------------------------------------
                             type="text"
                             input-align="right"
                             :clearable="false"
-                            :placeholder="$t('请输入提货人')"
-                        />
+                            :placeholder="$t('请输入提货人')" border="none" />
                     </view>
                     <view class="store-from-item">
                         <text>{{ $t('联系方式') }}</text>
@@ -115,8 +113,7 @@ likeshop.cn.team // +-----------------------------------------------------------
                             type="text"
                             input-align="right"
                             :clearable="false"
-                            :placeholder="$t('请输入联系方式')"
-                        />
+                            :placeholder="$t('请输入联系方式')" border="none" />
                     </view>
                 </view>
 
@@ -138,8 +135,7 @@ likeshop.cn.team // +-----------------------------------------------------------
                             v-model="userRemark"
                             class="flex1 ml20"
                             :clearable="false"
-                            :placeholder="$t('请添加备注（150字以内）')"
-                        ></u-input>
+                            :placeholder="$t('请添加备注（150字以内）')" border="none"></u-input>
                     </view>
                 </view>
                 <view class="contain benefit" v-if="orderInfo.order_type == 0">
@@ -225,8 +221,8 @@ likeshop.cn.team // +-----------------------------------------------------------
         <loading-view v-if="showLoading" background-color="transparent" :size="50"></loading-view>
         <loading-view v-if="isFirstLoading"></loading-view>
         <u-popup
-            v-model="showCoupon"
-            border-radius="14"
+            v-model:show="showCoupon"
+            round="14"
             mode="bottom"
             closeable
             safe-area-inset-bottom

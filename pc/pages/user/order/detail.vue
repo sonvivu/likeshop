@@ -35,7 +35,7 @@
 
             <div class="row">
               <div class="column-center mt10">
-                <div class="qr-container" ref="qrCodeUrl"></div>
+                <canvas class="qr-container" ref="qrCodeUrl"></canvas>
                 <div class="selffetc-code mt10">
                   <span>{{ $t('提货码:') }}</span>
                   <span>{{ orderDetail.pickup_code }}</span>
@@ -229,42 +229,41 @@
 <script>
 import CountDown from "~/components/public/countDown";
 import { copyClipboard } from "@/utils/tools";
-import QRCode from "qrcodejs2";
+import QRCode from "qrcode";
+import { useAppStore } from "~/stores/app";
 
 export default {
-  head() {
-    return {
-      title: this.$store.getters.headTitle,
+  async setup() {
+    setPageLayout('user_lauout')
+    const route = useRoute();
+    const store = useAppStore();
+    const { $get } = useNuxtApp();
+    useHead({
+      title: computed(() => store.headTitle),
       link: [
         {
           rel: "icon",
           type: "image/x-icon",
-          href: this.$store.getters.favicon,
+          href: computed(() => store.favicon),
         },
       ],
-    };
-  },
-  layout: "user_lauout",
-  components: {
-    CountDown,
-  },
-  async asyncData({ $get, query }) {
+    });
     const { data, code } = await $get("order/detail", {
       params: {
-        id: query.id,
+        id: route.query.id,
       },
     });
 
-    if (code == 1) {
-      return {
-        orderDetail: data,
-        id: query.id,
-      };
-    }
+    return {
+      orderDetail: code == 1 ? data : {},
+      id: route.query.id,
+    };
+  },
+  components: {
+    CountDown,
   },
   data() {
     return {
-      orderDetail: {},
       showDeliverPop: false,
     };
   },
@@ -290,13 +289,16 @@ export default {
       );
     },
     creatQrCode(content) {
-      const qrcode = new QRCode(this.$refs.qrCodeUrl, {
-        text: content,
+      QRCode.toCanvas(this.$refs.qrCodeUrl, content, {
         width: 106,
-        height: 106,
-        colorDark: "#333333",
-        colorLight: "#ffffff",
-        correctLevel: QRCode.CorrectLevel.H,
+        margin: 1,
+        errorCorrectionLevel: "H",
+        color: {
+          dark: "#333333",
+          light: "#ffffff",
+        },
+      }).catch((err) => {
+        console.log(err);
       });
     },
     onCopyQRCode() {

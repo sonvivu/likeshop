@@ -1,8 +1,8 @@
 <template>
 	<view class="navbar" @tap.stop="showFloat = false">
-		<u-navbar :background="background" :title="title" :title-color="titleColor" :border-bottom="borderBottom"
-			:immersive="immersive" :title-bold="true" :is-back="false">
-			<view class="navbar-left" slot="left">
+		<u-navbar :bg-color="immersive ? 'transparent' : background.background" :title="title" :title-color="titleColor" :border="borderBottom"
+			:placeholder="!immersive" :title-style="{fontWeight:'bold'}">
+						<template #left><view class="navbar-left">
 				<u-icon :name="backIcon" :size="36" @click="goBack"></u-icon>
 				<view class="line"></view>
 				<view class="navbar-lists" @tap.stop="showFloat = !showFloat">
@@ -15,7 +15,7 @@
 						</navigator>
 					</view>
 				</view>
-			</view>
+			</view></template>
 		</u-navbar>
 		<view class="mask" v-show="showFloat" @touchstart="showFloat = false">
 

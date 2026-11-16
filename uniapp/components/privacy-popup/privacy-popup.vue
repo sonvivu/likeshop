@@ -1,11 +1,11 @@
 <template>
   <view>
     <u-popup
-      v-model="value"
+      v-model:show="showPop"
       mode="bottom"
       zIndex="9999"
-      border-radius="14"
-      :maskCloseAble="false"
+      round="14"
+      :close-on-click-overlay="false"
       safeAreaInsetBottom
     >
       <view class="privacy-containter" v-if="appConfig">
@@ -42,7 +42,7 @@ import { mapGetters, mapActions } from "vuex";
 
 export default {
   props: {
-    value: {
+    modelValue: {
       type: Boolean,
       default: false,
     },
@@ -53,6 +53,14 @@ export default {
   },
   computed: {
     ...mapGetters(["appConfig"]),
+    showPop: {
+      get() {
+        return this.modelValue;
+      },
+      set(val) {
+        this.$emit("update:modelValue", val);
+      },
+    },
   },
   methods: {
     handleOpen() {
@@ -71,7 +79,7 @@ export default {
       });
     },
     handleAgreePrivacyAuthorization() {
-      this.$emit("input", false);
+      this.$emit("update:modelValue", false);
       uni.showTabBar();
       // if (this.appConfig.is_open_nearby) {
       //   // this.initLocationFunc();

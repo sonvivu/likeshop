@@ -60,7 +60,7 @@
     </view>
 </view>
 
-    <u-popup v-model="showPop" mode="center">
+    <u-popup v-model:show="showPop" mode="center">
         <view class="pop-container">
             <view class="header-score row-center mt20">+{{addIntegral}}</view>
             <view class="box column-center">

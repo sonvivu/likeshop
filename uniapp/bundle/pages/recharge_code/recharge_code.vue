@@ -10,10 +10,10 @@
 			</view>
 		</view>
 		<loading-footer :status="status" slotEmpty>
-			<view class="data-null column-center" slot="empty" style="padding-top: 200rpx">
+						<template #empty><view class="data-null column-center" style="padding-top: 200rpx">
 				<image class="img-null" src="/static/images/order_null.png" />
 				<text class="nr muted">{{ $t('暂无记录～') }}</text>
-			</view>
+			</view></template>
 		</loading-footer>
 	</view>
 </template>

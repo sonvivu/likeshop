@@ -16,7 +16,7 @@
         />
         <null-data
           v-else
-          :img="require('~/assets/images/coupon_null.png')"
+          :img="couponNull"
           :text="$t('暂无优惠券~')"
         ></null-data>
       </div>
@@ -25,16 +25,19 @@
 </template>
 
 <script>
+import { useAppStore } from "~/stores/app";
+import couponNull from "~/assets/images/coupon_null.png";
 export default {
-  head() {
-    return {
-      title: this.$store.getters.headTitle,
-      link: [{ rel: "icon", type: "image/x-icon", href: this.$store.getters.favicon}],
-    };
-  },
-  async asyncData({ query, $get }) {
+  async setup() {
+    const store = useAppStore();
+    const route = useRoute();
+    const { $get } = useNuxtApp();
+    useHead({
+      title: computed(() => store.headTitle),
+      link: [{ rel: "icon", type: "image/x-icon", href: computed(() => store.favicon) }],
+    });
     const { data } = await $get("coupon/couponList", {
-      params: {id: query.id}
+      params: { id: route.query.id },
     });
     return {
       couponList: data,

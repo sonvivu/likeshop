@@ -1,7 +1,7 @@
 <template>
   <div class="server-explain">
     <el-dialog
-      :visible.sync="dialogTableVisible"
+      v-model="dialogTableVisible"
       width="800px"
       :show-close="false"
       :close-on-press-escape="false"
@@ -34,7 +34,6 @@
 
 <script>
 export default {
-  async asyncData({ $get }) {},
   data() {
     return {
       content: "",

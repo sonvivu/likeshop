@@ -40,14 +40,13 @@
         <view class="goods-dec bg-white mt20">
             <view class="title mb20 md bold">{{ $t('商品描述') }}</view>
             <view class="textarea mb20" style="background-color: #f5f5f5">
-                <u-input
+                <u-textarea
                     v-model="comment"
                     :placeholder="$t('宝贝收到还满意吗，说说你的使用心得。分享给想买的他们吧！！')"
-                    type="textarea"
-                    :clearable="false"
+                    border="none"
                     :height="240"
                 >
-                </u-input>
+                </u-textarea>
             </view>
             <uploader
                 preview-size="180rpx"

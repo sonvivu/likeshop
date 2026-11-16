@@ -91,7 +91,6 @@
           </div>
           <nuxt-link class="lighter" :to="`/user/order/detail?id=${item.id}`">
             <span>{{ $t('查看详情') }}</span>
-            <!-- <i class="el-icon-arrow-right"></i> -->
           </nuxt-link>
         </div>
       </div>

@@ -48,7 +48,7 @@ service.interceptors.request.use(
         ) {
             const response = await service.get('account/passwordKey')
             if (!response || response.code !== 1 || !response.data || !response.data.key) {
-                throw new Error(response && response.msg ? response.msg : i18n.t('获取密码加密密钥失败'))
+                throw new Error(response && response.msg ? response.msg : i18n.global.t('获取密码加密密钥失败'))
             }
 
             const encryptor = new JSEncrypt()
@@ -58,7 +58,7 @@ service.interceptors.request.use(
                 if (typeof data[field] === 'string' && data[field]) {
                     const encrypted = encryptor.encrypt(data[field])
                     if (!encrypted) {
-                        throw new Error(i18n.t('密码加密失败'))
+                        throw new Error(i18n.global.t('密码加密失败'))
                     }
                     data[field] = `RSA:${encrypted}`
                 }

@@ -1,7 +1,7 @@
 <template>
   <div class="category" @mouseenter="showCate = true" @mouseleave="leaveCate">
     <nuxt-link to="/category" class="title bg-primary lg white row">
-      <i class="el-icon-s-fold"></i>
+      <el-icon><Fold /></el-icon>
       <div class="ml8">{{ $t('全部商品分类') }}</div>
     </nuxt-link>
     <div class="category-con bg-white" v-show="category.length && showCate">
@@ -14,8 +14,7 @@
         >
           <nuxt-link class="row-between" :to="`/category?id=${item.id}`">
             <span class="line1">{{ item.name }}</span>
-            <i class="el-icon-arrow-right"></i
-          ></nuxt-link>
+            <el-icon><ArrowRight /></el-icon></nuxt-link>
         </li>
         <div class="category-float bg-white" v-show="showCateFloat">
           <div class="float-con">
@@ -46,8 +45,14 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { Fold, ArrowRight } from "@element-plus/icons-vue";
+import { mapState } from "pinia";
+import { useAppStore } from "~/stores/app";
 export default {
+  components: {
+    Fold,
+    ArrowRight,
+  },
   data() {
     return {
       cateTwo: [],
@@ -80,7 +85,7 @@ export default {
     },
   },
   computed: {
-    ...mapState(["category"]),
+    ...mapState(useAppStore, ["category"]),
   },
 };
 </script>

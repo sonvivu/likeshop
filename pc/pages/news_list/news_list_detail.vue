@@ -19,7 +19,7 @@
                             {{ $t('发布时间：') }}{{detailsObj.create_time}}
                         </div>
                         <div class="row" style="margin-left: 40px">
-                            <i class="el-icon-view muted"></i>
+                            <el-icon class="muted"><View /></el-icon>
                             <div class="muted" style="margin-left: 3px;">{{detailsObj.visit}} {{ $t('人浏览') }}</div>
                         </div>
                     </div>
@@ -40,7 +40,7 @@
                             <div class="goods-info">
                                 <div class="line2 goods-name">{{item.title}}</div>
                                 <div class="row" style="margin-top: 10px">
-                                    <i class="el-icon-view muted"></i>
+                                    <el-icon class="muted"><View /></el-icon>
                                     <div class="muted xs" style="margin-left: 4px;">{{item.visit}} {{ $t('人浏览') }}</div>
                                 </div>
                             </div>
@@ -53,31 +53,41 @@
 </template>
 
 <script>
+import { View } from "@element-plus/icons-vue";
+import { useAppStore } from "~/stores/app";
 export default {
-    head() {
+  async setup() {
+    const store = useAppStore();
+    const route = useRoute();
+    const { $get } = useNuxtApp();
+    useHead({
+      title: computed(() => store.headTitle),
+      link: [{ rel: "icon", type: "image/x-icon", href: computed(() => store.favicon) }],
+    });
+    const detailsObj = ref({});
+    const recommend_list = ref([]);
+    // Thay the watchQuery ['id'] cu: doi id tren cung route thi nap lai.
+    const load = async () => {
+      const res = await $get("article/detail", { params: { id: route.query.id, client: 2 } });
+      if (res.code == 1) {
+        detailsObj.value = res.data;
+        recommend_list.value = res.data.recommend_list;
+      }
+    };
+    await load();
     return {
-        title: this.$store.getters.headTitle,
-        link: [{ rel: "icon", type: "image/x-icon", href: this.$store.getters.favicon}],
+      detailsObj,
+      recommend_list,
+      load,
     };
   },
-    async asyncData({$get, $post, query}) {
-        let detailsObj = {};
-        let recommend_list = [];
-        let res = await $get("article/detail", {params: {id: query.id, client: 2}});
-        if(res.code == 1) {
-            detailsObj = res.data;
-            recommend_list = res.data.recommend_list
-        }
-        return {
-            detailsObj,
-            recommend_list,
-        };
-    },
-    watchQuery: ['id'],
-    data() {
-        return {
-            recommend_list: []
-        }
+  components: {
+    View
+  },
+    watch: {
+      '$route.query.id'() {
+        this.load();
+      },
     },
     mounted() {
         console.log('route', this.$route)

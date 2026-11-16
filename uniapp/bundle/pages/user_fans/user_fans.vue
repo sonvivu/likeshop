@@ -65,10 +65,10 @@
                 </view>
             </view>
             <loading-footer :status="loadingStatus" slotEmpty>                    
-                <view class="data-null column-center" slot="empty">
+                                <template #empty><view class="data-null column-center">
                     <image class="img-null" src="/static/images/order_null.png"></image>
                     <text>{{ $t('暂无相关数据...') }}</text>
-                </view>
+                </view></template>
             </loading-footer>
         </view>
     </view>

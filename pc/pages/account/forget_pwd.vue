@@ -5,7 +5,7 @@
             <el-form class="form-box column">
                 <div class="forget-form-item">
                     <el-input class="form-input" v-model="telephone" :placeholder="$t('请输入手机号码')">
-                        <i class="el-icon-user" style="font-size: 18px;" slot="prepend"/>
+                        <template #prepend><el-icon style="font-size: 18px;"><User /></el-icon></template>
                     </el-input>
                 </div>
                 <div class="forget-form-item row">
@@ -21,12 +21,12 @@
                 </div>
                 <div class="forget-form-item">
                     <el-input v-model="password" :placeholder="$t('请输入密码 (数字与字母自由组合)')" show-password >
-                        <i class="el-icon-more-outline" style="font-size: 18px" slot="prepend"/>
+                        <template #prepend><el-icon style="font-size: 18px"><More /></el-icon></template>
                     </el-input>
                 </div>
                 <div class="forget-form-item">
                     <el-input v-model="againPwd" :placeholder="$t('再次输入密码')" show-password >
-                        <i class="el-icon-key" style="font-size: 18px" slot="prepend"/>
+                        <template #prepend><el-icon style="font-size: 18px"><Key /></el-icon></template>
                     </el-input>
                 </div>
                 <div class="column" style="margin-top: 46px">
@@ -40,16 +40,22 @@
 <script>
 import { SMSType, client } from "@/utils/type";
 import CountDown from '~/components/public/countDown';
+import { User, More, Key } from "@element-plus/icons-vue";
+import { useAppStore } from "~/stores/app";
 export default {
-    head() {
-    return {
-      title: this.$store.getters.headTitle,
-       link: [{ rel: "icon", type: "image/x-icon", href: this.$store.getters.favicon}],
-    };
-  },
-    layout: "default_layout",
+    setup() {
+      setPageLayout('default_layout')
+        const store = useAppStore();
+        useHead({
+            title: computed(() => store.headTitle),
+            link: [{ rel: "icon", type: "image/x-icon", href: computed(() => store.favicon) }],
+        });
+    },
     components: {
-        CountDown
+        CountDown,
+        User,
+        More,
+        Key
     },
     data() {
         return {

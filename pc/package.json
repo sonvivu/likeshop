@@ -1,41 +1,37 @@
 {
-  "name": "LikeShop-PC",
-  "version": "1.0.0",
-  "private": true,
-  "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate"
-  },
-  "dependencies": {
-    "@nuxtjs/axios": "^5.13.1",
-    "@nuxtjs/style-resources": "^1.0.0",
-    "axios": "^0.21.1",
-    "cookie-universal-nuxt": "^2.1.4",
-    "cookieparser": "^0.1.0",
-    "core-js": "^3.8.3",
-    "element-ui": "^2.15.0",
-    "js-cookie": "^2.2.1",
-    "jsencrypt": "^3.3.0",
-    "nuxt": "^2.14.12",
-    "nuxt-i18n": "^6.28.1",
-    "qrcodejs2": "0.0.2",
-    "swiper": "5.2.0",
-    "vue-awesome-swiper": "^4.1.1",
-    "vue-baidu-map": "^0.21.22",
-    "vue-i18n": "^8.28.2"
-  },
-  "devDependencies": {
-    "pug": "^3.0.0",
-    "pug-plain-loader": "^1.1.0",
-    "sass": "~1.32.8",
-    "sass-loader": "10"
-  },
   "config": {
     "nuxt": {
       "host": "0.0.0.0",
       "port": 1800
     }
-  }
+  },
+  "dependencies": {
+    "@element-plus/icons-vue": "^2.3.2",
+    "@nuxtjs/i18n": "^10.6.0",
+    "@pinia/nuxt": "^1.0.3",
+    "axios": "^1.21.1",
+    "core-js": "^3.51.0",
+    "element-plus": "^2.14.8",
+    "js-cookie": "^3.0.8",
+    "jsencrypt": "^3.5.4",
+    "nuxt": "^4.6.4",
+    "pinia": "^4.1.0",
+    "qrcode": "^1.5.4",
+    "sass": "^1.108.2",
+    "swiper": "^14.4.0",
+    "vue": "^3.5.45",
+    "vue-i18n": "^11.4.20",
+    "vue-router": "^4.6.5"
+  },
+  "name": "LikeShop-PC",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "start": "nuxt preview"
+  },
+  "version": "1.0.0",
+  "type": "module"
 }

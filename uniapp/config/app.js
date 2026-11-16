@@ -19,11 +19,12 @@ const baseURLMap = {
 	production: IS_H5 ? location.origin : ''
 }
 
-const baseURL = SWITCH_DEVELOPMENT ? baseURLMap['development'] : baseURLMap[process.env.NODE_ENV]
-/** E API BaseURL **/
+export const version = '3.5.1' // 版本号
+export const baseURL = SWITCH_DEVELOPMENT ? baseURLMap['development'] : baseURLMap[process.env.NODE_ENV] // API Base URL
+export const basePath = '/mobile'
 
-module.exports = {
-	version: '3.5.1', // 版本号
-	baseURL, // API Base URL
-	basePath: '/mobile'
+export default {
+    version,
+    baseURL,
+    basePath
 }

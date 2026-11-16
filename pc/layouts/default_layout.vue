@@ -4,7 +4,7 @@
         <img class="header-logo" :src="publicData.logo" />
     </nuxt-link>
     <div class="default-main flex1">
-      <nuxt />
+      <slot />
     </div>
     <v-footer />
   </div>
@@ -12,7 +12,8 @@
 
 <script>
 import VFooter from "~/components/layout/footer";
-import { mapState } from "vuex";
+import { mapState } from "pinia";
+import { useAppStore } from "~/stores/app";
 export default {
   components: {
     VFooter
@@ -25,7 +26,7 @@ export default {
   created() {
   },
   computed: {
-     ...mapState(['publicData'])
+     ...mapState(useAppStore, ['publicData'])
   },
   methods: {
    

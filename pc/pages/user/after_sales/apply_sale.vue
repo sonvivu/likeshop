@@ -60,7 +60,7 @@
                 <el-form-item>
                     <upload isSlot :file-list="fileList" @success="uploadSuccess" :limit="3">
                         <div class="column-center" style="height: 100%">
-                            <i class="el-icon-camera xs" style="font-size: 24px"/>
+                            <el-icon class="xs" style="font-size: 24px"><Camera /></el-icon>
                             <div class="muted xs mt10" style="line-height: 0">{{ $t('上传凭证') }}</div>
                         </div>
                     </upload>
@@ -76,24 +76,23 @@
 
 <script>
 import upload from '@/components/public/upload'
+import { Camera } from "@element-plus/icons-vue";
+import { useAppStore } from "~/stores/app";
 export default {
-    components: {
-        upload
-    },
-    head() {
-        return {
-        title: this.$store.getters.headTitle,
-        link: [{ rel: "icon", type: "image/x-icon", href: this.$store.getters.favicon}],
-        };
-    },
-    layout: "user_lauout",
-    name: 'applySale',
-    async asyncData({$get, $post, query}) {
+    async setup() {
+      setPageLayout('user_lauout')
+        const route = useRoute();
+        const store = useAppStore();
+        const { $get } = useNuxtApp();
+        useHead({
+            title: computed(() => store.headTitle),
+            link: [{ rel: "icon", type: "image/x-icon", href: computed(() => store.favicon) }],
+        });
         let goods = {};
         let reason = [];
         let res = await $get('after_sale/goodsInfo', {params: {
-            order_id: query.order_id,
-            item_id: query.item_id
+            order_id: route.query.order_id,
+            item_id: route.query.item_id
         }})
         if(res.code == 1) {
             goods = res.data.goods;
@@ -104,6 +103,11 @@ export default {
             goods
         }
     },
+    components: {
+        upload,
+        Camera
+    },
+    name: 'applySale',
     data() {
         return {
             applyType: this.$t('仅退款'),

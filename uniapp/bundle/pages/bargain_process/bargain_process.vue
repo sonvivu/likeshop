@@ -112,15 +112,9 @@
                         <view class="row-between mt10">
                             <view class="xs muted"> {$t('原价 ¥')}{{ bargainObj.price || 0 }} </view>
                             <view class="row" v-show="showCountDown" v-if="timestamp > 0">
-                                <u-count-down
-                                    :timestamp="timestamp"
-                                    :bg-color="primaryColor"
-                                    color="#fff"
-                                    :separator-color="primaryColor"
-                                    height="36"
-                                    :show-days="true"
-                                    @end="closeBargainOrderFun"
-                                />
+                                                                <u-count-down :time="timestamp * 1000" format="DD天HH时mm分ss秒" @finish="closeBargainOrderFun">
+                                    <template #default="{days, hours, minutes, seconds}"><text :style="{background: primaryColor, color: '#fff', fontSize: '24rpx', lineHeight: '36rpx', padding: '0 8rpx', borderRadius: '6rpx'}">{{ String(days).padStart(2, '0') }}</text><text :style="{color: primaryColor}">天</text><text :style="{background: primaryColor, color: '#fff', fontSize: '24rpx', lineHeight: '36rpx', padding: '0 8rpx', borderRadius: '6rpx'}">{{ String(hours).padStart(2, '0') }}</text><text :style="{color: primaryColor}">时</text><text :style="{background: primaryColor, color: '#fff', fontSize: '24rpx', lineHeight: '36rpx', padding: '0 8rpx', borderRadius: '6rpx'}">{{ String(minutes).padStart(2, '0') }}</text><text :style="{color: primaryColor}">分</text><text :style="{background: primaryColor, color: '#fff', fontSize: '24rpx', lineHeight: '36rpx', padding: '0 8rpx', borderRadius: '6rpx'}">{{ String(seconds).padStart(2, '0') }}</text><text :style="{color: primaryColor}">秒</text></template>
+                                </u-count-down>
                                 <text class="muted xs ml10">{{ $t('内可砍') }}</text>
                             </view>
                         </view>
@@ -279,7 +273,7 @@
         </view>
         <loading-view v-if="showLoadingView" />
         <goods-bargain v-if="status != -1" ref="goodsBargain" />
-        <u-popup v-model="showBargainPop" mode="center">
+        <u-popup v-model:show="showBargainPop" mode="center">
             <view class="bargain-pop-container">
                 <view class="md normal bold row-center" style="padding-top: 64rpx">
                     {$t('恭喜您成功砍下')}<text class="primary lg">{{ knifePrice || 0 }}</text

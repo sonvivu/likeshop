@@ -1,17 +1,32 @@
 {
-  "name": "uni-app",
-  "version": "3.3.13",
+  "author": "",
+  "dependencies": {
+    "@dcloudio/uni-app": "^3.0.0-alpha-5030620261112001",
+    "@dcloudio/uni-components": "^3.0.0-alpha-5030620261112001",
+    "@dcloudio/uni-h5": "^3.0.0-alpha-5030620261112001",
+    "jsencrypt": "^3.5.4",
+    "uview-plus": "^3.8.138",
+    "vue": "^3.5.45",
+    "vue-i18n": "^11.4.20",
+    "vuex": "^4.1.0"
+  },
   "description": "",
-  "main": "main.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "./autoRelease.sh"
+  "devDependencies": {
+    "@dcloudio/uni-cli-shared": "^3.0.0-alpha-5030620261112001",
+    "@dcloudio/vite-plugin-uni": "^3.0.0-alpha-5030620261112001",
+    "rollup": "^4.14.3",
+    "sass": "^1.77.8",
+    "vite": "^5.2.8"
   },
   "keywords": [],
-  "author": "",
   "license": "ISC",
-  "dependencies": {
-    "jsencrypt": "^3.3.0",
-    "vue-i18n": "^8.28.2"
-  }
+  "main": "main.js",
+  "name": "uni-app",
+  "scripts": {
+    "build": "./autoRelease.sh",
+    "build:h5": "UNI_INPUT_DIR=. UNI_OUTPUT_DIR=unpackage/dist/build/web uni build",
+    "dev:h5": "UNI_INPUT_DIR=. uni",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "3.3.13"
 }

@@ -57,11 +57,10 @@
         </view>
         <u-modal
             id="delete-dialog"
-            v-model="deleteSure"
+            v-model:show="deleteSure"
             :showCancelButton="true"
             :confirm-text="$t('狠心删除')"
             confirm-color="#FF2C3C"
-            :show-title="false"
             @confirm="delAddressFun"
             @cancel="hidePop"
         >

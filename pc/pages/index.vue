@@ -2,24 +2,7 @@
   <div class="index">
     <div class="banner">
       <client-only>
-        <!-- <swiper ref="mySwiper" :options="swiperOptions" v-if="bannerList && bannerList.length" :autoDestroy="false">
-          <swiper-slide
-            class="swiper-item"
-            v-for="(item, index) in bannerList"
-            :key="index"
-          >
-            <ad-item :item="item"></ad-item>
-          </swiper-slide>
-          <div class="swiper-pagination" slot="pagination"></div>
-          <div
-            class="swiper-button-prev swiper-button-white"
-            slot="button-prev"
-          ></div>
-          <div
-            class="swiper-button-next swiper-button-white"
-            slot="button-next"
-          ></div>
-        </swiper> -->
+        <!-- banner cu dung swiper, da chuyen sang el-carousel -->
         <el-carousel height="440px" autoplay>
           <el-carousel-item
             v-for="(item, index) in bannerList"
@@ -70,7 +53,7 @@
           </nuxt-link>
         </div>
         <nuxt-link :to="`/category?id=${item.id}`" class="more"
-          >{{ $t('更多') }} <i class="el-icon-arrow-right"></i
+          >{{ $t('更多') }} <el-icon><ArrowRight /></el-icon
         ></nuxt-link>
       </div>
       <div class="category-con row">
@@ -86,15 +69,15 @@
     <div class="coupon-popup">
       <el-dialog
         :title="$t('新人送券')"
-        :visible.sync="showCoupon"
+        v-model="showCoupon"
         width="700px"
         center
         top="30vh"
       >
         <div class="column-center black">
           <div class="coupons-list row">
-            <template v-for="(item, index) in couponList">
-              <div class="item" :key="index">
+            <template v-for="(item, index) in couponList" :key="index">
+              <div class="item">
                 <div :class="['info white']">
                   <div class="info-hd row">
                     <div>
@@ -114,14 +97,16 @@
             </template>
           </div>
         </div>
-        <div slot="footer" class="dialog-footer">
-          <el-button
-            style="width:200px"
-            type="primary"
-            @click="showCoupon = false"
-            >{{ $t('确定') }}</el-button
-          >
-        </div>
+        <template #footer>
+          <div class="dialog-footer">
+            <el-button
+              style="width:200px"
+              type="primary"
+              @click="showCoupon = false"
+              >{{ $t('确定') }}</el-button
+            >
+          </div>
+        </template>
       </el-dialog>
     </div>
     <!-- 服务协议 -->
@@ -131,13 +116,15 @@
 
 <script>
 import ActivityArea from "~/components/activityArea";
-import { directive } from "vue-awesome-swiper";
+import { ArrowRight } from "@element-plus/icons-vue";
 import { paramsToStr } from "~/utils/tools";
 import ServerExplan from "../components/server-explan.vue";
+import { useAppStore } from "~/stores/app";
 export default {
-  head() {
-    const { clarity_app_id } = this.$store.getters.getSiteStatistics;
-
+  async setup() {
+    const store = useAppStore();
+    const { $get } = useNuxtApp();
+    const { clarity_app_id } = store.getSiteStatistics || {};
     if (clarity_app_id) {
       (function(c, l, a, r, i, t, y) {
         c[a] =
@@ -152,94 +139,43 @@ export default {
         y.parentNode.insertBefore(t, y);
       })(window, document, "clarity", "script", clarity_app_id);
     }
-    return {
-      title: this.$store.getters.headTitle,
+    useHead({
+      title: computed(() => store.headTitle),
       link: [
-        { rel: "icon", type: "image/x-icon", href: this.$store.getters.favicon }
+        {
+          rel: "icon",
+          type: "image/x-icon",
+          href: computed(() => store.favicon)
+        }
       ]
-    };
-  },
-  components: {
-    ActivityArea
-  },
-  directives: {
-    swiper: directive
-  },
-  async asyncData({ $get, store }) {
+    });
     const banner = $get("ad_content/lists", { params: { pid: 2, client: 2 } });
     const index = $get("pc/index");
     const { data: bannerList } = await banner;
     const { data: indexData } = await index;
     let couponList = [];
-    if (store.getters.isLogin) {
+    if (store.isLogin) {
       const { data } = await $get("coupon/registerSendCoupon");
       couponList = data;
     }
     return { bannerList, indexData, couponList };
   },
+  components: {
+    ActivityArea,
+    ArrowRight
+  },
   data() {
-    const self = this;
     return {
-      bannerList: [],
-      showCoupon: false,
-      swiperOptions: {
-        pagination: {
-          el: ".swiper-pagination"
-        },
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev"
-        },
-        width: 1020,
-        preventClicks: true,
-        loop: true,
-        observer: true, //修改swiper自己或子元素时，自动初始化swiper
-        observeParents: true, //修改swiper的父元素时，自动初始化swiper
-        on: {
-          slideChangeTransitionStart() {
-            console.log(this.activeIndex, "active", this.realIndex);
-            console.log(this.isEnd, "isBegin", this.isBeginning);
-            if (this.isEnd) {
-              // 到达第4个
-              this.slideToLoop(0);
-            }
-            if (this.isBeginning) {
-              this.slideTo(self.bannerList.length);
-            }
-          }
-        }
-      }
+      showCoupon: false
     };
   },
-  created() {
-    // console.log(this);
-  },
-  mounted() {
-    // if(this.$refs.mySwiper) {
-    // }
-  },
-  // activated() {
-  //   this.mySwiper.updateSwiper()
-  // },
-  beforeDestroy() {
-    // console.log(this.mySwiper, "##");
-    // this.bannerList = false;
-    // this.mySwiper.destroySwiper()
-  },
-  destroyed() {},
-  computed: {
-    mySwiper() {
-      return this.$refs.mySwiper;
-    }
-  },
-  methods: {},
   watch: {
     couponList: {
       immediate: true,
       handler(val) {
         if (val.length) {
           this.showCoupon = true;
-          this.$store.dispatch("getPublicData");
+          useAppStore().getPublicData();
         }
       }
     }

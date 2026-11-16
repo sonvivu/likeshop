@@ -45,17 +45,9 @@
                 </view>
                 <view class="bg-seckill__time">
                     <text class="xs" style="color: white">{{ $t('距离活动结束') }}</text>
-                    <u-count-down
-                        :timestamp="countTime"
-                        color="black"
-                        bg-color="#fff"
-                        separator-color="#fff"
-                        font-size="24"
-                        height="36"
-                        separator-size="26"
-                        @end="getGoodsDetailFun"
-                        separator="zh"
-                    ></u-count-down>
+                                        <u-count-down :time="countTime * 1000" format="HH时mm分ss秒" @finish="getGoodsDetailFun">
+                        <template #default="{days, hours, minutes, seconds}"><text style="background:#fff;color:#000;font-size:24rpx;line-height:36rpx;padding:0 8rpx;border-radius:6rpx">{{ String(hours).padStart(2, '0') }}</text><text style="color:#fff">时</text><text style="background:#fff;color:#000;font-size:24rpx;line-height:36rpx;padding:0 8rpx;border-radius:6rpx">{{ String(minutes).padStart(2, '0') }}</text><text style="color:#fff">分</text><text style="background:#fff;color:#000;font-size:24rpx;line-height:36rpx;padding:0 8rpx;border-radius:6rpx">{{ String(seconds).padStart(2, '0') }}</text><text style="color:#fff">秒</text></template>
+                    </u-count-down>
                 </view>
             </view>
             <!-- 拼团 -->
@@ -78,17 +70,9 @@
                 </view>
                 <view class="bg-team__time">
                     <text class="xs" style="color: white">{{ $t('距离活动结束') }}</text>
-                    <u-count-down
-                        :timestamp="countTime"
-                        color="black"
-                        bg-color="#fff"
-                        separator-color="#fff"
-                        font-size="24"
-                        height="36"
-                        separator-size="26"
-                        @end="getGoodsDetailFun"
-                        separator="zh"
-                    ></u-count-down>
+                                        <u-count-down :time="countTime * 1000" format="HH时mm分ss秒" @finish="getGoodsDetailFun">
+                        <template #default="{days, hours, minutes, seconds}"><text style="background:#fff;color:#000;font-size:24rpx;line-height:36rpx;padding:0 8rpx;border-radius:6rpx">{{ String(hours).padStart(2, '0') }}</text><text style="color:#fff">时</text><text style="background:#fff;color:#000;font-size:24rpx;line-height:36rpx;padding:0 8rpx;border-radius:6rpx">{{ String(minutes).padStart(2, '0') }}</text><text style="color:#fff">分</text><text style="background:#fff;color:#000;font-size:24rpx;line-height:36rpx;padding:0 8rpx;border-radius:6rpx">{{ String(seconds).padStart(2, '0') }}</text><text style="color:#fff">秒</text></template>
+                    </u-count-down>
                 </view>
             </view>
             <!-- 会员价 -->
@@ -275,15 +259,9 @@
                                     </text>
                                     <view class="muted xs">
                                         {$t('剩余')}
-                                        <u-count-down
-                                            :timestamp="getTeamCountTime(item.found_end_time)"
-                                            separator-color="#999"
-                                            color="#999"
-                                            :separator-size="24"
-                                            :font-size="24"
-                                            bg-color="transparent"
-                                            @end="getGoodsDetailFun"
-                                        ></u-count-down>
+                                                                                <u-count-down :time="getTeamCountTime(item.found_end_time) * 1000" format="HH:mm:ss" @finish="getGoodsDetailFun">
+                                            <template #default="{days, hours, minutes, seconds}"><text style="color:#999">{{ String(hours).padStart(2, '0') }}:{{ String(minutes).padStart(2, '0') }}:{{ String(seconds).padStart(2, '0') }}</text></template>
+                                        </u-count-down>
                                     </view>
                                 </view>
                                 <view
@@ -363,9 +341,8 @@
                 <view class="title lg">{{ $t('商品详情') }}</view>
                 <view class="content">
                     <u-parse
-                        :html="goodsDetail.content"
+                        :content="goodsDetail.content"
                         :lazy-load="true"
-                        :show-with-animation="true"
                     ></u-parse>
                 </view>
             </view>
@@ -391,7 +368,7 @@
                         v-if="cartNum"
                         bgColor="#FF2C3C"
                         :offset="[8, 10]"
-                        :count="cartNum"
+                        :value="cartNum"
                     ></u-badge>
                 </navigator>
                 <view
@@ -446,7 +423,7 @@
         >
         </share-popup>
         <!-- 领券 -->
-        <u-popup v-model="showCoupon" mode="bottom" border-radius="14">
+        <u-popup v-model:show="showCoupon" mode="bottom" round="14">
             <view>
                 <view class="row-between" style="padding: 30rpx">
                     <view class="title md bold">{{ $t('领券') }}</view>
@@ -465,7 +442,7 @@
                 </view>
             </view>
         </u-popup>
-        <u-popup v-model="showServer" mode="bottom" border-radius="14">
+        <u-popup v-model:show="showServer" mode="bottom" round="14">
             <view style="padding-bottom: 50rpx">
                 <view class="row-between" style="padding: 30rpx">
                     <view class="title md bold">{{ $t('保障') }}</view>
@@ -502,11 +479,6 @@
         <u-back-top
             :scroll-top="scrollTop"
             :top="1000"
-            :customStyle="{
-                backgroundColor: '#FFF',
-                color: '#000',
-                boxShadow: '0px 3px 6px rgba(0, 0, 0, 0.1)'
-            }"
         ></u-back-top>
     </view>
 </template>

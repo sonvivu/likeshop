@@ -52,7 +52,7 @@
             </view>
         </view>
         <u-modal
-            :value="showTransferInfo"
+            :show="showTransferInfo"
             show-cancel-button
             :title="$t('确认转账给')"
             :confirm-color="primaryColor"

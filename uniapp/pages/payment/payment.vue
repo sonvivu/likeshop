@@ -14,7 +14,7 @@
                 <template v-if="timeout > 0">
                     <view class="payment-count-down">
                         <text>{{ $t('支付剩余时间') }}</text>
-                        <u-count-down :timestamp="timeout" :font-size="22" />
+                                                <u-count-down :time="timeout * 1000" format="HH:mm:ss"></u-count-down>
                     </view>
                 </template>
             </view>
@@ -61,16 +61,16 @@
                     :class="['payment-submit', { 'payment-submit--disabled': loadingPay }]"
                     @tap="handlePrepay"
                 >
-                    <u-loading mode="circle" :show="loadingPay" />
+                    <u-loading-icon mode="circle" :show="loadingPay" />
                     <text v-show="!loadingPay">{{ $t('立即支付') }}</text>
                 </view>
             </view>
             <u-popup
-                v-model="Alipayshow"
+                v-model:show="Alipayshow"
                 mode="bottom"
-                height="600rpx"
+                max-height="600rpx"
                 safe-area-inset-bottom
-                border-radius="20"
+                round="20"
                 closeable
                 @close="handleclose"
             >
@@ -104,7 +104,7 @@
             </u-popup>
         </view>
 
-        <u-skeleton :loading="loadingSkeleton" :animation="true" bgColor="#FFF" />
+        <u-skeleton :loading="loadingSkeleton" :animate="true" />
     </view>
 </template>
 
@@ -142,7 +142,7 @@ export default {
     methods: {
         // 更改支付方式
         changePayway(value) {
-            this.$set(this, 'payway', value)
+            this.payway = value
         },
 
         // 初始化页面数据

@@ -44,10 +44,10 @@
                     
             </view>
             <loading-footer slot-empty :status="status">
-                <view slot="empty" class="data-null column-center" style="padding-top: 500rpx">
+                                <template #empty><view class="data-null column-center" style="padding-top: 500rpx">
                         <image class="img-null" src="/static/images/goods_null.png"></image>
                         <view class="lighter">{{ $t('暂无活动商品～') }}</view>
-                    </view>
+                    </view></template>
             </loading-footer>
         </view>
     </view>

@@ -1,6 +1,6 @@
 <template>
     <div class="deliver-search-container">
-        <el-dialog :visible.sync="showDialog" width="920px" :title="$t('物流查询')">
+        <el-dialog v-model="showDialog" width="920px" :title="$t('物流查询')">
             <div class="deliver-box">
                 <div class="deliver-recode-box row">
                     <div class="recode-img">
@@ -87,7 +87,7 @@
 <script>
 export default {
     props: {
-        value: {
+        modelValue: {
             type: Boolean,
             default: false,
         },
@@ -109,7 +109,7 @@ export default {
         }
     },
     watch: {
-        value(val) {
+        modelValue(val) {
             console.log(val, 'val')
             this.showDialog = val;
         },
@@ -120,7 +120,7 @@ export default {
                     this.getDeliverTraces();
                 }
             }
-            this.$emit("input", val);
+            this.$emit("update:modelValue", val);
         },
     },
     methods: {

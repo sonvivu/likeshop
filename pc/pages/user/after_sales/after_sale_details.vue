@@ -82,11 +82,13 @@
                     :title="$t('确定撤销商品吗？')"
                     :confirm-button-text="$t('确定')"
                     :cancel-button-text="$t('取消')"
-                    icon="el-icon-info"
+                    :icon="InfoFilled"
                     icon-color="red"
                     @confirm="cancelApply(lists.id)"
                 >
-                    <el-button class="apply-btn row-center sm" size="small" slot="reference" v-if="lists.status!=6">{{ $t('撤销申请') }}</el-button>
+                    <template #reference>
+                      <el-button class="apply-btn row-center sm" size="small" v-if="lists.status!=6">{{ $t('撤销申请') }}</el-button>
+                    </template>
                 </el-popconfirm>
                 <el-button class="apply-btn row-center sm" size="small" v-if="lists.status==2" @click="showInput=true">{{ $t('填写快递单号') }}</el-button>
             </div>
@@ -96,24 +98,20 @@
 </template>
 
 <script>
+import { InfoFilled } from "@element-plus/icons-vue";
+import { useAppStore } from "~/stores/app";
 export default {
-    head() {
-        return {
-            title: this.$store.getters.headTitle,
-            link: [{ rel: "icon", type: "image/x-icon", href: this.$store.getters.favicon}],
-        };
-    },
-    layout: "user_lauout",
-
-    data() {
-        return {
-            showInput: false,
-        }
-    },
-
-    async asyncData({$get, query}) {
+    async setup() {
+      setPageLayout('user_lauout')
+        const route = useRoute();
+        const store = useAppStore();
+        const { $get } = useNuxtApp();
+        useHead({
+            title: computed(() => store.headTitle),
+            link: [{ rel: "icon", type: "image/x-icon", href: computed(() => store.favicon) }],
+        });
         const data = {
-            id: query.afterSaleId
+            id: route.query.afterSaleId
         };
         let lists = {}
         let res = await $get("after_sale/detail", {params: data});
@@ -122,6 +120,14 @@ export default {
         }
         return {
             lists,
+        }
+    },
+    components: {
+        InfoFilled
+    },
+    data() {
+        return {
+            showInput: false,
         }
     },
 

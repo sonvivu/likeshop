@@ -7,14 +7,13 @@
         "
     >
         <!-- #ifndef  H5 -->
-        <u-sticky offset-top="0" h5-nav-height="0" bg-color="transparent">
+        <u-sticky offset-top="0" custom-nav-height="0" bg-color="transparent">
             <u-navbar
-                :is-back="true"
+                :auto-back="true"
                 :title="$t('注册账号')"
-                :title-bold="true"
-                :is-fixed="false"
-                :border-bottom="false"
-                :background="{ background: 'rgba(256,256, 256,0)' }"
+                :title-style="{fontWeight:'bold'}"
+                :fixed="false"
+                bg-color="transparent"
             ></u-navbar>
         </u-sticky>
         <!-- #endif -->
@@ -27,8 +26,7 @@
                         v-model="mobile"
                         :placeholder="$t('请输入手机号码')"
                         type="number"
-                        style="width: 100%"
-                    />
+                        style="width: 100%" border="none" />
                 </view>
 
                 <view class="input row" style="padding: 15rpx" v-if="appConfig.register_setting">
@@ -36,7 +34,7 @@
                         v-model="captchaCode"
                         style="flex: 1"
                         :placeholder="$t('请输入图形验证码')"
-                        :input-border="false"
+                        border="none"
                     />
                     <image
                         class="captcha-img"
@@ -51,7 +49,7 @@
                         v-model="smsCode"
                         style="flex: 1; width: 100%"
                         :placeholder="$t('请输入验证码')"
-                        :input-border="false"
+                        border="none"
                     />
                     <view class="row">
                         <view
@@ -60,20 +58,9 @@
                             @click="sendSmsFun()"
                         >
                             <view v-show="canSendSms">{{ $t('获取验证码') }}</view>
-                            <u-count-down
-                                ref="countDown"
-                                :show-days="false"
-                                :timestamp="time"
-                                separator="zh"
-                                color="#FF2C3C"
-                                separatorColor="#FF2C3C"
-                                bg-color="rgba(0, 0, 0, 0)"
-                                :show-hours="false"
-                                :show-minutes="false"
-                                :autoplay="false"
-                                v-show="!canSendSms"
-                                @end="countDownFinish()"
-                            />
+                                                        <u-count-down ref="countDown" :time="time * 1000" :auto-start="false" v-show="!canSendSms" format="ss秒" @finish="countDownFinish()">
+                                <template #default="{days, hours, minutes, seconds}"><text style="color:#FF2C3C">{{ String(seconds).padStart(2, '0') }}秒</text></template>
+                            </u-count-down>
                         </view>
                     </view>
 
@@ -85,20 +72,9 @@
           >
 
             <view v-show="canSendSms" class="sm">{$t('获取验证码')}</view>
-            <u-count-down
-              ref="countDown"
-              :show-days="false"
-              :timestamp="time"
-              separator="zh"
-              color="#FF2C3C"
-              separatorColor="#FF2C3C"
-              bg-color="rgba(0, 0, 0, 0)"
-              :show-hours="false"
-              :show-minutes="false"
-              :autoplay="false"
-              v-show="!canSendSms"
-              @end="countDownFinish()"
-            />
+                        <u-count-down ref="countDown" :time="time * 1000" :auto-start="false" v-show="!canSendSms" format="ss秒" @finish="countDownFinish()">
+                <template #default="{days, hours, minutes, seconds}"><text style="color:#FF2C3C">{{ String(seconds).padStart(2, '0') }}秒</text></template>
+            </u-count-down>
           </button> -->
                 </view>
                 <view class="input row" style="padding: 15rpx">
@@ -106,20 +82,18 @@
                         style="width: 100%"
                         type="password"
                         v-model="password"
-                        :placeholder="$t('请输入密码')"
-                    />
+                        :placeholder="$t('请输入密码')" border="none" />
                 </view>
                 <view class="input row" style="padding: 15rpx">
                     <u-input
                         style="width: 100%"
                         type="password"
                         v-model="passwordConfirm"
-                        :placeholder="$t('请在次输入密码')"
-                    />
+                        :placeholder="$t('请在次输入密码')" border="none" />
                 </view>
             </view>
             <view class="mt20">
-                <u-checkbox v-model="isAgree" shape="circle">
+                <u-checkbox v-model:checked="isAgree" shape="circle">
                     <view class="sm row">
                         {$t('已阅读并同意')}
                         <navigator
@@ -151,9 +125,8 @@
         </view>
         <!-- 阅读协议弹框 -->
         <u-modal
-            :value="showModel"
+            :show="showModel"
             show-cancel-button
-            :show-title="false"
             @confirm=";(isAgree = true), (showModel = false)"
             @cancel="showModel = false"
             confirm-color="#FF2C3C"
@@ -184,7 +157,6 @@
 
 <script>
 import { register, sendSms, getCaptcha } from '@/api/app.js'
-import { ACCESS_TOKEN } from '@/config/app.js'
 import { SMSType } from '@/utils/type.js'
 import { mapMutations, mapGetters } from 'vuex'
 import { client } from '@/utils/tools'

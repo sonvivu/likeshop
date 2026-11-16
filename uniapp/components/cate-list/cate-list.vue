@@ -8,7 +8,7 @@
 							<view v-for="(item, index2) in items" :key="index2" @tap="changeCate(item)"
 								class="nav-item column-center">
 								<view class="icon-wrap" :class="{active: id == item.id}">
-									<u-image width="82rpx" height="82rpx" border-radius="50%" :src="item.image"></u-image>
+									<u-image width="82rpx" height="82rpx" radius="50%" :src="item.image"></u-image>
 								</view>
 								<view style="width: 90%;" class="name xs line1 u-text-center" :class="{primary: id == item.id}">{{item.name}}</view>
 							</view>
@@ -57,10 +57,10 @@
 						</view>
 					</view>
 					<loading-footer :status="status" :slot-empty="true">
-						<view slot="empty" class="column-center" style="padding: 200rpx 0">
+												<template #empty><view class="column-center" style="padding: 200rpx 0">
 							<image class="img-null" src="/static/images/goods_null.png"></image>
 							<text class="lighter">{{ $t('暂无商品') }}</text>
-						</view>
+						</view></template>
 					</loading-footer>
 				</view>
 			</view>

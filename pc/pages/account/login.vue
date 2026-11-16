@@ -16,9 +16,11 @@
               <div class="login-form-box">
                 <div class="login-form-item">
                   <el-input :placeholder="$t('请输入手机号码')" v-model="telephone" class="input-phone-num">
-                    <el-select style="width: 100px;" v-model="selectNumberType" slot="prepend" :placeholder="$t('请选择')">
-                      <el-option :label="$t('中国+86')" value="1"></el-option>
-                    </el-select>
+                    <template #prepend>
+                      <el-select style="width: 100px;" v-model="selectNumberType" :placeholder="$t('请选择')">
+                        <el-option :label="$t('中国+86')" value="1"></el-option>
+                      </el-select>
+                    </template>
                   </el-input>
                 </div>
                 <div class="login-form-item row">
@@ -44,12 +46,12 @@
               <div class="login-form-box">
                 <div class="login-form-item">
                   <el-input :placeholder="$t('请输入账号/手机号码')" v-model="account" class="input-phone-num">
-                    <i class="el-icon-user" style="font-size: 18px" slot="prepend"></i>
+                    <template #prepend><el-icon style="font-size: 18px"><User /></el-icon></template>
                   </el-input>
                 </div>
                 <div class="login-form-item row">
                   <el-input v-model="password" :placeholder="$t('请输入密码')" show-password >
-                    <i class="el-icon-more-outline" style="font-size: 18px" slot="prepend"/>
+                    <template #prepend><el-icon style="font-size: 18px"><More /></el-icon></template>
                   </el-input>
                 </div>
                 <div class="login-form-item row">
@@ -86,23 +88,26 @@
 <script>
 import {loginType, client, SMSType} from '@/utils/type'
 import Cookies from 'js-cookie'
-import { mapMutations, mapActions } from 'vuex'
+import { mapActions } from 'pinia'
+import { useAppStore } from '~/stores/app'
+import { User, More } from '@element-plus/icons-vue'
 import CountDown from '@/components/public/countDown'
 export default {
-  head() {
-    return {
-      title: this.$store.getters.headTitle,
-       link: [{ rel: "icon", type: "image/x-icon", href: this.$store.getters.favicon}],
-    };
-  },
-  layout: "default_layout",
-  components: {
-    CountDown
-  },
-  async asyncData({$get, $post}) {
+  async setup() {
+    setPageLayout('default_layout')
+    const store = useAppStore();
+    useHead({
+      title: computed(() => store.headTitle),
+      link: [{ rel: "icon", type: "image/x-icon", href: computed(() => store.favicon) }],
+    });
     return {
       userInfo: {}
     }
+  },
+  components: {
+    CountDown,
+    User,
+    More
   },
   data() {
     return {
@@ -293,10 +298,7 @@ export default {
         this.captchaCode = ''
       }
     },
-    ...mapMutations([
-      'setToken'
-    ]),
-    ...mapActions(['getPublicData'])
+    ...mapActions(useAppStore, ['setToken', 'getPublicData'])
   }
 }
 </script>

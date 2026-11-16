@@ -1,9 +1,11 @@
-// @import  "./variable.scss";
-/* 改变主题色变量 */
-
-$--color-primary: $-color-primary;
-
-/* 改变 icon 字体路径变量，必需 */
-$--font-path: '~element-ui/lib/theme-chalk/fonts';
-
-@import "~element-ui/packages/theme-chalk/src/index";
+// Theme Element Plus: doi mau chu dao sang mau cua shop.
+// Giu nguyen cach cu: override bien truoc khi import toan bo theme.
+// MAU NAY PHAI GIONG $-color-primary TRONG assets/css/variable.scss
+// (#FF2C3C) — viet cung gia tri vi @forward khong dung duoc bien
+// nap qua Vite additionalData (sass bat @forward dung truoc @import).
+@forward "element-plus/theme-chalk/src/common/var.scss" with (
+  $colors: (
+    "primary": ("base": #ff2c3c),
+  )
+);
+@use "element-plus/theme-chalk/src/index.scss" as *;

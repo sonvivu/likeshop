@@ -6,7 +6,7 @@
                 v-model="mobile"
                 style="width: 100%"
                 placeholder="请输入手机号"
-                :input-border="false"
+                border="none"
                 disabled
             />
         </view> -->
@@ -16,7 +16,7 @@
                 v-model="new_mobile"
                 style="width: 100%"
                 :placeholder="mobile ? $t('请输入新手机号') : $t('请输入手机号')"
-                :input-border="false"
+                border="none"
             />
         </view>
         <view class="input row flex row-center" style="padding: 30rpx">
@@ -24,7 +24,7 @@
                 v-model="captchaCode"
                 style="flex: 1"
                 :placeholder="$t('请输入图形验证码')"
-                :input-border="false"
+                border="none"
             />
             <image
                 class="captcha-img"
@@ -38,25 +38,14 @@
                 v-model="smsCode"
                 style="flex: 1"
                 :placeholder="$t('请输入验证码')"
-                :input-border="false"
+                border="none"
             />
             <view class="row ml10" style="">
                 <view class="sms-btn primary sm row-center br60" @click="$sendSms">
                     <view v-show="canSendSms">{{ $t('获取验证码') }}</view>
-                    <u-count-down
-                        ref="countDown"
-                        :show-days="false"
-                        :timestamp="time"
-                        :showColon="false"
-                        separator="zh"
-                        color="#FF2C3C"
-                        separator-color="#FF2C3C"
-                        :show-hours="false"
-                        :show-minutes="false"
-                        :autoplay="false"
-                        v-show="!canSendSms"
-                        @end="countDownFinish()"
-                    />
+                                        <u-count-down ref="countDown" :time="time * 1000" :auto-start="false" v-show="!canSendSms" format="ss秒" @finish="countDownFinish()">
+                        <template #default="{days, hours, minutes, seconds}"><text style="color:#FF2C3C">{{ String(seconds).padStart(2, '0') }}秒</text></template>
+                    </u-count-down>
                 </view>
             </view>
         </view>

@@ -2,7 +2,7 @@
   <div class="default-layout column">
     <v-header></v-header>
     <main class="content-container wrapper1180 flex1">
-      <nuxt />
+      <slot />
     </main>
     <v-footer></v-footer>
     <float-nav></float-nav>

@@ -50,7 +50,7 @@
       </template>
       <null-data
         v-else
-        :img="require('~/assets/images/news_null.png')"
+        :img="newsNull"
         :text="$t('暂无评价~')"
       ></null-data>
     </div>
@@ -58,6 +58,7 @@
 </template>
 
 <script>
+import newsNull from "~/assets/images/news_null.png";
 export default {
   components: {},
   props: {

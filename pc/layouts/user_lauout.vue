@@ -4,7 +4,7 @@
     <main class="content-container wrapper1180 row flex1">
       <aslide-nav />
       <div class="content bg-white flex1 ml16">
-      <nuxt />
+      <slot />
       </div>
     </main>
     <v-footer></v-footer>

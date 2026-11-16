@@ -1,12 +1,19 @@
 <template>
   <div class="seckill">
     <div class="banner mt16 column">
-      <el-image :src="require('~/assets/images/seckill_banner.png')"></el-image>
+      <el-image :src="seckillBanner"></el-image>
     </div>
     <div class="time-list">
       <client-only>
-        <swiper class="swiper" ref="mySwiper" :options="swiperOptions">
-          <swiper-slide
+        <Swiper
+          class="swiper"
+          :modules="[Navigation]"
+          :slides-per-view="'auto'"
+          :prevent-clicks="true"
+          :initial-slide="swiperIndex"
+          :navigation="{ nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }"
+        >
+          <SwiperSlide
             :class="{ 'swiper-item': true, active: index === swiperIndex }"
             v-for="(item, index) in timeList"
             :key="index"
@@ -19,10 +26,12 @@
               <div class="bold xxl">{{ item.start_time }}</div>
               <div class="xs time-status">{{ item.tips }}</div>
             </div>
-          </swiper-slide>
-          <div class="swiper-button-prev" slot="button-prev"></div>
-          <div class="swiper-button-next" slot="button-next"></div>
-        </swiper>
+          </SwiperSlide>
+          <template #container-end>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </template>
+        </Swiper>
       </client-only>
     </div>
     <div class="goods mt16">
@@ -48,7 +57,7 @@
       </template>
       <null-data
         v-else
-        :img="require('~/assets/images/goods_null.png')"
+        :img="goodsNull"
         :text="$t('暂无秒杀~')"
       ></null-data>
     </div>
@@ -56,54 +65,45 @@
 </template>
 
 <script>
+import { Swiper, SwiperSlide } from "swiper/vue";
+import { Navigation } from "swiper/modules";
+import { useAppStore } from "~/stores/app";
+import seckillBanner from "~/assets/images/seckill_banner.png";
+import goodsNull from "~/assets/images/goods_null.png";
 export default {
-  head() {
-    return {
-      title: this.$store.getters.headTitle,
+  async setup() {
+    const store = useAppStore();
+    const { $get } = useNuxtApp();
+    useHead({
+      title: computed(() => store.headTitle),
       link: [
         {
           rel: "icon",
           type: "image/x-icon",
-          href: this.$store.getters.favicon,
+          href: computed(() => store.favicon),
         },
       ],
-    };
-  },
-  components: {},
-  watchQuery: true,
-  async asyncData({ $get }) {
+    });
     const { data } = await $get("seckill/seckillTime");
     let swiperIndex = data.findIndex((item) => item.status == 1);
     if (swiperIndex == -1) {
       swiperIndex = data.findIndex((item) => item.status == 0);
     }
-    return { timeList:data, swiperIndex };
+    return { timeList: data, swiperIndex };
+  },
+  components: {
+    Swiper,
+    SwiperSlide,
   },
   data() {
     return {
       page: 1,
-      swiperIndex: 0,
       count: 0,
       goodsList: [],
-      timeList: [],
       hasData: true,
-      swiperOptions: {
-        initialSlide: 0,
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-        preventClicks: true,
-        slidesPerView: "auto",
-      },
     };
   },
   created() {
-    this.swiperOptions.initialSlide = this.swiperIndex;
     this.getGoods();
   },
   methods: {

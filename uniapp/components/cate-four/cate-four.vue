@@ -118,7 +118,7 @@
                                 <u-image
                                     width="200rpx"
                                     height="200rpx"
-                                    border-radius="14rpx"
+                                    radius="14rpx"
                                     :src="item.image"
                                 ></u-image>
                                 <view class="flex1 ml20 mr10">
@@ -148,10 +148,10 @@
                             </navigator>
                         </view>
                         <loading-footer :status="status" :slot-empty="true">
-                            <view slot="empty" class="column-center" style="padding: 200rpx 0 0">
+                                                        <template #empty><view class="column-center" style="padding: 200rpx 0 0">
                                 <image class="img-null" src="/static/images/goods_null.png"></image>
                                 <text class="lighter sm">{{ $t('暂无商品') }}</text>
-                            </view>
+                            </view></template>
                         </loading-footer>
                     </view>
                 </view>

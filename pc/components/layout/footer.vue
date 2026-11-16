@@ -31,10 +31,11 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState } from "pinia";
+import { useAppStore } from "~/stores/app";
 export default {
   computed: {
-    ...mapState(["config"]),
+    ...mapState(useAppStore, ["config"]),
   },
 }
 </script>

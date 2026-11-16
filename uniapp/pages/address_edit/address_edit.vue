@@ -37,19 +37,20 @@
                         <image class="icon-sm ml10" src="/static/images/arrow_right.png" />
                     </view>
                 </view>
-                <view>
-                    <u-field
+                <view class="form-item row" style="height: auto; min-height: 200rpx; align-items: flex-start; padding-top: 20rpx; padding-bottom: 20rpx;">
+                    <view class="label" style="padding-top: 10rpx;">{{ $t('详细地址') }}</view>
+                    <u-textarea
                         v-model="addressObj.address"
-                        type="textarea"
-                        :label="$t('详细地址')"
                         :placeholder="$t('请填写小区、街道、门牌号等信息')"
-                        :field-style="{ flex: 1, 'margin-left': '20rpx', height: '160rpx' }"
+                        border="none"
+                        height="160rpx"
+                        style="flex: 1; margin-left: 20rpx;"
                     />
+                </view>
                     <!-- <view class="form-item row" style="height: 200rpx;">					 -->
                     <!-- <view class="label mt20" style="align-self: flex-start;">{$t('详细地址')}</view> -->
                     <!-- <textarea name="address" style="height: 160rpx;padding: 20rpx 20rpx 20rpx 30rpx;" v-model="addressObj.address"  @input="textareaChange" placeholder="请填写小区、街道、门牌号等信息" auto-blur /> -->
                     <!-- </view> -->
-                </view>
             </view>
             <view class="mt10 mb10 bg-white check-wrap">
                 <radio-group class="row" @click="ChangeIsDefault">
@@ -66,12 +67,13 @@
             </view>
             <button class="my-btn bg-primary white br60" form-type="submit">{{ $t('完成') }}</button>
         </form>
-        <u-select
-            v-model="showRegion"
-            mode="mutil-column-auto"
+        <u-picker
+            v-model:show="showRegion"
+            :columns="regionColumns"
+            :default-index="regionIndex"
+            @change="onRegionChange"
             @confirm="regionChange"
-            :list="lists"
-        ></u-select>
+        ></u-picker>
     </view>
 </template>
 
@@ -112,6 +114,7 @@ export default {
             defaultRegion: [this.$t('广东省'), this.$t('广州市'), this.$t('番禺区')],
             defaultRegionCode: '440113',
             showRegion: false,
+            regionIndex: [0, 0, 0],
             lists: []
         }
     },
@@ -143,6 +146,17 @@ export default {
      */
     onUnload: function () {
         uni.removeStorageSync('wxAddress')
+    },
+
+    computed: {
+        regionColumns() {
+            const provinces = this.lists || []
+            const province = provinces[this.regionIndex[0]] || {}
+            const cities = province.children || []
+            const city = cities[this.regionIndex[1]] || {}
+            const districts = city.children || []
+            return [provinces, cities, districts]
+        }
     },
 
     /**
@@ -222,7 +236,18 @@ export default {
                     })
             }
         },
-        regionChange(region) {
+        onRegionChange(e) {
+            const indexs = e.indexs.slice()
+            if (e.columnIndex === 0) {
+                indexs[1] = 0
+                indexs[2] = 0
+            } else if (e.columnIndex === 1) {
+                indexs[2] = 0
+            }
+            this.regionIndex = indexs
+        },
+        regionChange(e) {
+            const region = e.value
             this.addressObj.province_id = region[0].value
             this.addressObj.city_id = region[1].value
             this.addressObj.district_id = region[2].value

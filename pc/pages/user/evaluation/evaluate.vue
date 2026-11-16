@@ -81,21 +81,24 @@
 
 <script>
 import Upload from "~/components/public/upload";
+import { useAppStore } from "~/stores/app";
 export default {
-  head() {
-    return {
-      title: this.$store.getters.headTitle,
+  async setup() {
+    setPageLayout('user_lauout')
+    const route = useRoute();
+    const store = useAppStore();
+    const { $get } = useNuxtApp();
+    useHead({
+      title: computed(() => store.headTitle),
       link: [
         {
           rel: "icon",
           type: "image/x-icon",
-          href: this.$store.getters.favicon,
+          href: computed(() => store.favicon),
         },
       ],
-    };
-  },
-  async asyncData({ $get, query }) {
-    const id = query.id;
+    });
+    const id = route.query.id;
     let { data } = await $get("goods_comment/getGoods", {
       params: { id },
     });
@@ -104,13 +107,11 @@ export default {
       id,
     };
   },
-  layout: "user_lauout",
   components: {
     Upload,
   },
   data() {
     return {
-      goodsInfo: {},
       goodsRate: 0,
       descRate: 0,
       serverRate: 0,
