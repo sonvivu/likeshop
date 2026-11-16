@@ -12,6 +12,7 @@
 
 <script>
 import QRCode from "./qrcode.js"
+import i18n from '@/utils/i18n'
 let qrcode
 export default {
 	name: "tki-qrcode",
@@ -78,7 +79,7 @@ export default {
 		},
 		loadingText: {
 			type: String,
-			default: this.$t('二维码生成中')
+			default: () => i18n.global.t('二维码生成中')
 		},
 	},
 	data() {

@@ -207,7 +207,7 @@ PC 页面修改应优先复用 `pc/` 现有 API、路由、Nuxt 插件和 Elemen
 - PC 的请求层在 `pc/plugins/api.ts`（$fetch/ofetch，承接旧 `plugins/axios.js` 的 RSA 密码加密 + retry consume-token）；旧 axios 拦截器曾因缺 `return response` 导致全部 `$get` 解析为 `undefined`，首页报错——新版拦截器同样必须返回 response。
 - 后端 Validate 的 `$message` 不能直接包 `lang()`（类属性只接受常量）：在各 Validate 类的 `__construct` 里逐条 `lang($value)` 翻译，rule-key 标题（`'field|标题'`）也要重命名翻译；`api/index/pcLists` 曾因白名单有 action 而无方法返回 404。
 - 中文拼接 `lang('X').$var.lang('Y')` 在越南语里会粘字（如 `Tặng10…`）：冒号结尾的 key（68 个）在 part 文件里值尾加一个空格，一次修复约 100 处；其余约 45 处在代码里显式加 `' '`；值自带前导空格的 key（`积分`、`级`，admin/app 两份 locale 不一致）用 `ltrim(lang(...))` 处理，不要全局改值。显示字符串不一定来自模板——`SignDailyLogic::lists()` 在 PHP 里拼接 `award_tips`，先用 DOM/API 确认字符串来源再改。
-- uview-plus 内部文案：模板 `{{$t}}`、脚本 `this.$t`、prop 默认值用 `default() { return this.$t('key') }`。`.vue` 文件很多是 CRLF 或混合换行，改写脚本必须用 `newline=''` 打开，混合文件按字节从 HEAD 重做。
+- uview-plus 内部文案：模板 `{{$t}}`、脚本 `this.$t`；prop 默认值 **禁止用 `this.$t`**（Vue 3 下 `this` 在 prop default 会被编译成 `void 0`，import chunk 抛 `TypeError: Cannot read properties of undefined (reading '$t')`，trang dùng component đó trắng trang — vụ mobile 16/11/2026, xem `loading-footer`）：dùng factory đóng qua instance i18n đã import, `import i18n from '@/utils/i18n'` + `default: () => i18n.global.t('key')`。`.vue` 文件很多是 CRLF 或混合换行，改写脚本必须用 `newline=''` 打开，混合文件按字节从 HEAD 重做。
 - Admin session 只有几分钟，每次 headless 截图前重新登录（captcha + RSA）；Chrome 须用新 profile + `Network.setCacheDisabled`，否则会命中旧页面缓存。`merge.py` 之后须把 `tools/i18n/locales/<surface>/*.json` 同步到 `uniapp/locales/` 与 `pc/locales/`（保持 0 diff）。
 
 ## Mobile / uni-app 架构

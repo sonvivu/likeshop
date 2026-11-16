@@ -10,7 +10,8 @@ export default {
     },
     onLaunch: async function (options) {
         uni.hideTabBar({
-            animation: false
+            animation: false,
+            fail: () => {}
         })
         // 获取配置
         this.getConfigFun()
@@ -36,7 +37,7 @@ export default {
             })
         }
         //#ifdef H5
-        const { clarity_app_id } = this.site_statistic
+        const { clarity_app_id } = this.site_statistic || {}
         if (clarity_app_id) {
             ;(function (c, l, a, r, i, t, y) {
                 c[a] =

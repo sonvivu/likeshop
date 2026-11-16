@@ -94,7 +94,7 @@ PC 本地构建/启动约定：
 - 键 = 中文原文；语言 `vi` 默认、`zh` 回退；译文唯一来源 `tools/i18n/locales/<surface>/vi.part*.json`，用 `merge.py <surface>` 合并。不要对已包 `$t()`/`lang()` 的代码重跑 `--scan`，会污染 locale。
 - 后端 `lang()`、Admin `{:lang()}`、uniapp vue-i18n v11 legacy、PC `@nuxtjs/i18n@10.6.0` + vue-i18n v11。货币按 VND 显示，唯一来源 `server/config/currency.php`（`symbol: ₫`）：PHP 用 `config('currency.symbol')`，Admin 模板用 `{:config('currency.symbol')}`；`server/application/` 内已无 `￥` hardcode（uniapp 9 file chưa động，见 `AGENTS.md`）。新文件须 www-data 可读，否则配置静默为空（2026-11-16 曾因此丢符号）。
 - `pc/plugins/api.ts` 的拦截器必须返回 response，缺失会使首页报错。`server/public/pc/` 是生成目录，发布前确认再跑 `autoRelease.sh`。
-- Validate 的 `$message` 在 `__construct` 里逐条 `lang()` 翻译（含 rule-key 标题）。中文拼接 `lang().$var` 在越南语会粘字：冒号结尾的 key 在 part 文件值尾加空格，其余在代码里显式加 `' '`；`积分`/`级` 两份 locale 前导空格不一致，用 `ltrim()` 处理。uview-plus 内部文案用 `$t`/`this.$t`，prop 默认值用 `default() { return this.$t('key') }`。`.vue` 的 CRLF 文件改写须用 `newline=''`。
+- Validate 的 `$message` 在 `__construct` 里逐条 `lang()` 翻译（含 rule-key 标题）。中文拼接 `lang().$var` 在越南语会粘字：冒号结尾的 key 在 part 文件值尾加空格，其余在代码里显式加 `' '`；`积分`/`级` 两份 locale 前导空格不一致，用 `ltrim()` 处理。uview-plus 内部文案用 `$t`/`this.$t`，prop 默认值 **禁止用 `this.$t`**（Vue 3 下 `this` 在 prop default 会被编译成 `void 0`，import chunk 抛 `TypeError: Cannot read properties of undefined (reading '$t')`，trang dùng component đó trắng trang — vụ mobile 16/11/2026）：dùng `import i18n from '@/utils/i18n'` + `default: () => i18n.global.t('key')`。`.vue` 的 CRLF 文件改写须用 `newline=''`。
 
 ## 后端开发规则
 

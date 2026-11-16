@@ -145,6 +145,7 @@
 </template>
 
 <script>
+import i18n from '@/utils/i18n'
 export default {
   data() {
     return {
@@ -181,11 +182,11 @@ export default {
     },
     redBtnText: {
       type: String,
-      default: this.$t('立即购买'),
+      default: () => i18n.global.t('立即购买'),
     },
     yellowBtnText: {
       type: String,
-      default: this.$t('加入购物车'),
+      default: () => i18n.global.t('加入购物车'),
     },
     group: {
       type: Boolean,

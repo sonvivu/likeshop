@@ -74,6 +74,7 @@
 	import lPainterText from '@/components/lime-painter/components/l-painter-text/l-painter-text.vue'
 	import lPainterView from '@/components/lime-painter/components/l-painter-view/l-painter-view.vue'
 	import lPainterQrcode from '@/components/lime-painter/components/l-painter-qrcode/l-painter-qrcode.vue'
+	import i18n from '@/utils/i18n'
 	export default {
 		name: "share-poster",
 		components: {
@@ -111,11 +112,11 @@
 			
 			bShareTitle: {  // 分享海报标题
 				type: String,
-				default: this.$t('我正在参与砍价 还差一步'),
+				default: () => i18n.global.t('我正在参与砍价 还差一步'),
 			},
 			bShareIntro: { // 分享海报简介
 				type: String,
-				default: this.$t('帮忙砍一刀'),
+				default: () => i18n.global.t('帮忙砍一刀'),
 			}
 		},
 		data() {

@@ -173,7 +173,7 @@
                                 </view>
                             </view>
                             <view class="row xs">
-                                {$t('更多')}
+                                {{ $t('更多') }}
                                 <u-icon name="arrow-right" size="28"></u-icon>
                             </view>
                         </navigator></template>
@@ -196,7 +196,7 @@
                                 ></image>
                             </view>
                             <view class="row xs">
-                                {$t('更多')}
+                                {{ $t('更多') }}
                                 <u-icon name="arrow-right" size="28"></u-icon>
                             </view>
                         </navigator></template>

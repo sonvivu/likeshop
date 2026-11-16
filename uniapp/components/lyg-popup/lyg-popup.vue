@@ -24,12 +24,14 @@
 </template>
 
 <script>
+	import i18n from '@/utils/i18n'
+
 	export default {
 		name: "lyg-popup",
 		props: {
 			title: {
 				type: String,
-				default: this.$t('用户使用及隐私保护政策提示')
+				default: () => i18n.global.t('用户使用及隐私保护政策提示')
 			},
 			// 协议路径
 			protocolPath: {

@@ -14,6 +14,7 @@
 </template>
 
 <script>
+import i18n from '@/utils/i18n'
 
 export default {
   data() {
@@ -29,15 +30,15 @@ export default {
     },
     errorText: {
       type: String,
-      default: this.$t('加载失败，点击重新加载')
+      default: () => i18n.global.t('加载失败，点击重新加载')
     },
     loadingText: {
       type: String,
-      default: this.$t('加载中...')
+      default: () => i18n.global.t('加载中...')
     },
     finishedText: {
       type: String,
-      default: this.$t('我可是有底线的～')
+      default: () => i18n.global.t('我可是有底线的～')
     },
     slotEmpty: {
       type: Boolean,
