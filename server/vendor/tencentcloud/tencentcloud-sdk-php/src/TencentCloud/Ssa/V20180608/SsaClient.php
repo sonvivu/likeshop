@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,21 +23,29 @@ use TencentCloud\Common\Credential;
 use TencentCloud\Ssa\V20180608\Models as Models;
 
 /**
+ * @method Models\DescribeAlarmStatResponse DescribeAlarmStat(Models\DescribeAlarmStatRequest $req) 安全大屏-用户威胁告警信息
  * @method Models\DescribeAssetDetailResponse DescribeAssetDetail(Models\DescribeAssetDetailRequest $req) 资产安全页资产详情
+ * @method Models\DescribeAssetDetailListResponse DescribeAssetDetailList(Models\DescribeAssetDetailListRequest $req) 资产条件查询
  * @method Models\DescribeAssetListResponse DescribeAssetList(Models\DescribeAssetListRequest $req) 资产安全资产列表
- * @method Models\DescribeAssetsMappingListResponse DescribeAssetsMappingList(Models\DescribeAssetsMappingListRequest $req) 资产测绘-测绘列表
  * @method Models\DescribeCheckConfigAssetListResponse DescribeCheckConfigAssetList(Models\DescribeCheckConfigAssetListRequest $req) 云安全配置管理资产组列表
  * @method Models\DescribeCheckConfigDetailResponse DescribeCheckConfigDetail(Models\DescribeCheckConfigDetailRequest $req) 云安全配置检查项详情
  * @method Models\DescribeComplianceAssetListResponse DescribeComplianceAssetList(Models\DescribeComplianceAssetListRequest $req) 合规管理-资产列表
  * @method Models\DescribeComplianceDetailResponse DescribeComplianceDetail(Models\DescribeComplianceDetailRequest $req) 合规管理检查项详情
  * @method Models\DescribeComplianceListResponse DescribeComplianceList(Models\DescribeComplianceListRequest $req) 合规管理总览页检查项列表
  * @method Models\DescribeConfigListResponse DescribeConfigList(Models\DescribeConfigListRequest $req) 云配置检查项总览页检查项列表
+ * @method Models\DescribeDomainListResponse DescribeDomainList(Models\DescribeDomainListRequest $req) 域名列表信息
  * @method Models\DescribeEventDetailResponse DescribeEventDetail(Models\DescribeEventDetailRequest $req) 获取安全事件详情
  * @method Models\DescribeLeakDetectionListResponse DescribeLeakDetectionList(Models\DescribeLeakDetectionListRequest $req) 获取泄露列表
- * @method Models\DescribeSafetyEventListResponse DescribeSafetyEventList(Models\DescribeSafetyEventListRequest $req) 获取安全事件列表
+ * @method Models\DescribeMappingResultsResponse DescribeMappingResults(Models\DescribeMappingResultsRequest $req) 获取测绘列表
+ * @method Models\DescribeSocAlertDetailsResponse DescribeSocAlertDetails(Models\DescribeSocAlertDetailsRequest $req) 返回告警详情
+ * @method Models\DescribeSocAlertListResponse DescribeSocAlertList(Models\DescribeSocAlertListRequest $req) 拉取告警列表
+ * @method Models\DescribeSocCheckItemListResponse DescribeSocCheckItemList(Models\DescribeSocCheckItemListRequest $req) 云安全配置检查项列表
+ * @method Models\DescribeSocCheckResultListResponse DescribeSocCheckResultList(Models\DescribeSocCheckResultListRequest $req) 云安全配置检查项结果列表
+ * @method Models\DescribeSocCspmComplianceResponse DescribeSocCspmCompliance(Models\DescribeSocCspmComplianceRequest $req) 合规详情项
  * @method Models\DescribeVulDetailResponse DescribeVulDetail(Models\DescribeVulDetailRequest $req) 漏洞列表页，获取漏洞详情信息
  * @method Models\DescribeVulListResponse DescribeVulList(Models\DescribeVulListRequest $req) 漏洞管理页，获取漏洞列表
- * @method Models\SaDivulgeDataQueryPubResponse SaDivulgeDataQueryPub(Models\SaDivulgeDataQueryPubRequest $req) 查询【通用字段】【泄露监测数据列表】
+ * @method Models\SaDivulgeScanRuleMutateResponse SaDivulgeScanRuleMutate(Models\SaDivulgeScanRuleMutateRequest $req) SaDivulgeScanRuleMutate
+ * @method Models\SaEventPubResponse SaEventPub(Models\SaEventPubRequest $req) 安全事件通用字段
  */
 
 class SsaClient extends AbstractClient

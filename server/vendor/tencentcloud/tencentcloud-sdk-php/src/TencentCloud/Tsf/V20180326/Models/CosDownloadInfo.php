@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,57 +21,41 @@ use TencentCloud\Common\AbstractModel;
  * Cos下载所需信息
  *
  * @method string getBucket() 获取桶名称
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setBucket(string $Bucket) 设置桶名称
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getRegion() 获取地域
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setRegion(string $Region) 设置地域
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getPath() 获取路径
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setPath(string $Path) 设置路径
-注意：此字段可能返回 null，表示取不到有效值。
  * @method CosCredentials getCredentials() 获取鉴权信息
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setCredentials(CosCredentials $Credentials) 设置鉴权信息
-注意：此字段可能返回 null，表示取不到有效值。
  */
 class CosDownloadInfo extends AbstractModel
 {
     /**
      * @var string 桶名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Bucket;
 
     /**
      * @var string 地域
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Region;
 
     /**
      * @var string 路径
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Path;
 
     /**
      * @var CosCredentials 鉴权信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Credentials;
 
     /**
      * @param string $Bucket 桶名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $Region 地域
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $Path 路径
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CosCredentials $Credentials 鉴权信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
     {

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,10 +24,8 @@ use TencentCloud\Common\AbstractModel;
  * @method void setDefinition(integer $Definition) 设置视频转码模板 ID。
  * @method RawTranscodeParameter getRawParameter() 获取视频转码自定义参数，当 Definition 填 0 时有效。
 该参数用于高度定制场景，建议您优先使用 Definition 指定转码参数。
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setRawParameter(RawTranscodeParameter $RawParameter) 设置视频转码自定义参数，当 Definition 填 0 时有效。
 该参数用于高度定制场景，建议您优先使用 Definition 指定转码参数。
-注意：此字段可能返回 null，表示取不到有效值。
  * @method OverrideTranscodeParameter getOverrideParameter() 获取视频转码自定义参数，当 Definition 不填 0 时有效。
 当填写了该结构中的部分转码参数时，将使用填写的参数覆盖转码模板中的参数。
 该参数用于高度定制场景，建议您仅使用 Definition 指定转码参数。
@@ -37,8 +35,10 @@ use TencentCloud\Common\AbstractModel;
 该参数用于高度定制场景，建议您仅使用 Definition 指定转码参数。
 注意：此字段可能返回 null，表示取不到有效值。
  * @method array getWatermarkSet() 获取水印列表，支持多张图片或文字水印，最大可支持 10 张。
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setWatermarkSet(array $WatermarkSet) 设置水印列表，支持多张图片或文字水印，最大可支持 10 张。
+ * @method BlindWatermarkInput getBlindWatermark() 获取数字水印参数。
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setBlindWatermark(BlindWatermarkInput $BlindWatermark) 设置数字水印参数。
 注意：此字段可能返回 null，表示取不到有效值。
  * @method array getMosaicSet() 获取马赛克列表，最大可支持 10 张。
  * @method void setMosaicSet(array $MosaicSet) 设置马赛克列表，最大可支持 10 张。
@@ -62,13 +62,33 @@ use TencentCloud\Common\AbstractModel;
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setOutputStorage(TaskOutputStorage $OutputStorage) 设置转码后文件的目标存储，不填则继承上层的 OutputStorage 值。
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getOutputObjectPath() 获取转码后主文件的输出路径，可以为相对路径或者绝对路径。如果不填，则默认为相对路径：`{inputName}_transcode_{definition}.{format}`。
- * @method void setOutputObjectPath(string $OutputObjectPath) 设置转码后主文件的输出路径，可以为相对路径或者绝对路径。如果不填，则默认为相对路径：`{inputName}_transcode_{definition}.{format}`。
+ * @method string getOutputObjectPath() 获取转码后主文件的输出路径，可以为相对路径或者绝对路径。
+若需定义输出路径，路径需以`.{format}`结尾。变量名请参考 [文件名变量说明](https://cloud.tencent.com/document/product/862/37039)。
+相对路径示例：
+<li>文件名_{变量名}.{format}</li>
+<li>文件名.{format}</li>
+绝对路径示例：
+<li>/自定义路径/文件名_{变量名}.{format}</li>
+如果不填，则默认为相对路径：`{inputName}_transcode_{definition}.{format}`。
+
+ * @method void setOutputObjectPath(string $OutputObjectPath) 设置转码后主文件的输出路径，可以为相对路径或者绝对路径。
+若需定义输出路径，路径需以`.{format}`结尾。变量名请参考 [文件名变量说明](https://cloud.tencent.com/document/product/862/37039)。
+相对路径示例：
+<li>文件名_{变量名}.{format}</li>
+<li>文件名.{format}</li>
+绝对路径示例：
+<li>/自定义路径/文件名_{变量名}.{format}</li>
+如果不填，则默认为相对路径：`{inputName}_transcode_{definition}.{format}`。
+
  * @method string getSegmentObjectName() 获取转码后分片文件的输出路径（转码 HLS 时 ts 的路径），只能为相对路径。如果不填，则默认为：`{inputName}_transcode_{definition}_{number}.{format}`。
  * @method void setSegmentObjectName(string $SegmentObjectName) 设置转码后分片文件的输出路径（转码 HLS 时 ts 的路径），只能为相对路径。如果不填，则默认为：`{inputName}_transcode_{definition}_{number}.{format}`。
  * @method NumberFormat getObjectNumberFormat() 获取转码后输出路径中的`{number}`变量的规则。
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setObjectNumberFormat(NumberFormat $ObjectNumberFormat) 设置转码后输出路径中的`{number}`变量的规则。
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method HeadTailParameter getHeadTailParameter() 获取片头片尾参数。
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setHeadTailParameter(HeadTailParameter $HeadTailParameter) 设置片头片尾参数。
 注意：此字段可能返回 null，表示取不到有效值。
  */
 class TranscodeTaskInput extends AbstractModel
@@ -81,7 +101,6 @@ class TranscodeTaskInput extends AbstractModel
     /**
      * @var RawTranscodeParameter 视频转码自定义参数，当 Definition 填 0 时有效。
 该参数用于高度定制场景，建议您优先使用 Definition 指定转码参数。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $RawParameter;
 
@@ -95,9 +114,14 @@ class TranscodeTaskInput extends AbstractModel
 
     /**
      * @var array 水印列表，支持多张图片或文字水印，最大可支持 10 张。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $WatermarkSet;
+
+    /**
+     * @var BlindWatermarkInput 数字水印参数。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $BlindWatermark;
 
     /**
      * @var array 马赛克列表，最大可支持 10 张。
@@ -127,7 +151,15 @@ class TranscodeTaskInput extends AbstractModel
     public $OutputStorage;
 
     /**
-     * @var string 转码后主文件的输出路径，可以为相对路径或者绝对路径。如果不填，则默认为相对路径：`{inputName}_transcode_{definition}.{format}`。
+     * @var string 转码后主文件的输出路径，可以为相对路径或者绝对路径。
+若需定义输出路径，路径需以`.{format}`结尾。变量名请参考 [文件名变量说明](https://cloud.tencent.com/document/product/862/37039)。
+相对路径示例：
+<li>文件名_{变量名}.{format}</li>
+<li>文件名.{format}</li>
+绝对路径示例：
+<li>/自定义路径/文件名_{变量名}.{format}</li>
+如果不填，则默认为相对路径：`{inputName}_transcode_{definition}.{format}`。
+
      */
     public $OutputObjectPath;
 
@@ -143,15 +175,21 @@ class TranscodeTaskInput extends AbstractModel
     public $ObjectNumberFormat;
 
     /**
+     * @var HeadTailParameter 片头片尾参数。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $HeadTailParameter;
+
+    /**
      * @param integer $Definition 视频转码模板 ID。
      * @param RawTranscodeParameter $RawParameter 视频转码自定义参数，当 Definition 填 0 时有效。
 该参数用于高度定制场景，建议您优先使用 Definition 指定转码参数。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param OverrideTranscodeParameter $OverrideParameter 视频转码自定义参数，当 Definition 不填 0 时有效。
 当填写了该结构中的部分转码参数时，将使用填写的参数覆盖转码模板中的参数。
 该参数用于高度定制场景，建议您仅使用 Definition 指定转码参数。
 注意：此字段可能返回 null，表示取不到有效值。
      * @param array $WatermarkSet 水印列表，支持多张图片或文字水印，最大可支持 10 张。
+     * @param BlindWatermarkInput $BlindWatermark 数字水印参数。
 注意：此字段可能返回 null，表示取不到有效值。
      * @param array $MosaicSet 马赛克列表，最大可支持 10 张。
      * @param float $StartTimeOffset 转码后的视频的起始时间偏移，单位：秒。
@@ -164,9 +202,19 @@ class TranscodeTaskInput extends AbstractModel
 <li>当数值小于0时（假设为 -n），表示转码后的视频持续到原始视频结束 n 秒前终止。</li>
      * @param TaskOutputStorage $OutputStorage 转码后文件的目标存储，不填则继承上层的 OutputStorage 值。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $OutputObjectPath 转码后主文件的输出路径，可以为相对路径或者绝对路径。如果不填，则默认为相对路径：`{inputName}_transcode_{definition}.{format}`。
+     * @param string $OutputObjectPath 转码后主文件的输出路径，可以为相对路径或者绝对路径。
+若需定义输出路径，路径需以`.{format}`结尾。变量名请参考 [文件名变量说明](https://cloud.tencent.com/document/product/862/37039)。
+相对路径示例：
+<li>文件名_{变量名}.{format}</li>
+<li>文件名.{format}</li>
+绝对路径示例：
+<li>/自定义路径/文件名_{变量名}.{format}</li>
+如果不填，则默认为相对路径：`{inputName}_transcode_{definition}.{format}`。
+
      * @param string $SegmentObjectName 转码后分片文件的输出路径（转码 HLS 时 ts 的路径），只能为相对路径。如果不填，则默认为：`{inputName}_transcode_{definition}_{number}.{format}`。
      * @param NumberFormat $ObjectNumberFormat 转码后输出路径中的`{number}`变量的规则。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param HeadTailParameter $HeadTailParameter 片头片尾参数。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
@@ -205,6 +253,11 @@ class TranscodeTaskInput extends AbstractModel
             }
         }
 
+        if (array_key_exists("BlindWatermark",$param) and $param["BlindWatermark"] !== null) {
+            $this->BlindWatermark = new BlindWatermarkInput();
+            $this->BlindWatermark->deserialize($param["BlindWatermark"]);
+        }
+
         if (array_key_exists("MosaicSet",$param) and $param["MosaicSet"] !== null) {
             $this->MosaicSet = [];
             foreach ($param["MosaicSet"] as $key => $value){
@@ -238,6 +291,11 @@ class TranscodeTaskInput extends AbstractModel
         if (array_key_exists("ObjectNumberFormat",$param) and $param["ObjectNumberFormat"] !== null) {
             $this->ObjectNumberFormat = new NumberFormat();
             $this->ObjectNumberFormat->deserialize($param["ObjectNumberFormat"]);
+        }
+
+        if (array_key_exists("HeadTailParameter",$param) and $param["HeadTailParameter"] !== null) {
+            $this->HeadTailParameter = new HeadTailParameter();
+            $this->HeadTailParameter->deserialize($param["HeadTailParameter"]);
         }
     }
 }

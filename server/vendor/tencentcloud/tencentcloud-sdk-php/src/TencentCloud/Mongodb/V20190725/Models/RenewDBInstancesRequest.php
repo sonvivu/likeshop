@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,15 +20,21 @@ use TencentCloud\Common\AbstractModel;
 /**
  * RenewDBInstances请求参数结构体
  *
- * @method array getInstanceIds() 获取一个或多个待操作的实例ID。可通过DescribeInstances接口返回值中的InstanceId获取。每次请求批量实例的上限为100。
- * @method void setInstanceIds(array $InstanceIds) 设置一个或多个待操作的实例ID。可通过DescribeInstances接口返回值中的InstanceId获取。每次请求批量实例的上限为100。
+ * @method array getInstanceIds() 获取指定续费的一个或多个待操作的实例ID。
+- 可通过[DescribeDBInstances](https://cloud.tencent.com/document/product/240/38568)接口返回值中的**InstanceId**获取。
+- 每次续费请求的实例数量上限为100。
+ * @method void setInstanceIds(array $InstanceIds) 设置指定续费的一个或多个待操作的实例ID。
+- 可通过[DescribeDBInstances](https://cloud.tencent.com/document/product/240/38568)接口返回值中的**InstanceId**获取。
+- 每次续费请求的实例数量上限为100。
  * @method InstanceChargePrepaid getInstanceChargePrepaid() 获取预付费模式，即包年包月相关参数设置。通过该参数可以指定包年包月实例的续费时长、是否设置自动续费等属性。包年包月实例该参数为必传参数。
  * @method void setInstanceChargePrepaid(InstanceChargePrepaid $InstanceChargePrepaid) 设置预付费模式，即包年包月相关参数设置。通过该参数可以指定包年包月实例的续费时长、是否设置自动续费等属性。包年包月实例该参数为必传参数。
  */
 class RenewDBInstancesRequest extends AbstractModel
 {
     /**
-     * @var array 一个或多个待操作的实例ID。可通过DescribeInstances接口返回值中的InstanceId获取。每次请求批量实例的上限为100。
+     * @var array 指定续费的一个或多个待操作的实例ID。
+- 可通过[DescribeDBInstances](https://cloud.tencent.com/document/product/240/38568)接口返回值中的**InstanceId**获取。
+- 每次续费请求的实例数量上限为100。
      */
     public $InstanceIds;
 
@@ -38,7 +44,9 @@ class RenewDBInstancesRequest extends AbstractModel
     public $InstanceChargePrepaid;
 
     /**
-     * @param array $InstanceIds 一个或多个待操作的实例ID。可通过DescribeInstances接口返回值中的InstanceId获取。每次请求批量实例的上限为100。
+     * @param array $InstanceIds 指定续费的一个或多个待操作的实例ID。
+- 可通过[DescribeDBInstances](https://cloud.tencent.com/document/product/240/38568)接口返回值中的**InstanceId**获取。
+- 每次续费请求的实例数量上限为100。
      * @param InstanceChargePrepaid $InstanceChargePrepaid 预付费模式，即包年包月相关参数设置。通过该参数可以指定包年包月实例的续费时长、是否设置自动续费等属性。包年包月实例该参数为必传参数。
      */
     function __construct()

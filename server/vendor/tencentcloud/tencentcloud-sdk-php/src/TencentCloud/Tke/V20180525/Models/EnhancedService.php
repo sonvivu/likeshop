@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,8 @@ use TencentCloud\Common\AbstractModel;
  * @method void setSecurityService(RunSecurityServiceEnabled $SecurityService) 设置开启云安全服务。若不指定该参数，则默认开启云安全服务。
  * @method RunMonitorServiceEnabled getMonitorService() 获取开启云监控服务。若不指定该参数，则默认开启云监控服务。
  * @method void setMonitorService(RunMonitorServiceEnabled $MonitorService) 设置开启云监控服务。若不指定该参数，则默认开启云监控服务。
+ * @method RunAutomationServiceEnabled getAutomationService() 获取开启云自动化助手服务（TencentCloud Automation Tools，TAT）。若不指定该参数，则公共镜像默认开启云自动化助手服务，其他镜像默认不开启云自动化助手服务。
+ * @method void setAutomationService(RunAutomationServiceEnabled $AutomationService) 设置开启云自动化助手服务（TencentCloud Automation Tools，TAT）。若不指定该参数，则公共镜像默认开启云自动化助手服务，其他镜像默认不开启云自动化助手服务。
  */
 class EnhancedService extends AbstractModel
 {
@@ -38,8 +40,14 @@ class EnhancedService extends AbstractModel
     public $MonitorService;
 
     /**
+     * @var RunAutomationServiceEnabled 开启云自动化助手服务（TencentCloud Automation Tools，TAT）。若不指定该参数，则公共镜像默认开启云自动化助手服务，其他镜像默认不开启云自动化助手服务。
+     */
+    public $AutomationService;
+
+    /**
      * @param RunSecurityServiceEnabled $SecurityService 开启云安全服务。若不指定该参数，则默认开启云安全服务。
      * @param RunMonitorServiceEnabled $MonitorService 开启云监控服务。若不指定该参数，则默认开启云监控服务。
+     * @param RunAutomationServiceEnabled $AutomationService 开启云自动化助手服务（TencentCloud Automation Tools，TAT）。若不指定该参数，则公共镜像默认开启云自动化助手服务，其他镜像默认不开启云自动化助手服务。
      */
     function __construct()
     {
@@ -62,6 +70,11 @@ class EnhancedService extends AbstractModel
         if (array_key_exists("MonitorService",$param) and $param["MonitorService"] !== null) {
             $this->MonitorService = new RunMonitorServiceEnabled();
             $this->MonitorService->deserialize($param["MonitorService"]);
+        }
+
+        if (array_key_exists("AutomationService",$param) and $param["AutomationService"] !== null) {
+            $this->AutomationService = new RunAutomationServiceEnabled();
+            $this->AutomationService->deserialize($param["AutomationService"]);
         }
     }
 }

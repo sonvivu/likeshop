@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,48 +18,36 @@ namespace TencentCloud\Vod\V20180717\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * 鉴黄任务控制参数
+ * 鉴别涉及令人反感的信息的任务控制参数
  *
- * @method PornImgReviewTemplateInfo getImgReviewInfo() 获取画面鉴黄控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setImgReviewInfo(PornImgReviewTemplateInfo $ImgReviewInfo) 设置画面鉴黄控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method PornAsrReviewTemplateInfo getAsrReviewInfo() 获取语音鉴黄控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setAsrReviewInfo(PornAsrReviewTemplateInfo $AsrReviewInfo) 设置语音鉴黄控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method PornOcrReviewTemplateInfo getOcrReviewInfo() 获取文本鉴黄控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setOcrReviewInfo(PornOcrReviewTemplateInfo $OcrReviewInfo) 设置文本鉴黄控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
+ * @method PornImgReviewTemplateInfo getImgReviewInfo() 获取画面鉴别涉及令人反感的信息的控制参数。
+ * @method void setImgReviewInfo(PornImgReviewTemplateInfo $ImgReviewInfo) 设置画面鉴别涉及令人反感的信息的控制参数。
+ * @method PornAsrReviewTemplateInfo getAsrReviewInfo() 获取语音鉴别涉及令人反感的信息的控制参数。
+ * @method void setAsrReviewInfo(PornAsrReviewTemplateInfo $AsrReviewInfo) 设置语音鉴别涉及令人反感的信息的控制参数。
+ * @method PornOcrReviewTemplateInfo getOcrReviewInfo() 获取文本鉴别涉及令人反感的信息的控制参数。
+ * @method void setOcrReviewInfo(PornOcrReviewTemplateInfo $OcrReviewInfo) 设置文本鉴别涉及令人反感的信息的控制参数。
  */
 class PornConfigureInfo extends AbstractModel
 {
     /**
-     * @var PornImgReviewTemplateInfo 画面鉴黄控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var PornImgReviewTemplateInfo 画面鉴别涉及令人反感的信息的控制参数。
      */
     public $ImgReviewInfo;
 
     /**
-     * @var PornAsrReviewTemplateInfo 语音鉴黄控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var PornAsrReviewTemplateInfo 语音鉴别涉及令人反感的信息的控制参数。
      */
     public $AsrReviewInfo;
 
     /**
-     * @var PornOcrReviewTemplateInfo 文本鉴黄控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var PornOcrReviewTemplateInfo 文本鉴别涉及令人反感的信息的控制参数。
      */
     public $OcrReviewInfo;
 
     /**
-     * @param PornImgReviewTemplateInfo $ImgReviewInfo 画面鉴黄控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param PornAsrReviewTemplateInfo $AsrReviewInfo 语音鉴黄控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param PornOcrReviewTemplateInfo $OcrReviewInfo 文本鉴黄控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
+     * @param PornImgReviewTemplateInfo $ImgReviewInfo 画面鉴别涉及令人反感的信息的控制参数。
+     * @param PornAsrReviewTemplateInfo $AsrReviewInfo 语音鉴别涉及令人反感的信息的控制参数。
+     * @param PornOcrReviewTemplateInfo $OcrReviewInfo 文本鉴别涉及令人反感的信息的控制参数。
      */
     function __construct()
     {

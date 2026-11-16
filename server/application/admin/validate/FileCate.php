@@ -19,7 +19,7 @@
 
 namespace app\admin\validate;
 
-use think\Db;
+use think\facade\Db;
 use think\Validate;
 
 class FileCate extends Validate
@@ -60,7 +60,7 @@ class FileCate extends Validate
 
     protected function sceneAdd()
     {
-        $this->remove('id')
+        $this->remove('id', true)
             ->remove('pid', 'checkEdit');
     }
 

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,26 +20,26 @@ use TencentCloud\Common\AbstractModel;
 /**
  * 指定某个Layer版本
  *
- * @method string getLayerName() 获取layer名称
- * @method void setLayerName(string $LayerName) 设置layer名称
- * @method integer getLayerVersion() 获取版本号
- * @method void setLayerVersion(integer $LayerVersion) 设置版本号
+ * @method string getLayerName() 获取绑定的层名称。解绑层需传递空字符串。
+ * @method void setLayerName(string $LayerName) 设置绑定的层名称。解绑层需传递空字符串。
+ * @method integer getLayerVersion() 获取绑定或解绑层的版本号。解绑函数版本关联的最后一个层版本时，LayerVersion 填 0。
+ * @method void setLayerVersion(integer $LayerVersion) 设置绑定或解绑层的版本号。解绑函数版本关联的最后一个层版本时，LayerVersion 填 0。
  */
 class LayerVersionSimple extends AbstractModel
 {
     /**
-     * @var string layer名称
+     * @var string 绑定的层名称。解绑层需传递空字符串。
      */
     public $LayerName;
 
     /**
-     * @var integer 版本号
+     * @var integer 绑定或解绑层的版本号。解绑函数版本关联的最后一个层版本时，LayerVersion 填 0。
      */
     public $LayerVersion;
 
     /**
-     * @param string $LayerName layer名称
-     * @param integer $LayerVersion 版本号
+     * @param string $LayerName 绑定的层名称。解绑层需传递空字符串。
+     * @param integer $LayerVersion 绑定或解绑层的版本号。解绑函数版本关联的最后一个层版本时，LayerVersion 填 0。
      */
     function __construct()
     {

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,18 +20,34 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeRoute请求参数结构体
  *
- * @method string getInstanceId() 获取实例唯一id
- * @method void setInstanceId(string $InstanceId) 设置实例唯一id
+ * @method string getInstanceId() 获取<p>ckafka集群实例Id</p><p>取值参考：<a href="https://cloud.tencent.com/document/api/597/40835">DescribeInstances</a></p>
+ * @method void setInstanceId(string $InstanceId) 设置<p>ckafka集群实例Id</p><p>取值参考：<a href="https://cloud.tencent.com/document/api/597/40835">DescribeInstances</a></p>
+ * @method integer getRouteId() 获取<p>路由Id</p>
+ * @method void setRouteId(integer $RouteId) 设置<p>路由Id</p>
+ * @method boolean getMainRouteFlag() 获取<p>是否显示主路由，true时会在返回原路由列表的基础上,再额外展示实例创建时的主路由信息(且不被InternalFlag/UsedFor等参数过滤影响)</p>
+ * @method void setMainRouteFlag(boolean $MainRouteFlag) 设置<p>是否显示主路由，true时会在返回原路由列表的基础上,再额外展示实例创建时的主路由信息(且不被InternalFlag/UsedFor等参数过滤影响)</p>
  */
 class DescribeRouteRequest extends AbstractModel
 {
     /**
-     * @var string 实例唯一id
+     * @var string <p>ckafka集群实例Id</p><p>取值参考：<a href="https://cloud.tencent.com/document/api/597/40835">DescribeInstances</a></p>
      */
     public $InstanceId;
 
     /**
-     * @param string $InstanceId 实例唯一id
+     * @var integer <p>路由Id</p>
+     */
+    public $RouteId;
+
+    /**
+     * @var boolean <p>是否显示主路由，true时会在返回原路由列表的基础上,再额外展示实例创建时的主路由信息(且不被InternalFlag/UsedFor等参数过滤影响)</p>
+     */
+    public $MainRouteFlag;
+
+    /**
+     * @param string $InstanceId <p>ckafka集群实例Id</p><p>取值参考：<a href="https://cloud.tencent.com/document/api/597/40835">DescribeInstances</a></p>
+     * @param integer $RouteId <p>路由Id</p>
+     * @param boolean $MainRouteFlag <p>是否显示主路由，true时会在返回原路由列表的基础上,再额外展示实例创建时的主路由信息(且不被InternalFlag/UsedFor等参数过滤影响)</p>
      */
     function __construct()
     {
@@ -48,6 +64,14 @@ class DescribeRouteRequest extends AbstractModel
         }
         if (array_key_exists("InstanceId",$param) and $param["InstanceId"] !== null) {
             $this->InstanceId = $param["InstanceId"];
+        }
+
+        if (array_key_exists("RouteId",$param) and $param["RouteId"] !== null) {
+            $this->RouteId = $param["RouteId"];
+        }
+
+        if (array_key_exists("MainRouteFlag",$param) and $param["MainRouteFlag"] !== null) {
+            $this->MainRouteFlag = $param["MainRouteFlag"];
         }
     }
 }

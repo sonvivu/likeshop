@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,18 +20,18 @@ use TencentCloud\Common\AbstractModel;
 /**
  * GetCustomMFATokenInfo请求参数结构体
  *
- * @method string getMFAToken() 获取自定义多因子验证Token
- * @method void setMFAToken(string $MFAToken) 设置自定义多因子验证Token
+ * @method string getMFAToken() 获取自定义多因子验证Token，针对用户自定义的安全校验方式而生成的，以供查询用户安全校验时使用。
+ * @method void setMFAToken(string $MFAToken) 设置自定义多因子验证Token，针对用户自定义的安全校验方式而生成的，以供查询用户安全校验时使用。
  */
 class GetCustomMFATokenInfoRequest extends AbstractModel
 {
     /**
-     * @var string 自定义多因子验证Token
+     * @var string 自定义多因子验证Token，针对用户自定义的安全校验方式而生成的，以供查询用户安全校验时使用。
      */
     public $MFAToken;
 
     /**
-     * @param string $MFAToken 自定义多因子验证Token
+     * @param string $MFAToken 自定义多因子验证Token，针对用户自定义的安全校验方式而生成的，以供查询用户安全校验时使用。
      */
     function __construct()
     {

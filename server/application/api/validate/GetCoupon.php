@@ -17,7 +17,7 @@
 // | author: likeshop.cn.team
 // +----------------------------------------------------------------------
 namespace app\api\validate;
-use think\Db;
+use think\facade\Db;
 use think\Validate;
 
 class GetCoupon extends Validate{

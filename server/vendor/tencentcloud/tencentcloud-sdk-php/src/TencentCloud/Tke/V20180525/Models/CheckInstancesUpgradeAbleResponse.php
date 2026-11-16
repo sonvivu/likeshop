@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,15 +25,15 @@ use TencentCloud\Common\AbstractModel;
  * @method string getLatestVersion() 获取集群master对应的大版本目前最新小版本
  * @method void setLatestVersion(string $LatestVersion) 设置集群master对应的大版本目前最新小版本
  * @method array getUpgradeAbleInstances() 获取可升级节点列表
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setUpgradeAbleInstances(array $UpgradeAbleInstances) 设置可升级节点列表
-注意：此字段可能返回 null，表示取不到有效值。
  * @method integer getTotal() 获取总数
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setTotal(integer $Total) 设置总数
+ * @method array getUnavailableVersionReason() 获取不可升级原因
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
- * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method void setUnavailableVersionReason(array $UnavailableVersionReason) 设置不可升级原因
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+ * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
 class CheckInstancesUpgradeAbleResponse extends AbstractModel
 {
@@ -49,18 +49,22 @@ class CheckInstancesUpgradeAbleResponse extends AbstractModel
 
     /**
      * @var array 可升级节点列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $UpgradeAbleInstances;
 
     /**
      * @var integer 总数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Total;
 
     /**
-     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @var array 不可升级原因
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $UnavailableVersionReason;
+
+    /**
+     * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public $RequestId;
 
@@ -68,10 +72,10 @@ class CheckInstancesUpgradeAbleResponse extends AbstractModel
      * @param string $ClusterVersion 集群master当前小版本
      * @param string $LatestVersion 集群master对应的大版本目前最新小版本
      * @param array $UpgradeAbleInstances 可升级节点列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param integer $Total 总数
+     * @param array $UnavailableVersionReason 不可升级原因
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
     {
@@ -105,6 +109,15 @@ class CheckInstancesUpgradeAbleResponse extends AbstractModel
 
         if (array_key_exists("Total",$param) and $param["Total"] !== null) {
             $this->Total = $param["Total"];
+        }
+
+        if (array_key_exists("UnavailableVersionReason",$param) and $param["UnavailableVersionReason"] !== null) {
+            $this->UnavailableVersionReason = [];
+            foreach ($param["UnavailableVersionReason"] as $key => $value){
+                $obj = new UnavailableReason();
+                $obj->deserialize($value);
+                array_push($this->UnavailableVersionReason, $obj);
+            }
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

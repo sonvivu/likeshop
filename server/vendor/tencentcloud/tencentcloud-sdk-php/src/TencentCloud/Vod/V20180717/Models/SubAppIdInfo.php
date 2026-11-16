@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,8 +22,8 @@ use TencentCloud\Common\AbstractModel;
  *
  * @method integer getSubAppId() 获取子应用 ID。
  * @method void setSubAppId(integer $SubAppId) 设置子应用 ID。
- * @method string getName() 获取子应用名称。
- * @method void setName(string $Name) 设置子应用名称。
+ * @method string getSubAppIdName() 获取子应用名称。
+ * @method void setSubAppIdName(string $SubAppIdName) 设置子应用名称。
  * @method string getDescription() 获取子应用简介。
  * @method void setDescription(string $Description) 设置子应用简介。
  * @method string getCreateTime() 获取子应用创建时间，采用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
@@ -38,6 +38,20 @@ use TencentCloud\Common\AbstractModel;
 <li>Off：停用。</li>
 <li>Destroying：销毁中。</li>
 <li>Destroyed：销毁完成。</li>
+ * @method string getName() 获取子应用名称（该字段已不推荐使用，建议使用新的子应用名称字段 SubAppIdName）。
+ * @method void setName(string $Name) 设置子应用名称（该字段已不推荐使用，建议使用新的子应用名称字段 SubAppIdName）。
+ * @method string getMode() 获取此应用的模式，可选值为：
+- fileid：仅FileID模式
+- - fileid+path：FileID & Path模式
+留空时默认选择仅FileID模式
+ * @method void setMode(string $Mode) 设置此应用的模式，可选值为：
+- fileid：仅FileID模式
+- - fileid+path：FileID & Path模式
+留空时默认选择仅FileID模式
+ * @method array getStorageRegions() 获取子应用已启用的存储地域。
+ * @method void setStorageRegions(array $StorageRegions) 设置子应用已启用的存储地域。
+ * @method array getTags() 获取子应用绑定的tag。
+ * @method void setTags(array $Tags) 设置子应用绑定的tag。
  */
 class SubAppIdInfo extends AbstractModel
 {
@@ -49,7 +63,7 @@ class SubAppIdInfo extends AbstractModel
     /**
      * @var string 子应用名称。
      */
-    public $Name;
+    public $SubAppIdName;
 
     /**
      * @var string 子应用简介。
@@ -71,8 +85,31 @@ class SubAppIdInfo extends AbstractModel
     public $Status;
 
     /**
+     * @var string 子应用名称（该字段已不推荐使用，建议使用新的子应用名称字段 SubAppIdName）。
+     */
+    public $Name;
+
+    /**
+     * @var string 此应用的模式，可选值为：
+- fileid：仅FileID模式
+- - fileid+path：FileID & Path模式
+留空时默认选择仅FileID模式
+     */
+    public $Mode;
+
+    /**
+     * @var array 子应用已启用的存储地域。
+     */
+    public $StorageRegions;
+
+    /**
+     * @var array 子应用绑定的tag。
+     */
+    public $Tags;
+
+    /**
      * @param integer $SubAppId 子应用 ID。
-     * @param string $Name 子应用名称。
+     * @param string $SubAppIdName 子应用名称。
      * @param string $Description 子应用简介。
      * @param string $CreateTime 子应用创建时间，采用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
      * @param string $Status 子应用状态，有效值：
@@ -80,6 +117,13 @@ class SubAppIdInfo extends AbstractModel
 <li>Off：停用。</li>
 <li>Destroying：销毁中。</li>
 <li>Destroyed：销毁完成。</li>
+     * @param string $Name 子应用名称（该字段已不推荐使用，建议使用新的子应用名称字段 SubAppIdName）。
+     * @param string $Mode 此应用的模式，可选值为：
+- fileid：仅FileID模式
+- - fileid+path：FileID & Path模式
+留空时默认选择仅FileID模式
+     * @param array $StorageRegions 子应用已启用的存储地域。
+     * @param array $Tags 子应用绑定的tag。
      */
     function __construct()
     {
@@ -98,8 +142,8 @@ class SubAppIdInfo extends AbstractModel
             $this->SubAppId = $param["SubAppId"];
         }
 
-        if (array_key_exists("Name",$param) and $param["Name"] !== null) {
-            $this->Name = $param["Name"];
+        if (array_key_exists("SubAppIdName",$param) and $param["SubAppIdName"] !== null) {
+            $this->SubAppIdName = $param["SubAppIdName"];
         }
 
         if (array_key_exists("Description",$param) and $param["Description"] !== null) {
@@ -112,6 +156,27 @@ class SubAppIdInfo extends AbstractModel
 
         if (array_key_exists("Status",$param) and $param["Status"] !== null) {
             $this->Status = $param["Status"];
+        }
+
+        if (array_key_exists("Name",$param) and $param["Name"] !== null) {
+            $this->Name = $param["Name"];
+        }
+
+        if (array_key_exists("Mode",$param) and $param["Mode"] !== null) {
+            $this->Mode = $param["Mode"];
+        }
+
+        if (array_key_exists("StorageRegions",$param) and $param["StorageRegions"] !== null) {
+            $this->StorageRegions = $param["StorageRegions"];
+        }
+
+        if (array_key_exists("Tags",$param) and $param["Tags"] !== null) {
+            $this->Tags = [];
+            foreach ($param["Tags"] as $key => $value){
+                $obj = new ResourceTag();
+                $obj->deserialize($value);
+                array_push($this->Tags, $obj);
+            }
         }
     }
 }

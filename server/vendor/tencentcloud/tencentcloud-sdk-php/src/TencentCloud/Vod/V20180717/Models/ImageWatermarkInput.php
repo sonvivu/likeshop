@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,8 +20,8 @@ use TencentCloud\Common\AbstractModel;
 /**
  * 图片水印模板输入参数
  *
- * @method string getImageContent() 获取水印图片 [Base64](https://tools.ietf.org/html/rfc4648) 编码后的字符串。支持 jpeg、png 图片格式。
- * @method void setImageContent(string $ImageContent) 设置水印图片 [Base64](https://tools.ietf.org/html/rfc4648) 编码后的字符串。支持 jpeg、png 图片格式。
+ * @method string getImageContent() 获取水印图片 [Base64](https://tools.ietf.org/html/rfc4648) 编码后的字符串。支持 jpeg、png、gif 图片格式。
+ * @method void setImageContent(string $ImageContent) 设置水印图片 [Base64](https://tools.ietf.org/html/rfc4648) 编码后的字符串。支持 jpeg、png、gif 图片格式。
  * @method string getWidth() 获取水印的宽度。支持 %、px 两种格式：
 <li>当字符串以 % 结尾，表示水印 Width 为视频宽度的百分比大小，如 10% 表示 Width 为视频宽度的 10%；</li>
 <li>当字符串以 px 结尾，表示水印 Width 单位为像素，如 100px 表示 Width 为 100 像素。取值范围为[8, 4096]。</li>
@@ -46,11 +46,19 @@ use TencentCloud\Common\AbstractModel;
 <li>once：动态水印播放完后，不再出现；</li>
 <li>repeat_last_frame：水印播放完后，停留在最后一帧；</li>
 <li>repeat：水印循环播放，直到视频结束（默认值）。</li>
+ * @method integer getTransparency() 获取图片透明度，取值范围：[0, 100]
+<li>0：完全不透明</li>
+<li>100：完全透明</li>
+默认值：0。
+ * @method void setTransparency(integer $Transparency) 设置图片透明度，取值范围：[0, 100]
+<li>0：完全不透明</li>
+<li>100：完全透明</li>
+默认值：0。
  */
 class ImageWatermarkInput extends AbstractModel
 {
     /**
-     * @var string 水印图片 [Base64](https://tools.ietf.org/html/rfc4648) 编码后的字符串。支持 jpeg、png 图片格式。
+     * @var string 水印图片 [Base64](https://tools.ietf.org/html/rfc4648) 编码后的字符串。支持 jpeg、png、gif 图片格式。
      */
     public $ImageContent;
 
@@ -79,7 +87,15 @@ class ImageWatermarkInput extends AbstractModel
     public $RepeatType;
 
     /**
-     * @param string $ImageContent 水印图片 [Base64](https://tools.ietf.org/html/rfc4648) 编码后的字符串。支持 jpeg、png 图片格式。
+     * @var integer 图片透明度，取值范围：[0, 100]
+<li>0：完全不透明</li>
+<li>100：完全透明</li>
+默认值：0。
+     */
+    public $Transparency;
+
+    /**
+     * @param string $ImageContent 水印图片 [Base64](https://tools.ietf.org/html/rfc4648) 编码后的字符串。支持 jpeg、png、gif 图片格式。
      * @param string $Width 水印的宽度。支持 %、px 两种格式：
 <li>当字符串以 % 结尾，表示水印 Width 为视频宽度的百分比大小，如 10% 表示 Width 为视频宽度的 10%；</li>
 <li>当字符串以 px 结尾，表示水印 Width 单位为像素，如 100px 表示 Width 为 100 像素。取值范围为[8, 4096]。</li>
@@ -92,6 +108,10 @@ class ImageWatermarkInput extends AbstractModel
 <li>once：动态水印播放完后，不再出现；</li>
 <li>repeat_last_frame：水印播放完后，停留在最后一帧；</li>
 <li>repeat：水印循环播放，直到视频结束（默认值）。</li>
+     * @param integer $Transparency 图片透明度，取值范围：[0, 100]
+<li>0：完全不透明</li>
+<li>100：完全透明</li>
+默认值：0。
      */
     function __construct()
     {
@@ -120,6 +140,10 @@ class ImageWatermarkInput extends AbstractModel
 
         if (array_key_exists("RepeatType",$param) and $param["RepeatType"] !== null) {
             $this->RepeatType = $param["RepeatType"];
+        }
+
+        if (array_key_exists("Transparency",$param) and $param["Transparency"] !== null) {
+            $this->Transparency = $param["Transparency"];
         }
     }
 }

@@ -39,7 +39,7 @@ class ManifestManager
      * @param string      $vendorPath
      * @param string|null $manifestPath
      */
-    public function __construct(string $vendorPath, string $manifestPath = null)
+    public function __construct(string $vendorPath, ?string $manifestPath = null)
     {
         $this->vendorPath = $vendorPath;
         $this->manifestPath = $manifestPath ?: $vendorPath.'/easywechat-composer/easywechat-composer/extensions.php';
@@ -86,7 +86,9 @@ class ManifestManager
         $manifest = [];
 
         $packages = array_filter($packages, function ($package) {
-            return $package['type'] === self::PACKAGE_TYPE;
+            if(isset($package['type'])){
+                return $package['type'] === self::PACKAGE_TYPE;
+            }
         });
 
         foreach ($packages as $package) {

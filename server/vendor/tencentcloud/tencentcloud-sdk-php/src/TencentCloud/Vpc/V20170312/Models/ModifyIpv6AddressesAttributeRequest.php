@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,26 +20,30 @@ use TencentCloud\Common\AbstractModel;
 /**
  * ModifyIpv6AddressesAttribute请求参数结构体
  *
- * @method string getNetworkInterfaceId() 获取弹性网卡实例`ID`，形如：`eni-m6dyj72l`。
- * @method void setNetworkInterfaceId(string $NetworkInterfaceId) 设置弹性网卡实例`ID`，形如：`eni-m6dyj72l`。
- * @method array getIpv6Addresses() 获取指定的内网IPv6`地址信息。
- * @method void setIpv6Addresses(array $Ipv6Addresses) 设置指定的内网IPv6`地址信息。
+ * @method string getNetworkInterfaceId() 获取弹性网卡实例`ID`，形如：`eni-m6dyj72l`。可通过[DescribeNetworkInterfaces](https://cloud.tencent.com/document/product/215/15817)接口获取。
+
+ * @method void setNetworkInterfaceId(string $NetworkInterfaceId) 设置弹性网卡实例`ID`，形如：`eni-m6dyj72l`。可通过[DescribeNetworkInterfaces](https://cloud.tencent.com/document/product/215/15817)接口获取。
+
+ * @method array getIpv6Addresses() 获取指定的内网IPv6地址信息。
+ * @method void setIpv6Addresses(array $Ipv6Addresses) 设置指定的内网IPv6地址信息。
  */
 class ModifyIpv6AddressesAttributeRequest extends AbstractModel
 {
     /**
-     * @var string 弹性网卡实例`ID`，形如：`eni-m6dyj72l`。
+     * @var string 弹性网卡实例`ID`，形如：`eni-m6dyj72l`。可通过[DescribeNetworkInterfaces](https://cloud.tencent.com/document/product/215/15817)接口获取。
+
      */
     public $NetworkInterfaceId;
 
     /**
-     * @var array 指定的内网IPv6`地址信息。
+     * @var array 指定的内网IPv6地址信息。
      */
     public $Ipv6Addresses;
 
     /**
-     * @param string $NetworkInterfaceId 弹性网卡实例`ID`，形如：`eni-m6dyj72l`。
-     * @param array $Ipv6Addresses 指定的内网IPv6`地址信息。
+     * @param string $NetworkInterfaceId 弹性网卡实例`ID`，形如：`eni-m6dyj72l`。可通过[DescribeNetworkInterfaces](https://cloud.tencent.com/document/product/215/15817)接口获取。
+
+     * @param array $Ipv6Addresses 指定的内网IPv6地址信息。
      */
     function __construct()
     {

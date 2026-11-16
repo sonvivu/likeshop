@@ -35,7 +35,9 @@ class OaLogic  extends LogicBase{
             'abs_qr_code'       => UrlServer::getFileUrl($qr_code),
             'app_id'            => ConfigServer::get('oa', 'app_id', ''),
             'app_secret'        => ConfigServer::get('oa', 'secret', ''),
-            'url'               => url('api/weChat/index','','',true),
+            // ThinkPHP 6 的 url() 返回 UrlBuild 对象：json_encode 会变成 {}，
+            // 必须转字符串（5.1 返回字符串）。
+            'url'               => (string) url('api/weChat/index','','',true),
             'token'             => ConfigServer::get('oa', 'token', 'LikeShop'),
             'encoding_ses_key'  => ConfigServer::get('oa', 'encoding_ses_key', ''),
             'encryption_type'   => ConfigServer::get('oa', 'encryption_type', 1),

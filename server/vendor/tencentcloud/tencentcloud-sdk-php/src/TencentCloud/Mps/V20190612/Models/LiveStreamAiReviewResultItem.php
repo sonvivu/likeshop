@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,31 +22,31 @@ use TencentCloud\Common\AbstractModel;
  *
  * @method string getType() 获取审核结果的类型，可以取的值有：
 <li>ImagePorn：图片鉴黄</li>
-<li>ImageTerrorism：图片鉴恐</li>
-<li>ImagePolitical：图片鉴政</li>
-<li>PornVoice：声音鉴黄</li>
+<li>ImageTerrorism：图片涉敏</li>
+<li>ImagePolitical：图片涉敏</li>
+<li>VoicePorn：声音违规</li>
  * @method void setType(string $Type) 设置审核结果的类型，可以取的值有：
 <li>ImagePorn：图片鉴黄</li>
-<li>ImageTerrorism：图片鉴恐</li>
-<li>ImagePolitical：图片鉴政</li>
-<li>PornVoice：声音鉴黄</li>
+<li>ImageTerrorism：图片涉敏</li>
+<li>ImagePolitical：图片涉敏</li>
+<li>VoicePorn：声音违规</li>
  * @method array getImagePornResultSet() 获取图片鉴黄的结果，当 Type 为 ImagePorn 时有效。
  * @method void setImagePornResultSet(array $ImagePornResultSet) 设置图片鉴黄的结果，当 Type 为 ImagePorn 时有效。
- * @method array getImageTerrorismResultSet() 获取图片鉴恐的结果，当 Type 为 ImageTerrorism 时有效。
- * @method void setImageTerrorismResultSet(array $ImageTerrorismResultSet) 设置图片鉴恐的结果，当 Type 为 ImageTerrorism 时有效。
- * @method array getImagePoliticalResultSet() 获取图片鉴政的结果，当 Type 为 ImagePolitical 时有效。
- * @method void setImagePoliticalResultSet(array $ImagePoliticalResultSet) 设置图片鉴政的结果，当 Type 为 ImagePolitical 时有效。
- * @method array getVoicePornResultSet() 获取声音鉴黄的结果，当 Type 为 PornVoice 时有效。
- * @method void setVoicePornResultSet(array $VoicePornResultSet) 设置声音鉴黄的结果，当 Type 为 PornVoice 时有效。
+ * @method array getImageTerrorismResultSet() 获取图片涉敏的结果，当 Type 为 ImageTerrorism 时有效。
+ * @method void setImageTerrorismResultSet(array $ImageTerrorismResultSet) 设置图片涉敏的结果，当 Type 为 ImageTerrorism 时有效。
+ * @method array getImagePoliticalResultSet() 获取图片涉敏的结果，当 Type 为 ImagePolitical 时有效。
+ * @method void setImagePoliticalResultSet(array $ImagePoliticalResultSet) 设置图片涉敏的结果，当 Type 为 ImagePolitical 时有效。
+ * @method array getVoicePornResultSet() 获取声音违规的结果，当 Type 为 VoicePorn 时有效。
+ * @method void setVoicePornResultSet(array $VoicePornResultSet) 设置声音违规的结果，当 Type 为 VoicePorn 时有效。
  */
 class LiveStreamAiReviewResultItem extends AbstractModel
 {
     /**
      * @var string 审核结果的类型，可以取的值有：
 <li>ImagePorn：图片鉴黄</li>
-<li>ImageTerrorism：图片鉴恐</li>
-<li>ImagePolitical：图片鉴政</li>
-<li>PornVoice：声音鉴黄</li>
+<li>ImageTerrorism：图片涉敏</li>
+<li>ImagePolitical：图片涉敏</li>
+<li>VoicePorn：声音违规</li>
      */
     public $Type;
 
@@ -56,30 +56,30 @@ class LiveStreamAiReviewResultItem extends AbstractModel
     public $ImagePornResultSet;
 
     /**
-     * @var array 图片鉴恐的结果，当 Type 为 ImageTerrorism 时有效。
+     * @var array 图片涉敏的结果，当 Type 为 ImageTerrorism 时有效。
      */
     public $ImageTerrorismResultSet;
 
     /**
-     * @var array 图片鉴政的结果，当 Type 为 ImagePolitical 时有效。
+     * @var array 图片涉敏的结果，当 Type 为 ImagePolitical 时有效。
      */
     public $ImagePoliticalResultSet;
 
     /**
-     * @var array 声音鉴黄的结果，当 Type 为 PornVoice 时有效。
+     * @var array 声音违规的结果，当 Type 为 VoicePorn 时有效。
      */
     public $VoicePornResultSet;
 
     /**
      * @param string $Type 审核结果的类型，可以取的值有：
 <li>ImagePorn：图片鉴黄</li>
-<li>ImageTerrorism：图片鉴恐</li>
-<li>ImagePolitical：图片鉴政</li>
-<li>PornVoice：声音鉴黄</li>
+<li>ImageTerrorism：图片涉敏</li>
+<li>ImagePolitical：图片涉敏</li>
+<li>VoicePorn：声音违规</li>
      * @param array $ImagePornResultSet 图片鉴黄的结果，当 Type 为 ImagePorn 时有效。
-     * @param array $ImageTerrorismResultSet 图片鉴恐的结果，当 Type 为 ImageTerrorism 时有效。
-     * @param array $ImagePoliticalResultSet 图片鉴政的结果，当 Type 为 ImagePolitical 时有效。
-     * @param array $VoicePornResultSet 声音鉴黄的结果，当 Type 为 PornVoice 时有效。
+     * @param array $ImageTerrorismResultSet 图片涉敏的结果，当 Type 为 ImageTerrorism 时有效。
+     * @param array $ImagePoliticalResultSet 图片涉敏的结果，当 Type 为 ImagePolitical 时有效。
+     * @param array $VoicePornResultSet 声音违规的结果，当 Type 为 VoicePorn 时有效。
      */
     function __construct()
     {

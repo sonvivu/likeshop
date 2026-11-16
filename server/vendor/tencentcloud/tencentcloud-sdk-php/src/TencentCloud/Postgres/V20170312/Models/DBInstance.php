@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,286 +20,354 @@ use TencentCloud\Common\AbstractModel;
 /**
  * 描述实例的详细信息
  *
- * @method string getRegion() 获取实例所属地域，如: ap-guangzhou，对应RegionSet的Region字段
- * @method void setRegion(string $Region) 设置实例所属地域，如: ap-guangzhou，对应RegionSet的Region字段
- * @method string getZone() 获取实例所属可用区， 如：ap-guangzhou-3，对应ZoneSet的Zone字段
- * @method void setZone(string $Zone) 设置实例所属可用区， 如：ap-guangzhou-3，对应ZoneSet的Zone字段
- * @method integer getProjectId() 获取项目ID
- * @method void setProjectId(integer $ProjectId) 设置项目ID
- * @method string getVpcId() 获取私有网络ID
- * @method void setVpcId(string $VpcId) 设置私有网络ID
- * @method string getSubnetId() 获取子网ID
- * @method void setSubnetId(string $SubnetId) 设置子网ID
- * @method string getDBInstanceId() 获取实例ID
- * @method void setDBInstanceId(string $DBInstanceId) 设置实例ID
- * @method string getDBInstanceName() 获取实例名称
- * @method void setDBInstanceName(string $DBInstanceName) 设置实例名称
- * @method string getDBInstanceStatus() 获取实例状态，分别为：applying（申请中）、init(待初始化)、initing(初始化中)、running(运行中)、limited run（受限运行）、isolated（已隔离）、recycling（回收中）、recycled（已回收）、job running（任务执行中）、offline（下线）、migrating（迁移中）、expanding（扩容中）、readonly（只读）、restarting（重启中）
- * @method void setDBInstanceStatus(string $DBInstanceStatus) 设置实例状态，分别为：applying（申请中）、init(待初始化)、initing(初始化中)、running(运行中)、limited run（受限运行）、isolated（已隔离）、recycling（回收中）、recycled（已回收）、job running（任务执行中）、offline（下线）、migrating（迁移中）、expanding（扩容中）、readonly（只读）、restarting（重启中）
- * @method integer getDBInstanceMemory() 获取实例分配的内存大小，单位：GB
- * @method void setDBInstanceMemory(integer $DBInstanceMemory) 设置实例分配的内存大小，单位：GB
- * @method integer getDBInstanceStorage() 获取实例分配的存储空间大小，单位：GB
- * @method void setDBInstanceStorage(integer $DBInstanceStorage) 设置实例分配的存储空间大小，单位：GB
- * @method integer getDBInstanceCpu() 获取实例分配的CPU数量，单位：个
- * @method void setDBInstanceCpu(integer $DBInstanceCpu) 设置实例分配的CPU数量，单位：个
- * @method string getDBInstanceClass() 获取售卖规格ID
- * @method void setDBInstanceClass(string $DBInstanceClass) 设置售卖规格ID
- * @method string getDBInstanceType() 获取实例类型，类型有：1、primary（主实例）；2、readonly（只读实例）；3、guard（灾备实例）；4、temp（临时实例）
- * @method void setDBInstanceType(string $DBInstanceType) 设置实例类型，类型有：1、primary（主实例）；2、readonly（只读实例）；3、guard（灾备实例）；4、temp（临时实例）
- * @method string getDBInstanceVersion() 获取实例版本，目前只支持standard（双机高可用版, 一主一从）
- * @method void setDBInstanceVersion(string $DBInstanceVersion) 设置实例版本，目前只支持standard（双机高可用版, 一主一从）
- * @method string getDBCharset() 获取实例DB字符集
- * @method void setDBCharset(string $DBCharset) 设置实例DB字符集
- * @method string getDBVersion() 获取PostgreSQL内核版本
- * @method void setDBVersion(string $DBVersion) 设置PostgreSQL内核版本
- * @method string getCreateTime() 获取实例创建时间
- * @method void setCreateTime(string $CreateTime) 设置实例创建时间
- * @method string getUpdateTime() 获取实例执行最后一次更新的时间
- * @method void setUpdateTime(string $UpdateTime) 设置实例执行最后一次更新的时间
- * @method string getExpireTime() 获取实例到期时间
- * @method void setExpireTime(string $ExpireTime) 设置实例到期时间
- * @method string getIsolatedTime() 获取实例隔离时间
- * @method void setIsolatedTime(string $IsolatedTime) 设置实例隔离时间
- * @method string getPayType() 获取计费模式，1、prepaid（包年包月,预付费）；2、postpaid（按量计费，后付费）
- * @method void setPayType(string $PayType) 设置计费模式，1、prepaid（包年包月,预付费）；2、postpaid（按量计费，后付费）
- * @method integer getAutoRenew() 获取是否自动续费，1：自动续费，0：不自动续费
- * @method void setAutoRenew(integer $AutoRenew) 设置是否自动续费，1：自动续费，0：不自动续费
- * @method array getDBInstanceNetInfo() 获取实例网络连接信息
- * @method void setDBInstanceNetInfo(array $DBInstanceNetInfo) 设置实例网络连接信息
- * @method string getType() 获取机器类型
- * @method void setType(string $Type) 设置机器类型
- * @method integer getAppId() 获取用户的AppId
- * @method void setAppId(integer $AppId) 设置用户的AppId
- * @method integer getUid() 获取实例的Uid
- * @method void setUid(integer $Uid) 设置实例的Uid
- * @method integer getSupportIpv6() 获取实例是否支持Ipv6，1：支持，0：不支持
- * @method void setSupportIpv6(integer $SupportIpv6) 设置实例是否支持Ipv6，1：支持，0：不支持
- * @method array getTagList() 获取实例绑定的标签信息
+ * @method string getRegion() 获取<p>实例所属地域，如: ap-guangzhou，对应RegionSet的Region字段。</p>
+ * @method void setRegion(string $Region) 设置<p>实例所属地域，如: ap-guangzhou，对应RegionSet的Region字段。</p>
+ * @method string getZone() 获取<p>实例所属可用区， 如：ap-guangzhou-3，对应ZoneSet的Zone字段。</p>
+ * @method void setZone(string $Zone) 设置<p>实例所属可用区， 如：ap-guangzhou-3，对应ZoneSet的Zone字段。</p>
+ * @method string getVpcId() 获取<p>私有网络ID，形如vpc-e6w23k31。有效的VpcId可通过登录控制台查询；也可以调用接口 <a href="https://cloud.tencent.com/document/api/215/15778">DescribeVpcs</a> ，从接口返回中的unVpcId字段获取。</p>
+ * @method void setVpcId(string $VpcId) 设置<p>私有网络ID，形如vpc-e6w23k31。有效的VpcId可通过登录控制台查询；也可以调用接口 <a href="https://cloud.tencent.com/document/api/215/15778">DescribeVpcs</a> ，从接口返回中的unVpcId字段获取。</p>
+ * @method string getSubnetId() 获取<p>私有网络子网ID，形如subnet-51lcif9y。有效的私有网络子网ID可通过登录控制台查询；也可以调用接口 <a href="https://cloud.tencent.com/document/api/215/15784">DescribeSubnets </a>，从接口返回中的unSubnetId字段获取。</p>
+ * @method void setSubnetId(string $SubnetId) 设置<p>私有网络子网ID，形如subnet-51lcif9y。有效的私有网络子网ID可通过登录控制台查询；也可以调用接口 <a href="https://cloud.tencent.com/document/api/215/15784">DescribeSubnets </a>，从接口返回中的unSubnetId字段获取。</p>
+ * @method string getDBInstanceId() 获取<p>实例ID。</p>
+ * @method void setDBInstanceId(string $DBInstanceId) 设置<p>实例ID。</p>
+ * @method string getDBInstanceName() 获取<p>实例名称。</p>
+ * @method void setDBInstanceName(string $DBInstanceName) 设置<p>实例名称。</p>
+ * @method string getDBInstanceStatus() 获取<p>实例状态，分别为：applying（申请中）、init(待初始化)、initing(初始化中)、running(运行中)、limited run（受限运行）、isolating（隔离中）、isolated（已隔离）、disisolating（解隔离中）、recycling（回收中）、recycled（已回收）、job running（任务执行中）、offline（下线）、migrating（迁移中）、expanding（扩容中）、waitSwitch（等待切换）、switching（切换中）、readonly（只读）、restarting（重启中）、network changing（网络变更中）、upgrading（内核版本升级中）、audit-switching（审计状态变更中）、primary-switching（主备切换中）、offlining(下线中)、deployment changing（可用区变更中）、cloning（恢复数据中）、parameter modifying（参数修改中）、log-switching（日志状态变更中）、restoring（恢复中）、expanding（变配中）</p>
+ * @method void setDBInstanceStatus(string $DBInstanceStatus) 设置<p>实例状态，分别为：applying（申请中）、init(待初始化)、initing(初始化中)、running(运行中)、limited run（受限运行）、isolating（隔离中）、isolated（已隔离）、disisolating（解隔离中）、recycling（回收中）、recycled（已回收）、job running（任务执行中）、offline（下线）、migrating（迁移中）、expanding（扩容中）、waitSwitch（等待切换）、switching（切换中）、readonly（只读）、restarting（重启中）、network changing（网络变更中）、upgrading（内核版本升级中）、audit-switching（审计状态变更中）、primary-switching（主备切换中）、offlining(下线中)、deployment changing（可用区变更中）、cloning（恢复数据中）、parameter modifying（参数修改中）、log-switching（日志状态变更中）、restoring（恢复中）、expanding（变配中）</p>
+ * @method integer getDBInstanceMemory() 获取<p>实例分配的内存大小，单位：GB</p>
+ * @method void setDBInstanceMemory(integer $DBInstanceMemory) 设置<p>实例分配的内存大小，单位：GB</p>
+ * @method integer getDBInstanceStorage() 获取<p>实例分配的存储空间大小，单位：GB</p>
+ * @method void setDBInstanceStorage(integer $DBInstanceStorage) 设置<p>实例分配的存储空间大小，单位：GB</p>
+ * @method integer getDBInstanceCpu() 获取<p>实例分配的CPU数量，单位：个</p>
+ * @method void setDBInstanceCpu(integer $DBInstanceCpu) 设置<p>实例分配的CPU数量，单位：个</p>
+ * @method string getDBInstanceClass() 获取<p>售卖规格ID</p>
+ * @method void setDBInstanceClass(string $DBInstanceClass) 设置<p>售卖规格ID</p>
+ * @method string getDBMajorVersion() 获取<p>PostgreSQL大版本号，版本信息可从<a href="https://cloud.tencent.com/document/api/409/89018">DescribeDBVersions</a>获取，目前支持10，11，12，13，14，15这几个大版本。</p>
+ * @method void setDBMajorVersion(string $DBMajorVersion) 设置<p>PostgreSQL大版本号，版本信息可从<a href="https://cloud.tencent.com/document/api/409/89018">DescribeDBVersions</a>获取，目前支持10，11，12，13，14，15这几个大版本。</p>
+ * @method string getDBVersion() 获取<p>PostgreSQL社区大版本+小版本号，如12.4，版本信息可从<a href="https://cloud.tencent.com/document/api/409/89018">DescribeDBVersions</a>获取。</p>
+ * @method void setDBVersion(string $DBVersion) 设置<p>PostgreSQL社区大版本+小版本号，如12.4，版本信息可从<a href="https://cloud.tencent.com/document/api/409/89018">DescribeDBVersions</a>获取。</p>
+ * @method string getDBKernelVersion() 获取<p>PostgreSQL内核版本号，如v12.7_r1.8，版本信息可从<a href="https://cloud.tencent.com/document/api/409/89018">DescribeDBVersions</a>获取。</p>
+ * @method void setDBKernelVersion(string $DBKernelVersion) 设置<p>PostgreSQL内核版本号，如v12.7_r1.8，版本信息可从<a href="https://cloud.tencent.com/document/api/409/89018">DescribeDBVersions</a>获取。</p>
+ * @method string getDBInstanceType() 获取<p>实例类型，类型有：</p><li>primary：主实例</li><li>readonly：只读实例</li><li>guard：灾备实例</li><li>temp：临时实例</li>
+ * @method void setDBInstanceType(string $DBInstanceType) 设置<p>实例类型，类型有：</p><li>primary：主实例</li><li>readonly：只读实例</li><li>guard：灾备实例</li><li>temp：临时实例</li>
+ * @method string getDBInstanceVersion() 获取<p>实例版本，目前只支持standard（双机高可用版, 一主一从）。</p>
+ * @method void setDBInstanceVersion(string $DBInstanceVersion) 设置<p>实例版本，目前只支持standard（双机高可用版, 一主一从）。</p>
+ * @method string getDBCharset() 获取<p>实例字符集，目前只支持：</p><li> UTF8</li><li> LATIN1</li>
+ * @method void setDBCharset(string $DBCharset) 设置<p>实例字符集，目前只支持：</p><li> UTF8</li><li> LATIN1</li>
+ * @method string getCreateTime() 获取<p>实例创建时间。</p>
+ * @method void setCreateTime(string $CreateTime) 设置<p>实例创建时间。</p>
+ * @method string getUpdateTime() 获取<p>实例执行最后一次更新的时间。</p>
+ * @method void setUpdateTime(string $UpdateTime) 设置<p>实例执行最后一次更新的时间。</p>
+ * @method string getExpireTime() 获取<p>实例到期时间。</p>
+ * @method void setExpireTime(string $ExpireTime) 设置<p>实例到期时间。</p>
+ * @method string getIsolatedTime() 获取<p>实例隔离时间。</p>
+ * @method void setIsolatedTime(string $IsolatedTime) 设置<p>实例隔离时间。</p>
+ * @method string getPayType() 获取<p>计费模式：</p><li>prepaid：包年包月,预付费</li><li>postpaid：按量计费，后付费</li>
+ * @method void setPayType(string $PayType) 设置<p>计费模式：</p><li>prepaid：包年包月,预付费</li><li>postpaid：按量计费，后付费</li>
+ * @method integer getAutoRenew() 获取<p>是否自动续费：</p><li>0：手动续费</li><li>1：自动续费</li>默认值：0
+ * @method void setAutoRenew(integer $AutoRenew) 设置<p>是否自动续费：</p><li>0：手动续费</li><li>1：自动续费</li>默认值：0
+ * @method array getDBInstanceNetInfo() 获取<p>实例网络连接信息。</p>
+ * @method void setDBInstanceNetInfo(array $DBInstanceNetInfo) 设置<p>实例网络连接信息。</p>
+ * @method string getType() 获取<p>机器类型。</p>
+ * @method void setType(string $Type) 设置<p>机器类型。</p>
+ * @method integer getAppId() 获取<p>用户的AppId。</p>
+ * @method void setAppId(integer $AppId) 设置<p>用户的AppId。</p>
+ * @method integer getUid() 获取<p>实例的Uid。</p>
+ * @method void setUid(integer $Uid) 设置<p>实例的Uid。</p>
+ * @method integer getProjectId() 获取<p>项目ID。</p>
+ * @method void setProjectId(integer $ProjectId) 设置<p>项目ID。</p>
+ * @method array getTagList() 获取<p>实例绑定的标签信息。</p>
+ * @method void setTagList(array $TagList) 设置<p>实例绑定的标签信息。</p>
+ * @method string getMasterDBInstanceId() 获取<p>主实例信息，仅在实例为只读实例时返回。</p>
+ * @method void setMasterDBInstanceId(string $MasterDBInstanceId) 设置<p>主实例信息，仅在实例为只读实例时返回。</p>
+ * @method integer getReadOnlyInstanceNum() 获取<p>只读实例数量。</p>
+ * @method void setReadOnlyInstanceNum(integer $ReadOnlyInstanceNum) 设置<p>只读实例数量。</p>
+ * @method string getStatusInReadonlyGroup() 获取<p>只读实例在只读组中的状态。</p>
+ * @method void setStatusInReadonlyGroup(string $StatusInReadonlyGroup) 设置<p>只读实例在只读组中的状态。</p>
+ * @method string getOfflineTime() 获取<p>下线时间。</p>
+ * @method void setOfflineTime(string $OfflineTime) 设置<p>下线时间。</p>
+ * @method array getDBNodeSet() 获取<p>实例的节点信息。</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setTagList(array $TagList) 设置实例绑定的标签信息
+ * @method void setDBNodeSet(array $DBNodeSet) 设置<p>实例的节点信息。</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getMasterDBInstanceId() 获取主实例信息，仅在实例为只读实例时返回
+ * @method integer getIsSupportTDE() 获取<p>实例是否支持TDE数据加密：</p><li>0：不支持</li><li>1：支持</li>默认值：0TDE数据加密可参考[数据透明加密概述](https://cloud.tencent.com/document/product/409/71748)
+ * @method void setIsSupportTDE(integer $IsSupportTDE) 设置<p>实例是否支持TDE数据加密：</p><li>0：不支持</li><li>1：支持</li>默认值：0TDE数据加密可参考[数据透明加密概述](https://cloud.tencent.com/document/product/409/71748)
+ * @method string getDBEngine() 获取<p>数据库引擎，支持：</p><li>postgresql：云数据库PostgreSQL</li><li>mssql_compatible：MSSQL兼容-云数据库PostgreSQL</li>默认值：postgresql
+ * @method void setDBEngine(string $DBEngine) 设置<p>数据库引擎，支持：</p><li>postgresql：云数据库PostgreSQL</li><li>mssql_compatible：MSSQL兼容-云数据库PostgreSQL</li>默认值：postgresql
+ * @method string getDBEngineConfig() 获取<p>数据库引擎的配置信息，配置格式如下：<br>{&quot;$key1&quot;:&quot;$value1&quot;, &quot;$key2&quot;:&quot;$value2&quot;}<br>各引擎支持如下：<br>mssql_compatible引擎：</p><li>migrationMode：数据库模式，可选参数，可取值：single-db（单数据库模式），multi-db（多数据库模式）。默认为single-db。</li><li>defaultLocale：排序区域规则，可选参数，在初始化后不可修改，默认为en_US，可选值如下："af_ZA", "sq_AL", "ar_DZ", "ar_BH", "ar_EG", "ar_IQ", "ar_JO", "ar_KW", "ar_LB", "ar_LY", "ar_MA", "ar_OM", "ar_QA", "ar_SA", "ar_SY", "ar_TN", "ar_AE", "ar_YE", "hy_AM", "az_Cyrl_AZ", "az_Latn_AZ", "eu_ES", "be_BY", "bg_BG", "ca_ES", "zh_HK", "zh_MO", "zh_CN", "zh_SG", "zh_TW", "hr_HR", "cs_CZ", "da_DK", "nl_BE", "nl_NL", "en_AU", "en_BZ", "en_CA", "en_IE", "en_JM", "en_NZ", "en_PH", "en_ZA", "en_TT", "en_GB", "en_US", "en_ZW", "et_EE", "fo_FO", "fa_IR", "fi_FI", "fr_BE", "fr_CA", "fr_FR", "fr_LU", "fr_MC", "fr_CH", "mk_MK", "ka_GE", "de_AT", "de_DE", "de_LI", "de_LU", "de_CH", "el_GR", "gu_IN", "he_IL", "hi_IN", "hu_HU", "is_IS", "id_ID", "it_IT", "it_CH", "ja_JP", "kn_IN", "kok_IN", "ko_KR", "ky_KG", "lv_LV", "lt_LT", "ms_BN", "ms_MY", "mr_IN", "mn_MN", "nb_NO", "nn_NO", "pl_PL", "pt_BR", "pt_PT", "pa_IN", "ro_RO", "ru_RU", "sa_IN", "sr_Cyrl_RS", "sr_Latn_RS", "sk_SK", "sl_SI", "es_AR", "es_BO", "es_CL", "es_CO", "es_CR", "es_DO", "es_EC", "es_SV", "es_GT", "es_HN", "es_MX", "es_NI", "es_PA", "es_PY","es_PE", "es_PR", "es_ES", "es_TRADITIONAL", "es_UY", "es_VE", "sw_KE", "sv_FI", "sv_SE", "tt_RU", "te_IN", "th_TH", "tr_TR", "uk_UA", "ur_IN", "ur_PK", "uz_Cyrl_UZ", "uz_Latn_UZ", "vi_VN"。</li><li>serverCollationName：排序规则名称，可选参数，在初始化后不可修改，默认为sql_latin1_general_cp1_ci_as，可选值如下："bbf_unicode_general_ci_as", "bbf_unicode_cp1_ci_as", "bbf_unicode_CP1250_ci_as", "bbf_unicode_CP1251_ci_as", "bbf_unicode_cp1253_ci_as", "bbf_unicode_cp1254_ci_as", "bbf_unicode_cp1255_ci_as", "bbf_unicode_cp1256_ci_as", "bbf_unicode_cp1257_ci_as", "bbf_unicode_cp1258_ci_as", "bbf_unicode_cp874_ci_as", "sql_latin1_general_cp1250_ci_as", "sql_latin1_general_cp1251_ci_as", "sql_latin1_general_cp1_ci_as", "sql_latin1_general_cp1253_ci_as", "sql_latin1_general_cp1254_ci_as", "sql_latin1_general_cp1255_ci_as","sql_latin1_general_cp1256_ci_as", "sql_latin1_general_cp1257_ci_as", "sql_latin1_general_cp1258_ci_as", "chinese_prc_ci_as", "cyrillic_general_ci_as", "finnish_swedish_ci_as", "french_ci_as", "japanese_ci_as", "korean_wansung_ci_as", "latin1_general_ci_as", "modern_spanish_ci_as", "polish_ci_as", "thai_ci_as", "traditional_spanish_ci_as", "turkish_ci_as", "ukrainian_ci_as", "vietnamese_ci_as"。</li>
+ * @method void setDBEngineConfig(string $DBEngineConfig) 设置<p>数据库引擎的配置信息，配置格式如下：<br>{&quot;$key1&quot;:&quot;$value1&quot;, &quot;$key2&quot;:&quot;$value2&quot;}<br>各引擎支持如下：<br>mssql_compatible引擎：</p><li>migrationMode：数据库模式，可选参数，可取值：single-db（单数据库模式），multi-db（多数据库模式）。默认为single-db。</li><li>defaultLocale：排序区域规则，可选参数，在初始化后不可修改，默认为en_US，可选值如下："af_ZA", "sq_AL", "ar_DZ", "ar_BH", "ar_EG", "ar_IQ", "ar_JO", "ar_KW", "ar_LB", "ar_LY", "ar_MA", "ar_OM", "ar_QA", "ar_SA", "ar_SY", "ar_TN", "ar_AE", "ar_YE", "hy_AM", "az_Cyrl_AZ", "az_Latn_AZ", "eu_ES", "be_BY", "bg_BG", "ca_ES", "zh_HK", "zh_MO", "zh_CN", "zh_SG", "zh_TW", "hr_HR", "cs_CZ", "da_DK", "nl_BE", "nl_NL", "en_AU", "en_BZ", "en_CA", "en_IE", "en_JM", "en_NZ", "en_PH", "en_ZA", "en_TT", "en_GB", "en_US", "en_ZW", "et_EE", "fo_FO", "fa_IR", "fi_FI", "fr_BE", "fr_CA", "fr_FR", "fr_LU", "fr_MC", "fr_CH", "mk_MK", "ka_GE", "de_AT", "de_DE", "de_LI", "de_LU", "de_CH", "el_GR", "gu_IN", "he_IL", "hi_IN", "hu_HU", "is_IS", "id_ID", "it_IT", "it_CH", "ja_JP", "kn_IN", "kok_IN", "ko_KR", "ky_KG", "lv_LV", "lt_LT", "ms_BN", "ms_MY", "mr_IN", "mn_MN", "nb_NO", "nn_NO", "pl_PL", "pt_BR", "pt_PT", "pa_IN", "ro_RO", "ru_RU", "sa_IN", "sr_Cyrl_RS", "sr_Latn_RS", "sk_SK", "sl_SI", "es_AR", "es_BO", "es_CL", "es_CO", "es_CR", "es_DO", "es_EC", "es_SV", "es_GT", "es_HN", "es_MX", "es_NI", "es_PA", "es_PY","es_PE", "es_PR", "es_ES", "es_TRADITIONAL", "es_UY", "es_VE", "sw_KE", "sv_FI", "sv_SE", "tt_RU", "te_IN", "th_TH", "tr_TR", "uk_UA", "ur_IN", "ur_PK", "uz_Cyrl_UZ", "uz_Latn_UZ", "vi_VN"。</li><li>serverCollationName：排序规则名称，可选参数，在初始化后不可修改，默认为sql_latin1_general_cp1_ci_as，可选值如下："bbf_unicode_general_ci_as", "bbf_unicode_cp1_ci_as", "bbf_unicode_CP1250_ci_as", "bbf_unicode_CP1251_ci_as", "bbf_unicode_cp1253_ci_as", "bbf_unicode_cp1254_ci_as", "bbf_unicode_cp1255_ci_as", "bbf_unicode_cp1256_ci_as", "bbf_unicode_cp1257_ci_as", "bbf_unicode_cp1258_ci_as", "bbf_unicode_cp874_ci_as", "sql_latin1_general_cp1250_ci_as", "sql_latin1_general_cp1251_ci_as", "sql_latin1_general_cp1_ci_as", "sql_latin1_general_cp1253_ci_as", "sql_latin1_general_cp1254_ci_as", "sql_latin1_general_cp1255_ci_as","sql_latin1_general_cp1256_ci_as", "sql_latin1_general_cp1257_ci_as", "sql_latin1_general_cp1258_ci_as", "chinese_prc_ci_as", "cyrillic_general_ci_as", "finnish_swedish_ci_as", "french_ci_as", "japanese_ci_as", "korean_wansung_ci_as", "latin1_general_ci_as", "modern_spanish_ci_as", "polish_ci_as", "thai_ci_as", "traditional_spanish_ci_as", "turkish_ci_as", "ukrainian_ci_as", "vietnamese_ci_as"。</li>
+ * @method array getNetworkAccessList() 获取<p>实例网络信息列表（此字段已废弃）</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setMasterDBInstanceId(string $MasterDBInstanceId) 设置主实例信息，仅在实例为只读实例时返回
+ * @method void setNetworkAccessList(array $NetworkAccessList) 设置<p>实例网络信息列表（此字段已废弃）</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method integer getReadOnlyInstanceNum() 获取只读实例数量
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setReadOnlyInstanceNum(integer $ReadOnlyInstanceNum) 设置只读实例数量
-注意：此字段可能返回 null，表示取不到有效值。
- * @method string getStatusInReadonlyGroup() 获取只读实例在只读组中的状态
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setStatusInReadonlyGroup(string $StatusInReadonlyGroup) 设置只读实例在只读组中的状态
-注意：此字段可能返回 null，表示取不到有效值。
- * @method string getOfflineTime() 获取下线时间
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setOfflineTime(string $OfflineTime) 设置下线时间
-注意：此字段可能返回 null，表示取不到有效值。
+ * @method integer getSupportIpv6() 获取<p>实例是否支持Ipv6：</p><li>0：否</li><li>1：是</li>默认值：0
+ * @method void setSupportIpv6(integer $SupportIpv6) 设置<p>实例是否支持Ipv6：</p><li>0：否</li><li>1：是</li>默认值：0
+ * @method integer getExpandedCpu() 获取<p>实例已经弹性扩容的cpu核数</p>
+ * @method void setExpandedCpu(integer $ExpandedCpu) 设置<p>实例已经弹性扩容的cpu核数</p>
+ * @method boolean getDeletionProtection() 获取<p>实例是否开启删除保护，取值如下：</p><ul><li>true：开启删除保护</li><li>false：关闭删除保护</li></ul>
+ * @method void setDeletionProtection(boolean $DeletionProtection) 设置<p>实例是否开启删除保护，取值如下：</p><ul><li>true：开启删除保护</li><li>false：关闭删除保护</li></ul>
+ * @method string getDBInstanceStorageType() 获取<p>实例存储类型，可选值：PHYSICAL_LOCAL_SSD：物理机本地ssd硬盘 CLOUD_PREMIUM：高性能云硬盘 CLOUD_SSD：ssd云硬盘 CLOUD_HSSD：增强型ssd云硬盘</p>
+ * @method void setDBInstanceStorageType(string $DBInstanceStorageType) 设置<p>实例存储类型，可选值：PHYSICAL_LOCAL_SSD：物理机本地ssd硬盘 CLOUD_PREMIUM：高性能云硬盘 CLOUD_SSD：ssd云硬盘 CLOUD_HSSD：增强型ssd云硬盘</p>
  */
 class DBInstance extends AbstractModel
 {
     /**
-     * @var string 实例所属地域，如: ap-guangzhou，对应RegionSet的Region字段
+     * @var string <p>实例所属地域，如: ap-guangzhou，对应RegionSet的Region字段。</p>
      */
     public $Region;
 
     /**
-     * @var string 实例所属可用区， 如：ap-guangzhou-3，对应ZoneSet的Zone字段
+     * @var string <p>实例所属可用区， 如：ap-guangzhou-3，对应ZoneSet的Zone字段。</p>
      */
     public $Zone;
 
     /**
-     * @var integer 项目ID
-     */
-    public $ProjectId;
-
-    /**
-     * @var string 私有网络ID
+     * @var string <p>私有网络ID，形如vpc-e6w23k31。有效的VpcId可通过登录控制台查询；也可以调用接口 <a href="https://cloud.tencent.com/document/api/215/15778">DescribeVpcs</a> ，从接口返回中的unVpcId字段获取。</p>
      */
     public $VpcId;
 
     /**
-     * @var string 子网ID
+     * @var string <p>私有网络子网ID，形如subnet-51lcif9y。有效的私有网络子网ID可通过登录控制台查询；也可以调用接口 <a href="https://cloud.tencent.com/document/api/215/15784">DescribeSubnets </a>，从接口返回中的unSubnetId字段获取。</p>
      */
     public $SubnetId;
 
     /**
-     * @var string 实例ID
+     * @var string <p>实例ID。</p>
      */
     public $DBInstanceId;
 
     /**
-     * @var string 实例名称
+     * @var string <p>实例名称。</p>
      */
     public $DBInstanceName;
 
     /**
-     * @var string 实例状态，分别为：applying（申请中）、init(待初始化)、initing(初始化中)、running(运行中)、limited run（受限运行）、isolated（已隔离）、recycling（回收中）、recycled（已回收）、job running（任务执行中）、offline（下线）、migrating（迁移中）、expanding（扩容中）、readonly（只读）、restarting（重启中）
+     * @var string <p>实例状态，分别为：applying（申请中）、init(待初始化)、initing(初始化中)、running(运行中)、limited run（受限运行）、isolating（隔离中）、isolated（已隔离）、disisolating（解隔离中）、recycling（回收中）、recycled（已回收）、job running（任务执行中）、offline（下线）、migrating（迁移中）、expanding（扩容中）、waitSwitch（等待切换）、switching（切换中）、readonly（只读）、restarting（重启中）、network changing（网络变更中）、upgrading（内核版本升级中）、audit-switching（审计状态变更中）、primary-switching（主备切换中）、offlining(下线中)、deployment changing（可用区变更中）、cloning（恢复数据中）、parameter modifying（参数修改中）、log-switching（日志状态变更中）、restoring（恢复中）、expanding（变配中）</p>
      */
     public $DBInstanceStatus;
 
     /**
-     * @var integer 实例分配的内存大小，单位：GB
+     * @var integer <p>实例分配的内存大小，单位：GB</p>
      */
     public $DBInstanceMemory;
 
     /**
-     * @var integer 实例分配的存储空间大小，单位：GB
+     * @var integer <p>实例分配的存储空间大小，单位：GB</p>
      */
     public $DBInstanceStorage;
 
     /**
-     * @var integer 实例分配的CPU数量，单位：个
+     * @var integer <p>实例分配的CPU数量，单位：个</p>
      */
     public $DBInstanceCpu;
 
     /**
-     * @var string 售卖规格ID
+     * @var string <p>售卖规格ID</p>
      */
     public $DBInstanceClass;
 
     /**
-     * @var string 实例类型，类型有：1、primary（主实例）；2、readonly（只读实例）；3、guard（灾备实例）；4、temp（临时实例）
+     * @var string <p>PostgreSQL大版本号，版本信息可从<a href="https://cloud.tencent.com/document/api/409/89018">DescribeDBVersions</a>获取，目前支持10，11，12，13，14，15这几个大版本。</p>
      */
-    public $DBInstanceType;
+    public $DBMajorVersion;
 
     /**
-     * @var string 实例版本，目前只支持standard（双机高可用版, 一主一从）
-     */
-    public $DBInstanceVersion;
-
-    /**
-     * @var string 实例DB字符集
-     */
-    public $DBCharset;
-
-    /**
-     * @var string PostgreSQL内核版本
+     * @var string <p>PostgreSQL社区大版本+小版本号，如12.4，版本信息可从<a href="https://cloud.tencent.com/document/api/409/89018">DescribeDBVersions</a>获取。</p>
      */
     public $DBVersion;
 
     /**
-     * @var string 实例创建时间
+     * @var string <p>PostgreSQL内核版本号，如v12.7_r1.8，版本信息可从<a href="https://cloud.tencent.com/document/api/409/89018">DescribeDBVersions</a>获取。</p>
+     */
+    public $DBKernelVersion;
+
+    /**
+     * @var string <p>实例类型，类型有：</p><li>primary：主实例</li><li>readonly：只读实例</li><li>guard：灾备实例</li><li>temp：临时实例</li>
+     */
+    public $DBInstanceType;
+
+    /**
+     * @var string <p>实例版本，目前只支持standard（双机高可用版, 一主一从）。</p>
+     */
+    public $DBInstanceVersion;
+
+    /**
+     * @var string <p>实例字符集，目前只支持：</p><li> UTF8</li><li> LATIN1</li>
+     */
+    public $DBCharset;
+
+    /**
+     * @var string <p>实例创建时间。</p>
      */
     public $CreateTime;
 
     /**
-     * @var string 实例执行最后一次更新的时间
+     * @var string <p>实例执行最后一次更新的时间。</p>
      */
     public $UpdateTime;
 
     /**
-     * @var string 实例到期时间
+     * @var string <p>实例到期时间。</p>
      */
     public $ExpireTime;
 
     /**
-     * @var string 实例隔离时间
+     * @var string <p>实例隔离时间。</p>
      */
     public $IsolatedTime;
 
     /**
-     * @var string 计费模式，1、prepaid（包年包月,预付费）；2、postpaid（按量计费，后付费）
+     * @var string <p>计费模式：</p><li>prepaid：包年包月,预付费</li><li>postpaid：按量计费，后付费</li>
      */
     public $PayType;
 
     /**
-     * @var integer 是否自动续费，1：自动续费，0：不自动续费
+     * @var integer <p>是否自动续费：</p><li>0：手动续费</li><li>1：自动续费</li>默认值：0
      */
     public $AutoRenew;
 
     /**
-     * @var array 实例网络连接信息
+     * @var array <p>实例网络连接信息。</p>
      */
     public $DBInstanceNetInfo;
 
     /**
-     * @var string 机器类型
+     * @var string <p>机器类型。</p>
      */
     public $Type;
 
     /**
-     * @var integer 用户的AppId
+     * @var integer <p>用户的AppId。</p>
      */
     public $AppId;
 
     /**
-     * @var integer 实例的Uid
+     * @var integer <p>实例的Uid。</p>
      */
     public $Uid;
 
     /**
-     * @var integer 实例是否支持Ipv6，1：支持，0：不支持
+     * @var integer <p>项目ID。</p>
      */
-    public $SupportIpv6;
+    public $ProjectId;
 
     /**
-     * @var array 实例绑定的标签信息
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var array <p>实例绑定的标签信息。</p>
      */
     public $TagList;
 
     /**
-     * @var string 主实例信息，仅在实例为只读实例时返回
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string <p>主实例信息，仅在实例为只读实例时返回。</p>
      */
     public $MasterDBInstanceId;
 
     /**
-     * @var integer 只读实例数量
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var integer <p>只读实例数量。</p>
      */
     public $ReadOnlyInstanceNum;
 
     /**
-     * @var string 只读实例在只读组中的状态
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string <p>只读实例在只读组中的状态。</p>
      */
     public $StatusInReadonlyGroup;
 
     /**
-     * @var string 下线时间
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string <p>下线时间。</p>
      */
     public $OfflineTime;
 
     /**
-     * @param string $Region 实例所属地域，如: ap-guangzhou，对应RegionSet的Region字段
-     * @param string $Zone 实例所属可用区， 如：ap-guangzhou-3，对应ZoneSet的Zone字段
-     * @param integer $ProjectId 项目ID
-     * @param string $VpcId 私有网络ID
-     * @param string $SubnetId 子网ID
-     * @param string $DBInstanceId 实例ID
-     * @param string $DBInstanceName 实例名称
-     * @param string $DBInstanceStatus 实例状态，分别为：applying（申请中）、init(待初始化)、initing(初始化中)、running(运行中)、limited run（受限运行）、isolated（已隔离）、recycling（回收中）、recycled（已回收）、job running（任务执行中）、offline（下线）、migrating（迁移中）、expanding（扩容中）、readonly（只读）、restarting（重启中）
-     * @param integer $DBInstanceMemory 实例分配的内存大小，单位：GB
-     * @param integer $DBInstanceStorage 实例分配的存储空间大小，单位：GB
-     * @param integer $DBInstanceCpu 实例分配的CPU数量，单位：个
-     * @param string $DBInstanceClass 售卖规格ID
-     * @param string $DBInstanceType 实例类型，类型有：1、primary（主实例）；2、readonly（只读实例）；3、guard（灾备实例）；4、temp（临时实例）
-     * @param string $DBInstanceVersion 实例版本，目前只支持standard（双机高可用版, 一主一从）
-     * @param string $DBCharset 实例DB字符集
-     * @param string $DBVersion PostgreSQL内核版本
-     * @param string $CreateTime 实例创建时间
-     * @param string $UpdateTime 实例执行最后一次更新的时间
-     * @param string $ExpireTime 实例到期时间
-     * @param string $IsolatedTime 实例隔离时间
-     * @param string $PayType 计费模式，1、prepaid（包年包月,预付费）；2、postpaid（按量计费，后付费）
-     * @param integer $AutoRenew 是否自动续费，1：自动续费，0：不自动续费
-     * @param array $DBInstanceNetInfo 实例网络连接信息
-     * @param string $Type 机器类型
-     * @param integer $AppId 用户的AppId
-     * @param integer $Uid 实例的Uid
-     * @param integer $SupportIpv6 实例是否支持Ipv6，1：支持，0：不支持
-     * @param array $TagList 实例绑定的标签信息
+     * @var array <p>实例的节点信息。</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $MasterDBInstanceId 主实例信息，仅在实例为只读实例时返回
+     */
+    public $DBNodeSet;
+
+    /**
+     * @var integer <p>实例是否支持TDE数据加密：</p><li>0：不支持</li><li>1：支持</li>默认值：0TDE数据加密可参考[数据透明加密概述](https://cloud.tencent.com/document/product/409/71748)
+     */
+    public $IsSupportTDE;
+
+    /**
+     * @var string <p>数据库引擎，支持：</p><li>postgresql：云数据库PostgreSQL</li><li>mssql_compatible：MSSQL兼容-云数据库PostgreSQL</li>默认值：postgresql
+     */
+    public $DBEngine;
+
+    /**
+     * @var string <p>数据库引擎的配置信息，配置格式如下：<br>{&quot;$key1&quot;:&quot;$value1&quot;, &quot;$key2&quot;:&quot;$value2&quot;}<br>各引擎支持如下：<br>mssql_compatible引擎：</p><li>migrationMode：数据库模式，可选参数，可取值：single-db（单数据库模式），multi-db（多数据库模式）。默认为single-db。</li><li>defaultLocale：排序区域规则，可选参数，在初始化后不可修改，默认为en_US，可选值如下："af_ZA", "sq_AL", "ar_DZ", "ar_BH", "ar_EG", "ar_IQ", "ar_JO", "ar_KW", "ar_LB", "ar_LY", "ar_MA", "ar_OM", "ar_QA", "ar_SA", "ar_SY", "ar_TN", "ar_AE", "ar_YE", "hy_AM", "az_Cyrl_AZ", "az_Latn_AZ", "eu_ES", "be_BY", "bg_BG", "ca_ES", "zh_HK", "zh_MO", "zh_CN", "zh_SG", "zh_TW", "hr_HR", "cs_CZ", "da_DK", "nl_BE", "nl_NL", "en_AU", "en_BZ", "en_CA", "en_IE", "en_JM", "en_NZ", "en_PH", "en_ZA", "en_TT", "en_GB", "en_US", "en_ZW", "et_EE", "fo_FO", "fa_IR", "fi_FI", "fr_BE", "fr_CA", "fr_FR", "fr_LU", "fr_MC", "fr_CH", "mk_MK", "ka_GE", "de_AT", "de_DE", "de_LI", "de_LU", "de_CH", "el_GR", "gu_IN", "he_IL", "hi_IN", "hu_HU", "is_IS", "id_ID", "it_IT", "it_CH", "ja_JP", "kn_IN", "kok_IN", "ko_KR", "ky_KG", "lv_LV", "lt_LT", "ms_BN", "ms_MY", "mr_IN", "mn_MN", "nb_NO", "nn_NO", "pl_PL", "pt_BR", "pt_PT", "pa_IN", "ro_RO", "ru_RU", "sa_IN", "sr_Cyrl_RS", "sr_Latn_RS", "sk_SK", "sl_SI", "es_AR", "es_BO", "es_CL", "es_CO", "es_CR", "es_DO", "es_EC", "es_SV", "es_GT", "es_HN", "es_MX", "es_NI", "es_PA", "es_PY","es_PE", "es_PR", "es_ES", "es_TRADITIONAL", "es_UY", "es_VE", "sw_KE", "sv_FI", "sv_SE", "tt_RU", "te_IN", "th_TH", "tr_TR", "uk_UA", "ur_IN", "ur_PK", "uz_Cyrl_UZ", "uz_Latn_UZ", "vi_VN"。</li><li>serverCollationName：排序规则名称，可选参数，在初始化后不可修改，默认为sql_latin1_general_cp1_ci_as，可选值如下："bbf_unicode_general_ci_as", "bbf_unicode_cp1_ci_as", "bbf_unicode_CP1250_ci_as", "bbf_unicode_CP1251_ci_as", "bbf_unicode_cp1253_ci_as", "bbf_unicode_cp1254_ci_as", "bbf_unicode_cp1255_ci_as", "bbf_unicode_cp1256_ci_as", "bbf_unicode_cp1257_ci_as", "bbf_unicode_cp1258_ci_as", "bbf_unicode_cp874_ci_as", "sql_latin1_general_cp1250_ci_as", "sql_latin1_general_cp1251_ci_as", "sql_latin1_general_cp1_ci_as", "sql_latin1_general_cp1253_ci_as", "sql_latin1_general_cp1254_ci_as", "sql_latin1_general_cp1255_ci_as","sql_latin1_general_cp1256_ci_as", "sql_latin1_general_cp1257_ci_as", "sql_latin1_general_cp1258_ci_as", "chinese_prc_ci_as", "cyrillic_general_ci_as", "finnish_swedish_ci_as", "french_ci_as", "japanese_ci_as", "korean_wansung_ci_as", "latin1_general_ci_as", "modern_spanish_ci_as", "polish_ci_as", "thai_ci_as", "traditional_spanish_ci_as", "turkish_ci_as", "ukrainian_ci_as", "vietnamese_ci_as"。</li>
+     */
+    public $DBEngineConfig;
+
+    /**
+     * @var array <p>实例网络信息列表（此字段已废弃）</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param integer $ReadOnlyInstanceNum 只读实例数量
+     */
+    public $NetworkAccessList;
+
+    /**
+     * @var integer <p>实例是否支持Ipv6：</p><li>0：否</li><li>1：是</li>默认值：0
+     */
+    public $SupportIpv6;
+
+    /**
+     * @var integer <p>实例已经弹性扩容的cpu核数</p>
+     */
+    public $ExpandedCpu;
+
+    /**
+     * @var boolean <p>实例是否开启删除保护，取值如下：</p><ul><li>true：开启删除保护</li><li>false：关闭删除保护</li></ul>
+     */
+    public $DeletionProtection;
+
+    /**
+     * @var string <p>实例存储类型，可选值：PHYSICAL_LOCAL_SSD：物理机本地ssd硬盘 CLOUD_PREMIUM：高性能云硬盘 CLOUD_SSD：ssd云硬盘 CLOUD_HSSD：增强型ssd云硬盘</p>
+     */
+    public $DBInstanceStorageType;
+
+    /**
+     * @param string $Region <p>实例所属地域，如: ap-guangzhou，对应RegionSet的Region字段。</p>
+     * @param string $Zone <p>实例所属可用区， 如：ap-guangzhou-3，对应ZoneSet的Zone字段。</p>
+     * @param string $VpcId <p>私有网络ID，形如vpc-e6w23k31。有效的VpcId可通过登录控制台查询；也可以调用接口 <a href="https://cloud.tencent.com/document/api/215/15778">DescribeVpcs</a> ，从接口返回中的unVpcId字段获取。</p>
+     * @param string $SubnetId <p>私有网络子网ID，形如subnet-51lcif9y。有效的私有网络子网ID可通过登录控制台查询；也可以调用接口 <a href="https://cloud.tencent.com/document/api/215/15784">DescribeSubnets </a>，从接口返回中的unSubnetId字段获取。</p>
+     * @param string $DBInstanceId <p>实例ID。</p>
+     * @param string $DBInstanceName <p>实例名称。</p>
+     * @param string $DBInstanceStatus <p>实例状态，分别为：applying（申请中）、init(待初始化)、initing(初始化中)、running(运行中)、limited run（受限运行）、isolating（隔离中）、isolated（已隔离）、disisolating（解隔离中）、recycling（回收中）、recycled（已回收）、job running（任务执行中）、offline（下线）、migrating（迁移中）、expanding（扩容中）、waitSwitch（等待切换）、switching（切换中）、readonly（只读）、restarting（重启中）、network changing（网络变更中）、upgrading（内核版本升级中）、audit-switching（审计状态变更中）、primary-switching（主备切换中）、offlining(下线中)、deployment changing（可用区变更中）、cloning（恢复数据中）、parameter modifying（参数修改中）、log-switching（日志状态变更中）、restoring（恢复中）、expanding（变配中）</p>
+     * @param integer $DBInstanceMemory <p>实例分配的内存大小，单位：GB</p>
+     * @param integer $DBInstanceStorage <p>实例分配的存储空间大小，单位：GB</p>
+     * @param integer $DBInstanceCpu <p>实例分配的CPU数量，单位：个</p>
+     * @param string $DBInstanceClass <p>售卖规格ID</p>
+     * @param string $DBMajorVersion <p>PostgreSQL大版本号，版本信息可从<a href="https://cloud.tencent.com/document/api/409/89018">DescribeDBVersions</a>获取，目前支持10，11，12，13，14，15这几个大版本。</p>
+     * @param string $DBVersion <p>PostgreSQL社区大版本+小版本号，如12.4，版本信息可从<a href="https://cloud.tencent.com/document/api/409/89018">DescribeDBVersions</a>获取。</p>
+     * @param string $DBKernelVersion <p>PostgreSQL内核版本号，如v12.7_r1.8，版本信息可从<a href="https://cloud.tencent.com/document/api/409/89018">DescribeDBVersions</a>获取。</p>
+     * @param string $DBInstanceType <p>实例类型，类型有：</p><li>primary：主实例</li><li>readonly：只读实例</li><li>guard：灾备实例</li><li>temp：临时实例</li>
+     * @param string $DBInstanceVersion <p>实例版本，目前只支持standard（双机高可用版, 一主一从）。</p>
+     * @param string $DBCharset <p>实例字符集，目前只支持：</p><li> UTF8</li><li> LATIN1</li>
+     * @param string $CreateTime <p>实例创建时间。</p>
+     * @param string $UpdateTime <p>实例执行最后一次更新的时间。</p>
+     * @param string $ExpireTime <p>实例到期时间。</p>
+     * @param string $IsolatedTime <p>实例隔离时间。</p>
+     * @param string $PayType <p>计费模式：</p><li>prepaid：包年包月,预付费</li><li>postpaid：按量计费，后付费</li>
+     * @param integer $AutoRenew <p>是否自动续费：</p><li>0：手动续费</li><li>1：自动续费</li>默认值：0
+     * @param array $DBInstanceNetInfo <p>实例网络连接信息。</p>
+     * @param string $Type <p>机器类型。</p>
+     * @param integer $AppId <p>用户的AppId。</p>
+     * @param integer $Uid <p>实例的Uid。</p>
+     * @param integer $ProjectId <p>项目ID。</p>
+     * @param array $TagList <p>实例绑定的标签信息。</p>
+     * @param string $MasterDBInstanceId <p>主实例信息，仅在实例为只读实例时返回。</p>
+     * @param integer $ReadOnlyInstanceNum <p>只读实例数量。</p>
+     * @param string $StatusInReadonlyGroup <p>只读实例在只读组中的状态。</p>
+     * @param string $OfflineTime <p>下线时间。</p>
+     * @param array $DBNodeSet <p>实例的节点信息。</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $StatusInReadonlyGroup 只读实例在只读组中的状态
+     * @param integer $IsSupportTDE <p>实例是否支持TDE数据加密：</p><li>0：不支持</li><li>1：支持</li>默认值：0TDE数据加密可参考[数据透明加密概述](https://cloud.tencent.com/document/product/409/71748)
+     * @param string $DBEngine <p>数据库引擎，支持：</p><li>postgresql：云数据库PostgreSQL</li><li>mssql_compatible：MSSQL兼容-云数据库PostgreSQL</li>默认值：postgresql
+     * @param string $DBEngineConfig <p>数据库引擎的配置信息，配置格式如下：<br>{&quot;$key1&quot;:&quot;$value1&quot;, &quot;$key2&quot;:&quot;$value2&quot;}<br>各引擎支持如下：<br>mssql_compatible引擎：</p><li>migrationMode：数据库模式，可选参数，可取值：single-db（单数据库模式），multi-db（多数据库模式）。默认为single-db。</li><li>defaultLocale：排序区域规则，可选参数，在初始化后不可修改，默认为en_US，可选值如下："af_ZA", "sq_AL", "ar_DZ", "ar_BH", "ar_EG", "ar_IQ", "ar_JO", "ar_KW", "ar_LB", "ar_LY", "ar_MA", "ar_OM", "ar_QA", "ar_SA", "ar_SY", "ar_TN", "ar_AE", "ar_YE", "hy_AM", "az_Cyrl_AZ", "az_Latn_AZ", "eu_ES", "be_BY", "bg_BG", "ca_ES", "zh_HK", "zh_MO", "zh_CN", "zh_SG", "zh_TW", "hr_HR", "cs_CZ", "da_DK", "nl_BE", "nl_NL", "en_AU", "en_BZ", "en_CA", "en_IE", "en_JM", "en_NZ", "en_PH", "en_ZA", "en_TT", "en_GB", "en_US", "en_ZW", "et_EE", "fo_FO", "fa_IR", "fi_FI", "fr_BE", "fr_CA", "fr_FR", "fr_LU", "fr_MC", "fr_CH", "mk_MK", "ka_GE", "de_AT", "de_DE", "de_LI", "de_LU", "de_CH", "el_GR", "gu_IN", "he_IL", "hi_IN", "hu_HU", "is_IS", "id_ID", "it_IT", "it_CH", "ja_JP", "kn_IN", "kok_IN", "ko_KR", "ky_KG", "lv_LV", "lt_LT", "ms_BN", "ms_MY", "mr_IN", "mn_MN", "nb_NO", "nn_NO", "pl_PL", "pt_BR", "pt_PT", "pa_IN", "ro_RO", "ru_RU", "sa_IN", "sr_Cyrl_RS", "sr_Latn_RS", "sk_SK", "sl_SI", "es_AR", "es_BO", "es_CL", "es_CO", "es_CR", "es_DO", "es_EC", "es_SV", "es_GT", "es_HN", "es_MX", "es_NI", "es_PA", "es_PY","es_PE", "es_PR", "es_ES", "es_TRADITIONAL", "es_UY", "es_VE", "sw_KE", "sv_FI", "sv_SE", "tt_RU", "te_IN", "th_TH", "tr_TR", "uk_UA", "ur_IN", "ur_PK", "uz_Cyrl_UZ", "uz_Latn_UZ", "vi_VN"。</li><li>serverCollationName：排序规则名称，可选参数，在初始化后不可修改，默认为sql_latin1_general_cp1_ci_as，可选值如下："bbf_unicode_general_ci_as", "bbf_unicode_cp1_ci_as", "bbf_unicode_CP1250_ci_as", "bbf_unicode_CP1251_ci_as", "bbf_unicode_cp1253_ci_as", "bbf_unicode_cp1254_ci_as", "bbf_unicode_cp1255_ci_as", "bbf_unicode_cp1256_ci_as", "bbf_unicode_cp1257_ci_as", "bbf_unicode_cp1258_ci_as", "bbf_unicode_cp874_ci_as", "sql_latin1_general_cp1250_ci_as", "sql_latin1_general_cp1251_ci_as", "sql_latin1_general_cp1_ci_as", "sql_latin1_general_cp1253_ci_as", "sql_latin1_general_cp1254_ci_as", "sql_latin1_general_cp1255_ci_as","sql_latin1_general_cp1256_ci_as", "sql_latin1_general_cp1257_ci_as", "sql_latin1_general_cp1258_ci_as", "chinese_prc_ci_as", "cyrillic_general_ci_as", "finnish_swedish_ci_as", "french_ci_as", "japanese_ci_as", "korean_wansung_ci_as", "latin1_general_ci_as", "modern_spanish_ci_as", "polish_ci_as", "thai_ci_as", "traditional_spanish_ci_as", "turkish_ci_as", "ukrainian_ci_as", "vietnamese_ci_as"。</li>
+     * @param array $NetworkAccessList <p>实例网络信息列表（此字段已废弃）</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $OfflineTime 下线时间
-注意：此字段可能返回 null，表示取不到有效值。
+     * @param integer $SupportIpv6 <p>实例是否支持Ipv6：</p><li>0：否</li><li>1：是</li>默认值：0
+     * @param integer $ExpandedCpu <p>实例已经弹性扩容的cpu核数</p>
+     * @param boolean $DeletionProtection <p>实例是否开启删除保护，取值如下：</p><ul><li>true：开启删除保护</li><li>false：关闭删除保护</li></ul>
+     * @param string $DBInstanceStorageType <p>实例存储类型，可选值：PHYSICAL_LOCAL_SSD：物理机本地ssd硬盘 CLOUD_PREMIUM：高性能云硬盘 CLOUD_SSD：ssd云硬盘 CLOUD_HSSD：增强型ssd云硬盘</p>
      */
     function __construct()
     {
@@ -320,10 +388,6 @@ class DBInstance extends AbstractModel
 
         if (array_key_exists("Zone",$param) and $param["Zone"] !== null) {
             $this->Zone = $param["Zone"];
-        }
-
-        if (array_key_exists("ProjectId",$param) and $param["ProjectId"] !== null) {
-            $this->ProjectId = $param["ProjectId"];
         }
 
         if (array_key_exists("VpcId",$param) and $param["VpcId"] !== null) {
@@ -362,6 +426,18 @@ class DBInstance extends AbstractModel
             $this->DBInstanceClass = $param["DBInstanceClass"];
         }
 
+        if (array_key_exists("DBMajorVersion",$param) and $param["DBMajorVersion"] !== null) {
+            $this->DBMajorVersion = $param["DBMajorVersion"];
+        }
+
+        if (array_key_exists("DBVersion",$param) and $param["DBVersion"] !== null) {
+            $this->DBVersion = $param["DBVersion"];
+        }
+
+        if (array_key_exists("DBKernelVersion",$param) and $param["DBKernelVersion"] !== null) {
+            $this->DBKernelVersion = $param["DBKernelVersion"];
+        }
+
         if (array_key_exists("DBInstanceType",$param) and $param["DBInstanceType"] !== null) {
             $this->DBInstanceType = $param["DBInstanceType"];
         }
@@ -372,10 +448,6 @@ class DBInstance extends AbstractModel
 
         if (array_key_exists("DBCharset",$param) and $param["DBCharset"] !== null) {
             $this->DBCharset = $param["DBCharset"];
-        }
-
-        if (array_key_exists("DBVersion",$param) and $param["DBVersion"] !== null) {
-            $this->DBVersion = $param["DBVersion"];
         }
 
         if (array_key_exists("CreateTime",$param) and $param["CreateTime"] !== null) {
@@ -423,8 +495,8 @@ class DBInstance extends AbstractModel
             $this->Uid = $param["Uid"];
         }
 
-        if (array_key_exists("SupportIpv6",$param) and $param["SupportIpv6"] !== null) {
-            $this->SupportIpv6 = $param["SupportIpv6"];
+        if (array_key_exists("ProjectId",$param) and $param["ProjectId"] !== null) {
+            $this->ProjectId = $param["ProjectId"];
         }
 
         if (array_key_exists("TagList",$param) and $param["TagList"] !== null) {
@@ -450,6 +522,52 @@ class DBInstance extends AbstractModel
 
         if (array_key_exists("OfflineTime",$param) and $param["OfflineTime"] !== null) {
             $this->OfflineTime = $param["OfflineTime"];
+        }
+
+        if (array_key_exists("DBNodeSet",$param) and $param["DBNodeSet"] !== null) {
+            $this->DBNodeSet = [];
+            foreach ($param["DBNodeSet"] as $key => $value){
+                $obj = new DBNode();
+                $obj->deserialize($value);
+                array_push($this->DBNodeSet, $obj);
+            }
+        }
+
+        if (array_key_exists("IsSupportTDE",$param) and $param["IsSupportTDE"] !== null) {
+            $this->IsSupportTDE = $param["IsSupportTDE"];
+        }
+
+        if (array_key_exists("DBEngine",$param) and $param["DBEngine"] !== null) {
+            $this->DBEngine = $param["DBEngine"];
+        }
+
+        if (array_key_exists("DBEngineConfig",$param) and $param["DBEngineConfig"] !== null) {
+            $this->DBEngineConfig = $param["DBEngineConfig"];
+        }
+
+        if (array_key_exists("NetworkAccessList",$param) and $param["NetworkAccessList"] !== null) {
+            $this->NetworkAccessList = [];
+            foreach ($param["NetworkAccessList"] as $key => $value){
+                $obj = new NetworkAccess();
+                $obj->deserialize($value);
+                array_push($this->NetworkAccessList, $obj);
+            }
+        }
+
+        if (array_key_exists("SupportIpv6",$param) and $param["SupportIpv6"] !== null) {
+            $this->SupportIpv6 = $param["SupportIpv6"];
+        }
+
+        if (array_key_exists("ExpandedCpu",$param) and $param["ExpandedCpu"] !== null) {
+            $this->ExpandedCpu = $param["ExpandedCpu"];
+        }
+
+        if (array_key_exists("DeletionProtection",$param) and $param["DeletionProtection"] !== null) {
+            $this->DeletionProtection = $param["DeletionProtection"];
+        }
+
+        if (array_key_exists("DBInstanceStorageType",$param) and $param["DBInstanceStorageType"] !== null) {
+            $this->DBInstanceStorageType = $param["DBInstanceStorageType"];
         }
     }
 }

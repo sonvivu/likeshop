@@ -21,7 +21,7 @@ namespace app\admin\logic;
 
 use app\common\model\Goods;
 use app\common\server\UrlServer;
-use think\Db;
+use think\facade\Db;
 
 class CommentHelperLogic
 {
@@ -61,14 +61,15 @@ class CommentHelperLogic
             ->page($get['page'], $get['limit'])
             ->order('id desc')
             ->select();
+        $lists = $lists->toArray(); // ThinkPHP 6：select() 返回 Collection，TP5 返回数组；直接写 $lists[$k]['x'] 或 foreach(&$item) 改值会丢/报错，先转数组。
 
         $goods_category = Db::name('goods_category')->where(['del' => 0])->column('name', 'id');
 
         foreach ($lists as &$item) {
             $item['cate_name'] = GoodsLogic::getCateName($goods_category, $item);
-            $item['price'] = '￥' . $item['min_price'];
+            $item['price'] = config('currency.symbol') . $item['min_price'];
             if ($item['spec_type'] == 2 && $item['max_price'] !== $item['min_price']) {
-                $item['price'] = '￥' . $item['min_price'] . '~' . '￥' . $item['max_price'];
+                $item['price'] = config('currency.symbol') . $item['min_price'] . '~' . config('currency.symbol') . $item['max_price'];
             }
             $item['create_time_desc'] = date('Y-m-d H:i:s', $item['create_time']);
             $item['image'] = UrlServer::getFileUrl($item['image']);

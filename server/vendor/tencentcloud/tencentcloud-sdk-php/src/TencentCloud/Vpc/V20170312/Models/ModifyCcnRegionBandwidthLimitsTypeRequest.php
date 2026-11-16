@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,8 +22,8 @@ use TencentCloud\Common\AbstractModel;
  *
  * @method string getCcnId() 获取云联网实例ID。
  * @method void setCcnId(string $CcnId) 设置云联网实例ID。
- * @method string getBandwidthLimitType() 获取云联网限速类型，INTER_REGION_LIMIT：地域间限速，OUTER_REGION_LIMIT：地域出口限速。
- * @method void setBandwidthLimitType(string $BandwidthLimitType) 设置云联网限速类型，INTER_REGION_LIMIT：地域间限速，OUTER_REGION_LIMIT：地域出口限速。
+ * @method string getBandwidthLimitType() 获取云联网限速类型，INTER_REGION_LIMIT：地域间限速，OUTER_REGION_LIMIT：地域出口限速。默认值：OUTER_REGION_LIMIT。
+ * @method void setBandwidthLimitType(string $BandwidthLimitType) 设置云联网限速类型，INTER_REGION_LIMIT：地域间限速，OUTER_REGION_LIMIT：地域出口限速。默认值：OUTER_REGION_LIMIT。
  */
 class ModifyCcnRegionBandwidthLimitsTypeRequest extends AbstractModel
 {
@@ -33,13 +33,13 @@ class ModifyCcnRegionBandwidthLimitsTypeRequest extends AbstractModel
     public $CcnId;
 
     /**
-     * @var string 云联网限速类型，INTER_REGION_LIMIT：地域间限速，OUTER_REGION_LIMIT：地域出口限速。
+     * @var string 云联网限速类型，INTER_REGION_LIMIT：地域间限速，OUTER_REGION_LIMIT：地域出口限速。默认值：OUTER_REGION_LIMIT。
      */
     public $BandwidthLimitType;
 
     /**
      * @param string $CcnId 云联网实例ID。
-     * @param string $BandwidthLimitType 云联网限速类型，INTER_REGION_LIMIT：地域间限速，OUTER_REGION_LIMIT：地域出口限速。
+     * @param string $BandwidthLimitType 云联网限速类型，INTER_REGION_LIMIT：地域间限速，OUTER_REGION_LIMIT：地域出口限速。默认值：OUTER_REGION_LIMIT。
      */
     function __construct()
     {

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,34 +20,34 @@ use TencentCloud\Common\AbstractModel;
 /**
  * ModifyRecordBatch返回参数结构体
  *
- * @method integer getJobId() 获取批量任务ID
- * @method void setJobId(integer $JobId) 设置批量任务ID
- * @method array getDetailList() 获取见modifyRecordBatchDetail
- * @method void setDetailList(array $DetailList) 设置见modifyRecordBatchDetail
- * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
- * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method integer getJobId() 获取<p>批量任务ID</p>
+ * @method void setJobId(integer $JobId) 设置<p>批量任务ID</p>
+ * @method array getDetailList() 获取<p>见ModifyRecordBatchDetail</p>
+ * @method void setDetailList(array $DetailList) 设置<p>见ModifyRecordBatchDetail</p>
+ * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+ * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
 class ModifyRecordBatchResponse extends AbstractModel
 {
     /**
-     * @var integer 批量任务ID
+     * @var integer <p>批量任务ID</p>
      */
     public $JobId;
 
     /**
-     * @var array 见modifyRecordBatchDetail
+     * @var array <p>见ModifyRecordBatchDetail</p>
      */
     public $DetailList;
 
     /**
-     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public $RequestId;
 
     /**
-     * @param integer $JobId 批量任务ID
-     * @param array $DetailList 见modifyRecordBatchDetail
-     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @param integer $JobId <p>批量任务ID</p>
+     * @param array $DetailList <p>见ModifyRecordBatchDetail</p>
+     * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
     {

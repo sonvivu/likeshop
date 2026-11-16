@@ -49,13 +49,13 @@
                         <img src="{$detail.goods_snap.goods_iamge}" alt="{:lang('图片')}" style="width:60px;height:60px;float:left;" class="image-show">
                         <div class="layui-inline">
                             <div>{$detail.goods_snap.name}</div>
-                            <div>{$detail.goods_snap.spec_value_str}&nbsp; ￥{$detail.goods_snap.price}</div>
+                            <div>{$detail.goods_snap.spec_value_str}&nbsp; {:config('currency.symbol')}{$detail.goods_snap.price}</div>
                         </div>
                     </div>
                 </div>
                 <div class="layui-form-item" style="margin-bottom:0;">
                     <label class="layui-form-label">{:lang('活动底价：')}</label>
-                    <div class="layui-input-block">￥{$detail.bargain_price}</div>
+                    <div class="layui-input-block">{:config('currency.symbol')}{$detail.bargain_price}</div>
                 </div>
                 <div class="layui-form-item" style="margin-bottom:0;">
                     <label class="layui-form-label">{:lang('购买方式：')}</label>
@@ -82,7 +82,7 @@
                         <img src="{{d.goods_snap.goods_iamge}}" alt="{:lang('图片')}" style="width:60px;height:60px;float:left;" class="image-show">
                         <div class="layui-inline">
                             <div>{{d.goods_snap.name}}</div>
-                            <div>{{d.goods_snap.spec_value_str}}&nbsp; ￥{{d.goods_snap.price}}</div>
+                            <div>{{d.goods_snap.spec_value_str}}&nbsp; {:config('currency.symbol')}{{d.goods_snap.price}}</div>
                         </div>
                     </div>
                 </script>

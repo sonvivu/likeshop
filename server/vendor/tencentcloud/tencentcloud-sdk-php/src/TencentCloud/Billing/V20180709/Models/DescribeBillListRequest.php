@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,30 +20,76 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeBillList请求参数结构体
  *
- * @method string getStartTime() 获取查询范围的起始时间（包含）
- * @method void setStartTime(string $StartTime) 设置查询范围的起始时间（包含）
- * @method string getEndTime() 获取查询范围的结束时间（包含）
- * @method void setEndTime(string $EndTime) 设置查询范围的结束时间（包含）
+ * @method string getStartTime() 获取查询范围的起始时间（包含）时间格式 yyyy-MM-dd HH:mm:ss 开始时间和结束时间差值小于等于六个月
+ * @method void setStartTime(string $StartTime) 设置查询范围的起始时间（包含）时间格式 yyyy-MM-dd HH:mm:ss 开始时间和结束时间差值小于等于六个月
+ * @method string getEndTime() 获取查询范围的结束时间（包含）时间格式 yyyy-MM-dd HH:mm:ss ，开始时间和结束时间差值小于等于六个月
+ * @method void setEndTime(string $EndTime) 设置查询范围的结束时间（包含）时间格式 yyyy-MM-dd HH:mm:ss ，开始时间和结束时间差值小于等于六个月
  * @method integer getOffset() 获取翻页偏移量，初始值为0
  * @method void setOffset(integer $Offset) 设置翻页偏移量，初始值为0
  * @method integer getLimit() 获取每页的限制数量
  * @method void setLimit(integer $Limit) 设置每页的限制数量
  * @method array getPayType() 获取交易类型： all所有交易类型，recharge充值，return退款，unblock解冻，agentin资金转入，advanced垫付，cash提现，deduct扣费，block冻结，agentout资金转出，repay垫付回款，repayment还款(仅国际信用账户)，adj_refund调增(仅国际信用账户)，adj_deduct调减(仅国际信用账户)
  * @method void setPayType(array $PayType) 设置交易类型： all所有交易类型，recharge充值，return退款，unblock解冻，agentin资金转入，advanced垫付，cash提现，deduct扣费，block冻结，agentout资金转出，repay垫付回款，repayment还款(仅国际信用账户)，adj_refund调增(仅国际信用账户)，adj_deduct调减(仅国际信用账户)
- * @method array getSubPayType() 获取扣费模式，当所选的交易类型中包含扣费deduct时有意义： all所有扣费类型，trade预付费支付，hour_h按量小时结，hour_d按量日结，hour_m按量月结，decompensate调账扣费，other其他扣费
- * @method void setSubPayType(array $SubPayType) 设置扣费模式，当所选的交易类型中包含扣费deduct时有意义： all所有扣费类型，trade预付费支付，hour_h按量小时结，hour_d按量日结，hour_m按量月结，decompensate调账扣费，other其他扣费
+ * @method array getSubPayType() 获取扣费模式，
+当所选的交易类型为扣费deduct时： 
+all所有扣费类型;trade预付费支付;hour_h按量小时结;hour_d按量日结;hour_m按量月结;decompensate调账扣费;other第三方扣费;panshi 线下项目扣费;offline 线下产品扣费;
+
+当所选的交易类型为扣费recharge时： 
+online 在线充值;bank-enterprice 银企直联;offline 线下充值;transfer 分成充值
+
+当所选的交易类型为扣费cash时： 
+online 线上提现;offline 线下提现;panshi 赠送金清零
+
+当所选的交易类型为扣费advanced时： 
+advanced 垫付充值
+
+当所选的交易类型为扣费repay时： 
+panshi 垫付回款
+
+当所选的交易类型为扣费block时： 
+other 第三方冻结;hour 按量冻结;month按月冻结
+
+当所选的交易类型为扣费return时： 
+compensate 调账补偿;trade 预付费退款
+
+当所选的交易类型为扣费unblock时：
+other 第三方解冻;hour 按量解冻;month 按月解冻
+ * @method void setSubPayType(array $SubPayType) 设置扣费模式，
+当所选的交易类型为扣费deduct时： 
+all所有扣费类型;trade预付费支付;hour_h按量小时结;hour_d按量日结;hour_m按量月结;decompensate调账扣费;other第三方扣费;panshi 线下项目扣费;offline 线下产品扣费;
+
+当所选的交易类型为扣费recharge时： 
+online 在线充值;bank-enterprice 银企直联;offline 线下充值;transfer 分成充值
+
+当所选的交易类型为扣费cash时： 
+online 线上提现;offline 线下提现;panshi 赠送金清零
+
+当所选的交易类型为扣费advanced时： 
+advanced 垫付充值
+
+当所选的交易类型为扣费repay时： 
+panshi 垫付回款
+
+当所选的交易类型为扣费block时： 
+other 第三方冻结;hour 按量冻结;month按月冻结
+
+当所选的交易类型为扣费return时： 
+compensate 调账补偿;trade 预付费退款
+
+当所选的交易类型为扣费unblock时：
+other 第三方解冻;hour 按量解冻;month 按月解冻
  * @method integer getWithZeroAmount() 获取是否返回0元交易金额的交易项，取值：0-不返回，1-返回。不传该参数则不返回
  * @method void setWithZeroAmount(integer $WithZeroAmount) 设置是否返回0元交易金额的交易项，取值：0-不返回，1-返回。不传该参数则不返回
  */
 class DescribeBillListRequest extends AbstractModel
 {
     /**
-     * @var string 查询范围的起始时间（包含）
+     * @var string 查询范围的起始时间（包含）时间格式 yyyy-MM-dd HH:mm:ss 开始时间和结束时间差值小于等于六个月
      */
     public $StartTime;
 
     /**
-     * @var string 查询范围的结束时间（包含）
+     * @var string 查询范围的结束时间（包含）时间格式 yyyy-MM-dd HH:mm:ss ，开始时间和结束时间差值小于等于六个月
      */
     public $EndTime;
 
@@ -63,7 +109,30 @@ class DescribeBillListRequest extends AbstractModel
     public $PayType;
 
     /**
-     * @var array 扣费模式，当所选的交易类型中包含扣费deduct时有意义： all所有扣费类型，trade预付费支付，hour_h按量小时结，hour_d按量日结，hour_m按量月结，decompensate调账扣费，other其他扣费
+     * @var array 扣费模式，
+当所选的交易类型为扣费deduct时： 
+all所有扣费类型;trade预付费支付;hour_h按量小时结;hour_d按量日结;hour_m按量月结;decompensate调账扣费;other第三方扣费;panshi 线下项目扣费;offline 线下产品扣费;
+
+当所选的交易类型为扣费recharge时： 
+online 在线充值;bank-enterprice 银企直联;offline 线下充值;transfer 分成充值
+
+当所选的交易类型为扣费cash时： 
+online 线上提现;offline 线下提现;panshi 赠送金清零
+
+当所选的交易类型为扣费advanced时： 
+advanced 垫付充值
+
+当所选的交易类型为扣费repay时： 
+panshi 垫付回款
+
+当所选的交易类型为扣费block时： 
+other 第三方冻结;hour 按量冻结;month按月冻结
+
+当所选的交易类型为扣费return时： 
+compensate 调账补偿;trade 预付费退款
+
+当所选的交易类型为扣费unblock时：
+other 第三方解冻;hour 按量解冻;month 按月解冻
      */
     public $SubPayType;
 
@@ -73,12 +142,35 @@ class DescribeBillListRequest extends AbstractModel
     public $WithZeroAmount;
 
     /**
-     * @param string $StartTime 查询范围的起始时间（包含）
-     * @param string $EndTime 查询范围的结束时间（包含）
+     * @param string $StartTime 查询范围的起始时间（包含）时间格式 yyyy-MM-dd HH:mm:ss 开始时间和结束时间差值小于等于六个月
+     * @param string $EndTime 查询范围的结束时间（包含）时间格式 yyyy-MM-dd HH:mm:ss ，开始时间和结束时间差值小于等于六个月
      * @param integer $Offset 翻页偏移量，初始值为0
      * @param integer $Limit 每页的限制数量
      * @param array $PayType 交易类型： all所有交易类型，recharge充值，return退款，unblock解冻，agentin资金转入，advanced垫付，cash提现，deduct扣费，block冻结，agentout资金转出，repay垫付回款，repayment还款(仅国际信用账户)，adj_refund调增(仅国际信用账户)，adj_deduct调减(仅国际信用账户)
-     * @param array $SubPayType 扣费模式，当所选的交易类型中包含扣费deduct时有意义： all所有扣费类型，trade预付费支付，hour_h按量小时结，hour_d按量日结，hour_m按量月结，decompensate调账扣费，other其他扣费
+     * @param array $SubPayType 扣费模式，
+当所选的交易类型为扣费deduct时： 
+all所有扣费类型;trade预付费支付;hour_h按量小时结;hour_d按量日结;hour_m按量月结;decompensate调账扣费;other第三方扣费;panshi 线下项目扣费;offline 线下产品扣费;
+
+当所选的交易类型为扣费recharge时： 
+online 在线充值;bank-enterprice 银企直联;offline 线下充值;transfer 分成充值
+
+当所选的交易类型为扣费cash时： 
+online 线上提现;offline 线下提现;panshi 赠送金清零
+
+当所选的交易类型为扣费advanced时： 
+advanced 垫付充值
+
+当所选的交易类型为扣费repay时： 
+panshi 垫付回款
+
+当所选的交易类型为扣费block时： 
+other 第三方冻结;hour 按量冻结;month按月冻结
+
+当所选的交易类型为扣费return时： 
+compensate 调账补偿;trade 预付费退款
+
+当所选的交易类型为扣费unblock时：
+other 第三方解冻;hour 按量解冻;month 按月解冻
      * @param integer $WithZeroAmount 是否返回0元交易金额的交易项，取值：0-不返回，1-返回。不传该参数则不返回
      */
     function __construct()

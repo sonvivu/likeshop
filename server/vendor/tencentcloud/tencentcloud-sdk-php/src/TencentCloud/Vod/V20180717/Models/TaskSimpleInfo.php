@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,30 +22,38 @@ use TencentCloud\Common\AbstractModel;
  *
  * @method string getTaskId() 获取任务 ID。
  * @method void setTaskId(string $TaskId) 设置任务 ID。
- * @method string getStatus() 获取任务状态。取值：WAITING（等待中）、PROCESSING（处理中）、FINISH（已完成）。
- * @method void setStatus(string $Status) 设置任务状态。取值：WAITING（等待中）、PROCESSING（处理中）、FINISH（已完成）。
+ * @method string getStatus() 获取任务状态。取值：WAITING（等待中）、PROCESSING（处理中）、FINISH（已完成）、ABORTED（已终止）。
+ * @method void setStatus(string $Status) 设置任务状态。取值：WAITING（等待中）、PROCESSING（处理中）、FINISH（已完成）、ABORTED（已终止）。
  * @method string getFileId() 获取视频 ID。
  * @method void setFileId(string $FileId) 设置视频 ID。
  * @method string getTaskType() 获取任务类型，取值：
 <li>Procedure：视频处理任务；</li>
-<li>EditMedia：视频编辑任务</li>
-<li>WechatDistribute：微信发布任务。</li>
+<li>EditMedia：视频编辑任务；</li>
+<li>ReduceMediaBitrate：降码率任务；</li>
+<li>WechatDistribute：微信发布任务；</li>
+<li>ReviewAudioVideo：音视频审核任务；</li>
+<li> MPSWorkflowTask：MPS 视频处理任务。</li>
 兼容 2017 版的任务类型：
 <li>Transcode：视频转码任务；</li>
 <li>SnapshotByTimeOffset：视频截图任务；</li>
 <li>Concat：视频拼接任务；</li>
 <li>Clip：视频剪辑任务；</li>
 <li>ImageSprites：截取雪碧图任务。</li>
+
  * @method void setTaskType(string $TaskType) 设置任务类型，取值：
 <li>Procedure：视频处理任务；</li>
-<li>EditMedia：视频编辑任务</li>
-<li>WechatDistribute：微信发布任务。</li>
+<li>EditMedia：视频编辑任务；</li>
+<li>ReduceMediaBitrate：降码率任务；</li>
+<li>WechatDistribute：微信发布任务；</li>
+<li>ReviewAudioVideo：音视频审核任务；</li>
+<li> MPSWorkflowTask：MPS 视频处理任务。</li>
 兼容 2017 版的任务类型：
 <li>Transcode：视频转码任务；</li>
 <li>SnapshotByTimeOffset：视频截图任务；</li>
 <li>Concat：视频拼接任务；</li>
 <li>Clip：视频剪辑任务；</li>
 <li>ImageSprites：截取雪碧图任务。</li>
+
  * @method string getCreateTime() 获取任务创建时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
  * @method void setCreateTime(string $CreateTime) 设置任务创建时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
  * @method string getBeginProcessTime() 获取任务开始执行时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。若任务尚未开始，该字段为空。
@@ -65,7 +73,7 @@ class TaskSimpleInfo extends AbstractModel
     public $TaskId;
 
     /**
-     * @var string 任务状态。取值：WAITING（等待中）、PROCESSING（处理中）、FINISH（已完成）。
+     * @var string 任务状态。取值：WAITING（等待中）、PROCESSING（处理中）、FINISH（已完成）、ABORTED（已终止）。
      */
     public $Status;
 
@@ -77,14 +85,18 @@ class TaskSimpleInfo extends AbstractModel
     /**
      * @var string 任务类型，取值：
 <li>Procedure：视频处理任务；</li>
-<li>EditMedia：视频编辑任务</li>
-<li>WechatDistribute：微信发布任务。</li>
+<li>EditMedia：视频编辑任务；</li>
+<li>ReduceMediaBitrate：降码率任务；</li>
+<li>WechatDistribute：微信发布任务；</li>
+<li>ReviewAudioVideo：音视频审核任务；</li>
+<li> MPSWorkflowTask：MPS 视频处理任务。</li>
 兼容 2017 版的任务类型：
 <li>Transcode：视频转码任务；</li>
 <li>SnapshotByTimeOffset：视频截图任务；</li>
 <li>Concat：视频拼接任务；</li>
 <li>Clip：视频剪辑任务；</li>
 <li>ImageSprites：截取雪碧图任务。</li>
+
      */
     public $TaskType;
 
@@ -115,18 +127,22 @@ class TaskSimpleInfo extends AbstractModel
 
     /**
      * @param string $TaskId 任务 ID。
-     * @param string $Status 任务状态。取值：WAITING（等待中）、PROCESSING（处理中）、FINISH（已完成）。
+     * @param string $Status 任务状态。取值：WAITING（等待中）、PROCESSING（处理中）、FINISH（已完成）、ABORTED（已终止）。
      * @param string $FileId 视频 ID。
      * @param string $TaskType 任务类型，取值：
 <li>Procedure：视频处理任务；</li>
-<li>EditMedia：视频编辑任务</li>
-<li>WechatDistribute：微信发布任务。</li>
+<li>EditMedia：视频编辑任务；</li>
+<li>ReduceMediaBitrate：降码率任务；</li>
+<li>WechatDistribute：微信发布任务；</li>
+<li>ReviewAudioVideo：音视频审核任务；</li>
+<li> MPSWorkflowTask：MPS 视频处理任务。</li>
 兼容 2017 版的任务类型：
 <li>Transcode：视频转码任务；</li>
 <li>SnapshotByTimeOffset：视频截图任务；</li>
 <li>Concat：视频拼接任务；</li>
 <li>Clip：视频剪辑任务；</li>
 <li>ImageSprites：截取雪碧图任务。</li>
+
      * @param string $CreateTime 任务创建时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
      * @param string $BeginProcessTime 任务开始执行时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。若任务尚未开始，该字段为空。
      * @param string $FinishTime 任务结束时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。若任务尚未完成，该字段为空。

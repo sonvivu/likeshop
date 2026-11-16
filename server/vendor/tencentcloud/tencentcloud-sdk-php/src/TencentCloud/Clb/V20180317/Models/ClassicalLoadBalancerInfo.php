@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,9 +23,7 @@ use TencentCloud\Common\AbstractModel;
  * @method string getInstanceId() 获取后端实例ID
  * @method void setInstanceId(string $InstanceId) 设置后端实例ID
  * @method array getLoadBalancerIds() 获取负载均衡实例ID列表
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setLoadBalancerIds(array $LoadBalancerIds) 设置负载均衡实例ID列表
-注意：此字段可能返回 null，表示取不到有效值。
  */
 class ClassicalLoadBalancerInfo extends AbstractModel
 {
@@ -36,14 +34,12 @@ class ClassicalLoadBalancerInfo extends AbstractModel
 
     /**
      * @var array 负载均衡实例ID列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $LoadBalancerIds;
 
     /**
      * @param string $InstanceId 后端实例ID
      * @param array $LoadBalancerIds 负载均衡实例ID列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
     {

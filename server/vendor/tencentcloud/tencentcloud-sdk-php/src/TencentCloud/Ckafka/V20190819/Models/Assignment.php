@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,9 +23,7 @@ use TencentCloud\Common\AbstractModel;
  * @method integer getVersion() 获取assingment版本信息
  * @method void setVersion(integer $Version) 设置assingment版本信息
  * @method array getTopics() 获取topic信息列表
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setTopics(array $Topics) 设置topic信息列表
-注意：此字段可能返回 null，表示取不到有效值。
  */
 class Assignment extends AbstractModel
 {
@@ -36,14 +34,12 @@ class Assignment extends AbstractModel
 
     /**
      * @var array topic信息列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Topics;
 
     /**
      * @param integer $Version assingment版本信息
      * @param array $Topics topic信息列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
     {

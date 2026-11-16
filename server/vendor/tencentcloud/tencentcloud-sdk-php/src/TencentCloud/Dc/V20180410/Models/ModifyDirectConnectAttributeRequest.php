@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,8 +20,8 @@ use TencentCloud\Common\AbstractModel;
 /**
  * ModifyDirectConnectAttribute请求参数结构体
  *
- * @method string getDirectConnectId() 获取物理专线的ID。
- * @method void setDirectConnectId(string $DirectConnectId) 设置物理专线的ID。
+ * @method string getDirectConnectId() 获取物理专线ID。
+ * @method void setDirectConnectId(string $DirectConnectId) 设置物理专线ID。
  * @method string getDirectConnectName() 获取物理专线名称。
  * @method void setDirectConnectName(string $DirectConnectName) 设置物理专线名称。
  * @method string getCircuitCode() 获取运营商或者服务商为物理专线提供的电路编码。
@@ -42,15 +42,17 @@ use TencentCloud\Common\AbstractModel;
  * @method void setFaultReportContactPerson(string $FaultReportContactPerson) 设置报障联系人。
  * @method string getFaultReportContactNumber() 获取报障联系电话。
  * @method void setFaultReportContactNumber(string $FaultReportContactNumber) 设置报障联系电话。
- * @method boolean getSignLaw() 获取物理专线申请者补签用户使用协议
- * @method void setSignLaw(boolean $SignLaw) 设置物理专线申请者补签用户使用协议
- * @method integer getBandwidth() 获取物理专线带宽
- * @method void setBandwidth(integer $Bandwidth) 设置物理专线带宽
+ * @method string getFaultReportContactEmail() 获取报障联系邮箱。
+ * @method void setFaultReportContactEmail(string $FaultReportContactEmail) 设置报障联系邮箱。
+ * @method boolean getSignLaw() 获取物理专线申请者补签用户使用协议。
+ * @method void setSignLaw(boolean $SignLaw) 设置物理专线申请者补签用户使用协议。
+ * @method integer getBandwidth() 获取物理专线带宽。
+ * @method void setBandwidth(integer $Bandwidth) 设置物理专线带宽。
  */
 class ModifyDirectConnectAttributeRequest extends AbstractModel
 {
     /**
-     * @var string 物理专线的ID。
+     * @var string 物理专线ID。
      */
     public $DirectConnectId;
 
@@ -105,17 +107,22 @@ class ModifyDirectConnectAttributeRequest extends AbstractModel
     public $FaultReportContactNumber;
 
     /**
-     * @var boolean 物理专线申请者补签用户使用协议
+     * @var string 报障联系邮箱。
+     */
+    public $FaultReportContactEmail;
+
+    /**
+     * @var boolean 物理专线申请者补签用户使用协议。
      */
     public $SignLaw;
 
     /**
-     * @var integer 物理专线带宽
+     * @var integer 物理专线带宽。
      */
     public $Bandwidth;
 
     /**
-     * @param string $DirectConnectId 物理专线的ID。
+     * @param string $DirectConnectId 物理专线ID。
      * @param string $DirectConnectName 物理专线名称。
      * @param string $CircuitCode 运营商或者服务商为物理专线提供的电路编码。
      * @param integer $Vlan 物理专线调试VLAN。
@@ -126,8 +133,9 @@ class ModifyDirectConnectAttributeRequest extends AbstractModel
      * @param string $CustomerContactNumber 物理专线申请者联系号码。默认从账户体系获取。
      * @param string $FaultReportContactPerson 报障联系人。
      * @param string $FaultReportContactNumber 报障联系电话。
-     * @param boolean $SignLaw 物理专线申请者补签用户使用协议
-     * @param integer $Bandwidth 物理专线带宽
+     * @param string $FaultReportContactEmail 报障联系邮箱。
+     * @param boolean $SignLaw 物理专线申请者补签用户使用协议。
+     * @param integer $Bandwidth 物理专线带宽。
      */
     function __construct()
     {
@@ -184,6 +192,10 @@ class ModifyDirectConnectAttributeRequest extends AbstractModel
 
         if (array_key_exists("FaultReportContactNumber",$param) and $param["FaultReportContactNumber"] !== null) {
             $this->FaultReportContactNumber = $param["FaultReportContactNumber"];
+        }
+
+        if (array_key_exists("FaultReportContactEmail",$param) and $param["FaultReportContactEmail"] !== null) {
+            $this->FaultReportContactEmail = $param["FaultReportContactEmail"];
         }
 
         if (array_key_exists("SignLaw",$param) and $param["SignLaw"] !== null) {

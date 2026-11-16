@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,26 +20,26 @@ use TencentCloud\Common\AbstractModel;
 /**
  * SetRenewFlag请求参数结构体
  *
- * @method array getResourceIds() 获取需操作的实例ID
- * @method void setResourceIds(array $ResourceIds) 设置需操作的实例ID
- * @method integer getAutoRenewFlag() 获取自动续费标志位
- * @method void setAutoRenewFlag(integer $AutoRenewFlag) 设置自动续费标志位
+ * @method array getResourceIds() 获取需操作的集群ID
+ * @method void setResourceIds(array $ResourceIds) 设置需操作的集群ID
+ * @method integer getAutoRenewFlag() 获取自动续费标志位，续费标记 0:正常续费  1:自动续费 2:到期不续
+ * @method void setAutoRenewFlag(integer $AutoRenewFlag) 设置自动续费标志位，续费标记 0:正常续费  1:自动续费 2:到期不续
  */
 class SetRenewFlagRequest extends AbstractModel
 {
     /**
-     * @var array 需操作的实例ID
+     * @var array 需操作的集群ID
      */
     public $ResourceIds;
 
     /**
-     * @var integer 自动续费标志位
+     * @var integer 自动续费标志位，续费标记 0:正常续费  1:自动续费 2:到期不续
      */
     public $AutoRenewFlag;
 
     /**
-     * @param array $ResourceIds 需操作的实例ID
-     * @param integer $AutoRenewFlag 自动续费标志位
+     * @param array $ResourceIds 需操作的集群ID
+     * @param integer $AutoRenewFlag 自动续费标志位，续费标记 0:正常续费  1:自动续费 2:到期不续
      */
     function __construct()
     {

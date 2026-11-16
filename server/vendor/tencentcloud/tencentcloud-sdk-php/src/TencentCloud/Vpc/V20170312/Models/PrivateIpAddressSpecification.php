@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -42,6 +42,8 @@ PENDING：生产中
 MIGRATING：迁移中
 DELETING：删除中
 AVAILABLE：可用的
+ * @method string getQosLevel() 获取IP服务质量等级，可选值：PT（云金）、AU（云银）、AG(云铜）、DEFAULT（默认）。
+ * @method void setQosLevel(string $QosLevel) 设置IP服务质量等级，可选值：PT（云金）、AU（云银）、AG(云铜）、DEFAULT（默认）。
  */
 class PrivateIpAddressSpecification extends AbstractModel
 {
@@ -85,6 +87,11 @@ AVAILABLE：可用的
     public $State;
 
     /**
+     * @var string IP服务质量等级，可选值：PT（云金）、AU（云银）、AG(云铜）、DEFAULT（默认）。
+     */
+    public $QosLevel;
+
+    /**
      * @param string $PrivateIpAddress 内网IP地址。
      * @param boolean $Primary 是否是主IP。
      * @param string $PublicIpAddress 公网IP地址。
@@ -96,6 +103,7 @@ PENDING：生产中
 MIGRATING：迁移中
 DELETING：删除中
 AVAILABLE：可用的
+     * @param string $QosLevel IP服务质量等级，可选值：PT（云金）、AU（云银）、AG(云铜）、DEFAULT（默认）。
      */
     function __construct()
     {
@@ -136,6 +144,10 @@ AVAILABLE：可用的
 
         if (array_key_exists("State",$param) and $param["State"] !== null) {
             $this->State = $param["State"];
+        }
+
+        if (array_key_exists("QosLevel",$param) and $param["QosLevel"] !== null) {
+            $this->QosLevel = $param["QosLevel"];
         }
     }
 }

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,18 +20,34 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeTargetHealth请求参数结构体
  *
- * @method array getLoadBalancerIds() 获取要查询的负载均衡实例ID列表。
- * @method void setLoadBalancerIds(array $LoadBalancerIds) 设置要查询的负载均衡实例ID列表。
+ * @method array getLoadBalancerIds() 获取<p>要查询的负载均衡实例ID列表。数组大小最大支持30。</p>
+ * @method void setLoadBalancerIds(array $LoadBalancerIds) 设置<p>要查询的负载均衡实例ID列表。数组大小最大支持30。</p>
+ * @method array getListenerIds() 获取<p>要查询的监听器ID列表。</p>
+ * @method void setListenerIds(array $ListenerIds) 设置<p>要查询的监听器ID列表。</p>
+ * @method array getLocationIds() 获取<p>要查询的转发规则ID列表。</p>
+ * @method void setLocationIds(array $LocationIds) 设置<p>要查询的转发规则ID列表。</p>
  */
 class DescribeTargetHealthRequest extends AbstractModel
 {
     /**
-     * @var array 要查询的负载均衡实例ID列表。
+     * @var array <p>要查询的负载均衡实例ID列表。数组大小最大支持30。</p>
      */
     public $LoadBalancerIds;
 
     /**
-     * @param array $LoadBalancerIds 要查询的负载均衡实例ID列表。
+     * @var array <p>要查询的监听器ID列表。</p>
+     */
+    public $ListenerIds;
+
+    /**
+     * @var array <p>要查询的转发规则ID列表。</p>
+     */
+    public $LocationIds;
+
+    /**
+     * @param array $LoadBalancerIds <p>要查询的负载均衡实例ID列表。数组大小最大支持30。</p>
+     * @param array $ListenerIds <p>要查询的监听器ID列表。</p>
+     * @param array $LocationIds <p>要查询的转发规则ID列表。</p>
      */
     function __construct()
     {
@@ -48,6 +64,14 @@ class DescribeTargetHealthRequest extends AbstractModel
         }
         if (array_key_exists("LoadBalancerIds",$param) and $param["LoadBalancerIds"] !== null) {
             $this->LoadBalancerIds = $param["LoadBalancerIds"];
+        }
+
+        if (array_key_exists("ListenerIds",$param) and $param["ListenerIds"] !== null) {
+            $this->ListenerIds = $param["ListenerIds"];
+        }
+
+        if (array_key_exists("LocationIds",$param) and $param["LocationIds"] !== null) {
+            $this->LocationIds = $param["LocationIds"];
         }
     }
 }

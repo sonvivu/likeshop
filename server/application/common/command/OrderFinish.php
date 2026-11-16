@@ -27,8 +27,7 @@ use app\common\server\ConfigServer;
 use think\console\Command;
 use think\console\Input;
 use think\console\Output;
-use think\Db;
-use think\facade\Hook;
+use think\facade\Db;
 use think\facade\Log;
 
 /**
@@ -74,7 +73,7 @@ class OrderFinish extends Command
                     ]);
 
                 // 赠送成长值和积分
-                Hook::listen('give_reward', [
+                event('give_reward', [
                     'order_id' => $order['id'],
                     'scene'    => 4, //4=订单结算
                 ]);

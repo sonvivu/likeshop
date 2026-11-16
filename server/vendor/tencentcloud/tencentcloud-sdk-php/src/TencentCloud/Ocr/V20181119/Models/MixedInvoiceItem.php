@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,9 +38,11 @@ FailedOperation.UnKnowError：表示识别失败；
 8：通用机打发票
 9：汽车票
 10：轮船票
-11：增值税发票（卷票 ）
+11：增值税发票（卷票）
 12：购车发票
 13：过路过桥费发票
+15：非税发票
+16：全电发票
  * @method void setType(integer $Type) 设置识别出的图片所属的票据类型。
 -1：未知类型
 0：出租车发票
@@ -51,15 +53,19 @@ FailedOperation.UnKnowError：表示识别失败；
 8：通用机打发票
 9：汽车票
 10：轮船票
-11：增值税发票（卷票 ）
+11：增值税发票（卷票）
 12：购车发票
 13：过路过桥费发票
+15：非税发票
+16：全电发票
  * @method Rect getRect() 获取识别出的图片在混贴票据图片中的位置信息。与Angel结合可以得出原图位置，组成RotatedRect((X+0.5\*Width,Y+0.5\*Height), (Width, Height), Angle)，详情可参考OpenCV文档。
  * @method void setRect(Rect $Rect) 设置识别出的图片在混贴票据图片中的位置信息。与Angel结合可以得出原图位置，组成RotatedRect((X+0.5\*Width,Y+0.5\*Height), (Width, Height), Angle)，详情可参考OpenCV文档。
  * @method float getAngle() 获取识别出的图片在混贴票据图片中的旋转角度。
  * @method void setAngle(float $Angle) 设置识别出的图片在混贴票据图片中的旋转角度。
  * @method array getSingleInvoiceInfos() 获取识别到的内容。
  * @method void setSingleInvoiceInfos(array $SingleInvoiceInfos) 设置识别到的内容。
+ * @method integer getPage() 获取发票处于识别图片或PDF文件中的页教，默认从1开始。
+ * @method void setPage(integer $Page) 设置发票处于识别图片或PDF文件中的页教，默认从1开始。
  */
 class MixedInvoiceItem extends AbstractModel
 {
@@ -82,9 +88,11 @@ FailedOperation.UnKnowError：表示识别失败；
 8：通用机打发票
 9：汽车票
 10：轮船票
-11：增值税发票（卷票 ）
+11：增值税发票（卷票）
 12：购车发票
 13：过路过桥费发票
+15：非税发票
+16：全电发票
      */
     public $Type;
 
@@ -104,6 +112,11 @@ FailedOperation.UnKnowError：表示识别失败；
     public $SingleInvoiceInfos;
 
     /**
+     * @var integer 发票处于识别图片或PDF文件中的页教，默认从1开始。
+     */
+    public $Page;
+
+    /**
      * @param string $Code 识别结果。
 OK：表示识别成功；FailedOperation.UnsupportedInvioce：表示不支持识别；
 FailedOperation.UnKnowError：表示识别失败；
@@ -118,12 +131,15 @@ FailedOperation.UnKnowError：表示识别失败；
 8：通用机打发票
 9：汽车票
 10：轮船票
-11：增值税发票（卷票 ）
+11：增值税发票（卷票）
 12：购车发票
 13：过路过桥费发票
+15：非税发票
+16：全电发票
      * @param Rect $Rect 识别出的图片在混贴票据图片中的位置信息。与Angel结合可以得出原图位置，组成RotatedRect((X+0.5\*Width,Y+0.5\*Height), (Width, Height), Angle)，详情可参考OpenCV文档。
      * @param float $Angle 识别出的图片在混贴票据图片中的旋转角度。
      * @param array $SingleInvoiceInfos 识别到的内容。
+     * @param integer $Page 发票处于识别图片或PDF文件中的页教，默认从1开始。
      */
     function __construct()
     {
@@ -162,6 +178,10 @@ FailedOperation.UnKnowError：表示识别失败；
                 $obj->deserialize($value);
                 array_push($this->SingleInvoiceInfos, $obj);
             }
+        }
+
+        if (array_key_exists("Page",$param) and $param["Page"] !== null) {
+            $this->Page = $param["Page"];
         }
     }
 }

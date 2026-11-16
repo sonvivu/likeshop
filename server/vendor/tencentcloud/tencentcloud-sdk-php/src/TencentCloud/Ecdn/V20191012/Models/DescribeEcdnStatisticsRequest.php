@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,12 +44,12 @@ request：请求数，单位为 次
 1 天	 1，5，15，30，60，120，240，1440 
 2 ~ 3 天	15，30，60，120，240，1440
 4 ~ 7 天	30，60，120，240，1440
-8 ~ 90 天	 60，120，240，1440
+8 ~ 31 天	 60，120，240，1440
  * @method void setInterval(integer $Interval) 设置时间粒度，支持以下几种模式：
 1 天	 1，5，15，30，60，120，240，1440 
 2 ~ 3 天	15，30，60，120，240，1440
 4 ~ 7 天	30，60，120，240，1440
-8 ~ 90 天	 60，120，240，1440
+8 ~ 31 天	 60，120，240，1440
  * @method array getDomains() 获取指定查询域名列表
 
 最多可一次性查询30个加速域名。
@@ -100,7 +100,7 @@ request：请求数，单位为 次
 1 天	 1，5，15，30，60，120，240，1440 
 2 ~ 3 天	15，30，60，120，240，1440
 4 ~ 7 天	30，60，120，240，1440
-8 ~ 90 天	 60，120，240，1440
+8 ~ 31 天	 60，120，240，1440
      */
     public $Interval;
 
@@ -141,7 +141,7 @@ request：请求数，单位为 次
 1 天	 1，5，15，30，60，120，240，1440 
 2 ~ 3 天	15，30，60，120，240，1440
 4 ~ 7 天	30，60，120，240，1440
-8 ~ 90 天	 60，120，240，1440
+8 ~ 31 天	 60，120，240，1440
      * @param array $Domains 指定查询域名列表
 
 最多可一次性查询30个加速域名。

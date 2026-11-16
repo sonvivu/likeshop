@@ -20,7 +20,7 @@
 namespace app\admin\logic;
 use app\common\model\AssuranceService;
 use app\common\server\UrlServer;
-use think\Db;
+use think\facade\Db;
 use think\facade\Cache;
 
 class AssuranceServiceLogic

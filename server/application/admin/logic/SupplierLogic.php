@@ -17,7 +17,7 @@
 // | author: likeshop.cn.team
 // +----------------------------------------------------------------------
 namespace app\admin\logic;
-use think\db;
+use think\facade\Db;
 
 class SupplierLogic{
     /**

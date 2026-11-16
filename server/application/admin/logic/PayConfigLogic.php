@@ -20,7 +20,7 @@
 namespace app\admin\logic;
 
 use app\common\model\Pay;
-use think\Db;
+use think\facade\Db;
 
 class PayConfigLogic
 {

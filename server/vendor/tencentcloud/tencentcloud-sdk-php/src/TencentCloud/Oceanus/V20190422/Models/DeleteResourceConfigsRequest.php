@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,26 +20,34 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DeleteResourceConfigs请求参数结构体
  *
- * @method string getResourceId() 获取资源ID
- * @method void setResourceId(string $ResourceId) 设置资源ID
- * @method array getResourceConfigVersions() 获取资源版本数组
- * @method void setResourceConfigVersions(array $ResourceConfigVersions) 设置资源版本数组
+ * @method string getResourceId() 获取<p>资源ID</p>
+ * @method void setResourceId(string $ResourceId) 设置<p>资源ID</p>
+ * @method array getResourceConfigVersions() 获取<p>资源版本数组</p>
+ * @method void setResourceConfigVersions(array $ResourceConfigVersions) 设置<p>资源版本数组</p>
+ * @method string getWorkSpaceId() 获取<p>工作空间 SerialId</p>
+ * @method void setWorkSpaceId(string $WorkSpaceId) 设置<p>工作空间 SerialId</p>
  */
 class DeleteResourceConfigsRequest extends AbstractModel
 {
     /**
-     * @var string 资源ID
+     * @var string <p>资源ID</p>
      */
     public $ResourceId;
 
     /**
-     * @var array 资源版本数组
+     * @var array <p>资源版本数组</p>
      */
     public $ResourceConfigVersions;
 
     /**
-     * @param string $ResourceId 资源ID
-     * @param array $ResourceConfigVersions 资源版本数组
+     * @var string <p>工作空间 SerialId</p>
+     */
+    public $WorkSpaceId;
+
+    /**
+     * @param string $ResourceId <p>资源ID</p>
+     * @param array $ResourceConfigVersions <p>资源版本数组</p>
+     * @param string $WorkSpaceId <p>工作空间 SerialId</p>
      */
     function __construct()
     {
@@ -60,6 +68,10 @@ class DeleteResourceConfigsRequest extends AbstractModel
 
         if (array_key_exists("ResourceConfigVersions",$param) and $param["ResourceConfigVersions"] !== null) {
             $this->ResourceConfigVersions = $param["ResourceConfigVersions"];
+        }
+
+        if (array_key_exists("WorkSpaceId",$param) and $param["WorkSpaceId"] !== null) {
+            $this->WorkSpaceId = $param["WorkSpaceId"];
         }
     }
 }

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,46 +20,42 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeVpcInstances请求参数结构体
  *
- * @method array getFilters() 获取过滤条件，参数不支持同时指定RouteTableIds和Filters。
-<li>vpc-id - String - （过滤条件）VPC实例ID，形如：vpc-f49l6u0z。</li>
+ * @method array getFilters() 获取<li>vpc-id - String - （过滤条件）VPC实例ID，形如：vpc-f49l6u0z。</li>
 <li>instance-id - String - （过滤条件）云主机实例ID。</li>
 <li>instance-name - String - （过滤条件）云主机名称。</li>
- * @method void setFilters(array $Filters) 设置过滤条件，参数不支持同时指定RouteTableIds和Filters。
-<li>vpc-id - String - （过滤条件）VPC实例ID，形如：vpc-f49l6u0z。</li>
+ * @method void setFilters(array $Filters) 设置<li>vpc-id - String - （过滤条件）VPC实例ID，形如：vpc-f49l6u0z。</li>
 <li>instance-id - String - （过滤条件）云主机实例ID。</li>
 <li>instance-name - String - （过滤条件）云主机名称。</li>
- * @method integer getOffset() 获取偏移量。
- * @method void setOffset(integer $Offset) 设置偏移量。
- * @method integer getLimit() 获取请求对象个数。
- * @method void setLimit(integer $Limit) 设置请求对象个数。
+ * @method integer getOffset() 获取偏移量，默认为0。
+ * @method void setOffset(integer $Offset) 设置偏移量，默认为0。
+ * @method integer getLimit() 获取返回数量，默认为20，最大值为100。
+ * @method void setLimit(integer $Limit) 设置返回数量，默认为20，最大值为100。
  */
 class DescribeVpcInstancesRequest extends AbstractModel
 {
     /**
-     * @var array 过滤条件，参数不支持同时指定RouteTableIds和Filters。
-<li>vpc-id - String - （过滤条件）VPC实例ID，形如：vpc-f49l6u0z。</li>
+     * @var array <li>vpc-id - String - （过滤条件）VPC实例ID，形如：vpc-f49l6u0z。</li>
 <li>instance-id - String - （过滤条件）云主机实例ID。</li>
 <li>instance-name - String - （过滤条件）云主机名称。</li>
      */
     public $Filters;
 
     /**
-     * @var integer 偏移量。
+     * @var integer 偏移量，默认为0。
      */
     public $Offset;
 
     /**
-     * @var integer 请求对象个数。
+     * @var integer 返回数量，默认为20，最大值为100。
      */
     public $Limit;
 
     /**
-     * @param array $Filters 过滤条件，参数不支持同时指定RouteTableIds和Filters。
-<li>vpc-id - String - （过滤条件）VPC实例ID，形如：vpc-f49l6u0z。</li>
+     * @param array $Filters <li>vpc-id - String - （过滤条件）VPC实例ID，形如：vpc-f49l6u0z。</li>
 <li>instance-id - String - （过滤条件）云主机实例ID。</li>
 <li>instance-name - String - （过滤条件）云主机名称。</li>
-     * @param integer $Offset 偏移量。
-     * @param integer $Limit 请求对象个数。
+     * @param integer $Offset 偏移量，默认为0。
+     * @param integer $Limit 返回数量，默认为20，最大值为100。
      */
     function __construct()
     {

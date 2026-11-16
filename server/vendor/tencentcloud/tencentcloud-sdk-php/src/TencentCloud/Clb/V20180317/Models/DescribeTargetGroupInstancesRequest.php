@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,34 +20,34 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeTargetGroupInstances请求参数结构体
  *
- * @method array getFilters() 获取过滤条件，当前仅支持TargetGroupId，BindIP，InstanceId过滤
- * @method void setFilters(array $Filters) 设置过滤条件，当前仅支持TargetGroupId，BindIP，InstanceId过滤
- * @method integer getLimit() 获取显示数量限制，默认20
- * @method void setLimit(integer $Limit) 设置显示数量限制，默认20
- * @method integer getOffset() 获取显示的偏移量，默认为0
- * @method void setOffset(integer $Offset) 设置显示的偏移量，默认为0
+ * @method array getFilters() 获取过滤条件，当前支持按照 TargetGroupId，BindIP，InstanceId 多个条件组合过滤。
+ * @method void setFilters(array $Filters) 设置过滤条件，当前支持按照 TargetGroupId，BindIP，InstanceId 多个条件组合过滤。
+ * @method integer getLimit() 获取显示数量限制，默认20。
+ * @method void setLimit(integer $Limit) 设置显示数量限制，默认20。
+ * @method integer getOffset() 获取显示的偏移量，默认为0。
+ * @method void setOffset(integer $Offset) 设置显示的偏移量，默认为0。
  */
 class DescribeTargetGroupInstancesRequest extends AbstractModel
 {
     /**
-     * @var array 过滤条件，当前仅支持TargetGroupId，BindIP，InstanceId过滤
+     * @var array 过滤条件，当前支持按照 TargetGroupId，BindIP，InstanceId 多个条件组合过滤。
      */
     public $Filters;
 
     /**
-     * @var integer 显示数量限制，默认20
+     * @var integer 显示数量限制，默认20。
      */
     public $Limit;
 
     /**
-     * @var integer 显示的偏移量，默认为0
+     * @var integer 显示的偏移量，默认为0。
      */
     public $Offset;
 
     /**
-     * @param array $Filters 过滤条件，当前仅支持TargetGroupId，BindIP，InstanceId过滤
-     * @param integer $Limit 显示数量限制，默认20
-     * @param integer $Offset 显示的偏移量，默认为0
+     * @param array $Filters 过滤条件，当前支持按照 TargetGroupId，BindIP，InstanceId 多个条件组合过滤。
+     * @param integer $Limit 显示数量限制，默认20。
+     * @param integer $Offset 显示的偏移量，默认为0。
      */
     function __construct()
     {

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,42 +20,50 @@ use TencentCloud\Common\AbstractModel;
 /**
  * 通知目标
  *
- * @method string getTargetType() 获取目标类型，取值范围包括`CMQ_QUEUE`、`CMQ_TOPIC`。
-<li> CMQ_QUEUE，指腾讯云消息队列-队列模型。</li>
-<li> CMQ_TOPIC，指腾讯云消息队列-主题模型。</li>
- * @method void setTargetType(string $TargetType) 设置目标类型，取值范围包括`CMQ_QUEUE`、`CMQ_TOPIC`。
-<li> CMQ_QUEUE，指腾讯云消息队列-队列模型。</li>
-<li> CMQ_TOPIC，指腾讯云消息队列-主题模型。</li>
- * @method string getQueueName() 获取队列名称，如果`TargetType`取值为`CMQ_QUEUE`，则本字段必填。
- * @method void setQueueName(string $QueueName) 设置队列名称，如果`TargetType`取值为`CMQ_QUEUE`，则本字段必填。
- * @method string getTopicName() 获取主题名称，如果`TargetType`取值为`CMQ_TOPIC`，则本字段必填。
- * @method void setTopicName(string $TopicName) 设置主题名称，如果`TargetType`取值为`CMQ_TOPIC`，则本字段必填。
+ * @method string getTargetType() 获取目标类型，取值范围包括`CMQ_QUEUE`、`CMQ_TOPIC`、`TDMQ_CMQ_QUEUE`、`TDMQ_CMQ_TOPIC`。
+<li> CMQ_QUEUE，指腾讯云消息队列-队列模型，对应产品已下线，[建议切换](https://cloud.tencent.com/document/product/1496/83970) TDMQ_CMQ_QUEUE 使用。</li>
+<li> CMQ_TOPIC，指腾讯云消息队列-主题模型，对应产品已下线，[建议切换](https://cloud.tencent.com/document/product/1496/83970) TDMQ_CMQ_TOPIC 使用。</li>
+<li> TDMQ_CMQ_QUEUE，指腾讯云 TDMQ 消息队列-队列模型。</li>
+<li> TDMQ_CMQ_TOPIC，指腾讯云 TDMQ 消息队列-主题模型。</li>
+ * @method void setTargetType(string $TargetType) 设置目标类型，取值范围包括`CMQ_QUEUE`、`CMQ_TOPIC`、`TDMQ_CMQ_QUEUE`、`TDMQ_CMQ_TOPIC`。
+<li> CMQ_QUEUE，指腾讯云消息队列-队列模型，对应产品已下线，[建议切换](https://cloud.tencent.com/document/product/1496/83970) TDMQ_CMQ_QUEUE 使用。</li>
+<li> CMQ_TOPIC，指腾讯云消息队列-主题模型，对应产品已下线，[建议切换](https://cloud.tencent.com/document/product/1496/83970) TDMQ_CMQ_TOPIC 使用。</li>
+<li> TDMQ_CMQ_QUEUE，指腾讯云 TDMQ 消息队列-队列模型。</li>
+<li> TDMQ_CMQ_TOPIC，指腾讯云 TDMQ 消息队列-主题模型。</li>
+ * @method string getQueueName() 获取队列名称，如果`TargetType`取值为`CMQ_QUEUE` 或 `TDMQ_CMQ_QUEUE`，则本字段必填。
+ * @method void setQueueName(string $QueueName) 设置队列名称，如果`TargetType`取值为`CMQ_QUEUE` 或 `TDMQ_CMQ_QUEUE`，则本字段必填。
+ * @method string getTopicName() 获取主题名称，如果`TargetType`取值为`CMQ_TOPIC` 或 `TDMQ_CMQ_TOPIC`，则本字段必填。
+ * @method void setTopicName(string $TopicName) 设置主题名称，如果`TargetType`取值为`CMQ_TOPIC` 或 `TDMQ_CMQ_TOPIC`，则本字段必填。
  */
 class NotificationTarget extends AbstractModel
 {
     /**
-     * @var string 目标类型，取值范围包括`CMQ_QUEUE`、`CMQ_TOPIC`。
-<li> CMQ_QUEUE，指腾讯云消息队列-队列模型。</li>
-<li> CMQ_TOPIC，指腾讯云消息队列-主题模型。</li>
+     * @var string 目标类型，取值范围包括`CMQ_QUEUE`、`CMQ_TOPIC`、`TDMQ_CMQ_QUEUE`、`TDMQ_CMQ_TOPIC`。
+<li> CMQ_QUEUE，指腾讯云消息队列-队列模型，对应产品已下线，[建议切换](https://cloud.tencent.com/document/product/1496/83970) TDMQ_CMQ_QUEUE 使用。</li>
+<li> CMQ_TOPIC，指腾讯云消息队列-主题模型，对应产品已下线，[建议切换](https://cloud.tencent.com/document/product/1496/83970) TDMQ_CMQ_TOPIC 使用。</li>
+<li> TDMQ_CMQ_QUEUE，指腾讯云 TDMQ 消息队列-队列模型。</li>
+<li> TDMQ_CMQ_TOPIC，指腾讯云 TDMQ 消息队列-主题模型。</li>
      */
     public $TargetType;
 
     /**
-     * @var string 队列名称，如果`TargetType`取值为`CMQ_QUEUE`，则本字段必填。
+     * @var string 队列名称，如果`TargetType`取值为`CMQ_QUEUE` 或 `TDMQ_CMQ_QUEUE`，则本字段必填。
      */
     public $QueueName;
 
     /**
-     * @var string 主题名称，如果`TargetType`取值为`CMQ_TOPIC`，则本字段必填。
+     * @var string 主题名称，如果`TargetType`取值为`CMQ_TOPIC` 或 `TDMQ_CMQ_TOPIC`，则本字段必填。
      */
     public $TopicName;
 
     /**
-     * @param string $TargetType 目标类型，取值范围包括`CMQ_QUEUE`、`CMQ_TOPIC`。
-<li> CMQ_QUEUE，指腾讯云消息队列-队列模型。</li>
-<li> CMQ_TOPIC，指腾讯云消息队列-主题模型。</li>
-     * @param string $QueueName 队列名称，如果`TargetType`取值为`CMQ_QUEUE`，则本字段必填。
-     * @param string $TopicName 主题名称，如果`TargetType`取值为`CMQ_TOPIC`，则本字段必填。
+     * @param string $TargetType 目标类型，取值范围包括`CMQ_QUEUE`、`CMQ_TOPIC`、`TDMQ_CMQ_QUEUE`、`TDMQ_CMQ_TOPIC`。
+<li> CMQ_QUEUE，指腾讯云消息队列-队列模型，对应产品已下线，[建议切换](https://cloud.tencent.com/document/product/1496/83970) TDMQ_CMQ_QUEUE 使用。</li>
+<li> CMQ_TOPIC，指腾讯云消息队列-主题模型，对应产品已下线，[建议切换](https://cloud.tencent.com/document/product/1496/83970) TDMQ_CMQ_TOPIC 使用。</li>
+<li> TDMQ_CMQ_QUEUE，指腾讯云 TDMQ 消息队列-队列模型。</li>
+<li> TDMQ_CMQ_TOPIC，指腾讯云 TDMQ 消息队列-主题模型。</li>
+     * @param string $QueueName 队列名称，如果`TargetType`取值为`CMQ_QUEUE` 或 `TDMQ_CMQ_QUEUE`，则本字段必填。
+     * @param string $TopicName 主题名称，如果`TargetType`取值为`CMQ_TOPIC` 或 `TDMQ_CMQ_TOPIC`，则本字段必填。
      */
     function __construct()
     {

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,17 +20,19 @@ use TencentCloud\Common\AbstractModel;
 /**
  * AddVpcCniSubnets请求参数结构体
  *
- * @method string getClusterId() 获取集群ID
- * @method void setClusterId(string $ClusterId) 设置集群ID
+ * @method string getClusterId() 获取集群 ID，请[登录控制台](https://console.cloud.tencent.com/tke2/cluster)在集群列表复制ID
+ * @method void setClusterId(string $ClusterId) 设置集群 ID，请[登录控制台](https://console.cloud.tencent.com/tke2/cluster)在集群列表复制ID
  * @method array getSubnetIds() 获取为集群容器网络增加的子网列表
  * @method void setSubnetIds(array $SubnetIds) 设置为集群容器网络增加的子网列表
  * @method string getVpcId() 获取集群所属的VPC的ID
  * @method void setVpcId(string $VpcId) 设置集群所属的VPC的ID
+ * @method boolean getSkipAddingNonMasqueradeCIDRs() 获取是否同步添加 vpc 网段到 ip-masq-agent-config 的 NonMasqueradeCIDRs 字段，默认 false 会同步添加
+ * @method void setSkipAddingNonMasqueradeCIDRs(boolean $SkipAddingNonMasqueradeCIDRs) 设置是否同步添加 vpc 网段到 ip-masq-agent-config 的 NonMasqueradeCIDRs 字段，默认 false 会同步添加
  */
 class AddVpcCniSubnetsRequest extends AbstractModel
 {
     /**
-     * @var string 集群ID
+     * @var string 集群 ID，请[登录控制台](https://console.cloud.tencent.com/tke2/cluster)在集群列表复制ID
      */
     public $ClusterId;
 
@@ -45,9 +47,15 @@ class AddVpcCniSubnetsRequest extends AbstractModel
     public $VpcId;
 
     /**
-     * @param string $ClusterId 集群ID
+     * @var boolean 是否同步添加 vpc 网段到 ip-masq-agent-config 的 NonMasqueradeCIDRs 字段，默认 false 会同步添加
+     */
+    public $SkipAddingNonMasqueradeCIDRs;
+
+    /**
+     * @param string $ClusterId 集群 ID，请[登录控制台](https://console.cloud.tencent.com/tke2/cluster)在集群列表复制ID
      * @param array $SubnetIds 为集群容器网络增加的子网列表
      * @param string $VpcId 集群所属的VPC的ID
+     * @param boolean $SkipAddingNonMasqueradeCIDRs 是否同步添加 vpc 网段到 ip-masq-agent-config 的 NonMasqueradeCIDRs 字段，默认 false 会同步添加
      */
     function __construct()
     {
@@ -72,6 +80,10 @@ class AddVpcCniSubnetsRequest extends AbstractModel
 
         if (array_key_exists("VpcId",$param) and $param["VpcId"] !== null) {
             $this->VpcId = $param["VpcId"];
+        }
+
+        if (array_key_exists("SkipAddingNonMasqueradeCIDRs",$param) and $param["SkipAddingNonMasqueradeCIDRs"] !== null) {
+            $this->SkipAddingNonMasqueradeCIDRs = $param["SkipAddingNonMasqueradeCIDRs"];
         }
     }
 }

@@ -34,7 +34,7 @@ use app\common\server\UrlServer;
 use app\common\server\WeChatServer;
 use EasyWeChat\Factory;
 use EasyWeChat\Kernel\Exceptions\Exception;
-use think\Db;
+use think\facade\Db;
 use app\common\logic\AccountLogLogic;
 use think\facade\Cache;
 
@@ -42,7 +42,7 @@ class UserLogic extends LogicBase
 {
     public static function center($user_id)
     {
-        $user = User::get($user_id);
+        $user = User::find($user_id);
         //待支付
         $user->wait_pay = Db::name('order')->where(['del' => 0, 'user_id' => $user_id, 'order_status' => Order::STATUS_WAIT_PAY, 'pay_status' => 0])->count();
         //待发货
@@ -50,7 +50,7 @@ class UserLogic extends LogicBase
         //待收货
         $user->wait_take = Db::name('order')->where(['del' => 0, 'user_id' => $user_id, 'order_status' => [Order::STATUS_WAIT_RECEIVE], 'pay_status' => 1])->count();
         //待评论
-        $user->wait_comment = Db::name('order o')
+        $user->wait_comment = Db::name('order')->alias('o')
             ->join('order_goods og', 'o.id = og.order_id')
             ->where(['del' => 0, 'user_id' => $user_id, 'order_status' => Order::STATUS_FINISH, 'is_comment' => 0])
             ->count('og.id');
@@ -156,7 +156,7 @@ class UserLogic extends LogicBase
     //修改手机号
     public static function changeMobile($user_id, $data)
     {
-        $user = User::get($user_id);
+        $user = User::find($user_id);
         $user->mobile = $data['new_mobile'];
         $user->save();
         return $user;
@@ -219,19 +219,20 @@ class UserLogic extends LogicBase
         $field = 'u.id, avatar, nickname, mobile, u.create_time, order_num as fans_order,
                   order_amount as fans_money, fans as fans_team';
 
-        $count = Db::name('user u')
+        $count = Db::name('user')->alias('u')
             ->field($field)
             ->leftJoin('user_distribution d', 'd.user_id = u.id')
             ->where($where)
             ->count();
 
-        $lists = Db::name('user u')
+        $lists = Db::name('user')->alias('u')
             ->field($field)
             ->leftJoin('user_distribution d', 'd.user_id = u.id')
             ->where($where)
             ->page($page, $size)
             ->order(self::fansListsSort($get))
             ->select();
+        $lists = $lists->toArray(); // ThinkPHP 6：select() 返回 Collection，TP5 返回数组；直接写 $lists[$k]['x'] 或 foreach(&$item) 改值会丢/报错，先转数组。
 
         foreach ($lists as &$item) {
             $item['avatar'] = UrlServer::getFileUrl($item['avatar']);
@@ -452,7 +453,7 @@ class UserLogic extends LogicBase
             self::$error = $e->getMessage();
             return false;
         } finally {
-            Cache::rm($lockKey);
+            Cache::delete($lockKey);
         }
     }
 
@@ -496,6 +497,7 @@ class UserLogic extends LogicBase
                     ->page($get['page_no'], $get['page_size'])
                     ->order('ut.create_time', 'desc')
                     ->select();
+                $list = $list->toArray(); // ThinkPHP 6：select() 返回 Collection，TP5 返回数组；直接写 $list[$k]['x'] 或 foreach(&$item) 改值会丢/报错，先转数组。
                 $count = Db::name('user_transfer')
                     ->where('transfer_from_id', $get['user_id'])
                     ->count();

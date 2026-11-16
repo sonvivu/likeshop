@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,50 +20,58 @@ use TencentCloud\Common\AbstractModel;
 /**
  * CreateAccounts请求参数结构体
  *
- * @method string getInstanceId() 获取实例 ID，格式如：cdb-c1nl9rpv，与云数据库控制台页面中显示的实例 ID 相同。
- * @method void setInstanceId(string $InstanceId) 设置实例 ID，格式如：cdb-c1nl9rpv，与云数据库控制台页面中显示的实例 ID 相同。
- * @method array getAccounts() 获取云数据库账号。
- * @method void setAccounts(array $Accounts) 设置云数据库账号。
- * @method string getPassword() 获取新账户的密码。
- * @method void setPassword(string $Password) 设置新账户的密码。
- * @method string getDescription() 获取备注信息。
- * @method void setDescription(string $Description) 设置备注信息。
- * @method integer getMaxUserConnections() 获取新账户最大可用连接数。
- * @method void setMaxUserConnections(integer $MaxUserConnections) 设置新账户最大可用连接数。
+ * @method string getInstanceId() 获取<p>实例 ID，格式如：cdb-c1nl9rpv，与云数据库控制台页面中显示的实例 ID 相同。</p>
+ * @method void setInstanceId(string $InstanceId) 设置<p>实例 ID，格式如：cdb-c1nl9rpv，与云数据库控制台页面中显示的实例 ID 相同。</p>
+ * @method array getAccounts() 获取<p>云数据库账号。</p>
+ * @method void setAccounts(array $Accounts) 设置<p>云数据库账号。</p>
+ * @method string getPassword() 获取<p>新账户的密码。<br>说明：</p><ol><li>在8 ～ 64位字符数以内（推荐12位以上）。</li><li>至少包含其中两项：小写字母 a ~ z 或 大写字母 A ～ Z。数字0 ～ 9。_+-,&amp;=!@#$%^*().|。</li><li>不能包含非法字符。</li></ol>
+ * @method void setPassword(string $Password) 设置<p>新账户的密码。<br>说明：</p><ol><li>在8 ～ 64位字符数以内（推荐12位以上）。</li><li>至少包含其中两项：小写字母 a ~ z 或 大写字母 A ～ Z。数字0 ～ 9。_+-,&amp;=!@#$%^*().|。</li><li>不能包含非法字符。</li></ol>
+ * @method string getDescription() 获取<p>备注信息。最多支持输入255个字符。</p>
+ * @method void setDescription(string $Description) 设置<p>备注信息。最多支持输入255个字符。</p>
+ * @method integer getMaxUserConnections() 获取<p>新账户最大可用连接数，默认值为10240，最大可设置值为10240。</p>
+ * @method void setMaxUserConnections(integer $MaxUserConnections) 设置<p>新账户最大可用连接数，默认值为10240，最大可设置值为10240。</p>
+ * @method array getCreateAccounts() 获取<p>创建账号时的完整信息</p>
+ * @method void setCreateAccounts(array $CreateAccounts) 设置<p>创建账号时的完整信息</p>
  */
 class CreateAccountsRequest extends AbstractModel
 {
     /**
-     * @var string 实例 ID，格式如：cdb-c1nl9rpv，与云数据库控制台页面中显示的实例 ID 相同。
+     * @var string <p>实例 ID，格式如：cdb-c1nl9rpv，与云数据库控制台页面中显示的实例 ID 相同。</p>
      */
     public $InstanceId;
 
     /**
-     * @var array 云数据库账号。
+     * @var array <p>云数据库账号。</p>
      */
     public $Accounts;
 
     /**
-     * @var string 新账户的密码。
+     * @var string <p>新账户的密码。<br>说明：</p><ol><li>在8 ～ 64位字符数以内（推荐12位以上）。</li><li>至少包含其中两项：小写字母 a ~ z 或 大写字母 A ～ Z。数字0 ～ 9。_+-,&amp;=!@#$%^*().|。</li><li>不能包含非法字符。</li></ol>
      */
     public $Password;
 
     /**
-     * @var string 备注信息。
+     * @var string <p>备注信息。最多支持输入255个字符。</p>
      */
     public $Description;
 
     /**
-     * @var integer 新账户最大可用连接数。
+     * @var integer <p>新账户最大可用连接数，默认值为10240，最大可设置值为10240。</p>
      */
     public $MaxUserConnections;
 
     /**
-     * @param string $InstanceId 实例 ID，格式如：cdb-c1nl9rpv，与云数据库控制台页面中显示的实例 ID 相同。
-     * @param array $Accounts 云数据库账号。
-     * @param string $Password 新账户的密码。
-     * @param string $Description 备注信息。
-     * @param integer $MaxUserConnections 新账户最大可用连接数。
+     * @var array <p>创建账号时的完整信息</p>
+     */
+    public $CreateAccounts;
+
+    /**
+     * @param string $InstanceId <p>实例 ID，格式如：cdb-c1nl9rpv，与云数据库控制台页面中显示的实例 ID 相同。</p>
+     * @param array $Accounts <p>云数据库账号。</p>
+     * @param string $Password <p>新账户的密码。<br>说明：</p><ol><li>在8 ～ 64位字符数以内（推荐12位以上）。</li><li>至少包含其中两项：小写字母 a ~ z 或 大写字母 A ～ Z。数字0 ～ 9。_+-,&amp;=!@#$%^*().|。</li><li>不能包含非法字符。</li></ol>
+     * @param string $Description <p>备注信息。最多支持输入255个字符。</p>
+     * @param integer $MaxUserConnections <p>新账户最大可用连接数，默认值为10240，最大可设置值为10240。</p>
+     * @param array $CreateAccounts <p>创建账号时的完整信息</p>
      */
     function __construct()
     {
@@ -101,6 +109,15 @@ class CreateAccountsRequest extends AbstractModel
 
         if (array_key_exists("MaxUserConnections",$param) and $param["MaxUserConnections"] !== null) {
             $this->MaxUserConnections = $param["MaxUserConnections"];
+        }
+
+        if (array_key_exists("CreateAccounts",$param) and $param["CreateAccounts"] !== null) {
+            $this->CreateAccounts = [];
+            foreach ($param["CreateAccounts"] as $key => $value){
+                $obj = new CreateDBAccount();
+                $obj->deserialize($value);
+                array_push($this->CreateAccounts, $obj);
+            }
         }
     }
 }

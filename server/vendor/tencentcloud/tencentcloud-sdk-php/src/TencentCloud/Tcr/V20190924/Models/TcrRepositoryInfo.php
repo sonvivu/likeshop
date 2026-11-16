@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,20 +24,16 @@ use TencentCloud\Common\AbstractModel;
  * @method void setName(string $Name) 设置仓库名称
  * @method string getNamespace() 获取命名空间名称
  * @method void setNamespace(string $Namespace) 设置命名空间名称
- * @method string getCreationTime() 获取创建时间
- * @method void setCreationTime(string $CreationTime) 设置创建时间
+ * @method string getCreationTime() 获取创建时间，格式"2006-01-02 15:04:05.999999999 -0700 MST"
+ * @method void setCreationTime(string $CreationTime) 设置创建时间，格式"2006-01-02 15:04:05.999999999 -0700 MST"
  * @method boolean getPublic() 获取是否公开
  * @method void setPublic(boolean $Public) 设置是否公开
  * @method string getDescription() 获取仓库详细描述
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setDescription(string $Description) 设置仓库详细描述
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getBriefDescription() 获取简单描述
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setBriefDescription(string $BriefDescription) 设置简单描述
-注意：此字段可能返回 null，表示取不到有效值。
- * @method string getUpdateTime() 获取更新时间
- * @method void setUpdateTime(string $UpdateTime) 设置更新时间
+ * @method string getUpdateTime() 获取更新时间，格式"2006-01-02 15:04:05.999999999 -0700 MST"
+ * @method void setUpdateTime(string $UpdateTime) 设置更新时间，格式"2006-01-02 15:04:05.999999999 -0700 MST"
  */
 class TcrRepositoryInfo extends AbstractModel
 {
@@ -52,7 +48,7 @@ class TcrRepositoryInfo extends AbstractModel
     public $Namespace;
 
     /**
-     * @var string 创建时间
+     * @var string 创建时间，格式"2006-01-02 15:04:05.999999999 -0700 MST"
      */
     public $CreationTime;
 
@@ -63,31 +59,27 @@ class TcrRepositoryInfo extends AbstractModel
 
     /**
      * @var string 仓库详细描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Description;
 
     /**
      * @var string 简单描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $BriefDescription;
 
     /**
-     * @var string 更新时间
+     * @var string 更新时间，格式"2006-01-02 15:04:05.999999999 -0700 MST"
      */
     public $UpdateTime;
 
     /**
      * @param string $Name 仓库名称
      * @param string $Namespace 命名空间名称
-     * @param string $CreationTime 创建时间
+     * @param string $CreationTime 创建时间，格式"2006-01-02 15:04:05.999999999 -0700 MST"
      * @param boolean $Public 是否公开
      * @param string $Description 仓库详细描述
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $BriefDescription 简单描述
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $UpdateTime 更新时间
+     * @param string $UpdateTime 更新时间，格式"2006-01-02 15:04:05.999999999 -0700 MST"
      */
     function __construct()
     {

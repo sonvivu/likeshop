@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,18 +22,26 @@ use TencentCloud\Common\AbstractModel;
  *
  * @method integer getSdkAppId() 获取客户的SdkAppId
  * @method void setSdkAppId(integer $SdkAppId) 设置客户的SdkAppId
- * @method integer getRoomId() 获取需要推流白板的房间号，取值范围: (1, 4294967295)
- * @method void setRoomId(integer $RoomId) 设置需要推流白板的房间号，取值范围: (1, 4294967295)
- * @method string getPushUserId() 获取用于白板推流服务进房进行推流的用户ID，最大长度不能大于60个字节，该ID必须是一个单独的未在SDK中使用的ID，白板推流服务使用这个用户ID进入房间进行白板音视频推流，若该ID和SDK中使用的ID重复，会导致SDK和白板推流服务互踢，影响正常推流。
- * @method void setPushUserId(string $PushUserId) 设置用于白板推流服务进房进行推流的用户ID，最大长度不能大于60个字节，该ID必须是一个单独的未在SDK中使用的ID，白板推流服务使用这个用户ID进入房间进行白板音视频推流，若该ID和SDK中使用的ID重复，会导致SDK和白板推流服务互踢，影响正常推流。
- * @method string getPushUserSig() 获取与PushUserId对应的签名
- * @method void setPushUserSig(string $PushUserSig) 设置与PushUserId对应的签名
+ * @method integer getRoomId() 获取需要推流的白板房间号，取值范围: (1, 4294967295)。
+
+1. 在没有指定`GroupId`的情况下，白板推流默认以`RoomId`的字符串表达形式作为IM群组ID（比如RoomId为1234，则IM群组ID为"1234"），并加群进行信令同步，请在开始推流前确保相应IM群组已创建完成，否则会导致推流失败。
+2. 在没有指定`TRTCRoomId`和`TRTCRoomIdStr`的情况下，默认会以`RoomId`作为白板流进行推流的TRTC房间号。
+ * @method void setRoomId(integer $RoomId) 设置需要推流的白板房间号，取值范围: (1, 4294967295)。
+
+1. 在没有指定`GroupId`的情况下，白板推流默认以`RoomId`的字符串表达形式作为IM群组ID（比如RoomId为1234，则IM群组ID为"1234"），并加群进行信令同步，请在开始推流前确保相应IM群组已创建完成，否则会导致推流失败。
+2. 在没有指定`TRTCRoomId`和`TRTCRoomIdStr`的情况下，默认会以`RoomId`作为白板流进行推流的TRTC房间号。
+ * @method string getPushUserId() 获取用于白板推流服务进入白板房间的用户ID。在没有额外指定`IMAuthParam`和`TRTCAuthParam`的情况下，这个用户ID同时会用于IM登录、IM加群、TRTC进房推流等操作。
+用户ID最大长度不能大于60个字节，该用户ID必须是一个单独的未同时在其他地方使用的用户ID，白板推流服务使用这个用户ID进入房间进行白板音视频推流，若该用户ID和其他地方同时在使用的用户ID重复，会导致白板推流服务与其他使用场景账号互踢，影响正常推流。
+ * @method void setPushUserId(string $PushUserId) 设置用于白板推流服务进入白板房间的用户ID。在没有额外指定`IMAuthParam`和`TRTCAuthParam`的情况下，这个用户ID同时会用于IM登录、IM加群、TRTC进房推流等操作。
+用户ID最大长度不能大于60个字节，该用户ID必须是一个单独的未同时在其他地方使用的用户ID，白板推流服务使用这个用户ID进入房间进行白板音视频推流，若该用户ID和其他地方同时在使用的用户ID重复，会导致白板推流服务与其他使用场景账号互踢，影响正常推流。
+ * @method string getPushUserSig() 获取与`PushUserId`对应的IM签名(usersig)。
+ * @method void setPushUserSig(string $PushUserSig) 设置与`PushUserId`对应的IM签名(usersig)。
  * @method Whiteboard getWhiteboard() 获取白板参数，例如白板宽高、背景颜色等
  * @method void setWhiteboard(Whiteboard $Whiteboard) 设置白板参数，例如白板宽高、背景颜色等
- * @method integer getAutoStopTimeout() 获取自动停止推流超时时间，单位秒，取值范围[300, 43200], 默认值为1800秒。
+ * @method integer getAutoStopTimeout() 获取自动停止推流超时时间，单位秒，取值范围[300, 259200], 默认值为1800秒。
 
 当白板超过设定时间没有操作的时候，白板推流服务会自动停止白板推流。
- * @method void setAutoStopTimeout(integer $AutoStopTimeout) 设置自动停止推流超时时间，单位秒，取值范围[300, 43200], 默认值为1800秒。
+ * @method void setAutoStopTimeout(integer $AutoStopTimeout) 设置自动停止推流超时时间，单位秒，取值范围[300, 259200], 默认值为1800秒。
 
 当白板超过设定时间没有操作的时候，白板推流服务会自动停止白板推流。
  * @method boolean getAutoManageBackup() 获取对主白板推流任务进行操作时，是否同时同步操作备份任务
@@ -64,7 +72,7 @@ use TencentCloud\Common\AbstractModel;
 默认在实时音视频的云端录制模式选择为 `指定用户录制` 模式的情况下，不会自动进行白板推流录制，如果希望进行白板推流录制，请将此参数设置为true。
 
 如果实时音视频的云端录制模式选择为 `全局自动录制` 模式，可忽略此参数。
- * @method string getUserDefinedRecordId() 获取指定白板推流录制的RecordID，指定的RecordID会用于填充实时音视频云端录制完成后的回调消息中的 "userdefinerecordid" 字段内容，便于您更方便的识别录制回调，以及在点播媒体资源管理中查找相应的录制视频文件。
+ * @method string getUserDefinedRecordId() 获取指定白板推流这路流在音视频云端录制中的RecordID，指定的RecordID会用于填充实时音视频云端录制完成后的回调消息中的 "userdefinerecordid" 字段内容，便于您更方便的识别录制回调，以及在点播媒体资源管理中查找相应的录制视频文件。
 
 限制长度为64字节，只允许包含大小写英文字母（a-zA-Z）、数字（0-9）及下划线和连词符。
 
@@ -76,7 +84,7 @@ urlencode(SdkAppID_RoomID_PushUserID)
 例如：
 SdkAppID = 12345678，RoomID = 12345，PushUserID = push_user_1
 那么：RecordId = 12345678_12345_push_user_1
- * @method void setUserDefinedRecordId(string $UserDefinedRecordId) 设置指定白板推流录制的RecordID，指定的RecordID会用于填充实时音视频云端录制完成后的回调消息中的 "userdefinerecordid" 字段内容，便于您更方便的识别录制回调，以及在点播媒体资源管理中查找相应的录制视频文件。
+ * @method void setUserDefinedRecordId(string $UserDefinedRecordId) 设置指定白板推流这路流在音视频云端录制中的RecordID，指定的RecordID会用于填充实时音视频云端录制完成后的回调消息中的 "userdefinerecordid" 字段内容，便于您更方便的识别录制回调，以及在点播媒体资源管理中查找相应的录制视频文件。
 
 限制长度为64字节，只允许包含大小写英文字母（a-zA-Z）、数字（0-9）及下划线和连词符。
 
@@ -98,7 +106,7 @@ SdkAppID = 12345678，RoomID = 12345，PushUserID = push_user_1
 默认在实时音视频的旁路推流模式选择为 `指定用户旁路` 模式的情况下，不会自动旁路白板推流，如果希望旁路白板推流，请将此参数设置为true。
 
 如果实时音视频的旁路推流模式选择为 `全局自动旁路` 模式，可忽略此参数。
- * @method string getUserDefinedStreamId() 获取指定实时音视频在旁路白板推流时的StreamID，设置之后，您就可以在腾讯云直播 CDN 上通过标准直播方案（FLV或HLS）播放该用户的音视频流。
+ * @method string getUserDefinedStreamId() 获取指定实时音视频在旁路白板推流这路流时的StreamID，设置之后，您就可以在腾讯云直播 CDN 上通过标准直播方案（FLV或HLS）播放该用户的音视频流。
 
 限制长度为64字节，只允许包含大小写英文字母（a-zA-Z）、数字（0-9）及下划线和连词符。
 
@@ -110,7 +118,7 @@ urlencode(SdkAppID_RoomID_PushUserID_main)
 例如：
 SdkAppID = 12345678，RoomID = 12345，PushUserID = push_user_1
 那么：StreamID = 12345678_12345_push_user_1_main
- * @method void setUserDefinedStreamId(string $UserDefinedStreamId) 设置指定实时音视频在旁路白板推流时的StreamID，设置之后，您就可以在腾讯云直播 CDN 上通过标准直播方案（FLV或HLS）播放该用户的音视频流。
+ * @method void setUserDefinedStreamId(string $UserDefinedStreamId) 设置指定实时音视频在旁路白板推流这路流时的StreamID，设置之后，您就可以在腾讯云直播 CDN 上通过标准直播方案（FLV或HLS）播放该用户的音视频流。
 
 限制长度为64字节，只允许包含大小写英文字母（a-zA-Z）、数字（0-9）及下划线和连词符。
 
@@ -124,6 +132,52 @@ SdkAppID = 12345678，RoomID = 12345，PushUserID = push_user_1
 那么：StreamID = 12345678_12345_push_user_1_main
  * @method string getExtraData() 获取内部参数，不需要关注此参数
  * @method void setExtraData(string $ExtraData) 设置内部参数，不需要关注此参数
+ * @method integer getTRTCRoomId() 获取TRTC数字类型房间号，取值范围: (1, 4294967295)。
+
+在同时指定了`RoomId`与`TRTCRoomId`的情况下，优先使用`TRTCRoomId`作为白板流进行推流的TRTC房间号。
+
+当指定了`TRTCRoomIdStr`的情况下，此字段将被忽略。
+ * @method void setTRTCRoomId(integer $TRTCRoomId) 设置TRTC数字类型房间号，取值范围: (1, 4294967295)。
+
+在同时指定了`RoomId`与`TRTCRoomId`的情况下，优先使用`TRTCRoomId`作为白板流进行推流的TRTC房间号。
+
+当指定了`TRTCRoomIdStr`的情况下，此字段将被忽略。
+ * @method string getTRTCRoomIdStr() 获取TRTC字符串类型房间号。
+
+在指定了`TRTCRoomIdStr`的情况下，会优先使用`TRTCRoomIdStr`作为白板流进行推流的TRTC房间号。
+ * @method void setTRTCRoomIdStr(string $TRTCRoomIdStr) 设置TRTC字符串类型房间号。
+
+在指定了`TRTCRoomIdStr`的情况下，会优先使用`TRTCRoomIdStr`作为白板流进行推流的TRTC房间号。
+ * @method AuthParam getIMAuthParam() 获取IM鉴权信息参数，用于IM鉴权。
+当白板信令所使用的IM应用与白板应用的SdkAppId不一致时，可以通过此参数提供对应IM应用鉴权信息。
+
+如果提供了此参数，白板推流服务会优先使用此参数指定的SdkAppId作为白板信令的传输通道，否则使用公共参数中的SdkAppId作为白板信令的传输通道。
+ * @method void setIMAuthParam(AuthParam $IMAuthParam) 设置IM鉴权信息参数，用于IM鉴权。
+当白板信令所使用的IM应用与白板应用的SdkAppId不一致时，可以通过此参数提供对应IM应用鉴权信息。
+
+如果提供了此参数，白板推流服务会优先使用此参数指定的SdkAppId作为白板信令的传输通道，否则使用公共参数中的SdkAppId作为白板信令的传输通道。
+ * @method AuthParam getTRTCAuthParam() 获取TRTC鉴权信息参数，用于TRTC进房推流鉴权。
+当需要推流到的TRTC房间所对应的TRTC应用与白板应用的SdkAppId不一致时，可以通过此参数提供对应的TRTC应用鉴权信息。
+
+如果提供了此参数，白板推流服务会优先使用此参数指定的SdkAppId作为白板推流的目标TRTC应用，否则使用公共参数中的SdkAppId作为白板推流的目标TRTC应用。
+ * @method void setTRTCAuthParam(AuthParam $TRTCAuthParam) 设置TRTC鉴权信息参数，用于TRTC进房推流鉴权。
+当需要推流到的TRTC房间所对应的TRTC应用与白板应用的SdkAppId不一致时，可以通过此参数提供对应的TRTC应用鉴权信息。
+
+如果提供了此参数，白板推流服务会优先使用此参数指定的SdkAppId作为白板推流的目标TRTC应用，否则使用公共参数中的SdkAppId作为白板推流的目标TRTC应用。
+ * @method string getTRTCEnterRoomMode() 获取指定白板推流时推流用户进TRTC房间的进房模式。默认为 TRTCAppSceneVideoCall
+
+TRTCAppSceneVideoCall - 视频通话场景，即绝大多数时间都是两人或两人以上视频通话的场景，内部编码器和网络协议优化侧重流畅性，降低通话延迟和卡顿率。
+TRTCAppSceneLIVE - 直播场景，即绝大多数时间都是一人直播，偶尔有多人视频互动的场景，内部编码器和网络协议优化侧重性能和兼容性，性能和清晰度表现更佳。
+ * @method void setTRTCEnterRoomMode(string $TRTCEnterRoomMode) 设置指定白板推流时推流用户进TRTC房间的进房模式。默认为 TRTCAppSceneVideoCall
+
+TRTCAppSceneVideoCall - 视频通话场景，即绝大多数时间都是两人或两人以上视频通话的场景，内部编码器和网络协议优化侧重流畅性，降低通话延迟和卡顿率。
+TRTCAppSceneLIVE - 直播场景，即绝大多数时间都是一人直播，偶尔有多人视频互动的场景，内部编码器和网络协议优化侧重性能和兼容性，性能和清晰度表现更佳。
+ * @method string getGroupId() 获取白板进行信令同步的 IM 群组 ID。
+在没有指定`GroupId`的情况下，白板推流服务将使用 `RoomId` 的字符串形式作为同步白板信令的IM群组ID。
+在指定了`GroupId`的情况下，白板推流将优先`GroupId`作为同步白板信令的群组ID。请在开始推流前确保指定的IM群组已创建完成，否则会导致推流失败。
+ * @method void setGroupId(string $GroupId) 设置白板进行信令同步的 IM 群组 ID。
+在没有指定`GroupId`的情况下，白板推流服务将使用 `RoomId` 的字符串形式作为同步白板信令的IM群组ID。
+在指定了`GroupId`的情况下，白板推流将优先`GroupId`作为同步白板信令的群组ID。请在开始推流前确保指定的IM群组已创建完成，否则会导致推流失败。
  */
 class StartWhiteboardPushRequest extends AbstractModel
 {
@@ -133,17 +187,21 @@ class StartWhiteboardPushRequest extends AbstractModel
     public $SdkAppId;
 
     /**
-     * @var integer 需要推流白板的房间号，取值范围: (1, 4294967295)
+     * @var integer 需要推流的白板房间号，取值范围: (1, 4294967295)。
+
+1. 在没有指定`GroupId`的情况下，白板推流默认以`RoomId`的字符串表达形式作为IM群组ID（比如RoomId为1234，则IM群组ID为"1234"），并加群进行信令同步，请在开始推流前确保相应IM群组已创建完成，否则会导致推流失败。
+2. 在没有指定`TRTCRoomId`和`TRTCRoomIdStr`的情况下，默认会以`RoomId`作为白板流进行推流的TRTC房间号。
      */
     public $RoomId;
 
     /**
-     * @var string 用于白板推流服务进房进行推流的用户ID，最大长度不能大于60个字节，该ID必须是一个单独的未在SDK中使用的ID，白板推流服务使用这个用户ID进入房间进行白板音视频推流，若该ID和SDK中使用的ID重复，会导致SDK和白板推流服务互踢，影响正常推流。
+     * @var string 用于白板推流服务进入白板房间的用户ID。在没有额外指定`IMAuthParam`和`TRTCAuthParam`的情况下，这个用户ID同时会用于IM登录、IM加群、TRTC进房推流等操作。
+用户ID最大长度不能大于60个字节，该用户ID必须是一个单独的未同时在其他地方使用的用户ID，白板推流服务使用这个用户ID进入房间进行白板音视频推流，若该用户ID和其他地方同时在使用的用户ID重复，会导致白板推流服务与其他使用场景账号互踢，影响正常推流。
      */
     public $PushUserId;
 
     /**
-     * @var string 与PushUserId对应的签名
+     * @var string 与`PushUserId`对应的IM签名(usersig)。
      */
     public $PushUserSig;
 
@@ -153,7 +211,7 @@ class StartWhiteboardPushRequest extends AbstractModel
     public $Whiteboard;
 
     /**
-     * @var integer 自动停止推流超时时间，单位秒，取值范围[300, 43200], 默认值为1800秒。
+     * @var integer 自动停止推流超时时间，单位秒，取值范围[300, 259200], 默认值为1800秒。
 
 当白板超过设定时间没有操作的时候，白板推流服务会自动停止白板推流。
      */
@@ -198,7 +256,7 @@ class StartWhiteboardPushRequest extends AbstractModel
     public $AutoRecord;
 
     /**
-     * @var string 指定白板推流录制的RecordID，指定的RecordID会用于填充实时音视频云端录制完成后的回调消息中的 "userdefinerecordid" 字段内容，便于您更方便的识别录制回调，以及在点播媒体资源管理中查找相应的录制视频文件。
+     * @var string 指定白板推流这路流在音视频云端录制中的RecordID，指定的RecordID会用于填充实时音视频云端录制完成后的回调消息中的 "userdefinerecordid" 字段内容，便于您更方便的识别录制回调，以及在点播媒体资源管理中查找相应的录制视频文件。
 
 限制长度为64字节，只允许包含大小写英文字母（a-zA-Z）、数字（0-9）及下划线和连词符。
 
@@ -223,7 +281,7 @@ SdkAppID = 12345678，RoomID = 12345，PushUserID = push_user_1
     public $AutoPublish;
 
     /**
-     * @var string 指定实时音视频在旁路白板推流时的StreamID，设置之后，您就可以在腾讯云直播 CDN 上通过标准直播方案（FLV或HLS）播放该用户的音视频流。
+     * @var string 指定实时音视频在旁路白板推流这路流时的StreamID，设置之后，您就可以在腾讯云直播 CDN 上通过标准直播方案（FLV或HLS）播放该用户的音视频流。
 
 限制长度为64字节，只允许包含大小写英文字母（a-zA-Z）、数字（0-9）及下划线和连词符。
 
@@ -244,12 +302,63 @@ SdkAppID = 12345678，RoomID = 12345，PushUserID = push_user_1
     public $ExtraData;
 
     /**
+     * @var integer TRTC数字类型房间号，取值范围: (1, 4294967295)。
+
+在同时指定了`RoomId`与`TRTCRoomId`的情况下，优先使用`TRTCRoomId`作为白板流进行推流的TRTC房间号。
+
+当指定了`TRTCRoomIdStr`的情况下，此字段将被忽略。
+     */
+    public $TRTCRoomId;
+
+    /**
+     * @var string TRTC字符串类型房间号。
+
+在指定了`TRTCRoomIdStr`的情况下，会优先使用`TRTCRoomIdStr`作为白板流进行推流的TRTC房间号。
+     */
+    public $TRTCRoomIdStr;
+
+    /**
+     * @var AuthParam IM鉴权信息参数，用于IM鉴权。
+当白板信令所使用的IM应用与白板应用的SdkAppId不一致时，可以通过此参数提供对应IM应用鉴权信息。
+
+如果提供了此参数，白板推流服务会优先使用此参数指定的SdkAppId作为白板信令的传输通道，否则使用公共参数中的SdkAppId作为白板信令的传输通道。
+     */
+    public $IMAuthParam;
+
+    /**
+     * @var AuthParam TRTC鉴权信息参数，用于TRTC进房推流鉴权。
+当需要推流到的TRTC房间所对应的TRTC应用与白板应用的SdkAppId不一致时，可以通过此参数提供对应的TRTC应用鉴权信息。
+
+如果提供了此参数，白板推流服务会优先使用此参数指定的SdkAppId作为白板推流的目标TRTC应用，否则使用公共参数中的SdkAppId作为白板推流的目标TRTC应用。
+     */
+    public $TRTCAuthParam;
+
+    /**
+     * @var string 指定白板推流时推流用户进TRTC房间的进房模式。默认为 TRTCAppSceneVideoCall
+
+TRTCAppSceneVideoCall - 视频通话场景，即绝大多数时间都是两人或两人以上视频通话的场景，内部编码器和网络协议优化侧重流畅性，降低通话延迟和卡顿率。
+TRTCAppSceneLIVE - 直播场景，即绝大多数时间都是一人直播，偶尔有多人视频互动的场景，内部编码器和网络协议优化侧重性能和兼容性，性能和清晰度表现更佳。
+     */
+    public $TRTCEnterRoomMode;
+
+    /**
+     * @var string 白板进行信令同步的 IM 群组 ID。
+在没有指定`GroupId`的情况下，白板推流服务将使用 `RoomId` 的字符串形式作为同步白板信令的IM群组ID。
+在指定了`GroupId`的情况下，白板推流将优先`GroupId`作为同步白板信令的群组ID。请在开始推流前确保指定的IM群组已创建完成，否则会导致推流失败。
+     */
+    public $GroupId;
+
+    /**
      * @param integer $SdkAppId 客户的SdkAppId
-     * @param integer $RoomId 需要推流白板的房间号，取值范围: (1, 4294967295)
-     * @param string $PushUserId 用于白板推流服务进房进行推流的用户ID，最大长度不能大于60个字节，该ID必须是一个单独的未在SDK中使用的ID，白板推流服务使用这个用户ID进入房间进行白板音视频推流，若该ID和SDK中使用的ID重复，会导致SDK和白板推流服务互踢，影响正常推流。
-     * @param string $PushUserSig 与PushUserId对应的签名
+     * @param integer $RoomId 需要推流的白板房间号，取值范围: (1, 4294967295)。
+
+1. 在没有指定`GroupId`的情况下，白板推流默认以`RoomId`的字符串表达形式作为IM群组ID（比如RoomId为1234，则IM群组ID为"1234"），并加群进行信令同步，请在开始推流前确保相应IM群组已创建完成，否则会导致推流失败。
+2. 在没有指定`TRTCRoomId`和`TRTCRoomIdStr`的情况下，默认会以`RoomId`作为白板流进行推流的TRTC房间号。
+     * @param string $PushUserId 用于白板推流服务进入白板房间的用户ID。在没有额外指定`IMAuthParam`和`TRTCAuthParam`的情况下，这个用户ID同时会用于IM登录、IM加群、TRTC进房推流等操作。
+用户ID最大长度不能大于60个字节，该用户ID必须是一个单独的未同时在其他地方使用的用户ID，白板推流服务使用这个用户ID进入房间进行白板音视频推流，若该用户ID和其他地方同时在使用的用户ID重复，会导致白板推流服务与其他使用场景账号互踢，影响正常推流。
+     * @param string $PushUserSig 与`PushUserId`对应的IM签名(usersig)。
      * @param Whiteboard $Whiteboard 白板参数，例如白板宽高、背景颜色等
-     * @param integer $AutoStopTimeout 自动停止推流超时时间，单位秒，取值范围[300, 43200], 默认值为1800秒。
+     * @param integer $AutoStopTimeout 自动停止推流超时时间，单位秒，取值范围[300, 259200], 默认值为1800秒。
 
 当白板超过设定时间没有操作的时候，白板推流服务会自动停止白板推流。
      * @param boolean $AutoManageBackup 对主白板推流任务进行操作时，是否同时同步操作备份任务
@@ -266,7 +375,7 @@ SdkAppID = 12345678，RoomID = 12345，PushUserID = push_user_1
 默认在实时音视频的云端录制模式选择为 `指定用户录制` 模式的情况下，不会自动进行白板推流录制，如果希望进行白板推流录制，请将此参数设置为true。
 
 如果实时音视频的云端录制模式选择为 `全局自动录制` 模式，可忽略此参数。
-     * @param string $UserDefinedRecordId 指定白板推流录制的RecordID，指定的RecordID会用于填充实时音视频云端录制完成后的回调消息中的 "userdefinerecordid" 字段内容，便于您更方便的识别录制回调，以及在点播媒体资源管理中查找相应的录制视频文件。
+     * @param string $UserDefinedRecordId 指定白板推流这路流在音视频云端录制中的RecordID，指定的RecordID会用于填充实时音视频云端录制完成后的回调消息中的 "userdefinerecordid" 字段内容，便于您更方便的识别录制回调，以及在点播媒体资源管理中查找相应的录制视频文件。
 
 限制长度为64字节，只允许包含大小写英文字母（a-zA-Z）、数字（0-9）及下划线和连词符。
 
@@ -283,7 +392,7 @@ SdkAppID = 12345678，RoomID = 12345，PushUserID = push_user_1
 默认在实时音视频的旁路推流模式选择为 `指定用户旁路` 模式的情况下，不会自动旁路白板推流，如果希望旁路白板推流，请将此参数设置为true。
 
 如果实时音视频的旁路推流模式选择为 `全局自动旁路` 模式，可忽略此参数。
-     * @param string $UserDefinedStreamId 指定实时音视频在旁路白板推流时的StreamID，设置之后，您就可以在腾讯云直播 CDN 上通过标准直播方案（FLV或HLS）播放该用户的音视频流。
+     * @param string $UserDefinedStreamId 指定实时音视频在旁路白板推流这路流时的StreamID，设置之后，您就可以在腾讯云直播 CDN 上通过标准直播方案（FLV或HLS）播放该用户的音视频流。
 
 限制长度为64字节，只允许包含大小写英文字母（a-zA-Z）、数字（0-9）及下划线和连词符。
 
@@ -296,6 +405,29 @@ urlencode(SdkAppID_RoomID_PushUserID_main)
 SdkAppID = 12345678，RoomID = 12345，PushUserID = push_user_1
 那么：StreamID = 12345678_12345_push_user_1_main
      * @param string $ExtraData 内部参数，不需要关注此参数
+     * @param integer $TRTCRoomId TRTC数字类型房间号，取值范围: (1, 4294967295)。
+
+在同时指定了`RoomId`与`TRTCRoomId`的情况下，优先使用`TRTCRoomId`作为白板流进行推流的TRTC房间号。
+
+当指定了`TRTCRoomIdStr`的情况下，此字段将被忽略。
+     * @param string $TRTCRoomIdStr TRTC字符串类型房间号。
+
+在指定了`TRTCRoomIdStr`的情况下，会优先使用`TRTCRoomIdStr`作为白板流进行推流的TRTC房间号。
+     * @param AuthParam $IMAuthParam IM鉴权信息参数，用于IM鉴权。
+当白板信令所使用的IM应用与白板应用的SdkAppId不一致时，可以通过此参数提供对应IM应用鉴权信息。
+
+如果提供了此参数，白板推流服务会优先使用此参数指定的SdkAppId作为白板信令的传输通道，否则使用公共参数中的SdkAppId作为白板信令的传输通道。
+     * @param AuthParam $TRTCAuthParam TRTC鉴权信息参数，用于TRTC进房推流鉴权。
+当需要推流到的TRTC房间所对应的TRTC应用与白板应用的SdkAppId不一致时，可以通过此参数提供对应的TRTC应用鉴权信息。
+
+如果提供了此参数，白板推流服务会优先使用此参数指定的SdkAppId作为白板推流的目标TRTC应用，否则使用公共参数中的SdkAppId作为白板推流的目标TRTC应用。
+     * @param string $TRTCEnterRoomMode 指定白板推流时推流用户进TRTC房间的进房模式。默认为 TRTCAppSceneVideoCall
+
+TRTCAppSceneVideoCall - 视频通话场景，即绝大多数时间都是两人或两人以上视频通话的场景，内部编码器和网络协议优化侧重流畅性，降低通话延迟和卡顿率。
+TRTCAppSceneLIVE - 直播场景，即绝大多数时间都是一人直播，偶尔有多人视频互动的场景，内部编码器和网络协议优化侧重性能和兼容性，性能和清晰度表现更佳。
+     * @param string $GroupId 白板进行信令同步的 IM 群组 ID。
+在没有指定`GroupId`的情况下，白板推流服务将使用 `RoomId` 的字符串形式作为同步白板信令的IM群组ID。
+在指定了`GroupId`的情况下，白板推流将优先`GroupId`作为同步白板信令的群组ID。请在开始推流前确保指定的IM群组已创建完成，否则会导致推流失败。
      */
     function __construct()
     {
@@ -374,6 +506,32 @@ SdkAppID = 12345678，RoomID = 12345，PushUserID = push_user_1
 
         if (array_key_exists("ExtraData",$param) and $param["ExtraData"] !== null) {
             $this->ExtraData = $param["ExtraData"];
+        }
+
+        if (array_key_exists("TRTCRoomId",$param) and $param["TRTCRoomId"] !== null) {
+            $this->TRTCRoomId = $param["TRTCRoomId"];
+        }
+
+        if (array_key_exists("TRTCRoomIdStr",$param) and $param["TRTCRoomIdStr"] !== null) {
+            $this->TRTCRoomIdStr = $param["TRTCRoomIdStr"];
+        }
+
+        if (array_key_exists("IMAuthParam",$param) and $param["IMAuthParam"] !== null) {
+            $this->IMAuthParam = new AuthParam();
+            $this->IMAuthParam->deserialize($param["IMAuthParam"]);
+        }
+
+        if (array_key_exists("TRTCAuthParam",$param) and $param["TRTCAuthParam"] !== null) {
+            $this->TRTCAuthParam = new AuthParam();
+            $this->TRTCAuthParam->deserialize($param["TRTCAuthParam"]);
+        }
+
+        if (array_key_exists("TRTCEnterRoomMode",$param) and $param["TRTCEnterRoomMode"] !== null) {
+            $this->TRTCEnterRoomMode = $param["TRTCEnterRoomMode"];
+        }
+
+        if (array_key_exists("GroupId",$param) and $param["GroupId"] !== null) {
+            $this->GroupId = $param["GroupId"];
         }
     }
 }

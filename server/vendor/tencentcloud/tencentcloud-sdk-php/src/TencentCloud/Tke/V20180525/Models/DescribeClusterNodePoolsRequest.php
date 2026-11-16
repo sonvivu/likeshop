@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,6 +22,34 @@ use TencentCloud\Common\AbstractModel;
  *
  * @method string getClusterId() 获取ClusterId（集群id）
  * @method void setClusterId(string $ClusterId) 设置ClusterId（集群id）
+ * @method array getFilters() 获取· "Name":"NodePoolsName","Values": ["test"]
+    按照【节点池名】进行过滤。
+    类型：String
+    必选：否
+
+·  "Name":"NodePoolsId","Values": ["np-d2mb2zb"]
+    按照【节点池id】进行过滤。
+    类型：String
+    必选：否
+
+·  "Name":"Tags","Values": ["product:tke"]
+    按照【标签键值对】进行过滤。
+    类型：String
+    必选：否
+ * @method void setFilters(array $Filters) 设置· "Name":"NodePoolsName","Values": ["test"]
+    按照【节点池名】进行过滤。
+    类型：String
+    必选：否
+
+·  "Name":"NodePoolsId","Values": ["np-d2mb2zb"]
+    按照【节点池id】进行过滤。
+    类型：String
+    必选：否
+
+·  "Name":"Tags","Values": ["product:tke"]
+    按照【标签键值对】进行过滤。
+    类型：String
+    必选：否
  */
 class DescribeClusterNodePoolsRequest extends AbstractModel
 {
@@ -31,7 +59,39 @@ class DescribeClusterNodePoolsRequest extends AbstractModel
     public $ClusterId;
 
     /**
+     * @var array · "Name":"NodePoolsName","Values": ["test"]
+    按照【节点池名】进行过滤。
+    类型：String
+    必选：否
+
+·  "Name":"NodePoolsId","Values": ["np-d2mb2zb"]
+    按照【节点池id】进行过滤。
+    类型：String
+    必选：否
+
+·  "Name":"Tags","Values": ["product:tke"]
+    按照【标签键值对】进行过滤。
+    类型：String
+    必选：否
+     */
+    public $Filters;
+
+    /**
      * @param string $ClusterId ClusterId（集群id）
+     * @param array $Filters · "Name":"NodePoolsName","Values": ["test"]
+    按照【节点池名】进行过滤。
+    类型：String
+    必选：否
+
+·  "Name":"NodePoolsId","Values": ["np-d2mb2zb"]
+    按照【节点池id】进行过滤。
+    类型：String
+    必选：否
+
+·  "Name":"Tags","Values": ["product:tke"]
+    按照【标签键值对】进行过滤。
+    类型：String
+    必选：否
      */
     function __construct()
     {
@@ -48,6 +108,15 @@ class DescribeClusterNodePoolsRequest extends AbstractModel
         }
         if (array_key_exists("ClusterId",$param) and $param["ClusterId"] !== null) {
             $this->ClusterId = $param["ClusterId"];
+        }
+
+        if (array_key_exists("Filters",$param) and $param["Filters"] !== null) {
+            $this->Filters = [];
+            foreach ($param["Filters"] as $key => $value){
+                $obj = new Filter();
+                $obj->deserialize($value);
+                array_push($this->Filters, $obj);
+            }
         }
     }
 }

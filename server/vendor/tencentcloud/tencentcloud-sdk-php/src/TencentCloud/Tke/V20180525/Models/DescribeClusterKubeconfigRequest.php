@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,6 +22,8 @@ use TencentCloud\Common\AbstractModel;
  *
  * @method string getClusterId() 获取集群ID
  * @method void setClusterId(string $ClusterId) 设置集群ID
+ * @method boolean getIsExtranet() 获取默认false 获取内网，是否获取外网访问的kubeconfig
+ * @method void setIsExtranet(boolean $IsExtranet) 设置默认false 获取内网，是否获取外网访问的kubeconfig
  */
 class DescribeClusterKubeconfigRequest extends AbstractModel
 {
@@ -31,7 +33,13 @@ class DescribeClusterKubeconfigRequest extends AbstractModel
     public $ClusterId;
 
     /**
+     * @var boolean 默认false 获取内网，是否获取外网访问的kubeconfig
+     */
+    public $IsExtranet;
+
+    /**
      * @param string $ClusterId 集群ID
+     * @param boolean $IsExtranet 默认false 获取内网，是否获取外网访问的kubeconfig
      */
     function __construct()
     {
@@ -48,6 +56,10 @@ class DescribeClusterKubeconfigRequest extends AbstractModel
         }
         if (array_key_exists("ClusterId",$param) and $param["ClusterId"] !== null) {
             $this->ClusterId = $param["ClusterId"];
+        }
+
+        if (array_key_exists("IsExtranet",$param) and $param["IsExtranet"] !== null) {
+            $this->IsExtranet = $param["IsExtranet"];
         }
     }
 }

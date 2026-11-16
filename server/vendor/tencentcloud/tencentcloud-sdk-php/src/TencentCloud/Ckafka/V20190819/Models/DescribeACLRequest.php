@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,33 +20,33 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeACL请求参数结构体
  *
- * @method string getInstanceId() 获取实例Id
- * @method void setInstanceId(string $InstanceId) 设置实例Id
- * @method integer getResourceType() 获取Acl资源类型，(0:UNKNOWN，1:ANY，2:TOPIC，3:GROUP，4:CLUSTER，5:TRANSACTIONAL_ID)，当前只有TOPIC，其它字段用于后续兼容开源kafka的acl时使用
- * @method void setResourceType(integer $ResourceType) 设置Acl资源类型，(0:UNKNOWN，1:ANY，2:TOPIC，3:GROUP，4:CLUSTER，5:TRANSACTIONAL_ID)，当前只有TOPIC，其它字段用于后续兼容开源kafka的acl时使用
- * @method string getResourceName() 获取资源名称，和resourceType相关，如当resourceType为TOPIC时，则该字段表示topic名称，当resourceType为GROUP时，该字段表示group名称
- * @method void setResourceName(string $ResourceName) 设置资源名称，和resourceType相关，如当resourceType为TOPIC时，则该字段表示topic名称，当resourceType为GROUP时，该字段表示group名称
+ * @method string getInstanceId() 获取ckafka集群实例Id，可通过[DescribeInstances](https://cloud.tencent.com/document/product/597/40835)接口获取
+ * @method void setInstanceId(string $InstanceId) 设置ckafka集群实例Id，可通过[DescribeInstances](https://cloud.tencent.com/document/product/597/40835)接口获取
+ * @method integer getResourceType() 获取Acl资源类型，(2:TOPIC，3:GROUP，4:CLUSTER)
+ * @method void setResourceType(integer $ResourceType) 设置Acl资源类型，(2:TOPIC，3:GROUP，4:CLUSTER)
+ * @method string getResourceName() 获取资源名称，和resourceType相关，如当resourceType为TOPIC时，则该字段表示topic名称，当resourceType为GROUP时，该字段表示group名称，当resourceType为CLUSTER时，该字段可为空。
+ * @method void setResourceName(string $ResourceName) 设置资源名称，和resourceType相关，如当resourceType为TOPIC时，则该字段表示topic名称，当resourceType为GROUP时，该字段表示group名称，当resourceType为CLUSTER时，该字段可为空。
  * @method integer getOffset() 获取偏移位置
  * @method void setOffset(integer $Offset) 设置偏移位置
- * @method integer getLimit() 获取个数限制
- * @method void setLimit(integer $Limit) 设置个数限制
+ * @method integer getLimit() 获取个数限制，默认值为50，最大值为50。
+ * @method void setLimit(integer $Limit) 设置个数限制，默认值为50，最大值为50。
  * @method string getSearchWord() 获取关键字匹配
  * @method void setSearchWord(string $SearchWord) 设置关键字匹配
  */
 class DescribeACLRequest extends AbstractModel
 {
     /**
-     * @var string 实例Id
+     * @var string ckafka集群实例Id，可通过[DescribeInstances](https://cloud.tencent.com/document/product/597/40835)接口获取
      */
     public $InstanceId;
 
     /**
-     * @var integer Acl资源类型，(0:UNKNOWN，1:ANY，2:TOPIC，3:GROUP，4:CLUSTER，5:TRANSACTIONAL_ID)，当前只有TOPIC，其它字段用于后续兼容开源kafka的acl时使用
+     * @var integer Acl资源类型，(2:TOPIC，3:GROUP，4:CLUSTER)
      */
     public $ResourceType;
 
     /**
-     * @var string 资源名称，和resourceType相关，如当resourceType为TOPIC时，则该字段表示topic名称，当resourceType为GROUP时，该字段表示group名称
+     * @var string 资源名称，和resourceType相关，如当resourceType为TOPIC时，则该字段表示topic名称，当resourceType为GROUP时，该字段表示group名称，当resourceType为CLUSTER时，该字段可为空。
      */
     public $ResourceName;
 
@@ -56,21 +56,22 @@ class DescribeACLRequest extends AbstractModel
     public $Offset;
 
     /**
-     * @var integer 个数限制
+     * @var integer 个数限制，默认值为50，最大值为50。
      */
     public $Limit;
 
     /**
      * @var string 关键字匹配
+     * @deprecated
      */
     public $SearchWord;
 
     /**
-     * @param string $InstanceId 实例Id
-     * @param integer $ResourceType Acl资源类型，(0:UNKNOWN，1:ANY，2:TOPIC，3:GROUP，4:CLUSTER，5:TRANSACTIONAL_ID)，当前只有TOPIC，其它字段用于后续兼容开源kafka的acl时使用
-     * @param string $ResourceName 资源名称，和resourceType相关，如当resourceType为TOPIC时，则该字段表示topic名称，当resourceType为GROUP时，该字段表示group名称
+     * @param string $InstanceId ckafka集群实例Id，可通过[DescribeInstances](https://cloud.tencent.com/document/product/597/40835)接口获取
+     * @param integer $ResourceType Acl资源类型，(2:TOPIC，3:GROUP，4:CLUSTER)
+     * @param string $ResourceName 资源名称，和resourceType相关，如当resourceType为TOPIC时，则该字段表示topic名称，当resourceType为GROUP时，该字段表示group名称，当resourceType为CLUSTER时，该字段可为空。
      * @param integer $Offset 偏移位置
-     * @param integer $Limit 个数限制
+     * @param integer $Limit 个数限制，默认值为50，最大值为50。
      * @param string $SearchWord 关键字匹配
      */
     function __construct()

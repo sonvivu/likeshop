@@ -30,6 +30,9 @@
 // | 中间件配置
 // +----------------------------------------------------------------------
 return [
+    // 多语言：必须在 login 之前（Login 可能用到 lang()），
+    // 且必须在 MultiApp 解析模块之后运行，故注册为模块中间件。
+    'lang'  =>  app\common\http\middleware\LangPack::class,
     // 默认中间件命名空间
-    'login'	=>	app\api\http\middleware\Login::class,
+    'login' =>  app\api\http\middleware\Login::class,
 ];

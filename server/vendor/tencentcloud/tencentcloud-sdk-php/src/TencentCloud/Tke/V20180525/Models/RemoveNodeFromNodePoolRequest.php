@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,8 +24,8 @@ use TencentCloud\Common\AbstractModel;
  * @method void setClusterId(string $ClusterId) 设置集群id
  * @method string getNodePoolId() 获取节点池id
  * @method void setNodePoolId(string $NodePoolId) 设置节点池id
- * @method array getInstanceIds() 获取节点id列表
- * @method void setInstanceIds(array $InstanceIds) 设置节点id列表
+ * @method array getInstanceIds() 获取节点id列表，一次最多支持100台
+ * @method void setInstanceIds(array $InstanceIds) 设置节点id列表，一次最多支持100台
  */
 class RemoveNodeFromNodePoolRequest extends AbstractModel
 {
@@ -40,14 +40,14 @@ class RemoveNodeFromNodePoolRequest extends AbstractModel
     public $NodePoolId;
 
     /**
-     * @var array 节点id列表
+     * @var array 节点id列表，一次最多支持100台
      */
     public $InstanceIds;
 
     /**
      * @param string $ClusterId 集群id
      * @param string $NodePoolId 节点池id
-     * @param array $InstanceIds 节点id列表
+     * @param array $InstanceIds 节点id列表，一次最多支持100台
      */
     function __construct()
     {

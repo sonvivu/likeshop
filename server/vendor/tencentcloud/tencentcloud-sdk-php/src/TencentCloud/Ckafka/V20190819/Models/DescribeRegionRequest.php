@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,34 +20,42 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeRegion请求参数结构体
  *
- * @method integer getOffset() 获取偏移量
- * @method void setOffset(integer $Offset) 设置偏移量
- * @method integer getLimit() 获取返回最大结果数
- * @method void setLimit(integer $Limit) 设置返回最大结果数
- * @method string getBusiness() 获取业务字段，可忽略
- * @method void setBusiness(string $Business) 设置业务字段，可忽略
+ * @method integer getOffset() 获取<p>偏移量</p>
+ * @method void setOffset(integer $Offset) 设置<p>偏移量</p>
+ * @method integer getLimit() 获取<p>返回最大结果数</p>
+ * @method void setLimit(integer $Limit) 设置<p>返回最大结果数</p>
+ * @method string getBusiness() 获取<p>业务字段，可忽略</p><p>枚举值：</p><ul><li>ckafka： ckafka业务</li><li>cmq： cmq业务</li></ul><p>默认值：ckafka</p>
+ * @method void setBusiness(string $Business) 设置<p>业务字段，可忽略</p><p>枚举值：</p><ul><li>ckafka： ckafka业务</li><li>cmq： cmq业务</li></ul><p>默认值：ckafka</p>
+ * @method string getCdcId() 获取<p>cdc专有集群业务字段，可忽略</p>
+ * @method void setCdcId(string $CdcId) 设置<p>cdc专有集群业务字段，可忽略</p>
  */
 class DescribeRegionRequest extends AbstractModel
 {
     /**
-     * @var integer 偏移量
+     * @var integer <p>偏移量</p>
      */
     public $Offset;
 
     /**
-     * @var integer 返回最大结果数
+     * @var integer <p>返回最大结果数</p>
      */
     public $Limit;
 
     /**
-     * @var string 业务字段，可忽略
+     * @var string <p>业务字段，可忽略</p><p>枚举值：</p><ul><li>ckafka： ckafka业务</li><li>cmq： cmq业务</li></ul><p>默认值：ckafka</p>
      */
     public $Business;
 
     /**
-     * @param integer $Offset 偏移量
-     * @param integer $Limit 返回最大结果数
-     * @param string $Business 业务字段，可忽略
+     * @var string <p>cdc专有集群业务字段，可忽略</p>
+     */
+    public $CdcId;
+
+    /**
+     * @param integer $Offset <p>偏移量</p>
+     * @param integer $Limit <p>返回最大结果数</p>
+     * @param string $Business <p>业务字段，可忽略</p><p>枚举值：</p><ul><li>ckafka： ckafka业务</li><li>cmq： cmq业务</li></ul><p>默认值：ckafka</p>
+     * @param string $CdcId <p>cdc专有集群业务字段，可忽略</p>
      */
     function __construct()
     {
@@ -72,6 +80,10 @@ class DescribeRegionRequest extends AbstractModel
 
         if (array_key_exists("Business",$param) and $param["Business"] !== null) {
             $this->Business = $param["Business"];
+        }
+
+        if (array_key_exists("CdcId",$param) and $param["CdcId"] !== null) {
+            $this->CdcId = $param["CdcId"];
         }
     }
 }

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,33 +21,25 @@ use TencentCloud\Common\AbstractModel;
  * TSF分页简单应用对象
  *
  * @method integer getTotalCount() 获取总条数
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setTotalCount(integer $TotalCount) 设置总条数
-注意：此字段可能返回 null，表示取不到有效值。
  * @method array getContent() 获取简单应用列表
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setContent(array $Content) 设置简单应用列表
-注意：此字段可能返回 null，表示取不到有效值。
  */
 class TsfPageSimpleApplication extends AbstractModel
 {
     /**
      * @var integer 总条数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $TotalCount;
 
     /**
      * @var array 简单应用列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Content;
 
     /**
      * @param integer $TotalCount 总条数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param array $Content 简单应用列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
     {

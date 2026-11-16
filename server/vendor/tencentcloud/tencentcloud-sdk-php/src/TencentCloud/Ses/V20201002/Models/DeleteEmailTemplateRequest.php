@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,18 +20,18 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DeleteEmailTemplate请求参数结构体
  *
- * @method integer getTemplateID() 获取模版ID
- * @method void setTemplateID(integer $TemplateID) 设置模版ID
+ * @method integer getTemplateID() 获取模板ID
+ * @method void setTemplateID(integer $TemplateID) 设置模板ID
  */
 class DeleteEmailTemplateRequest extends AbstractModel
 {
     /**
-     * @var integer 模版ID
+     * @var integer 模板ID
      */
     public $TemplateID;
 
     /**
-     * @param integer $TemplateID 模版ID
+     * @param integer $TemplateID 模板ID
      */
     function __construct()
     {

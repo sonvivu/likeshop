@@ -22,7 +22,7 @@ namespace app\api\logic;
 
 
 use app\common\server\AreaServer;
-use think\Db;
+use think\facade\Db;
 use think\Exception;
 
 class UserAddressLogic
@@ -40,6 +40,7 @@ class UserAddressLogic
             ->where(['user_id'=>$user_id,'del'=>0])
             ->field('id,contact,telephone,province_id,city_id,district_id,address,is_default')
             ->select();
+        $info = $info->toArray(); // ThinkPHP 6：select() 返回 Collection，TP5 返回数组；直接写 $info[$k]['x'] 或 foreach(&$item) 改值会丢/报错，先转数组。
         foreach ($info as &$item) {
             $item['province'] = AreaServer::getAddress($item['province_id']);
             $item['city'] = AreaServer::getAddress($item['city_id']);

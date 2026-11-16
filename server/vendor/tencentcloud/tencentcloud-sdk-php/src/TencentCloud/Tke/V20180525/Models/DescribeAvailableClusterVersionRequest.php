@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,26 +20,26 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeAvailableClusterVersion请求参数结构体
  *
- * @method string getClusterId() 获取集群 Id
- * @method void setClusterId(string $ClusterId) 设置集群 Id
- * @method array getClusterIds() 获取集群 Id 列表
- * @method void setClusterIds(array $ClusterIds) 设置集群 Id 列表
+ * @method string getClusterId() 获取集群 Id。若只查询某个集群可升级的版本，需填写此项，与ClusterIds 参数二选一。
+ * @method void setClusterId(string $ClusterId) 设置集群 Id。若只查询某个集群可升级的版本，需填写此项，与ClusterIds 参数二选一。
+ * @method array getClusterIds() 获取集群 Id 列表。若查询多个集群可升级的版本，需填写此项，与ClusterId 参数二选一。
+ * @method void setClusterIds(array $ClusterIds) 设置集群 Id 列表。若查询多个集群可升级的版本，需填写此项，与ClusterId 参数二选一。
  */
 class DescribeAvailableClusterVersionRequest extends AbstractModel
 {
     /**
-     * @var string 集群 Id
+     * @var string 集群 Id。若只查询某个集群可升级的版本，需填写此项，与ClusterIds 参数二选一。
      */
     public $ClusterId;
 
     /**
-     * @var array 集群 Id 列表
+     * @var array 集群 Id 列表。若查询多个集群可升级的版本，需填写此项，与ClusterId 参数二选一。
      */
     public $ClusterIds;
 
     /**
-     * @param string $ClusterId 集群 Id
-     * @param array $ClusterIds 集群 Id 列表
+     * @param string $ClusterId 集群 Id。若只查询某个集群可升级的版本，需填写此项，与ClusterIds 参数二选一。
+     * @param array $ClusterIds 集群 Id 列表。若查询多个集群可升级的版本，需填写此项，与ClusterId 参数二选一。
      */
     function __construct()
     {

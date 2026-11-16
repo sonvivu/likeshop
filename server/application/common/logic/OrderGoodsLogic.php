@@ -26,8 +26,7 @@ use app\common\model\Order;
 use app\common\model\OrderGoods;
 use app\common\model\Pay;
 use app\common\server\ConfigServer;
-use think\Db;
-use think\facade\Hook;
+use think\facade\Db;
 
 /**
  * 订单商品逻辑
@@ -139,7 +138,7 @@ class OrderGoodsLogic
             Db::name('goods')->where('id', 'in', $need_handle_ids)->update(['status' => 0]);
 
             // 下架或删除商品，更新商品收藏
-            Hook::listen('update_collect', ['goods_id' => $need_handle_ids]);
+            event('update_collect', ['goods_id' => $need_handle_ids]);
 
         } catch (\Exception $e) {}
 

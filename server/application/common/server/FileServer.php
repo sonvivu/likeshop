@@ -22,7 +22,7 @@ namespace app\common\server;
 
 
 use app\common\server\storage\Driver as StorageDriver;
-use think\Db;
+use think\facade\Db;
 use think\Exception;
 use app\common\model\File;
 

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,82 +20,98 @@ use TencentCloud\Common\AbstractModel;
 /**
  * 转码任务输入参数类型
  *
- * @method integer getDefinition() 获取视频转码模板 ID。
- * @method void setDefinition(integer $Definition) 设置视频转码模板 ID。
- * @method array getWatermarkSet() 获取水印列表，支持多张图片或文字水印，最大可支持 10 张。
- * @method void setWatermarkSet(array $WatermarkSet) 设置水印列表，支持多张图片或文字水印，最大可支持 10 张。
- * @method array getMosaicSet() 获取马赛克列表，最大可支持 10 张。
- * @method void setMosaicSet(array $MosaicSet) 设置马赛克列表，最大可支持 10 张。
- * @method array getHeadTailSet() 获取片头片尾列表，支持多片头片尾，最大可支持 10 个。
- * @method void setHeadTailSet(array $HeadTailSet) 设置片头片尾列表，支持多片头片尾，最大可支持 10 个。
- * @method float getStartTimeOffset() 获取转码后的视频的起始时间偏移，单位：秒。
-<li>不填或填0，表示转码后的视频从原始视频的起始位置开始；</li>
-<li>当数值大于0时（假设为 n），表示转码后的视频从原始视频的第 n 秒位置开始；</li>
-<li>当数值小于0时（假设为 -n），表示转码后的视频从原始视频结束 n 秒前的位置开始。</li>
- * @method void setStartTimeOffset(float $StartTimeOffset) 设置转码后的视频的起始时间偏移，单位：秒。
-<li>不填或填0，表示转码后的视频从原始视频的起始位置开始；</li>
-<li>当数值大于0时（假设为 n），表示转码后的视频从原始视频的第 n 秒位置开始；</li>
-<li>当数值小于0时（假设为 -n），表示转码后的视频从原始视频结束 n 秒前的位置开始。</li>
- * @method float getEndTimeOffset() 获取转码后视频的终止时间偏移，单位：秒。
-<li>不填或填0，表示转码后的视频持续到原始视频的末尾终止；</li>
-<li>当数值大于0时（假设为 n），表示转码后的视频持续到原始视频第 n 秒时终止；</li>
-<li>当数值小于0时（假设为 -n），表示转码后的视频持续到原始视频结束 n 秒前终止。</li>
- * @method void setEndTimeOffset(float $EndTimeOffset) 设置转码后视频的终止时间偏移，单位：秒。
-<li>不填或填0，表示转码后的视频持续到原始视频的末尾终止；</li>
-<li>当数值大于0时（假设为 n），表示转码后的视频持续到原始视频第 n 秒时终止；</li>
-<li>当数值小于0时（假设为 -n），表示转码后的视频持续到原始视频结束 n 秒前终止。</li>
+ * @method integer getDefinition() 获取<p>视频转码模板 ID。</p>
+ * @method void setDefinition(integer $Definition) 设置<p>视频转码模板 ID。</p>
+ * @method array getWatermarkSet() 获取<p>水印列表，支持多张图片或文字水印，最大可支持 10 张。</p>
+ * @method void setWatermarkSet(array $WatermarkSet) 设置<p>水印列表，支持多张图片或文字水印，最大可支持 10 张。</p>
+ * @method TraceWatermarkInput getTraceWatermark() 获取<p>溯源水印。</p>
+ * @method void setTraceWatermark(TraceWatermarkInput $TraceWatermark) 设置<p>溯源水印。</p>
+ * @method CopyRightWatermarkInput getCopyRightWatermark() 获取<p>版权水印。</p>
+ * @method void setCopyRightWatermark(CopyRightWatermarkInput $CopyRightWatermark) 设置<p>版权水印。</p>
+ * @method BlindWatermarkInput getBlindWatermark() 获取<p>数字水印。</p>
+ * @method void setBlindWatermark(BlindWatermarkInput $BlindWatermark) 设置<p>数字水印。</p>
+ * @method array getMosaicSet() 获取<p>马赛克列表，最大可支持 10 张。</p>
+ * @method void setMosaicSet(array $MosaicSet) 设置<p>马赛克列表，最大可支持 10 张。</p>
+ * @method array getHeadTailSet() 获取<p>片头片尾列表，支持多片头片尾，最大可支持 10 个。</p>
+ * @method void setHeadTailSet(array $HeadTailSet) 设置<p>片头片尾列表，支持多片头片尾，最大可支持 10 个。</p>
+ * @method float getStartTimeOffset() 获取<p>转码后的视频的起始时间偏移，单位：秒。</p><li>不填或填0，表示转码后的视频从原始视频的起始位置开始；</li><li>当数值大于0时（假设为 n），表示转码后的视频从原始视频的第 n 秒位置开始；</li><li>当数值小于0时（假设为 -n），表示转码后的视频从原始视频结束 n 秒前的位置开始。</li>
+ * @method void setStartTimeOffset(float $StartTimeOffset) 设置<p>转码后的视频的起始时间偏移，单位：秒。</p><li>不填或填0，表示转码后的视频从原始视频的起始位置开始；</li><li>当数值大于0时（假设为 n），表示转码后的视频从原始视频的第 n 秒位置开始；</li><li>当数值小于0时（假设为 -n），表示转码后的视频从原始视频结束 n 秒前的位置开始。</li>
+ * @method float getEndTimeOffset() 获取<p>转码后视频的终止时间偏移，单位：秒。</p><li>不填或填0，表示转码后的视频持续到原始视频的末尾终止；</li><li>当数值大于0时（假设为 n），表示转码后的视频持续到原始视频第 n 秒时终止；</li><li>当数值小于0时（假设为 -n），表示转码后的视频持续到原始视频结束 n 秒前终止。</li>
+ * @method void setEndTimeOffset(float $EndTimeOffset) 设置<p>转码后视频的终止时间偏移，单位：秒。</p><li>不填或填0，表示转码后的视频持续到原始视频的末尾终止；</li><li>当数值大于0时（假设为 n），表示转码后的视频持续到原始视频第 n 秒时终止；</li><li>当数值小于0时（假设为 -n），表示转码后的视频持续到原始视频结束 n 秒前终止。</li>
+ * @method OverrideTranscodeParameter getOverrideParameter() 获取<p>自定义视频转码参数。</p>
+ * @method void setOverrideParameter(OverrideTranscodeParameter $OverrideParameter) 设置<p>自定义视频转码参数。</p>
+ * @method array getSubtitleInfoSet() 获取<p>字幕压制信息列表。最大可支持 2 个。</p>
+ * @method void setSubtitleInfoSet(array $SubtitleInfoSet) 设置<p>字幕压制信息列表。最大可支持 2 个。</p>
  */
 class TranscodeTaskInput extends AbstractModel
 {
     /**
-     * @var integer 视频转码模板 ID。
+     * @var integer <p>视频转码模板 ID。</p>
      */
     public $Definition;
 
     /**
-     * @var array 水印列表，支持多张图片或文字水印，最大可支持 10 张。
+     * @var array <p>水印列表，支持多张图片或文字水印，最大可支持 10 张。</p>
      */
     public $WatermarkSet;
 
     /**
-     * @var array 马赛克列表，最大可支持 10 张。
+     * @var TraceWatermarkInput <p>溯源水印。</p>
+     */
+    public $TraceWatermark;
+
+    /**
+     * @var CopyRightWatermarkInput <p>版权水印。</p>
+     */
+    public $CopyRightWatermark;
+
+    /**
+     * @var BlindWatermarkInput <p>数字水印。</p>
+     */
+    public $BlindWatermark;
+
+    /**
+     * @var array <p>马赛克列表，最大可支持 10 张。</p>
      */
     public $MosaicSet;
 
     /**
-     * @var array 片头片尾列表，支持多片头片尾，最大可支持 10 个。
+     * @var array <p>片头片尾列表，支持多片头片尾，最大可支持 10 个。</p>
      */
     public $HeadTailSet;
 
     /**
-     * @var float 转码后的视频的起始时间偏移，单位：秒。
-<li>不填或填0，表示转码后的视频从原始视频的起始位置开始；</li>
-<li>当数值大于0时（假设为 n），表示转码后的视频从原始视频的第 n 秒位置开始；</li>
-<li>当数值小于0时（假设为 -n），表示转码后的视频从原始视频结束 n 秒前的位置开始。</li>
+     * @var float <p>转码后的视频的起始时间偏移，单位：秒。</p><li>不填或填0，表示转码后的视频从原始视频的起始位置开始；</li><li>当数值大于0时（假设为 n），表示转码后的视频从原始视频的第 n 秒位置开始；</li><li>当数值小于0时（假设为 -n），表示转码后的视频从原始视频结束 n 秒前的位置开始。</li>
      */
     public $StartTimeOffset;
 
     /**
-     * @var float 转码后视频的终止时间偏移，单位：秒。
-<li>不填或填0，表示转码后的视频持续到原始视频的末尾终止；</li>
-<li>当数值大于0时（假设为 n），表示转码后的视频持续到原始视频第 n 秒时终止；</li>
-<li>当数值小于0时（假设为 -n），表示转码后的视频持续到原始视频结束 n 秒前终止。</li>
+     * @var float <p>转码后视频的终止时间偏移，单位：秒。</p><li>不填或填0，表示转码后的视频持续到原始视频的末尾终止；</li><li>当数值大于0时（假设为 n），表示转码后的视频持续到原始视频第 n 秒时终止；</li><li>当数值小于0时（假设为 -n），表示转码后的视频持续到原始视频结束 n 秒前终止。</li>
      */
     public $EndTimeOffset;
 
     /**
-     * @param integer $Definition 视频转码模板 ID。
-     * @param array $WatermarkSet 水印列表，支持多张图片或文字水印，最大可支持 10 张。
-     * @param array $MosaicSet 马赛克列表，最大可支持 10 张。
-     * @param array $HeadTailSet 片头片尾列表，支持多片头片尾，最大可支持 10 个。
-     * @param float $StartTimeOffset 转码后的视频的起始时间偏移，单位：秒。
-<li>不填或填0，表示转码后的视频从原始视频的起始位置开始；</li>
-<li>当数值大于0时（假设为 n），表示转码后的视频从原始视频的第 n 秒位置开始；</li>
-<li>当数值小于0时（假设为 -n），表示转码后的视频从原始视频结束 n 秒前的位置开始。</li>
-     * @param float $EndTimeOffset 转码后视频的终止时间偏移，单位：秒。
-<li>不填或填0，表示转码后的视频持续到原始视频的末尾终止；</li>
-<li>当数值大于0时（假设为 n），表示转码后的视频持续到原始视频第 n 秒时终止；</li>
-<li>当数值小于0时（假设为 -n），表示转码后的视频持续到原始视频结束 n 秒前终止。</li>
+     * @var OverrideTranscodeParameter <p>自定义视频转码参数。</p>
+     */
+    public $OverrideParameter;
+
+    /**
+     * @var array <p>字幕压制信息列表。最大可支持 2 个。</p>
+     */
+    public $SubtitleInfoSet;
+
+    /**
+     * @param integer $Definition <p>视频转码模板 ID。</p>
+     * @param array $WatermarkSet <p>水印列表，支持多张图片或文字水印，最大可支持 10 张。</p>
+     * @param TraceWatermarkInput $TraceWatermark <p>溯源水印。</p>
+     * @param CopyRightWatermarkInput $CopyRightWatermark <p>版权水印。</p>
+     * @param BlindWatermarkInput $BlindWatermark <p>数字水印。</p>
+     * @param array $MosaicSet <p>马赛克列表，最大可支持 10 张。</p>
+     * @param array $HeadTailSet <p>片头片尾列表，支持多片头片尾，最大可支持 10 个。</p>
+     * @param float $StartTimeOffset <p>转码后的视频的起始时间偏移，单位：秒。</p><li>不填或填0，表示转码后的视频从原始视频的起始位置开始；</li><li>当数值大于0时（假设为 n），表示转码后的视频从原始视频的第 n 秒位置开始；</li><li>当数值小于0时（假设为 -n），表示转码后的视频从原始视频结束 n 秒前的位置开始。</li>
+     * @param float $EndTimeOffset <p>转码后视频的终止时间偏移，单位：秒。</p><li>不填或填0，表示转码后的视频持续到原始视频的末尾终止；</li><li>当数值大于0时（假设为 n），表示转码后的视频持续到原始视频第 n 秒时终止；</li><li>当数值小于0时（假设为 -n），表示转码后的视频持续到原始视频结束 n 秒前终止。</li>
+     * @param OverrideTranscodeParameter $OverrideParameter <p>自定义视频转码参数。</p>
+     * @param array $SubtitleInfoSet <p>字幕压制信息列表。最大可支持 2 个。</p>
      */
     function __construct()
     {
@@ -123,6 +139,21 @@ class TranscodeTaskInput extends AbstractModel
             }
         }
 
+        if (array_key_exists("TraceWatermark",$param) and $param["TraceWatermark"] !== null) {
+            $this->TraceWatermark = new TraceWatermarkInput();
+            $this->TraceWatermark->deserialize($param["TraceWatermark"]);
+        }
+
+        if (array_key_exists("CopyRightWatermark",$param) and $param["CopyRightWatermark"] !== null) {
+            $this->CopyRightWatermark = new CopyRightWatermarkInput();
+            $this->CopyRightWatermark->deserialize($param["CopyRightWatermark"]);
+        }
+
+        if (array_key_exists("BlindWatermark",$param) and $param["BlindWatermark"] !== null) {
+            $this->BlindWatermark = new BlindWatermarkInput();
+            $this->BlindWatermark->deserialize($param["BlindWatermark"]);
+        }
+
         if (array_key_exists("MosaicSet",$param) and $param["MosaicSet"] !== null) {
             $this->MosaicSet = [];
             foreach ($param["MosaicSet"] as $key => $value){
@@ -147,6 +178,20 @@ class TranscodeTaskInput extends AbstractModel
 
         if (array_key_exists("EndTimeOffset",$param) and $param["EndTimeOffset"] !== null) {
             $this->EndTimeOffset = $param["EndTimeOffset"];
+        }
+
+        if (array_key_exists("OverrideParameter",$param) and $param["OverrideParameter"] !== null) {
+            $this->OverrideParameter = new OverrideTranscodeParameter();
+            $this->OverrideParameter->deserialize($param["OverrideParameter"]);
+        }
+
+        if (array_key_exists("SubtitleInfoSet",$param) and $param["SubtitleInfoSet"] !== null) {
+            $this->SubtitleInfoSet = [];
+            foreach ($param["SubtitleInfoSet"] as $key => $value){
+                $obj = new SubtitleInfoInput();
+                $obj->deserialize($value);
+                array_push($this->SubtitleInfoSet, $obj);
+            }
         }
     }
 }

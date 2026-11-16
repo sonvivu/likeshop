@@ -26,9 +26,8 @@ use app\api\logic\TeamLogic;
 use app\common\model\{AccountLog, Footprint, MessageScene_, NoticeSetting, OrderLog, User, Pay, Order, OrderTrade};
 use app\common\server\ConfigServer;
 use app\common\server\DistributionServer;
-use think\Db;
+use think\facade\Db;
 use think\Exception;
-use think\facade\Hook;
 use think\facade\Log;
 
 /**
@@ -68,8 +67,8 @@ class PayNotifyLogic
             ->find();
 
         //增加会员消费累计额度
-        $user = User::get($order['user_id']);
-        $user->total_order_amount = ['inc', $order['order_amount']];
+        $user = User::find($order['user_id']);
+        $user->inc('total_order_amount', $order['order_amount']);
         $user->save();
         
         // 更改订单状态
@@ -117,7 +116,7 @@ class PayNotifyLogic
         IntegralLogic::rewardIntegral($user['id'], $order['id']);
 
         //发送通知
-        Hook::listen('notice', [
+        event('notice', [
             'user_id' => $user['id'],
             'order_id' => $order['id'],
             'scene' => NoticeSetting::ORDER_PAY_NOTICE,
@@ -125,7 +124,7 @@ class PayNotifyLogic
 
 
         //短信通知
-        Hook::listen('sms_send', [
+        event('sms_send', [
             'key'       => NoticeSetting::ORDER_PAY_NOTICE,
             'mobile'    => $order->mobile,
             'user_id'   => $user->id,
@@ -142,7 +141,7 @@ class PayNotifyLogic
         $order_contact_mobile = ConfigServer::get('order_message', 'order_contact_mobile');
         //平台短信通知
         if($order_contact_mobile) {
-            Hook::listen('sms_send',[
+            event('sms_send',[
                 'key'       => NoticeSetting::USER_PAID_NOTICE_PLATFORM,
                 'mobile'    => $order_contact_mobile,
                 'params'    => [
@@ -152,13 +151,13 @@ class PayNotifyLogic
         }
 
         // 赠送成长值和积分
-        Hook::listen('give_reward', [
+        event('give_reward', [
             'order_id' => $order['id'],
             'scene'    => 1, //1=下单支付场景
         ]);
 
         // 钩子-记录足迹(下单结算)
-        Hook::listen('footprint', [
+        event('footprint', [
             'type'       => Footprint::place_order,
             'user_id'    => $user['id'],
             'foreign_id' => $order['id'], //订单ID
@@ -166,7 +165,7 @@ class PayNotifyLogic
         ]);
 
         //打印订单
-        Hook::listen('printer', [
+        event('printer', [
             'order_id'       => $order['id'],
         ]);
 
@@ -184,13 +183,13 @@ class PayNotifyLogic
             $update_data['transaction_id'] = $extra['transaction_id'];
         }
         Db::name('recharge_order')->where(['id'=>$order['id']])->update($update_data);
-        $user = User::get($order['user_id']);
+        $user = User::find($order['user_id']);
         $total_money = $order['order_amount']+$order['give_money'];
         $total_integral = $order['give_integral'];
-        $user->user_money = ['inc', $total_money];
-        $user->user_integral = ['inc', $total_integral];
-        $user->user_growth = ['inc', $order['give_growth']];
-        $user->total_recharge_amount = ['inc',$total_money];
+        $user->inc('user_money', $total_money);
+        $user->inc('user_integral', $total_integral);
+        $user->inc('user_growth', $order['give_growth']);
+        $user->inc('total_recharge_amount', $total_money);
         $user->save();
         //记录余额
         $total_money > 0 && AccountLogLogic::AccountRecord($user->id,$total_money,1, AccountLog::recharge_money);

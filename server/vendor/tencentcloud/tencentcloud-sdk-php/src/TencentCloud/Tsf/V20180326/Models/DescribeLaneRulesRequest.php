@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,42 +20,58 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeLaneRules请求参数结构体
  *
- * @method integer getLimit() 获取每页展示的条数
- * @method void setLimit(integer $Limit) 设置每页展示的条数
- * @method integer getOffset() 获取翻页偏移量
- * @method void setOffset(integer $Offset) 设置翻页偏移量
- * @method string getSearchWord() 获取搜索关键词
- * @method void setSearchWord(string $SearchWord) 设置搜索关键词
- * @method string getRuleId() 获取泳道规则ID（用于精确搜索）
- * @method void setRuleId(string $RuleId) 设置泳道规则ID（用于精确搜索）
+ * @method integer getLimit() 获取返回数量，默认为20，最大值为500。
+ * @method void setLimit(integer $Limit) 设置返回数量，默认为20，最大值为500。
+ * @method integer getOffset() 获取偏移量，默认为0。
+ * @method void setOffset(integer $Offset) 设置偏移量，默认为0。
+ * @method string getSearchWord() 获取搜索关键词。
+ * @method void setSearchWord(string $SearchWord) 设置搜索关键词。
+ * @method string getRuleId() 获取灰度发布规则ID。该参数可以通过调用 [DescribeLaneRules](https://cloud.tencent.com/document/product/649/44505) 的返回值中的 RuleId 字段来获取或通过登录[控制台](https://console.cloud.tencent.com/tse/tsf-consul?tab=grayscale&subTab=lanerule)查看；也可以调用[CreateLaneRule](https://cloud.tencent.com/document/product/649/44507)创建新的灰度发布规则。
+ * @method void setRuleId(string $RuleId) 设置灰度发布规则ID。该参数可以通过调用 [DescribeLaneRules](https://cloud.tencent.com/document/product/649/44505) 的返回值中的 RuleId 字段来获取或通过登录[控制台](https://console.cloud.tencent.com/tse/tsf-consul?tab=grayscale&subTab=lanerule)查看；也可以调用[CreateLaneRule](https://cloud.tencent.com/document/product/649/44507)创建新的灰度发布规则。
+ * @method array getRuleIdList() 获取灰度发布规则ID。该参数可以通过调用 [DescribeLaneRules](https://cloud.tencent.com/document/product/649/44505) 的返回值中的 RuleId 字段来获取或通过登录[控制台](https://console.cloud.tencent.com/tse/tsf-consul?tab=grayscale&subTab=lanerule)查看；也可以调用[CreateLaneRule](https://cloud.tencent.com/document/product/649/44507)创建新的灰度发布规则。
+ * @method void setRuleIdList(array $RuleIdList) 设置灰度发布规则ID。该参数可以通过调用 [DescribeLaneRules](https://cloud.tencent.com/document/product/649/44505) 的返回值中的 RuleId 字段来获取或通过登录[控制台](https://console.cloud.tencent.com/tse/tsf-consul?tab=grayscale&subTab=lanerule)查看；也可以调用[CreateLaneRule](https://cloud.tencent.com/document/product/649/44507)创建新的灰度发布规则。
+ * @method boolean getQueryAll() 获取查询全部标记
+ * @method void setQueryAll(boolean $QueryAll) 设置查询全部标记
  */
 class DescribeLaneRulesRequest extends AbstractModel
 {
     /**
-     * @var integer 每页展示的条数
+     * @var integer 返回数量，默认为20，最大值为500。
      */
     public $Limit;
 
     /**
-     * @var integer 翻页偏移量
+     * @var integer 偏移量，默认为0。
      */
     public $Offset;
 
     /**
-     * @var string 搜索关键词
+     * @var string 搜索关键词。
      */
     public $SearchWord;
 
     /**
-     * @var string 泳道规则ID（用于精确搜索）
+     * @var string 灰度发布规则ID。该参数可以通过调用 [DescribeLaneRules](https://cloud.tencent.com/document/product/649/44505) 的返回值中的 RuleId 字段来获取或通过登录[控制台](https://console.cloud.tencent.com/tse/tsf-consul?tab=grayscale&subTab=lanerule)查看；也可以调用[CreateLaneRule](https://cloud.tencent.com/document/product/649/44507)创建新的灰度发布规则。
      */
     public $RuleId;
 
     /**
-     * @param integer $Limit 每页展示的条数
-     * @param integer $Offset 翻页偏移量
-     * @param string $SearchWord 搜索关键词
-     * @param string $RuleId 泳道规则ID（用于精确搜索）
+     * @var array 灰度发布规则ID。该参数可以通过调用 [DescribeLaneRules](https://cloud.tencent.com/document/product/649/44505) 的返回值中的 RuleId 字段来获取或通过登录[控制台](https://console.cloud.tencent.com/tse/tsf-consul?tab=grayscale&subTab=lanerule)查看；也可以调用[CreateLaneRule](https://cloud.tencent.com/document/product/649/44507)创建新的灰度发布规则。
+     */
+    public $RuleIdList;
+
+    /**
+     * @var boolean 查询全部标记
+     */
+    public $QueryAll;
+
+    /**
+     * @param integer $Limit 返回数量，默认为20，最大值为500。
+     * @param integer $Offset 偏移量，默认为0。
+     * @param string $SearchWord 搜索关键词。
+     * @param string $RuleId 灰度发布规则ID。该参数可以通过调用 [DescribeLaneRules](https://cloud.tencent.com/document/product/649/44505) 的返回值中的 RuleId 字段来获取或通过登录[控制台](https://console.cloud.tencent.com/tse/tsf-consul?tab=grayscale&subTab=lanerule)查看；也可以调用[CreateLaneRule](https://cloud.tencent.com/document/product/649/44507)创建新的灰度发布规则。
+     * @param array $RuleIdList 灰度发布规则ID。该参数可以通过调用 [DescribeLaneRules](https://cloud.tencent.com/document/product/649/44505) 的返回值中的 RuleId 字段来获取或通过登录[控制台](https://console.cloud.tencent.com/tse/tsf-consul?tab=grayscale&subTab=lanerule)查看；也可以调用[CreateLaneRule](https://cloud.tencent.com/document/product/649/44507)创建新的灰度发布规则。
+     * @param boolean $QueryAll 查询全部标记
      */
     function __construct()
     {
@@ -84,6 +100,14 @@ class DescribeLaneRulesRequest extends AbstractModel
 
         if (array_key_exists("RuleId",$param) and $param["RuleId"] !== null) {
             $this->RuleId = $param["RuleId"];
+        }
+
+        if (array_key_exists("RuleIdList",$param) and $param["RuleIdList"] !== null) {
+            $this->RuleIdList = $param["RuleIdList"];
+        }
+
+        if (array_key_exists("QueryAll",$param) and $param["QueryAll"] !== null) {
+            $this->QueryAll = $param["QueryAll"];
         }
     }
 }

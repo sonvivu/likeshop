@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,9 +23,7 @@ use TencentCloud\Common\AbstractModel;
  * @method integer getTotalCount() 获取收藏仓库的总数
  * @method void setTotalCount(integer $TotalCount) 设置收藏仓库的总数
  * @method array getRepoInfo() 获取仓库信息数组
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setRepoInfo(array $RepoInfo) 设置仓库信息数组
-注意：此字段可能返回 null，表示取不到有效值。
  */
 class FavorResp extends AbstractModel
 {
@@ -36,14 +34,12 @@ class FavorResp extends AbstractModel
 
     /**
      * @var array 仓库信息数组
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $RepoInfo;
 
     /**
      * @param integer $TotalCount 收藏仓库的总数
      * @param array $RepoInfo 仓库信息数组
-注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
     {

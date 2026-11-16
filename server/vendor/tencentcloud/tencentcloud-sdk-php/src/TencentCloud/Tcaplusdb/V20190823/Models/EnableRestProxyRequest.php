@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,18 +20,18 @@ use TencentCloud\Common\AbstractModel;
 /**
  * EnableRestProxy请求参数结构体
  *
- * @method string getClusterId() 获取对应于appid
- * @method void setClusterId(string $ClusterId) 设置对应于appid
+ * @method string getClusterId() 获取集群 ID。
+ * @method void setClusterId(string $ClusterId) 设置集群 ID。
  */
 class EnableRestProxyRequest extends AbstractModel
 {
     /**
-     * @var string 对应于appid
+     * @var string 集群 ID。
      */
     public $ClusterId;
 
     /**
-     * @param string $ClusterId 对应于appid
+     * @param string $ClusterId 集群 ID。
      */
     function __construct()
     {

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,25 +21,33 @@ use TencentCloud\Common\AbstractModel;
  * 实例对象的维度组合
  *
  * @method string getName() 获取实例维度名称
+注意：此字段可能返回 null，表示取不到有效值。
  * @method void setName(string $Name) 设置实例维度名称
+注意：此字段可能返回 null，表示取不到有效值。
  * @method string getValue() 获取实例维度值
+注意：此字段可能返回 null，表示取不到有效值。
  * @method void setValue(string $Value) 设置实例维度值
+注意：此字段可能返回 null，表示取不到有效值。
  */
 class Dimension extends AbstractModel
 {
     /**
      * @var string 实例维度名称
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Name;
 
     /**
      * @var string 实例维度值
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Value;
 
     /**
      * @param string $Name 实例维度名称
+注意：此字段可能返回 null，表示取不到有效值。
      * @param string $Value 实例维度值
+注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
     {

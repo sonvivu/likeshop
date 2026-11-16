@@ -18,7 +18,7 @@
 // +----------------------------------------------------------------------
 namespace app\admin\logic;
 use app\common\server\UrlServer;
-use think\Db;
+use think\facade\Db;
 
 class SeckillLogic{
 
@@ -34,14 +34,14 @@ class SeckillLogic{
             $where[] = ['seckill_id','=',$get['seckill_id']];
         }
 
-        $count = Db::name('seckill_goods sg')
+        $count = Db::name('seckill_goods')->alias('sg')
             ->join('goods g','sg.goods_id = g.id')
             ->where($where)
             ->group('goods_id,seckill_id')
             ->count();
 
 
-        $list = Db::name('seckill_goods sg')
+        $list = Db::name('seckill_goods')->alias('sg')
             ->join('goods g','sg.goods_id = g.id')
             ->where($where)
             ->group('goods_id,seckill_id')
@@ -49,6 +49,7 @@ class SeckillLogic{
             ->page($get['page'], $get['limit'])
             ->order('sg.id desc')
             ->select();
+        $list = $list->toArray(); // ThinkPHP 6：select() 返回 Collection，TP5 返回数组；直接写 $list[$k]['x'] 或 foreach(&$item) 改值会丢/报错，先转数组。
         $goods_ids = array_column($list,'goods_id');
         $seckill_goods_list = Db::name('seckill_goods')->where(['goods_id'=>$goods_ids])->column('*','id');
 
@@ -56,9 +57,9 @@ class SeckillLogic{
         foreach ($list as &$item){
             $price_array = [];
             $item['image'] = UrlServer::getFileUrl($item['image']);
-            $item['goods_price'] = '￥'.$item['min_price'];
+            $item['goods_price'] = config('currency.symbol').$item['min_price'];
             if($item['max_price'] != $item['min_price']){
-                $item['goods_price'] = '￥'.$item['min_price'].' ~ '.'￥'.$item['max_price'];
+                $item['goods_price'] = config('currency.symbol').$item['min_price'].' ~ '.config('currency.symbol').$item['max_price'];
             }
             if(isset($seckill[$item['seckill_id']])){
                 $item['start_time'] = $seckill[$item['seckill_id']]['start_time'];
@@ -82,9 +83,9 @@ class SeckillLogic{
             $max_price = max($price_array);
             $min_price = min($price_array);
 
-            $item['seckill_price'] = '￥'.$max_price;
+            $item['seckill_price'] = config('currency.symbol').$max_price;
             if($max_price != $min_price){
-                $item['seckill_price'] =  '￥'.$min_price.' ~ '.'￥'.$max_price;
+                $item['seckill_price'] =  config('currency.symbol').$min_price.' ~ '.config('currency.symbol').$max_price;
             }
         }
 
@@ -100,6 +101,7 @@ class SeckillLogic{
             ->order('start_time asc')
             ->page($get['page'], $get['limit'])
             ->select();
+        $list = $list->toArray(); // ThinkPHP 6：select() 返回 Collection，TP5 返回数组；直接写 $list[$k]['x'] 或 foreach(&$item) 改值会丢/报错，先转数组。
         foreach ($list as &$item){
             $item['time'] = $item['start_time'].' ~ '.$item['end_time'];
         }
@@ -183,6 +185,7 @@ class SeckillLogic{
     public static function getTimeAll(){
 
         $time_list =  Db::name('seckill_time')->where(['del'=>0])->order('start_time asc')->select();
+        $time_list = $time_list->toArray(); // ThinkPHP 6：select() 返回 Collection，TP5 返回数组；直接写 $time_list[$k]['x'] 或 foreach(&$item) 改值会丢/报错，先转数组。
         foreach ($time_list as &$item){
             $item['time'] = $item['start_time'].' ~ '.$item['end_time'];
         }
@@ -190,11 +193,12 @@ class SeckillLogic{
     }
 
     public static function getSeckillGoods($id,$seckill_id){
-        $skill_goods = Db::name('seckill_goods sg')
+        $skill_goods = Db::name('seckill_goods')->alias('sg')
             ->join('goods_item gi','sg.item_id = gi.id')
             ->where(['del'=>0,'sg.goods_id'=>$id,'sg.seckill_id'=>$seckill_id ])
             ->field('sg.*,gi.image,gi.spec_value_str,gi.price as goods_price')
             ->select();
+        $skill_goods = $skill_goods->toArray(); // ThinkPHP 6：select() 返回 Collection，TP5 返回数组；直接写 $skill_goods[$k]['x'] 或 foreach(&$item) 改值会丢/报错，先转数组。
 
         $goods_id = $skill_goods[0]['goods_id'];
         $goods = Db::name('goods')->where(['del'=>0,'id'=>$goods_id])->field('image,name')->find();

@@ -17,7 +17,7 @@
 // | author: likeshop.cn.team
 // +----------------------------------------------------------------------
 namespace app\common\logic;
-use think\Db;
+use think\facade\Db;
 
 class CouponLogic {
     public static function couponClose($user_id = ''){

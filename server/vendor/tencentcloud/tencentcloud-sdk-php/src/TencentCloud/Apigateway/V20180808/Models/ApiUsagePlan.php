@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -79,6 +79,10 @@ use TencentCloud\Common\AbstractModel;
  * @method string getServiceName() 获取服务名称。
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setServiceName(string $ServiceName) 设置服务名称。
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method array getTags() 获取标签
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setTags(array $Tags) 设置标签
 注意：此字段可能返回 null，表示取不到有效值。
  */
 class ApiUsagePlan extends AbstractModel
@@ -174,6 +178,12 @@ class ApiUsagePlan extends AbstractModel
     public $ServiceName;
 
     /**
+     * @var array 标签
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $Tags;
+
+    /**
      * @param string $ServiceId 服务唯一ID。
 注意：此字段可能返回 null，表示取不到有效值。
      * @param string $ApiId API 唯一 ID。
@@ -203,6 +213,8 @@ class ApiUsagePlan extends AbstractModel
      * @param string $ModifiedTime 使用计划最后修改时间。
 注意：此字段可能返回 null，表示取不到有效值。
      * @param string $ServiceName 服务名称。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param array $Tags 标签
 注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
@@ -276,6 +288,15 @@ class ApiUsagePlan extends AbstractModel
 
         if (array_key_exists("ServiceName",$param) and $param["ServiceName"] !== null) {
             $this->ServiceName = $param["ServiceName"];
+        }
+
+        if (array_key_exists("Tags",$param) and $param["Tags"] !== null) {
+            $this->Tags = [];
+            foreach ($param["Tags"] as $key => $value){
+                $obj = new Tag();
+                $obj->deserialize($value);
+                array_push($this->Tags, $obj);
+            }
         }
     }
 }

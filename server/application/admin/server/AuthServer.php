@@ -21,7 +21,7 @@
 namespace app\admin\server;
 
 
-use think\Db;
+use think\facade\Db;
 
 class AuthServer
 {

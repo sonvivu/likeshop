@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,37 +25,43 @@ use TencentCloud\Common\AbstractModel;
 <li>Traffic：流量资源包。</li>
 <li>Transcode：普通转码资源包。</li>
 <li>TESHD：极速高清转码资源包。</li>
-<li>Review：视频审核转码资源包。</li>
+<li>Review：音视频审核转码资源包。</li>
+<li>MediaProcess：媒体处理时长资源包。</li>
  * @method void setResourceType(string $ResourceType) 设置资源类型。
 <li>Storage：存储资源包。</li>
 <li>Traffic：流量资源包。</li>
 <li>Transcode：普通转码资源包。</li>
 <li>TESHD：极速高清转码资源包。</li>
-<li>Review：视频审核转码资源包。</li>
+<li>Review：音视频审核转码资源包。</li>
+<li>MediaProcess：媒体处理时长资源包。</li>
  * @method integer getAmount() 获取资源包额度。
-<li>视频存储资源包，单位为字节。</li>
-<li>视频转码资源包，单位为秒。</li>
-<li>视频审核资源包，单位为秒。</li>
-<li>视频极速高清资源包，单位为秒。</li>
-<li>视频加速资源包，单位为字节。</li>
+<li>音视频存储资源包，单位为字节。</li>
+<li>音视频转码资源包，单位为秒。</li>
+<li>音视频审核资源包，单位为秒。</li>
+<li>音视频极速高清资源包，单位为秒。</li>
+<li>音视频加速资源包，单位为字节。</li>
+<li>媒体处理时长资源包，单位为秒。</li>
  * @method void setAmount(integer $Amount) 设置资源包额度。
-<li>视频存储资源包，单位为字节。</li>
-<li>视频转码资源包，单位为秒。</li>
-<li>视频审核资源包，单位为秒。</li>
-<li>视频极速高清资源包，单位为秒。</li>
-<li>视频加速资源包，单位为字节。</li>
+<li>音视频存储资源包，单位为字节。</li>
+<li>音视频转码资源包，单位为秒。</li>
+<li>音视频审核资源包，单位为秒。</li>
+<li>音视频极速高清资源包，单位为秒。</li>
+<li>音视频加速资源包，单位为字节。</li>
+<li>媒体处理时长资源包，单位为秒。</li>
  * @method integer getLeft() 获取资源包余量。
-<li>视频存储资源包，单位为字节。</li>
-<li>视频转码资源包，单位为秒。</li>
-<li>视频审核资源包，单位为秒。</li>
-<li>视频极速高清资源包，单位为秒。</li>
-<li>视频加速资源包，单位为字节。</li>
+<li>音视频存储资源包，单位为字节。</li>
+<li>音视频转码资源包，单位为秒。</li>
+<li>音视频审核资源包，单位为秒。</li>
+<li>音视频极速高清资源包，单位为秒。</li>
+<li>音视频加速资源包，单位为字节。</li>
+<li>媒体处理时长资源包，单位为秒。</li>
  * @method void setLeft(integer $Left) 设置资源包余量。
-<li>视频存储资源包，单位为字节。</li>
-<li>视频转码资源包，单位为秒。</li>
-<li>视频审核资源包，单位为秒。</li>
-<li>视频极速高清资源包，单位为秒。</li>
-<li>视频加速资源包，单位为字节。</li>
+<li>音视频存储资源包，单位为字节。</li>
+<li>音视频转码资源包，单位为秒。</li>
+<li>音视频审核资源包，单位为秒。</li>
+<li>音视频极速高清资源包，单位为秒。</li>
+<li>音视频加速资源包，单位为字节。</li>
+<li>媒体处理时长资源包，单位为秒。</li>
  */
 class ProductInstanceRecource extends AbstractModel
 {
@@ -65,27 +71,30 @@ class ProductInstanceRecource extends AbstractModel
 <li>Traffic：流量资源包。</li>
 <li>Transcode：普通转码资源包。</li>
 <li>TESHD：极速高清转码资源包。</li>
-<li>Review：视频审核转码资源包。</li>
+<li>Review：音视频审核转码资源包。</li>
+<li>MediaProcess：媒体处理时长资源包。</li>
      */
     public $ResourceType;
 
     /**
      * @var integer 资源包额度。
-<li>视频存储资源包，单位为字节。</li>
-<li>视频转码资源包，单位为秒。</li>
-<li>视频审核资源包，单位为秒。</li>
-<li>视频极速高清资源包，单位为秒。</li>
-<li>视频加速资源包，单位为字节。</li>
+<li>音视频存储资源包，单位为字节。</li>
+<li>音视频转码资源包，单位为秒。</li>
+<li>音视频审核资源包，单位为秒。</li>
+<li>音视频极速高清资源包，单位为秒。</li>
+<li>音视频加速资源包，单位为字节。</li>
+<li>媒体处理时长资源包，单位为秒。</li>
      */
     public $Amount;
 
     /**
      * @var integer 资源包余量。
-<li>视频存储资源包，单位为字节。</li>
-<li>视频转码资源包，单位为秒。</li>
-<li>视频审核资源包，单位为秒。</li>
-<li>视频极速高清资源包，单位为秒。</li>
-<li>视频加速资源包，单位为字节。</li>
+<li>音视频存储资源包，单位为字节。</li>
+<li>音视频转码资源包，单位为秒。</li>
+<li>音视频审核资源包，单位为秒。</li>
+<li>音视频极速高清资源包，单位为秒。</li>
+<li>音视频加速资源包，单位为字节。</li>
+<li>媒体处理时长资源包，单位为秒。</li>
      */
     public $Left;
 
@@ -95,19 +104,22 @@ class ProductInstanceRecource extends AbstractModel
 <li>Traffic：流量资源包。</li>
 <li>Transcode：普通转码资源包。</li>
 <li>TESHD：极速高清转码资源包。</li>
-<li>Review：视频审核转码资源包。</li>
+<li>Review：音视频审核转码资源包。</li>
+<li>MediaProcess：媒体处理时长资源包。</li>
      * @param integer $Amount 资源包额度。
-<li>视频存储资源包，单位为字节。</li>
-<li>视频转码资源包，单位为秒。</li>
-<li>视频审核资源包，单位为秒。</li>
-<li>视频极速高清资源包，单位为秒。</li>
-<li>视频加速资源包，单位为字节。</li>
+<li>音视频存储资源包，单位为字节。</li>
+<li>音视频转码资源包，单位为秒。</li>
+<li>音视频审核资源包，单位为秒。</li>
+<li>音视频极速高清资源包，单位为秒。</li>
+<li>音视频加速资源包，单位为字节。</li>
+<li>媒体处理时长资源包，单位为秒。</li>
      * @param integer $Left 资源包余量。
-<li>视频存储资源包，单位为字节。</li>
-<li>视频转码资源包，单位为秒。</li>
-<li>视频审核资源包，单位为秒。</li>
-<li>视频极速高清资源包，单位为秒。</li>
-<li>视频加速资源包，单位为字节。</li>
+<li>音视频存储资源包，单位为字节。</li>
+<li>音视频转码资源包，单位为秒。</li>
+<li>音视频审核资源包，单位为秒。</li>
+<li>音视频极速高清资源包，单位为秒。</li>
+<li>音视频加速资源包，单位为字节。</li>
+<li>媒体处理时长资源包，单位为秒。</li>
      */
     function __construct()
     {

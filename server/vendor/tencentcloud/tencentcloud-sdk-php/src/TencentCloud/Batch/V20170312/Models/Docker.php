@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,31 +20,37 @@ use TencentCloud\Common\AbstractModel;
 /**
  * Docker容器信息
  *
- * @method string getUser() 获取Docker Hub 用户名或 Tencent Registry 用户名
- * @method void setUser(string $User) 设置Docker Hub 用户名或 Tencent Registry 用户名
- * @method string getPassword() 获取Docker Hub 密码或 Tencent Registry 密码
- * @method void setPassword(string $Password) 设置Docker Hub 密码或 Tencent Registry 密码
  * @method string getImage() 获取Docker Hub填写“[user/repo]:[tag]”，Tencent Registry填写“ccr.ccs.tencentyun.com/[namespace/repo]:[tag]”
  * @method void setImage(string $Image) 设置Docker Hub填写“[user/repo]:[tag]”，Tencent Registry填写“ccr.ccs.tencentyun.com/[namespace/repo]:[tag]”
+ * @method string getUser() 获取Docker Hub 用户名或 Tencent Registry 用户名；公共镜像可不填写此参数。
+ * @method void setUser(string $User) 设置Docker Hub 用户名或 Tencent Registry 用户名；公共镜像可不填写此参数。
+ * @method string getPassword() 获取Docker Hub 密码或 Tencent Registry 密码；公共镜像可不填写此参数。
+ * @method void setPassword(string $Password) 设置Docker Hub 密码或 Tencent Registry 密码；公共镜像可不填写此参数。
  * @method string getServer() 获取Docker Hub 可以不填，但确保具有公网访问能力。或者是 Tencent Registry 服务地址“ccr.ccs.tencentyun.com”
  * @method void setServer(string $Server) 设置Docker Hub 可以不填，但确保具有公网访问能力。或者是 Tencent Registry 服务地址“ccr.ccs.tencentyun.com”
+ * @method integer getMaxRetryCount() 获取拉取Docker镜像重试次数。默认值：0。
+ * @method void setMaxRetryCount(integer $MaxRetryCount) 设置拉取Docker镜像重试次数。默认值：0。
+ * @method integer getDelayOnRetry() 获取拉取Docker镜像失败时延迟时间。单位：秒。
+ * @method void setDelayOnRetry(integer $DelayOnRetry) 设置拉取Docker镜像失败时延迟时间。单位：秒。
+ * @method string getDockerRunOption() 获取Docker命令运行参数。
+ * @method void setDockerRunOption(string $DockerRunOption) 设置Docker命令运行参数。
  */
 class Docker extends AbstractModel
 {
     /**
-     * @var string Docker Hub 用户名或 Tencent Registry 用户名
+     * @var string Docker Hub填写“[user/repo]:[tag]”，Tencent Registry填写“ccr.ccs.tencentyun.com/[namespace/repo]:[tag]”
+     */
+    public $Image;
+
+    /**
+     * @var string Docker Hub 用户名或 Tencent Registry 用户名；公共镜像可不填写此参数。
      */
     public $User;
 
     /**
-     * @var string Docker Hub 密码或 Tencent Registry 密码
+     * @var string Docker Hub 密码或 Tencent Registry 密码；公共镜像可不填写此参数。
      */
     public $Password;
-
-    /**
-     * @var string Docker Hub填写“[user/repo]:[tag]”，Tencent Registry填写“ccr.ccs.tencentyun.com/[namespace/repo]:[tag]”
-     */
-    public $Image;
 
     /**
      * @var string Docker Hub 可以不填，但确保具有公网访问能力。或者是 Tencent Registry 服务地址“ccr.ccs.tencentyun.com”
@@ -52,10 +58,28 @@ class Docker extends AbstractModel
     public $Server;
 
     /**
-     * @param string $User Docker Hub 用户名或 Tencent Registry 用户名
-     * @param string $Password Docker Hub 密码或 Tencent Registry 密码
+     * @var integer 拉取Docker镜像重试次数。默认值：0。
+     */
+    public $MaxRetryCount;
+
+    /**
+     * @var integer 拉取Docker镜像失败时延迟时间。单位：秒。
+     */
+    public $DelayOnRetry;
+
+    /**
+     * @var string Docker命令运行参数。
+     */
+    public $DockerRunOption;
+
+    /**
      * @param string $Image Docker Hub填写“[user/repo]:[tag]”，Tencent Registry填写“ccr.ccs.tencentyun.com/[namespace/repo]:[tag]”
+     * @param string $User Docker Hub 用户名或 Tencent Registry 用户名；公共镜像可不填写此参数。
+     * @param string $Password Docker Hub 密码或 Tencent Registry 密码；公共镜像可不填写此参数。
      * @param string $Server Docker Hub 可以不填，但确保具有公网访问能力。或者是 Tencent Registry 服务地址“ccr.ccs.tencentyun.com”
+     * @param integer $MaxRetryCount 拉取Docker镜像重试次数。默认值：0。
+     * @param integer $DelayOnRetry 拉取Docker镜像失败时延迟时间。单位：秒。
+     * @param string $DockerRunOption Docker命令运行参数。
      */
     function __construct()
     {
@@ -70,6 +94,10 @@ class Docker extends AbstractModel
         if ($param === null) {
             return;
         }
+        if (array_key_exists("Image",$param) and $param["Image"] !== null) {
+            $this->Image = $param["Image"];
+        }
+
         if (array_key_exists("User",$param) and $param["User"] !== null) {
             $this->User = $param["User"];
         }
@@ -78,12 +106,20 @@ class Docker extends AbstractModel
             $this->Password = $param["Password"];
         }
 
-        if (array_key_exists("Image",$param) and $param["Image"] !== null) {
-            $this->Image = $param["Image"];
-        }
-
         if (array_key_exists("Server",$param) and $param["Server"] !== null) {
             $this->Server = $param["Server"];
+        }
+
+        if (array_key_exists("MaxRetryCount",$param) and $param["MaxRetryCount"] !== null) {
+            $this->MaxRetryCount = $param["MaxRetryCount"];
+        }
+
+        if (array_key_exists("DelayOnRetry",$param) and $param["DelayOnRetry"] !== null) {
+            $this->DelayOnRetry = $param["DelayOnRetry"];
+        }
+
+        if (array_key_exists("DockerRunOption",$param) and $param["DockerRunOption"] !== null) {
+            $this->DockerRunOption = $param["DockerRunOption"];
         }
     }
 }

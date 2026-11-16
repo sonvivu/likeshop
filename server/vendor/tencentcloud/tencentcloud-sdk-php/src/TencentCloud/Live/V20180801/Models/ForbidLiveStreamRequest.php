@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,12 +28,12 @@ use TencentCloud\Common\AbstractModel;
  * @method void setStreamName(string $StreamName) 设置流名称。
  * @method string getResumeTime() 获取恢复流的时间。UTC 格式，例如：2018-11-29T19:00:00Z。
 注意：
-1. 默认禁播7天，且最长支持禁播90天。
-2. 北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)。
+1. 默认禁推7天，且最长支持禁推90天。
+2. 北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/267/38543#I)。
  * @method void setResumeTime(string $ResumeTime) 设置恢复流的时间。UTC 格式，例如：2018-11-29T19:00:00Z。
 注意：
-1. 默认禁播7天，且最长支持禁播90天。
-2. 北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)。
+1. 默认禁推7天，且最长支持禁推90天。
+2. 北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/267/38543#I)。
  * @method string getReason() 获取禁推原因。
 注明：请务必填写禁推原因，防止误操作。
 长度限制：2048字节。
@@ -61,8 +61,8 @@ class ForbidLiveStreamRequest extends AbstractModel
     /**
      * @var string 恢复流的时间。UTC 格式，例如：2018-11-29T19:00:00Z。
 注意：
-1. 默认禁播7天，且最长支持禁播90天。
-2. 北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)。
+1. 默认禁推7天，且最长支持禁推90天。
+2. 北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/267/38543#I)。
      */
     public $ResumeTime;
 
@@ -79,8 +79,8 @@ class ForbidLiveStreamRequest extends AbstractModel
      * @param string $StreamName 流名称。
      * @param string $ResumeTime 恢复流的时间。UTC 格式，例如：2018-11-29T19:00:00Z。
 注意：
-1. 默认禁播7天，且最长支持禁播90天。
-2. 北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)。
+1. 默认禁推7天，且最长支持禁推90天。
+2. 北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/267/38543#I)。
      * @param string $Reason 禁推原因。
 注明：请务必填写禁推原因，防止误操作。
 长度限制：2048字节。

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,122 +20,210 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeDBInstances请求参数结构体
  *
- * @method array getInstanceIds() 获取实例ID列表，格式如：cmgo-p8vnipr5。与云数据库控制台页面中显示的实例ID相同
- * @method void setInstanceIds(array $InstanceIds) 设置实例ID列表，格式如：cmgo-p8vnipr5。与云数据库控制台页面中显示的实例ID相同
- * @method integer getInstanceType() 获取实例类型，取值范围：0-所有实例,1-正式实例，2-临时实例, 3-只读实例，-1-正式实例+只读+灾备实例
- * @method void setInstanceType(integer $InstanceType) 设置实例类型，取值范围：0-所有实例,1-正式实例，2-临时实例, 3-只读实例，-1-正式实例+只读+灾备实例
- * @method integer getClusterType() 获取集群类型，取值范围：0-副本集实例，1-分片实例，-1-所有实例
- * @method void setClusterType(integer $ClusterType) 设置集群类型，取值范围：0-副本集实例，1-分片实例，-1-所有实例
- * @method array getStatus() 获取实例状态，取值范围：0-待初始化，1-流程执行中，2-实例有效，-2-已隔离（包年包月实例），-3-已隔离（按量计费实例）
- * @method void setStatus(array $Status) 设置实例状态，取值范围：0-待初始化，1-流程执行中，2-实例有效，-2-已隔离（包年包月实例），-3-已隔离（按量计费实例）
- * @method string getVpcId() 获取私有网络的ID，基础网络则不传该参数
- * @method void setVpcId(string $VpcId) 设置私有网络的ID，基础网络则不传该参数
- * @method string getSubnetId() 获取私有网络的子网ID，基础网络则不传该参数。入参设置该参数的同时，必须设置相应的VpcId
- * @method void setSubnetId(string $SubnetId) 设置私有网络的子网ID，基础网络则不传该参数。入参设置该参数的同时，必须设置相应的VpcId
- * @method integer getPayMode() 获取付费类型，取值范围：0-按量计费，1-包年包月，-1-按量计费+包年包月
- * @method void setPayMode(integer $PayMode) 设置付费类型，取值范围：0-按量计费，1-包年包月，-1-按量计费+包年包月
- * @method integer getLimit() 获取单次请求返回的数量，最小值为1，最大值为100，默认值为20
- * @method void setLimit(integer $Limit) 设置单次请求返回的数量，最小值为1，最大值为100，默认值为20
- * @method integer getOffset() 获取偏移量，默认值为0
- * @method void setOffset(integer $Offset) 设置偏移量，默认值为0
- * @method string getOrderBy() 获取返回结果集排序的字段，目前支持："ProjectId", "InstanceName", "CreateTime"，默认为升序排序
- * @method void setOrderBy(string $OrderBy) 设置返回结果集排序的字段，目前支持："ProjectId", "InstanceName", "CreateTime"，默认为升序排序
- * @method string getOrderByType() 获取返回结果集排序方式，目前支持："ASC"或者"DESC"
- * @method void setOrderByType(string $OrderByType) 设置返回结果集排序方式，目前支持："ASC"或者"DESC"
- * @method array getProjectIds() 获取项目 ID
- * @method void setProjectIds(array $ProjectIds) 设置项目 ID
- * @method string getSearchKey() 获取搜索关键词，支持实例ID、实例名称、完整IP
- * @method void setSearchKey(string $SearchKey) 设置搜索关键词，支持实例ID、实例名称、完整IP
- * @method TagInfo getTags() 获取Tag信息
- * @method void setTags(TagInfo $Tags) 设置Tag信息
+ * @method array getInstanceIds() 获取实例 ID 列表。请登录 [MongoDB 控制台](https://console.cloud.tencent.com/mongodb)在实例列表复制实例 ID。
+ * @method void setInstanceIds(array $InstanceIds) 设置实例 ID 列表。请登录 [MongoDB 控制台](https://console.cloud.tencent.com/mongodb)在实例列表复制实例 ID。
+ * @method integer getInstanceType() 获取指定查询的实例类型。取值范围如下：
+- 0：所有实例。
+- 1：正式实例。
+- 2：临时实例
+- 3：只读实例。
+- -1：查询同时包括正式实例、只读实例与灾备实例。
+ * @method void setInstanceType(integer $InstanceType) 设置指定查询的实例类型。取值范围如下：
+- 0：所有实例。
+- 1：正式实例。
+- 2：临时实例
+- 3：只读实例。
+- -1：查询同时包括正式实例、只读实例与灾备实例。
+ * @method integer getClusterType() 获取指定所查询实例的集群类型，取值范围如下：
+- 0：副本集实例。
+- 1：分片实例。
+- -1：副本集与分片实例。
+ * @method void setClusterType(integer $ClusterType) 设置指定所查询实例的集群类型，取值范围如下：
+- 0：副本集实例。
+- 1：分片实例。
+- -1：副本集与分片实例。
+ * @method array getStatus() 获取指定所查询实例的当前状态，取值范围如下所示：
+- 0：待初始化。
+- 1：流程处理中，例如：变更规格、参数修改等。
+- 2：实例正常运行中。
+- -2：已隔离（包年包月）。
+- -3：已隔离（按量计费）。
+ * @method void setStatus(array $Status) 设置指定所查询实例的当前状态，取值范围如下所示：
+- 0：待初始化。
+- 1：流程处理中，例如：变更规格、参数修改等。
+- 2：实例正常运行中。
+- -2：已隔离（包年包月）。
+- -3：已隔离（按量计费）。
+ * @method string getVpcId() 获取私有网络的 ID。
+- 基础网络则无需配置该参数。
+- 请登录 [MongoDB 控制台](https://console.cloud.tencent.com/mongodb)在实例列表中，单击私有网络名称，在**私有网络**页面获取其 ID。
+ * @method void setVpcId(string $VpcId) 设置私有网络的 ID。
+- 基础网络则无需配置该参数。
+- 请登录 [MongoDB 控制台](https://console.cloud.tencent.com/mongodb)在实例列表中，单击私有网络名称，在**私有网络**页面获取其 ID。
+ * @method string getSubnetId() 获取私有网络的子网ID。
+- 基础网络则无需配置该参数。
+- 请登录 [MongoDB 控制台](https://console.cloud.tencent.com/mongodb)在实例列表中，单击私有网络名称，在**私有网络**页面获取其子网 ID。
+ * @method void setSubnetId(string $SubnetId) 设置私有网络的子网ID。
+- 基础网络则无需配置该参数。
+- 请登录 [MongoDB 控制台](https://console.cloud.tencent.com/mongodb)在实例列表中，单击私有网络名称，在**私有网络**页面获取其子网 ID。
+ * @method integer getPayMode() 获取指定所查询实例的付费类型。
+- 0：查询按量计费实例。
+- 1：查询包年包月实例。
+- -1：查询按量计费与包年包月实例。
+ * @method void setPayMode(integer $PayMode) 设置指定所查询实例的付费类型。
+- 0：查询按量计费实例。
+- 1：查询包年包月实例。
+- -1：查询按量计费与包年包月实例。
+ * @method integer getLimit() 获取单次请求返回的数量。默认值为20，取值范围为(1,100]。
+ * @method void setLimit(integer $Limit) 设置单次请求返回的数量。默认值为20，取值范围为(1,100]。
+ * @method integer getOffset() 获取偏移量，默认值为0。
+ * @method void setOffset(integer $Offset) 设置偏移量，默认值为0。
+ * @method string getOrderBy() 获取配置返回结果排序依据的字段。目前支持依据"ProjectId"、"InstanceName"、"CreateTime"排序。
+ * @method void setOrderBy(string $OrderBy) 设置配置返回结果排序依据的字段。目前支持依据"ProjectId"、"InstanceName"、"CreateTime"排序。
+ * @method string getOrderByType() 获取配置返回结果的排序方式。
+- ASC：升序。
+- DESC：降序。
+ * @method void setOrderByType(string $OrderByType) 设置配置返回结果的排序方式。
+- ASC：升序。
+- DESC：降序。
+ * @method array getProjectIds() 获取项目 ID。请登录 [MongoDB 控制台](https://console.cloud.tencent.com/mongodb)，在右上角的账户信息下拉菜单中，选择项目管理查询项目。
+ * @method void setProjectIds(array $ProjectIds) 设置项目 ID。请登录 [MongoDB 控制台](https://console.cloud.tencent.com/mongodb)，在右上角的账户信息下拉菜单中，选择项目管理查询项目。
+ * @method string getSearchKey() 获取指定查询搜索的关键词。支持设置为具体的实例ID、实例名称或者内网 IP 地址。
+ * @method void setSearchKey(string $SearchKey) 设置指定查询搜索的关键词。支持设置为具体的实例ID、实例名称或者内网 IP 地址。
+ * @method array getTags() 获取标签信息，包含标签键与标签值。
+ * @method void setTags(array $Tags) 设置标签信息，包含标签键与标签值。
  */
 class DescribeDBInstancesRequest extends AbstractModel
 {
     /**
-     * @var array 实例ID列表，格式如：cmgo-p8vnipr5。与云数据库控制台页面中显示的实例ID相同
+     * @var array 实例 ID 列表。请登录 [MongoDB 控制台](https://console.cloud.tencent.com/mongodb)在实例列表复制实例 ID。
      */
     public $InstanceIds;
 
     /**
-     * @var integer 实例类型，取值范围：0-所有实例,1-正式实例，2-临时实例, 3-只读实例，-1-正式实例+只读+灾备实例
+     * @var integer 指定查询的实例类型。取值范围如下：
+- 0：所有实例。
+- 1：正式实例。
+- 2：临时实例
+- 3：只读实例。
+- -1：查询同时包括正式实例、只读实例与灾备实例。
      */
     public $InstanceType;
 
     /**
-     * @var integer 集群类型，取值范围：0-副本集实例，1-分片实例，-1-所有实例
+     * @var integer 指定所查询实例的集群类型，取值范围如下：
+- 0：副本集实例。
+- 1：分片实例。
+- -1：副本集与分片实例。
      */
     public $ClusterType;
 
     /**
-     * @var array 实例状态，取值范围：0-待初始化，1-流程执行中，2-实例有效，-2-已隔离（包年包月实例），-3-已隔离（按量计费实例）
+     * @var array 指定所查询实例的当前状态，取值范围如下所示：
+- 0：待初始化。
+- 1：流程处理中，例如：变更规格、参数修改等。
+- 2：实例正常运行中。
+- -2：已隔离（包年包月）。
+- -3：已隔离（按量计费）。
      */
     public $Status;
 
     /**
-     * @var string 私有网络的ID，基础网络则不传该参数
+     * @var string 私有网络的 ID。
+- 基础网络则无需配置该参数。
+- 请登录 [MongoDB 控制台](https://console.cloud.tencent.com/mongodb)在实例列表中，单击私有网络名称，在**私有网络**页面获取其 ID。
      */
     public $VpcId;
 
     /**
-     * @var string 私有网络的子网ID，基础网络则不传该参数。入参设置该参数的同时，必须设置相应的VpcId
+     * @var string 私有网络的子网ID。
+- 基础网络则无需配置该参数。
+- 请登录 [MongoDB 控制台](https://console.cloud.tencent.com/mongodb)在实例列表中，单击私有网络名称，在**私有网络**页面获取其子网 ID。
      */
     public $SubnetId;
 
     /**
-     * @var integer 付费类型，取值范围：0-按量计费，1-包年包月，-1-按量计费+包年包月
+     * @var integer 指定所查询实例的付费类型。
+- 0：查询按量计费实例。
+- 1：查询包年包月实例。
+- -1：查询按量计费与包年包月实例。
      */
     public $PayMode;
 
     /**
-     * @var integer 单次请求返回的数量，最小值为1，最大值为100，默认值为20
+     * @var integer 单次请求返回的数量。默认值为20，取值范围为(1,100]。
      */
     public $Limit;
 
     /**
-     * @var integer 偏移量，默认值为0
+     * @var integer 偏移量，默认值为0。
      */
     public $Offset;
 
     /**
-     * @var string 返回结果集排序的字段，目前支持："ProjectId", "InstanceName", "CreateTime"，默认为升序排序
+     * @var string 配置返回结果排序依据的字段。目前支持依据"ProjectId"、"InstanceName"、"CreateTime"排序。
      */
     public $OrderBy;
 
     /**
-     * @var string 返回结果集排序方式，目前支持："ASC"或者"DESC"
+     * @var string 配置返回结果的排序方式。
+- ASC：升序。
+- DESC：降序。
      */
     public $OrderByType;
 
     /**
-     * @var array 项目 ID
+     * @var array 项目 ID。请登录 [MongoDB 控制台](https://console.cloud.tencent.com/mongodb)，在右上角的账户信息下拉菜单中，选择项目管理查询项目。
      */
     public $ProjectIds;
 
     /**
-     * @var string 搜索关键词，支持实例ID、实例名称、完整IP
+     * @var string 指定查询搜索的关键词。支持设置为具体的实例ID、实例名称或者内网 IP 地址。
      */
     public $SearchKey;
 
     /**
-     * @var TagInfo Tag信息
+     * @var array 标签信息，包含标签键与标签值。
      */
     public $Tags;
 
     /**
-     * @param array $InstanceIds 实例ID列表，格式如：cmgo-p8vnipr5。与云数据库控制台页面中显示的实例ID相同
-     * @param integer $InstanceType 实例类型，取值范围：0-所有实例,1-正式实例，2-临时实例, 3-只读实例，-1-正式实例+只读+灾备实例
-     * @param integer $ClusterType 集群类型，取值范围：0-副本集实例，1-分片实例，-1-所有实例
-     * @param array $Status 实例状态，取值范围：0-待初始化，1-流程执行中，2-实例有效，-2-已隔离（包年包月实例），-3-已隔离（按量计费实例）
-     * @param string $VpcId 私有网络的ID，基础网络则不传该参数
-     * @param string $SubnetId 私有网络的子网ID，基础网络则不传该参数。入参设置该参数的同时，必须设置相应的VpcId
-     * @param integer $PayMode 付费类型，取值范围：0-按量计费，1-包年包月，-1-按量计费+包年包月
-     * @param integer $Limit 单次请求返回的数量，最小值为1，最大值为100，默认值为20
-     * @param integer $Offset 偏移量，默认值为0
-     * @param string $OrderBy 返回结果集排序的字段，目前支持："ProjectId", "InstanceName", "CreateTime"，默认为升序排序
-     * @param string $OrderByType 返回结果集排序方式，目前支持："ASC"或者"DESC"
-     * @param array $ProjectIds 项目 ID
-     * @param string $SearchKey 搜索关键词，支持实例ID、实例名称、完整IP
-     * @param TagInfo $Tags Tag信息
+     * @param array $InstanceIds 实例 ID 列表。请登录 [MongoDB 控制台](https://console.cloud.tencent.com/mongodb)在实例列表复制实例 ID。
+     * @param integer $InstanceType 指定查询的实例类型。取值范围如下：
+- 0：所有实例。
+- 1：正式实例。
+- 2：临时实例
+- 3：只读实例。
+- -1：查询同时包括正式实例、只读实例与灾备实例。
+     * @param integer $ClusterType 指定所查询实例的集群类型，取值范围如下：
+- 0：副本集实例。
+- 1：分片实例。
+- -1：副本集与分片实例。
+     * @param array $Status 指定所查询实例的当前状态，取值范围如下所示：
+- 0：待初始化。
+- 1：流程处理中，例如：变更规格、参数修改等。
+- 2：实例正常运行中。
+- -2：已隔离（包年包月）。
+- -3：已隔离（按量计费）。
+     * @param string $VpcId 私有网络的 ID。
+- 基础网络则无需配置该参数。
+- 请登录 [MongoDB 控制台](https://console.cloud.tencent.com/mongodb)在实例列表中，单击私有网络名称，在**私有网络**页面获取其 ID。
+     * @param string $SubnetId 私有网络的子网ID。
+- 基础网络则无需配置该参数。
+- 请登录 [MongoDB 控制台](https://console.cloud.tencent.com/mongodb)在实例列表中，单击私有网络名称，在**私有网络**页面获取其子网 ID。
+     * @param integer $PayMode 指定所查询实例的付费类型。
+- 0：查询按量计费实例。
+- 1：查询包年包月实例。
+- -1：查询按量计费与包年包月实例。
+     * @param integer $Limit 单次请求返回的数量。默认值为20，取值范围为(1,100]。
+     * @param integer $Offset 偏移量，默认值为0。
+     * @param string $OrderBy 配置返回结果排序依据的字段。目前支持依据"ProjectId"、"InstanceName"、"CreateTime"排序。
+     * @param string $OrderByType 配置返回结果的排序方式。
+- ASC：升序。
+- DESC：降序。
+     * @param array $ProjectIds 项目 ID。请登录 [MongoDB 控制台](https://console.cloud.tencent.com/mongodb)，在右上角的账户信息下拉菜单中，选择项目管理查询项目。
+     * @param string $SearchKey 指定查询搜索的关键词。支持设置为具体的实例ID、实例名称或者内网 IP 地址。
+     * @param array $Tags 标签信息，包含标签键与标签值。
      */
     function __construct()
     {
@@ -203,8 +291,12 @@ class DescribeDBInstancesRequest extends AbstractModel
         }
 
         if (array_key_exists("Tags",$param) and $param["Tags"] !== null) {
-            $this->Tags = new TagInfo();
-            $this->Tags->deserialize($param["Tags"]);
+            $this->Tags = [];
+            foreach ($param["Tags"] as $key => $value){
+                $obj = new TagInfo();
+                $obj->deserialize($value);
+                array_push($this->Tags, $obj);
+            }
         }
     }
 }

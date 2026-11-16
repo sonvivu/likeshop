@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,16 +20,16 @@ use TencentCloud\Common\AbstractModel;
 /**
  * CreateContentReviewTemplate请求参数结构体
  *
- * @method string getName() 获取内容智能识别模板名称，长度限制：64 个字符。
- * @method void setName(string $Name) 设置内容智能识别模板名称，长度限制：64 个字符。
- * @method string getComment() 获取内容智能识别模板描述信息，长度限制：256 个字符。
- * @method void setComment(string $Comment) 设置内容智能识别模板描述信息，长度限制：256 个字符。
- * @method PornConfigureInfo getPornConfigure() 获取令人反感的信息的控制参数。
- * @method void setPornConfigure(PornConfigureInfo $PornConfigure) 设置令人反感的信息的控制参数。
- * @method TerrorismConfigureInfo getTerrorismConfigure() 获取令人不安全的信息的控制参数。
- * @method void setTerrorismConfigure(TerrorismConfigureInfo $TerrorismConfigure) 设置令人不安全的信息的控制参数。
- * @method PoliticalConfigureInfo getPoliticalConfigure() 获取令人不适宜的信息的控制参数。
- * @method void setPoliticalConfigure(PoliticalConfigureInfo $PoliticalConfigure) 设置令人不适宜的信息的控制参数。
+ * @method string getName() 获取内容审核模板名称，长度限制：64 个字符。
+ * @method void setName(string $Name) 设置内容审核模板名称，长度限制：64 个字符。
+ * @method string getComment() 获取内容审核模板描述信息，长度限制：256 个字符。
+ * @method void setComment(string $Comment) 设置内容审核模板描述信息，长度限制：256 个字符。
+ * @method PornConfigureInfo getPornConfigure() 获取鉴黄任务控制参数。
+ * @method void setPornConfigure(PornConfigureInfo $PornConfigure) 设置鉴黄任务控制参数。
+ * @method TerrorismConfigureInfo getTerrorismConfigure() 获取涉暴任务控制参数。
+ * @method void setTerrorismConfigure(TerrorismConfigureInfo $TerrorismConfigure) 设置涉暴任务控制参数。
+ * @method PoliticalConfigureInfo getPoliticalConfigure() 获取涉敏任务控制参数。
+ * @method void setPoliticalConfigure(PoliticalConfigureInfo $PoliticalConfigure) 设置涉敏任务控制参数。
  * @method ProhibitedConfigureInfo getProhibitedConfigure() 获取违禁控制参数。违禁内容包括：
 <li>谩骂；</li>
 <li>涉毒违法。</li>
@@ -38,33 +38,33 @@ use TencentCloud\Common\AbstractModel;
 <li>谩骂；</li>
 <li>涉毒违法。</li>
 注意：此参数尚未支持。
- * @method UserDefineConfigureInfo getUserDefineConfigure() 获取用户自定义内容智能识别控制参数。
- * @method void setUserDefineConfigure(UserDefineConfigureInfo $UserDefineConfigure) 设置用户自定义内容智能识别控制参数。
+ * @method UserDefineConfigureInfo getUserDefineConfigure() 获取用户自定义内容审核控制参数。
+ * @method void setUserDefineConfigure(UserDefineConfigureInfo $UserDefineConfigure) 设置用户自定义内容审核控制参数。
  */
 class CreateContentReviewTemplateRequest extends AbstractModel
 {
     /**
-     * @var string 内容智能识别模板名称，长度限制：64 个字符。
+     * @var string 内容审核模板名称，长度限制：64 个字符。
      */
     public $Name;
 
     /**
-     * @var string 内容智能识别模板描述信息，长度限制：256 个字符。
+     * @var string 内容审核模板描述信息，长度限制：256 个字符。
      */
     public $Comment;
 
     /**
-     * @var PornConfigureInfo 令人反感的信息的控制参数。
+     * @var PornConfigureInfo 鉴黄任务控制参数。
      */
     public $PornConfigure;
 
     /**
-     * @var TerrorismConfigureInfo 令人不安全的信息的控制参数。
+     * @var TerrorismConfigureInfo 涉暴任务控制参数。
      */
     public $TerrorismConfigure;
 
     /**
-     * @var PoliticalConfigureInfo 令人不适宜的信息的控制参数。
+     * @var PoliticalConfigureInfo 涉敏任务控制参数。
      */
     public $PoliticalConfigure;
 
@@ -77,21 +77,21 @@ class CreateContentReviewTemplateRequest extends AbstractModel
     public $ProhibitedConfigure;
 
     /**
-     * @var UserDefineConfigureInfo 用户自定义内容智能识别控制参数。
+     * @var UserDefineConfigureInfo 用户自定义内容审核控制参数。
      */
     public $UserDefineConfigure;
 
     /**
-     * @param string $Name 内容智能识别模板名称，长度限制：64 个字符。
-     * @param string $Comment 内容智能识别模板描述信息，长度限制：256 个字符。
-     * @param PornConfigureInfo $PornConfigure 令人反感的信息的控制参数。
-     * @param TerrorismConfigureInfo $TerrorismConfigure 令人不安全的信息的控制参数。
-     * @param PoliticalConfigureInfo $PoliticalConfigure 令人不适宜的信息的控制参数。
+     * @param string $Name 内容审核模板名称，长度限制：64 个字符。
+     * @param string $Comment 内容审核模板描述信息，长度限制：256 个字符。
+     * @param PornConfigureInfo $PornConfigure 鉴黄任务控制参数。
+     * @param TerrorismConfigureInfo $TerrorismConfigure 涉暴任务控制参数。
+     * @param PoliticalConfigureInfo $PoliticalConfigure 涉敏任务控制参数。
      * @param ProhibitedConfigureInfo $ProhibitedConfigure 违禁控制参数。违禁内容包括：
 <li>谩骂；</li>
 <li>涉毒违法。</li>
 注意：此参数尚未支持。
-     * @param UserDefineConfigureInfo $UserDefineConfigure 用户自定义内容智能识别控制参数。
+     * @param UserDefineConfigureInfo $UserDefineConfigure 用户自定义内容审核控制参数。
      */
     function __construct()
     {

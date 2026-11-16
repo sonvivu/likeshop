@@ -20,10 +20,9 @@ namespace app\api\logic;
 use app\api\model\Coupon;
 use app\common\model\Footprint;
 use app\common\server\ConfigServer;
-use think\Db;
+use think\facade\Db;
 use think\facade\Cache;
-use think\facade\Hook;
-use think\helper\Time;
+use app\common\helper\Time;
 
 class CouponLogic{
     public static function getCouponList($user_id){
@@ -268,7 +267,7 @@ class CouponLogic{
         $result = Db::name('coupon_list')->insert($add_data);
         if ($result) {
             // 钩子-记录足迹(领取优惠券)
-            Hook::listen('footprint', [
+            event('footprint', [
                 'type'       => Footprint::receive_coupon,
                 'user_id'    => $user_id,
                 'foreign_id' => $coupon_id //优惠券ID
@@ -304,7 +303,7 @@ class CouponLogic{
                 ->column('gi.*,g.is_member','gi.id');
 
             //会员折扣价格
-            $level_discount = Db::name('user u')
+            $level_discount = Db::name('user')->alias('u')
                 ->join('user_level l', 'u.level = l.id')
                 ->where('u.id', $user_id)
                 ->value('discount');
@@ -567,7 +566,7 @@ class CouponLogic{
                 }
             }
 
-            Cache::rm($cache_name);
+            Cache::delete($cache_name);
         }
         return $coupon_list;
 

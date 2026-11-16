@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,18 +20,18 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeUsualLoginPlaces请求参数结构体
  *
- * @method string getUuid() 获取云镜客户端UUID
- * @method void setUuid(string $Uuid) 设置云镜客户端UUID
+ * @method string getUuid() 获取主机安全客户端UUID
+ * @method void setUuid(string $Uuid) 设置主机安全客户端UUID
  */
 class DescribeUsualLoginPlacesRequest extends AbstractModel
 {
     /**
-     * @var string 云镜客户端UUID
+     * @var string 主机安全客户端UUID
      */
     public $Uuid;
 
     /**
-     * @param string $Uuid 云镜客户端UUID
+     * @param string $Uuid 主机安全客户端UUID
      */
     function __construct()
     {

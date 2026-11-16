@@ -21,7 +21,7 @@ namespace app\admin\logic;
 
 use app\admin\server\LoginServer;
 use app\common\server\ConfigServer;
-use think\Db;
+use think\facade\Db;
 
 class LoginLogic
 {

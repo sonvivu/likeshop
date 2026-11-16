@@ -81,7 +81,7 @@ class Bargain extends Validate
     // 添加场景
     public function sceneAdd()
     {
-        $this->remove('id');
+        $this->remove('id', true);
     }
 
     public function endTime($value, $rule, $data)

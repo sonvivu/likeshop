@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,8 @@ use TencentCloud\Common\AbstractModel;
  * @method void setTpgAdapter(TpgAdapter $TpgAdapter) 设置TpgAdapter配置项
  * @method GuetzliAdapter getGuetzliAdapter() 获取GuetzliAdapter配置项
  * @method void setGuetzliAdapter(GuetzliAdapter $GuetzliAdapter) 设置GuetzliAdapter配置项
+ * @method AvifAdapter getAvifAdapter() 获取AvifAdapter配置项
+ * @method void setAvifAdapter(AvifAdapter $AvifAdapter) 设置AvifAdapter配置项
  */
 class UpdateImageConfigRequest extends AbstractModel
 {
@@ -52,10 +54,16 @@ class UpdateImageConfigRequest extends AbstractModel
     public $GuetzliAdapter;
 
     /**
+     * @var AvifAdapter AvifAdapter配置项
+     */
+    public $AvifAdapter;
+
+    /**
      * @param string $Domain 域名
      * @param WebpAdapter $WebpAdapter WebpAdapter配置项
      * @param TpgAdapter $TpgAdapter TpgAdapter配置项
      * @param GuetzliAdapter $GuetzliAdapter GuetzliAdapter配置项
+     * @param AvifAdapter $AvifAdapter AvifAdapter配置项
      */
     function __construct()
     {
@@ -87,6 +95,11 @@ class UpdateImageConfigRequest extends AbstractModel
         if (array_key_exists("GuetzliAdapter",$param) and $param["GuetzliAdapter"] !== null) {
             $this->GuetzliAdapter = new GuetzliAdapter();
             $this->GuetzliAdapter->deserialize($param["GuetzliAdapter"]);
+        }
+
+        if (array_key_exists("AvifAdapter",$param) and $param["AvifAdapter"] !== null) {
+            $this->AvifAdapter = new AvifAdapter();
+            $this->AvifAdapter->deserialize($param["AvifAdapter"]);
         }
     }
 }

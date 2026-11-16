@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,8 +40,16 @@ use TencentCloud\Common\AbstractModel;
  * @method void setMaxFreeTrialNum(integer $MaxFreeTrialNum) 设置微信网关体验版可购买月份数
  * @method integer getCurrentFreeTrialNum() 获取微信网关体验版已购买月份数
  * @method void setCurrentFreeTrialNum(integer $CurrentFreeTrialNum) 设置微信网关体验版已购买月份数
- * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
- * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method integer getChangePayTotal() 获取转支付限额总数
+ * @method void setChangePayTotal(integer $ChangePayTotal) 设置转支付限额总数
+ * @method integer getCurrentChangePayTotal() 获取当前已用转支付次数
+ * @method void setCurrentChangePayTotal(integer $CurrentChangePayTotal) 设置当前已用转支付次数
+ * @method integer getChangePayMonthly() 获取转支付每月限额
+ * @method void setChangePayMonthly(integer $ChangePayMonthly) 设置转支付每月限额
+ * @method integer getCurrentChangePayMonthly() 获取本月已用转支付额度
+ * @method void setCurrentChangePayMonthly(integer $CurrentChangePayMonthly) 设置本月已用转支付额度
+ * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+ * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
 class DescribeEnvLimitResponse extends AbstractModel
 {
@@ -96,7 +104,27 @@ class DescribeEnvLimitResponse extends AbstractModel
     public $CurrentFreeTrialNum;
 
     /**
-     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @var integer 转支付限额总数
+     */
+    public $ChangePayTotal;
+
+    /**
+     * @var integer 当前已用转支付次数
+     */
+    public $CurrentChangePayTotal;
+
+    /**
+     * @var integer 转支付每月限额
+     */
+    public $ChangePayMonthly;
+
+    /**
+     * @var integer 本月已用转支付额度
+     */
+    public $CurrentChangePayMonthly;
+
+    /**
+     * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public $RequestId;
 
@@ -111,7 +139,11 @@ class DescribeEnvLimitResponse extends AbstractModel
      * @param integer $CurrentDeleteMonthly 本月已销毁环境次数
      * @param integer $MaxFreeTrialNum 微信网关体验版可购买月份数
      * @param integer $CurrentFreeTrialNum 微信网关体验版已购买月份数
-     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @param integer $ChangePayTotal 转支付限额总数
+     * @param integer $CurrentChangePayTotal 当前已用转支付次数
+     * @param integer $ChangePayMonthly 转支付每月限额
+     * @param integer $CurrentChangePayMonthly 本月已用转支付额度
+     * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
     {
@@ -164,6 +196,22 @@ class DescribeEnvLimitResponse extends AbstractModel
 
         if (array_key_exists("CurrentFreeTrialNum",$param) and $param["CurrentFreeTrialNum"] !== null) {
             $this->CurrentFreeTrialNum = $param["CurrentFreeTrialNum"];
+        }
+
+        if (array_key_exists("ChangePayTotal",$param) and $param["ChangePayTotal"] !== null) {
+            $this->ChangePayTotal = $param["ChangePayTotal"];
+        }
+
+        if (array_key_exists("CurrentChangePayTotal",$param) and $param["CurrentChangePayTotal"] !== null) {
+            $this->CurrentChangePayTotal = $param["CurrentChangePayTotal"];
+        }
+
+        if (array_key_exists("ChangePayMonthly",$param) and $param["ChangePayMonthly"] !== null) {
+            $this->ChangePayMonthly = $param["ChangePayMonthly"];
+        }
+
+        if (array_key_exists("CurrentChangePayMonthly",$param) and $param["CurrentChangePayMonthly"] !== null) {
+            $this->CurrentChangePayMonthly = $param["CurrentChangePayMonthly"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,18 +20,18 @@ use TencentCloud\Common\AbstractModel;
 /**
  * ListClsLogTopics请求参数结构体
  *
- * @method string getChannel() 获取接入渠道，默认值为cdn
- * @method void setChannel(string $Channel) 设置接入渠道，默认值为cdn
+ * @method string getChannel() 获取接入渠道，cdn或者ecdn，默认值为cdn
+ * @method void setChannel(string $Channel) 设置接入渠道，cdn或者ecdn，默认值为cdn
  */
 class ListClsLogTopicsRequest extends AbstractModel
 {
     /**
-     * @var string 接入渠道，默认值为cdn
+     * @var string 接入渠道，cdn或者ecdn，默认值为cdn
      */
     public $Channel;
 
     /**
-     * @param string $Channel 接入渠道，默认值为cdn
+     * @param string $Channel 接入渠道，cdn或者ecdn，默认值为cdn
      */
     function __construct()
     {

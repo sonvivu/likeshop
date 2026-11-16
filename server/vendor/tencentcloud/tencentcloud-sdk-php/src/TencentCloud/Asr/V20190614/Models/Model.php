@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@ namespace TencentCloud\Asr\V20190614\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * 自学习模型信息
+ * [自学习模型信息](https://cloud.tencent.com/document/product/1093/90813#3.-.E8.BE.93.E5.87.BA.E5.8F.82.E6.95.B0)
  *
  * @method string getModelName() 获取模型名称
  * @method void setModelName(string $ModelName) 设置模型名称
@@ -30,8 +30,20 @@ use TencentCloud\Common\AbstractModel;
  * @method void setModelType(string $ModelType) 设置模型类型，“8k”或者”16k“
  * @method string getServiceType() 获取服务类型
  * @method void setServiceType(string $ServiceType) 设置服务类型
- * @method integer getModelState() 获取模型状态，-1下线状态，1上线状态, 0训练中, -2 训练失败
- * @method void setModelState(integer $ModelState) 设置模型状态，-1下线状态，1上线状态, 0训练中, -2 训练失败
+ * @method integer getModelState() 获取模型状态：
+-2：模型训练失败；
+-1：已下线；
+0：训练中；
+1：已上线；
+3：上线中；
+4：下线中；
+ * @method void setModelState(integer $ModelState) 设置模型状态：
+-2：模型训练失败；
+-1：已下线；
+0：训练中；
+1：已上线；
+3：上线中；
+4：下线中；
  * @method string getAtUpdated() 获取最后更新时间
  * @method void setAtUpdated(string $AtUpdated) 设置最后更新时间
  * @method array getTagInfos() 获取标签信息
@@ -67,7 +79,13 @@ class Model extends AbstractModel
     public $ServiceType;
 
     /**
-     * @var integer 模型状态，-1下线状态，1上线状态, 0训练中, -2 训练失败
+     * @var integer 模型状态：
+-2：模型训练失败；
+-1：已下线；
+0：训练中；
+1：已上线；
+3：上线中；
+4：下线中；
      */
     public $ModelState;
 
@@ -79,6 +97,7 @@ class Model extends AbstractModel
     /**
      * @var array 标签信息
 注意：此字段可能返回 null，表示取不到有效值。
+     * @deprecated
      */
     public $TagInfos;
 
@@ -88,7 +107,13 @@ class Model extends AbstractModel
      * @param string $ModelId 模型Id
      * @param string $ModelType 模型类型，“8k”或者”16k“
      * @param string $ServiceType 服务类型
-     * @param integer $ModelState 模型状态，-1下线状态，1上线状态, 0训练中, -2 训练失败
+     * @param integer $ModelState 模型状态：
+-2：模型训练失败；
+-1：已下线；
+0：训练中；
+1：已上线；
+3：上线中；
+4：下线中；
      * @param string $AtUpdated 最后更新时间
      * @param array $TagInfos 标签信息
 注意：此字段可能返回 null，表示取不到有效值。

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,8 +22,8 @@ use TencentCloud\Common\AbstractModel;
  *
  * @method integer getSdkAppId() 获取TRTC的SDKAppId。
  * @method void setSdkAppId(integer $SdkAppId) 设置TRTC的SDKAppId。
- * @method integer getRoomId() 获取房间号。
- * @method void setRoomId(integer $RoomId) 设置房间号。
+ * @method integer getRoomId() 获取数字房间号。本接口仅支持解散数字类型房间号，如需解散字符串类型房间号，请使用DismissRoomByStrRoomId。
+ * @method void setRoomId(integer $RoomId) 设置数字房间号。本接口仅支持解散数字类型房间号，如需解散字符串类型房间号，请使用DismissRoomByStrRoomId。
  */
 class DismissRoomRequest extends AbstractModel
 {
@@ -33,13 +33,13 @@ class DismissRoomRequest extends AbstractModel
     public $SdkAppId;
 
     /**
-     * @var integer 房间号。
+     * @var integer 数字房间号。本接口仅支持解散数字类型房间号，如需解散字符串类型房间号，请使用DismissRoomByStrRoomId。
      */
     public $RoomId;
 
     /**
      * @param integer $SdkAppId TRTC的SDKAppId。
-     * @param integer $RoomId 房间号。
+     * @param integer $RoomId 数字房间号。本接口仅支持解散数字类型房间号，如需解散字符串类型房间号，请使用DismissRoomByStrRoomId。
      */
     function __construct()
     {

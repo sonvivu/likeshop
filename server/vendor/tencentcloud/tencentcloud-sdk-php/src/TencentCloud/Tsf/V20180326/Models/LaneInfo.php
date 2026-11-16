@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -52,6 +52,18 @@ use TencentCloud\Common\AbstractModel;
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setNamespaceIdList(array $NamespaceIdList) 设置泳道已经关联部署组的命名空间列表
 注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getLaneGroupId() 获取泳道部署组ID
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setLaneGroupId(string $LaneGroupId) 设置泳道部署组ID
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method boolean getDeleteDisabled() 获取是否禁用删除。
+true：禁用
+false：取消禁用
+ * @method void setDeleteDisabled(boolean $DeleteDisabled) 设置是否禁用删除。
+true：禁用
+false：取消禁用
+ * @method string getDeleteDisabledReason() 获取禁用原因
+ * @method void setDeleteDisabledReason(string $DeleteDisabledReason) 设置禁用原因
  */
 class LaneInfo extends AbstractModel
 {
@@ -104,6 +116,24 @@ class LaneInfo extends AbstractModel
     public $NamespaceIdList;
 
     /**
+     * @var string 泳道部署组ID
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $LaneGroupId;
+
+    /**
+     * @var boolean 是否禁用删除。
+true：禁用
+false：取消禁用
+     */
+    public $DeleteDisabled;
+
+    /**
+     * @var string 禁用原因
+     */
+    public $DeleteDisabledReason;
+
+    /**
      * @param string $LaneId 泳道ID
 注意：此字段可能返回 null，表示取不到有效值。
      * @param string $LaneName 泳道名称
@@ -120,6 +150,12 @@ class LaneInfo extends AbstractModel
 注意：此字段可能返回 null，表示取不到有效值。
      * @param array $NamespaceIdList 泳道已经关联部署组的命名空间列表
 注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $LaneGroupId 泳道部署组ID
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param boolean $DeleteDisabled 是否禁用删除。
+true：禁用
+false：取消禁用
+     * @param string $DeleteDisabledReason 禁用原因
      */
     function __construct()
     {
@@ -169,6 +205,18 @@ class LaneInfo extends AbstractModel
 
         if (array_key_exists("NamespaceIdList",$param) and $param["NamespaceIdList"] !== null) {
             $this->NamespaceIdList = $param["NamespaceIdList"];
+        }
+
+        if (array_key_exists("LaneGroupId",$param) and $param["LaneGroupId"] !== null) {
+            $this->LaneGroupId = $param["LaneGroupId"];
+        }
+
+        if (array_key_exists("DeleteDisabled",$param) and $param["DeleteDisabled"] !== null) {
+            $this->DeleteDisabled = $param["DeleteDisabled"];
+        }
+
+        if (array_key_exists("DeleteDisabledReason",$param) and $param["DeleteDisabledReason"] !== null) {
+            $this->DeleteDisabledReason = $param["DeleteDisabledReason"];
         }
     }
 }

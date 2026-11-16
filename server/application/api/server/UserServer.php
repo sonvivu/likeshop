@@ -28,10 +28,9 @@ use app\common\model\NoticeSetting;
 use app\common\model\UserLevel;
 use app\common\server\storage\Driver as StorageDriver;
 use app\common\server\UrlServer;
-use think\Db;
+use think\facade\Db;
 use think\Exception;
 use app\common\server\ConfigServer;
-use think\facade\Hook;
 
 class UserServer
 {
@@ -115,7 +114,7 @@ class UserServer
             // 生成分销会员基础表
             \app\common\logic\DistributionLogic::add($user_id);
             //消息通知
-            Hook::listen('notice', ['user_id' => $user_id, 'scene' => NoticeSetting::REGISTER_SUCCESS_NOTICE]);
+            event('notice', ['user_id' => $user_id, 'scene' => NoticeSetting::REGISTER_SUCCESS_NOTICE]);
 
             //注册赠送优惠
             LoginLogic::registerAward($user_id);
@@ -183,7 +182,7 @@ class UserServer
                     ->insert($data);
             }
 
-            $user_info = Db::name('user u')
+            $user_info = Db::name('user')->alias('u')
                 ->field(['u.nickname', 'u.avatar', 'u.level', 'u.id', 'au.unionid'])
                 ->join('user_auth au', 'u.id=au.user_id')
                 ->where(['au.openid' => $openid])

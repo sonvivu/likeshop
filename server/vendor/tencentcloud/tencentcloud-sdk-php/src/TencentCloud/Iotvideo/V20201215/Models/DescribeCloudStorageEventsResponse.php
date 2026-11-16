@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,12 +26,12 @@ use TencentCloud\Common\AbstractModel;
  * @method void setContext(string $Context) 设置请求上下文, 用作查询游标
  * @method boolean getListover() 获取拉取结果是否已经结束
  * @method void setListover(boolean $Listover) 设置拉取结果是否已经结束
- * @method integer getTotal() 获取拉取结果数量
- * @method void setTotal(integer $Total) 设置拉取结果数量
+ * @method integer getTotal() 获取内部结果数量，并不等同于事件总数。
+ * @method void setTotal(integer $Total) 设置内部结果数量，并不等同于事件总数。
  * @method string getVideoURL() 获取视频播放URL
  * @method void setVideoURL(string $VideoURL) 设置视频播放URL
- * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
- * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+ * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
 class DescribeCloudStorageEventsResponse extends AbstractModel
 {
@@ -51,7 +51,7 @@ class DescribeCloudStorageEventsResponse extends AbstractModel
     public $Listover;
 
     /**
-     * @var integer 拉取结果数量
+     * @var integer 内部结果数量，并不等同于事件总数。
      */
     public $Total;
 
@@ -61,7 +61,7 @@ class DescribeCloudStorageEventsResponse extends AbstractModel
     public $VideoURL;
 
     /**
-     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public $RequestId;
 
@@ -69,9 +69,9 @@ class DescribeCloudStorageEventsResponse extends AbstractModel
      * @param array $Events 云存事件列表
      * @param string $Context 请求上下文, 用作查询游标
      * @param boolean $Listover 拉取结果是否已经结束
-     * @param integer $Total 拉取结果数量
+     * @param integer $Total 内部结果数量，并不等同于事件总数。
      * @param string $VideoURL 视频播放URL
-     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
     {

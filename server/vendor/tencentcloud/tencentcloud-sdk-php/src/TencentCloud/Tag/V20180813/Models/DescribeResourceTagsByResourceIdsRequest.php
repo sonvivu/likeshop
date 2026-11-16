@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,28 +20,30 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeResourceTagsByResourceIds请求参数结构体
  *
- * @method string getServiceType() 获取业务类型
- * @method void setServiceType(string $ServiceType) 设置业务类型
- * @method string getResourcePrefix() 获取资源前缀
- * @method void setResourcePrefix(string $ResourcePrefix) 设置资源前缀
+ * @method string getServiceType() 获取业务类型，示例 cvm 。资源所属业务名称（资源六段式中的第三段）
+ * @method void setServiceType(string $ServiceType) 设置业务类型，示例 cvm 。资源所属业务名称（资源六段式中的第三段）
+ * @method string getResourcePrefix() 获取资源前缀，示例 instance
+ * @method void setResourcePrefix(string $ResourcePrefix) 设置资源前缀，示例 instance
  * @method array getResourceIds() 获取资源ID数组，大小不超过50
  * @method void setResourceIds(array $ResourceIds) 设置资源ID数组，大小不超过50
- * @method string getResourceRegion() 获取资源所在地域
- * @method void setResourceRegion(string $ResourceRegion) 设置资源所在地域
+ * @method string getResourceRegion() 获取资源所在地域，示例：ap-guangzhou，不区分地域的资源该字段传空字符串，区分地域的资源必填
+ * @method void setResourceRegion(string $ResourceRegion) 设置资源所在地域，示例：ap-guangzhou，不区分地域的资源该字段传空字符串，区分地域的资源必填
  * @method integer getOffset() 获取数据偏移量，默认为 0, 必须为Limit参数的整数倍
  * @method void setOffset(integer $Offset) 设置数据偏移量，默认为 0, 必须为Limit参数的整数倍
  * @method integer getLimit() 获取每页大小，默认为 15
  * @method void setLimit(integer $Limit) 设置每页大小，默认为 15
+ * @method string getCategory() 获取标签类型。取值： Custom：自定义标签。 System：系统标签。 All：全部标签。 默认值：All。
+ * @method void setCategory(string $Category) 设置标签类型。取值： Custom：自定义标签。 System：系统标签。 All：全部标签。 默认值：All。
  */
 class DescribeResourceTagsByResourceIdsRequest extends AbstractModel
 {
     /**
-     * @var string 业务类型
+     * @var string 业务类型，示例 cvm 。资源所属业务名称（资源六段式中的第三段）
      */
     public $ServiceType;
 
     /**
-     * @var string 资源前缀
+     * @var string 资源前缀，示例 instance
      */
     public $ResourcePrefix;
 
@@ -51,7 +53,7 @@ class DescribeResourceTagsByResourceIdsRequest extends AbstractModel
     public $ResourceIds;
 
     /**
-     * @var string 资源所在地域
+     * @var string 资源所在地域，示例：ap-guangzhou，不区分地域的资源该字段传空字符串，区分地域的资源必填
      */
     public $ResourceRegion;
 
@@ -66,12 +68,18 @@ class DescribeResourceTagsByResourceIdsRequest extends AbstractModel
     public $Limit;
 
     /**
-     * @param string $ServiceType 业务类型
-     * @param string $ResourcePrefix 资源前缀
+     * @var string 标签类型。取值： Custom：自定义标签。 System：系统标签。 All：全部标签。 默认值：All。
+     */
+    public $Category;
+
+    /**
+     * @param string $ServiceType 业务类型，示例 cvm 。资源所属业务名称（资源六段式中的第三段）
+     * @param string $ResourcePrefix 资源前缀，示例 instance
      * @param array $ResourceIds 资源ID数组，大小不超过50
-     * @param string $ResourceRegion 资源所在地域
+     * @param string $ResourceRegion 资源所在地域，示例：ap-guangzhou，不区分地域的资源该字段传空字符串，区分地域的资源必填
      * @param integer $Offset 数据偏移量，默认为 0, 必须为Limit参数的整数倍
      * @param integer $Limit 每页大小，默认为 15
+     * @param string $Category 标签类型。取值： Custom：自定义标签。 System：系统标签。 All：全部标签。 默认值：All。
      */
     function __construct()
     {
@@ -108,6 +116,10 @@ class DescribeResourceTagsByResourceIdsRequest extends AbstractModel
 
         if (array_key_exists("Limit",$param) and $param["Limit"] !== null) {
             $this->Limit = $param["Limit"];
+        }
+
+        if (array_key_exists("Category",$param) and $param["Category"] !== null) {
+            $this->Category = $param["Category"];
         }
     }
 }

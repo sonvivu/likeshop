@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,26 +20,34 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DeleteAccounts请求参数结构体
  *
- * @method string getInstanceId() 获取实例 ID，格式如：cdb-c1nl9rpv，与云数据库控制台页面中显示的实例 ID 相同。
- * @method void setInstanceId(string $InstanceId) 设置实例 ID，格式如：cdb-c1nl9rpv，与云数据库控制台页面中显示的实例 ID 相同。
- * @method array getAccounts() 获取云数据库账号。
- * @method void setAccounts(array $Accounts) 设置云数据库账号。
+ * @method string getInstanceId() 获取<p>实例 ID，格式如：cdb-c1nl9rpv，与云数据库控制台页面中显示的实例 ID 相同。</p>
+ * @method void setInstanceId(string $InstanceId) 设置<p>实例 ID，格式如：cdb-c1nl9rpv，与云数据库控制台页面中显示的实例 ID 相同。</p>
+ * @method array getAccounts() 获取<p>云数据库账号。</p>
+ * @method void setAccounts(array $Accounts) 设置<p>云数据库账号。</p>
+ * @method array getDeleteAccounts() 获取<p>待删除账号的完整信息。</p>
+ * @method void setDeleteAccounts(array $DeleteAccounts) 设置<p>待删除账号的完整信息。</p>
  */
 class DeleteAccountsRequest extends AbstractModel
 {
     /**
-     * @var string 实例 ID，格式如：cdb-c1nl9rpv，与云数据库控制台页面中显示的实例 ID 相同。
+     * @var string <p>实例 ID，格式如：cdb-c1nl9rpv，与云数据库控制台页面中显示的实例 ID 相同。</p>
      */
     public $InstanceId;
 
     /**
-     * @var array 云数据库账号。
+     * @var array <p>云数据库账号。</p>
      */
     public $Accounts;
 
     /**
-     * @param string $InstanceId 实例 ID，格式如：cdb-c1nl9rpv，与云数据库控制台页面中显示的实例 ID 相同。
-     * @param array $Accounts 云数据库账号。
+     * @var array <p>待删除账号的完整信息。</p>
+     */
+    public $DeleteAccounts;
+
+    /**
+     * @param string $InstanceId <p>实例 ID，格式如：cdb-c1nl9rpv，与云数据库控制台页面中显示的实例 ID 相同。</p>
+     * @param array $Accounts <p>云数据库账号。</p>
+     * @param array $DeleteAccounts <p>待删除账号的完整信息。</p>
      */
     function __construct()
     {
@@ -64,6 +72,15 @@ class DeleteAccountsRequest extends AbstractModel
                 $obj = new Account();
                 $obj->deserialize($value);
                 array_push($this->Accounts, $obj);
+            }
+        }
+
+        if (array_key_exists("DeleteAccounts",$param) and $param["DeleteAccounts"] !== null) {
+            $this->DeleteAccounts = [];
+            foreach ($param["DeleteAccounts"] as $key => $value){
+                $obj = new DeleteDBAccount();
+                $obj->deserialize($value);
+                array_push($this->DeleteAccounts, $obj);
             }
         }
     }

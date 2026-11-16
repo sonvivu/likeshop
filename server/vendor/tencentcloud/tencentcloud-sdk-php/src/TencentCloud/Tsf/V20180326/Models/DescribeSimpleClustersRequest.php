@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,6 +30,8 @@ use TencentCloud\Common\AbstractModel;
  * @method void setLimit(integer $Limit) 设置分页个数，默认为20， 取值应为1~50
  * @method string getSearchWord() 获取对id和name进行关键词过滤
  * @method void setSearchWord(string $SearchWord) 设置对id和name进行关键词过滤
+ * @method boolean getDisableProgramAuthCheck() 获取是否关闭鉴权
+ * @method void setDisableProgramAuthCheck(boolean $DisableProgramAuthCheck) 设置是否关闭鉴权
  */
 class DescribeSimpleClustersRequest extends AbstractModel
 {
@@ -59,11 +61,17 @@ class DescribeSimpleClustersRequest extends AbstractModel
     public $SearchWord;
 
     /**
+     * @var boolean 是否关闭鉴权
+     */
+    public $DisableProgramAuthCheck;
+
+    /**
      * @param array $ClusterIdList 需要查询的集群ID列表，不填或不传入时查询所有内容
      * @param string $ClusterType 需要查询的集群类型，不填或不传入时查询所有内容
      * @param integer $Offset 查询偏移量，默认为0
      * @param integer $Limit 分页个数，默认为20， 取值应为1~50
      * @param string $SearchWord 对id和name进行关键词过滤
+     * @param boolean $DisableProgramAuthCheck 是否关闭鉴权
      */
     function __construct()
     {
@@ -96,6 +104,10 @@ class DescribeSimpleClustersRequest extends AbstractModel
 
         if (array_key_exists("SearchWord",$param) and $param["SearchWord"] !== null) {
             $this->SearchWord = $param["SearchWord"];
+        }
+
+        if (array_key_exists("DisableProgramAuthCheck",$param) and $param["DisableProgramAuthCheck"] !== null) {
+            $this->DisableProgramAuthCheck = $param["DisableProgramAuthCheck"];
         }
     }
 }

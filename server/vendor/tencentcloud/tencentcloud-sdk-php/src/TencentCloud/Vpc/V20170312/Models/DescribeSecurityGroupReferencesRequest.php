@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,18 +20,18 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeSecurityGroupReferences请求参数结构体
  *
- * @method array getSecurityGroupIds() 获取安全组实例ID数组。格式如：['sg-12345678']
- * @method void setSecurityGroupIds(array $SecurityGroupIds) 设置安全组实例ID数组。格式如：['sg-12345678']
+ * @method array getSecurityGroupIds() 获取安全组实例ID数组。格式如：['sg-12345678']。
+ * @method void setSecurityGroupIds(array $SecurityGroupIds) 设置安全组实例ID数组。格式如：['sg-12345678']。
  */
 class DescribeSecurityGroupReferencesRequest extends AbstractModel
 {
     /**
-     * @var array 安全组实例ID数组。格式如：['sg-12345678']
+     * @var array 安全组实例ID数组。格式如：['sg-12345678']。
      */
     public $SecurityGroupIds;
 
     /**
-     * @param array $SecurityGroupIds 安全组实例ID数组。格式如：['sg-12345678']
+     * @param array $SecurityGroupIds 安全组实例ID数组。格式如：['sg-12345678']。
      */
     function __construct()
     {

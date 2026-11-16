@@ -21,7 +21,7 @@
 namespace app\api\logic;
 
 use app\common\server\UrlServer;
-use think\Db;
+use think\facade\Db;
 
 class HelpLogic
 {
@@ -46,6 +46,7 @@ class HelpLogic
 
         $help_count = $res->count();
         $help = $res->page($page, $size)->select();
+        $help = $help->toArray(); // ThinkPHP 6：select() 返回 Collection，TP5 返回数组；直接写 $help[$k]['x'] 或 foreach(&$item) 改值会丢/报错，先转数组。
 
         foreach ($help as &$item) {
             $item['create_time'] = date('Y-m-d ', $item['create_time']);
@@ -99,6 +100,7 @@ class HelpLogic
                 ->order('visit desc')
                 ->limit(5)
                 ->select();
+            $recommend_list = $recommend_list->toArray(); // ThinkPHP 6：select() 返回 Collection，TP5 返回数组；直接写 $recommend_list[$k]['x'] 或 foreach(&$item) 改值会丢/报错，先转数组。
 
 
             foreach ($recommend_list as $key => $recommend){

@@ -37,10 +37,9 @@ use app\common\server\UrlServer;
 use EasyWeChat\Factory;
 use EasyWeChat\Kernel\Exceptions\Exception;
 use Requests;
-use think\Db;
+use think\facade\Db;
 use think\facade\Config;
 use think\facade\Cache;
-use think\facade\Hook;
 
 class LoginLogic extends LogicBase
 {
@@ -92,7 +91,7 @@ class LoginLogic extends LogicBase
         //注册赠送
         self::registerAward($user->id);
         //消息通知
-        Hook::listen('notice', [
+        event('notice', [
             'user_id'  => $user->id,
             'scene'    => NoticeSetting::REGISTER_SUCCESS_NOTICE,
         ]);
@@ -128,7 +127,7 @@ class LoginLogic extends LogicBase
         }
 
         //添加或更新用户
-        $user_id = Db::name('user_auth au')
+        $user_id = Db::name('user_auth')->alias('au')
             ->join('user u', 'au.user_id=u.id')
             ->where(['u.del' => 0])
             ->where(function ($query) use ($response) {
@@ -217,7 +216,7 @@ class LoginLogic extends LogicBase
         }
 
         //添加或更新用户
-        $user_id = Db::name('user_auth au')
+        $user_id = Db::name('user_auth')->alias('au')
             ->join('user u', 'au.user_id=u.id')
             ->where(['u.del' => 0])
             ->where(function ($query) use ($user) {
@@ -289,7 +288,7 @@ class LoginLogic extends LogicBase
 
 
         //添加或更新用户
-        $user_id = Db::name('user_auth au')
+        $user_id = Db::name('user_auth')->alias('au')
             ->join('user u', 'au.user_id=u.id')
             ->where(['u.del' => 0])
             ->where(function ($query) use ($user) {
@@ -496,7 +495,7 @@ class LoginLogic extends LogicBase
         }
 
         //添加或更新用户
-        $user_id = Db::name('user_auth au')
+        $user_id = Db::name('user_auth')->alias('au')
             ->join('user u', 'au.user_id=u.id')
             ->where(['u.del' => 0])
             ->where(function ($query) use ($user) {
@@ -538,7 +537,7 @@ class LoginLogic extends LogicBase
      */
     public static function getUserByWechatResponse($response)
     {
-        $user_id = Db::name('user_auth au')
+        $user_id = Db::name('user_auth')->alias('au')
             ->join('user u', 'au.user_id=u.id')
             ->where(['u.del' => 0])
             ->where(function ($query) use ($response) {

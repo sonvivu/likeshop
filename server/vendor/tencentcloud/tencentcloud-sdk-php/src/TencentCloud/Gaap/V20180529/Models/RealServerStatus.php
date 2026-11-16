@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,6 +26,10 @@ use TencentCloud\Common\AbstractModel;
  * @method void setBindStatus(integer $BindStatus) 设置0表示未被绑定 1表示被规则或者监听器绑定。
  * @method string getProxyId() 获取绑定此源站的通道ID，没有绑定时为空字符串。
  * @method void setProxyId(string $ProxyId) 设置绑定此源站的通道ID，没有绑定时为空字符串。
+ * @method string getGroupId() 获取绑定此源站的通道组ID，没有绑定时为空字符串。
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setGroupId(string $GroupId) 设置绑定此源站的通道组ID，没有绑定时为空字符串。
+注意：此字段可能返回 null，表示取不到有效值。
  */
 class RealServerStatus extends AbstractModel
 {
@@ -45,9 +49,17 @@ class RealServerStatus extends AbstractModel
     public $ProxyId;
 
     /**
+     * @var string 绑定此源站的通道组ID，没有绑定时为空字符串。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $GroupId;
+
+    /**
      * @param string $RealServerId 源站ID。
      * @param integer $BindStatus 0表示未被绑定 1表示被规则或者监听器绑定。
      * @param string $ProxyId 绑定此源站的通道ID，没有绑定时为空字符串。
+     * @param string $GroupId 绑定此源站的通道组ID，没有绑定时为空字符串。
+注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
     {
@@ -72,6 +84,10 @@ class RealServerStatus extends AbstractModel
 
         if (array_key_exists("ProxyId",$param) and $param["ProxyId"] !== null) {
             $this->ProxyId = $param["ProxyId"];
+        }
+
+        if (array_key_exists("GroupId",$param) and $param["GroupId"] !== null) {
+            $this->GroupId = $param["GroupId"];
         }
     }
 }

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,8 +22,8 @@ use TencentCloud\Common\AbstractModel;
  *
  * @method string getMachineIp() 获取机器ip。
  * @method void setMachineIp(string $MachineIp) 设置机器ip。
- * @method integer getProtectDays() 获取受云镜保护天数。
- * @method void setProtectDays(integer $ProtectDays) 设置受云镜保护天数。
+ * @method integer getProtectDays() 获取受主机安全保护天数。
+ * @method void setProtectDays(integer $ProtectDays) 设置受主机安全保护天数。
  * @method string getMachineOs() 获取操作系统。
  * @method void setMachineOs(string $MachineOs) 设置操作系统。
  * @method string getMachineName() 获取主机名称。
@@ -40,8 +40,8 @@ use TencentCloud\Common\AbstractModel;
  * @method void setMachineWanIp(string $MachineWanIp) 设置主机外网IP。
  * @method string getQuuid() 获取CVM或BM主机唯一Uuid。
  * @method void setQuuid(string $Quuid) 设置CVM或BM主机唯一Uuid。
- * @method string getUuid() 获取云镜客户端唯一Uuid。
- * @method void setUuid(string $Uuid) 设置云镜客户端唯一Uuid。
+ * @method string getUuid() 获取主机安全客户端唯一Uuid。
+ * @method void setUuid(string $Uuid) 设置主机安全客户端唯一Uuid。
  * @method boolean getIsProVersion() 获取是否开通专业版。
 <li>true：是</li>
 <li>false：否</li>
@@ -50,12 +50,18 @@ use TencentCloud\Common\AbstractModel;
 <li>false：否</li>
  * @method string getProVersionOpenDate() 获取专业版开通时间。
  * @method void setProVersionOpenDate(string $ProVersionOpenDate) 设置专业版开通时间。
- * @method string getMachineType() 获取云主机类型。
-<li>CVM: 虚拟主机</li>
+ * @method string getMachineType() 获取云服务器类型。
+<li>CVM: 腾讯云服务器</li>
 <li>BM: 黑石物理机</li>
- * @method void setMachineType(string $MachineType) 设置云主机类型。
-<li>CVM: 虚拟主机</li>
+<li>ECM: 边缘计算服务器</li>
+<li>LH: 轻量应用服务器</li>
+<li>Other: 混合云机器</li>
+ * @method void setMachineType(string $MachineType) 设置云服务器类型。
+<li>CVM: 腾讯云服务器</li>
 <li>BM: 黑石物理机</li>
+<li>ECM: 边缘计算服务器</li>
+<li>LH: 轻量应用服务器</li>
+<li>Other: 混合云机器</li>
  * @method string getMachineRegion() 获取机器所属地域。如：ap-guangzhou，ap-shanghai
  * @method void setMachineRegion(string $MachineRegion) 设置机器所属地域。如：ap-guangzhou，ap-shanghai
  * @method string getPayMode() 获取主机状态。
@@ -74,8 +80,10 @@ use TencentCloud\Common\AbstractModel;
  * @method void setProVersionDeadline(string $ProVersionDeadline) 设置专业版到期时间(仅预付费)
  * @method integer getHasAssetScan() 获取是否有资产扫描记录，0无，1有
  * @method void setHasAssetScan(integer $HasAssetScan) 设置是否有资产扫描记录，0无，1有
- * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
- * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method string getProtectType() 获取防护版本：BASIC_VERSION 基础版，PRO_VERSION 专业版，Flagship 旗舰版，GENERAL_DISCOUNT 轻量版
+ * @method void setProtectType(string $ProtectType) 设置防护版本：BASIC_VERSION 基础版，PRO_VERSION 专业版，Flagship 旗舰版，GENERAL_DISCOUNT 轻量版
+ * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+ * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
 class DescribeMachineInfoResponse extends AbstractModel
 {
@@ -85,7 +93,7 @@ class DescribeMachineInfoResponse extends AbstractModel
     public $MachineIp;
 
     /**
-     * @var integer 受云镜保护天数。
+     * @var integer 受主机安全保护天数。
      */
     public $ProtectDays;
 
@@ -122,7 +130,7 @@ class DescribeMachineInfoResponse extends AbstractModel
     public $Quuid;
 
     /**
-     * @var string 云镜客户端唯一Uuid。
+     * @var string 主机安全客户端唯一Uuid。
      */
     public $Uuid;
 
@@ -139,9 +147,12 @@ class DescribeMachineInfoResponse extends AbstractModel
     public $ProVersionOpenDate;
 
     /**
-     * @var string 云主机类型。
-<li>CVM: 虚拟主机</li>
+     * @var string 云服务器类型。
+<li>CVM: 腾讯云服务器</li>
 <li>BM: 黑石物理机</li>
+<li>ECM: 边缘计算服务器</li>
+<li>LH: 轻量应用服务器</li>
+<li>Other: 混合云机器</li>
      */
     public $MachineType;
 
@@ -183,13 +194,18 @@ class DescribeMachineInfoResponse extends AbstractModel
     public $HasAssetScan;
 
     /**
-     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @var string 防护版本：BASIC_VERSION 基础版，PRO_VERSION 专业版，Flagship 旗舰版，GENERAL_DISCOUNT 轻量版
+     */
+    public $ProtectType;
+
+    /**
+     * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public $RequestId;
 
     /**
      * @param string $MachineIp 机器ip。
-     * @param integer $ProtectDays 受云镜保护天数。
+     * @param integer $ProtectDays 受主机安全保护天数。
      * @param string $MachineOs 操作系统。
      * @param string $MachineName 主机名称。
      * @param string $MachineStatus 在线状态。
@@ -198,14 +214,17 @@ class DescribeMachineInfoResponse extends AbstractModel
      * @param string $InstanceId CVM或BM主机唯一标识。
      * @param string $MachineWanIp 主机外网IP。
      * @param string $Quuid CVM或BM主机唯一Uuid。
-     * @param string $Uuid 云镜客户端唯一Uuid。
+     * @param string $Uuid 主机安全客户端唯一Uuid。
      * @param boolean $IsProVersion 是否开通专业版。
 <li>true：是</li>
 <li>false：否</li>
      * @param string $ProVersionOpenDate 专业版开通时间。
-     * @param string $MachineType 云主机类型。
-<li>CVM: 虚拟主机</li>
+     * @param string $MachineType 云服务器类型。
+<li>CVM: 腾讯云服务器</li>
 <li>BM: 黑石物理机</li>
+<li>ECM: 边缘计算服务器</li>
+<li>LH: 轻量应用服务器</li>
+<li>Other: 混合云机器</li>
      * @param string $MachineRegion 机器所属地域。如：ap-guangzhou，ap-shanghai
      * @param string $PayMode 主机状态。
 <li>POSTPAY: 表示后付费，即按量计费  </li>
@@ -215,7 +234,8 @@ class DescribeMachineInfoResponse extends AbstractModel
      * @param string $AgentVersion agent版本号
      * @param string $ProVersionDeadline 专业版到期时间(仅预付费)
      * @param integer $HasAssetScan 是否有资产扫描记录，0无，1有
-     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @param string $ProtectType 防护版本：BASIC_VERSION 基础版，PRO_VERSION 专业版，Flagship 旗舰版，GENERAL_DISCOUNT 轻量版
+     * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
     {
@@ -304,6 +324,10 @@ class DescribeMachineInfoResponse extends AbstractModel
 
         if (array_key_exists("HasAssetScan",$param) and $param["HasAssetScan"] !== null) {
             $this->HasAssetScan = $param["HasAssetScan"];
+        }
+
+        if (array_key_exists("ProtectType",$param) and $param["ProtectType"] !== null) {
+            $this->ProtectType = $param["ProtectType"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

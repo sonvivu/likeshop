@@ -23,13 +23,12 @@ use app\common\model\Ad;
 use app\common\model\Footprint;
 use app\common\server\ConfigServer;
 use app\common\server\UrlServer;
-use think\Db;
-use think\facade\Hook;
+use think\facade\Db;
 
 class IndexLogic{
     public static function lists($user_id){
         // 钩子-记录足迹(访问商城)
-        Hook::listen('footprint', [
+        event('footprint', [
             'type'    => Footprint::enter_mall,
             'user_id' => $user_id
         ]);
@@ -41,6 +40,9 @@ class IndexLogic{
             ->field('id,title')
             ->limit(3)
             ->select();
+        // ThinkPHP 6：select() 不再按 resultset_type 返回数组，总是返回 Collection；
+        // 直接写 $news[0]['is_new'] 会报“间接修改无效”。先转数组再改。
+        $news = $news->toArray();
         if($news){
             $news[0]['is_new'] = 1;
         }
@@ -78,6 +80,8 @@ class IndexLogic{
         $coupon_list->hidden(['condition_money','condition_type']);
         //活动专区
         $activity_area = Db::name('activity_area')->field('id,name,title,image')->where(['del'=>0,'status'=>1])->select();
+        // ThinkPHP 6：select() 返回 Collection，foreach 引用修改会丢失；先转数组。
+        $activity_area = $activity_area->toArray();
         foreach ($activity_area as &$area_item){
             $area_item['image'] = UrlServer::getFileUrl($area_item['image']);
         }
@@ -85,7 +89,7 @@ class IndexLogic{
         //秒杀活动
         $seckill = SeckillLogic::getSeckill();
         if($seckill){
-            $seckill['goods'] = Db::name('goods g')
+            $seckill['goods'] = Db::name('goods')->alias('g')
                 ->join('seckill_goods sg','g.id = sg.goods_id')
                 ->where(['seckill_id'=>$seckill['id'],'g.del'=>0,'sg.del'=>0,'status'=>1,])
                 ->group('sg.goods_id')
@@ -93,6 +97,8 @@ class IndexLogic{
                 ->limit(9)
                 ->field('g.id,g.name,g.image,g.min_price,sg.price as seckill_price,sg.sales_sum')
                 ->select();
+            // ThinkPHP 6：select() 返回 Collection，foreach 引用修改会丢失；先转数组。
+            $seckill['goods'] = $seckill['goods']->toArray();
             foreach ($seckill['goods'] as &$seckill_item ){
                 // 传入默认商品主图
                 if(empty( $seckill_item['image'])){

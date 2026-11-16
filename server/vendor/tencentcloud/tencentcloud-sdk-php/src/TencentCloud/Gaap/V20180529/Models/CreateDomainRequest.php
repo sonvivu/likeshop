@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,6 +34,16 @@ use TencentCloud\Common\AbstractModel;
 仅当采用双向认证的方式时，需要设置该字段或ClientCertificateId字段。
  * @method void setPolyClientCertificateIds(array $PolyClientCertificateIds) 设置客户端CA证书，用于客户端与GAAP的HTTPS的交互。
 仅当采用双向认证的方式时，需要设置该字段或ClientCertificateId字段。
+ * @method integer getHttp3Supported() 获取是否开启Http3特性的标识，其中：
+0，表示不开启Http3；
+1，表示开启Http3。
+默认不开启Http3。可以通过SetDomainHttp3开启。
+ * @method void setHttp3Supported(integer $Http3Supported) 设置是否开启Http3特性的标识，其中：
+0，表示不开启Http3；
+1，表示开启Http3。
+默认不开启Http3。可以通过SetDomainHttp3开启。
+ * @method boolean getIsDefaultServer() 获取是否作为默认域名，默认为“否”
+ * @method void setIsDefaultServer(boolean $IsDefaultServer) 设置是否作为默认域名，默认为“否”
  */
 class CreateDomainRequest extends AbstractModel
 {
@@ -65,6 +75,19 @@ class CreateDomainRequest extends AbstractModel
     public $PolyClientCertificateIds;
 
     /**
+     * @var integer 是否开启Http3特性的标识，其中：
+0，表示不开启Http3；
+1，表示开启Http3。
+默认不开启Http3。可以通过SetDomainHttp3开启。
+     */
+    public $Http3Supported;
+
+    /**
+     * @var boolean 是否作为默认域名，默认为“否”
+     */
+    public $IsDefaultServer;
+
+    /**
      * @param string $ListenerId 监听器ID。
      * @param string $Domain 需要创建的域名，一个监听器下最大支持100个域名。
      * @param string $CertificateId 服务器证书，用于客户端与GAAP的HTTPS的交互。
@@ -72,6 +95,11 @@ class CreateDomainRequest extends AbstractModel
 仅当采用双向认证的方式时，需要设置该字段或PolyClientCertificateIds字段。
      * @param array $PolyClientCertificateIds 客户端CA证书，用于客户端与GAAP的HTTPS的交互。
 仅当采用双向认证的方式时，需要设置该字段或ClientCertificateId字段。
+     * @param integer $Http3Supported 是否开启Http3特性的标识，其中：
+0，表示不开启Http3；
+1，表示开启Http3。
+默认不开启Http3。可以通过SetDomainHttp3开启。
+     * @param boolean $IsDefaultServer 是否作为默认域名，默认为“否”
      */
     function __construct()
     {
@@ -104,6 +132,14 @@ class CreateDomainRequest extends AbstractModel
 
         if (array_key_exists("PolyClientCertificateIds",$param) and $param["PolyClientCertificateIds"] !== null) {
             $this->PolyClientCertificateIds = $param["PolyClientCertificateIds"];
+        }
+
+        if (array_key_exists("Http3Supported",$param) and $param["Http3Supported"] !== null) {
+            $this->Http3Supported = $param["Http3Supported"];
+        }
+
+        if (array_key_exists("IsDefaultServer",$param) and $param["IsDefaultServer"] !== null) {
+            $this->IsDefaultServer = $param["IsDefaultServer"];
         }
     }
 }

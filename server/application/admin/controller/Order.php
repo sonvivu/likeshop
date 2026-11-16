@@ -24,7 +24,7 @@ use app\admin\logic\OrderLogic;
 use app\common\model\Client_;
 use app\common\model\Order as CommonOrder;
 use app\common\model\Pay;
-use think\Db;
+use think\facade\Db;
 
 class Order extends AdminBase
 {

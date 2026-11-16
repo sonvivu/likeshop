@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,8 +32,8 @@ use TencentCloud\Common\AbstractModel;
 0：音视频 ;
 1：直播流。 
 默认为0。其他非0非1值默认为0。画质重生任务只支持0。
- * @method string getHost() 获取指定请求资源时，HTTP头部host的值。
- * @method void setHost(string $Host) 设置指定请求资源时，HTTP头部host的值。
+ * @method string getHost() 获取【不再支持】指定请求资源时，HTTP头部host的值。
+ * @method void setHost(string $Host) 设置【不再支持】指定请求资源时，HTTP头部host的值。
  */
 class UrlInfo extends AbstractModel
 {
@@ -52,7 +52,7 @@ class UrlInfo extends AbstractModel
     public $Format;
 
     /**
-     * @var string 指定请求资源时，HTTP头部host的值。
+     * @var string 【不再支持】指定请求资源时，HTTP头部host的值。
      */
     public $Host;
 
@@ -63,7 +63,7 @@ class UrlInfo extends AbstractModel
 0：音视频 ;
 1：直播流。 
 默认为0。其他非0非1值默认为0。画质重生任务只支持0。
-     * @param string $Host 指定请求资源时，HTTP头部host的值。
+     * @param string $Host 【不再支持】指定请求资源时，HTTP头部host的值。
      */
     function __construct()
     {

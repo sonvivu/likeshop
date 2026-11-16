@@ -17,7 +17,7 @@
 // | author: likeshop.cn.team
 // +----------------------------------------------------------------------
 namespace app\admin\validate;
-use think\Db;
+use think\facade\Db;
 use think\Validate;
 
 class UserPrivilege extends Validate {
@@ -52,13 +52,13 @@ class UserPrivilege extends Validate {
         'image.require'         => '请上传权益图标',
     ];
     protected function sceneAdd(){
-        $this->remove(['id']);
+        $this->remove('id', true);
     }
     protected function sceneEdit(){
-        $this->remove(['id'],'checkPrivilege');
+        $this->remove('id', true);
     }
     protected function sceneDel(){
-        $this->remove(['name','image']);
+        $this->remove('name', true)->remove('image', true);
     }
     protected function checkPrivilege($value,$rule,$data){
         $privilege = Db::name('user_level')

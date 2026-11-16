@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,9 +47,7 @@ use TencentCloud\Common\AbstractModel;
  * @method integer getCreateTime() 获取监听器创建时间，Unix时间戳
  * @method void setCreateTime(integer $CreateTime) 设置监听器创建时间，Unix时间戳
  * @method string getCertificateAlias() 获取服务器SSL证书的别名
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setCertificateAlias(string $CertificateAlias) 设置服务器SSL证书的别名
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getClientCertificateId() 获取监听器客户端CA证书ID
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setClientCertificateId(string $ClientCertificateId) 设置监听器客户端CA证书ID
@@ -57,19 +55,33 @@ use TencentCloud\Common\AbstractModel;
  * @method integer getAuthType() 获取监听器认证方式。其中，
 0表示单向认证；
 1表示双向认证。
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setAuthType(integer $AuthType) 设置监听器认证方式。其中，
 0表示单向认证；
 1表示双向认证。
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getClientCertificateAlias() 获取客户端CA证书别名
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setClientCertificateAlias(string $ClientCertificateAlias) 设置客户端CA证书别名
 注意：此字段可能返回 null，表示取不到有效值。
  * @method array getPolyClientCertificateAliasInfo() 获取多客户端CA证书别名信息
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setPolyClientCertificateAliasInfo(array $PolyClientCertificateAliasInfo) 设置多客户端CA证书别名信息
+ * @method integer getHttp3Supported() 获取是否支持Http3，其中：
+0，不支持Http3接入；
+1，持Http3接入。
+注意：如果支持了Http3的功能，那么该监听器会占用对应的UDP接入端口，不可再创建相同端口的UDP监听器。
+ * @method void setHttp3Supported(integer $Http3Supported) 设置是否支持Http3，其中：
+0，不支持Http3接入；
+1，持Http3接入。
+注意：如果支持了Http3的功能，那么该监听器会占用对应的UDP接入端口，不可再创建相同端口的UDP监听器。
+ * @method string getProxyId() 获取监听器的通道ID，如果监听器属于通道组，则为null
+ * @method void setProxyId(string $ProxyId) 设置监听器的通道ID，如果监听器属于通道组，则为null
+ * @method string getGroupId() 获取监听器的通道组ID，如果监听器属于通道，则为null
 注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setGroupId(string $GroupId) 设置监听器的通道组ID，如果监听器属于通道，则为null
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method array getTLSSupportVersion() 获取支持的TLS版本
+ * @method void setTLSSupportVersion(array $TLSSupportVersion) 设置支持的TLS版本
+ * @method string getTLSCiphers() 获取支持的TLS密码套件
+ * @method void setTLSCiphers(string $TLSCiphers) 设置支持的TLS密码套件
  */
 class HTTPSListener extends AbstractModel
 {
@@ -120,7 +132,6 @@ class HTTPSListener extends AbstractModel
 
     /**
      * @var string 服务器SSL证书的别名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $CertificateAlias;
 
@@ -134,7 +145,6 @@ class HTTPSListener extends AbstractModel
      * @var integer 监听器认证方式。其中，
 0表示单向认证；
 1表示双向认证。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $AuthType;
 
@@ -146,9 +156,37 @@ class HTTPSListener extends AbstractModel
 
     /**
      * @var array 多客户端CA证书别名信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $PolyClientCertificateAliasInfo;
+
+    /**
+     * @var integer 是否支持Http3，其中：
+0，不支持Http3接入；
+1，持Http3接入。
+注意：如果支持了Http3的功能，那么该监听器会占用对应的UDP接入端口，不可再创建相同端口的UDP监听器。
+     */
+    public $Http3Supported;
+
+    /**
+     * @var string 监听器的通道ID，如果监听器属于通道组，则为null
+     */
+    public $ProxyId;
+
+    /**
+     * @var string 监听器的通道组ID，如果监听器属于通道，则为null
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $GroupId;
+
+    /**
+     * @var array 支持的TLS版本
+     */
+    public $TLSSupportVersion;
+
+    /**
+     * @var string 支持的TLS密码套件
+     */
+    public $TLSCiphers;
 
     /**
      * @param string $ListenerId 监听器ID
@@ -165,17 +203,23 @@ class HTTPSListener extends AbstractModel
      * @param string $ForwardProtocol 监听器后端转发源站协议
      * @param integer $CreateTime 监听器创建时间，Unix时间戳
      * @param string $CertificateAlias 服务器SSL证书的别名
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $ClientCertificateId 监听器客户端CA证书ID
 注意：此字段可能返回 null，表示取不到有效值。
      * @param integer $AuthType 监听器认证方式。其中，
 0表示单向认证；
 1表示双向认证。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $ClientCertificateAlias 客户端CA证书别名
 注意：此字段可能返回 null，表示取不到有效值。
      * @param array $PolyClientCertificateAliasInfo 多客户端CA证书别名信息
+     * @param integer $Http3Supported 是否支持Http3，其中：
+0，不支持Http3接入；
+1，持Http3接入。
+注意：如果支持了Http3的功能，那么该监听器会占用对应的UDP接入端口，不可再创建相同端口的UDP监听器。
+     * @param string $ProxyId 监听器的通道ID，如果监听器属于通道组，则为null
+     * @param string $GroupId 监听器的通道组ID，如果监听器属于通道，则为null
 注意：此字段可能返回 null，表示取不到有效值。
+     * @param array $TLSSupportVersion 支持的TLS版本
+     * @param string $TLSCiphers 支持的TLS密码套件
      */
     function __construct()
     {
@@ -245,6 +289,26 @@ class HTTPSListener extends AbstractModel
                 $obj->deserialize($value);
                 array_push($this->PolyClientCertificateAliasInfo, $obj);
             }
+        }
+
+        if (array_key_exists("Http3Supported",$param) and $param["Http3Supported"] !== null) {
+            $this->Http3Supported = $param["Http3Supported"];
+        }
+
+        if (array_key_exists("ProxyId",$param) and $param["ProxyId"] !== null) {
+            $this->ProxyId = $param["ProxyId"];
+        }
+
+        if (array_key_exists("GroupId",$param) and $param["GroupId"] !== null) {
+            $this->GroupId = $param["GroupId"];
+        }
+
+        if (array_key_exists("TLSSupportVersion",$param) and $param["TLSSupportVersion"] !== null) {
+            $this->TLSSupportVersion = $param["TLSSupportVersion"];
+        }
+
+        if (array_key_exists("TLSCiphers",$param) and $param["TLSCiphers"] !== null) {
+            $this->TLSCiphers = $param["TLSCiphers"];
         }
     }
 }

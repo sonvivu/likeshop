@@ -19,7 +19,7 @@
 namespace app\api\controller;
 
 use app\api\logic\UserLogic;
-use think\Db;
+use think\facade\Db;
 use app\common\server\UrlServer;
 use app\api\logic\SmsLogic;
 use app\common\logic\SmsLogic as CommonSmsLogic;
@@ -253,6 +253,7 @@ class User extends ApiBase
             ->group('ut.transfer_to_id')
             ->limit(3)
             ->select();
+        $list = $list->toArray(); // ThinkPHP 6：select() 返回 Collection，TP5 返回数组；直接写 $list[$k]['x'] 或 foreach(&$item) 改值会丢/报错，先转数组。
         foreach ($list as &$item) {
             $item['avatar'] = UrlServer::getFileUrl($item['avatar']);
         }

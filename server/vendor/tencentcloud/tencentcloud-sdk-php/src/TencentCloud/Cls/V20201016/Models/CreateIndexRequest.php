@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,17 +20,36 @@ use TencentCloud\Common\AbstractModel;
 /**
  * CreateIndex请求参数结构体
  *
- * @method string getTopicId() 获取日志主题ID
- * @method void setTopicId(string $TopicId) 设置日志主题ID
+ * @method string getTopicId() 获取日志主题Id。
+- 通过[获取日志主题列表](https://cloud.tencent.com/document/product/614/56454)获取日志主题Id。
+ * @method void setTopicId(string $TopicId) 设置日志主题Id。
+- 通过[获取日志主题列表](https://cloud.tencent.com/document/product/614/56454)获取日志主题Id。
  * @method RuleInfo getRule() 获取索引规则
  * @method void setRule(RuleInfo $Rule) 设置索引规则
  * @method boolean getStatus() 获取是否生效，默认为true
  * @method void setStatus(boolean $Status) 设置是否生效，默认为true
+ * @method boolean getIncludeInternalFields() 获取内置保留字段（`__FILENAME__`，`__HOSTNAME__`及`__SOURCE__`）是否包含至全文索引，默认为false，推荐设置为true
+* false:不包含
+* true:包含
+ * @method void setIncludeInternalFields(boolean $IncludeInternalFields) 设置内置保留字段（`__FILENAME__`，`__HOSTNAME__`及`__SOURCE__`）是否包含至全文索引，默认为false，推荐设置为true
+* false:不包含
+* true:包含
+ * @method integer getMetadataFlag() 获取元数据字段（前缀为`__TAG__`的字段）是否包含至全文索引，默认为0，推荐设置为1
+* 0:仅包含开启键值索引的元数据字段
+* 1:包含所有元数据字段
+* 2:不包含任何元数据字段
+ * @method void setMetadataFlag(integer $MetadataFlag) 设置元数据字段（前缀为`__TAG__`的字段）是否包含至全文索引，默认为0，推荐设置为1
+* 0:仅包含开启键值索引的元数据字段
+* 1:包含所有元数据字段
+* 2:不包含任何元数据字段
+ * @method string getCoverageField() 获取自定义日志解析异常存储字段。
+ * @method void setCoverageField(string $CoverageField) 设置自定义日志解析异常存储字段。
  */
 class CreateIndexRequest extends AbstractModel
 {
     /**
-     * @var string 日志主题ID
+     * @var string 日志主题Id。
+- 通过[获取日志主题列表](https://cloud.tencent.com/document/product/614/56454)获取日志主题Id。
      */
     public $TopicId;
 
@@ -45,9 +64,38 @@ class CreateIndexRequest extends AbstractModel
     public $Status;
 
     /**
-     * @param string $TopicId 日志主题ID
+     * @var boolean 内置保留字段（`__FILENAME__`，`__HOSTNAME__`及`__SOURCE__`）是否包含至全文索引，默认为false，推荐设置为true
+* false:不包含
+* true:包含
+     */
+    public $IncludeInternalFields;
+
+    /**
+     * @var integer 元数据字段（前缀为`__TAG__`的字段）是否包含至全文索引，默认为0，推荐设置为1
+* 0:仅包含开启键值索引的元数据字段
+* 1:包含所有元数据字段
+* 2:不包含任何元数据字段
+     */
+    public $MetadataFlag;
+
+    /**
+     * @var string 自定义日志解析异常存储字段。
+     */
+    public $CoverageField;
+
+    /**
+     * @param string $TopicId 日志主题Id。
+- 通过[获取日志主题列表](https://cloud.tencent.com/document/product/614/56454)获取日志主题Id。
      * @param RuleInfo $Rule 索引规则
      * @param boolean $Status 是否生效，默认为true
+     * @param boolean $IncludeInternalFields 内置保留字段（`__FILENAME__`，`__HOSTNAME__`及`__SOURCE__`）是否包含至全文索引，默认为false，推荐设置为true
+* false:不包含
+* true:包含
+     * @param integer $MetadataFlag 元数据字段（前缀为`__TAG__`的字段）是否包含至全文索引，默认为0，推荐设置为1
+* 0:仅包含开启键值索引的元数据字段
+* 1:包含所有元数据字段
+* 2:不包含任何元数据字段
+     * @param string $CoverageField 自定义日志解析异常存储字段。
      */
     function __construct()
     {
@@ -73,6 +121,18 @@ class CreateIndexRequest extends AbstractModel
 
         if (array_key_exists("Status",$param) and $param["Status"] !== null) {
             $this->Status = $param["Status"];
+        }
+
+        if (array_key_exists("IncludeInternalFields",$param) and $param["IncludeInternalFields"] !== null) {
+            $this->IncludeInternalFields = $param["IncludeInternalFields"];
+        }
+
+        if (array_key_exists("MetadataFlag",$param) and $param["MetadataFlag"] !== null) {
+            $this->MetadataFlag = $param["MetadataFlag"];
+        }
+
+        if (array_key_exists("CoverageField",$param) and $param["CoverageField"] !== null) {
+            $this->CoverageField = $param["CoverageField"];
         }
     }
 }

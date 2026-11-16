@@ -23,7 +23,7 @@ use app\common\model\DistributionOrder;
 use app\common\model\OrderGoods;
 use app\common\model\Pay;
 use app\common\model\Withdraw;
-use think\Db;
+use think\facade\Db;
 
 class FinanceLogic
 {

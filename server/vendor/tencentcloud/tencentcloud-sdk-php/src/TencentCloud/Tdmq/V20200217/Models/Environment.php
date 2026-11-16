@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,6 +34,24 @@ use TencentCloud\Common\AbstractModel;
  * @method void setNamespaceId(string $NamespaceId) 设置命名空间ID
  * @method string getNamespaceName() 获取命名空间名称
  * @method void setNamespaceName(string $NamespaceName) 设置命名空间名称
+ * @method integer getTopicNum() 获取Topic数量
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setTopicNum(integer $TopicNum) 设置Topic数量
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method RetentionPolicy getRetentionPolicy() 获取消息保留策略
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setRetentionPolicy(RetentionPolicy $RetentionPolicy) 设置消息保留策略
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method boolean getAutoSubscriptionCreation() 获取是否自动创建订阅
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setAutoSubscriptionCreation(boolean $AutoSubscriptionCreation) 设置是否自动创建订阅
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method integer getSubscriptionExpirationTime() 获取离线订阅过期自动清理时间
+ * @method void setSubscriptionExpirationTime(integer $SubscriptionExpirationTime) 设置离线订阅过期自动清理时间
+ * @method boolean getSubscriptionExpirationTimeEnable() 获取离线订阅过期自动清理时间开关
+ * @method void setSubscriptionExpirationTimeEnable(boolean $SubscriptionExpirationTimeEnable) 设置离线订阅过期自动清理时间开关
+ * @method array getTags() 获取命名空间标签
+ * @method void setTags(array $Tags) 设置命名空间标签
  */
 class Environment extends AbstractModel
 {
@@ -73,6 +91,39 @@ class Environment extends AbstractModel
     public $NamespaceName;
 
     /**
+     * @var integer Topic数量
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $TopicNum;
+
+    /**
+     * @var RetentionPolicy 消息保留策略
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $RetentionPolicy;
+
+    /**
+     * @var boolean 是否自动创建订阅
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $AutoSubscriptionCreation;
+
+    /**
+     * @var integer 离线订阅过期自动清理时间
+     */
+    public $SubscriptionExpirationTime;
+
+    /**
+     * @var boolean 离线订阅过期自动清理时间开关
+     */
+    public $SubscriptionExpirationTimeEnable;
+
+    /**
+     * @var array 命名空间标签
+     */
+    public $Tags;
+
+    /**
      * @param string $EnvironmentId 命名空间名称
      * @param string $Remark 说明
      * @param integer $MsgTTL 未消费消息过期时间，单位：秒，最大1296000（15天）
@@ -80,6 +131,15 @@ class Environment extends AbstractModel
      * @param string $UpdateTime 最近修改时间
      * @param string $NamespaceId 命名空间ID
      * @param string $NamespaceName 命名空间名称
+     * @param integer $TopicNum Topic数量
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param RetentionPolicy $RetentionPolicy 消息保留策略
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param boolean $AutoSubscriptionCreation 是否自动创建订阅
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param integer $SubscriptionExpirationTime 离线订阅过期自动清理时间
+     * @param boolean $SubscriptionExpirationTimeEnable 离线订阅过期自动清理时间开关
+     * @param array $Tags 命名空间标签
      */
     function __construct()
     {
@@ -120,6 +180,36 @@ class Environment extends AbstractModel
 
         if (array_key_exists("NamespaceName",$param) and $param["NamespaceName"] !== null) {
             $this->NamespaceName = $param["NamespaceName"];
+        }
+
+        if (array_key_exists("TopicNum",$param) and $param["TopicNum"] !== null) {
+            $this->TopicNum = $param["TopicNum"];
+        }
+
+        if (array_key_exists("RetentionPolicy",$param) and $param["RetentionPolicy"] !== null) {
+            $this->RetentionPolicy = new RetentionPolicy();
+            $this->RetentionPolicy->deserialize($param["RetentionPolicy"]);
+        }
+
+        if (array_key_exists("AutoSubscriptionCreation",$param) and $param["AutoSubscriptionCreation"] !== null) {
+            $this->AutoSubscriptionCreation = $param["AutoSubscriptionCreation"];
+        }
+
+        if (array_key_exists("SubscriptionExpirationTime",$param) and $param["SubscriptionExpirationTime"] !== null) {
+            $this->SubscriptionExpirationTime = $param["SubscriptionExpirationTime"];
+        }
+
+        if (array_key_exists("SubscriptionExpirationTimeEnable",$param) and $param["SubscriptionExpirationTimeEnable"] !== null) {
+            $this->SubscriptionExpirationTimeEnable = $param["SubscriptionExpirationTimeEnable"];
+        }
+
+        if (array_key_exists("Tags",$param) and $param["Tags"] !== null) {
+            $this->Tags = [];
+            foreach ($param["Tags"] as $key => $value){
+                $obj = new Tag();
+                $obj->deserialize($value);
+                array_push($this->Tags, $obj);
+            }
         }
     }
 }

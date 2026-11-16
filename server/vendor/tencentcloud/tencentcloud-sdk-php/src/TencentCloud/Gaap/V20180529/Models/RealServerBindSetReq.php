@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,8 +28,8 @@ use TencentCloud\Common\AbstractModel;
  * @method void setRealServerIP(string $RealServerIP) 设置源站IP
  * @method integer getRealServerWeight() 获取源站权重
  * @method void setRealServerWeight(integer $RealServerWeight) 设置源站权重
- * @method string getRealServerFailoverRole() 获取源站主备角色：master主，slave备，该参数必须在监听器打开了源站主备模式，且监听器类型为TCP监听器
- * @method void setRealServerFailoverRole(string $RealServerFailoverRole) 设置源站主备角色：master主，slave备，该参数必须在监听器打开了源站主备模式，且监听器类型为TCP监听器
+ * @method string getRealServerFailoverRole() 获取源站主备角色：master表示主，slave表示备，该参数必须在监听器打开了源站主备模式。
+ * @method void setRealServerFailoverRole(string $RealServerFailoverRole) 设置源站主备角色：master表示主，slave表示备，该参数必须在监听器打开了源站主备模式。
  */
 class RealServerBindSetReq extends AbstractModel
 {
@@ -54,7 +54,7 @@ class RealServerBindSetReq extends AbstractModel
     public $RealServerWeight;
 
     /**
-     * @var string 源站主备角色：master主，slave备，该参数必须在监听器打开了源站主备模式，且监听器类型为TCP监听器
+     * @var string 源站主备角色：master表示主，slave表示备，该参数必须在监听器打开了源站主备模式。
      */
     public $RealServerFailoverRole;
 
@@ -63,7 +63,7 @@ class RealServerBindSetReq extends AbstractModel
      * @param integer $RealServerPort 源站端口
      * @param string $RealServerIP 源站IP
      * @param integer $RealServerWeight 源站权重
-     * @param string $RealServerFailoverRole 源站主备角色：master主，slave备，该参数必须在监听器打开了源站主备模式，且监听器类型为TCP监听器
+     * @param string $RealServerFailoverRole 源站主备角色：master表示主，slave表示备，该参数必须在监听器打开了源站主备模式。
      */
     function __construct()
     {

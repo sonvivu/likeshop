@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,24 +18,28 @@ namespace TencentCloud\Redis\V20180412\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * Proxy节点信息
+ * Proxy节点信息。
  *
- * @method string getNodeId() 获取节点ID
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setNodeId(string $NodeId) 设置节点ID
-注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getNodeId() 获取节点 ID。
+ * @method void setNodeId(string $NodeId) 设置节点 ID。
+ * @method integer getZoneId() 获取可用区 ID。
+ * @method void setZoneId(integer $ZoneId) 设置可用区 ID。
  */
 class ProxyNodes extends AbstractModel
 {
     /**
-     * @var string 节点ID
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string 节点 ID。
      */
     public $NodeId;
 
     /**
-     * @param string $NodeId 节点ID
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var integer 可用区 ID。
+     */
+    public $ZoneId;
+
+    /**
+     * @param string $NodeId 节点 ID。
+     * @param integer $ZoneId 可用区 ID。
      */
     function __construct()
     {
@@ -52,6 +56,10 @@ class ProxyNodes extends AbstractModel
         }
         if (array_key_exists("NodeId",$param) and $param["NodeId"] !== null) {
             $this->NodeId = $param["NodeId"];
+        }
+
+        if (array_key_exists("ZoneId",$param) and $param["ZoneId"] !== null) {
+            $this->ZoneId = $param["ZoneId"];
         }
     }
 }

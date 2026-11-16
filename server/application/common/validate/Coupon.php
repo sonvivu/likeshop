@@ -17,7 +17,7 @@
 // | author: likeshop.cn.team
 // +----------------------------------------------------------------------
 namespace app\common\validate;
-use think\Db;
+use think\facade\Db;
 use think\Validate;
 
 
@@ -95,11 +95,11 @@ class Coupon extends Validate{
     ];
 
     protected function scenePlatfrom(){
-        $this->remove(['use_goods_type','goods_ids']);
+        $this->remove('use_goods_type', true)->remove('goods_ids', true);
     }
 
     protected function sceneShop(){
-        $this->remove(['scene_type','platform_ratio','shop_ratio']);
+        $this->remove('scene_type', true)->remove('platform_ratio', true)->remove('shop_ratio', true);
     }
 
     public function checkGoods($value,$rule,$data){

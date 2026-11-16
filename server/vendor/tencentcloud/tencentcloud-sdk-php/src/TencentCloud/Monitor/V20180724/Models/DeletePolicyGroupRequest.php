@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,8 +22,8 @@ use TencentCloud\Common\AbstractModel;
  *
  * @method string getModule() 获取固定值，为"monitor"
  * @method void setModule(string $Module) 设置固定值，为"monitor"
- * @method array getGroupId() 获取策略组id
- * @method void setGroupId(array $GroupId) 设置策略组id
+ * @method array getGroupId() 获取策略组id,即1.0的告警策略id,可以从策略详情获取
+ * @method void setGroupId(array $GroupId) 设置策略组id,即1.0的告警策略id,可以从策略详情获取
  */
 class DeletePolicyGroupRequest extends AbstractModel
 {
@@ -33,13 +33,13 @@ class DeletePolicyGroupRequest extends AbstractModel
     public $Module;
 
     /**
-     * @var array 策略组id
+     * @var array 策略组id,即1.0的告警策略id,可以从策略详情获取
      */
     public $GroupId;
 
     /**
      * @param string $Module 固定值，为"monitor"
-     * @param array $GroupId 策略组id
+     * @param array $GroupId 策略组id,即1.0的告警策略id,可以从策略详情获取
      */
     function __construct()
     {

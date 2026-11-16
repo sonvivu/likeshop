@@ -19,7 +19,7 @@
 namespace app\api\logic;
 use app\common\server\ConfigServer;
 use app\common\server\UrlServer;
-use think\Db;
+use think\facade\Db;
 
 class SeckillLogic{
 
@@ -29,6 +29,7 @@ class SeckillLogic{
             ->order('start_time asc')
             ->field('id,start_time,end_time')
             ->select();
+        $time_list = $time_list->toArray(); // ThinkPHP 6：select() 返回 Collection，TP5 返回数组；直接写 $time_list[$k]['x'] 或 foreach(&$item) 改值会丢/报错，先转数组。
         $now = time();
         foreach ($time_list as &$item){
             $item['status'] = 2;
@@ -56,14 +57,14 @@ class SeckillLogic{
         $where[] = ['g.status','=',1];
         $where[] = ['sg.seckill_id','=',$id];
 
-        $goods_count =  Db::name('goods g')
+        $goods_count =  Db::name('goods')->alias('g')
             ->join('seckill_goods sg','g.id = sg.goods_id')
             ->group('sg.goods_id')
             ->order('sg.sales_sum desc')
             ->where($where)
             ->count();
 
-        $goods_list =  Db::name('goods g')
+        $goods_list =  Db::name('goods')->alias('g')
             ->join('seckill_goods sg','g.id = sg.goods_id')
             ->where($where)
             ->group('sg.goods_id')
@@ -71,6 +72,7 @@ class SeckillLogic{
             ->page($page,$size)
             ->field('g.id,g.name,g.image,g.min_price,sg.price as seckill_price,sg.sales_sum')
             ->select();
+        $goods_list = $goods_list->toArray(); // ThinkPHP 6：select() 返回 Collection，TP5 返回数组；直接写 $goods_list[$k]['x'] 或 foreach(&$item) 改值会丢/报错，先转数组。
 
 
         $default_image = UrlServer::getFileUrl(ConfigServer::get('website', 'goods_image', ''));

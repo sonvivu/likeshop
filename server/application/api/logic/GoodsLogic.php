@@ -29,8 +29,7 @@ use app\common\model\TeamFound;
 use app\common\model\TeamGoodsItem;
 use app\common\server\ConfigServer;
 use app\common\server\UrlServer;
-use think\Db;
-use think\facade\Hook;
+use think\facade\Db;
 
 class GoodsLogic{
     //商品列表
@@ -116,7 +115,7 @@ class GoodsLogic{
     //商品详情
     public static function getGoodsDetail($user_id,$id){
 
-        $goods = Goods::get(['id'=>$id,'status'=>1],['goods_image','goods_item']);
+        $goods = Goods::with(['goods_image','goods_item'])->find(['id'=>$id,'status'=>1]);
         if(empty($goods)){
             return [];
         }
@@ -137,7 +136,7 @@ class GoodsLogic{
             $goods->is_collect= $collect ? 1 : 0;
 
             //会员折扣
-            $member_discount = Db::name('user_level l')
+            $member_discount = Db::name('user_level')->alias('l')
                 ->join('user u', 'u.level = l.id')
                 ->where(['u.id' => $user_id])
                 ->value('discount');
@@ -194,7 +193,7 @@ class GoodsLogic{
         $goods['distribution'] = self::getDistribution($id, $user_id);
 
         // 钩子-记录足迹(浏览商品)
-        Hook::listen('footprint', [
+        event('footprint', [
             'type'       => Footprint::browse_goods,
             'user_id'    => $user_id,
             'foreign_id' => $id //商品ID
@@ -208,7 +207,7 @@ class GoodsLogic{
         ]);
 
         //保障服务
-        $goods['assurance_service'] = AssuranceService::where(['del' => 0,'id'=>explode(',',$goods['service_ids'])])->order('id','desc')->field('id,title,content')->select()->toArray();
+        $goods['assurance_service'] = AssuranceService::where(['del' => 0,'id'=>explode(',',$goods['service_ids'] ?? '')])->order('id','desc')->field('id,title,content')->select()->toArray();
 
         return $goods;
 

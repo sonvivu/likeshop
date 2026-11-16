@@ -17,12 +17,10 @@
 // | author: likeshop.cn.team
 // +----------------------------------------------------------------------
 
-use think\facade\Env;
-
 return [
 
-    //默认错误跳转对应的模板文件
-    'dispatch_error_tmpl' => '../application/admin/view/dispatch/error.html',
+    //默认错误跳转对应的模板文件（绝对路径：6.x 下相对路径按进程工作目录解析，不可靠）
+    'dispatch_error_tmpl' => __DIR__ . '/../view/dispatch/error.html',
     //默认成功跳转对应的模板文件
-    'dispatch_success_tmpl' => '../application/admin/view/dispatch/success.html',
+    'dispatch_success_tmpl' => __DIR__ . '/../view/dispatch/success.html',
 ];

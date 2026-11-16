@@ -75,7 +75,7 @@ class UserAddress extends Validate
      */
     public function sceneAdd()
     {
-        return $this->remove('id');
+        return $this->remove('id', true);
     }
 
     /**

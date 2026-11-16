@@ -21,7 +21,7 @@
 namespace app\admin\logic;
 
 
-use think\Db;
+use think\facade\Db;
 use Requests;
 use think\facade\Cache;
 use think\facade\Log;
@@ -358,7 +358,7 @@ class UpgradeLogic
         }
 
         //当前数据库前缀
-        $sql_prefix = config('database.prefix');
+        $sql_prefix = config('database.connections.mysql.prefix');
 
         //遍历更新sql
         foreach ($sql_files as $k => $sql_file) {

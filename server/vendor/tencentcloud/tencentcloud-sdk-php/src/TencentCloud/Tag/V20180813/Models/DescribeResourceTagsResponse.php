@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,13 +25,11 @@ use TencentCloud\Common\AbstractModel;
  * @method integer getOffset() 获取数据位移偏量
  * @method void setOffset(integer $Offset) 设置数据位移偏量
  * @method integer getLimit() 获取每页大小
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setLimit(integer $Limit) 设置每页大小
-注意：此字段可能返回 null，表示取不到有效值。
  * @method array getRows() 获取资源标签
  * @method void setRows(array $Rows) 设置资源标签
- * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
- * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+ * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
 class DescribeResourceTagsResponse extends AbstractModel
 {
@@ -47,7 +45,6 @@ class DescribeResourceTagsResponse extends AbstractModel
 
     /**
      * @var integer 每页大小
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Limit;
 
@@ -57,7 +54,7 @@ class DescribeResourceTagsResponse extends AbstractModel
     public $Rows;
 
     /**
-     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public $RequestId;
 
@@ -65,9 +62,8 @@ class DescribeResourceTagsResponse extends AbstractModel
      * @param integer $TotalCount 结果总数
      * @param integer $Offset 数据位移偏量
      * @param integer $Limit 每页大小
-注意：此字段可能返回 null，表示取不到有效值。
      * @param array $Rows 资源标签
-     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
     {

@@ -18,7 +18,7 @@
 // +----------------------------------------------------------------------
 namespace app\api\validate;
 use app\common\model\BargainLaunch;
-use think\Db;
+use think\facade\Db;
 use think\Validate;
 
 

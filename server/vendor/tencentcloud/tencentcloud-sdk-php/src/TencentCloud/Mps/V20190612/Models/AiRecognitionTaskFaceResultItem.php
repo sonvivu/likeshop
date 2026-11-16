@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,6 +32,36 @@ use TencentCloud\Common\AbstractModel;
  * @method void setName(string $Name) 设置人物名称。
  * @method array getSegmentSet() 获取人物出现的片段结果集。
  * @method void setSegmentSet(array $SegmentSet) 设置人物出现的片段结果集。
+ * @method string getGender() 获取人物性别：
+<li>Male：男性；</li>
+<li>Female：女性。</li>
+ * @method void setGender(string $Gender) 设置人物性别：
+<li>Male：男性；</li>
+<li>Female：女性。</li>
+ * @method string getBirthday() 获取人物出生日期。
+ * @method void setBirthday(string $Birthday) 设置人物出生日期。
+ * @method string getProfession() 获取人物职业或者职务。
+ * @method void setProfession(string $Profession) 设置人物职业或者职务。
+ * @method string getSchoolOfGraduation() 获取人物毕业院校。
+ * @method void setSchoolOfGraduation(string $SchoolOfGraduation) 设置人物毕业院校。
+ * @method string getAbstract() 获取人物简介。
+ * @method void setAbstract(string $Abstract) 设置人物简介。
+ * @method string getPlaceOfBirth() 获取人物出生地或者籍贯。
+ * @method void setPlaceOfBirth(string $PlaceOfBirth) 设置人物出生地或者籍贯。
+ * @method string getPersonType() 获取人物类型：
+<li>Politician：官员；</li>
+<li>Artist：艺人。</li>
+ * @method void setPersonType(string $PersonType) 设置人物类型：
+<li>Politician：官员；</li>
+<li>Artist：艺人。</li>
+ * @method string getRemark() 获取敏感度标注：
+<li>Normal：正常；</li>
+<li>Sensitive：敏感。</li>
+ * @method void setRemark(string $Remark) 设置敏感度标注：
+<li>Normal：正常；</li>
+<li>Sensitive：敏感。</li>
+ * @method string getUrl() 获取截图链接
+ * @method void setUrl(string $Url) 设置截图链接
  */
 class AiRecognitionTaskFaceResultItem extends AbstractModel
 {
@@ -58,12 +88,78 @@ class AiRecognitionTaskFaceResultItem extends AbstractModel
     public $SegmentSet;
 
     /**
+     * @var string 人物性别：
+<li>Male：男性；</li>
+<li>Female：女性。</li>
+     */
+    public $Gender;
+
+    /**
+     * @var string 人物出生日期。
+     */
+    public $Birthday;
+
+    /**
+     * @var string 人物职业或者职务。
+     */
+    public $Profession;
+
+    /**
+     * @var string 人物毕业院校。
+     */
+    public $SchoolOfGraduation;
+
+    /**
+     * @var string 人物简介。
+     */
+    public $Abstract;
+
+    /**
+     * @var string 人物出生地或者籍贯。
+     */
+    public $PlaceOfBirth;
+
+    /**
+     * @var string 人物类型：
+<li>Politician：官员；</li>
+<li>Artist：艺人。</li>
+     */
+    public $PersonType;
+
+    /**
+     * @var string 敏感度标注：
+<li>Normal：正常；</li>
+<li>Sensitive：敏感。</li>
+     */
+    public $Remark;
+
+    /**
+     * @var string 截图链接
+     */
+    public $Url;
+
+    /**
      * @param string $Id 人物唯一标识 ID。
      * @param string $Type 人物库类型，表示识别出的人物来自哪个人物库：
 <li>Default：默认人物库；</li>
 <li>UserDefine：用户自定义人物库。</li>
      * @param string $Name 人物名称。
      * @param array $SegmentSet 人物出现的片段结果集。
+     * @param string $Gender 人物性别：
+<li>Male：男性；</li>
+<li>Female：女性。</li>
+     * @param string $Birthday 人物出生日期。
+     * @param string $Profession 人物职业或者职务。
+     * @param string $SchoolOfGraduation 人物毕业院校。
+     * @param string $Abstract 人物简介。
+     * @param string $PlaceOfBirth 人物出生地或者籍贯。
+     * @param string $PersonType 人物类型：
+<li>Politician：官员；</li>
+<li>Artist：艺人。</li>
+     * @param string $Remark 敏感度标注：
+<li>Normal：正常；</li>
+<li>Sensitive：敏感。</li>
+     * @param string $Url 截图链接
      */
     function __construct()
     {
@@ -97,6 +193,42 @@ class AiRecognitionTaskFaceResultItem extends AbstractModel
                 $obj->deserialize($value);
                 array_push($this->SegmentSet, $obj);
             }
+        }
+
+        if (array_key_exists("Gender",$param) and $param["Gender"] !== null) {
+            $this->Gender = $param["Gender"];
+        }
+
+        if (array_key_exists("Birthday",$param) and $param["Birthday"] !== null) {
+            $this->Birthday = $param["Birthday"];
+        }
+
+        if (array_key_exists("Profession",$param) and $param["Profession"] !== null) {
+            $this->Profession = $param["Profession"];
+        }
+
+        if (array_key_exists("SchoolOfGraduation",$param) and $param["SchoolOfGraduation"] !== null) {
+            $this->SchoolOfGraduation = $param["SchoolOfGraduation"];
+        }
+
+        if (array_key_exists("Abstract",$param) and $param["Abstract"] !== null) {
+            $this->Abstract = $param["Abstract"];
+        }
+
+        if (array_key_exists("PlaceOfBirth",$param) and $param["PlaceOfBirth"] !== null) {
+            $this->PlaceOfBirth = $param["PlaceOfBirth"];
+        }
+
+        if (array_key_exists("PersonType",$param) and $param["PersonType"] !== null) {
+            $this->PersonType = $param["PersonType"];
+        }
+
+        if (array_key_exists("Remark",$param) and $param["Remark"] !== null) {
+            $this->Remark = $param["Remark"];
+        }
+
+        if (array_key_exists("Url",$param) and $param["Url"] !== null) {
+            $this->Url = $param["Url"];
         }
     }
 }

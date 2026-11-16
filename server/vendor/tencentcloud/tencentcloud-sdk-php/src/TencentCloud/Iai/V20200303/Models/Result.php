@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,38 +20,42 @@ use TencentCloud\Common\AbstractModel;
 /**
  * 人脸的识别结果
  *
- * @method array getCandidates() 获取识别出的最相似候选人
- * @method void setCandidates(array $Candidates) 设置识别出的最相似候选人
- * @method FaceRect getFaceRect() 获取检测出的人脸框位置
- * @method void setFaceRect(FaceRect $FaceRect) 设置检测出的人脸框位置
- * @method integer getRetCode() 获取检测出的人脸图片状态返回码。0 表示正常。 
--1601代表不符合图片质量控制要求，此时Candidate内容为空。
- * @method void setRetCode(integer $RetCode) 设置检测出的人脸图片状态返回码。0 表示正常。 
--1601代表不符合图片质量控制要求，此时Candidate内容为空。
+ * @method array getCandidates() 获取识别出的最相似候选人。
+ * @method void setCandidates(array $Candidates) 设置识别出的最相似候选人。
+ * @method FaceRect getFaceRect() 获取检测出的人脸框位置。
+ * @method void setFaceRect(FaceRect $FaceRect) 设置检测出的人脸框位置。
+ * @method integer getRetCode() 获取检测出的人脸图片状态返回码。
+- 0 表示正常。 
+- -1601代表不符合图片质量控制要求，此时Candidate内容为空。
+ * @method void setRetCode(integer $RetCode) 设置检测出的人脸图片状态返回码。
+- 0 表示正常。 
+- -1601代表不符合图片质量控制要求，此时Candidate内容为空。
  */
 class Result extends AbstractModel
 {
     /**
-     * @var array 识别出的最相似候选人
+     * @var array 识别出的最相似候选人。
      */
     public $Candidates;
 
     /**
-     * @var FaceRect 检测出的人脸框位置
+     * @var FaceRect 检测出的人脸框位置。
      */
     public $FaceRect;
 
     /**
-     * @var integer 检测出的人脸图片状态返回码。0 表示正常。 
--1601代表不符合图片质量控制要求，此时Candidate内容为空。
+     * @var integer 检测出的人脸图片状态返回码。
+- 0 表示正常。 
+- -1601代表不符合图片质量控制要求，此时Candidate内容为空。
      */
     public $RetCode;
 
     /**
-     * @param array $Candidates 识别出的最相似候选人
-     * @param FaceRect $FaceRect 检测出的人脸框位置
-     * @param integer $RetCode 检测出的人脸图片状态返回码。0 表示正常。 
--1601代表不符合图片质量控制要求，此时Candidate内容为空。
+     * @param array $Candidates 识别出的最相似候选人。
+     * @param FaceRect $FaceRect 检测出的人脸框位置。
+     * @param integer $RetCode 检测出的人脸图片状态返回码。
+- 0 表示正常。 
+- -1601代表不符合图片质量控制要求，此时Candidate内容为空。
      */
     function __construct()
     {

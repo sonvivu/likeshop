@@ -20,12 +20,11 @@
 namespace app\common\command;
 
 use Cron\CronExpression;
-use think\Console;
 use think\console\Command;
 use think\console\Input;
 use think\console\Output;
-use think\Db;
-use think\facade\Debug;
+use think\facade\Console;
+use think\facade\Db;
 use think\facade\Log;
 
 class Crontab extends Command
@@ -74,7 +73,7 @@ class Crontab extends Command
 
             //开始执行
             try {
-                Debug::remark('begin');
+                $begin_time = microtime(true);
                 $parameter = explode(' ', $cron['parameter']);
                 if (is_array($parameter) && !empty($cron['parameter'])) {
                     Console::call($cron['command'], $parameter);
@@ -89,8 +88,7 @@ class Crontab extends Command
                     ->where(['id' => $cron['id']])
                     ->update(['error' => $e->getMessage(), 'status' => 3]);
             } finally {
-                Debug::remark('end');
-                $range_time = Debug::getRangeTime('begin', 'end');
+                $range_time = microtime(true) - $begin_time;
                 $max_time = max($cron['max_time'], $range_time);
                 Db::name('dev_crontab')
                     ->where(['id' => $cron['id']])

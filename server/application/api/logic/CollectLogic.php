@@ -18,7 +18,7 @@
 // +----------------------------------------------------------------------
 namespace app\api\logic;
 
-use app\api\model\Goods;use think\Db;
+use app\api\model\Goods;use think\facade\Db;
 
 class CollectLogic{
     public static function getCollectGoods($user_id,$page,$size){

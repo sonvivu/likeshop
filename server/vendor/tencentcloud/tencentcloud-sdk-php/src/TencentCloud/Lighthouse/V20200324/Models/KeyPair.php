@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,9 +27,9 @@ use TencentCloud\Common\AbstractModel;
  * @method string getPublicKey() 获取密钥对的纯文本公钥。
  * @method void setPublicKey(string $PublicKey) 设置密钥对的纯文本公钥。
  * @method array getAssociatedInstanceIds() 获取密钥对关联的实例 ID 列表。
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setAssociatedInstanceIds(array $AssociatedInstanceIds) 设置密钥对关联的实例 ID 列表。
-注意：此字段可能返回 null，表示取不到有效值。
+ * @method array getAssociatedInstanceSet() 获取密钥对关联的实例列表。
+ * @method void setAssociatedInstanceSet(array $AssociatedInstanceSet) 设置密钥对关联的实例列表。
  * @method string getCreatedTime() 获取创建时间。按照 ISO8601 标准表示，并且使用 UTC 时间。格式为：YYYY-MM-DDThh:mm:ssZ
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setCreatedTime(string $CreatedTime) 设置创建时间。按照 ISO8601 标准表示，并且使用 UTC 时间。格式为：YYYY-MM-DDThh:mm:ssZ
@@ -38,6 +38,8 @@ use TencentCloud\Common\AbstractModel;
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setPrivateKey(string $PrivateKey) 设置密钥对私钥。
 注意：此字段可能返回 null，表示取不到有效值。
+ * @method array getTags() 获取密钥对绑定的标签列表。
+ * @method void setTags(array $Tags) 设置密钥对绑定的标签列表。
  */
 class KeyPair extends AbstractModel
 {
@@ -58,9 +60,13 @@ class KeyPair extends AbstractModel
 
     /**
      * @var array 密钥对关联的实例 ID 列表。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $AssociatedInstanceIds;
+
+    /**
+     * @var array 密钥对关联的实例列表。
+     */
+    public $AssociatedInstanceSet;
 
     /**
      * @var string 创建时间。按照 ISO8601 标准表示，并且使用 UTC 时间。格式为：YYYY-MM-DDThh:mm:ssZ
@@ -75,15 +81,21 @@ class KeyPair extends AbstractModel
     public $PrivateKey;
 
     /**
+     * @var array 密钥对绑定的标签列表。
+     */
+    public $Tags;
+
+    /**
      * @param string $KeyId 密钥对 ID ，是密钥对的唯一标识。
      * @param string $KeyName 密钥对名称。
      * @param string $PublicKey 密钥对的纯文本公钥。
      * @param array $AssociatedInstanceIds 密钥对关联的实例 ID 列表。
-注意：此字段可能返回 null，表示取不到有效值。
+     * @param array $AssociatedInstanceSet 密钥对关联的实例列表。
      * @param string $CreatedTime 创建时间。按照 ISO8601 标准表示，并且使用 UTC 时间。格式为：YYYY-MM-DDThh:mm:ssZ
 注意：此字段可能返回 null，表示取不到有效值。
      * @param string $PrivateKey 密钥对私钥。
 注意：此字段可能返回 null，表示取不到有效值。
+     * @param array $Tags 密钥对绑定的标签列表。
      */
     function __construct()
     {
@@ -114,12 +126,30 @@ class KeyPair extends AbstractModel
             $this->AssociatedInstanceIds = $param["AssociatedInstanceIds"];
         }
 
+        if (array_key_exists("AssociatedInstanceSet",$param) and $param["AssociatedInstanceSet"] !== null) {
+            $this->AssociatedInstanceSet = [];
+            foreach ($param["AssociatedInstanceSet"] as $key => $value){
+                $obj = new AssociatedInstanceInfo();
+                $obj->deserialize($value);
+                array_push($this->AssociatedInstanceSet, $obj);
+            }
+        }
+
         if (array_key_exists("CreatedTime",$param) and $param["CreatedTime"] !== null) {
             $this->CreatedTime = $param["CreatedTime"];
         }
 
         if (array_key_exists("PrivateKey",$param) and $param["PrivateKey"] !== null) {
             $this->PrivateKey = $param["PrivateKey"];
+        }
+
+        if (array_key_exists("Tags",$param) and $param["Tags"] !== null) {
+            $this->Tags = [];
+            foreach ($param["Tags"] as $key => $value){
+                $obj = new Tag();
+                $obj->deserialize($value);
+                array_push($this->Tags, $obj);
+            }
         }
     }
 }

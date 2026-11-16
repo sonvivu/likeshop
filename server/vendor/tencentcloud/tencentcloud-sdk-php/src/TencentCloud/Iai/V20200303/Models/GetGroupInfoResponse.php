@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,40 +20,40 @@ use TencentCloud\Common\AbstractModel;
 /**
  * GetGroupInfo返回参数结构体
  *
- * @method string getGroupName() 获取人员库名称
- * @method void setGroupName(string $GroupName) 设置人员库名称
- * @method string getGroupId() 获取人员库ID
- * @method void setGroupId(string $GroupId) 设置人员库ID
- * @method array getGroupExDescriptions() 获取人员库自定义描述字段
- * @method void setGroupExDescriptions(array $GroupExDescriptions) 设置人员库自定义描述字段
- * @method string getTag() 获取人员库信息备注
- * @method void setTag(string $Tag) 设置人员库信息备注
+ * @method string getGroupName() 获取人员库名称。
+ * @method void setGroupName(string $GroupName) 设置人员库名称。
+ * @method string getGroupId() 获取人员库ID。
+ * @method void setGroupId(string $GroupId) 设置人员库ID。
+ * @method array getGroupExDescriptions() 获取人员库自定义描述字段。
+ * @method void setGroupExDescriptions(array $GroupExDescriptions) 设置人员库自定义描述字段。
+ * @method string getTag() 获取人员库信息备注。
+ * @method void setTag(string $Tag) 设置人员库信息备注。
  * @method string getFaceModelVersion() 获取人脸识别所用的算法模型版本。
  * @method void setFaceModelVersion(string $FaceModelVersion) 设置人脸识别所用的算法模型版本。
- * @method integer getCreationTimestamp() 获取Group的创建时间和日期 CreationTimestamp。CreationTimestamp 的值是自 Unix 纪元时间到Group创建时间的毫秒数。
- * @method void setCreationTimestamp(integer $CreationTimestamp) 设置Group的创建时间和日期 CreationTimestamp。CreationTimestamp 的值是自 Unix 纪元时间到Group创建时间的毫秒数。
- * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
- * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method integer getCreationTimestamp() 获取Group的创建时间和日期。CreationTimestamp 的值是自 Unix 纪元时间到Group创建时间的毫秒数。
+ * @method void setCreationTimestamp(integer $CreationTimestamp) 设置Group的创建时间和日期。CreationTimestamp 的值是自 Unix 纪元时间到Group创建时间的毫秒数。
+ * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+ * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
 class GetGroupInfoResponse extends AbstractModel
 {
     /**
-     * @var string 人员库名称
+     * @var string 人员库名称。
      */
     public $GroupName;
 
     /**
-     * @var string 人员库ID
+     * @var string 人员库ID。
      */
     public $GroupId;
 
     /**
-     * @var array 人员库自定义描述字段
+     * @var array 人员库自定义描述字段。
      */
     public $GroupExDescriptions;
 
     /**
-     * @var string 人员库信息备注
+     * @var string 人员库信息备注。
      */
     public $Tag;
 
@@ -63,23 +63,23 @@ class GetGroupInfoResponse extends AbstractModel
     public $FaceModelVersion;
 
     /**
-     * @var integer Group的创建时间和日期 CreationTimestamp。CreationTimestamp 的值是自 Unix 纪元时间到Group创建时间的毫秒数。
+     * @var integer Group的创建时间和日期。CreationTimestamp 的值是自 Unix 纪元时间到Group创建时间的毫秒数。
      */
     public $CreationTimestamp;
 
     /**
-     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public $RequestId;
 
     /**
-     * @param string $GroupName 人员库名称
-     * @param string $GroupId 人员库ID
-     * @param array $GroupExDescriptions 人员库自定义描述字段
-     * @param string $Tag 人员库信息备注
+     * @param string $GroupName 人员库名称。
+     * @param string $GroupId 人员库ID。
+     * @param array $GroupExDescriptions 人员库自定义描述字段。
+     * @param string $Tag 人员库信息备注。
      * @param string $FaceModelVersion 人脸识别所用的算法模型版本。
-     * @param integer $CreationTimestamp Group的创建时间和日期 CreationTimestamp。CreationTimestamp 的值是自 Unix 纪元时间到Group创建时间的毫秒数。
-     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @param integer $CreationTimestamp Group的创建时间和日期。CreationTimestamp 的值是自 Unix 纪元时间到Group创建时间的毫秒数。
+     * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
     {

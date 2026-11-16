@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,6 +26,12 @@ use TencentCloud\Common\AbstractModel;
  * @method void setNamespace(string $Namespace) 设置命名空间名称
  * @method integer getFunctionsCount() 获取命名空间函数个数
  * @method void setFunctionsCount(integer $FunctionsCount) 设置命名空间函数个数
+ * @method integer getTotalConcurrencyMem() 获取命名空间配额总量
+ * @method void setTotalConcurrencyMem(integer $TotalConcurrencyMem) 设置命名空间配额总量
+ * @method integer getTotalAllocatedConcurrencyMem() 获取命名空间并发使用量
+ * @method void setTotalAllocatedConcurrencyMem(integer $TotalAllocatedConcurrencyMem) 设置命名空间并发使用量
+ * @method integer getTotalAllocatedProvisionedMem() 获取命名空间预置使用量
+ * @method void setTotalAllocatedProvisionedMem(integer $TotalAllocatedProvisionedMem) 设置命名空间预置使用量
  */
 class NamespaceUsage extends AbstractModel
 {
@@ -45,9 +51,27 @@ class NamespaceUsage extends AbstractModel
     public $FunctionsCount;
 
     /**
+     * @var integer 命名空间配额总量
+     */
+    public $TotalConcurrencyMem;
+
+    /**
+     * @var integer 命名空间并发使用量
+     */
+    public $TotalAllocatedConcurrencyMem;
+
+    /**
+     * @var integer 命名空间预置使用量
+     */
+    public $TotalAllocatedProvisionedMem;
+
+    /**
      * @param array $Functions 函数数组
      * @param string $Namespace 命名空间名称
      * @param integer $FunctionsCount 命名空间函数个数
+     * @param integer $TotalConcurrencyMem 命名空间配额总量
+     * @param integer $TotalAllocatedConcurrencyMem 命名空间并发使用量
+     * @param integer $TotalAllocatedProvisionedMem 命名空间预置使用量
      */
     function __construct()
     {
@@ -72,6 +96,18 @@ class NamespaceUsage extends AbstractModel
 
         if (array_key_exists("FunctionsCount",$param) and $param["FunctionsCount"] !== null) {
             $this->FunctionsCount = $param["FunctionsCount"];
+        }
+
+        if (array_key_exists("TotalConcurrencyMem",$param) and $param["TotalConcurrencyMem"] !== null) {
+            $this->TotalConcurrencyMem = $param["TotalConcurrencyMem"];
+        }
+
+        if (array_key_exists("TotalAllocatedConcurrencyMem",$param) and $param["TotalAllocatedConcurrencyMem"] !== null) {
+            $this->TotalAllocatedConcurrencyMem = $param["TotalAllocatedConcurrencyMem"];
+        }
+
+        if (array_key_exists("TotalAllocatedProvisionedMem",$param) and $param["TotalAllocatedProvisionedMem"] !== null) {
+            $this->TotalAllocatedProvisionedMem = $param["TotalAllocatedProvisionedMem"];
         }
     }
 }

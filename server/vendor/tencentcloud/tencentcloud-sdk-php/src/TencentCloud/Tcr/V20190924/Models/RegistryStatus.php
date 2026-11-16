@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,9 +25,7 @@ use TencentCloud\Common\AbstractModel;
  * @method string getStatus() 获取实例的状态
  * @method void setStatus(string $Status) 设置实例的状态
  * @method array getConditions() 获取附加状态
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setConditions(array $Conditions) 设置附加状态
-注意：此字段可能返回 null，表示取不到有效值。
  */
 class RegistryStatus extends AbstractModel
 {
@@ -43,7 +41,6 @@ class RegistryStatus extends AbstractModel
 
     /**
      * @var array 附加状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Conditions;
 
@@ -51,7 +48,6 @@ class RegistryStatus extends AbstractModel
      * @param string $RegistryId 实例的Id
      * @param string $Status 实例的状态
      * @param array $Conditions 附加状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
     {

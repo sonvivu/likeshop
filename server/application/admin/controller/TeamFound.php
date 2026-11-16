@@ -22,7 +22,7 @@ namespace app\admin\controller;
 
 use app\admin\logic\TeamFoundLogic;
 use app\common\model\Team;
-use think\helper\Time;
+use app\common\helper\Time;
 
 class TeamFound extends AdminBase
 {

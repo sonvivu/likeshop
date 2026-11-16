@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,9 +23,7 @@ use TencentCloud\Common\AbstractModel;
  * @method string getTopic() 获取分配的 topic 名称
  * @method void setTopic(string $Topic) 设置分配的 topic 名称
  * @method array getPartitions() 获取分配的 partition 信息
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setPartitions(array $Partitions) 设置分配的 partition 信息
-注意：此字段可能返回 null，表示取不到有效值。
  */
 class GroupInfoTopics extends AbstractModel
 {
@@ -36,14 +34,12 @@ class GroupInfoTopics extends AbstractModel
 
     /**
      * @var array 分配的 partition 信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Partitions;
 
     /**
      * @param string $Topic 分配的 topic 名称
      * @param array $Partitions 分配的 partition 信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
     {

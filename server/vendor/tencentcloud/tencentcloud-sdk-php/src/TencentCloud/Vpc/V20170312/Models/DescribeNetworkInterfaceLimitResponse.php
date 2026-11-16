@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,58 +20,66 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeNetworkInterfaceLimit返回参数结构体
  *
- * @method integer getEniQuantity() 获取标准型弹性网卡配额
- * @method void setEniQuantity(integer $EniQuantity) 设置标准型弹性网卡配额
- * @method integer getEniPrivateIpAddressQuantity() 获取每个标准型弹性网卡可以分配的IP配额
- * @method void setEniPrivateIpAddressQuantity(integer $EniPrivateIpAddressQuantity) 设置每个标准型弹性网卡可以分配的IP配额
- * @method integer getExtendEniQuantity() 获取扩展型网卡配额
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setExtendEniQuantity(integer $ExtendEniQuantity) 设置扩展型网卡配额
-注意：此字段可能返回 null，表示取不到有效值。
- * @method integer getExtendEniPrivateIpAddressQuantity() 获取每个扩展型弹性网卡可以分配的IP配额
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setExtendEniPrivateIpAddressQuantity(integer $ExtendEniPrivateIpAddressQuantity) 设置每个扩展型弹性网卡可以分配的IP配额
-注意：此字段可能返回 null，表示取不到有效值。
- * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
- * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method integer getEniQuantity() 获取标准型弹性网卡配额。
+ * @method void setEniQuantity(integer $EniQuantity) 设置标准型弹性网卡配额。
+ * @method integer getEniPrivateIpAddressQuantity() 获取每个标准型弹性网卡可以分配的IP配额。
+ * @method void setEniPrivateIpAddressQuantity(integer $EniPrivateIpAddressQuantity) 设置每个标准型弹性网卡可以分配的IP配额。
+ * @method integer getExtendEniQuantity() 获取扩展型网卡配额。
+ * @method void setExtendEniQuantity(integer $ExtendEniQuantity) 设置扩展型网卡配额。
+ * @method integer getExtendEniPrivateIpAddressQuantity() 获取每个扩展型弹性网卡可以分配的IP配额。
+ * @method void setExtendEniPrivateIpAddressQuantity(integer $ExtendEniPrivateIpAddressQuantity) 设置每个扩展型弹性网卡可以分配的IP配额。
+ * @method integer getSubEniQuantity() 获取中继网卡配额。
+ * @method void setSubEniQuantity(integer $SubEniQuantity) 设置中继网卡配额。
+ * @method integer getSubEniPrivateIpAddressQuantity() 获取每个中继网卡可以分配的IP配额。
+ * @method void setSubEniPrivateIpAddressQuantity(integer $SubEniPrivateIpAddressQuantity) 设置每个中继网卡可以分配的IP配额。
+ * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+ * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
 class DescribeNetworkInterfaceLimitResponse extends AbstractModel
 {
     /**
-     * @var integer 标准型弹性网卡配额
+     * @var integer 标准型弹性网卡配额。
      */
     public $EniQuantity;
 
     /**
-     * @var integer 每个标准型弹性网卡可以分配的IP配额
+     * @var integer 每个标准型弹性网卡可以分配的IP配额。
      */
     public $EniPrivateIpAddressQuantity;
 
     /**
-     * @var integer 扩展型网卡配额
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var integer 扩展型网卡配额。
      */
     public $ExtendEniQuantity;
 
     /**
-     * @var integer 每个扩展型弹性网卡可以分配的IP配额
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var integer 每个扩展型弹性网卡可以分配的IP配额。
      */
     public $ExtendEniPrivateIpAddressQuantity;
 
     /**
-     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @var integer 中继网卡配额。
+     */
+    public $SubEniQuantity;
+
+    /**
+     * @var integer 每个中继网卡可以分配的IP配额。
+     */
+    public $SubEniPrivateIpAddressQuantity;
+
+    /**
+     * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public $RequestId;
 
     /**
-     * @param integer $EniQuantity 标准型弹性网卡配额
-     * @param integer $EniPrivateIpAddressQuantity 每个标准型弹性网卡可以分配的IP配额
-     * @param integer $ExtendEniQuantity 扩展型网卡配额
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param integer $ExtendEniPrivateIpAddressQuantity 每个扩展型弹性网卡可以分配的IP配额
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @param integer $EniQuantity 标准型弹性网卡配额。
+     * @param integer $EniPrivateIpAddressQuantity 每个标准型弹性网卡可以分配的IP配额。
+     * @param integer $ExtendEniQuantity 扩展型网卡配额。
+     * @param integer $ExtendEniPrivateIpAddressQuantity 每个扩展型弹性网卡可以分配的IP配额。
+     * @param integer $SubEniQuantity 中继网卡配额。
+     * @param integer $SubEniPrivateIpAddressQuantity 每个中继网卡可以分配的IP配额。
+     * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
     {
@@ -100,6 +108,14 @@ class DescribeNetworkInterfaceLimitResponse extends AbstractModel
 
         if (array_key_exists("ExtendEniPrivateIpAddressQuantity",$param) and $param["ExtendEniPrivateIpAddressQuantity"] !== null) {
             $this->ExtendEniPrivateIpAddressQuantity = $param["ExtendEniPrivateIpAddressQuantity"];
+        }
+
+        if (array_key_exists("SubEniQuantity",$param) and $param["SubEniQuantity"] !== null) {
+            $this->SubEniQuantity = $param["SubEniQuantity"];
+        }
+
+        if (array_key_exists("SubEniPrivateIpAddressQuantity",$param) and $param["SubEniPrivateIpAddressQuantity"] !== null) {
+            $this->SubEniPrivateIpAddressQuantity = $param["SubEniPrivateIpAddressQuantity"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

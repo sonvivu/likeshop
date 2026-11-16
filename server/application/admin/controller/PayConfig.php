@@ -21,7 +21,7 @@ namespace app\admin\controller;
 
 use app\admin\logic\PayConfigLogic;
 use app\common\server\ConfigServer;
-use think\db;
+use think\facade\Db;
 
 class PayConfig extends AdminBase
 {

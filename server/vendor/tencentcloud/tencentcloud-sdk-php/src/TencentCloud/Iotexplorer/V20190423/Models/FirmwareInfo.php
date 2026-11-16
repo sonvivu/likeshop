@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,25 +27,21 @@ use TencentCloud\Common\AbstractModel;
  * @method integer getCreateTime() 获取固件创建时间
  * @method void setCreateTime(integer $CreateTime) 设置固件创建时间
  * @method string getProductName() 获取产品名称
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setProductName(string $ProductName) 设置产品名称
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getName() 获取固件名称
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setName(string $Name) 设置固件名称
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getDescription() 获取固件描述
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setDescription(string $Description) 设置固件描述
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getProductId() 获取产品ID
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setProductId(string $ProductId) 设置产品ID
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getFwType() 获取固件升级模块
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setFwType(string $FwType) 设置固件升级模块
-注意：此字段可能返回 null，表示取不到有效值。
+ * @method integer getCreateUserId() 获取创建者子 uin
+ * @method void setCreateUserId(integer $CreateUserId) 设置创建者子 uin
+ * @method string getCreatorNickName() 获取创建者昵称
+ * @method void setCreatorNickName(string $CreatorNickName) 设置创建者昵称
+ * @method string getUserDefined() 获取固件用户自定义配置信息
+ * @method void setUserDefined(string $UserDefined) 设置固件用户自定义配置信息
  */
 class FirmwareInfo extends AbstractModel
 {
@@ -66,48 +62,56 @@ class FirmwareInfo extends AbstractModel
 
     /**
      * @var string 产品名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $ProductName;
 
     /**
      * @var string 固件名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Name;
 
     /**
      * @var string 固件描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Description;
 
     /**
      * @var string 产品ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $ProductId;
 
     /**
      * @var string 固件升级模块
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $FwType;
+
+    /**
+     * @var integer 创建者子 uin
+     */
+    public $CreateUserId;
+
+    /**
+     * @var string 创建者昵称
+     */
+    public $CreatorNickName;
+
+    /**
+     * @var string 固件用户自定义配置信息
+     */
+    public $UserDefined;
 
     /**
      * @param string $Version 固件版本
      * @param string $Md5sum 固件MD5值
      * @param integer $CreateTime 固件创建时间
      * @param string $ProductName 产品名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $Name 固件名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $Description 固件描述
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $ProductId 产品ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $FwType 固件升级模块
-注意：此字段可能返回 null，表示取不到有效值。
+     * @param integer $CreateUserId 创建者子 uin
+     * @param string $CreatorNickName 创建者昵称
+     * @param string $UserDefined 固件用户自定义配置信息
      */
     function __construct()
     {
@@ -152,6 +156,18 @@ class FirmwareInfo extends AbstractModel
 
         if (array_key_exists("FwType",$param) and $param["FwType"] !== null) {
             $this->FwType = $param["FwType"];
+        }
+
+        if (array_key_exists("CreateUserId",$param) and $param["CreateUserId"] !== null) {
+            $this->CreateUserId = $param["CreateUserId"];
+        }
+
+        if (array_key_exists("CreatorNickName",$param) and $param["CreatorNickName"] !== null) {
+            $this->CreatorNickName = $param["CreatorNickName"];
+        }
+
+        if (array_key_exists("UserDefined",$param) and $param["UserDefined"] !== null) {
+            $this->UserDefined = $param["UserDefined"];
         }
     }
 }

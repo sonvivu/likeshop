@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,6 +22,8 @@ use TencentCloud\Common\AbstractModel;
  *
  * @method string getEnvironmentId() 获取环境（命名空间）名称。
  * @method void setEnvironmentId(string $EnvironmentId) 设置环境（命名空间）名称。
+ * @method string getClusterId() 获取Pulsar 集群的ID
+ * @method void setClusterId(string $ClusterId) 设置Pulsar 集群的ID
  * @method string getTopicName() 获取主题名模糊匹配。
  * @method void setTopicName(string $TopicName) 设置主题名模糊匹配。
  * @method integer getOffset() 获取起始下标，不填默认为0。
@@ -29,21 +31,15 @@ use TencentCloud\Common\AbstractModel;
  * @method integer getLimit() 获取返回数量，不填则默认为10，最大值为20。
  * @method void setLimit(integer $Limit) 设置返回数量，不填则默认为10，最大值为20。
  * @method integer getTopicType() 获取topic类型描述：
-0：普通消息；
-1：全局顺序消息；
-2：局部顺序消息；
-3：重试队列；
-4：死信队列；
-5：事务消息。
+0：非持久非分区主题类型；
+1：非持久分区主题类型；
+2：持久非分区主题类型；
+3：持久分区主题类型；
  * @method void setTopicType(integer $TopicType) 设置topic类型描述：
-0：普通消息；
-1：全局顺序消息；
-2：局部顺序消息；
-3：重试队列；
-4：死信队列；
-5：事务消息。
- * @method string getClusterId() 获取Pulsar 集群的ID
- * @method void setClusterId(string $ClusterId) 设置Pulsar 集群的ID
+0：非持久非分区主题类型；
+1：非持久分区主题类型；
+2：持久非分区主题类型；
+3：持久分区主题类型；
  * @method array getFilters() 获取* TopicName
 按照主题名字查询，精确查询。
 类型：String
@@ -52,6 +48,12 @@ use TencentCloud\Common\AbstractModel;
 按照主题名字查询，精确查询。
 类型：String
 必选：否
+ * @method integer getTopicCreator() 获取创建来源：
+1：用户创建
+2：系统创建
+ * @method void setTopicCreator(integer $TopicCreator) 设置创建来源：
+1：用户创建
+2：系统创建
  */
 class DescribeTopicsRequest extends AbstractModel
 {
@@ -59,6 +61,11 @@ class DescribeTopicsRequest extends AbstractModel
      * @var string 环境（命名空间）名称。
      */
     public $EnvironmentId;
+
+    /**
+     * @var string Pulsar 集群的ID
+     */
+    public $ClusterId;
 
     /**
      * @var string 主题名模糊匹配。
@@ -77,19 +84,12 @@ class DescribeTopicsRequest extends AbstractModel
 
     /**
      * @var integer topic类型描述：
-0：普通消息；
-1：全局顺序消息；
-2：局部顺序消息；
-3：重试队列；
-4：死信队列；
-5：事务消息。
+0：非持久非分区主题类型；
+1：非持久分区主题类型；
+2：持久非分区主题类型；
+3：持久分区主题类型；
      */
     public $TopicType;
-
-    /**
-     * @var string Pulsar 集群的ID
-     */
-    public $ClusterId;
 
     /**
      * @var array * TopicName
@@ -100,22 +100,30 @@ class DescribeTopicsRequest extends AbstractModel
     public $Filters;
 
     /**
+     * @var integer 创建来源：
+1：用户创建
+2：系统创建
+     */
+    public $TopicCreator;
+
+    /**
      * @param string $EnvironmentId 环境（命名空间）名称。
+     * @param string $ClusterId Pulsar 集群的ID
      * @param string $TopicName 主题名模糊匹配。
      * @param integer $Offset 起始下标，不填默认为0。
      * @param integer $Limit 返回数量，不填则默认为10，最大值为20。
      * @param integer $TopicType topic类型描述：
-0：普通消息；
-1：全局顺序消息；
-2：局部顺序消息；
-3：重试队列；
-4：死信队列；
-5：事务消息。
-     * @param string $ClusterId Pulsar 集群的ID
+0：非持久非分区主题类型；
+1：非持久分区主题类型；
+2：持久非分区主题类型；
+3：持久分区主题类型；
      * @param array $Filters * TopicName
 按照主题名字查询，精确查询。
 类型：String
 必选：否
+     * @param integer $TopicCreator 创建来源：
+1：用户创建
+2：系统创建
      */
     function __construct()
     {
@@ -134,6 +142,10 @@ class DescribeTopicsRequest extends AbstractModel
             $this->EnvironmentId = $param["EnvironmentId"];
         }
 
+        if (array_key_exists("ClusterId",$param) and $param["ClusterId"] !== null) {
+            $this->ClusterId = $param["ClusterId"];
+        }
+
         if (array_key_exists("TopicName",$param) and $param["TopicName"] !== null) {
             $this->TopicName = $param["TopicName"];
         }
@@ -150,10 +162,6 @@ class DescribeTopicsRequest extends AbstractModel
             $this->TopicType = $param["TopicType"];
         }
 
-        if (array_key_exists("ClusterId",$param) and $param["ClusterId"] !== null) {
-            $this->ClusterId = $param["ClusterId"];
-        }
-
         if (array_key_exists("Filters",$param) and $param["Filters"] !== null) {
             $this->Filters = [];
             foreach ($param["Filters"] as $key => $value){
@@ -161,6 +169,10 @@ class DescribeTopicsRequest extends AbstractModel
                 $obj->deserialize($value);
                 array_push($this->Filters, $obj);
             }
+        }
+
+        if (array_key_exists("TopicCreator",$param) and $param["TopicCreator"] !== null) {
+            $this->TopicCreator = $param["TopicCreator"];
         }
     }
 }

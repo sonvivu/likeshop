@@ -46,14 +46,13 @@ use app\common\model\{AccountLog,
     UserLevel,
     Verification};
 use app\common\server\{ConfigServer, UrlServer};
-use think\Db;
+use think\facade\Db;
 use think\Exception;
 use expressage\{
     Kdniao,
     Kd100
 };
 use think\facade\Env;
-use think\facade\Hook;
 use think\facade\Validate;
 
 
@@ -74,7 +73,7 @@ class OrderLogic extends LogicBase
     public static function info($post, $user_id)
     {
         try{
-            $user = User::get($user_id);
+            $user = User::find($user_id);
             $goods = $post['goods'];
             $item_ids = array_column($goods, 'item_id');
             $infos = self::getGoodsColumn($item_ids);
@@ -265,7 +264,7 @@ class OrderLogic extends LogicBase
         }
 
         //会员折扣价格,不参与商品活动
-        $level_discount = UserLevel::get($level)['discount'] ?? 0;
+        $level_discount = UserLevel::find($level)['discount'] ?? 0;
         if ($goods_info['is_member'] == 1 && $level_discount > 0) {
             //会员折扣价格
             $member_price = round($goods_info['goods_price'] * $level_discount / 10, 2);
@@ -490,7 +489,7 @@ class OrderLogic extends LogicBase
         i.spec_value_str,i.spec_value_ids,i.price as goods_price,i.volume,i.stock,
         i.weight,g.first_category_id,g.second_category_id,g.third_category_id,g.is_express,g.is_selffetch';
 
-        $goods = Db::name('goods g')
+        $goods = Db::name('goods')->alias('g')
             ->join('goods_item i', 'g.id = i.goods_id')
             ->where('i.id', 'in', $item_ids)
             ->column($field, 'i.id');
@@ -517,7 +516,7 @@ class OrderLogic extends LogicBase
             $order_source = $post['client'];
             $goods_lists = $data['goods_lists'];
             $user_address = $data['address'];
-            $user = User::get($user_id);
+            $user = User::find($user_id);
 
             if ($post['delivery_type'] != CommonOrder::DELIVERY_STATUS_SELF && empty($data['address'])) {
                 throw  new Exception(lang('请选择收货地址'));
@@ -931,7 +930,7 @@ class OrderLogic extends LogicBase
      */
     public static function getOrderDetail($order_id, $user_id)
     {
-        $order = Order::get(['del' => 0, 'id' => $order_id, 'user_id' => $user_id], ['orderGoods']);
+        $order = Order::with(['orderGoods'])->find(['del' => 0, 'id' => $order_id, 'user_id' => $user_id]);
         if (!$order){
             return [];
         }
@@ -991,7 +990,7 @@ class OrderLogic extends LogicBase
 
         $order['team'] = [];
         if ($order['order_type'] == CommonOrder::TEAM_ORDER){
-            $team = TeamFound::get($order['team_found_id']);
+            $team = TeamFound::find($order['team_found_id']);
             $order['team'] = [
                 'need' => $team['need'],
                 'status' => $team['status'],
@@ -1040,7 +1039,7 @@ class OrderLogic extends LogicBase
      */
     public static function cancel($order_id, $user_id)
     {
-        $order = Order::get([
+        $order = Order::find([
             'del' => 0,
             'user_id' => $user_id,
             'id' => $order_id
@@ -1105,7 +1104,7 @@ class OrderLogic extends LogicBase
      */
     public static function del($order_id, $user_id)
     {
-        $order = Order::get([
+        $order = Order::find([
             'order_status' => CommonOrder::STATUS_CLOSE,
             'user_id' => $user_id,
             'id' => $order_id,
@@ -1140,7 +1139,7 @@ class OrderLogic extends LogicBase
      */
     public static function confirm($order_id, $user_id)
     {
-        $order = Order::get(['del' => 0, 'id' => $order_id]);
+        $order = Order::find(['del' => 0, 'id' => $order_id]);
         if ($order['order_status'] == CommonOrder::STATUS_FINISH) {
             return self::dataError(lang('订单已完成'));
         }
@@ -1153,7 +1152,7 @@ class OrderLogic extends LogicBase
         $order->save();
 
         // 赠送成长值和积分
-        Hook::listen('give_reward', [
+        event('give_reward', [
             'order_id' => $order_id,
             'scene'    => 3, //3=订单完成
         ]);
@@ -1492,7 +1491,7 @@ class OrderLogic extends LogicBase
             );
 
             // 赠送成长值和积分
-            Hook::listen('give_reward', [
+            event('give_reward', [
                 'order_id' => $order['id'],
                 'scene'    => 3, //3=订单完成
             ]);

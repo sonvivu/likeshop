@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,65 +21,73 @@ use TencentCloud\Common\AbstractModel;
  * DescribeStatisticSummary返回参数结构体
  *
  * @method integer getRecordingDevice() 获取录制设备总数
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setRecordingDevice(integer $RecordingDevice) 设置录制设备总数
-注意：此字段可能返回 null，表示取不到有效值。
  * @method integer getNonRecordingDevice() 获取非录制设备总数
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setNonRecordingDevice(integer $NonRecordingDevice) 设置非录制设备总数
-注意：此字段可能返回 null，表示取不到有效值。
  * @method float getWatchFlux() 获取观看流量总数。为直播观看流量与点播观看流量之和。单位：GB
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setWatchFlux(float $WatchFlux) 设置观看流量总数。为直播观看流量与点播观看流量之和。单位：GB
-注意：此字段可能返回 null，表示取不到有效值。
  * @method float getStorageUsage() 获取累计有效存储容量总数。单位：GB
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setStorageUsage(float $StorageUsage) 设置累计有效存储容量总数。单位：GB
-注意：此字段可能返回 null，表示取不到有效值。
- * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
- * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method float getP2PFluxTotal() 获取X-P2P分享流量。单位 Byte
+ * @method void setP2PFluxTotal(float $P2PFluxTotal) 设置X-P2P分享流量。单位 Byte
+ * @method float getP2PPeakValue() 获取X-P2P峰值带宽。 单位bps
+ * @method void setP2PPeakValue(float $P2PPeakValue) 设置X-P2P峰值带宽。 单位bps
+ * @method integer getLivePushTotal() 获取RTMP推流路数 ( 直播推流)
+ * @method void setLivePushTotal(integer $LivePushTotal) 设置RTMP推流路数 ( 直播推流)
+ * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+ * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
 class DescribeStatisticSummaryResponse extends AbstractModel
 {
     /**
      * @var integer 录制设备总数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $RecordingDevice;
 
     /**
      * @var integer 非录制设备总数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $NonRecordingDevice;
 
     /**
      * @var float 观看流量总数。为直播观看流量与点播观看流量之和。单位：GB
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $WatchFlux;
 
     /**
      * @var float 累计有效存储容量总数。单位：GB
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $StorageUsage;
 
     /**
-     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @var float X-P2P分享流量。单位 Byte
+     */
+    public $P2PFluxTotal;
+
+    /**
+     * @var float X-P2P峰值带宽。 单位bps
+     */
+    public $P2PPeakValue;
+
+    /**
+     * @var integer RTMP推流路数 ( 直播推流)
+     */
+    public $LivePushTotal;
+
+    /**
+     * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public $RequestId;
 
     /**
      * @param integer $RecordingDevice 录制设备总数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param integer $NonRecordingDevice 非录制设备总数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param float $WatchFlux 观看流量总数。为直播观看流量与点播观看流量之和。单位：GB
-注意：此字段可能返回 null，表示取不到有效值。
      * @param float $StorageUsage 累计有效存储容量总数。单位：GB
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @param float $P2PFluxTotal X-P2P分享流量。单位 Byte
+     * @param float $P2PPeakValue X-P2P峰值带宽。 单位bps
+     * @param integer $LivePushTotal RTMP推流路数 ( 直播推流)
+     * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
     {
@@ -108,6 +116,18 @@ class DescribeStatisticSummaryResponse extends AbstractModel
 
         if (array_key_exists("StorageUsage",$param) and $param["StorageUsage"] !== null) {
             $this->StorageUsage = $param["StorageUsage"];
+        }
+
+        if (array_key_exists("P2PFluxTotal",$param) and $param["P2PFluxTotal"] !== null) {
+            $this->P2PFluxTotal = $param["P2PFluxTotal"];
+        }
+
+        if (array_key_exists("P2PPeakValue",$param) and $param["P2PPeakValue"] !== null) {
+            $this->P2PPeakValue = $param["P2PPeakValue"];
+        }
+
+        if (array_key_exists("LivePushTotal",$param) and $param["LivePushTotal"] !== null) {
+            $this->LivePushTotal = $param["LivePushTotal"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

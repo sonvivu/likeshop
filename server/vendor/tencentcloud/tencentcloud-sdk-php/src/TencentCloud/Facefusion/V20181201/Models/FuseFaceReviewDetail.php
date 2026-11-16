@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,11 +24,11 @@ use TencentCloud\Common\AbstractModel;
  * @method void setField(string $Field) 设置保留字段
  * @method string getLabel() 获取人员名称
  * @method void setLabel(string $Label) 设置人员名称
- * @method float getConfidence() 获取对应识别label的置信度，分数越高意味涉政可能性越大。 
+ * @method float getConfidence() 获取对应识别label的置信度，分数越高意味违法违规可能性越大。 
 0到70，Suggestion建议为PASS； 
 70到80，Suggestion建议为REVIEW； 
 80到100，Suggestion建议为BLOCK。
- * @method void setConfidence(float $Confidence) 设置对应识别label的置信度，分数越高意味涉政可能性越大。 
+ * @method void setConfidence(float $Confidence) 设置对应识别label的置信度，分数越高意味违法违规可能性越大。 
 0到70，Suggestion建议为PASS； 
 70到80，Suggestion建议为REVIEW； 
 80到100，Suggestion建议为BLOCK。
@@ -54,7 +54,7 @@ class FuseFaceReviewDetail extends AbstractModel
     public $Label;
 
     /**
-     * @var float 对应识别label的置信度，分数越高意味涉政可能性越大。 
+     * @var float 对应识别label的置信度，分数越高意味违法违规可能性越大。 
 0到70，Suggestion建议为PASS； 
 70到80，Suggestion建议为REVIEW； 
 80到100，Suggestion建议为BLOCK。
@@ -72,7 +72,7 @@ BLOCK：违规
     /**
      * @param string $Field 保留字段
      * @param string $Label 人员名称
-     * @param float $Confidence 对应识别label的置信度，分数越高意味涉政可能性越大。 
+     * @param float $Confidence 对应识别label的置信度，分数越高意味违法违规可能性越大。 
 0到70，Suggestion建议为PASS； 
 70到80，Suggestion建议为REVIEW； 
 80到100，Suggestion建议为BLOCK。

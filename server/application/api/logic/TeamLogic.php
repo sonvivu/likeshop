@@ -39,9 +39,8 @@ use app\common\model\TeamGoodsItem;
 use app\common\model\User;
 use app\common\server\ConfigServer;
 use app\common\server\UrlServer;
-use think\Db;
+use think\facade\Db;
 use think\Exception;
-use think\facade\Hook;
 use think\facade\Validate;
 
 /**
@@ -130,7 +129,7 @@ class TeamLogic extends LogicBase
     public static function setUser($user_id)
     {
         self::$user_id = $user_id;
-        self::$user = User::get($user_id);
+        self::$user = User::find($user_id);
     }
 
     public static function setTeamId($team_id)
@@ -172,7 +171,7 @@ class TeamLogic extends LogicBase
     {
         if ($found_id > 0){
             self::$team_found_id = $found_id;
-            self::$team_found = TeamFound::get($found_id);
+            self::$team_found = TeamFound::find($found_id);
         }
     }
 
@@ -377,8 +376,8 @@ class TeamLogic extends LogicBase
      */
     public static function addTeamFollow($order_id, $found_id, $user_id, $is_found = false)
     {
-        $found = TeamFound::get($found_id);
-        $user = User::get($user_id);
+        $found = TeamFound::find($found_id);
+        $user = User::find($user_id);
 
         $team_follow = new TeamFollow();
         $follow_data = [
@@ -407,8 +406,8 @@ class TeamLogic extends LogicBase
      */
     public static function addTeamFound($order_id, $user_id, $team_id)
     {
-        $user = User::get($user_id);
-        $team_activity = TeamActivity::get(['team_id' => $team_id]);
+        $user = User::find($user_id);
+        $team_activity = TeamActivity::find(['team_id' => $team_id]);
 
         $team_found = new TeamFound();
         $found_data = [
@@ -434,7 +433,7 @@ class TeamLogic extends LogicBase
      */
     public static function updateTeam($order_id)
     {
-        $order = Order::get($order_id);
+        $order = Order::find($order_id);
         $team_found = TeamFound::where(['id' => $order['team_found_id']])->find();
 
         self::incTeamGoodsSale($order_id, $order['team_id']);
@@ -497,7 +496,7 @@ class TeamLogic extends LogicBase
      */
     public static function updateTeamStatus($found_id)
     {
-        $found = TeamFound::get($found_id);
+        $found = TeamFound::find($found_id);
         //人数凑齐,拼团成功
         if ($found['join'] == $found['need']){
             $found->status = Team::STATUS_SUCCESS;

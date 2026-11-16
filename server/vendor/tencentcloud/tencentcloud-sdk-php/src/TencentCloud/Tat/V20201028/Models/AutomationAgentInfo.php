@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,13 +27,15 @@ use TencentCloud\Common\AbstractModel;
  * @method string getLastHeartbeatTime() 获取上次心跳时间
  * @method void setLastHeartbeatTime(string $LastHeartbeatTime) 设置上次心跳时间
  * @method string getAgentStatus() 获取Agent状态，取值范围：
-<li> Online：在线
-<li> Offline：离线
+Online：在线，Offline：离线
+
  * @method void setAgentStatus(string $AgentStatus) 设置Agent状态，取值范围：
-<li> Online：在线
-<li> Offline：离线
- * @method string getEnvironment() 获取Agent运行环境
- * @method void setEnvironment(string $Environment) 设置Agent运行环境
+Online：在线，Offline：离线
+
+ * @method string getEnvironment() 获取Agent运行环境，取值范围：Linux：Linux实例Windows：Windows实例
+ * @method void setEnvironment(string $Environment) 设置Agent运行环境，取值范围：Linux：Linux实例Windows：Windows实例
+ * @method array getSupportFeatures() 获取Agent 支持的功能列表。
+ * @method void setSupportFeatures(array $SupportFeatures) 设置Agent 支持的功能列表。
  */
 class AutomationAgentInfo extends AbstractModel
 {
@@ -54,24 +56,30 @@ class AutomationAgentInfo extends AbstractModel
 
     /**
      * @var string Agent状态，取值范围：
-<li> Online：在线
-<li> Offline：离线
+Online：在线，Offline：离线
+
      */
     public $AgentStatus;
 
     /**
-     * @var string Agent运行环境
+     * @var string Agent运行环境，取值范围：Linux：Linux实例Windows：Windows实例
      */
     public $Environment;
+
+    /**
+     * @var array Agent 支持的功能列表。
+     */
+    public $SupportFeatures;
 
     /**
      * @param string $InstanceId 实例ID。
      * @param string $Version Agent 版本号。
      * @param string $LastHeartbeatTime 上次心跳时间
      * @param string $AgentStatus Agent状态，取值范围：
-<li> Online：在线
-<li> Offline：离线
-     * @param string $Environment Agent运行环境
+Online：在线，Offline：离线
+
+     * @param string $Environment Agent运行环境，取值范围：Linux：Linux实例Windows：Windows实例
+     * @param array $SupportFeatures Agent 支持的功能列表。
      */
     function __construct()
     {
@@ -104,6 +112,10 @@ class AutomationAgentInfo extends AbstractModel
 
         if (array_key_exists("Environment",$param) and $param["Environment"] !== null) {
             $this->Environment = $param["Environment"];
+        }
+
+        if (array_key_exists("SupportFeatures",$param) and $param["SupportFeatures"] !== null) {
+            $this->SupportFeatures = $param["SupportFeatures"];
         }
     }
 }

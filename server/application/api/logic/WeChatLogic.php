@@ -27,7 +27,7 @@ use app\common\server\WeChatServer;
 use EasyWeChat\Kernel\Exceptions\Exception;
 use EasyWeChat\Kernel\Messages\Text;
 use EasyWeChat\Factory;
-use think\Db;
+use think\facade\Db;
 
 
 class WeChatLogic

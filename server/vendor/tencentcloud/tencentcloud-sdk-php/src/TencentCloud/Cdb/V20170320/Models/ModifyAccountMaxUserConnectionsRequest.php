@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,17 +20,17 @@ use TencentCloud\Common\AbstractModel;
 /**
  * ModifyAccountMaxUserConnections请求参数结构体
  *
- * @method array getAccounts() 获取云数据库账号。
- * @method void setAccounts(array $Accounts) 设置云数据库账号。
+ * @method array getAccounts() 获取云数据库账号。可通过 [DescribeAccounts](https://cloud.tencent.com/document/api/236/17499) 接口获取。
+ * @method void setAccounts(array $Accounts) 设置云数据库账号。可通过 [DescribeAccounts](https://cloud.tencent.com/document/api/236/17499) 接口获取。
  * @method string getInstanceId() 获取实例 ID，格式如：cdb-c1nl9rpv，与云数据库控制台页面中显示的实例 ID 相同。
  * @method void setInstanceId(string $InstanceId) 设置实例 ID，格式如：cdb-c1nl9rpv，与云数据库控制台页面中显示的实例 ID 相同。
- * @method integer getMaxUserConnections() 获取设置账户最大可用连接数。
- * @method void setMaxUserConnections(integer $MaxUserConnections) 设置设置账户最大可用连接数。
+ * @method integer getMaxUserConnections() 获取设置账户最大可用连接数，最大可设置值为10240。
+ * @method void setMaxUserConnections(integer $MaxUserConnections) 设置设置账户最大可用连接数，最大可设置值为10240。
  */
 class ModifyAccountMaxUserConnectionsRequest extends AbstractModel
 {
     /**
-     * @var array 云数据库账号。
+     * @var array 云数据库账号。可通过 [DescribeAccounts](https://cloud.tencent.com/document/api/236/17499) 接口获取。
      */
     public $Accounts;
 
@@ -40,14 +40,14 @@ class ModifyAccountMaxUserConnectionsRequest extends AbstractModel
     public $InstanceId;
 
     /**
-     * @var integer 设置账户最大可用连接数。
+     * @var integer 设置账户最大可用连接数，最大可设置值为10240。
      */
     public $MaxUserConnections;
 
     /**
-     * @param array $Accounts 云数据库账号。
+     * @param array $Accounts 云数据库账号。可通过 [DescribeAccounts](https://cloud.tencent.com/document/api/236/17499) 接口获取。
      * @param string $InstanceId 实例 ID，格式如：cdb-c1nl9rpv，与云数据库控制台页面中显示的实例 ID 相同。
-     * @param integer $MaxUserConnections 设置账户最大可用连接数。
+     * @param integer $MaxUserConnections 设置账户最大可用连接数，最大可设置值为10240。
      */
     function __construct()
     {

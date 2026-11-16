@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,6 +26,8 @@ use TencentCloud\Common\AbstractModel;
  * @method void setZone(string $Zone) 设置区域英文编码，对应ZoneSet的Zone字段
  * @method array getSpecItemInfoList() 获取规格详细信息列表
  * @method void setSpecItemInfoList(array $SpecItemInfoList) 设置规格详细信息列表
+ * @method array getSupportKMSRegions() 获取支持KMS的地域
+ * @method void setSupportKMSRegions(array $SupportKMSRegions) 设置支持KMS的地域
  */
 class SpecInfo extends AbstractModel
 {
@@ -45,9 +47,15 @@ class SpecInfo extends AbstractModel
     public $SpecItemInfoList;
 
     /**
+     * @var array 支持KMS的地域
+     */
+    public $SupportKMSRegions;
+
+    /**
      * @param string $Region 地域英文编码，对应RegionSet的Region字段
      * @param string $Zone 区域英文编码，对应ZoneSet的Zone字段
      * @param array $SpecItemInfoList 规格详细信息列表
+     * @param array $SupportKMSRegions 支持KMS的地域
      */
     function __construct()
     {
@@ -77,6 +85,10 @@ class SpecInfo extends AbstractModel
                 $obj->deserialize($value);
                 array_push($this->SpecItemInfoList, $obj);
             }
+        }
+
+        if (array_key_exists("SupportKMSRegions",$param) and $param["SupportKMSRegions"] !== null) {
+            $this->SupportKMSRegions = $param["SupportKMSRegions"];
         }
     }
 }

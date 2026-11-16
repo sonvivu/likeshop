@@ -27,8 +27,7 @@ use app\admin\logic\{AssuranceServiceLogic,
     SupplierLogic,
     FreightLogic,
     CommonLogic};
-use think\Db;
-use think\facade\Hook;
+use think\facade\Db;
 
 class Goods extends AdminBase
 {
@@ -298,7 +297,7 @@ class Goods extends AdminBase
         $result = CommonLogic::changeTableValue($table,$pk_name,$pk_value,$field,$field_value);
         if($result === true){
             // 下架或删除商品，更新商品收藏
-            Hook::listen('update_collect', ['goods_id' => $pk_value]);
+            event('update_collect', ['goods_id' => $pk_value]);
             $this->_success(lang('修改成功'));
         }
         $this->_error($result);

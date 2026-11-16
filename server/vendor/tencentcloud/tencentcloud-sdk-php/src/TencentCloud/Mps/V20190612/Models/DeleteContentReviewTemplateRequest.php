@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,18 +20,18 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DeleteContentReviewTemplate请求参数结构体
  *
- * @method integer getDefinition() 获取内容智能识别模板唯一标识。
- * @method void setDefinition(integer $Definition) 设置内容智能识别模板唯一标识。
+ * @method integer getDefinition() 获取内容审核模板唯一标识。
+ * @method void setDefinition(integer $Definition) 设置内容审核模板唯一标识。
  */
 class DeleteContentReviewTemplateRequest extends AbstractModel
 {
     /**
-     * @var integer 内容智能识别模板唯一标识。
+     * @var integer 内容审核模板唯一标识。
      */
     public $Definition;
 
     /**
-     * @param integer $Definition 内容智能识别模板唯一标识。
+     * @param integer $Definition 内容审核模板唯一标识。
      */
     function __construct()
     {

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -116,6 +116,38 @@ use TencentCloud\Common\AbstractModel;
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setConsumerLimit(string $ConsumerLimit) 设置消费者上限。
 注意：此字段可能返回 null，表示取不到有效值。
+ * @method integer getPulsarTopicType() 获取0: 非持久非分区
+1: 非持久分区
+2: 持久非分区
+3: 持久分区
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setPulsarTopicType(integer $PulsarTopicType) 设置0: 非持久非分区
+1: 非持久分区
+2: 持久非分区
+3: 持久分区
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method integer getMsgTTL() 获取未消费消息过期时间，单位：秒
+
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setMsgTTL(integer $MsgTTL) 设置未消费消息过期时间，单位：秒
+
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getClusterId() 获取集群 ID
+ * @method void setClusterId(string $ClusterId) 设置集群 ID
+ * @method string getTenant() 获取用户自定义的租户别名，如果没有，会复用专业集群 ID
+
+ * @method void setTenant(string $Tenant) 设置用户自定义的租户别名，如果没有，会复用专业集群 ID
+
+ * @method boolean getIsolateConsumerEnable() 获取是否开启异常消费者隔离
+ * @method void setIsolateConsumerEnable(boolean $IsolateConsumerEnable) 设置是否开启异常消费者隔离
+ * @method integer getAckTimeOut() 获取消费者 Ack 超时时间，单位：秒
+ * @method void setAckTimeOut(integer $AckTimeOut) 设置消费者 Ack 超时时间，单位：秒
+ * @method integer getPulsarTopicMessageType() 获取Pulsar主题消息类型0: 混合消息1:普通消息2:延迟消息
+ * @method void setPulsarTopicMessageType(integer $PulsarTopicMessageType) 设置Pulsar主题消息类型0: 混合消息1:普通消息2:延迟消息
+ * @method array getTags() 获取主题标签
+ * @method void setTags(array $Tags) 设置主题标签
+ * @method string getDelayMessagePolicy() 获取defaultPolicy/timingwheelPolicy不传默认是社区版本延迟消息策略
+ * @method void setDelayMessagePolicy(string $DelayMessagePolicy) 设置defaultPolicy/timingwheelPolicy不传默认是社区版本延迟消息策略
  */
 class Topic extends AbstractModel
 {
@@ -252,6 +284,58 @@ class Topic extends AbstractModel
     public $ConsumerLimit;
 
     /**
+     * @var integer 0: 非持久非分区
+1: 非持久分区
+2: 持久非分区
+3: 持久分区
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $PulsarTopicType;
+
+    /**
+     * @var integer 未消费消息过期时间，单位：秒
+
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $MsgTTL;
+
+    /**
+     * @var string 集群 ID
+     */
+    public $ClusterId;
+
+    /**
+     * @var string 用户自定义的租户别名，如果没有，会复用专业集群 ID
+
+     */
+    public $Tenant;
+
+    /**
+     * @var boolean 是否开启异常消费者隔离
+     */
+    public $IsolateConsumerEnable;
+
+    /**
+     * @var integer 消费者 Ack 超时时间，单位：秒
+     */
+    public $AckTimeOut;
+
+    /**
+     * @var integer Pulsar主题消息类型0: 混合消息1:普通消息2:延迟消息
+     */
+    public $PulsarTopicMessageType;
+
+    /**
+     * @var array 主题标签
+     */
+    public $Tags;
+
+    /**
+     * @var string defaultPolicy/timingwheelPolicy不传默认是社区版本延迟消息策略
+     */
+    public $DelayMessagePolicy;
+
+    /**
      * @param string $AverageMsgSize 最后一次间隔内发布消息的平均byte大小。
 注意：此字段可能返回 null，表示取不到有效值。
      * @param string $ConsumerCount 消费者数量。
@@ -300,6 +384,22 @@ class Topic extends AbstractModel
 注意：此字段可能返回 null，表示取不到有效值。
      * @param string $ConsumerLimit 消费者上限。
 注意：此字段可能返回 null，表示取不到有效值。
+     * @param integer $PulsarTopicType 0: 非持久非分区
+1: 非持久分区
+2: 持久非分区
+3: 持久分区
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param integer $MsgTTL 未消费消息过期时间，单位：秒
+
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $ClusterId 集群 ID
+     * @param string $Tenant 用户自定义的租户别名，如果没有，会复用专业集群 ID
+
+     * @param boolean $IsolateConsumerEnable 是否开启异常消费者隔离
+     * @param integer $AckTimeOut 消费者 Ack 超时时间，单位：秒
+     * @param integer $PulsarTopicMessageType Pulsar主题消息类型0: 混合消息1:普通消息2:延迟消息
+     * @param array $Tags 主题标签
+     * @param string $DelayMessagePolicy defaultPolicy/timingwheelPolicy不传默认是社区版本延迟消息策略
      */
     function __construct()
     {
@@ -401,6 +501,47 @@ class Topic extends AbstractModel
 
         if (array_key_exists("ConsumerLimit",$param) and $param["ConsumerLimit"] !== null) {
             $this->ConsumerLimit = $param["ConsumerLimit"];
+        }
+
+        if (array_key_exists("PulsarTopicType",$param) and $param["PulsarTopicType"] !== null) {
+            $this->PulsarTopicType = $param["PulsarTopicType"];
+        }
+
+        if (array_key_exists("MsgTTL",$param) and $param["MsgTTL"] !== null) {
+            $this->MsgTTL = $param["MsgTTL"];
+        }
+
+        if (array_key_exists("ClusterId",$param) and $param["ClusterId"] !== null) {
+            $this->ClusterId = $param["ClusterId"];
+        }
+
+        if (array_key_exists("Tenant",$param) and $param["Tenant"] !== null) {
+            $this->Tenant = $param["Tenant"];
+        }
+
+        if (array_key_exists("IsolateConsumerEnable",$param) and $param["IsolateConsumerEnable"] !== null) {
+            $this->IsolateConsumerEnable = $param["IsolateConsumerEnable"];
+        }
+
+        if (array_key_exists("AckTimeOut",$param) and $param["AckTimeOut"] !== null) {
+            $this->AckTimeOut = $param["AckTimeOut"];
+        }
+
+        if (array_key_exists("PulsarTopicMessageType",$param) and $param["PulsarTopicMessageType"] !== null) {
+            $this->PulsarTopicMessageType = $param["PulsarTopicMessageType"];
+        }
+
+        if (array_key_exists("Tags",$param) and $param["Tags"] !== null) {
+            $this->Tags = [];
+            foreach ($param["Tags"] as $key => $value){
+                $obj = new Tag();
+                $obj->deserialize($value);
+                array_push($this->Tags, $obj);
+            }
+        }
+
+        if (array_key_exists("DelayMessagePolicy",$param) and $param["DelayMessagePolicy"] !== null) {
+            $this->DelayMessagePolicy = $param["DelayMessagePolicy"];
         }
     }
 }

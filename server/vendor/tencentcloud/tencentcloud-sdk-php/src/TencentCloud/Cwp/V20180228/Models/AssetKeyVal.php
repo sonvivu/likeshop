@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,9 +25,9 @@ use TencentCloud\Common\AbstractModel;
  * @method integer getValue() 获取数量
  * @method void setValue(integer $Value) 设置数量
  * @method string getDesc() 获取描述信息
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setDesc(string $Desc) 设置描述信息
-注意：此字段可能返回 null，表示取不到有效值。
+ * @method integer getNewCount() 获取今日新增数量
+ * @method void setNewCount(integer $NewCount) 设置今日新增数量
  */
 class AssetKeyVal extends AbstractModel
 {
@@ -43,15 +43,19 @@ class AssetKeyVal extends AbstractModel
 
     /**
      * @var string 描述信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Desc;
+
+    /**
+     * @var integer 今日新增数量
+     */
+    public $NewCount;
 
     /**
      * @param string $Key 标签
      * @param integer $Value 数量
      * @param string $Desc 描述信息
-注意：此字段可能返回 null，表示取不到有效值。
+     * @param integer $NewCount 今日新增数量
      */
     function __construct()
     {
@@ -76,6 +80,10 @@ class AssetKeyVal extends AbstractModel
 
         if (array_key_exists("Desc",$param) and $param["Desc"] !== null) {
             $this->Desc = $param["Desc"];
+        }
+
+        if (array_key_exists("NewCount",$param) and $param["NewCount"] !== null) {
+            $this->NewCount = $param["NewCount"];
         }
     }
 }

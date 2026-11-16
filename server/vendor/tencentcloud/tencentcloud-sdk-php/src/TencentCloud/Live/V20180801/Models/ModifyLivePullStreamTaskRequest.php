@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,25 +33,27 @@ SourceType为点播（PullVodPushLive）可以填多个，上限30个。
  * @method string getStartTime() 获取开始时间。
 使用UTC格式时间，
 例如：2019-01-08T10:00:00Z。
-注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)。
+注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/267/38543#I)。
  * @method void setStartTime(string $StartTime) 设置开始时间。
 使用UTC格式时间，
 例如：2019-01-08T10:00:00Z。
-注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)。
+注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/267/38543#I)。
  * @method string getEndTime() 获取结束时间，注意：
 1. 结束时间必须大于开始时间；
 2. 结束时间和开始时间必须大于当前时间；
-3. 结束时间 和 开始时间 间隔必须小于七天。
+3. 结束时间 和 开始时间 间隔必须小于30天。
 使用UTC格式时间，
 例如：2019-01-08T10:00:00Z。
-注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)。
+注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/267/38543#I)。
+4. 只修改EndTime进行续期， 不会影响正在进行中的任务。
  * @method void setEndTime(string $EndTime) 设置结束时间，注意：
 1. 结束时间必须大于开始时间；
 2. 结束时间和开始时间必须大于当前时间；
-3. 结束时间 和 开始时间 间隔必须小于七天。
+3. 结束时间 和 开始时间 间隔必须小于30天。
 使用UTC格式时间，
 例如：2019-01-08T10:00:00Z。
-注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)。
+注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/267/38543#I)。
+4. 只修改EndTime进行续期， 不会影响正在进行中的任务。
  * @method integer getVodLoopTimes() 获取点播拉流转推循环次数。
 -1：无限循环，直到任务结束。
 0：不循环。
@@ -93,27 +95,79 @@ ResetTaskConfig：任务更新回调。
  * @method void setCallbackUrl(string $CallbackUrl) 设置自定义回调地址。
 相关事件会回调到该地址。
  * @method integer getFileIndex() 获取指定播放文件索引。
-注意：
-1. 从1开始，不大于SourceUrls中文件个数。
-2. 只有VodRefreshType为ContinueBeginPoint时指定才有效。
-3. 只有当前任务处于暂停时，指定后启动任务才会生效。
+注意： 从1开始，不大于SourceUrls中文件个数。
  * @method void setFileIndex(integer $FileIndex) 设置指定播放文件索引。
-注意：
-1. 从1开始，不大于SourceUrls中文件个数。
-2. 只有VodRefreshType为ContinueBeginPoint时指定才有效。
-3. 只有当前任务处于暂停时，指定后启动任务才会生效。
+注意： 从1开始，不大于SourceUrls中文件个数。
  * @method integer getOffsetTime() 获取指定播放文件偏移。
 注意：
 1. 单位：秒，配合FileIndex使用。
-2. 只有VodRefreshType为ContinueBeginPoint时指定才有效。
-3. 只有当前任务处于暂停时，指定后启动任务才会生效。
  * @method void setOffsetTime(integer $OffsetTime) 设置指定播放文件偏移。
 注意：
 1. 单位：秒，配合FileIndex使用。
-2. 只有VodRefreshType为ContinueBeginPoint时指定才有效。
-3. 只有当前任务处于暂停时，指定后启动任务才会生效。
+ * @method string getSpecifyTaskId() 获取指定任务 ID 修改任务。
+
+注意：该自定义任务 ID 只有在创建任务时指定了，才可在此处修改时使用。否则请使用系统返回的任务 ID。
+ * @method void setSpecifyTaskId(string $SpecifyTaskId) 设置指定任务 ID 修改任务。
+
+注意：该自定义任务 ID 只有在创建任务时指定了，才可在此处修改时使用。否则请使用系统返回的任务 ID。
+ * @method string getToUrl() 获取目标 Url。
+换目标地址，会断流重推到新地址。
+ * @method void setToUrl(string $ToUrl) 设置目标 Url。
+换目标地址，会断流重推到新地址。
  * @method string getComment() 获取任务备注。
  * @method void setComment(string $Comment) 设置任务备注。
+ * @method string getBackupSourceType() 获取备源的类型：
+PullLivePushLive -直播，
+PullVodPushLive -点播。
+注意：
+1. 仅当主源类型为直播源时，备源才会生效。
+2. 将该参数置为空，则可将任务去除备源信息。
+3. 主直播源拉流中断时，自动使用备源进行拉流。
+4. 如果备源为点播文件时，则每次轮播完点播文件就检查主源是否恢复，如果主源恢复则自动切回到主源，否则继续拉备源。
+ * @method void setBackupSourceType(string $BackupSourceType) 设置备源的类型：
+PullLivePushLive -直播，
+PullVodPushLive -点播。
+注意：
+1. 仅当主源类型为直播源时，备源才会生效。
+2. 将该参数置为空，则可将任务去除备源信息。
+3. 主直播源拉流中断时，自动使用备源进行拉流。
+4. 如果备源为点播文件时，则每次轮播完点播文件就检查主源是否恢复，如果主源恢复则自动切回到主源，否则继续拉备源。
+ * @method string getBackupSourceUrl() 获取备源 URL。
+只允许填一个备源 URL
+ * @method void setBackupSourceUrl(string $BackupSourceUrl) 设置备源 URL。
+只允许填一个备源 URL
+ * @method array getWatermarkList() 获取水印信息列表。
+注意：
+1. 最多支持4个不同位置的水印。
+2. 水印图片 URL 请使用合法外网可访问地址。
+3. 支持的水印图片格式：png，jpg等。
+4. 轮播任务修改水印后，轮播到下一个文件时新水印生效。
+5. 直播源任务修改水印后，水印立即生效。
+6. 清除水印时，需携带该水印列表参数，内容为空数组。
+7. 暂不支持动图水印。
+ * @method void setWatermarkList(array $WatermarkList) 设置水印信息列表。
+注意：
+1. 最多支持4个不同位置的水印。
+2. 水印图片 URL 请使用合法外网可访问地址。
+3. 支持的水印图片格式：png，jpg等。
+4. 轮播任务修改水印后，轮播到下一个文件时新水印生效。
+5. 直播源任务修改水印后，水印立即生效。
+6. 清除水印时，需携带该水印列表参数，内容为空数组。
+7. 暂不支持动图水印。
+ * @method integer getVodLocalMode() 获取点播源是否启用本地推流模式，默认0，不启用。
+0 - 不启用。
+1 - 启用。
+注意：启用本地模式后，会将源列表中的 MP4 文件进行本地下载，优先使用本地已下载文件进行推流，提高点播源推流稳定性。使用本地下载文件推流时，会产生增值费用。
+ * @method void setVodLocalMode(integer $VodLocalMode) 设置点播源是否启用本地推流模式，默认0，不启用。
+0 - 不启用。
+1 - 启用。
+注意：启用本地模式后，会将源列表中的 MP4 文件进行本地下载，优先使用本地已下载文件进行推流，提高点播源推流稳定性。使用本地下载文件推流时，会产生增值费用。
+ * @method string getBackupToUrl() 获取新的目标地址。传空值，则取消该地址的推流。
+传入新值，则替换原有地址。
+ * @method void setBackupToUrl(string $BackupToUrl) 设置新的目标地址。传空值，则取消该地址的推流。
+传入新值，则替换原有地址。
+ * @method string getBackupVodUrl() 获取点播垫片文件地址。注意：用于在主源拉不到时自动兜底到垫片文件，切到垫片文件后，每次播完垫片会尝试拉主源，如果主源恢复则自动切回主源。可根据需要的轮询检查时长来传入对应时长的垫片文件。
+ * @method void setBackupVodUrl(string $BackupVodUrl) 设置点播垫片文件地址。注意：用于在主源拉不到时自动兜底到垫片文件，切到垫片文件后，每次播完垫片会尝试拉主源，如果主源恢复则自动切回主源。可根据需要的轮询检查时长来传入对应时长的垫片文件。
  */
 class ModifyLivePullStreamTaskRequest extends AbstractModel
 {
@@ -138,7 +192,7 @@ SourceType为点播（PullVodPushLive）可以填多个，上限30个。
      * @var string 开始时间。
 使用UTC格式时间，
 例如：2019-01-08T10:00:00Z。
-注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)。
+注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/267/38543#I)。
      */
     public $StartTime;
 
@@ -146,10 +200,11 @@ SourceType为点播（PullVodPushLive）可以填多个，上限30个。
      * @var string 结束时间，注意：
 1. 结束时间必须大于开始时间；
 2. 结束时间和开始时间必须大于当前时间；
-3. 结束时间 和 开始时间 间隔必须小于七天。
+3. 结束时间 和 开始时间 间隔必须小于30天。
 使用UTC格式时间，
 例如：2019-01-08T10:00:00Z。
-注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)。
+注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/267/38543#I)。
+4. 只修改EndTime进行续期， 不会影响正在进行中的任务。
      */
     public $EndTime;
 
@@ -195,10 +250,7 @@ ResetTaskConfig：任务更新回调。
 
     /**
      * @var integer 指定播放文件索引。
-注意：
-1. 从1开始，不大于SourceUrls中文件个数。
-2. 只有VodRefreshType为ContinueBeginPoint时指定才有效。
-3. 只有当前任务处于暂停时，指定后启动任务才会生效。
+注意： 从1开始，不大于SourceUrls中文件个数。
      */
     public $FileIndex;
 
@@ -206,15 +258,76 @@ ResetTaskConfig：任务更新回调。
      * @var integer 指定播放文件偏移。
 注意：
 1. 单位：秒，配合FileIndex使用。
-2. 只有VodRefreshType为ContinueBeginPoint时指定才有效。
-3. 只有当前任务处于暂停时，指定后启动任务才会生效。
      */
     public $OffsetTime;
+
+    /**
+     * @var string 指定任务 ID 修改任务。
+
+注意：该自定义任务 ID 只有在创建任务时指定了，才可在此处修改时使用。否则请使用系统返回的任务 ID。
+     */
+    public $SpecifyTaskId;
+
+    /**
+     * @var string 目标 Url。
+换目标地址，会断流重推到新地址。
+     */
+    public $ToUrl;
 
     /**
      * @var string 任务备注。
      */
     public $Comment;
+
+    /**
+     * @var string 备源的类型：
+PullLivePushLive -直播，
+PullVodPushLive -点播。
+注意：
+1. 仅当主源类型为直播源时，备源才会生效。
+2. 将该参数置为空，则可将任务去除备源信息。
+3. 主直播源拉流中断时，自动使用备源进行拉流。
+4. 如果备源为点播文件时，则每次轮播完点播文件就检查主源是否恢复，如果主源恢复则自动切回到主源，否则继续拉备源。
+     */
+    public $BackupSourceType;
+
+    /**
+     * @var string 备源 URL。
+只允许填一个备源 URL
+     */
+    public $BackupSourceUrl;
+
+    /**
+     * @var array 水印信息列表。
+注意：
+1. 最多支持4个不同位置的水印。
+2. 水印图片 URL 请使用合法外网可访问地址。
+3. 支持的水印图片格式：png，jpg等。
+4. 轮播任务修改水印后，轮播到下一个文件时新水印生效。
+5. 直播源任务修改水印后，水印立即生效。
+6. 清除水印时，需携带该水印列表参数，内容为空数组。
+7. 暂不支持动图水印。
+     */
+    public $WatermarkList;
+
+    /**
+     * @var integer 点播源是否启用本地推流模式，默认0，不启用。
+0 - 不启用。
+1 - 启用。
+注意：启用本地模式后，会将源列表中的 MP4 文件进行本地下载，优先使用本地已下载文件进行推流，提高点播源推流稳定性。使用本地下载文件推流时，会产生增值费用。
+     */
+    public $VodLocalMode;
+
+    /**
+     * @var string 新的目标地址。传空值，则取消该地址的推流。
+传入新值，则替换原有地址。
+     */
+    public $BackupToUrl;
+
+    /**
+     * @var string 点播垫片文件地址。注意：用于在主源拉不到时自动兜底到垫片文件，切到垫片文件后，每次播完垫片会尝试拉主源，如果主源恢复则自动切回主源。可根据需要的轮询检查时长来传入对应时长的垫片文件。
+     */
+    public $BackupVodUrl;
 
     /**
      * @param string $TaskId 任务Id。
@@ -225,14 +338,15 @@ SourceType为点播（PullVodPushLive）可以填多个，上限30个。
      * @param string $StartTime 开始时间。
 使用UTC格式时间，
 例如：2019-01-08T10:00:00Z。
-注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)。
+注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/267/38543#I)。
      * @param string $EndTime 结束时间，注意：
 1. 结束时间必须大于开始时间；
 2. 结束时间和开始时间必须大于当前时间；
-3. 结束时间 和 开始时间 间隔必须小于七天。
+3. 结束时间 和 开始时间 间隔必须小于30天。
 使用UTC格式时间，
 例如：2019-01-08T10:00:00Z。
-注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)。
+注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/267/38543#I)。
+4. 只修改EndTime进行续期， 不会影响正在进行中的任务。
      * @param integer $VodLoopTimes 点播拉流转推循环次数。
 -1：无限循环，直到任务结束。
 0：不循环。
@@ -254,16 +368,42 @@ ResetTaskConfig：任务更新回调。
      * @param string $CallbackUrl 自定义回调地址。
 相关事件会回调到该地址。
      * @param integer $FileIndex 指定播放文件索引。
-注意：
-1. 从1开始，不大于SourceUrls中文件个数。
-2. 只有VodRefreshType为ContinueBeginPoint时指定才有效。
-3. 只有当前任务处于暂停时，指定后启动任务才会生效。
+注意： 从1开始，不大于SourceUrls中文件个数。
      * @param integer $OffsetTime 指定播放文件偏移。
 注意：
 1. 单位：秒，配合FileIndex使用。
-2. 只有VodRefreshType为ContinueBeginPoint时指定才有效。
-3. 只有当前任务处于暂停时，指定后启动任务才会生效。
+     * @param string $SpecifyTaskId 指定任务 ID 修改任务。
+
+注意：该自定义任务 ID 只有在创建任务时指定了，才可在此处修改时使用。否则请使用系统返回的任务 ID。
+     * @param string $ToUrl 目标 Url。
+换目标地址，会断流重推到新地址。
      * @param string $Comment 任务备注。
+     * @param string $BackupSourceType 备源的类型：
+PullLivePushLive -直播，
+PullVodPushLive -点播。
+注意：
+1. 仅当主源类型为直播源时，备源才会生效。
+2. 将该参数置为空，则可将任务去除备源信息。
+3. 主直播源拉流中断时，自动使用备源进行拉流。
+4. 如果备源为点播文件时，则每次轮播完点播文件就检查主源是否恢复，如果主源恢复则自动切回到主源，否则继续拉备源。
+     * @param string $BackupSourceUrl 备源 URL。
+只允许填一个备源 URL
+     * @param array $WatermarkList 水印信息列表。
+注意：
+1. 最多支持4个不同位置的水印。
+2. 水印图片 URL 请使用合法外网可访问地址。
+3. 支持的水印图片格式：png，jpg等。
+4. 轮播任务修改水印后，轮播到下一个文件时新水印生效。
+5. 直播源任务修改水印后，水印立即生效。
+6. 清除水印时，需携带该水印列表参数，内容为空数组。
+7. 暂不支持动图水印。
+     * @param integer $VodLocalMode 点播源是否启用本地推流模式，默认0，不启用。
+0 - 不启用。
+1 - 启用。
+注意：启用本地模式后，会将源列表中的 MP4 文件进行本地下载，优先使用本地已下载文件进行推流，提高点播源推流稳定性。使用本地下载文件推流时，会产生增值费用。
+     * @param string $BackupToUrl 新的目标地址。传空值，则取消该地址的推流。
+传入新值，则替换原有地址。
+     * @param string $BackupVodUrl 点播垫片文件地址。注意：用于在主源拉不到时自动兜底到垫片文件，切到垫片文件后，每次播完垫片会尝试拉主源，如果主源恢复则自动切回主源。可根据需要的轮询检查时长来传入对应时长的垫片文件。
      */
     function __construct()
     {
@@ -326,8 +466,45 @@ ResetTaskConfig：任务更新回调。
             $this->OffsetTime = $param["OffsetTime"];
         }
 
+        if (array_key_exists("SpecifyTaskId",$param) and $param["SpecifyTaskId"] !== null) {
+            $this->SpecifyTaskId = $param["SpecifyTaskId"];
+        }
+
+        if (array_key_exists("ToUrl",$param) and $param["ToUrl"] !== null) {
+            $this->ToUrl = $param["ToUrl"];
+        }
+
         if (array_key_exists("Comment",$param) and $param["Comment"] !== null) {
             $this->Comment = $param["Comment"];
+        }
+
+        if (array_key_exists("BackupSourceType",$param) and $param["BackupSourceType"] !== null) {
+            $this->BackupSourceType = $param["BackupSourceType"];
+        }
+
+        if (array_key_exists("BackupSourceUrl",$param) and $param["BackupSourceUrl"] !== null) {
+            $this->BackupSourceUrl = $param["BackupSourceUrl"];
+        }
+
+        if (array_key_exists("WatermarkList",$param) and $param["WatermarkList"] !== null) {
+            $this->WatermarkList = [];
+            foreach ($param["WatermarkList"] as $key => $value){
+                $obj = new PullPushWatermarkInfo();
+                $obj->deserialize($value);
+                array_push($this->WatermarkList, $obj);
+            }
+        }
+
+        if (array_key_exists("VodLocalMode",$param) and $param["VodLocalMode"] !== null) {
+            $this->VodLocalMode = $param["VodLocalMode"];
+        }
+
+        if (array_key_exists("BackupToUrl",$param) and $param["BackupToUrl"] !== null) {
+            $this->BackupToUrl = $param["BackupToUrl"];
+        }
+
+        if (array_key_exists("BackupVodUrl",$param) and $param["BackupVodUrl"] !== null) {
+            $this->BackupVodUrl = $param["BackupVodUrl"];
         }
     }
 }

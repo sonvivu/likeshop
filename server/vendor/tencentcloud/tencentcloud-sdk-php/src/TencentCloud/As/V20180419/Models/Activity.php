@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,46 +24,66 @@ use TencentCloud\Common\AbstractModel;
  * @method void setAutoScalingGroupId(string $AutoScalingGroupId) 设置伸缩组ID。
  * @method string getActivityId() 获取伸缩活动ID。
  * @method void setActivityId(string $ActivityId) 设置伸缩活动ID。
- * @method string getActivityType() 获取伸缩活动类型。取值如下：<br>
-<li>SCALE_OUT：扩容活动<li>SCALE_IN：缩容活动<li>ATTACH_INSTANCES：添加实例<li>REMOVE_INSTANCES：销毁实例<li>DETACH_INSTANCES：移出实例<li>TERMINATE_INSTANCES_UNEXPECTEDLY：实例在CVM控制台被销毁<li>REPLACE_UNHEALTHY_INSTANCE：替换不健康实例
-<li>START_INSTANCES：开启实例
-<li>STOP_INSTANCES：关闭实例
- * @method void setActivityType(string $ActivityType) 设置伸缩活动类型。取值如下：<br>
-<li>SCALE_OUT：扩容活动<li>SCALE_IN：缩容活动<li>ATTACH_INSTANCES：添加实例<li>REMOVE_INSTANCES：销毁实例<li>DETACH_INSTANCES：移出实例<li>TERMINATE_INSTANCES_UNEXPECTEDLY：实例在CVM控制台被销毁<li>REPLACE_UNHEALTHY_INSTANCE：替换不健康实例
-<li>START_INSTANCES：开启实例
-<li>STOP_INSTANCES：关闭实例
- * @method string getStatusCode() 获取伸缩活动状态。取值如下：<br>
-<li>INIT：初始化中
-<li>RUNNING：运行中
-<li>SUCCESSFUL：活动成功
-<li>PARTIALLY_SUCCESSFUL：活动部分成功
-<li>FAILED：活动失败
-<li>CANCELLED：活动取消
- * @method void setStatusCode(string $StatusCode) 设置伸缩活动状态。取值如下：<br>
-<li>INIT：初始化中
-<li>RUNNING：运行中
-<li>SUCCESSFUL：活动成功
-<li>PARTIALLY_SUCCESSFUL：活动部分成功
-<li>FAILED：活动失败
-<li>CANCELLED：活动取消
+ * @method string getActivityType() 获取伸缩活动类型。取值如下：
+<li>SCALE_OUT：扩容活动</li>
+<li>SCALE_IN：缩容活动</li>
+<li>ATTACH_INSTANCES：添加实例</li>
+<li>REMOVE_INSTANCES：销毁实例</li>
+<li>DETACH_INSTANCES：移出实例</li>
+<li>TERMINATE_INSTANCES_UNEXPECTEDLY：实例在CVM控制台被销毁</li>
+<li>REPLACE_UNHEALTHY_INSTANCE：替换不健康实例</li>
+<li>START_INSTANCES：开启实例</li>
+<li>STOP_INSTANCES：关闭实例</li>
+<li>INVOKE_COMMAND：执行命令</li>
+ * @method void setActivityType(string $ActivityType) 设置伸缩活动类型。取值如下：
+<li>SCALE_OUT：扩容活动</li>
+<li>SCALE_IN：缩容活动</li>
+<li>ATTACH_INSTANCES：添加实例</li>
+<li>REMOVE_INSTANCES：销毁实例</li>
+<li>DETACH_INSTANCES：移出实例</li>
+<li>TERMINATE_INSTANCES_UNEXPECTEDLY：实例在CVM控制台被销毁</li>
+<li>REPLACE_UNHEALTHY_INSTANCE：替换不健康实例</li>
+<li>START_INSTANCES：开启实例</li>
+<li>STOP_INSTANCES：关闭实例</li>
+<li>INVOKE_COMMAND：执行命令</li>
+ * @method string getStatusCode() 获取伸缩活动状态。取值如下
+<li>INIT：初始化中</li>
+<li>RUNNING：运行中</li>
+<li>SUCCESSFUL：活动成功</li>
+<li>PARTIALLY_SUCCESSFUL：活动部分成功</li>
+<li>FAILED：活动失败</li>
+<li>CANCELLED：活动取消</li>
+ * @method void setStatusCode(string $StatusCode) 设置伸缩活动状态。取值如下
+<li>INIT：初始化中</li>
+<li>RUNNING：运行中</li>
+<li>SUCCESSFUL：活动成功</li>
+<li>PARTIALLY_SUCCESSFUL：活动部分成功</li>
+<li>FAILED：活动失败</li>
+<li>CANCELLED：活动取消</li>
  * @method string getStatusMessage() 获取伸缩活动状态描述。
  * @method void setStatusMessage(string $StatusMessage) 设置伸缩活动状态描述。
  * @method string getCause() 获取伸缩活动起因。
  * @method void setCause(string $Cause) 设置伸缩活动起因。
  * @method string getDescription() 获取伸缩活动描述。
  * @method void setDescription(string $Description) 设置伸缩活动描述。
- * @method string getStartTime() 获取伸缩活动开始时间。
- * @method void setStartTime(string $StartTime) 设置伸缩活动开始时间。
- * @method string getEndTime() 获取伸缩活动结束时间。
- * @method void setEndTime(string $EndTime) 设置伸缩活动结束时间。
- * @method string getCreatedTime() 获取伸缩活动创建时间。
- * @method void setCreatedTime(string $CreatedTime) 设置伸缩活动创建时间。
- * @method array getActivityRelatedInstanceSet() 获取伸缩活动相关实例信息集合。
- * @method void setActivityRelatedInstanceSet(array $ActivityRelatedInstanceSet) 设置伸缩活动相关实例信息集合。
+ * @method string getStartTime() 获取伸缩活动开始时间，为 `UTC` 标准时间。
+ * @method void setStartTime(string $StartTime) 设置伸缩活动开始时间，为 `UTC` 标准时间。
+ * @method string getEndTime() 获取伸缩活动结束时间，为 `UTC` 标准时间。
+ * @method void setEndTime(string $EndTime) 设置伸缩活动结束时间，为 `UTC` 标准时间。
+ * @method string getCreatedTime() 获取伸缩活动创建时间，为 `UTC` 标准时间。
+ * @method void setCreatedTime(string $CreatedTime) 设置伸缩活动创建时间，为 `UTC` 标准时间。
+ * @method array getActivityRelatedInstanceSet() 获取该参数已废弃，请勿使用。
+ * @method void setActivityRelatedInstanceSet(array $ActivityRelatedInstanceSet) 设置该参数已废弃，请勿使用。
  * @method string getStatusMessageSimplified() 获取伸缩活动状态简要描述。
  * @method void setStatusMessageSimplified(string $StatusMessageSimplified) 设置伸缩活动状态简要描述。
  * @method array getLifecycleActionResultSet() 获取伸缩活动中生命周期挂钩的执行结果。
  * @method void setLifecycleActionResultSet(array $LifecycleActionResultSet) 设置伸缩活动中生命周期挂钩的执行结果。
+ * @method array getDetailedStatusMessageSet() 获取伸缩活动状态详细描述。
+ * @method void setDetailedStatusMessageSet(array $DetailedStatusMessageSet) 设置伸缩活动状态详细描述。
+ * @method array getInvocationResultSet() 获取执行命令结果。
+ * @method void setInvocationResultSet(array $InvocationResultSet) 设置执行命令结果。
+ * @method array getRelatedInstanceSet() 获取伸缩活动相关实例信息集合。
+ * @method void setRelatedInstanceSet(array $RelatedInstanceSet) 设置伸缩活动相关实例信息集合。
  */
 class Activity extends AbstractModel
 {
@@ -78,21 +98,28 @@ class Activity extends AbstractModel
     public $ActivityId;
 
     /**
-     * @var string 伸缩活动类型。取值如下：<br>
-<li>SCALE_OUT：扩容活动<li>SCALE_IN：缩容活动<li>ATTACH_INSTANCES：添加实例<li>REMOVE_INSTANCES：销毁实例<li>DETACH_INSTANCES：移出实例<li>TERMINATE_INSTANCES_UNEXPECTEDLY：实例在CVM控制台被销毁<li>REPLACE_UNHEALTHY_INSTANCE：替换不健康实例
-<li>START_INSTANCES：开启实例
-<li>STOP_INSTANCES：关闭实例
+     * @var string 伸缩活动类型。取值如下：
+<li>SCALE_OUT：扩容活动</li>
+<li>SCALE_IN：缩容活动</li>
+<li>ATTACH_INSTANCES：添加实例</li>
+<li>REMOVE_INSTANCES：销毁实例</li>
+<li>DETACH_INSTANCES：移出实例</li>
+<li>TERMINATE_INSTANCES_UNEXPECTEDLY：实例在CVM控制台被销毁</li>
+<li>REPLACE_UNHEALTHY_INSTANCE：替换不健康实例</li>
+<li>START_INSTANCES：开启实例</li>
+<li>STOP_INSTANCES：关闭实例</li>
+<li>INVOKE_COMMAND：执行命令</li>
      */
     public $ActivityType;
 
     /**
-     * @var string 伸缩活动状态。取值如下：<br>
-<li>INIT：初始化中
-<li>RUNNING：运行中
-<li>SUCCESSFUL：活动成功
-<li>PARTIALLY_SUCCESSFUL：活动部分成功
-<li>FAILED：活动失败
-<li>CANCELLED：活动取消
+     * @var string 伸缩活动状态。取值如下
+<li>INIT：初始化中</li>
+<li>RUNNING：运行中</li>
+<li>SUCCESSFUL：活动成功</li>
+<li>PARTIALLY_SUCCESSFUL：活动部分成功</li>
+<li>FAILED：活动失败</li>
+<li>CANCELLED：活动取消</li>
      */
     public $StatusCode;
 
@@ -112,22 +139,23 @@ class Activity extends AbstractModel
     public $Description;
 
     /**
-     * @var string 伸缩活动开始时间。
+     * @var string 伸缩活动开始时间，为 `UTC` 标准时间。
      */
     public $StartTime;
 
     /**
-     * @var string 伸缩活动结束时间。
+     * @var string 伸缩活动结束时间，为 `UTC` 标准时间。
      */
     public $EndTime;
 
     /**
-     * @var string 伸缩活动创建时间。
+     * @var string 伸缩活动创建时间，为 `UTC` 标准时间。
      */
     public $CreatedTime;
 
     /**
-     * @var array 伸缩活动相关实例信息集合。
+     * @var array 该参数已废弃，请勿使用。
+     * @deprecated
      */
     public $ActivityRelatedInstanceSet;
 
@@ -142,28 +170,53 @@ class Activity extends AbstractModel
     public $LifecycleActionResultSet;
 
     /**
+     * @var array 伸缩活动状态详细描述。
+     */
+    public $DetailedStatusMessageSet;
+
+    /**
+     * @var array 执行命令结果。
+     */
+    public $InvocationResultSet;
+
+    /**
+     * @var array 伸缩活动相关实例信息集合。
+     */
+    public $RelatedInstanceSet;
+
+    /**
      * @param string $AutoScalingGroupId 伸缩组ID。
      * @param string $ActivityId 伸缩活动ID。
-     * @param string $ActivityType 伸缩活动类型。取值如下：<br>
-<li>SCALE_OUT：扩容活动<li>SCALE_IN：缩容活动<li>ATTACH_INSTANCES：添加实例<li>REMOVE_INSTANCES：销毁实例<li>DETACH_INSTANCES：移出实例<li>TERMINATE_INSTANCES_UNEXPECTEDLY：实例在CVM控制台被销毁<li>REPLACE_UNHEALTHY_INSTANCE：替换不健康实例
-<li>START_INSTANCES：开启实例
-<li>STOP_INSTANCES：关闭实例
-     * @param string $StatusCode 伸缩活动状态。取值如下：<br>
-<li>INIT：初始化中
-<li>RUNNING：运行中
-<li>SUCCESSFUL：活动成功
-<li>PARTIALLY_SUCCESSFUL：活动部分成功
-<li>FAILED：活动失败
-<li>CANCELLED：活动取消
+     * @param string $ActivityType 伸缩活动类型。取值如下：
+<li>SCALE_OUT：扩容活动</li>
+<li>SCALE_IN：缩容活动</li>
+<li>ATTACH_INSTANCES：添加实例</li>
+<li>REMOVE_INSTANCES：销毁实例</li>
+<li>DETACH_INSTANCES：移出实例</li>
+<li>TERMINATE_INSTANCES_UNEXPECTEDLY：实例在CVM控制台被销毁</li>
+<li>REPLACE_UNHEALTHY_INSTANCE：替换不健康实例</li>
+<li>START_INSTANCES：开启实例</li>
+<li>STOP_INSTANCES：关闭实例</li>
+<li>INVOKE_COMMAND：执行命令</li>
+     * @param string $StatusCode 伸缩活动状态。取值如下
+<li>INIT：初始化中</li>
+<li>RUNNING：运行中</li>
+<li>SUCCESSFUL：活动成功</li>
+<li>PARTIALLY_SUCCESSFUL：活动部分成功</li>
+<li>FAILED：活动失败</li>
+<li>CANCELLED：活动取消</li>
      * @param string $StatusMessage 伸缩活动状态描述。
      * @param string $Cause 伸缩活动起因。
      * @param string $Description 伸缩活动描述。
-     * @param string $StartTime 伸缩活动开始时间。
-     * @param string $EndTime 伸缩活动结束时间。
-     * @param string $CreatedTime 伸缩活动创建时间。
-     * @param array $ActivityRelatedInstanceSet 伸缩活动相关实例信息集合。
+     * @param string $StartTime 伸缩活动开始时间，为 `UTC` 标准时间。
+     * @param string $EndTime 伸缩活动结束时间，为 `UTC` 标准时间。
+     * @param string $CreatedTime 伸缩活动创建时间，为 `UTC` 标准时间。
+     * @param array $ActivityRelatedInstanceSet 该参数已废弃，请勿使用。
      * @param string $StatusMessageSimplified 伸缩活动状态简要描述。
      * @param array $LifecycleActionResultSet 伸缩活动中生命周期挂钩的执行结果。
+     * @param array $DetailedStatusMessageSet 伸缩活动状态详细描述。
+     * @param array $InvocationResultSet 执行命令结果。
+     * @param array $RelatedInstanceSet 伸缩活动相关实例信息集合。
      */
     function __construct()
     {
@@ -237,6 +290,33 @@ class Activity extends AbstractModel
                 $obj = new LifecycleActionResultInfo();
                 $obj->deserialize($value);
                 array_push($this->LifecycleActionResultSet, $obj);
+            }
+        }
+
+        if (array_key_exists("DetailedStatusMessageSet",$param) and $param["DetailedStatusMessageSet"] !== null) {
+            $this->DetailedStatusMessageSet = [];
+            foreach ($param["DetailedStatusMessageSet"] as $key => $value){
+                $obj = new DetailedStatusMessage();
+                $obj->deserialize($value);
+                array_push($this->DetailedStatusMessageSet, $obj);
+            }
+        }
+
+        if (array_key_exists("InvocationResultSet",$param) and $param["InvocationResultSet"] !== null) {
+            $this->InvocationResultSet = [];
+            foreach ($param["InvocationResultSet"] as $key => $value){
+                $obj = new InvocationResult();
+                $obj->deserialize($value);
+                array_push($this->InvocationResultSet, $obj);
+            }
+        }
+
+        if (array_key_exists("RelatedInstanceSet",$param) and $param["RelatedInstanceSet"] !== null) {
+            $this->RelatedInstanceSet = [];
+            foreach ($param["RelatedInstanceSet"] as $key => $value){
+                $obj = new RelatedInstance();
+                $obj->deserialize($value);
+                array_push($this->RelatedInstanceSet, $obj);
             }
         }
     }

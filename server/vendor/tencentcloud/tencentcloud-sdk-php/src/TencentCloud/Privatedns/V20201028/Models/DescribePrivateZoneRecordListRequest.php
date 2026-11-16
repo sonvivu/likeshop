@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,24 +20,24 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribePrivateZoneRecordList请求参数结构体
  *
- * @method string getZoneId() 获取私有域ID: zone-xxxxxx
- * @method void setZoneId(string $ZoneId) 设置私有域ID: zone-xxxxxx
- * @method array getFilters() 获取过滤参数
- * @method void setFilters(array $Filters) 设置过滤参数
+ * @method string getZoneId() 获取私有域ID: zone-12c5a6e8
+ * @method void setZoneId(string $ZoneId) 设置私有域ID: zone-12c5a6e8
+ * @method array getFilters() 获取过滤参数（支持使用Value、RecordType过滤）
+ * @method void setFilters(array $Filters) 设置过滤参数（支持使用Value、RecordType过滤）
  * @method integer getOffset() 获取分页偏移量，从0开始
  * @method void setOffset(integer $Offset) 设置分页偏移量，从0开始
- * @method integer getLimit() 获取分页限制数目， 最大100，默认20
- * @method void setLimit(integer $Limit) 设置分页限制数目， 最大100，默认20
+ * @method integer getLimit() 获取分页限制数目， 最大200，默认20
+ * @method void setLimit(integer $Limit) 设置分页限制数目， 最大200，默认20
  */
 class DescribePrivateZoneRecordListRequest extends AbstractModel
 {
     /**
-     * @var string 私有域ID: zone-xxxxxx
+     * @var string 私有域ID: zone-12c5a6e8
      */
     public $ZoneId;
 
     /**
-     * @var array 过滤参数
+     * @var array 过滤参数（支持使用Value、RecordType过滤）
      */
     public $Filters;
 
@@ -47,15 +47,15 @@ class DescribePrivateZoneRecordListRequest extends AbstractModel
     public $Offset;
 
     /**
-     * @var integer 分页限制数目， 最大100，默认20
+     * @var integer 分页限制数目， 最大200，默认20
      */
     public $Limit;
 
     /**
-     * @param string $ZoneId 私有域ID: zone-xxxxxx
-     * @param array $Filters 过滤参数
+     * @param string $ZoneId 私有域ID: zone-12c5a6e8
+     * @param array $Filters 过滤参数（支持使用Value、RecordType过滤）
      * @param integer $Offset 分页偏移量，从0开始
-     * @param integer $Limit 分页限制数目， 最大100，默认20
+     * @param integer $Limit 分页限制数目， 最大200，默认20
      */
     function __construct()
     {

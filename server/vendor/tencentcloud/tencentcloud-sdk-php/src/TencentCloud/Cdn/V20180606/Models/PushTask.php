@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,10 +28,12 @@ use TencentCloud\Common\AbstractModel;
 fail：预热失败
 done：预热成功
 process：预热中
+invalid：预热无效(源站返回4xx或5xx状态码)
  * @method void setStatus(string $Status) 设置预热任务状态
 fail：预热失败
 done：预热成功
 process：预热中
+invalid：预热无效(源站返回4xx或5xx状态码)
  * @method integer getPercent() 获取预热进度百分比
  * @method void setPercent(integer $Percent) 设置预热进度百分比
  * @method string getCreateTime() 获取预热任务提交时间
@@ -66,6 +68,7 @@ class PushTask extends AbstractModel
 fail：预热失败
 done：预热成功
 process：预热中
+invalid：预热无效(源站返回4xx或5xx状态码)
      */
     public $Status;
 
@@ -100,6 +103,7 @@ global：全球
 fail：预热失败
 done：预热成功
 process：预热中
+invalid：预热无效(源站返回4xx或5xx状态码)
      * @param integer $Percent 预热进度百分比
      * @param string $CreateTime 预热任务提交时间
      * @param string $Area 预热区域

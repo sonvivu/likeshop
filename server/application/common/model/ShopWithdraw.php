@@ -44,7 +44,7 @@ class ShopWithdraw extends Model{
     }
 
     public function getMoneyAttr($value,$data){
-        return '￥'.$value;
+        return config('currency.symbol').$value;
     }
 
     public function getStatusDescAttr($value,$data){

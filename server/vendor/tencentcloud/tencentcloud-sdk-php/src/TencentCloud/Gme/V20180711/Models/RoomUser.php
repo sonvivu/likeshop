@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,9 +23,11 @@ use TencentCloud\Common\AbstractModel;
  * @method integer getRoomId() 获取房间id
  * @method void setRoomId(integer $RoomId) 设置房间id
  * @method array getUins() 获取房间里用户uin列表
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setUins(array $Uins) 设置房间里用户uin列表
-注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getStrRoomId() 获取字符串房间id
+ * @method void setStrRoomId(string $StrRoomId) 设置字符串房间id
+ * @method array getStrUins() 获取房间里用户字符串uin列表
+ * @method void setStrUins(array $StrUins) 设置房间里用户字符串uin列表
  */
 class RoomUser extends AbstractModel
 {
@@ -36,14 +38,24 @@ class RoomUser extends AbstractModel
 
     /**
      * @var array 房间里用户uin列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Uins;
 
     /**
+     * @var string 字符串房间id
+     */
+    public $StrRoomId;
+
+    /**
+     * @var array 房间里用户字符串uin列表
+     */
+    public $StrUins;
+
+    /**
      * @param integer $RoomId 房间id
      * @param array $Uins 房间里用户uin列表
-注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $StrRoomId 字符串房间id
+     * @param array $StrUins 房间里用户字符串uin列表
      */
     function __construct()
     {
@@ -64,6 +76,14 @@ class RoomUser extends AbstractModel
 
         if (array_key_exists("Uins",$param) and $param["Uins"] !== null) {
             $this->Uins = $param["Uins"];
+        }
+
+        if (array_key_exists("StrRoomId",$param) and $param["StrRoomId"] !== null) {
+            $this->StrRoomId = $param["StrRoomId"];
+        }
+
+        if (array_key_exists("StrUins",$param) and $param["StrUins"] !== null) {
+            $this->StrUins = $param["StrUins"];
         }
     }
 }

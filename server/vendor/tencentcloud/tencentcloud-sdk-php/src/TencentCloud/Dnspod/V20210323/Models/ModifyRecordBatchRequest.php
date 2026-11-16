@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,50 +20,50 @@ use TencentCloud\Common\AbstractModel;
 /**
  * ModifyRecordBatch请求参数结构体
  *
- * @method array getRecordIdList() 获取记录ID数组
- * @method void setRecordIdList(array $RecordIdList) 设置记录ID数组
- * @method string getChange() 获取要修改的字段，可选值为 [“sub_domain”、”record_type”、”area”、”value”、”mx”、”ttl”、”status”] 中的某一个。
- * @method void setChange(string $Change) 设置要修改的字段，可选值为 [“sub_domain”、”record_type”、”area”、”value”、”mx”、”ttl”、”status”] 中的某一个。
- * @method string getChangeTo() 获取修改为，具体依赖 change 字段，必填参数。
- * @method void setChangeTo(string $ChangeTo) 设置修改为，具体依赖 change 字段，必填参数。
- * @method string getValue() 获取要修改到的记录值，仅当 change 字段为 “record_type” 时为必填参数。
- * @method void setValue(string $Value) 设置要修改到的记录值，仅当 change 字段为 “record_type” 时为必填参数。
- * @method string getMX() 获取MX记录优先级，仅当修改为 MX 记录时为必填参数。
- * @method void setMX(string $MX) 设置MX记录优先级，仅当修改为 MX 记录时为必填参数。
+ * @method array getRecordIdList() 获取<p>记录ID数组。可以通过接口DescribeRecordList查到所有的解析记录列表以及对应的RecordId。单次最多修改5000条记录。</p><p>取值参考：<a href="https://cloud.tencent.com/document/api/1427/56166">DescribeRecordList</a></p>
+ * @method void setRecordIdList(array $RecordIdList) 设置<p>记录ID数组。可以通过接口DescribeRecordList查到所有的解析记录列表以及对应的RecordId。单次最多修改5000条记录。</p><p>取值参考：<a href="https://cloud.tencent.com/document/api/1427/56166">DescribeRecordList</a></p>
+ * @method string getChange() 获取<p>要修改的字段，可选值为 [“sub_domain”、”record_type”、”area”、”value”、”mx”、”ttl”、”status”] 中的某一个。</p>
+ * @method void setChange(string $Change) 设置<p>要修改的字段，可选值为 [“sub_domain”、”record_type”、”area”、”value”、”mx”、”ttl”、”status”] 中的某一个。</p>
+ * @method string getChangeTo() 获取<p>修改为，具体依赖 change 字段，必填参数。</p>
+ * @method void setChangeTo(string $ChangeTo) 设置<p>修改为，具体依赖 change 字段，必填参数。</p>
+ * @method string getValue() 获取<p>要修改到的记录值，仅当 change 字段为 “record_type” 时为必填参数。</p>
+ * @method void setValue(string $Value) 设置<p>要修改到的记录值，仅当 change 字段为 “record_type” 时为必填参数。</p>
+ * @method string getMX() 获取<p>MX 优先级，当记录类型是 MX、HTTPS、SVCB 时必填，范围0-65535。</p>
+ * @method void setMX(string $MX) 设置<p>MX 优先级，当记录类型是 MX、HTTPS、SVCB 时必填，范围0-65535。</p>
  */
 class ModifyRecordBatchRequest extends AbstractModel
 {
     /**
-     * @var array 记录ID数组
+     * @var array <p>记录ID数组。可以通过接口DescribeRecordList查到所有的解析记录列表以及对应的RecordId。单次最多修改5000条记录。</p><p>取值参考：<a href="https://cloud.tencent.com/document/api/1427/56166">DescribeRecordList</a></p>
      */
     public $RecordIdList;
 
     /**
-     * @var string 要修改的字段，可选值为 [“sub_domain”、”record_type”、”area”、”value”、”mx”、”ttl”、”status”] 中的某一个。
+     * @var string <p>要修改的字段，可选值为 [“sub_domain”、”record_type”、”area”、”value”、”mx”、”ttl”、”status”] 中的某一个。</p>
      */
     public $Change;
 
     /**
-     * @var string 修改为，具体依赖 change 字段，必填参数。
+     * @var string <p>修改为，具体依赖 change 字段，必填参数。</p>
      */
     public $ChangeTo;
 
     /**
-     * @var string 要修改到的记录值，仅当 change 字段为 “record_type” 时为必填参数。
+     * @var string <p>要修改到的记录值，仅当 change 字段为 “record_type” 时为必填参数。</p>
      */
     public $Value;
 
     /**
-     * @var string MX记录优先级，仅当修改为 MX 记录时为必填参数。
+     * @var string <p>MX 优先级，当记录类型是 MX、HTTPS、SVCB 时必填，范围0-65535。</p>
      */
     public $MX;
 
     /**
-     * @param array $RecordIdList 记录ID数组
-     * @param string $Change 要修改的字段，可选值为 [“sub_domain”、”record_type”、”area”、”value”、”mx”、”ttl”、”status”] 中的某一个。
-     * @param string $ChangeTo 修改为，具体依赖 change 字段，必填参数。
-     * @param string $Value 要修改到的记录值，仅当 change 字段为 “record_type” 时为必填参数。
-     * @param string $MX MX记录优先级，仅当修改为 MX 记录时为必填参数。
+     * @param array $RecordIdList <p>记录ID数组。可以通过接口DescribeRecordList查到所有的解析记录列表以及对应的RecordId。单次最多修改5000条记录。</p><p>取值参考：<a href="https://cloud.tencent.com/document/api/1427/56166">DescribeRecordList</a></p>
+     * @param string $Change <p>要修改的字段，可选值为 [“sub_domain”、”record_type”、”area”、”value”、”mx”、”ttl”、”status”] 中的某一个。</p>
+     * @param string $ChangeTo <p>修改为，具体依赖 change 字段，必填参数。</p>
+     * @param string $Value <p>要修改到的记录值，仅当 change 字段为 “record_type” 时为必填参数。</p>
+     * @param string $MX <p>MX 优先级，当记录类型是 MX、HTTPS、SVCB 时必填，范围0-65535。</p>
      */
     function __construct()
     {

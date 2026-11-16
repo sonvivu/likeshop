@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,50 +20,51 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeIMCdrs请求参数结构体
  *
- * @method integer getStartTimestamp() 获取起始时间
- * @method void setStartTimestamp(integer $StartTimestamp) 设置起始时间
- * @method integer getEndTimestamp() 获取结束时间
- * @method void setEndTimestamp(integer $EndTimestamp) 设置结束时间
- * @method integer getInstanceId() 获取实例ID
- * @method void setInstanceId(integer $InstanceId) 设置实例ID
- * @method integer getSdkAppId() 获取应用ID
- * @method void setSdkAppId(integer $SdkAppId) 设置应用ID
- * @method integer getLimit() 获取返回记录条数 最大为100默认20
- * @method void setLimit(integer $Limit) 设置返回记录条数 最大为100默认20
- * @method integer getOffset() 获取返回记录偏移 默认为0
- * @method void setOffset(integer $Offset) 设置返回记录偏移 默认为0
+ * @method integer getStartTimestamp() 获取起始时间（必填），Unix 秒级时间戳
+ * @method void setStartTimestamp(integer $StartTimestamp) 设置起始时间（必填），Unix 秒级时间戳
+ * @method integer getEndTimestamp() 获取结束时间（必填），Unix 秒级时间戳
+ * @method void setEndTimestamp(integer $EndTimestamp) 设置结束时间（必填），Unix 秒级时间戳
+ * @method integer getInstanceId() 获取实例 ID（废弃）
+ * @method void setInstanceId(integer $InstanceId) 设置实例 ID（废弃）
+ * @method integer getSdkAppId() 获取应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc
+ * @method void setSdkAppId(integer $SdkAppId) 设置应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc
+ * @method integer getLimit() 获取返回记录条数，最大为100默认20
+ * @method void setLimit(integer $Limit) 设置返回记录条数，最大为100默认20
+ * @method integer getOffset() 获取返回记录偏移，默认为 0
+ * @method void setOffset(integer $Offset) 设置返回记录偏移，默认为 0
  * @method integer getType() 获取1为全媒体，2为文本客服，不填则查询全部
  * @method void setType(integer $Type) 设置1为全媒体，2为文本客服，不填则查询全部
  */
 class DescribeIMCdrsRequest extends AbstractModel
 {
     /**
-     * @var integer 起始时间
+     * @var integer 起始时间（必填），Unix 秒级时间戳
      */
     public $StartTimestamp;
 
     /**
-     * @var integer 结束时间
+     * @var integer 结束时间（必填），Unix 秒级时间戳
      */
     public $EndTimestamp;
 
     /**
-     * @var integer 实例ID
+     * @var integer 实例 ID（废弃）
+     * @deprecated
      */
     public $InstanceId;
 
     /**
-     * @var integer 应用ID
+     * @var integer 应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc
      */
     public $SdkAppId;
 
     /**
-     * @var integer 返回记录条数 最大为100默认20
+     * @var integer 返回记录条数，最大为100默认20
      */
     public $Limit;
 
     /**
-     * @var integer 返回记录偏移 默认为0
+     * @var integer 返回记录偏移，默认为 0
      */
     public $Offset;
 
@@ -73,12 +74,12 @@ class DescribeIMCdrsRequest extends AbstractModel
     public $Type;
 
     /**
-     * @param integer $StartTimestamp 起始时间
-     * @param integer $EndTimestamp 结束时间
-     * @param integer $InstanceId 实例ID
-     * @param integer $SdkAppId 应用ID
-     * @param integer $Limit 返回记录条数 最大为100默认20
-     * @param integer $Offset 返回记录偏移 默认为0
+     * @param integer $StartTimestamp 起始时间（必填），Unix 秒级时间戳
+     * @param integer $EndTimestamp 结束时间（必填），Unix 秒级时间戳
+     * @param integer $InstanceId 实例 ID（废弃）
+     * @param integer $SdkAppId 应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc
+     * @param integer $Limit 返回记录条数，最大为100默认20
+     * @param integer $Offset 返回记录偏移，默认为 0
      * @param integer $Type 1为全媒体，2为文本客服，不填则查询全部
      */
     function __construct()

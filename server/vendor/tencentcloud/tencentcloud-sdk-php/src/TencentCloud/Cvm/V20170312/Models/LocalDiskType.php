@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,8 +28,8 @@ use TencentCloud\Common\AbstractModel;
  * @method void setMinSize(integer $MinSize) 设置本地磁盘最小值。
  * @method integer getMaxSize() 获取本地磁盘最大值。
  * @method void setMaxSize(integer $MaxSize) 设置本地磁盘最大值。
- * @method string getRequired() 获取购买时本地盘是否为必选。取值范围：<br><li>REQUIRED：表示必选<br><li>OPTIONAL：表示可选。
- * @method void setRequired(string $Required) 设置购买时本地盘是否为必选。取值范围：<br><li>REQUIRED：表示必选<br><li>OPTIONAL：表示可选。
+ * @method string getRequired() 获取购买时本地盘是否为必选。取值范围：<br><li>REQUIRED：表示必选</li><li>OPTIONAL：表示可选。</li>
+ * @method void setRequired(string $Required) 设置购买时本地盘是否为必选。取值范围：<br><li>REQUIRED：表示必选</li><li>OPTIONAL：表示可选。</li>
  */
 class LocalDiskType extends AbstractModel
 {
@@ -54,7 +54,7 @@ class LocalDiskType extends AbstractModel
     public $MaxSize;
 
     /**
-     * @var string 购买时本地盘是否为必选。取值范围：<br><li>REQUIRED：表示必选<br><li>OPTIONAL：表示可选。
+     * @var string 购买时本地盘是否为必选。取值范围：<br><li>REQUIRED：表示必选</li><li>OPTIONAL：表示可选。</li>
      */
     public $Required;
 
@@ -63,7 +63,7 @@ class LocalDiskType extends AbstractModel
      * @param string $PartitionType 本地磁盘属性。
      * @param integer $MinSize 本地磁盘最小值。
      * @param integer $MaxSize 本地磁盘最大值。
-     * @param string $Required 购买时本地盘是否为必选。取值范围：<br><li>REQUIRED：表示必选<br><li>OPTIONAL：表示可选。
+     * @param string $Required 购买时本地盘是否为必选。取值范围：<br><li>REQUIRED：表示必选</li><li>OPTIONAL：表示可选。</li>
      */
     function __construct()
     {

@@ -23,7 +23,7 @@
 namespace app\common\server;
 
 
-use think\Db;
+use think\facade\Db;
 use think\facade\Cache;
 use think\facade\Config;
 
@@ -46,7 +46,7 @@ class ConfigServer
     public static function set(string $type, $name = '', $value = '')
     {
         $CacheKey = 'config' . '-' . $type . '-' . $name;
-        Cache::rm($CacheKey);
+        Cache::delete($CacheKey);
         $original = $value;
         $update_time = time();
         if (is_array($value)) {
@@ -93,9 +93,12 @@ class ConfigServer
                 ->value('value');
 
             //数组配置需要自动转换
-            $json = json_decode($value, true);
-            if (json_last_error() === JSON_ERROR_NONE) {
-                $value = $json;
+            // PHP 8.1：json_decode(null) 已废弃；行不存在时 $value 为 null，直接走默认配置。
+            if ($value !== null) {
+                $json = json_decode($value, true);
+                if (json_last_error() === JSON_ERROR_NONE) {
+                    $value = $json;
+                }
             }
             //获取调用默认配置
             if ($value === NULL) {
@@ -116,9 +119,12 @@ class ConfigServer
         //数组配置需要自动转换
         if (is_array($data)) {
             foreach ($data as $k => $v) {
-                $json = json_decode($v, true);
-                if (json_last_error() === JSON_ERROR_NONE) {
-                    $data[$k] = $json;
+                // PHP 8.1：json_decode(null) 已废弃
+                if ($v !== null) {
+                    $json = json_decode($v, true);
+                    if (json_last_error() === JSON_ERROR_NONE) {
+                        $data[$k] = $json;
+                    }
                 }
             }
         }

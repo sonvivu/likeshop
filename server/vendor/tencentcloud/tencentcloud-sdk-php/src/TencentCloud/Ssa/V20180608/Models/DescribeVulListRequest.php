@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,18 +20,18 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeVulList请求参数结构体
  *
- * @method string getParams() 获取查询过滤参数
- * @method void setParams(string $Params) 设置查询过滤参数
+ * @method string getParams() 获取查询过滤参数:(json序列化的结果）
+ * @method void setParams(string $Params) 设置查询过滤参数:(json序列化的结果）
  */
 class DescribeVulListRequest extends AbstractModel
 {
     /**
-     * @var string 查询过滤参数
+     * @var string 查询过滤参数:(json序列化的结果）
      */
     public $Params;
 
     /**
-     * @param string $Params 查询过滤参数
+     * @param string $Params 查询过滤参数:(json序列化的结果）
      */
     function __construct()
     {

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,14 +24,16 @@ use TencentCloud\Common\AbstractModel;
  * @method void setGoodsNum(integer $GoodsNum) 设置需购买实例的数量
  * @method integer getPayMode() 获取付费模式：0表示按需计费/后付费，1表示预付费
  * @method void setPayMode(integer $PayMode) 设置付费模式：0表示按需计费/后付费，1表示预付费
- * @method string getTimeSpan() 获取商品的时间大小
- * @method void setTimeSpan(string $TimeSpan) 设置商品的时间大小
+ * @method string getTimeSpan() 获取商品的时间大小，整型参数，举例：当TimeSpan为1，TImeUnit为m时，表示询价购买时长为1个月时的价格
+ * @method void setTimeSpan(string $TimeSpan) 设置商品的时间大小，整型参数，举例：当TimeSpan为1，TImeUnit为m时，表示询价购买时长为1个月时的价格
  * @method string getTimeUnit() 获取商品的时间单位，m表示月，y表示年
  * @method void setTimeUnit(string $TimeUnit) 设置商品的时间单位，m表示月，y表示年
- * @method string getCurrency() 获取货币类型，默认为CNY
- * @method void setCurrency(string $Currency) 设置货币类型，默认为CNY
  * @method string getType() 获取默认为CREATE，可选RENEW
  * @method void setType(string $Type) 设置默认为CREATE，可选RENEW
+ * @method string getHsmType() 获取Hsm服务类型，可选值virtualization、physical、GHSM、EHSM、SHSM
+ * @method void setHsmType(string $HsmType) 设置Hsm服务类型，可选值virtualization、physical、GHSM、EHSM、SHSM
+ * @method string getCurrency() 获取货币类型，默认为CNY
+ * @method void setCurrency(string $Currency) 设置货币类型，默认为CNY
  */
 class InquiryPriceBuyVsmRequest extends AbstractModel
 {
@@ -46,7 +48,7 @@ class InquiryPriceBuyVsmRequest extends AbstractModel
     public $PayMode;
 
     /**
-     * @var string 商品的时间大小
+     * @var string 商品的时间大小，整型参数，举例：当TimeSpan为1，TImeUnit为m时，表示询价购买时长为1个月时的价格
      */
     public $TimeSpan;
 
@@ -56,22 +58,28 @@ class InquiryPriceBuyVsmRequest extends AbstractModel
     public $TimeUnit;
 
     /**
-     * @var string 货币类型，默认为CNY
-     */
-    public $Currency;
-
-    /**
      * @var string 默认为CREATE，可选RENEW
      */
     public $Type;
 
     /**
+     * @var string Hsm服务类型，可选值virtualization、physical、GHSM、EHSM、SHSM
+     */
+    public $HsmType;
+
+    /**
+     * @var string 货币类型，默认为CNY
+     */
+    public $Currency;
+
+    /**
      * @param integer $GoodsNum 需购买实例的数量
      * @param integer $PayMode 付费模式：0表示按需计费/后付费，1表示预付费
-     * @param string $TimeSpan 商品的时间大小
+     * @param string $TimeSpan 商品的时间大小，整型参数，举例：当TimeSpan为1，TImeUnit为m时，表示询价购买时长为1个月时的价格
      * @param string $TimeUnit 商品的时间单位，m表示月，y表示年
-     * @param string $Currency 货币类型，默认为CNY
      * @param string $Type 默认为CREATE，可选RENEW
+     * @param string $HsmType Hsm服务类型，可选值virtualization、physical、GHSM、EHSM、SHSM
+     * @param string $Currency 货币类型，默认为CNY
      */
     function __construct()
     {
@@ -102,12 +110,16 @@ class InquiryPriceBuyVsmRequest extends AbstractModel
             $this->TimeUnit = $param["TimeUnit"];
         }
 
-        if (array_key_exists("Currency",$param) and $param["Currency"] !== null) {
-            $this->Currency = $param["Currency"];
-        }
-
         if (array_key_exists("Type",$param) and $param["Type"] !== null) {
             $this->Type = $param["Type"];
+        }
+
+        if (array_key_exists("HsmType",$param) and $param["HsmType"] !== null) {
+            $this->HsmType = $param["HsmType"];
+        }
+
+        if (array_key_exists("Currency",$param) and $param["Currency"] !== null) {
+            $this->Currency = $param["Currency"];
         }
     }
 }

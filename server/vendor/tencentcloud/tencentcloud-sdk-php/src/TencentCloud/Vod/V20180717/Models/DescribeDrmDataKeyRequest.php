@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,6 +22,8 @@ use TencentCloud\Common\AbstractModel;
  *
  * @method array getEdkList() 获取加密后的数据密钥列表，最大支持10个。
  * @method void setEdkList(array $EdkList) 设置加密后的数据密钥列表，最大支持10个。
+ * @method integer getSubAppId() 获取<b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
+ * @method void setSubAppId(integer $SubAppId) 设置<b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
  */
 class DescribeDrmDataKeyRequest extends AbstractModel
 {
@@ -31,7 +33,13 @@ class DescribeDrmDataKeyRequest extends AbstractModel
     public $EdkList;
 
     /**
+     * @var integer <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
+     */
+    public $SubAppId;
+
+    /**
      * @param array $EdkList 加密后的数据密钥列表，最大支持10个。
+     * @param integer $SubAppId <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
      */
     function __construct()
     {
@@ -48,6 +56,10 @@ class DescribeDrmDataKeyRequest extends AbstractModel
         }
         if (array_key_exists("EdkList",$param) and $param["EdkList"] !== null) {
             $this->EdkList = $param["EdkList"];
+        }
+
+        if (array_key_exists("SubAppId",$param) and $param["SubAppId"] !== null) {
+            $this->SubAppId = $param["SubAppId"];
         }
     }
 }

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,8 +28,12 @@ use TencentCloud\Common\AbstractModel;
  * @method void setQceNamespacesNew(array $QceNamespacesNew) 设置云产品的告警策略类型
  * @method array getCustomNamespacesNew() 获取其他告警策略类型，暂不支持
  * @method void setCustomNamespacesNew(array $CustomNamespacesNew) 设置其他告警策略类型，暂不支持
- * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
- * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method array getCommonNamespaces() 获取通用告警策略类型(包括：应用性能监控，前端性能监控，云拨测)
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setCommonNamespaces(array $CommonNamespaces) 设置通用告警策略类型(包括：应用性能监控，前端性能监控，云拨测)
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+ * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
 class DescribeAllNamespacesResponse extends AbstractModel
 {
@@ -54,7 +58,13 @@ class DescribeAllNamespacesResponse extends AbstractModel
     public $CustomNamespacesNew;
 
     /**
-     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @var array 通用告警策略类型(包括：应用性能监控，前端性能监控，云拨测)
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $CommonNamespaces;
+
+    /**
+     * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public $RequestId;
 
@@ -63,7 +73,9 @@ class DescribeAllNamespacesResponse extends AbstractModel
      * @param CommonNamespace $CustomNamespaces 其他告警策略类型，已废弃
      * @param array $QceNamespacesNew 云产品的告警策略类型
      * @param array $CustomNamespacesNew 其他告警策略类型，暂不支持
-     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @param array $CommonNamespaces 通用告警策略类型(包括：应用性能监控，前端性能监控，云拨测)
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
     {
@@ -103,6 +115,15 @@ class DescribeAllNamespacesResponse extends AbstractModel
                 $obj = new CommonNamespace();
                 $obj->deserialize($value);
                 array_push($this->CustomNamespacesNew, $obj);
+            }
+        }
+
+        if (array_key_exists("CommonNamespaces",$param) and $param["CommonNamespaces"] !== null) {
+            $this->CommonNamespaces = [];
+            foreach ($param["CommonNamespaces"] as $key => $value){
+                $obj = new CommonNamespaceNew();
+                $obj->deserialize($value);
+                array_push($this->CommonNamespaces, $obj);
             }
         }
 

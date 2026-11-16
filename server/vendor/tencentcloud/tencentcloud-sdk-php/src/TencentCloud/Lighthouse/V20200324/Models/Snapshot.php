@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -42,28 +42,24 @@ use TencentCloud\Common\AbstractModel;
  * @method void setPercent(integer $Percent) 设置创建或回滚快照进度百分比，成功后此字段取值为 100。
  * @method string getLatestOperation() 获取快照的最新操作，只有创建、回滚快照时记录。
 取值如 CreateInstanceSnapshot，RollbackInstanceSnapshot。
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setLatestOperation(string $LatestOperation) 设置快照的最新操作，只有创建、回滚快照时记录。
 取值如 CreateInstanceSnapshot，RollbackInstanceSnapshot。
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getLatestOperationState() 获取快照的最新操作状态，只有创建、回滚快照时记录。
 取值范围：
 <li>SUCCESS：表示操作成功</li>
 <li>OPERATING：表示操作执行中</li>
 <li>FAILED：表示操作失败</li>
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setLatestOperationState(string $LatestOperationState) 设置快照的最新操作状态，只有创建、回滚快照时记录。
 取值范围：
 <li>SUCCESS：表示操作成功</li>
 <li>OPERATING：表示操作执行中</li>
 <li>FAILED：表示操作失败</li>
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getLatestOperationRequestId() 获取快照最新操作的唯一请求 ID，只有创建、回滚快照时记录。
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setLatestOperationRequestId(string $LatestOperationRequestId) 设置快照最新操作的唯一请求 ID，只有创建、回滚快照时记录。
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getCreatedTime() 获取快照的创建时间。
  * @method void setCreatedTime(string $CreatedTime) 设置快照的创建时间。
+ * @method array getTags() 获取快照绑定的标签列表。
+ * @method void setTags(array $Tags) 设置快照绑定的标签列表。
  */
 class Snapshot extends AbstractModel
 {
@@ -108,7 +104,6 @@ class Snapshot extends AbstractModel
     /**
      * @var string 快照的最新操作，只有创建、回滚快照时记录。
 取值如 CreateInstanceSnapshot，RollbackInstanceSnapshot。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $LatestOperation;
 
@@ -118,13 +113,11 @@ class Snapshot extends AbstractModel
 <li>SUCCESS：表示操作成功</li>
 <li>OPERATING：表示操作执行中</li>
 <li>FAILED：表示操作失败</li>
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $LatestOperationState;
 
     /**
      * @var string 快照最新操作的唯一请求 ID，只有创建、回滚快照时记录。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $LatestOperationRequestId;
 
@@ -132,6 +125,11 @@ class Snapshot extends AbstractModel
      * @var string 快照的创建时间。
      */
     public $CreatedTime;
+
+    /**
+     * @var array 快照绑定的标签列表。
+     */
+    public $Tags;
 
     /**
      * @param string $SnapshotId 快照 ID。
@@ -146,16 +144,14 @@ class Snapshot extends AbstractModel
      * @param integer $Percent 创建或回滚快照进度百分比，成功后此字段取值为 100。
      * @param string $LatestOperation 快照的最新操作，只有创建、回滚快照时记录。
 取值如 CreateInstanceSnapshot，RollbackInstanceSnapshot。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $LatestOperationState 快照的最新操作状态，只有创建、回滚快照时记录。
 取值范围：
 <li>SUCCESS：表示操作成功</li>
 <li>OPERATING：表示操作执行中</li>
 <li>FAILED：表示操作失败</li>
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $LatestOperationRequestId 快照最新操作的唯一请求 ID，只有创建、回滚快照时记录。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $CreatedTime 快照的创建时间。
+     * @param array $Tags 快照绑定的标签列表。
      */
     function __construct()
     {
@@ -212,6 +208,15 @@ class Snapshot extends AbstractModel
 
         if (array_key_exists("CreatedTime",$param) and $param["CreatedTime"] !== null) {
             $this->CreatedTime = $param["CreatedTime"];
+        }
+
+        if (array_key_exists("Tags",$param) and $param["Tags"] !== null) {
+            $this->Tags = [];
+            foreach ($param["Tags"] as $key => $value){
+                $obj = new Tag();
+                $obj->deserialize($value);
+                array_push($this->Tags, $obj);
+            }
         }
     }
 }

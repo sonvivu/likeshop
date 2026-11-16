@@ -20,11 +20,11 @@ namespace app\common\behavior;
 use app\common\model\Order;
 use app\common\server\ConfigServer;
 use app\common\server\YlyPrinter;
-use think\Db;
+use think\facade\Db;
 
 class Printer
 {
-    public function run($params)
+    public function handle($params)
     {
         try{
             $order_id = $params['order_id'] ?? '';

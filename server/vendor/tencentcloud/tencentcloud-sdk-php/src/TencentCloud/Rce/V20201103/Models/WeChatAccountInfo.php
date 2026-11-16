@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,8 +20,8 @@ use TencentCloud\Common\AbstractModel;
 /**
  * 微信账号信息。
  *
- * @method string getWeChatOpenId() 获取微信的OpenID/UnionID 。
- * @method void setWeChatOpenId(string $WeChatOpenId) 设置微信的OpenID/UnionID 。
+ * @method string getWeChatOpenId() 获取微信的OpenId/UnionId。
+ * @method void setWeChatOpenId(string $WeChatOpenId) 设置微信的OpenId/UnionId。
  * @method integer getWeChatSubType() 获取微信开放账号类型：
 1：微信公众号/微信第三方登录。
 2：微信小程序。
@@ -30,21 +30,25 @@ use TencentCloud\Common\AbstractModel;
 2：微信小程序。
  * @method string getRandStr() 获取随机串。如果WeChatSubType是2，该字段必填。Token签名随机数，建议16个字符。
  * @method void setRandStr(string $RandStr) 设置随机串。如果WeChatSubType是2，该字段必填。Token签名随机数，建议16个字符。
- * @method string getWeChatAccessToken() 获取如果WeChatSubType是1，填入授权的access_token（注意：不是普通access_token，详情请参阅官方说明文档。获取网页版本的access_token时，scope字段必需填写snsapi_userinfo。
-如果WeChatSubType是2，填入以session_key为密钥签名随机数RandStr（hmac_sha256签名算法）得到的字符串。
- * @method void setWeChatAccessToken(string $WeChatAccessToken) 设置如果WeChatSubType是1，填入授权的access_token（注意：不是普通access_token，详情请参阅官方说明文档。获取网页版本的access_token时，scope字段必需填写snsapi_userinfo。
-如果WeChatSubType是2，填入以session_key为密钥签名随机数RandStr（hmac_sha256签名算法）得到的字符串。
+ * @method string getWeChatAccessToken() 获取如果WeChatSubType 是1，填入授权的 access_token（注意：不是普通 access_token，详情请参阅官方说明文档。获取网页版本的 access_token 时，scope 字段必需填写snsapi_userinfo
+如果WeChatSubType是2，填入以session_key 为密钥签名随机数RandStr（hmac_sha256签名算法）得到的字符串。
+ * @method void setWeChatAccessToken(string $WeChatAccessToken) 设置如果WeChatSubType 是1，填入授权的 access_token（注意：不是普通 access_token，详情请参阅官方说明文档。获取网页版本的 access_token 时，scope 字段必需填写snsapi_userinfo
+如果WeChatSubType是2，填入以session_key 为密钥签名随机数RandStr（hmac_sha256签名算法）得到的字符串。
  * @method string getAssociateAccount() 获取用于标识微信用户登录后所关联业务自身的账号ID。
  * @method void setAssociateAccount(string $AssociateAccount) 设置用于标识微信用户登录后所关联业务自身的账号ID。
- * @method string getMobilePhone() 获取账号绑定的手机号。
- * @method void setMobilePhone(string $MobilePhone) 设置账号绑定的手机号。
- * @method string getDeviceId() 获取用户设备号。
- * @method void setDeviceId(string $DeviceId) 设置用户设备号。
+ * @method string getMobilePhone() 获取账号绑定的MD5或SHA256加密的手机号。
+注释：支持标准中国大陆11位手机号MD5加密后位的32位小写字符串；
+     支持标准中国大陆11位手机号SHA256加密后位的64位小写字符串。
+ * @method void setMobilePhone(string $MobilePhone) 设置账号绑定的MD5或SHA256加密的手机号。
+注释：支持标准中国大陆11位手机号MD5加密后位的32位小写字符串；
+     支持标准中国大陆11位手机号SHA256加密后位的64位小写字符串。
+ * @method string getDeviceId() 获取用户设备号（已不推荐使用）。
+ * @method void setDeviceId(string $DeviceId) 设置用户设备号（已不推荐使用）。
  */
 class WeChatAccountInfo extends AbstractModel
 {
     /**
-     * @var string 微信的OpenID/UnionID 。
+     * @var string 微信的OpenId/UnionId。
      */
     public $WeChatOpenId;
 
@@ -61,8 +65,8 @@ class WeChatAccountInfo extends AbstractModel
     public $RandStr;
 
     /**
-     * @var string 如果WeChatSubType是1，填入授权的access_token（注意：不是普通access_token，详情请参阅官方说明文档。获取网页版本的access_token时，scope字段必需填写snsapi_userinfo。
-如果WeChatSubType是2，填入以session_key为密钥签名随机数RandStr（hmac_sha256签名算法）得到的字符串。
+     * @var string 如果WeChatSubType 是1，填入授权的 access_token（注意：不是普通 access_token，详情请参阅官方说明文档。获取网页版本的 access_token 时，scope 字段必需填写snsapi_userinfo
+如果WeChatSubType是2，填入以session_key 为密钥签名随机数RandStr（hmac_sha256签名算法）得到的字符串。
      */
     public $WeChatAccessToken;
 
@@ -72,26 +76,30 @@ class WeChatAccountInfo extends AbstractModel
     public $AssociateAccount;
 
     /**
-     * @var string 账号绑定的手机号。
+     * @var string 账号绑定的MD5或SHA256加密的手机号。
+注释：支持标准中国大陆11位手机号MD5加密后位的32位小写字符串；
+     支持标准中国大陆11位手机号SHA256加密后位的64位小写字符串。
      */
     public $MobilePhone;
 
     /**
-     * @var string 用户设备号。
+     * @var string 用户设备号（已不推荐使用）。
      */
     public $DeviceId;
 
     /**
-     * @param string $WeChatOpenId 微信的OpenID/UnionID 。
+     * @param string $WeChatOpenId 微信的OpenId/UnionId。
      * @param integer $WeChatSubType 微信开放账号类型：
 1：微信公众号/微信第三方登录。
 2：微信小程序。
      * @param string $RandStr 随机串。如果WeChatSubType是2，该字段必填。Token签名随机数，建议16个字符。
-     * @param string $WeChatAccessToken 如果WeChatSubType是1，填入授权的access_token（注意：不是普通access_token，详情请参阅官方说明文档。获取网页版本的access_token时，scope字段必需填写snsapi_userinfo。
-如果WeChatSubType是2，填入以session_key为密钥签名随机数RandStr（hmac_sha256签名算法）得到的字符串。
+     * @param string $WeChatAccessToken 如果WeChatSubType 是1，填入授权的 access_token（注意：不是普通 access_token，详情请参阅官方说明文档。获取网页版本的 access_token 时，scope 字段必需填写snsapi_userinfo
+如果WeChatSubType是2，填入以session_key 为密钥签名随机数RandStr（hmac_sha256签名算法）得到的字符串。
      * @param string $AssociateAccount 用于标识微信用户登录后所关联业务自身的账号ID。
-     * @param string $MobilePhone 账号绑定的手机号。
-     * @param string $DeviceId 用户设备号。
+     * @param string $MobilePhone 账号绑定的MD5或SHA256加密的手机号。
+注释：支持标准中国大陆11位手机号MD5加密后位的32位小写字符串；
+     支持标准中国大陆11位手机号SHA256加密后位的64位小写字符串。
+     * @param string $DeviceId 用户设备号（已不推荐使用）。
      */
     function __construct()
     {

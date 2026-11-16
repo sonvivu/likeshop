@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,26 +20,26 @@ use TencentCloud\Common\AbstractModel;
 /**
  * ModifyVpnGatewayCcnRoutes请求参数结构体
  *
- * @method string getVpnGatewayId() 获取VPN网关实例ID
- * @method void setVpnGatewayId(string $VpnGatewayId) 设置VPN网关实例ID
- * @method array getRoutes() 获取云联网路由（IDC网段）列表
- * @method void setRoutes(array $Routes) 设置云联网路由（IDC网段）列表
+ * @method string getVpnGatewayId() 获取VPN网关实例ID。
+ * @method void setVpnGatewayId(string $VpnGatewayId) 设置VPN网关实例ID。
+ * @method array getRoutes() 获取云联网路由（IDC网段）列表。其中RouteId可通过[DescribeVpnGatewayCcnRoutes](https://cloud.tencent.com/document/product/215/43514)接口获取。 
+ * @method void setRoutes(array $Routes) 设置云联网路由（IDC网段）列表。其中RouteId可通过[DescribeVpnGatewayCcnRoutes](https://cloud.tencent.com/document/product/215/43514)接口获取。 
  */
 class ModifyVpnGatewayCcnRoutesRequest extends AbstractModel
 {
     /**
-     * @var string VPN网关实例ID
+     * @var string VPN网关实例ID。
      */
     public $VpnGatewayId;
 
     /**
-     * @var array 云联网路由（IDC网段）列表
+     * @var array 云联网路由（IDC网段）列表。其中RouteId可通过[DescribeVpnGatewayCcnRoutes](https://cloud.tencent.com/document/product/215/43514)接口获取。 
      */
     public $Routes;
 
     /**
-     * @param string $VpnGatewayId VPN网关实例ID
-     * @param array $Routes 云联网路由（IDC网段）列表
+     * @param string $VpnGatewayId VPN网关实例ID。
+     * @param array $Routes 云联网路由（IDC网段）列表。其中RouteId可通过[DescribeVpnGatewayCcnRoutes](https://cloud.tencent.com/document/product/215/43514)接口获取。 
      */
     function __construct()
     {

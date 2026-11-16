@@ -17,7 +17,7 @@
 // | author: likeshop.cn.team
 // +----------------------------------------------------------------------
 namespace app\admin\validate;
-use think\Db;
+use think\facade\Db;
 use think\Validate;
 class SendCoupon extends Validate{
     public function __construct(array $rules = [], array $message = [], array $field = [])
@@ -72,6 +72,9 @@ class SendCoupon extends Validate{
             return true;
 
         }
+
+        // 优惠券列表为空时不校验（同 api/validate/Order::checkCoupon）。
+        return true;
     }
 
 

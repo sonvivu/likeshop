@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,8 +20,8 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DeployContainerGroup请求参数结构体
  *
- * @method string getGroupId() 获取部署组ID，分组唯一标识
- * @method void setGroupId(string $GroupId) 设置部署组ID，分组唯一标识
+ * @method string getGroupId() 获取部署组ID，可通过调用[DescribeContainerGroups](https://cloud.tencent.com/document/api/649/36068)查询已创建的部署组列表或登录控制台进行查看；也可以调用[CreateContainGroup](https://cloud.tencent.com/document/api/649/36075)创建新的部署组。
+ * @method void setGroupId(string $GroupId) 设置部署组ID，可通过调用[DescribeContainerGroups](https://cloud.tencent.com/document/api/649/36068)查询已创建的部署组列表或登录控制台进行查看；也可以调用[CreateContainGroup](https://cloud.tencent.com/document/api/649/36075)创建新的部署组。
  * @method string getTagName() 获取镜像版本名称,如v1
  * @method void setTagName(string $TagName) 设置镜像版本名称,如v1
  * @method integer getInstanceNum() 获取实例数量
@@ -36,10 +36,10 @@ use TencentCloud\Common\AbstractModel;
  * @method void setMemLimit(string $MemLimit) 设置业务容器最大的内存 MiB 数，对应 K8S 的 limit；不填时默认为 request 的 2 倍
  * @method string getJvmOpts() 获取jvm参数
  * @method void setJvmOpts(string $JvmOpts) 设置jvm参数
- * @method string getCpuRequest() 获取业务容器分配的 CPU 核数，对应 K8S 的 request
- * @method void setCpuRequest(string $CpuRequest) 设置业务容器分配的 CPU 核数，对应 K8S 的 request
- * @method string getMemRequest() 获取业务容器分配的内存 MiB 数，对应 K8S 的 request
- * @method void setMemRequest(string $MemRequest) 设置业务容器分配的内存 MiB 数，对应 K8S 的 request
+ * @method string getCpuRequest() 获取业务容器分配的 CPU 核数，对应 K8S 的 request，默认0.25
+ * @method void setCpuRequest(string $CpuRequest) 设置业务容器分配的 CPU 核数，对应 K8S 的 request，默认0.25
+ * @method string getMemRequest() 获取业务容器分配的内存 MiB 数，对应 K8S 的 request，默认640 MiB
+ * @method void setMemRequest(string $MemRequest) 设置业务容器分配的内存 MiB 数，对应 K8S 的 request，默认640 MiB
  * @method boolean getDoNotStart() 获取是否不立即启动
  * @method void setDoNotStart(boolean $DoNotStart) 设置是否不立即启动
  * @method string getRepoName() 获取（优先使用）新版镜像名，如/tsf/nginx
@@ -76,13 +76,31 @@ use TencentCloud\Common\AbstractModel;
  * @method void setServiceSetting(ServiceSetting $ServiceSetting) 设置容器部署组的网络设置。
  * @method boolean getDeployAgent() 获取是否部署 agent 容器。若不指定该参数，则默认不部署 agent 容器。
  * @method void setDeployAgent(boolean $DeployAgent) 设置是否部署 agent 容器。若不指定该参数，则默认不部署 agent 容器。
- * @method SchedulingStrategy getSchedulingStrategy() 获取节点调度策略。若不指定改参数，则默认不使用节点调度策略。
- * @method void setSchedulingStrategy(SchedulingStrategy $SchedulingStrategy) 设置节点调度策略。若不指定改参数，则默认不使用节点调度策略。
+ * @method SchedulingStrategy getSchedulingStrategy() 获取节点调度策略。若不指定该参数，则默认不使用节点调度策略。
+ * @method void setSchedulingStrategy(SchedulingStrategy $SchedulingStrategy) 设置节点调度策略。若不指定该参数，则默认不使用节点调度策略。
+ * @method boolean getIncrementalDeployment() 获取是否进行增量部署，默认为false，全量更新
+ * @method void setIncrementalDeployment(boolean $IncrementalDeployment) 设置是否进行增量部署，默认为false，全量更新
+ * @method string getRepoType() 获取tcr或者不填
+ * @method void setRepoType(string $RepoType) 设置tcr或者不填
+ * @method VolumeInfo getVolumeInfos() 获取数据卷信息-废弃，请用VolumeInfoList参数
+ * @method void setVolumeInfos(VolumeInfo $VolumeInfos) 设置数据卷信息-废弃，请用VolumeInfoList参数
+ * @method VolumeMountInfo getVolumeMountInfos() 获取数据卷挂载点信息-废弃，请用VolumeMountInfoList参数
+ * @method void setVolumeMountInfos(VolumeMountInfo $VolumeMountInfos) 设置数据卷挂载点信息-废弃，请用VolumeMountInfoList参数
+ * @method array getVolumeInfoList() 获取数据卷信息，list
+ * @method void setVolumeInfoList(array $VolumeInfoList) 设置数据卷信息，list
+ * @method array getVolumeMountInfoList() 获取数据卷挂载点信息，list
+ * @method void setVolumeMountInfoList(array $VolumeMountInfoList) 设置数据卷挂载点信息，list
+ * @method boolean getVolumeClean() 获取是否清除数据卷信息，默认false
+ * @method void setVolumeClean(boolean $VolumeClean) 设置是否清除数据卷信息，默认false
+ * @method array getAgentProfileList() 获取javaagent信息: SERVICE_AGENT/OT_AGENT
+ * @method void setAgentProfileList(array $AgentProfileList) 设置javaagent信息: SERVICE_AGENT/OT_AGENT
+ * @method WarmupSetting getWarmupSetting() 获取预热配置信息
+ * @method void setWarmupSetting(WarmupSetting $WarmupSetting) 设置预热配置信息
  */
 class DeployContainerGroupRequest extends AbstractModel
 {
     /**
-     * @var string 部署组ID，分组唯一标识
+     * @var string 部署组ID，可通过调用[DescribeContainerGroups](https://cloud.tencent.com/document/api/649/36068)查询已创建的部署组列表或登录控制台进行查看；也可以调用[CreateContainGroup](https://cloud.tencent.com/document/api/649/36075)创建新的部署组。
      */
     public $GroupId;
 
@@ -103,6 +121,7 @@ class DeployContainerGroupRequest extends AbstractModel
 
     /**
      * @var string 旧版镜像名，如/tsf/nginx
+     * @deprecated
      */
     public $Reponame;
 
@@ -122,12 +141,12 @@ class DeployContainerGroupRequest extends AbstractModel
     public $JvmOpts;
 
     /**
-     * @var string 业务容器分配的 CPU 核数，对应 K8S 的 request
+     * @var string 业务容器分配的 CPU 核数，对应 K8S 的 request，默认0.25
      */
     public $CpuRequest;
 
     /**
-     * @var string 业务容器分配的内存 MiB 数，对应 K8S 的 request
+     * @var string 业务容器分配的内存 MiB 数，对应 K8S 的 request，默认640 MiB
      */
     public $MemRequest;
 
@@ -222,12 +241,59 @@ class DeployContainerGroupRequest extends AbstractModel
     public $DeployAgent;
 
     /**
-     * @var SchedulingStrategy 节点调度策略。若不指定改参数，则默认不使用节点调度策略。
+     * @var SchedulingStrategy 节点调度策略。若不指定该参数，则默认不使用节点调度策略。
      */
     public $SchedulingStrategy;
 
     /**
-     * @param string $GroupId 部署组ID，分组唯一标识
+     * @var boolean 是否进行增量部署，默认为false，全量更新
+     */
+    public $IncrementalDeployment;
+
+    /**
+     * @var string tcr或者不填
+     */
+    public $RepoType;
+
+    /**
+     * @var VolumeInfo 数据卷信息-废弃，请用VolumeInfoList参数
+     * @deprecated
+     */
+    public $VolumeInfos;
+
+    /**
+     * @var VolumeMountInfo 数据卷挂载点信息-废弃，请用VolumeMountInfoList参数
+     * @deprecated
+     */
+    public $VolumeMountInfos;
+
+    /**
+     * @var array 数据卷信息，list
+     */
+    public $VolumeInfoList;
+
+    /**
+     * @var array 数据卷挂载点信息，list
+     */
+    public $VolumeMountInfoList;
+
+    /**
+     * @var boolean 是否清除数据卷信息，默认false
+     */
+    public $VolumeClean;
+
+    /**
+     * @var array javaagent信息: SERVICE_AGENT/OT_AGENT
+     */
+    public $AgentProfileList;
+
+    /**
+     * @var WarmupSetting 预热配置信息
+     */
+    public $WarmupSetting;
+
+    /**
+     * @param string $GroupId 部署组ID，可通过调用[DescribeContainerGroups](https://cloud.tencent.com/document/api/649/36068)查询已创建的部署组列表或登录控制台进行查看；也可以调用[CreateContainGroup](https://cloud.tencent.com/document/api/649/36075)创建新的部署组。
      * @param string $TagName 镜像版本名称,如v1
      * @param integer $InstanceNum 实例数量
      * @param string $Server 镜像server
@@ -235,8 +301,8 @@ class DeployContainerGroupRequest extends AbstractModel
      * @param string $CpuLimit 业务容器最大的 CPU 核数，对应 K8S 的 limit；不填时默认为 request 的 2 倍
      * @param string $MemLimit 业务容器最大的内存 MiB 数，对应 K8S 的 limit；不填时默认为 request 的 2 倍
      * @param string $JvmOpts jvm参数
-     * @param string $CpuRequest 业务容器分配的 CPU 核数，对应 K8S 的 request
-     * @param string $MemRequest 业务容器分配的内存 MiB 数，对应 K8S 的 request
+     * @param string $CpuRequest 业务容器分配的 CPU 核数，对应 K8S 的 request，默认0.25
+     * @param string $MemRequest 业务容器分配的内存 MiB 数，对应 K8S 的 request，默认640 MiB
      * @param boolean $DoNotStart 是否不立即启动
      * @param string $RepoName （优先使用）新版镜像名，如/tsf/nginx
      * @param integer $UpdateType 更新方式：0:快速更新 1:滚动更新
@@ -255,7 +321,16 @@ class DeployContainerGroupRequest extends AbstractModel
      * @param array $Envs 部署组应用运行的环境变量。若不指定该参数，则默认不设置额外的环境变量。
      * @param ServiceSetting $ServiceSetting 容器部署组的网络设置。
      * @param boolean $DeployAgent 是否部署 agent 容器。若不指定该参数，则默认不部署 agent 容器。
-     * @param SchedulingStrategy $SchedulingStrategy 节点调度策略。若不指定改参数，则默认不使用节点调度策略。
+     * @param SchedulingStrategy $SchedulingStrategy 节点调度策略。若不指定该参数，则默认不使用节点调度策略。
+     * @param boolean $IncrementalDeployment 是否进行增量部署，默认为false，全量更新
+     * @param string $RepoType tcr或者不填
+     * @param VolumeInfo $VolumeInfos 数据卷信息-废弃，请用VolumeInfoList参数
+     * @param VolumeMountInfo $VolumeMountInfos 数据卷挂载点信息-废弃，请用VolumeMountInfoList参数
+     * @param array $VolumeInfoList 数据卷信息，list
+     * @param array $VolumeMountInfoList 数据卷挂载点信息，list
+     * @param boolean $VolumeClean 是否清除数据卷信息，默认false
+     * @param array $AgentProfileList javaagent信息: SERVICE_AGENT/OT_AGENT
+     * @param WarmupSetting $WarmupSetting 预热配置信息
      */
     function __construct()
     {
@@ -392,6 +467,60 @@ class DeployContainerGroupRequest extends AbstractModel
         if (array_key_exists("SchedulingStrategy",$param) and $param["SchedulingStrategy"] !== null) {
             $this->SchedulingStrategy = new SchedulingStrategy();
             $this->SchedulingStrategy->deserialize($param["SchedulingStrategy"]);
+        }
+
+        if (array_key_exists("IncrementalDeployment",$param) and $param["IncrementalDeployment"] !== null) {
+            $this->IncrementalDeployment = $param["IncrementalDeployment"];
+        }
+
+        if (array_key_exists("RepoType",$param) and $param["RepoType"] !== null) {
+            $this->RepoType = $param["RepoType"];
+        }
+
+        if (array_key_exists("VolumeInfos",$param) and $param["VolumeInfos"] !== null) {
+            $this->VolumeInfos = new VolumeInfo();
+            $this->VolumeInfos->deserialize($param["VolumeInfos"]);
+        }
+
+        if (array_key_exists("VolumeMountInfos",$param) and $param["VolumeMountInfos"] !== null) {
+            $this->VolumeMountInfos = new VolumeMountInfo();
+            $this->VolumeMountInfos->deserialize($param["VolumeMountInfos"]);
+        }
+
+        if (array_key_exists("VolumeInfoList",$param) and $param["VolumeInfoList"] !== null) {
+            $this->VolumeInfoList = [];
+            foreach ($param["VolumeInfoList"] as $key => $value){
+                $obj = new VolumeInfo();
+                $obj->deserialize($value);
+                array_push($this->VolumeInfoList, $obj);
+            }
+        }
+
+        if (array_key_exists("VolumeMountInfoList",$param) and $param["VolumeMountInfoList"] !== null) {
+            $this->VolumeMountInfoList = [];
+            foreach ($param["VolumeMountInfoList"] as $key => $value){
+                $obj = new VolumeMountInfo();
+                $obj->deserialize($value);
+                array_push($this->VolumeMountInfoList, $obj);
+            }
+        }
+
+        if (array_key_exists("VolumeClean",$param) and $param["VolumeClean"] !== null) {
+            $this->VolumeClean = $param["VolumeClean"];
+        }
+
+        if (array_key_exists("AgentProfileList",$param) and $param["AgentProfileList"] !== null) {
+            $this->AgentProfileList = [];
+            foreach ($param["AgentProfileList"] as $key => $value){
+                $obj = new AgentProfile();
+                $obj->deserialize($value);
+                array_push($this->AgentProfileList, $obj);
+            }
+        }
+
+        if (array_key_exists("WarmupSetting",$param) and $param["WarmupSetting"] !== null) {
+            $this->WarmupSetting = new WarmupSetting();
+            $this->WarmupSetting->deserialize($param["WarmupSetting"]);
         }
     }
 }

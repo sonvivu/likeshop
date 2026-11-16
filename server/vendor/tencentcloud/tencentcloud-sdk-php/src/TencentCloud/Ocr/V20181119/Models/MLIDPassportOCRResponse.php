@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,142 +20,180 @@ use TencentCloud\Common\AbstractModel;
 /**
  * MLIDPassportOCR返回参数结构体
  *
- * @method string getID() 获取护照ID
- * @method void setID(string $ID) 设置护照ID
- * @method string getName() 获取姓名
- * @method void setName(string $Name) 设置姓名
- * @method string getDateOfBirth() 获取出生日期
- * @method void setDateOfBirth(string $DateOfBirth) 设置出生日期
- * @method string getSex() 获取性别（F女，M男）
- * @method void setSex(string $Sex) 设置性别（F女，M男）
- * @method string getDateOfExpiration() 获取有效期
- * @method void setDateOfExpiration(string $DateOfExpiration) 设置有效期
- * @method string getIssuingCountry() 获取发行国
- * @method void setIssuingCountry(string $IssuingCountry) 设置发行国
- * @method string getNationality() 获取国籍
- * @method void setNationality(string $Nationality) 设置国籍
- * @method array getWarn() 获取告警码
--9103	证照翻拍告警
--9102	证照复印件告警
--9106       证件遮挡告警
- * @method void setWarn(array $Warn) 设置告警码
--9103	证照翻拍告警
--9102	证照复印件告警
--9106       证件遮挡告警
- * @method string getImage() 获取证件图片
- * @method void setImage(string $Image) 设置证件图片
- * @method string getAdvancedInfo() 获取扩展字段:
-{
-    ID:{
-        Confidence:0.9999
-    },
-    Name:{
-        Confidence:0.9996
-    }
-}
- * @method void setAdvancedInfo(string $AdvancedInfo) 设置扩展字段:
-{
-    ID:{
-        Confidence:0.9999
-    },
-    Name:{
-        Confidence:0.9996
-    }
-}
- * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
- * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method string getID() 获取护照ID（机读码区的解析结果）
+ * @method void setID(string $ID) 设置护照ID（机读码区的解析结果）
+ * @method string getName() 获取姓名（机读码区的解析结果）
+ * @method void setName(string $Name) 设置姓名（机读码区的解析结果）
+ * @method string getDateOfBirth() 获取出生日期（机读码区的解析结果）
+ * @method void setDateOfBirth(string $DateOfBirth) 设置出生日期（机读码区的解析结果）
+ * @method string getSex() 获取性别（F女，M男）（机读码区的解析结果）
+ * @method void setSex(string $Sex) 设置性别（F女，M男）（机读码区的解析结果）
+ * @method string getDateOfExpiration() 获取有效期（机读码区的解析结果）
+ * @method void setDateOfExpiration(string $DateOfExpiration) 设置有效期（机读码区的解析结果）
+ * @method string getIssuingCountry() 获取发行国（机读码区的解析结果）
+ * @method void setIssuingCountry(string $IssuingCountry) 设置发行国（机读码区的解析结果）
+ * @method string getNationality() 获取国家地区代码（机读码区的解析结果）
+ * @method void setNationality(string $Nationality) 设置国家地区代码（机读码区的解析结果）
+ * @method array getWarn() 获取该字段已废弃， 将固定返回空数组，不建议使用。
+
+ * @method void setWarn(array $Warn) 设置该字段已废弃， 将固定返回空数组，不建议使用。
+
+ * @method string getImage() 获取证件中的人像图片base64
+ * @method void setImage(string $Image) 设置证件中的人像图片base64
+ * @method string getAdvancedInfo() 获取该字段已废弃， 将固定返回"1"，不建议使用。
+
+ * @method void setAdvancedInfo(string $AdvancedInfo) 设置该字段已废弃， 将固定返回"1"，不建议使用。
+
+ * @method string getCodeSet() 获取最下方第一行 MRZ Code 序列
+ * @method void setCodeSet(string $CodeSet) 设置最下方第一行 MRZ Code 序列
+ * @method string getCodeCrc() 获取最下方第二行 MRZ Code 序列
+ * @method void setCodeCrc(string $CodeCrc) 设置最下方第二行 MRZ Code 序列
+ * @method string getSurname() 获取姓（机读码区的解析结果）
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setSurname(string $Surname) 设置姓（机读码区的解析结果）
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getGivenName() 获取名（机读码区的解析结果）
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setGivenName(string $GivenName) 设置名（机读码区的解析结果）
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getType() 获取类型（机读码区的解析结果）
+ * @method void setType(string $Type) 设置类型（机读码区的解析结果）
+ * @method PassportRecognizeInfos getPassportRecognizeInfos() 获取信息区证件内容
+ * @method void setPassportRecognizeInfos(PassportRecognizeInfos $PassportRecognizeInfos) 设置信息区证件内容
+ * @method array getWarnCardInfos() 获取该字段仅对国际站请求起作用，国内站该字段将固定返回空数组。国际站告警码如下：  告警码-9101 证件边框不完整告警-9102 证件复印件告警-9103 证件翻拍告警-9104 证件PS告警-9107 证件反光告警-9108 证件模糊告警-9109 告警能力未开通
+ * @method void setWarnCardInfos(array $WarnCardInfos) 设置该字段仅对国际站请求起作用，国内站该字段将固定返回空数组。国际站告警码如下：  告警码-9101 证件边框不完整告警-9102 证件复印件告警-9103 证件翻拍告警-9104 证件PS告警-9107 证件反光告警-9108 证件模糊告警-9109 告警能力未开通
+ * @method integer getCardCount() 获取输入图片中的卡证数量（仅请求曼谷地域[ap-bangkok]返回）
+ * @method void setCardCount(integer $CardCount) 设置输入图片中的卡证数量（仅请求曼谷地域[ap-bangkok]返回）
+ * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+ * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
 class MLIDPassportOCRResponse extends AbstractModel
 {
     /**
-     * @var string 护照ID
+     * @var string 护照ID（机读码区的解析结果）
      */
     public $ID;
 
     /**
-     * @var string 姓名
+     * @var string 姓名（机读码区的解析结果）
      */
     public $Name;
 
     /**
-     * @var string 出生日期
+     * @var string 出生日期（机读码区的解析结果）
      */
     public $DateOfBirth;
 
     /**
-     * @var string 性别（F女，M男）
+     * @var string 性别（F女，M男）（机读码区的解析结果）
      */
     public $Sex;
 
     /**
-     * @var string 有效期
+     * @var string 有效期（机读码区的解析结果）
      */
     public $DateOfExpiration;
 
     /**
-     * @var string 发行国
+     * @var string 发行国（机读码区的解析结果）
      */
     public $IssuingCountry;
 
     /**
-     * @var string 国籍
+     * @var string 国家地区代码（机读码区的解析结果）
      */
     public $Nationality;
 
     /**
-     * @var array 告警码
--9103	证照翻拍告警
--9102	证照复印件告警
--9106       证件遮挡告警
+     * @var array 该字段已废弃， 将固定返回空数组，不建议使用。
+
+     * @deprecated
      */
     public $Warn;
 
     /**
-     * @var string 证件图片
+     * @var string 证件中的人像图片base64
      */
     public $Image;
 
     /**
-     * @var string 扩展字段:
-{
-    ID:{
-        Confidence:0.9999
-    },
-    Name:{
-        Confidence:0.9996
-    }
-}
+     * @var string 该字段已废弃， 将固定返回"1"，不建议使用。
+
+     * @deprecated
      */
     public $AdvancedInfo;
 
     /**
-     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @var string 最下方第一行 MRZ Code 序列
+     */
+    public $CodeSet;
+
+    /**
+     * @var string 最下方第二行 MRZ Code 序列
+     */
+    public $CodeCrc;
+
+    /**
+     * @var string 姓（机读码区的解析结果）
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $Surname;
+
+    /**
+     * @var string 名（机读码区的解析结果）
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $GivenName;
+
+    /**
+     * @var string 类型（机读码区的解析结果）
+     */
+    public $Type;
+
+    /**
+     * @var PassportRecognizeInfos 信息区证件内容
+     */
+    public $PassportRecognizeInfos;
+
+    /**
+     * @var array 该字段仅对国际站请求起作用，国内站该字段将固定返回空数组。国际站告警码如下：  告警码-9101 证件边框不完整告警-9102 证件复印件告警-9103 证件翻拍告警-9104 证件PS告警-9107 证件反光告警-9108 证件模糊告警-9109 告警能力未开通
+     */
+    public $WarnCardInfos;
+
+    /**
+     * @var integer 输入图片中的卡证数量（仅请求曼谷地域[ap-bangkok]返回）
+     */
+    public $CardCount;
+
+    /**
+     * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public $RequestId;
 
     /**
-     * @param string $ID 护照ID
-     * @param string $Name 姓名
-     * @param string $DateOfBirth 出生日期
-     * @param string $Sex 性别（F女，M男）
-     * @param string $DateOfExpiration 有效期
-     * @param string $IssuingCountry 发行国
-     * @param string $Nationality 国籍
-     * @param array $Warn 告警码
--9103	证照翻拍告警
--9102	证照复印件告警
--9106       证件遮挡告警
-     * @param string $Image 证件图片
-     * @param string $AdvancedInfo 扩展字段:
-{
-    ID:{
-        Confidence:0.9999
-    },
-    Name:{
-        Confidence:0.9996
-    }
-}
-     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @param string $ID 护照ID（机读码区的解析结果）
+     * @param string $Name 姓名（机读码区的解析结果）
+     * @param string $DateOfBirth 出生日期（机读码区的解析结果）
+     * @param string $Sex 性别（F女，M男）（机读码区的解析结果）
+     * @param string $DateOfExpiration 有效期（机读码区的解析结果）
+     * @param string $IssuingCountry 发行国（机读码区的解析结果）
+     * @param string $Nationality 国家地区代码（机读码区的解析结果）
+     * @param array $Warn 该字段已废弃， 将固定返回空数组，不建议使用。
+
+     * @param string $Image 证件中的人像图片base64
+     * @param string $AdvancedInfo 该字段已废弃， 将固定返回"1"，不建议使用。
+
+     * @param string $CodeSet 最下方第一行 MRZ Code 序列
+     * @param string $CodeCrc 最下方第二行 MRZ Code 序列
+     * @param string $Surname 姓（机读码区的解析结果）
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $GivenName 名（机读码区的解析结果）
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $Type 类型（机读码区的解析结果）
+     * @param PassportRecognizeInfos $PassportRecognizeInfos 信息区证件内容
+     * @param array $WarnCardInfos 该字段仅对国际站请求起作用，国内站该字段将固定返回空数组。国际站告警码如下：  告警码-9101 证件边框不完整告警-9102 证件复印件告警-9103 证件翻拍告警-9104 证件PS告警-9107 证件反光告警-9108 证件模糊告警-9109 告警能力未开通
+     * @param integer $CardCount 输入图片中的卡证数量（仅请求曼谷地域[ap-bangkok]返回）
+     * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
     {
@@ -208,6 +246,39 @@ class MLIDPassportOCRResponse extends AbstractModel
 
         if (array_key_exists("AdvancedInfo",$param) and $param["AdvancedInfo"] !== null) {
             $this->AdvancedInfo = $param["AdvancedInfo"];
+        }
+
+        if (array_key_exists("CodeSet",$param) and $param["CodeSet"] !== null) {
+            $this->CodeSet = $param["CodeSet"];
+        }
+
+        if (array_key_exists("CodeCrc",$param) and $param["CodeCrc"] !== null) {
+            $this->CodeCrc = $param["CodeCrc"];
+        }
+
+        if (array_key_exists("Surname",$param) and $param["Surname"] !== null) {
+            $this->Surname = $param["Surname"];
+        }
+
+        if (array_key_exists("GivenName",$param) and $param["GivenName"] !== null) {
+            $this->GivenName = $param["GivenName"];
+        }
+
+        if (array_key_exists("Type",$param) and $param["Type"] !== null) {
+            $this->Type = $param["Type"];
+        }
+
+        if (array_key_exists("PassportRecognizeInfos",$param) and $param["PassportRecognizeInfos"] !== null) {
+            $this->PassportRecognizeInfos = new PassportRecognizeInfos();
+            $this->PassportRecognizeInfos->deserialize($param["PassportRecognizeInfos"]);
+        }
+
+        if (array_key_exists("WarnCardInfos",$param) and $param["WarnCardInfos"] !== null) {
+            $this->WarnCardInfos = $param["WarnCardInfos"];
+        }
+
+        if (array_key_exists("CardCount",$param) and $param["CardCount"] !== null) {
+            $this->CardCount = $param["CardCount"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

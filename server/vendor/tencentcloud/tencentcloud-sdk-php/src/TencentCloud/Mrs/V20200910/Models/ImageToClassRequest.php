@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,17 +20,19 @@ use TencentCloud\Common\AbstractModel;
 /**
  * ImageToClass请求参数结构体
  *
- * @method array getImageInfoList() 获取图片列表，允许传入多张图片，支持传入图片的url或base64编码
- * @method void setImageInfoList(array $ImageInfoList) 设置图片列表，允许传入多张图片，支持传入图片的url或base64编码
+ * @method array getImageInfoList() 获取图片列表，允许传入多张图片，支持传入图片的base64编码，暂不支持图片url
+ * @method void setImageInfoList(array $ImageInfoList) 设置图片列表，允许传入多张图片，支持传入图片的base64编码，暂不支持图片url
  * @method HandleParam getHandleParam() 获取图片处理参数
  * @method void setHandleParam(HandleParam $HandleParam) 设置图片处理参数
- * @method integer getType() 获取图片类型，目前支持11（检验报告），12（检查报告），15（病理报告），218（诊断证明）。
- * @method void setType(integer $Type) 设置图片类型，目前支持11（检验报告），12（检查报告），15（病理报告），218（诊断证明）。
+ * @method integer getType() 获取不填，默认为0
+ * @method void setType(integer $Type) 设置不填，默认为0
+ * @method integer getUserType() 获取后付费的用户类型，新客户传1，老客户可不传或传 0。2022 年 12 月 15 新增了计费项，在此时间之前已经通过商务指定优惠价格的大客户，请不传这个字段或传 0，如果传 1 会导致以前获得的折扣价格失效。在 2022 年 12 月 15 日之后，通过商务指定优惠价格的大客户请传 1。
+ * @method void setUserType(integer $UserType) 设置后付费的用户类型，新客户传1，老客户可不传或传 0。2022 年 12 月 15 新增了计费项，在此时间之前已经通过商务指定优惠价格的大客户，请不传这个字段或传 0，如果传 1 会导致以前获得的折扣价格失效。在 2022 年 12 月 15 日之后，通过商务指定优惠价格的大客户请传 1。
  */
 class ImageToClassRequest extends AbstractModel
 {
     /**
-     * @var array 图片列表，允许传入多张图片，支持传入图片的url或base64编码
+     * @var array 图片列表，允许传入多张图片，支持传入图片的base64编码，暂不支持图片url
      */
     public $ImageInfoList;
 
@@ -40,14 +42,20 @@ class ImageToClassRequest extends AbstractModel
     public $HandleParam;
 
     /**
-     * @var integer 图片类型，目前支持11（检验报告），12（检查报告），15（病理报告），218（诊断证明）。
+     * @var integer 不填，默认为0
      */
     public $Type;
 
     /**
-     * @param array $ImageInfoList 图片列表，允许传入多张图片，支持传入图片的url或base64编码
+     * @var integer 后付费的用户类型，新客户传1，老客户可不传或传 0。2022 年 12 月 15 新增了计费项，在此时间之前已经通过商务指定优惠价格的大客户，请不传这个字段或传 0，如果传 1 会导致以前获得的折扣价格失效。在 2022 年 12 月 15 日之后，通过商务指定优惠价格的大客户请传 1。
+     */
+    public $UserType;
+
+    /**
+     * @param array $ImageInfoList 图片列表，允许传入多张图片，支持传入图片的base64编码，暂不支持图片url
      * @param HandleParam $HandleParam 图片处理参数
-     * @param integer $Type 图片类型，目前支持11（检验报告），12（检查报告），15（病理报告），218（诊断证明）。
+     * @param integer $Type 不填，默认为0
+     * @param integer $UserType 后付费的用户类型，新客户传1，老客户可不传或传 0。2022 年 12 月 15 新增了计费项，在此时间之前已经通过商务指定优惠价格的大客户，请不传这个字段或传 0，如果传 1 会导致以前获得的折扣价格失效。在 2022 年 12 月 15 日之后，通过商务指定优惠价格的大客户请传 1。
      */
     function __construct()
     {
@@ -78,6 +86,10 @@ class ImageToClassRequest extends AbstractModel
 
         if (array_key_exists("Type",$param) and $param["Type"] !== null) {
             $this->Type = $param["Type"];
+        }
+
+        if (array_key_exists("UserType",$param) and $param["UserType"] !== null) {
+            $this->UserType = $param["UserType"];
         }
     }
 }

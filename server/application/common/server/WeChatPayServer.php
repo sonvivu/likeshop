@@ -29,7 +29,7 @@ use EasyWeChat\Factory;
 use EasyWeChat\Payment\Application;
 use Endroid\QrCode\QrCode;
 use http\Client;
-use think\Db;
+use think\facade\Db;
 use think\Exception;
 use think\facade\Log;
 

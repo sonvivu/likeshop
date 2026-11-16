@@ -11,8 +11,8 @@ use app\common\model\LuckdrawRecord;
 use app\common\model\User;
 use app\common\server\ConfigServer;
 use app\common\server\UrlServer;
-use think\Db;
-use think\helper\Time;
+use think\facade\Db;
+use app\common\helper\Time;
 
 class LuckdrawLogic
 {

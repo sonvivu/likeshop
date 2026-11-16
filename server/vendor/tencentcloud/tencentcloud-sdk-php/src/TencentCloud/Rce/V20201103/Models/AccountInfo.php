@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,74 +20,58 @@ use TencentCloud\Common\AbstractModel;
 /**
  * 账号信息。
  *
- * @method integer getAccountType() 获取用户账号类型（默认开通 QQ 开放账号、手机号，手机 MD5 账号类型查询。如需使用微信开放账号，则需要 提交工单 由腾讯云进行资格审核，审核通过后方可正常使用微信开放账号）：
-1：QQ开放账号。
-2：微信开放账号。
-4：手机号（暂仅支持国内手机号）。
-8：设备号（imei/imeiMD5/idfa/idfaMD5）。
-0：其他。
-10004：支持手机号MD5加密和sha256加密；
-标准中国大陆手机号11位，MD5加密后取长度32位小写字符串；例如：手机号13112345678的Md5加密结果为手"dafc728802534d51fbf85c70313a2bd2"
-标准中国大陆手机号11位，sha256加密后取长度为64位的小写字符串；例如：手机号13112345678的sha256加密的结果为“9f46715cff1a9ac969ec01924111f7f3697a97ad98a4fd53e15a78d79d1f3551”
- * @method void setAccountType(integer $AccountType) 设置用户账号类型（默认开通 QQ 开放账号、手机号，手机 MD5 账号类型查询。如需使用微信开放账号，则需要 提交工单 由腾讯云进行资格审核，审核通过后方可正常使用微信开放账号）：
-1：QQ开放账号。
-2：微信开放账号。
-4：手机号（暂仅支持国内手机号）。
-8：设备号（imei/imeiMD5/idfa/idfaMD5）。
-0：其他。
-10004：支持手机号MD5加密和sha256加密；
-标准中国大陆手机号11位，MD5加密后取长度32位小写字符串；例如：手机号13112345678的Md5加密结果为手"dafc728802534d51fbf85c70313a2bd2"
-标准中国大陆手机号11位，sha256加密后取长度为64位的小写字符串；例如：手机号13112345678的sha256加密的结果为“9f46715cff1a9ac969ec01924111f7f3697a97ad98a4fd53e15a78d79d1f3551”
- * @method QQAccountInfo getQQAccount() 获取QQ账号信息，AccountType是1时，该字段必填。
- * @method void setQQAccount(QQAccountInfo $QQAccount) 设置QQ账号信息，AccountType是1时，该字段必填。
- * @method WeChatAccountInfo getWeChatAccount() 获取微信账号信息，AccountType是2时，该字段必填。
- * @method void setWeChatAccount(WeChatAccountInfo $WeChatAccount) 设置微信账号信息，AccountType是2时，该字段必填。
- * @method OtherAccountInfo getOtherAccount() 获取其它账号信息，AccountType是0、4、8或10004时，该字段必填。
- * @method void setOtherAccount(OtherAccountInfo $OtherAccount) 设置其它账号信息，AccountType是0、4、8或10004时，该字段必填。
+ * @method integer getAccountType() 获取用户账号类型；默认开通QQOpenId、手机号MD5权限；如果需要使用微信OpenId入参，则需要"提交工单"或联系对接人进行资格审核，审核通过后方可正常使用微信开放账号。
+1：QQ开放账号
+2：微信开放账号
+10004：手机号MD5，中国大陆11位手机号进行MD5加密，取32位小写值
+10005：手机号SHA256，中国大陆11位手机号进行SHA256加密，取64位小写值
+ * @method void setAccountType(integer $AccountType) 设置用户账号类型；默认开通QQOpenId、手机号MD5权限；如果需要使用微信OpenId入参，则需要"提交工单"或联系对接人进行资格审核，审核通过后方可正常使用微信开放账号。
+1：QQ开放账号
+2：微信开放账号
+10004：手机号MD5，中国大陆11位手机号进行MD5加密，取32位小写值
+10005：手机号SHA256，中国大陆11位手机号进行SHA256加密，取64位小写值
+ * @method QQAccountInfo getQQAccount() 获取QQ账号信息，AccountType是"1"时，该字段必填。
+ * @method void setQQAccount(QQAccountInfo $QQAccount) 设置QQ账号信息，AccountType是"1"时，该字段必填。
+ * @method WeChatAccountInfo getWeChatAccount() 获取微信账号信息，AccountType是"2"时，该字段必填。
+ * @method void setWeChatAccount(WeChatAccountInfo $WeChatAccount) 设置微信账号信息，AccountType是"2"时，该字段必填。
+ * @method OtherAccountInfo getOtherAccount() 获取其它账号信息，AccountType是10004或10005时，该字段必填。
+ * @method void setOtherAccount(OtherAccountInfo $OtherAccount) 设置其它账号信息，AccountType是10004或10005时，该字段必填。
  */
 class AccountInfo extends AbstractModel
 {
     /**
-     * @var integer 用户账号类型（默认开通 QQ 开放账号、手机号，手机 MD5 账号类型查询。如需使用微信开放账号，则需要 提交工单 由腾讯云进行资格审核，审核通过后方可正常使用微信开放账号）：
-1：QQ开放账号。
-2：微信开放账号。
-4：手机号（暂仅支持国内手机号）。
-8：设备号（imei/imeiMD5/idfa/idfaMD5）。
-0：其他。
-10004：支持手机号MD5加密和sha256加密；
-标准中国大陆手机号11位，MD5加密后取长度32位小写字符串；例如：手机号13112345678的Md5加密结果为手"dafc728802534d51fbf85c70313a2bd2"
-标准中国大陆手机号11位，sha256加密后取长度为64位的小写字符串；例如：手机号13112345678的sha256加密的结果为“9f46715cff1a9ac969ec01924111f7f3697a97ad98a4fd53e15a78d79d1f3551”
+     * @var integer 用户账号类型；默认开通QQOpenId、手机号MD5权限；如果需要使用微信OpenId入参，则需要"提交工单"或联系对接人进行资格审核，审核通过后方可正常使用微信开放账号。
+1：QQ开放账号
+2：微信开放账号
+10004：手机号MD5，中国大陆11位手机号进行MD5加密，取32位小写值
+10005：手机号SHA256，中国大陆11位手机号进行SHA256加密，取64位小写值
      */
     public $AccountType;
 
     /**
-     * @var QQAccountInfo QQ账号信息，AccountType是1时，该字段必填。
+     * @var QQAccountInfo QQ账号信息，AccountType是"1"时，该字段必填。
      */
     public $QQAccount;
 
     /**
-     * @var WeChatAccountInfo 微信账号信息，AccountType是2时，该字段必填。
+     * @var WeChatAccountInfo 微信账号信息，AccountType是"2"时，该字段必填。
      */
     public $WeChatAccount;
 
     /**
-     * @var OtherAccountInfo 其它账号信息，AccountType是0、4、8或10004时，该字段必填。
+     * @var OtherAccountInfo 其它账号信息，AccountType是10004或10005时，该字段必填。
      */
     public $OtherAccount;
 
     /**
-     * @param integer $AccountType 用户账号类型（默认开通 QQ 开放账号、手机号，手机 MD5 账号类型查询。如需使用微信开放账号，则需要 提交工单 由腾讯云进行资格审核，审核通过后方可正常使用微信开放账号）：
-1：QQ开放账号。
-2：微信开放账号。
-4：手机号（暂仅支持国内手机号）。
-8：设备号（imei/imeiMD5/idfa/idfaMD5）。
-0：其他。
-10004：支持手机号MD5加密和sha256加密；
-标准中国大陆手机号11位，MD5加密后取长度32位小写字符串；例如：手机号13112345678的Md5加密结果为手"dafc728802534d51fbf85c70313a2bd2"
-标准中国大陆手机号11位，sha256加密后取长度为64位的小写字符串；例如：手机号13112345678的sha256加密的结果为“9f46715cff1a9ac969ec01924111f7f3697a97ad98a4fd53e15a78d79d1f3551”
-     * @param QQAccountInfo $QQAccount QQ账号信息，AccountType是1时，该字段必填。
-     * @param WeChatAccountInfo $WeChatAccount 微信账号信息，AccountType是2时，该字段必填。
-     * @param OtherAccountInfo $OtherAccount 其它账号信息，AccountType是0、4、8或10004时，该字段必填。
+     * @param integer $AccountType 用户账号类型；默认开通QQOpenId、手机号MD5权限；如果需要使用微信OpenId入参，则需要"提交工单"或联系对接人进行资格审核，审核通过后方可正常使用微信开放账号。
+1：QQ开放账号
+2：微信开放账号
+10004：手机号MD5，中国大陆11位手机号进行MD5加密，取32位小写值
+10005：手机号SHA256，中国大陆11位手机号进行SHA256加密，取64位小写值
+     * @param QQAccountInfo $QQAccount QQ账号信息，AccountType是"1"时，该字段必填。
+     * @param WeChatAccountInfo $WeChatAccount 微信账号信息，AccountType是"2"时，该字段必填。
+     * @param OtherAccountInfo $OtherAccount 其它账号信息，AccountType是10004或10005时，该字段必填。
      */
     function __construct()
     {

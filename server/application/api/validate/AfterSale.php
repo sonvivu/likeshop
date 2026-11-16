@@ -22,7 +22,7 @@ namespace app\api\validate;
 use app\common\model\DistributionOrder;
 use app\common\model\OrderGoods;
 use app\common\server\ConfigServer;
-use think\Db;
+use think\facade\Db;
 use think\Validate;
 
 class AfterSale extends Validate
@@ -144,7 +144,7 @@ class AfterSale extends Validate
         $where[] = ['g.item_id', '=', $data['item_id']];
         $where[] = ['o.order_status', 'in', [\app\common\model\Order::STATUS_WAIT_DELIVERY, \app\common\model\Order::STATUS_WAIT_RECEIVE, \app\common\model\Order::STATUS_FINISH]];
 
-        $order = Db::name('order o')
+        $order = Db::name('order')->alias('o')
             ->field('o.order_status,o.confirm_take_time,g.refund_status,o.create_time,o.pay_time')
             ->join('order_goods g', 'o.id = g.order_id')
             ->where($where)

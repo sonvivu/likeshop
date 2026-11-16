@@ -7,7 +7,7 @@ use app\common\logic\LogicBase;
 use app\common\model\Distribution;
 use app\common\server\AreaServer;
 use app\common\server\UrlServer;
-use think\Db;
+use think\facade\Db;
 
 class DistributionApplyLogic extends LogicBase
 {

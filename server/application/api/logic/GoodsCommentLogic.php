@@ -21,7 +21,7 @@ namespace app\api\logic;
 use app\common\model\Order;
 use app\common\model\Pay;
 use app\common\server\UrlServer;
-use think\Db;
+use think\facade\Db;
 
 class GoodsCommentLogic{
     //列表
@@ -63,6 +63,7 @@ class GoodsCommentLogic{
                     ->group('gc.id')
                     ->order('gc.id desc')
                     ->select();
+        $comment_lists = $comment_lists->toArray(); // ThinkPHP 6：select() 返回 Collection，TP5 返回数组；直接写 $comment_lists[$k]['x'] 或 foreach(&$item) 改值会丢/报错，先转数组。
         $iamge_list = [];
         $comment_id = array_column($comment_lists,'id');
         if($comment_id){
@@ -271,6 +272,7 @@ class GoodsCommentLogic{
                     ->page($page,$size)
                     ->order('O.id desc')
                     ->select();
+        $order_goods_list = $order_goods_list->toArray(); // ThinkPHP 6：select() 返回 Collection，TP5 返回数组；直接写 $order_goods_list[$k]['x'] 或 foreach(&$item) 改值会丢/报错，先转数组。
 
 
         $goods_comment = [];

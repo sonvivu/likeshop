@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,18 +20,18 @@ use TencentCloud\Common\AbstractModel;
 /**
  * ListSecretVersionIds请求参数结构体
  *
- * @method string getSecretName() 获取凭据名称。
- * @method void setSecretName(string $SecretName) 设置凭据名称。
+ * @method string getSecretName() 获取凭据名称
+ * @method void setSecretName(string $SecretName) 设置凭据名称
  */
 class ListSecretVersionIdsRequest extends AbstractModel
 {
     /**
-     * @var string 凭据名称。
+     * @var string 凭据名称
      */
     public $SecretName;
 
     /**
-     * @param string $SecretName 凭据名称。
+     * @param string $SecretName 凭据名称
      */
     function __construct()
     {

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,9 +23,7 @@ use TencentCloud\Common\AbstractModel;
  * @method integer getTotalCount() 获取总数目
  * @method void setTotalCount(integer $TotalCount) 设置总数目
  * @method array getStrategyInfo() 获取自动删除策略列表
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setStrategyInfo(array $StrategyInfo) 设置自动删除策略列表
-注意：此字段可能返回 null，表示取不到有效值。
  */
 class AutoDelStrategyInfoResp extends AbstractModel
 {
@@ -36,14 +34,12 @@ class AutoDelStrategyInfoResp extends AbstractModel
 
     /**
      * @var array 自动删除策略列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $StrategyInfo;
 
     /**
      * @param integer $TotalCount 总数目
      * @param array $StrategyInfo 自动删除策略列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
     {

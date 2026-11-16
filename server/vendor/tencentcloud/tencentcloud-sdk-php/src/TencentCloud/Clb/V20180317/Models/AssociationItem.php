@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,6 +44,10 @@ use TencentCloud\Common\AbstractModel;
  * @method void setLoadBalancerName(string $LoadBalancerName) 设置负载均衡名称
  * @method string getListenerName() 获取监听器名称
  * @method void setListenerName(string $ListenerName) 设置监听器名称
+ * @method integer getWeight() 获取关联目标组的权重， 该参数只有v2新版目标组生效。
+ * @method void setWeight(integer $Weight) 设置关联目标组的权重， 该参数只有v2新版目标组生效。
+ * @method string getRuleId() 获取高级路由规则ID
+ * @method void setRuleId(string $RuleId) 设置高级路由规则ID
  */
 class AssociationItem extends AbstractModel
 {
@@ -96,6 +100,16 @@ class AssociationItem extends AbstractModel
     public $ListenerName;
 
     /**
+     * @var integer 关联目标组的权重， 该参数只有v2新版目标组生效。
+     */
+    public $Weight;
+
+    /**
+     * @var string 高级路由规则ID
+     */
+    public $RuleId;
+
+    /**
      * @param string $LoadBalancerId 关联到的负载均衡ID
      * @param string $ListenerId 关联到的监听器ID
      * @param string $LocationId 关联到的转发规则ID
@@ -108,6 +122,8 @@ class AssociationItem extends AbstractModel
 注意：此字段可能返回 null，表示取不到有效值。
      * @param string $LoadBalancerName 负载均衡名称
      * @param string $ListenerName 监听器名称
+     * @param integer $Weight 关联目标组的权重， 该参数只有v2新版目标组生效。
+     * @param string $RuleId 高级路由规则ID
      */
     function __construct()
     {
@@ -156,6 +172,14 @@ class AssociationItem extends AbstractModel
 
         if (array_key_exists("ListenerName",$param) and $param["ListenerName"] !== null) {
             $this->ListenerName = $param["ListenerName"];
+        }
+
+        if (array_key_exists("Weight",$param) and $param["Weight"] !== null) {
+            $this->Weight = $param["Weight"];
+        }
+
+        if (array_key_exists("RuleId",$param) and $param["RuleId"] !== null) {
+            $this->RuleId = $param["RuleId"];
         }
     }
 }

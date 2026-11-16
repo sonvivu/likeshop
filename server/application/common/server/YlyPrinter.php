@@ -181,10 +181,10 @@ class YlyPrinter{
 
                 $content .= str_repeat('-', 32).PHP_EOL;
 
-                $content .= lang('商品金额：￥').$order['total_amount'].PHP_EOL;
-                $content .= lang('优惠：￥').$order['discount_amount'].PHP_EOL;
-                $content .= lang('运费：￥').$order['shipping_price'].PHP_EOL;
-                $content .= lang('合计：￥').$order['total_amount'].PHP_EOL;
+                $content .= lang('商品金额：') . config('currency.symbol') . $order['total_amount'] . PHP_EOL;
+                $content .= lang('优惠：') . config('currency.symbol') . $order['discount_amount'] . PHP_EOL;
+                $content .= lang('运费：') . config('currency.symbol') . $order['shipping_price'] . PHP_EOL;
+                $content .= lang('合计：') . config('currency.symbol') . $order['total_amount'] . PHP_EOL;
                 $content .= PHP_EOL;
                 if($order['user_remark']){
                     $content .= lang('订单备注：').$order['user_remark'].PHP_EOL;

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,18 +20,18 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeProductQuota请求参数结构体
  *
- * @method string getProduct() 获取查询的网络产品名称，如vpc、ccn等
- * @method void setProduct(string $Product) 设置查询的网络产品名称，如vpc、ccn等
+ * @method string getProduct() 获取查询的网络产品名称，可查询的产品有：vpc、ccn、vpn、dc、dfw、clb、eip。
+ * @method void setProduct(string $Product) 设置查询的网络产品名称，可查询的产品有：vpc、ccn、vpn、dc、dfw、clb、eip。
  */
 class DescribeProductQuotaRequest extends AbstractModel
 {
     /**
-     * @var string 查询的网络产品名称，如vpc、ccn等
+     * @var string 查询的网络产品名称，可查询的产品有：vpc、ccn、vpn、dc、dfw、clb、eip。
      */
     public $Product;
 
     /**
-     * @param string $Product 查询的网络产品名称，如vpc、ccn等
+     * @param string $Product 查询的网络产品名称，可查询的产品有：vpc、ccn、vpn、dc、dfw、clb、eip。
      */
     function __construct()
     {

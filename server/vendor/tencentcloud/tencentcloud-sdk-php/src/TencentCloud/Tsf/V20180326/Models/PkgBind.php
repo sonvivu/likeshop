@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,33 +21,25 @@ use TencentCloud\Common\AbstractModel;
  * 描述程序包关联信息
  *
  * @method string getApplicationId() 获取应用id
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setApplicationId(string $ApplicationId) 设置应用id
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getGroupId() 获取部署组id
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setGroupId(string $GroupId) 设置部署组id
-注意：此字段可能返回 null，表示取不到有效值。
  */
 class PkgBind extends AbstractModel
 {
     /**
      * @var string 应用id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $ApplicationId;
 
     /**
      * @var string 部署组id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $GroupId;
 
     /**
      * @param string $ApplicationId 应用id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $GroupId 部署组id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
     {

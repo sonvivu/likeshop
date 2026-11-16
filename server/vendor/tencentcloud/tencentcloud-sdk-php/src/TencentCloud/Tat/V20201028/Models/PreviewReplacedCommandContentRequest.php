@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,19 +20,27 @@ use TencentCloud\Common\AbstractModel;
 /**
  * PreviewReplacedCommandContent请求参数结构体
  *
- * @method string getParameters() 获取本次预览采用的自定义参数。字段类型为 json encoded string，如：{\"varA\": \"222\"}。
+ * @method string getParameters() 获取本次预览采用的自定义参数。字段类型为 json encoded string，如：{"varA": "222"}。
+仅在命令的 EnableParameter 为 true 时，才允许设置此参数。可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取命令的 EnableParameter 设置。
+如果有设置过 DefaultParameters 或 DefaultParameterConfs，会与 Parameters 进行叠加，优先使用 Parameters 的值。
+
 key 为自定义参数名称，value 为该参数的取值。kv 均为字符串型。
 自定义参数最多 20 个。
 自定义参数名称需符合以下规范：字符数目上限 64，可选范围【a-zA-Z0-9-_】。
 如果将预览的 CommandId 设置过 DefaultParameters，本参数可以为空。
- * @method void setParameters(string $Parameters) 设置本次预览采用的自定义参数。字段类型为 json encoded string，如：{\"varA\": \"222\"}。
+ * @method void setParameters(string $Parameters) 设置本次预览采用的自定义参数。字段类型为 json encoded string，如：{"varA": "222"}。
+仅在命令的 EnableParameter 为 true 时，才允许设置此参数。可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取命令的 EnableParameter 设置。
+如果有设置过 DefaultParameters 或 DefaultParameterConfs，会与 Parameters 进行叠加，优先使用 Parameters 的值。
+
 key 为自定义参数名称，value 为该参数的取值。kv 均为字符串型。
 自定义参数最多 20 个。
 自定义参数名称需符合以下规范：字符数目上限 64，可选范围【a-zA-Z0-9-_】。
 如果将预览的 CommandId 设置过 DefaultParameters，本参数可以为空。
- * @method string getCommandId() 获取要进行替换预览的命令，如果有设置过 DefaultParameters，会与 Parameters 进行叠加，后者覆盖前者。
+ * @method string getCommandId() 获取要进行替换预览的命令。
+可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取。
 CommandId 与 Content，必须且只能提供一个。
- * @method void setCommandId(string $CommandId) 设置要进行替换预览的命令，如果有设置过 DefaultParameters，会与 Parameters 进行叠加，后者覆盖前者。
+ * @method void setCommandId(string $CommandId) 设置要进行替换预览的命令。
+可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取。
 CommandId 与 Content，必须且只能提供一个。
  * @method string getContent() 获取要预览的命令内容，经 Base64 编码，长度不可超过 64KB。
 CommandId 与 Content，必须且只能提供一个。
@@ -42,7 +50,10 @@ CommandId 与 Content，必须且只能提供一个。
 class PreviewReplacedCommandContentRequest extends AbstractModel
 {
     /**
-     * @var string 本次预览采用的自定义参数。字段类型为 json encoded string，如：{\"varA\": \"222\"}。
+     * @var string 本次预览采用的自定义参数。字段类型为 json encoded string，如：{"varA": "222"}。
+仅在命令的 EnableParameter 为 true 时，才允许设置此参数。可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取命令的 EnableParameter 设置。
+如果有设置过 DefaultParameters 或 DefaultParameterConfs，会与 Parameters 进行叠加，优先使用 Parameters 的值。
+
 key 为自定义参数名称，value 为该参数的取值。kv 均为字符串型。
 自定义参数最多 20 个。
 自定义参数名称需符合以下规范：字符数目上限 64，可选范围【a-zA-Z0-9-_】。
@@ -51,7 +62,8 @@ key 为自定义参数名称，value 为该参数的取值。kv 均为字符串�
     public $Parameters;
 
     /**
-     * @var string 要进行替换预览的命令，如果有设置过 DefaultParameters，会与 Parameters 进行叠加，后者覆盖前者。
+     * @var string 要进行替换预览的命令。
+可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取。
 CommandId 与 Content，必须且只能提供一个。
      */
     public $CommandId;
@@ -63,12 +75,16 @@ CommandId 与 Content，必须且只能提供一个。
     public $Content;
 
     /**
-     * @param string $Parameters 本次预览采用的自定义参数。字段类型为 json encoded string，如：{\"varA\": \"222\"}。
+     * @param string $Parameters 本次预览采用的自定义参数。字段类型为 json encoded string，如：{"varA": "222"}。
+仅在命令的 EnableParameter 为 true 时，才允许设置此参数。可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取命令的 EnableParameter 设置。
+如果有设置过 DefaultParameters 或 DefaultParameterConfs，会与 Parameters 进行叠加，优先使用 Parameters 的值。
+
 key 为自定义参数名称，value 为该参数的取值。kv 均为字符串型。
 自定义参数最多 20 个。
 自定义参数名称需符合以下规范：字符数目上限 64，可选范围【a-zA-Z0-9-_】。
 如果将预览的 CommandId 设置过 DefaultParameters，本参数可以为空。
-     * @param string $CommandId 要进行替换预览的命令，如果有设置过 DefaultParameters，会与 Parameters 进行叠加，后者覆盖前者。
+     * @param string $CommandId 要进行替换预览的命令。
+可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取。
 CommandId 与 Content，必须且只能提供一个。
      * @param string $Content 要预览的命令内容，经 Base64 编码，长度不可超过 64KB。
 CommandId 与 Content，必须且只能提供一个。

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,6 +26,14 @@ use TencentCloud\Common\AbstractModel;
  * @method void setLimit(integer $Limit) 设置分页返回，每页返回的数目，取值为1-100，默认值为20
  * @method integer getOffset() 获取分页返回，页编号，默认值为第0页
  * @method void setOffset(integer $Offset) 设置分页返回，页编号，默认值为第0页
+ * @method string getName() 获取数据库名称
+ * @method void setName(string $Name) 设置数据库名称
+ * @method string getOrderByType() 获取排序规则（desc-降序，asc-升序），默认desc
+ * @method void setOrderByType(string $OrderByType) 设置排序规则（desc-降序，asc-升序），默认desc
+ * @method string getEncryption() 获取是否已开启TDE加密，enable-已加密，disable-未加密
+ * @method void setEncryption(string $Encryption) 设置是否已开启TDE加密，enable-已加密，disable-未加密
+ * @method string getOrderBy() 获取排序字段（Name-按名称排序，CreateTime-按创建时间排序），默认CreateTime
+ * @method void setOrderBy(string $OrderBy) 设置排序字段（Name-按名称排序，CreateTime-按创建时间排序），默认CreateTime
  */
 class DescribeDBsRequest extends AbstractModel
 {
@@ -45,9 +53,33 @@ class DescribeDBsRequest extends AbstractModel
     public $Offset;
 
     /**
+     * @var string 数据库名称
+     */
+    public $Name;
+
+    /**
+     * @var string 排序规则（desc-降序，asc-升序），默认desc
+     */
+    public $OrderByType;
+
+    /**
+     * @var string 是否已开启TDE加密，enable-已加密，disable-未加密
+     */
+    public $Encryption;
+
+    /**
+     * @var string 排序字段（Name-按名称排序，CreateTime-按创建时间排序），默认CreateTime
+     */
+    public $OrderBy;
+
+    /**
      * @param array $InstanceIdSet 实例ID
      * @param integer $Limit 分页返回，每页返回的数目，取值为1-100，默认值为20
      * @param integer $Offset 分页返回，页编号，默认值为第0页
+     * @param string $Name 数据库名称
+     * @param string $OrderByType 排序规则（desc-降序，asc-升序），默认desc
+     * @param string $Encryption 是否已开启TDE加密，enable-已加密，disable-未加密
+     * @param string $OrderBy 排序字段（Name-按名称排序，CreateTime-按创建时间排序），默认CreateTime
      */
     function __construct()
     {
@@ -72,6 +104,22 @@ class DescribeDBsRequest extends AbstractModel
 
         if (array_key_exists("Offset",$param) and $param["Offset"] !== null) {
             $this->Offset = $param["Offset"];
+        }
+
+        if (array_key_exists("Name",$param) and $param["Name"] !== null) {
+            $this->Name = $param["Name"];
+        }
+
+        if (array_key_exists("OrderByType",$param) and $param["OrderByType"] !== null) {
+            $this->OrderByType = $param["OrderByType"];
+        }
+
+        if (array_key_exists("Encryption",$param) and $param["Encryption"] !== null) {
+            $this->Encryption = $param["Encryption"];
+        }
+
+        if (array_key_exists("OrderBy",$param) and $param["OrderBy"] !== null) {
+            $this->OrderBy = $param["OrderBy"];
         }
     }
 }

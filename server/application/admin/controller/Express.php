@@ -22,7 +22,7 @@ namespace app\admin\controller;
 
 use app\common\server\ConfigServer;
 use app\admin\logic\ExpressLogic;
-use think\db;
+use think\facade\Db;
 
 class Express extends AdminBase
 {

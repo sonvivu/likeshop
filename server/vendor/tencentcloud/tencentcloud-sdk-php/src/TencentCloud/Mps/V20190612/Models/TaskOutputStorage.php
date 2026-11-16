@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,31 +18,67 @@ namespace TencentCloud\Mps\V20190612\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * 视频处理输出对象信息。
+ * 媒体处理输出对象信息。
  *
- * @method string getType() 获取视频处理输出对象存储位置的类型，现在仅支持 COS。
- * @method void setType(string $Type) 设置视频处理输出对象存储位置的类型，现在仅支持 COS。
- * @method CosOutputStorage getCosOutputStorage() 获取当 Type 为 COS 时有效，则该项为必填，表示视频处理 COS 输出位置。
+ * @method string getType() 获取媒体处理输出对象存储位置的类型，支持：
+<li>COS：COS存储</li>
+<li>AWS-S3：AWS 存储，只适用于AWS任务，且要求同区域</li>
+<li> VOD：点播专业版 </li>
+ * @method void setType(string $Type) 设置媒体处理输出对象存储位置的类型，支持：
+<li>COS：COS存储</li>
+<li>AWS-S3：AWS 存储，只适用于AWS任务，且要求同区域</li>
+<li> VOD：点播专业版 </li>
+ * @method CosOutputStorage getCosOutputStorage() 获取当 Type 为 COS 时有效，则该项为必填，表示媒体处理 COS 输出位置。
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setCosOutputStorage(CosOutputStorage $CosOutputStorage) 设置当 Type 为 COS 时有效，则该项为必填，表示视频处理 COS 输出位置。
+ * @method void setCosOutputStorage(CosOutputStorage $CosOutputStorage) 设置当 Type 为 COS 时有效，则该项为必填，表示媒体处理 COS 输出位置。
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method S3OutputStorage getS3OutputStorage() 获取当 Type 为 AWS-S3 时有效，则该项为必填，表示媒体处理 AWS S3 输出位置。
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setS3OutputStorage(S3OutputStorage $S3OutputStorage) 设置当 Type 为 AWS-S3 时有效，则该项为必填，表示媒体处理 AWS S3 输出位置。
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method VODOutputStorage getVODOutputStorage() 获取当 Type 为 VOD 时有效，则该项为必填，表示媒体处理 点播专业版 输出位置。
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setVODOutputStorage(VODOutputStorage $VODOutputStorage) 设置当 Type 为 VOD 时有效，则该项为必填，表示媒体处理 点播专业版 输出位置。
 注意：此字段可能返回 null，表示取不到有效值。
  */
 class TaskOutputStorage extends AbstractModel
 {
     /**
-     * @var string 视频处理输出对象存储位置的类型，现在仅支持 COS。
+     * @var string 媒体处理输出对象存储位置的类型，支持：
+<li>COS：COS存储</li>
+<li>AWS-S3：AWS 存储，只适用于AWS任务，且要求同区域</li>
+<li> VOD：点播专业版 </li>
      */
     public $Type;
 
     /**
-     * @var CosOutputStorage 当 Type 为 COS 时有效，则该项为必填，表示视频处理 COS 输出位置。
+     * @var CosOutputStorage 当 Type 为 COS 时有效，则该项为必填，表示媒体处理 COS 输出位置。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $CosOutputStorage;
 
     /**
-     * @param string $Type 视频处理输出对象存储位置的类型，现在仅支持 COS。
-     * @param CosOutputStorage $CosOutputStorage 当 Type 为 COS 时有效，则该项为必填，表示视频处理 COS 输出位置。
+     * @var S3OutputStorage 当 Type 为 AWS-S3 时有效，则该项为必填，表示媒体处理 AWS S3 输出位置。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $S3OutputStorage;
+
+    /**
+     * @var VODOutputStorage 当 Type 为 VOD 时有效，则该项为必填，表示媒体处理 点播专业版 输出位置。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $VODOutputStorage;
+
+    /**
+     * @param string $Type 媒体处理输出对象存储位置的类型，支持：
+<li>COS：COS存储</li>
+<li>AWS-S3：AWS 存储，只适用于AWS任务，且要求同区域</li>
+<li> VOD：点播专业版 </li>
+     * @param CosOutputStorage $CosOutputStorage 当 Type 为 COS 时有效，则该项为必填，表示媒体处理 COS 输出位置。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param S3OutputStorage $S3OutputStorage 当 Type 为 AWS-S3 时有效，则该项为必填，表示媒体处理 AWS S3 输出位置。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param VODOutputStorage $VODOutputStorage 当 Type 为 VOD 时有效，则该项为必填，表示媒体处理 点播专业版 输出位置。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
@@ -65,6 +101,16 @@ class TaskOutputStorage extends AbstractModel
         if (array_key_exists("CosOutputStorage",$param) and $param["CosOutputStorage"] !== null) {
             $this->CosOutputStorage = new CosOutputStorage();
             $this->CosOutputStorage->deserialize($param["CosOutputStorage"]);
+        }
+
+        if (array_key_exists("S3OutputStorage",$param) and $param["S3OutputStorage"] !== null) {
+            $this->S3OutputStorage = new S3OutputStorage();
+            $this->S3OutputStorage->deserialize($param["S3OutputStorage"]);
+        }
+
+        if (array_key_exists("VODOutputStorage",$param) and $param["VODOutputStorage"] !== null) {
+            $this->VODOutputStorage = new VODOutputStorage();
+            $this->VODOutputStorage->deserialize($param["VODOutputStorage"]);
         }
     }
 }

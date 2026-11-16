@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,8 +22,12 @@ use TencentCloud\Common\AbstractModel;
  *
  * @method string getStreamInputRtmpPushUrl() 获取输入源推流地址，当 Operation 取值 AddInput 且 InputType 为 RtmpPush 类型时有效。
  * @method void setStreamInputRtmpPushUrl(string $StreamInputRtmpPushUrl) 设置输入源推流地址，当 Operation 取值 AddInput 且 InputType 为 RtmpPush 类型时有效。
- * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
- * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method VodPullInputPlayInfo getVodPullInputPlayInfo() 获取点播输入源播放进度信息，当 Operation 取值 DescribeInputPlayInfo 且 InputType 为 VodPull 类型时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setVodPullInputPlayInfo(VodPullInputPlayInfo $VodPullInputPlayInfo) 设置点播输入源播放进度信息，当 Operation 取值 DescribeInputPlayInfo 且 InputType 为 VodPull 类型时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+ * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
 class HandleStreamConnectProjectResponse extends AbstractModel
 {
@@ -33,13 +37,21 @@ class HandleStreamConnectProjectResponse extends AbstractModel
     public $StreamInputRtmpPushUrl;
 
     /**
-     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @var VodPullInputPlayInfo 点播输入源播放进度信息，当 Operation 取值 DescribeInputPlayInfo 且 InputType 为 VodPull 类型时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $VodPullInputPlayInfo;
+
+    /**
+     * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public $RequestId;
 
     /**
      * @param string $StreamInputRtmpPushUrl 输入源推流地址，当 Operation 取值 AddInput 且 InputType 为 RtmpPush 类型时有效。
-     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @param VodPullInputPlayInfo $VodPullInputPlayInfo 点播输入源播放进度信息，当 Operation 取值 DescribeInputPlayInfo 且 InputType 为 VodPull 类型时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
     {
@@ -56,6 +68,11 @@ class HandleStreamConnectProjectResponse extends AbstractModel
         }
         if (array_key_exists("StreamInputRtmpPushUrl",$param) and $param["StreamInputRtmpPushUrl"] !== null) {
             $this->StreamInputRtmpPushUrl = $param["StreamInputRtmpPushUrl"];
+        }
+
+        if (array_key_exists("VodPullInputPlayInfo",$param) and $param["VodPullInputPlayInfo"] !== null) {
+            $this->VodPullInputPlayInfo = new VodPullInputPlayInfo();
+            $this->VodPullInputPlayInfo->deserialize($param["VodPullInputPlayInfo"]);
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

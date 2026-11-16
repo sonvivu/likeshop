@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,9 @@ use TencentCloud\Common\AbstractModel;
  * @method string getApiId() 获取API唯一ID。
  * @method void setApiId(string $ApiId) 设置API唯一ID。
  * @method string getApiDesc() 获取API描述
+注意：此字段可能返回 null，表示取不到有效值。
  * @method void setApiDesc(string $ApiDesc) 设置API描述
+注意：此字段可能返回 null，表示取不到有效值。
  * @method string getPath() 获取API PATH。
  * @method void setPath(string $Path) 设置API PATH。
  * @method string getMethod() 获取API METHOD。
@@ -93,6 +95,7 @@ class ApiIdStatus extends AbstractModel
 
     /**
      * @var string API描述
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public $ApiDesc;
 
@@ -167,6 +170,7 @@ class ApiIdStatus extends AbstractModel
     /**
      * @var array 授权API关联的业务API列表。
 注意：此字段可能返回 null，表示取不到有效值。
+     * @deprecated
      */
     public $RelationBuniessApiIds;
 
@@ -186,6 +190,7 @@ class ApiIdStatus extends AbstractModel
      * @param string $ServiceId 服务唯一ID。
      * @param string $ApiId API唯一ID。
      * @param string $ApiDesc API描述
+注意：此字段可能返回 null，表示取不到有效值。
      * @param string $Path API PATH。
      * @param string $Method API METHOD。
      * @param string $CreatedTime 服务创建时间。

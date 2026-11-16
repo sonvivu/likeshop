@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,34 +20,46 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeMaintenanceWindow返回参数结构体
  *
- * @method string getStartTime() 获取维护时间窗起始时间，如：17:00
- * @method void setStartTime(string $StartTime) 设置维护时间窗起始时间，如：17:00
- * @method string getEndTime() 获取维护时间窗结束时间，如：19:00
- * @method void setEndTime(string $EndTime) 设置维护时间窗结束时间，如：19:00
- * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
- * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method string getStartTime() 获取维护时间窗开始时间。取值范围为"00:00-23:00"的任意时间点，如03:24。
+ * @method void setStartTime(string $StartTime) 设置维护时间窗开始时间。取值范围为"00:00-23:00"的任意时间点，如03:24。
+ * @method string getEndTime() 获取维护时间窗结束时间。
+- 取值范围为"00:00-23:00"的任意时间点，如：04:24。
+- 维护时间持续时长最小为30分钟，最大为3小时。
+- 结束时间务必是基于开始时间向后的时间。
+ * @method void setEndTime(string $EndTime) 设置维护时间窗结束时间。
+- 取值范围为"00:00-23:00"的任意时间点，如：04:24。
+- 维护时间持续时长最小为30分钟，最大为3小时。
+- 结束时间务必是基于开始时间向后的时间。
+ * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+ * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
 class DescribeMaintenanceWindowResponse extends AbstractModel
 {
     /**
-     * @var string 维护时间窗起始时间，如：17:00
+     * @var string 维护时间窗开始时间。取值范围为"00:00-23:00"的任意时间点，如03:24。
      */
     public $StartTime;
 
     /**
-     * @var string 维护时间窗结束时间，如：19:00
+     * @var string 维护时间窗结束时间。
+- 取值范围为"00:00-23:00"的任意时间点，如：04:24。
+- 维护时间持续时长最小为30分钟，最大为3小时。
+- 结束时间务必是基于开始时间向后的时间。
      */
     public $EndTime;
 
     /**
-     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public $RequestId;
 
     /**
-     * @param string $StartTime 维护时间窗起始时间，如：17:00
-     * @param string $EndTime 维护时间窗结束时间，如：19:00
-     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @param string $StartTime 维护时间窗开始时间。取值范围为"00:00-23:00"的任意时间点，如03:24。
+     * @param string $EndTime 维护时间窗结束时间。
+- 取值范围为"00:00-23:00"的任意时间点，如：04:24。
+- 维护时间持续时长最小为30分钟，最大为3小时。
+- 结束时间务必是基于开始时间向后的时间。
+     * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
     {

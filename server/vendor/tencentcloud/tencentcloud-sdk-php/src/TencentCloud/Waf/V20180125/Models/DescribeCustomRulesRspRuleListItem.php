@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,8 +20,8 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeCustomRules接口回包中的复杂类型
  *
- * @method string getActionType() 获取动作类型
- * @method void setActionType(string $ActionType) 设置动作类型
+ * @method string getActionType() 获取动作类型，1代表阻断，2代表人机识别，3代表观察，4代表重定向，5代表JS校验
+ * @method void setActionType(string $ActionType) 设置动作类型，1代表阻断，2代表人机识别，3代表观察，4代表重定向，5代表JS校验
  * @method string getBypass() 获取跳过的策略
  * @method void setBypass(string $Bypass) 设置跳过的策略
  * @method string getCreateTime() 获取创建时间
@@ -40,11 +40,35 @@ use TencentCloud\Common\AbstractModel;
  * @method void setStatus(string $Status) 设置状态
  * @method array getStrategies() 获取策略详情
  * @method void setStrategies(array $Strategies) 设置策略详情
+ * @method string getEventId() 获取事件id
+ * @method void setEventId(string $EventId) 设置事件id
+ * @method string getModifyTime() 获取修改时间
+ * @method void setModifyTime(string $ModifyTime) 设置修改时间
+ * @method integer getValidStatus() 获取生效状态
+ * @method void setValidStatus(integer $ValidStatus) 设置生效状态
+ * @method string getSource() 获取来源
+ * @method void setSource(string $Source) 设置来源
+ * @method string getJobType() 获取定时任务类型
+ * @method void setJobType(string $JobType) 设置定时任务类型
+ * @method JobDateTime getJobDateTime() 获取定时任务配置信息
+ * @method void setJobDateTime(JobDateTime $JobDateTime) 设置定时任务配置信息
+ * @method string getCronType() 获取周期任务粒度
+ * @method void setCronType(string $CronType) 设置周期任务粒度
+ * @method string getLabel() 获取自定义标签，风控规则用，用来表示是内置规则还是用户自定义的
+ * @method void setLabel(string $Label) 设置自定义标签，风控规则用，用来表示是内置规则还是用户自定义的
+ * @method string getPageId() 获取拦截页面id
+ * @method void setPageId(string $PageId) 设置拦截页面id
+ * @method string getDomain() 获取域名
+ * @method void setDomain(string $Domain) 设置域名
+ * @method string getLogicalOp() 获取匹配条件的逻辑关系，支持and、or，分别表示多个逻辑匹配条件是与、或的关系
+ * @method void setLogicalOp(string $LogicalOp) 设置匹配条件的逻辑关系，支持and、or，分别表示多个逻辑匹配条件是与、或的关系
+ * @method integer getActionRatio() 获取规则灰度的比例，默认是100，不灰度
+ * @method void setActionRatio(integer $ActionRatio) 设置规则灰度的比例，默认是100，不灰度
  */
 class DescribeCustomRulesRspRuleListItem extends AbstractModel
 {
     /**
-     * @var string 动作类型
+     * @var string 动作类型，1代表阻断，2代表人机识别，3代表观察，4代表重定向，5代表JS校验
      */
     public $ActionType;
 
@@ -94,7 +118,67 @@ class DescribeCustomRulesRspRuleListItem extends AbstractModel
     public $Strategies;
 
     /**
-     * @param string $ActionType 动作类型
+     * @var string 事件id
+     */
+    public $EventId;
+
+    /**
+     * @var string 修改时间
+     */
+    public $ModifyTime;
+
+    /**
+     * @var integer 生效状态
+     */
+    public $ValidStatus;
+
+    /**
+     * @var string 来源
+     */
+    public $Source;
+
+    /**
+     * @var string 定时任务类型
+     */
+    public $JobType;
+
+    /**
+     * @var JobDateTime 定时任务配置信息
+     */
+    public $JobDateTime;
+
+    /**
+     * @var string 周期任务粒度
+     */
+    public $CronType;
+
+    /**
+     * @var string 自定义标签，风控规则用，用来表示是内置规则还是用户自定义的
+     */
+    public $Label;
+
+    /**
+     * @var string 拦截页面id
+     */
+    public $PageId;
+
+    /**
+     * @var string 域名
+     */
+    public $Domain;
+
+    /**
+     * @var string 匹配条件的逻辑关系，支持and、or，分别表示多个逻辑匹配条件是与、或的关系
+     */
+    public $LogicalOp;
+
+    /**
+     * @var integer 规则灰度的比例，默认是100，不灰度
+     */
+    public $ActionRatio;
+
+    /**
+     * @param string $ActionType 动作类型，1代表阻断，2代表人机识别，3代表观察，4代表重定向，5代表JS校验
      * @param string $Bypass 跳过的策略
      * @param string $CreateTime 创建时间
      * @param string $ExpireTime 过期时间
@@ -104,6 +188,18 @@ class DescribeCustomRulesRspRuleListItem extends AbstractModel
      * @param string $SortId 优先级
      * @param string $Status 状态
      * @param array $Strategies 策略详情
+     * @param string $EventId 事件id
+     * @param string $ModifyTime 修改时间
+     * @param integer $ValidStatus 生效状态
+     * @param string $Source 来源
+     * @param string $JobType 定时任务类型
+     * @param JobDateTime $JobDateTime 定时任务配置信息
+     * @param string $CronType 周期任务粒度
+     * @param string $Label 自定义标签，风控规则用，用来表示是内置规则还是用户自定义的
+     * @param string $PageId 拦截页面id
+     * @param string $Domain 域名
+     * @param string $LogicalOp 匹配条件的逻辑关系，支持and、or，分别表示多个逻辑匹配条件是与、或的关系
+     * @param integer $ActionRatio 规则灰度的比例，默认是100，不灰度
      */
     function __construct()
     {
@@ -161,6 +257,55 @@ class DescribeCustomRulesRspRuleListItem extends AbstractModel
                 $obj->deserialize($value);
                 array_push($this->Strategies, $obj);
             }
+        }
+
+        if (array_key_exists("EventId",$param) and $param["EventId"] !== null) {
+            $this->EventId = $param["EventId"];
+        }
+
+        if (array_key_exists("ModifyTime",$param) and $param["ModifyTime"] !== null) {
+            $this->ModifyTime = $param["ModifyTime"];
+        }
+
+        if (array_key_exists("ValidStatus",$param) and $param["ValidStatus"] !== null) {
+            $this->ValidStatus = $param["ValidStatus"];
+        }
+
+        if (array_key_exists("Source",$param) and $param["Source"] !== null) {
+            $this->Source = $param["Source"];
+        }
+
+        if (array_key_exists("JobType",$param) and $param["JobType"] !== null) {
+            $this->JobType = $param["JobType"];
+        }
+
+        if (array_key_exists("JobDateTime",$param) and $param["JobDateTime"] !== null) {
+            $this->JobDateTime = new JobDateTime();
+            $this->JobDateTime->deserialize($param["JobDateTime"]);
+        }
+
+        if (array_key_exists("CronType",$param) and $param["CronType"] !== null) {
+            $this->CronType = $param["CronType"];
+        }
+
+        if (array_key_exists("Label",$param) and $param["Label"] !== null) {
+            $this->Label = $param["Label"];
+        }
+
+        if (array_key_exists("PageId",$param) and $param["PageId"] !== null) {
+            $this->PageId = $param["PageId"];
+        }
+
+        if (array_key_exists("Domain",$param) and $param["Domain"] !== null) {
+            $this->Domain = $param["Domain"];
+        }
+
+        if (array_key_exists("LogicalOp",$param) and $param["LogicalOp"] !== null) {
+            $this->LogicalOp = $param["LogicalOp"];
+        }
+
+        if (array_key_exists("ActionRatio",$param) and $param["ActionRatio"] !== null) {
+            $this->ActionRatio = $param["ActionRatio"];
         }
     }
 }

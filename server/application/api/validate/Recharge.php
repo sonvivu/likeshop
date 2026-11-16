@@ -18,7 +18,7 @@
 // +----------------------------------------------------------------------
 namespace app\api\validate;
 use app\common\server\ConfigServer;
-use think\Db;
+use think\facade\Db;
 use think\Validate;
 
 class Recharge extends Validate{

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,14 +34,56 @@ use TencentCloud\Common\AbstractModel;
  * @method void setTimeout(integer $Timeout) 设置函数最长执行时间，单位为秒，可选值范围 1-900 秒，默认为 3 秒
  * @method Environment getEnvironment() 获取函数的环境变量
  * @method void setEnvironment(Environment $Environment) 设置函数的环境变量
- * @method string getRuntime() 获取函数运行环境，目前仅支持 Python2.7，Python3.6，Nodejs6.10，Nodejs8.9，Nodejs10.15，Nodejs12.16， Php5， Php7，Go1，Java8 和 CustomRuntime，默认Python2.7
- * @method void setRuntime(string $Runtime) 设置函数运行环境，目前仅支持 Python2.7，Python3.6，Nodejs6.10，Nodejs8.9，Nodejs10.15，Nodejs12.16， Php5， Php7，Go1，Java8 和 CustomRuntime，默认Python2.7
+ * @method string getRuntime() 获取函数运行环境，默认Python2.7
+目前支持的运行环境：
+- Python2.7
+- Python3.6
+- Python3.7
+- Python3.9
+- Python3.10
+- Nodejs6.10
+- Nodejs8.9
+- Nodejs10.15
+- Nodejs12.16
+- Nodejs14.18
+- Nodejs16.13
+- Nodejs18.15
+- Php5.6
+- Php7(7.2版本)
+- Php7.4
+- Php8.0
+- Go1
+- Java8
+- CustomRuntime
+ * @method void setRuntime(string $Runtime) 设置函数运行环境，默认Python2.7
+目前支持的运行环境：
+- Python2.7
+- Python3.6
+- Python3.7
+- Python3.9
+- Python3.10
+- Nodejs6.10
+- Nodejs8.9
+- Nodejs10.15
+- Nodejs12.16
+- Nodejs14.18
+- Nodejs16.13
+- Nodejs18.15
+- Php5.6
+- Php7(7.2版本)
+- Php7.4
+- Php8.0
+- Go1
+- Java8
+- CustomRuntime
  * @method VpcConfig getVpcConfig() 获取函数的私有网络配置
  * @method void setVpcConfig(VpcConfig $VpcConfig) 设置函数的私有网络配置
  * @method string getNamespace() 获取函数所属命名空间
  * @method void setNamespace(string $Namespace) 设置函数所属命名空间
  * @method string getRole() 获取函数绑定的角色
  * @method void setRole(string $Role) 设置函数绑定的角色
+ * @method string getInstallDependency() 获取[在线依赖安装](https://cloud.tencent.com/document/product/583/37920)，TRUE 表示安装，默认值为 FALSE。仅支持 Node.js 函数。
+ * @method void setInstallDependency(string $InstallDependency) 设置[在线依赖安装](https://cloud.tencent.com/document/product/583/37920)，TRUE 表示安装，默认值为 FALSE。仅支持 Node.js 函数。
  * @method string getClsLogsetId() 获取函数日志投递到的CLS LogsetID
  * @method void setClsLogsetId(string $ClsLogsetId) 设置函数日志投递到的CLS LogsetID
  * @method string getClsTopicId() 获取函数日志投递到的CLS TopicID
@@ -58,14 +100,28 @@ use TencentCloud\Common\AbstractModel;
  * @method void setPublicNetConfig(PublicNetConfigIn $PublicNetConfig) 设置公网访问配置
  * @method CfsConfig getCfsConfig() 获取文件系统配置参数，用于云函数挂载文件系统
  * @method void setCfsConfig(CfsConfig $CfsConfig) 设置文件系统配置参数，用于云函数挂载文件系统
- * @method integer getInitTimeout() 获取函数初始化超时时间
- * @method void setInitTimeout(integer $InitTimeout) 设置函数初始化超时时间
+ * @method integer getInitTimeout() 获取函数初始化超时时间，默认 65s，镜像部署函数默认 90s。
+ * @method void setInitTimeout(integer $InitTimeout) 设置函数初始化超时时间，默认 65s，镜像部署函数默认 90s。
  * @method array getTags() 获取函数 Tag 参数，以键值对数组形式传入
  * @method void setTags(array $Tags) 设置函数 Tag 参数，以键值对数组形式传入
  * @method string getAsyncRunEnable() 获取是否开启异步属性，TRUE 为开启，FALSE为关闭
  * @method void setAsyncRunEnable(string $AsyncRunEnable) 设置是否开启异步属性，TRUE 为开启，FALSE为关闭
  * @method string getTraceEnable() 获取是否开启事件追踪，TRUE 为开启，FALSE为关闭
  * @method void setTraceEnable(string $TraceEnable) 设置是否开启事件追踪，TRUE 为开启，FALSE为关闭
+ * @method string getAutoDeployClsTopicIndex() 获取是否自动创建cls索引，TRUE 为开启，FALSE为关闭
+ * @method void setAutoDeployClsTopicIndex(string $AutoDeployClsTopicIndex) 设置是否自动创建cls索引，TRUE 为开启，FALSE为关闭
+ * @method string getAutoCreateClsTopic() 获取是否自动创建cls主题，TRUE 为开启，FALSE为关闭
+ * @method void setAutoCreateClsTopic(string $AutoCreateClsTopic) 设置是否自动创建cls主题，TRUE 为开启，FALSE为关闭
+ * @method string getProtocolType() 获取HTTP函数支持的访问协议。当前支持WebSockets协议，值为WS
+ * @method void setProtocolType(string $ProtocolType) 设置HTTP函数支持的访问协议。当前支持WebSockets协议，值为WS
+ * @method ProtocolParams getProtocolParams() 获取HTTP函数配置ProtocolType访问协议，当前协议可配置的参数
+ * @method void setProtocolParams(ProtocolParams $ProtocolParams) 设置HTTP函数配置ProtocolType访问协议，当前协议可配置的参数
+ * @method InstanceConcurrencyConfig getInstanceConcurrencyConfig() 获取单实例多并发配置。只支持Web函数。
+ * @method void setInstanceConcurrencyConfig(InstanceConcurrencyConfig $InstanceConcurrencyConfig) 设置单实例多并发配置。只支持Web函数。
+ * @method string getDnsCache() 获取是否开启Dns缓存能力。只支持EVENT函数。默认为FALSE，TRUE 为开启，FALSE为关闭
+ * @method void setDnsCache(string $DnsCache) 设置是否开启Dns缓存能力。只支持EVENT函数。默认为FALSE，TRUE 为开启，FALSE为关闭
+ * @method IntranetConfigIn getIntranetConfig() 获取内网访问配置
+ * @method void setIntranetConfig(IntranetConfigIn $IntranetConfig) 设置内网访问配置
  */
 class CreateFunctionRequest extends AbstractModel
 {
@@ -105,7 +161,27 @@ class CreateFunctionRequest extends AbstractModel
     public $Environment;
 
     /**
-     * @var string 函数运行环境，目前仅支持 Python2.7，Python3.6，Nodejs6.10，Nodejs8.9，Nodejs10.15，Nodejs12.16， Php5， Php7，Go1，Java8 和 CustomRuntime，默认Python2.7
+     * @var string 函数运行环境，默认Python2.7
+目前支持的运行环境：
+- Python2.7
+- Python3.6
+- Python3.7
+- Python3.9
+- Python3.10
+- Nodejs6.10
+- Nodejs8.9
+- Nodejs10.15
+- Nodejs12.16
+- Nodejs14.18
+- Nodejs16.13
+- Nodejs18.15
+- Php5.6
+- Php7(7.2版本)
+- Php7.4
+- Php8.0
+- Go1
+- Java8
+- CustomRuntime
      */
     public $Runtime;
 
@@ -123,6 +199,11 @@ class CreateFunctionRequest extends AbstractModel
      * @var string 函数绑定的角色
      */
     public $Role;
+
+    /**
+     * @var string [在线依赖安装](https://cloud.tencent.com/document/product/583/37920)，TRUE 表示安装，默认值为 FALSE。仅支持 Node.js 函数。
+     */
+    public $InstallDependency;
 
     /**
      * @var string 函数日志投递到的CLS LogsetID
@@ -165,7 +246,7 @@ class CreateFunctionRequest extends AbstractModel
     public $CfsConfig;
 
     /**
-     * @var integer 函数初始化超时时间
+     * @var integer 函数初始化超时时间，默认 65s，镜像部署函数默认 90s。
      */
     public $InitTimeout;
 
@@ -185,6 +266,41 @@ class CreateFunctionRequest extends AbstractModel
     public $TraceEnable;
 
     /**
+     * @var string 是否自动创建cls索引，TRUE 为开启，FALSE为关闭
+     */
+    public $AutoDeployClsTopicIndex;
+
+    /**
+     * @var string 是否自动创建cls主题，TRUE 为开启，FALSE为关闭
+     */
+    public $AutoCreateClsTopic;
+
+    /**
+     * @var string HTTP函数支持的访问协议。当前支持WebSockets协议，值为WS
+     */
+    public $ProtocolType;
+
+    /**
+     * @var ProtocolParams HTTP函数配置ProtocolType访问协议，当前协议可配置的参数
+     */
+    public $ProtocolParams;
+
+    /**
+     * @var InstanceConcurrencyConfig 单实例多并发配置。只支持Web函数。
+     */
+    public $InstanceConcurrencyConfig;
+
+    /**
+     * @var string 是否开启Dns缓存能力。只支持EVENT函数。默认为FALSE，TRUE 为开启，FALSE为关闭
+     */
+    public $DnsCache;
+
+    /**
+     * @var IntranetConfigIn 内网访问配置
+     */
+    public $IntranetConfig;
+
+    /**
      * @param string $FunctionName 创建的函数名称，函数名称支持26个英文字母大小写、数字、连接符和下划线，第一个字符只能以字母开头，最后一个字符不能为连接符或者下划线，名称长度2-60
      * @param Code $Code 函数代码. 注意：不能同时指定Cos、ZipFile或 DemoId。
      * @param string $Handler 函数处理方法名称，名称格式支持 "文件名称.方法名称" 形式（java 名称格式 包名.类名::方法名），文件名称和函数名称之间以"."隔开，文件名称和函数名称要求以字母开始和结尾，中间允许插入字母、数字、下划线和连接符，文件名称和函数名字的长度要求是 2-60 个字符
@@ -192,10 +308,31 @@ class CreateFunctionRequest extends AbstractModel
      * @param integer $MemorySize 函数运行时内存大小，默认为 128M，可选范围 64、128MB-3072MB，并且以 128MB 为阶梯
      * @param integer $Timeout 函数最长执行时间，单位为秒，可选值范围 1-900 秒，默认为 3 秒
      * @param Environment $Environment 函数的环境变量
-     * @param string $Runtime 函数运行环境，目前仅支持 Python2.7，Python3.6，Nodejs6.10，Nodejs8.9，Nodejs10.15，Nodejs12.16， Php5， Php7，Go1，Java8 和 CustomRuntime，默认Python2.7
+     * @param string $Runtime 函数运行环境，默认Python2.7
+目前支持的运行环境：
+- Python2.7
+- Python3.6
+- Python3.7
+- Python3.9
+- Python3.10
+- Nodejs6.10
+- Nodejs8.9
+- Nodejs10.15
+- Nodejs12.16
+- Nodejs14.18
+- Nodejs16.13
+- Nodejs18.15
+- Php5.6
+- Php7(7.2版本)
+- Php7.4
+- Php8.0
+- Go1
+- Java8
+- CustomRuntime
      * @param VpcConfig $VpcConfig 函数的私有网络配置
      * @param string $Namespace 函数所属命名空间
      * @param string $Role 函数绑定的角色
+     * @param string $InstallDependency [在线依赖安装](https://cloud.tencent.com/document/product/583/37920)，TRUE 表示安装，默认值为 FALSE。仅支持 Node.js 函数。
      * @param string $ClsLogsetId 函数日志投递到的CLS LogsetID
      * @param string $ClsTopicId 函数日志投递到的CLS TopicID
      * @param string $Type 函数类型，默认值为Event，创建触发器函数请填写Event，创建HTTP函数级服务请填写HTTP
@@ -204,10 +341,17 @@ class CreateFunctionRequest extends AbstractModel
      * @param DeadLetterConfig $DeadLetterConfig 死信队列参数
      * @param PublicNetConfigIn $PublicNetConfig 公网访问配置
      * @param CfsConfig $CfsConfig 文件系统配置参数，用于云函数挂载文件系统
-     * @param integer $InitTimeout 函数初始化超时时间
+     * @param integer $InitTimeout 函数初始化超时时间，默认 65s，镜像部署函数默认 90s。
      * @param array $Tags 函数 Tag 参数，以键值对数组形式传入
      * @param string $AsyncRunEnable 是否开启异步属性，TRUE 为开启，FALSE为关闭
      * @param string $TraceEnable 是否开启事件追踪，TRUE 为开启，FALSE为关闭
+     * @param string $AutoDeployClsTopicIndex 是否自动创建cls索引，TRUE 为开启，FALSE为关闭
+     * @param string $AutoCreateClsTopic 是否自动创建cls主题，TRUE 为开启，FALSE为关闭
+     * @param string $ProtocolType HTTP函数支持的访问协议。当前支持WebSockets协议，值为WS
+     * @param ProtocolParams $ProtocolParams HTTP函数配置ProtocolType访问协议，当前协议可配置的参数
+     * @param InstanceConcurrencyConfig $InstanceConcurrencyConfig 单实例多并发配置。只支持Web函数。
+     * @param string $DnsCache 是否开启Dns缓存能力。只支持EVENT函数。默认为FALSE，TRUE 为开启，FALSE为关闭
+     * @param IntranetConfigIn $IntranetConfig 内网访问配置
      */
     function __construct()
     {
@@ -269,6 +413,10 @@ class CreateFunctionRequest extends AbstractModel
             $this->Role = $param["Role"];
         }
 
+        if (array_key_exists("InstallDependency",$param) and $param["InstallDependency"] !== null) {
+            $this->InstallDependency = $param["InstallDependency"];
+        }
+
         if (array_key_exists("ClsLogsetId",$param) and $param["ClsLogsetId"] !== null) {
             $this->ClsLogsetId = $param["ClsLogsetId"];
         }
@@ -328,6 +476,37 @@ class CreateFunctionRequest extends AbstractModel
 
         if (array_key_exists("TraceEnable",$param) and $param["TraceEnable"] !== null) {
             $this->TraceEnable = $param["TraceEnable"];
+        }
+
+        if (array_key_exists("AutoDeployClsTopicIndex",$param) and $param["AutoDeployClsTopicIndex"] !== null) {
+            $this->AutoDeployClsTopicIndex = $param["AutoDeployClsTopicIndex"];
+        }
+
+        if (array_key_exists("AutoCreateClsTopic",$param) and $param["AutoCreateClsTopic"] !== null) {
+            $this->AutoCreateClsTopic = $param["AutoCreateClsTopic"];
+        }
+
+        if (array_key_exists("ProtocolType",$param) and $param["ProtocolType"] !== null) {
+            $this->ProtocolType = $param["ProtocolType"];
+        }
+
+        if (array_key_exists("ProtocolParams",$param) and $param["ProtocolParams"] !== null) {
+            $this->ProtocolParams = new ProtocolParams();
+            $this->ProtocolParams->deserialize($param["ProtocolParams"]);
+        }
+
+        if (array_key_exists("InstanceConcurrencyConfig",$param) and $param["InstanceConcurrencyConfig"] !== null) {
+            $this->InstanceConcurrencyConfig = new InstanceConcurrencyConfig();
+            $this->InstanceConcurrencyConfig->deserialize($param["InstanceConcurrencyConfig"]);
+        }
+
+        if (array_key_exists("DnsCache",$param) and $param["DnsCache"] !== null) {
+            $this->DnsCache = $param["DnsCache"];
+        }
+
+        if (array_key_exists("IntranetConfig",$param) and $param["IntranetConfig"] !== null) {
+            $this->IntranetConfig = new IntranetConfigIn();
+            $this->IntranetConfig->deserialize($param["IntranetConfig"]);
         }
     }
 }

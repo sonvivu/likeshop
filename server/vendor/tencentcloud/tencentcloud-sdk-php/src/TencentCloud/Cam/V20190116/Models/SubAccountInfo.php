@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -37,9 +37,9 @@ use TencentCloud\Common\AbstractModel;
  * @method string getEmail() 获取邮箱
  * @method void setEmail(string $Email) 设置邮箱
  * @method string getCreateTime() 获取创建时间
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setCreateTime(string $CreateTime) 设置创建时间
-注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getNickName() 获取昵称
+ * @method void setNickName(string $NickName) 设置昵称
  */
 class SubAccountInfo extends AbstractModel
 {
@@ -85,9 +85,13 @@ class SubAccountInfo extends AbstractModel
 
     /**
      * @var string 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $CreateTime;
+
+    /**
+     * @var string 昵称
+     */
+    public $NickName;
 
     /**
      * @param integer $Uin 子用户用户 ID
@@ -99,7 +103,7 @@ class SubAccountInfo extends AbstractModel
      * @param string $CountryCode 区号
      * @param string $Email 邮箱
      * @param string $CreateTime 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $NickName 昵称
      */
     function __construct()
     {
@@ -148,6 +152,10 @@ class SubAccountInfo extends AbstractModel
 
         if (array_key_exists("CreateTime",$param) and $param["CreateTime"] !== null) {
             $this->CreateTime = $param["CreateTime"];
+        }
+
+        if (array_key_exists("NickName",$param) and $param["NickName"] !== null) {
+            $this->NickName = $param["NickName"];
         }
     }
 }

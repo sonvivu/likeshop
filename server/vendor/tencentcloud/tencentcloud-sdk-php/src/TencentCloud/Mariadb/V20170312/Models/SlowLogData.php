@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -52,12 +52,12 @@ use TencentCloud\Common\AbstractModel;
  * @method void setTsMax(string $TsMax) 设置最后执行时间
  * @method string getTsMin() 获取首次执行时间
  * @method void setTsMin(string $TsMin) 设置首次执行时间
- * @method string getUser() 获取帐号
- * @method void setUser(string $User) 设置帐号
+ * @method string getUser() 获取账号
+ * @method void setUser(string $User) 设置账号
  * @method string getExampleSql() 获取样例Sql
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setExampleSql(string $ExampleSql) 设置样例Sql
-注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getHost() 获取账户的域名
+ * @method void setHost(string $Host) 设置账户的域名
  */
 class SlowLogData extends AbstractModel
 {
@@ -142,15 +142,19 @@ class SlowLogData extends AbstractModel
     public $TsMin;
 
     /**
-     * @var string 帐号
+     * @var string 账号
      */
     public $User;
 
     /**
      * @var string 样例Sql
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $ExampleSql;
+
+    /**
+     * @var string 账户的域名
+     */
+    public $Host;
 
     /**
      * @param string $CheckSum 语句校验和，用于查询详情
@@ -169,9 +173,9 @@ class SlowLogData extends AbstractModel
      * @param string $RowsSentSum 发送行数
      * @param string $TsMax 最后执行时间
      * @param string $TsMin 首次执行时间
-     * @param string $User 帐号
+     * @param string $User 账号
      * @param string $ExampleSql 样例Sql
-注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $Host 账户的域名
      */
     function __construct()
     {
@@ -256,6 +260,10 @@ class SlowLogData extends AbstractModel
 
         if (array_key_exists("ExampleSql",$param) and $param["ExampleSql"] !== null) {
             $this->ExampleSql = $param["ExampleSql"];
+        }
+
+        if (array_key_exists("Host",$param) and $param["Host"] !== null) {
+            $this->Host = $param["Host"];
         }
     }
 }

@@ -67,7 +67,7 @@ class Ad extends Validate
     ];
     protected function sceneAdd()
     {
-        $this->remove(['id']);
+        $this->remove('id', true);
     }
 
 

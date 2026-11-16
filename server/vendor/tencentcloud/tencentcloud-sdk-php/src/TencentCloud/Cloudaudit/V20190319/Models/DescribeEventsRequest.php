@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,8 +28,36 @@ use TencentCloud\Common\AbstractModel;
  * @method void setNextToken(integer $NextToken) 设置查看更多日志的凭证
  * @method integer getMaxResults() 获取返回日志的最大条数（最大 50 条）
  * @method void setMaxResults(integer $MaxResults) 设置返回日志的最大条数（最大 50 条）
- * @method array getLookupAttributes() 获取检索条件（目前支持 RequestId：请求 ID、EventName：事件名称、ActionType：操作类型（Write：写；Read：读）、PrincipalId：子账号、ResourceType：资源类型、ResourceName：资源名称、AccessKeyId：密钥 ID、SensitiveAction：是否敏感操作、ApiErrorCode：API 错误码、CamErrorCode：CAM 错误码）
- * @method void setLookupAttributes(array $LookupAttributes) 设置检索条件（目前支持 RequestId：请求 ID、EventName：事件名称、ActionType：操作类型（Write：写；Read：读）、PrincipalId：子账号、ResourceType：资源类型、ResourceName：资源名称、AccessKeyId：密钥 ID、SensitiveAction：是否敏感操作、ApiErrorCode：API 错误码、CamErrorCode：CAM 错误码）
+ * @method array getLookupAttributes() 获取检索条件（目前支持：
+RequestId：请求 ID
+EventName：事件名称
+ActionType：操作类型（Write：写；Read：读）
+PrincipalId：子账号
+ResourceType：资源类型
+ResourceId：资源Id
+ResourceName：资源名称
+AccessKeyId：密钥 ID
+SensitiveAction：是否敏感操作
+ApiErrorCode：API 错误码
+CamErrorCode：CAM 错误码
+SourceIPAddress：请求IP
+Tags：标签（AttributeValue格式：[{"key":"*","value":"*"}]）
+备注:检索的各个条件间是与的关系,EventName传多个值内部是或的关系）
+ * @method void setLookupAttributes(array $LookupAttributes) 设置检索条件（目前支持：
+RequestId：请求 ID
+EventName：事件名称
+ActionType：操作类型（Write：写；Read：读）
+PrincipalId：子账号
+ResourceType：资源类型
+ResourceId：资源Id
+ResourceName：资源名称
+AccessKeyId：密钥 ID
+SensitiveAction：是否敏感操作
+ApiErrorCode：API 错误码
+CamErrorCode：CAM 错误码
+SourceIPAddress：请求IP
+Tags：标签（AttributeValue格式：[{"key":"*","value":"*"}]）
+备注:检索的各个条件间是与的关系,EventName传多个值内部是或的关系）
  * @method integer getIsReturnLocation() 获取是否返回 IP 归属地（1 返回，0 不返回）
  * @method void setIsReturnLocation(integer $IsReturnLocation) 设置是否返回 IP 归属地（1 返回，0 不返回）
  */
@@ -56,7 +84,21 @@ class DescribeEventsRequest extends AbstractModel
     public $MaxResults;
 
     /**
-     * @var array 检索条件（目前支持 RequestId：请求 ID、EventName：事件名称、ActionType：操作类型（Write：写；Read：读）、PrincipalId：子账号、ResourceType：资源类型、ResourceName：资源名称、AccessKeyId：密钥 ID、SensitiveAction：是否敏感操作、ApiErrorCode：API 错误码、CamErrorCode：CAM 错误码）
+     * @var array 检索条件（目前支持：
+RequestId：请求 ID
+EventName：事件名称
+ActionType：操作类型（Write：写；Read：读）
+PrincipalId：子账号
+ResourceType：资源类型
+ResourceId：资源Id
+ResourceName：资源名称
+AccessKeyId：密钥 ID
+SensitiveAction：是否敏感操作
+ApiErrorCode：API 错误码
+CamErrorCode：CAM 错误码
+SourceIPAddress：请求IP
+Tags：标签（AttributeValue格式：[{"key":"*","value":"*"}]）
+备注:检索的各个条件间是与的关系,EventName传多个值内部是或的关系）
      */
     public $LookupAttributes;
 
@@ -70,7 +112,21 @@ class DescribeEventsRequest extends AbstractModel
      * @param integer $EndTime 结束时间戳（单位秒，查询时间跨度小于 30 天）
      * @param integer $NextToken 查看更多日志的凭证
      * @param integer $MaxResults 返回日志的最大条数（最大 50 条）
-     * @param array $LookupAttributes 检索条件（目前支持 RequestId：请求 ID、EventName：事件名称、ActionType：操作类型（Write：写；Read：读）、PrincipalId：子账号、ResourceType：资源类型、ResourceName：资源名称、AccessKeyId：密钥 ID、SensitiveAction：是否敏感操作、ApiErrorCode：API 错误码、CamErrorCode：CAM 错误码）
+     * @param array $LookupAttributes 检索条件（目前支持：
+RequestId：请求 ID
+EventName：事件名称
+ActionType：操作类型（Write：写；Read：读）
+PrincipalId：子账号
+ResourceType：资源类型
+ResourceId：资源Id
+ResourceName：资源名称
+AccessKeyId：密钥 ID
+SensitiveAction：是否敏感操作
+ApiErrorCode：API 错误码
+CamErrorCode：CAM 错误码
+SourceIPAddress：请求IP
+Tags：标签（AttributeValue格式：[{"key":"*","value":"*"}]）
+备注:检索的各个条件间是与的关系,EventName传多个值内部是或的关系）
      * @param integer $IsReturnLocation 是否返回 IP 归属地（1 返回，0 不返回）
      */
     function __construct()

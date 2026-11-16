@@ -90,7 +90,14 @@ class ConsumeTokenService
         if (method_exists($request, 'path')) {
             $candidates[] = self::normalizePath($request->path());
         }
-        $candidates[] = self::normalizePath('/api/' . $request->controller() . '/' . $request->action());
+        // ThinkPHP 6：中间件运行时 $request->controller()/$request->action() 为空；
+        // 改为从 pathinfo 解析（MultiApp 已去掉模块段，如 account/consumeToken）。
+        $pathinfo = trim($request->pathinfo(), '/');
+        $suffix = config('app.url_html_suffix');
+        if ($suffix && str_ends_with($pathinfo, '.' . $suffix)) {
+            $pathinfo = substr($pathinfo, 0, -strlen($suffix) - 1);
+        }
+        $candidates[] = self::normalizePath('/api/' . $pathinfo);
 
         foreach ($paths as $pattern) {
             foreach ($candidates as $path) {

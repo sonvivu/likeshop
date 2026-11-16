@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,12 +30,12 @@ use TencentCloud\Common\AbstractModel;
  * @method void setTamperFileNum(integer $TamperFileNum) 设置篡改文件数
  * @method integer getTamperNum() 获取篡改数
  * @method void setTamperNum(integer $TamperNum) 设置篡改数
- * @method integer getProtectToday() 获取今日防护
- * @method void setProtectToday(integer $ProtectToday) 设置今日防护
+ * @method integer getProtectToday() 获取今日防护数
+ * @method void setProtectToday(integer $ProtectToday) 设置今日防护数
  * @method integer getProtectHostNum() 获取防护主机数
  * @method void setProtectHostNum(integer $ProtectHostNum) 设置防护主机数
- * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
- * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+ * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
 class DescribeWebPageGeneralizeResponse extends AbstractModel
 {
@@ -65,7 +65,7 @@ class DescribeWebPageGeneralizeResponse extends AbstractModel
     public $TamperNum;
 
     /**
-     * @var integer 今日防护
+     * @var integer 今日防护数
      */
     public $ProtectToday;
 
@@ -75,7 +75,7 @@ class DescribeWebPageGeneralizeResponse extends AbstractModel
     public $ProtectHostNum;
 
     /**
-     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public $RequestId;
 
@@ -85,9 +85,9 @@ class DescribeWebPageGeneralizeResponse extends AbstractModel
      * @param integer $ProtectFileNum 防护文件数
      * @param integer $TamperFileNum 篡改文件数
      * @param integer $TamperNum 篡改数
-     * @param integer $ProtectToday 今日防护
+     * @param integer $ProtectToday 今日防护数
      * @param integer $ProtectHostNum 防护主机数
-     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
     {

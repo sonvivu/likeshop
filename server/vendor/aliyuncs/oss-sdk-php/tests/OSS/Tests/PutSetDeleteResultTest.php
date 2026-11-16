@@ -6,7 +6,7 @@ use OSS\Core\OssException;
 use OSS\Http\ResponseCore;
 use OSS\Result\PutSetDeleteResult;
 
-class ResultTest extends \PHPUnit_Framework_TestCase
+class PutSetDeleteResultTest extends \PHPUnit\Framework\TestCase
 {
 
     public function testNullResponse()
@@ -50,17 +50,8 @@ class ResultTest extends \PHPUnit_Framework_TestCase
             new PutSetDeleteResult($response);
             $this->assertFalse(true);
         } catch (OssException $e) {
-
+            $this->assertFalse(false);
         }
     }
 
-    public function setUp()
-    {
-
-    }
-
-    public function tearDown()
-    {
-
-    }
 }

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,98 +20,138 @@ use TencentCloud\Common\AbstractModel;
 /**
  * TextToVoice请求参数结构体
  *
- * @method string getText() 获取合成语音的源文本，按UTF-8编码统一计算。
-中文最大支持110个汉字（全角标点符号算一个汉字）；英文最大支持350个字母（半角标点符号算一个字母）。
- * @method void setText(string $Text) 设置合成语音的源文本，按UTF-8编码统一计算。
-中文最大支持110个汉字（全角标点符号算一个汉字）；英文最大支持350个字母（半角标点符号算一个字母）。
- * @method string getSessionId() 获取一次请求对应一个SessionId，会原样返回，建议传入类似于uuid的字符串防止重复。
- * @method void setSessionId(string $SessionId) 设置一次请求对应一个SessionId，会原样返回，建议传入类似于uuid的字符串防止重复。
- * @method integer getModelType() 获取模型类型，1-默认模型。
- * @method void setModelType(integer $ModelType) 设置模型类型，1-默认模型。
- * @method float getVolume() 获取音量大小，范围：[0，10]，分别对应11个等级的音量，默认为0，代表正常音量。没有静音选项。
-输入除以上整数之外的其他参数不生效，按默认值处理。
- * @method void setVolume(float $Volume) 设置音量大小，范围：[0，10]，分别对应11个等级的音量，默认为0，代表正常音量。没有静音选项。
-输入除以上整数之外的其他参数不生效，按默认值处理。
- * @method float getSpeed() 获取语速，范围：[-2，2]，分别对应不同语速：<li>-2代表0.6倍</li><li>-1代表0.8倍</li><li>0代表1.0倍（默认）</li><li>1代表1.2倍</li><li>2代表1.5倍</li>如果需要更细化的语速，可以保留小数点后一位，例如0.5 1.1 1.8等。<br>
- * @method void setSpeed(float $Speed) 设置语速，范围：[-2，2]，分别对应不同语速：<li>-2代表0.6倍</li><li>-1代表0.8倍</li><li>0代表1.0倍（默认）</li><li>1代表1.2倍</li><li>2代表1.5倍</li>如果需要更细化的语速，可以保留小数点后一位，例如0.5 1.1 1.8等。<br>
- * @method integer getProjectId() 获取项目id，用户自定义，默认为0。
- * @method void setProjectId(integer $ProjectId) 设置项目id，用户自定义，默认为0。
- * @method integer getVoiceType() 获取普通音色<li>0-云小宁，亲和女声(默认)</li><li>1-云小奇，亲和男声</li><li>2-云小晚，成熟男声</li><li>4-云小叶，温暖女声</li><li>5-云小欣，情感女声</li><li>6-云小龙，情感男声</li><li>7-云小曼，客服女声</li><li>1001-智瑜，情感女声</li><li>1002-智聆，通用女声</li><li>1003-智美，客服女声</li><li>1050-WeJack，英文男声</li><li>1051-WeRose，英文女声</li>精品音色<br>精品音色拟真度更高，价格不同于普通音色，查看[购买指南](https://cloud.tencent.com/product/tts/pricing)<br><li>101001-智瑜，情感女声（精品）</li><li>101002-智聆，通用女声（精品）</li><li>101003-智美，客服女声（精品）</li><li>101004-智云，通用男声</li><li>101005-智莉，通用女声</li><li>101006-智言，助手女声</li><li>101007-智娜，客服女声</li><li>101008-智琪，客服女声</li><li>101009-智芸，知性女声</li><li>101010-智华，通用男声</li><li>101011-智燕，新闻女声</li><li>101012-智丹，新闻女声</li><li>101013-智辉，新闻男声</li><li>101014-智宁，新闻男声</li><li>101015-智萌，男童声</li><li>101016-智甜，女童声</li><li>101017-智蓉，情感女声</li><li>101018-智靖，情感男声</li><li>101019-智彤，粤语女声</li><li>101050-WeJack，英文男声（精品）</li><li>101051-WeRose，英文女声（精品）</li><li>102000-贝蕾，客服女声</li><li>102001-贝果，客服女声</li><li>102002-贝紫，粤语女声</li><li>102003-贝雪，新闻女声</li>
- * @method void setVoiceType(integer $VoiceType) 设置普通音色<li>0-云小宁，亲和女声(默认)</li><li>1-云小奇，亲和男声</li><li>2-云小晚，成熟男声</li><li>4-云小叶，温暖女声</li><li>5-云小欣，情感女声</li><li>6-云小龙，情感男声</li><li>7-云小曼，客服女声</li><li>1001-智瑜，情感女声</li><li>1002-智聆，通用女声</li><li>1003-智美，客服女声</li><li>1050-WeJack，英文男声</li><li>1051-WeRose，英文女声</li>精品音色<br>精品音色拟真度更高，价格不同于普通音色，查看[购买指南](https://cloud.tencent.com/product/tts/pricing)<br><li>101001-智瑜，情感女声（精品）</li><li>101002-智聆，通用女声（精品）</li><li>101003-智美，客服女声（精品）</li><li>101004-智云，通用男声</li><li>101005-智莉，通用女声</li><li>101006-智言，助手女声</li><li>101007-智娜，客服女声</li><li>101008-智琪，客服女声</li><li>101009-智芸，知性女声</li><li>101010-智华，通用男声</li><li>101011-智燕，新闻女声</li><li>101012-智丹，新闻女声</li><li>101013-智辉，新闻男声</li><li>101014-智宁，新闻男声</li><li>101015-智萌，男童声</li><li>101016-智甜，女童声</li><li>101017-智蓉，情感女声</li><li>101018-智靖，情感男声</li><li>101019-智彤，粤语女声</li><li>101050-WeJack，英文男声（精品）</li><li>101051-WeRose，英文女声（精品）</li><li>102000-贝蕾，客服女声</li><li>102001-贝果，客服女声</li><li>102002-贝紫，粤语女声</li><li>102003-贝雪，新闻女声</li>
- * @method integer getPrimaryLanguage() 获取主语言类型：<li>1-中文（默认）</li><li>2-英文</li>
- * @method void setPrimaryLanguage(integer $PrimaryLanguage) 设置主语言类型：<li>1-中文（默认）</li><li>2-英文</li>
- * @method integer getSampleRate() 获取音频采样率：<li>16000：16k（默认）</li><li>8000：8k</li>
- * @method void setSampleRate(integer $SampleRate) 设置音频采样率：<li>16000：16k（默认）</li><li>8000：8k</li>
- * @method string getCodec() 获取返回音频格式，可取值：wav（默认），mp3，pcm
- * @method void setCodec(string $Codec) 设置返回音频格式，可取值：wav（默认），mp3，pcm
+ * @method string getText() 获取<p>合成语音的源文本，按UTF-8编码统一计算。<br>中文最大支持150个汉字（全角标点符号算一个汉字）；英文最大支持500个字母（半角标点符号算一个字母）。</p>
+ * @method void setText(string $Text) 设置<p>合成语音的源文本，按UTF-8编码统一计算。<br>中文最大支持150个汉字（全角标点符号算一个汉字）；英文最大支持500个字母（半角标点符号算一个字母）。</p>
+ * @method string getSessionId() 获取<p>一次请求对应一个SessionId，会原样返回，建议传入类似于uuid的字符串防止重复。</p>
+ * @method void setSessionId(string $SessionId) 设置<p>一次请求对应一个SessionId，会原样返回，建议传入类似于uuid的字符串防止重复。</p>
+ * @method float getVolume() 获取<p>音量大小，范围[-10，10]，对应音量大小。默认为0，代表正常音量，值越大音量越高。</p>
+ * @method void setVolume(float $Volume) 设置<p>音量大小，范围[-10，10]，对应音量大小。默认为0，代表正常音量，值越大音量越高。</p>
+ * @method float getSpeed() 获取<p>语速，范围：[-2，6]，分别对应不同语速：<li>-2代表0.6倍</li><li>-1代表0.8倍</li><li>0代表1.0倍（默认）</li><li>1代表1.2倍</li><li>2代表1.5倍</li><li>6代表2.5倍</li>如果需要更细化的语速，可以保留小数点后 2 位，例如0.5/1.25/2.81等。<br>参数值与实际语速转换，可参考<a href="https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/sample/speed_sample.tar.gz">代码示例</a></p>
+ * @method void setSpeed(float $Speed) 设置<p>语速，范围：[-2，6]，分别对应不同语速：<li>-2代表0.6倍</li><li>-1代表0.8倍</li><li>0代表1.0倍（默认）</li><li>1代表1.2倍</li><li>2代表1.5倍</li><li>6代表2.5倍</li>如果需要更细化的语速，可以保留小数点后 2 位，例如0.5/1.25/2.81等。<br>参数值与实际语速转换，可参考<a href="https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/sample/speed_sample.tar.gz">代码示例</a></p>
+ * @method integer getProjectId() 获取<p>项目id，用户自定义，默认为0。</p>
+ * @method void setProjectId(integer $ProjectId) 设置<p>项目id，用户自定义，默认为0。</p>
+ * @method integer getModelType() 获取<p>模型类型，1-默认模型。</p>
+ * @method void setModelType(integer $ModelType) 设置<p>模型类型，1-默认模型。</p>
+ * @method integer getVoiceType() 获取<p>音色 ID，包括精品音色、大模型音色与基础版复刻音色。不同音色价格有差异，详情请参见<a href="https://cloud.tencent.com/document/product/1073/34112">购买指南</a>。完整的音色 ID 列表请参见<a href="https://cloud.tencent.com/document/product/1073/92668">音色列表</a>。<br>若使用一句话版声音复刻，请填入固定值“200000000”。</p>
+ * @method void setVoiceType(integer $VoiceType) 设置<p>音色 ID，包括精品音色、大模型音色与基础版复刻音色。不同音色价格有差异，详情请参见<a href="https://cloud.tencent.com/document/product/1073/34112">购买指南</a>。完整的音色 ID 列表请参见<a href="https://cloud.tencent.com/document/product/1073/92668">音色列表</a>。<br>若使用一句话版声音复刻，请填入固定值“200000000”。</p>
+ * @method string getFastVoiceType() 获取<p>一句话版声音复刻音色ID，使用一句话版声音复刻音色时需填写。</p>
+ * @method void setFastVoiceType(string $FastVoiceType) 设置<p>一句话版声音复刻音色ID，使用一句话版声音复刻音色时需填写。</p>
+ * @method integer getPrimaryLanguage() 获取<p>主语言类型：<li>1-中文（默认）</li><li>2-英文</li></p>
+ * @method void setPrimaryLanguage(integer $PrimaryLanguage) 设置<p>主语言类型：<li>1-中文（默认）</li><li>2-英文</li></p>
+ * @method integer getSampleRate() 获取<p>音频采样率：</p><li>24000：24k（部分音色支持，请参见[音色列表](https://cloud.tencent.com/document/product/1073/92668)）</li><li>16000：16k（默认）</li><li>8000：8k</li>
+ * @method void setSampleRate(integer $SampleRate) 设置<p>音频采样率：</p><li>24000：24k（部分音色支持，请参见[音色列表](https://cloud.tencent.com/document/product/1073/92668)）</li><li>16000：16k（默认）</li><li>8000：8k</li>
+ * @method string getCodec() 获取<p>返回音频格式，可取值：wav（默认），mp3，pcm</p>
+ * @method void setCodec(string $Codec) 设置<p>返回音频格式，可取值：wav（默认），mp3，pcm</p>
+ * @method boolean getEnableSubtitle() 获取<p>是否开启时间戳功能，默认为false。部分超自然音色不支持时间戳</p>
+ * @method void setEnableSubtitle(boolean $EnableSubtitle) 设置<p>是否开启时间戳功能，默认为false。部分超自然音色不支持时间戳</p>
+ * @method integer getSegmentRate() 获取<p>断句敏感阈值，默认值为：0，取值范围：[0,1,2]。该值越大越不容易断句，模型会更倾向于仅按照标点符号断句。此参数建议不要随意调整，可能会影响合成效果。</p>
+ * @method void setSegmentRate(integer $SegmentRate) 设置<p>断句敏感阈值，默认值为：0，取值范围：[0,1,2]。该值越大越不容易断句，模型会更倾向于仅按照标点符号断句。此参数建议不要随意调整，可能会影响合成效果。</p>
+ * @method string getEmotionCategory() 获取<p>控制合成音频的情感，仅支持多情感音色使用。取值: neutral(中性)、sad(悲伤)、happy(高兴)、angry(生气)、fear(恐惧)、news(新闻)、story(故事)、radio(广播)、poetry(诗歌)、call(客服)、sajiao(撒娇)、disgusted(厌恶)、amaze(震惊)、peaceful(平静)、exciting(兴奋)、aojiao(傲娇)、jieshuo(解说)<br>示例值：neutral</p>
+ * @method void setEmotionCategory(string $EmotionCategory) 设置<p>控制合成音频的情感，仅支持多情感音色使用。取值: neutral(中性)、sad(悲伤)、happy(高兴)、angry(生气)、fear(恐惧)、news(新闻)、story(故事)、radio(广播)、poetry(诗歌)、call(客服)、sajiao(撒娇)、disgusted(厌恶)、amaze(震惊)、peaceful(平静)、exciting(兴奋)、aojiao(傲娇)、jieshuo(解说)<br>示例值：neutral</p>
+ * @method integer getEmotionIntensity() 获取<p>控制合成音频情感程度，取值范围为[50,200],默认为100；只有EmotionCategory不为空时生效；</p>
+ * @method void setEmotionIntensity(integer $EmotionIntensity) 设置<p>控制合成音频情感程度，取值范围为[50,200],默认为100；只有EmotionCategory不为空时生效；</p>
+ * @method boolean getEnableLatex() 获取<p>是否开启LaTeX文本朗读功能，默认为false。<br>注：</p><ul><li>该参数适用于K12教育场景，启用后，会增加一定的时延</li><li>仅支持中文文本中使用LaTeX公式</li><li>仅支持部分超自然大模型2.0音色，详情见<a href="https://cloud.tencent.com/document/product/1073/92668">音色列表</a>。</li><li>公式使用需添加定界符，支持 $...$、$$...$$<br>例：同学们看这道题，$1 + 2 = 3$，这是最基础的加法。</li></ul>
+ * @method void setEnableLatex(boolean $EnableLatex) 设置<p>是否开启LaTeX文本朗读功能，默认为false。<br>注：</p><ul><li>该参数适用于K12教育场景，启用后，会增加一定的时延</li><li>仅支持中文文本中使用LaTeX公式</li><li>仅支持部分超自然大模型2.0音色，详情见<a href="https://cloud.tencent.com/document/product/1073/92668">音色列表</a>。</li><li>公式使用需添加定界符，支持 $...$、$$...$$<br>例：同学们看这道题，$1 + 2 = 3$，这是最基础的加法。</li></ul>
  */
 class TextToVoiceRequest extends AbstractModel
 {
     /**
-     * @var string 合成语音的源文本，按UTF-8编码统一计算。
-中文最大支持110个汉字（全角标点符号算一个汉字）；英文最大支持350个字母（半角标点符号算一个字母）。
+     * @var string <p>合成语音的源文本，按UTF-8编码统一计算。<br>中文最大支持150个汉字（全角标点符号算一个汉字）；英文最大支持500个字母（半角标点符号算一个字母）。</p>
      */
     public $Text;
 
     /**
-     * @var string 一次请求对应一个SessionId，会原样返回，建议传入类似于uuid的字符串防止重复。
+     * @var string <p>一次请求对应一个SessionId，会原样返回，建议传入类似于uuid的字符串防止重复。</p>
      */
     public $SessionId;
 
     /**
-     * @var integer 模型类型，1-默认模型。
-     */
-    public $ModelType;
-
-    /**
-     * @var float 音量大小，范围：[0，10]，分别对应11个等级的音量，默认为0，代表正常音量。没有静音选项。
-输入除以上整数之外的其他参数不生效，按默认值处理。
+     * @var float <p>音量大小，范围[-10，10]，对应音量大小。默认为0，代表正常音量，值越大音量越高。</p>
      */
     public $Volume;
 
     /**
-     * @var float 语速，范围：[-2，2]，分别对应不同语速：<li>-2代表0.6倍</li><li>-1代表0.8倍</li><li>0代表1.0倍（默认）</li><li>1代表1.2倍</li><li>2代表1.5倍</li>如果需要更细化的语速，可以保留小数点后一位，例如0.5 1.1 1.8等。<br>
+     * @var float <p>语速，范围：[-2，6]，分别对应不同语速：<li>-2代表0.6倍</li><li>-1代表0.8倍</li><li>0代表1.0倍（默认）</li><li>1代表1.2倍</li><li>2代表1.5倍</li><li>6代表2.5倍</li>如果需要更细化的语速，可以保留小数点后 2 位，例如0.5/1.25/2.81等。<br>参数值与实际语速转换，可参考<a href="https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/sample/speed_sample.tar.gz">代码示例</a></p>
      */
     public $Speed;
 
     /**
-     * @var integer 项目id，用户自定义，默认为0。
+     * @var integer <p>项目id，用户自定义，默认为0。</p>
      */
     public $ProjectId;
 
     /**
-     * @var integer 普通音色<li>0-云小宁，亲和女声(默认)</li><li>1-云小奇，亲和男声</li><li>2-云小晚，成熟男声</li><li>4-云小叶，温暖女声</li><li>5-云小欣，情感女声</li><li>6-云小龙，情感男声</li><li>7-云小曼，客服女声</li><li>1001-智瑜，情感女声</li><li>1002-智聆，通用女声</li><li>1003-智美，客服女声</li><li>1050-WeJack，英文男声</li><li>1051-WeRose，英文女声</li>精品音色<br>精品音色拟真度更高，价格不同于普通音色，查看[购买指南](https://cloud.tencent.com/product/tts/pricing)<br><li>101001-智瑜，情感女声（精品）</li><li>101002-智聆，通用女声（精品）</li><li>101003-智美，客服女声（精品）</li><li>101004-智云，通用男声</li><li>101005-智莉，通用女声</li><li>101006-智言，助手女声</li><li>101007-智娜，客服女声</li><li>101008-智琪，客服女声</li><li>101009-智芸，知性女声</li><li>101010-智华，通用男声</li><li>101011-智燕，新闻女声</li><li>101012-智丹，新闻女声</li><li>101013-智辉，新闻男声</li><li>101014-智宁，新闻男声</li><li>101015-智萌，男童声</li><li>101016-智甜，女童声</li><li>101017-智蓉，情感女声</li><li>101018-智靖，情感男声</li><li>101019-智彤，粤语女声</li><li>101050-WeJack，英文男声（精品）</li><li>101051-WeRose，英文女声（精品）</li><li>102000-贝蕾，客服女声</li><li>102001-贝果，客服女声</li><li>102002-贝紫，粤语女声</li><li>102003-贝雪，新闻女声</li>
+     * @var integer <p>模型类型，1-默认模型。</p>
+     */
+    public $ModelType;
+
+    /**
+     * @var integer <p>音色 ID，包括精品音色、大模型音色与基础版复刻音色。不同音色价格有差异，详情请参见<a href="https://cloud.tencent.com/document/product/1073/34112">购买指南</a>。完整的音色 ID 列表请参见<a href="https://cloud.tencent.com/document/product/1073/92668">音色列表</a>。<br>若使用一句话版声音复刻，请填入固定值“200000000”。</p>
      */
     public $VoiceType;
 
     /**
-     * @var integer 主语言类型：<li>1-中文（默认）</li><li>2-英文</li>
+     * @var string <p>一句话版声音复刻音色ID，使用一句话版声音复刻音色时需填写。</p>
+     */
+    public $FastVoiceType;
+
+    /**
+     * @var integer <p>主语言类型：<li>1-中文（默认）</li><li>2-英文</li></p>
      */
     public $PrimaryLanguage;
 
     /**
-     * @var integer 音频采样率：<li>16000：16k（默认）</li><li>8000：8k</li>
+     * @var integer <p>音频采样率：</p><li>24000：24k（部分音色支持，请参见[音色列表](https://cloud.tencent.com/document/product/1073/92668)）</li><li>16000：16k（默认）</li><li>8000：8k</li>
      */
     public $SampleRate;
 
     /**
-     * @var string 返回音频格式，可取值：wav（默认），mp3，pcm
+     * @var string <p>返回音频格式，可取值：wav（默认），mp3，pcm</p>
      */
     public $Codec;
 
     /**
-     * @param string $Text 合成语音的源文本，按UTF-8编码统一计算。
-中文最大支持110个汉字（全角标点符号算一个汉字）；英文最大支持350个字母（半角标点符号算一个字母）。
-     * @param string $SessionId 一次请求对应一个SessionId，会原样返回，建议传入类似于uuid的字符串防止重复。
-     * @param integer $ModelType 模型类型，1-默认模型。
-     * @param float $Volume 音量大小，范围：[0，10]，分别对应11个等级的音量，默认为0，代表正常音量。没有静音选项。
-输入除以上整数之外的其他参数不生效，按默认值处理。
-     * @param float $Speed 语速，范围：[-2，2]，分别对应不同语速：<li>-2代表0.6倍</li><li>-1代表0.8倍</li><li>0代表1.0倍（默认）</li><li>1代表1.2倍</li><li>2代表1.5倍</li>如果需要更细化的语速，可以保留小数点后一位，例如0.5 1.1 1.8等。<br>
-     * @param integer $ProjectId 项目id，用户自定义，默认为0。
-     * @param integer $VoiceType 普通音色<li>0-云小宁，亲和女声(默认)</li><li>1-云小奇，亲和男声</li><li>2-云小晚，成熟男声</li><li>4-云小叶，温暖女声</li><li>5-云小欣，情感女声</li><li>6-云小龙，情感男声</li><li>7-云小曼，客服女声</li><li>1001-智瑜，情感女声</li><li>1002-智聆，通用女声</li><li>1003-智美，客服女声</li><li>1050-WeJack，英文男声</li><li>1051-WeRose，英文女声</li>精品音色<br>精品音色拟真度更高，价格不同于普通音色，查看[购买指南](https://cloud.tencent.com/product/tts/pricing)<br><li>101001-智瑜，情感女声（精品）</li><li>101002-智聆，通用女声（精品）</li><li>101003-智美，客服女声（精品）</li><li>101004-智云，通用男声</li><li>101005-智莉，通用女声</li><li>101006-智言，助手女声</li><li>101007-智娜，客服女声</li><li>101008-智琪，客服女声</li><li>101009-智芸，知性女声</li><li>101010-智华，通用男声</li><li>101011-智燕，新闻女声</li><li>101012-智丹，新闻女声</li><li>101013-智辉，新闻男声</li><li>101014-智宁，新闻男声</li><li>101015-智萌，男童声</li><li>101016-智甜，女童声</li><li>101017-智蓉，情感女声</li><li>101018-智靖，情感男声</li><li>101019-智彤，粤语女声</li><li>101050-WeJack，英文男声（精品）</li><li>101051-WeRose，英文女声（精品）</li><li>102000-贝蕾，客服女声</li><li>102001-贝果，客服女声</li><li>102002-贝紫，粤语女声</li><li>102003-贝雪，新闻女声</li>
-     * @param integer $PrimaryLanguage 主语言类型：<li>1-中文（默认）</li><li>2-英文</li>
-     * @param integer $SampleRate 音频采样率：<li>16000：16k（默认）</li><li>8000：8k</li>
-     * @param string $Codec 返回音频格式，可取值：wav（默认），mp3，pcm
+     * @var boolean <p>是否开启时间戳功能，默认为false。部分超自然音色不支持时间戳</p>
+     */
+    public $EnableSubtitle;
+
+    /**
+     * @var integer <p>断句敏感阈值，默认值为：0，取值范围：[0,1,2]。该值越大越不容易断句，模型会更倾向于仅按照标点符号断句。此参数建议不要随意调整，可能会影响合成效果。</p>
+     */
+    public $SegmentRate;
+
+    /**
+     * @var string <p>控制合成音频的情感，仅支持多情感音色使用。取值: neutral(中性)、sad(悲伤)、happy(高兴)、angry(生气)、fear(恐惧)、news(新闻)、story(故事)、radio(广播)、poetry(诗歌)、call(客服)、sajiao(撒娇)、disgusted(厌恶)、amaze(震惊)、peaceful(平静)、exciting(兴奋)、aojiao(傲娇)、jieshuo(解说)<br>示例值：neutral</p>
+     */
+    public $EmotionCategory;
+
+    /**
+     * @var integer <p>控制合成音频情感程度，取值范围为[50,200],默认为100；只有EmotionCategory不为空时生效；</p>
+     */
+    public $EmotionIntensity;
+
+    /**
+     * @var boolean <p>是否开启LaTeX文本朗读功能，默认为false。<br>注：</p><ul><li>该参数适用于K12教育场景，启用后，会增加一定的时延</li><li>仅支持中文文本中使用LaTeX公式</li><li>仅支持部分超自然大模型2.0音色，详情见<a href="https://cloud.tencent.com/document/product/1073/92668">音色列表</a>。</li><li>公式使用需添加定界符，支持 $...$、$$...$$<br>例：同学们看这道题，$1 + 2 = 3$，这是最基础的加法。</li></ul>
+     */
+    public $EnableLatex;
+
+    /**
+     * @param string $Text <p>合成语音的源文本，按UTF-8编码统一计算。<br>中文最大支持150个汉字（全角标点符号算一个汉字）；英文最大支持500个字母（半角标点符号算一个字母）。</p>
+     * @param string $SessionId <p>一次请求对应一个SessionId，会原样返回，建议传入类似于uuid的字符串防止重复。</p>
+     * @param float $Volume <p>音量大小，范围[-10，10]，对应音量大小。默认为0，代表正常音量，值越大音量越高。</p>
+     * @param float $Speed <p>语速，范围：[-2，6]，分别对应不同语速：<li>-2代表0.6倍</li><li>-1代表0.8倍</li><li>0代表1.0倍（默认）</li><li>1代表1.2倍</li><li>2代表1.5倍</li><li>6代表2.5倍</li>如果需要更细化的语速，可以保留小数点后 2 位，例如0.5/1.25/2.81等。<br>参数值与实际语速转换，可参考<a href="https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/sample/speed_sample.tar.gz">代码示例</a></p>
+     * @param integer $ProjectId <p>项目id，用户自定义，默认为0。</p>
+     * @param integer $ModelType <p>模型类型，1-默认模型。</p>
+     * @param integer $VoiceType <p>音色 ID，包括精品音色、大模型音色与基础版复刻音色。不同音色价格有差异，详情请参见<a href="https://cloud.tencent.com/document/product/1073/34112">购买指南</a>。完整的音色 ID 列表请参见<a href="https://cloud.tencent.com/document/product/1073/92668">音色列表</a>。<br>若使用一句话版声音复刻，请填入固定值“200000000”。</p>
+     * @param string $FastVoiceType <p>一句话版声音复刻音色ID，使用一句话版声音复刻音色时需填写。</p>
+     * @param integer $PrimaryLanguage <p>主语言类型：<li>1-中文（默认）</li><li>2-英文</li></p>
+     * @param integer $SampleRate <p>音频采样率：</p><li>24000：24k（部分音色支持，请参见[音色列表](https://cloud.tencent.com/document/product/1073/92668)）</li><li>16000：16k（默认）</li><li>8000：8k</li>
+     * @param string $Codec <p>返回音频格式，可取值：wav（默认），mp3，pcm</p>
+     * @param boolean $EnableSubtitle <p>是否开启时间戳功能，默认为false。部分超自然音色不支持时间戳</p>
+     * @param integer $SegmentRate <p>断句敏感阈值，默认值为：0，取值范围：[0,1,2]。该值越大越不容易断句，模型会更倾向于仅按照标点符号断句。此参数建议不要随意调整，可能会影响合成效果。</p>
+     * @param string $EmotionCategory <p>控制合成音频的情感，仅支持多情感音色使用。取值: neutral(中性)、sad(悲伤)、happy(高兴)、angry(生气)、fear(恐惧)、news(新闻)、story(故事)、radio(广播)、poetry(诗歌)、call(客服)、sajiao(撒娇)、disgusted(厌恶)、amaze(震惊)、peaceful(平静)、exciting(兴奋)、aojiao(傲娇)、jieshuo(解说)<br>示例值：neutral</p>
+     * @param integer $EmotionIntensity <p>控制合成音频情感程度，取值范围为[50,200],默认为100；只有EmotionCategory不为空时生效；</p>
+     * @param boolean $EnableLatex <p>是否开启LaTeX文本朗读功能，默认为false。<br>注：</p><ul><li>该参数适用于K12教育场景，启用后，会增加一定的时延</li><li>仅支持中文文本中使用LaTeX公式</li><li>仅支持部分超自然大模型2.0音色，详情见<a href="https://cloud.tencent.com/document/product/1073/92668">音色列表</a>。</li><li>公式使用需添加定界符，支持 $...$、$$...$$<br>例：同学们看这道题，$1 + 2 = 3$，这是最基础的加法。</li></ul>
      */
     function __construct()
     {
@@ -134,10 +174,6 @@ class TextToVoiceRequest extends AbstractModel
             $this->SessionId = $param["SessionId"];
         }
 
-        if (array_key_exists("ModelType",$param) and $param["ModelType"] !== null) {
-            $this->ModelType = $param["ModelType"];
-        }
-
         if (array_key_exists("Volume",$param) and $param["Volume"] !== null) {
             $this->Volume = $param["Volume"];
         }
@@ -150,8 +186,16 @@ class TextToVoiceRequest extends AbstractModel
             $this->ProjectId = $param["ProjectId"];
         }
 
+        if (array_key_exists("ModelType",$param) and $param["ModelType"] !== null) {
+            $this->ModelType = $param["ModelType"];
+        }
+
         if (array_key_exists("VoiceType",$param) and $param["VoiceType"] !== null) {
             $this->VoiceType = $param["VoiceType"];
+        }
+
+        if (array_key_exists("FastVoiceType",$param) and $param["FastVoiceType"] !== null) {
+            $this->FastVoiceType = $param["FastVoiceType"];
         }
 
         if (array_key_exists("PrimaryLanguage",$param) and $param["PrimaryLanguage"] !== null) {
@@ -164,6 +208,26 @@ class TextToVoiceRequest extends AbstractModel
 
         if (array_key_exists("Codec",$param) and $param["Codec"] !== null) {
             $this->Codec = $param["Codec"];
+        }
+
+        if (array_key_exists("EnableSubtitle",$param) and $param["EnableSubtitle"] !== null) {
+            $this->EnableSubtitle = $param["EnableSubtitle"];
+        }
+
+        if (array_key_exists("SegmentRate",$param) and $param["SegmentRate"] !== null) {
+            $this->SegmentRate = $param["SegmentRate"];
+        }
+
+        if (array_key_exists("EmotionCategory",$param) and $param["EmotionCategory"] !== null) {
+            $this->EmotionCategory = $param["EmotionCategory"];
+        }
+
+        if (array_key_exists("EmotionIntensity",$param) and $param["EmotionIntensity"] !== null) {
+            $this->EmotionIntensity = $param["EmotionIntensity"];
+        }
+
+        if (array_key_exists("EnableLatex",$param) and $param["EnableLatex"] !== null) {
+            $this->EnableLatex = $param["EnableLatex"];
         }
     }
 }

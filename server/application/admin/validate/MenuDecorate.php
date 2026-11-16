@@ -56,7 +56,7 @@ class MenuDecorate extends Validate{
     ];
     protected function sceneAdd()
     {
-        $this->remove('id');
+        $this->remove('id', true);
     }
 
     protected function sceneEdit()

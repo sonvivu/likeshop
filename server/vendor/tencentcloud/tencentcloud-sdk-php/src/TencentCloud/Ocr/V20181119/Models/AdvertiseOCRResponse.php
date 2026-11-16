@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,8 +22,10 @@ use TencentCloud\Common\AbstractModel;
  *
  * @method array getTextDetections() 获取检测到的文本信息，包括文本行内容、置信度、文本行坐标以及文本行旋转纠正后的坐标，具体内容请点击左侧链接。
  * @method void setTextDetections(array $TextDetections) 设置检测到的文本信息，包括文本行内容、置信度、文本行坐标以及文本行旋转纠正后的坐标，具体内容请点击左侧链接。
- * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
- * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method ImageSize getImageSize() 获取图片分辨率信息，单位 px
+ * @method void setImageSize(ImageSize $ImageSize) 设置图片分辨率信息，单位 px
+ * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+ * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
 class AdvertiseOCRResponse extends AbstractModel
 {
@@ -33,13 +35,19 @@ class AdvertiseOCRResponse extends AbstractModel
     public $TextDetections;
 
     /**
-     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @var ImageSize 图片分辨率信息，单位 px
+     */
+    public $ImageSize;
+
+    /**
+     * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public $RequestId;
 
     /**
      * @param array $TextDetections 检测到的文本信息，包括文本行内容、置信度、文本行坐标以及文本行旋转纠正后的坐标，具体内容请点击左侧链接。
-     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @param ImageSize $ImageSize 图片分辨率信息，单位 px
+     * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
     {
@@ -61,6 +69,11 @@ class AdvertiseOCRResponse extends AbstractModel
                 $obj->deserialize($value);
                 array_push($this->TextDetections, $obj);
             }
+        }
+
+        if (array_key_exists("ImageSize",$param) and $param["ImageSize"] !== null) {
+            $this->ImageSize = new ImageSize();
+            $this->ImageSize->deserialize($param["ImageSize"]);
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

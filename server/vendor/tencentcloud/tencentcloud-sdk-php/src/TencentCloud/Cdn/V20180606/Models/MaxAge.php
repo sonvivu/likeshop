@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,13 +18,13 @@ namespace TencentCloud\Cdn\V20180606\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * 浏览器缓存规则配置，用于设置 MaxAge 默认值，默认为关闭状态（功能灰度中，尚未全量）
+ * 浏览器缓存规则配置，用于设置 MaxAge 默认值，默认为关闭状态
  *
- * @method string getSwitch() 获取浏览器缓存配置开关
+ * @method string getSwitch() 获取浏览器缓存配置开关，取值有：
 on：开启
 off：关闭
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setSwitch(string $Switch) 设置浏览器缓存配置开关
+ * @method void setSwitch(string $Switch) 设置浏览器缓存配置开关，取值有：
 on：开启
 off：关闭
 注意：此字段可能返回 null，表示取不到有效值。
@@ -32,11 +32,15 @@ off：关闭
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setMaxAgeRules(array $MaxAgeRules) 设置MaxAge 规则
 注意：此字段可能返回 null，表示取不到有效值。
+ * @method MaxAgeCodeRule getMaxAgeCodeRule() 获取MaxAge 状态码相关规则
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setMaxAgeCodeRule(MaxAgeCodeRule $MaxAgeCodeRule) 设置MaxAge 状态码相关规则
+注意：此字段可能返回 null，表示取不到有效值。
  */
 class MaxAge extends AbstractModel
 {
     /**
-     * @var string 浏览器缓存配置开关
+     * @var string 浏览器缓存配置开关，取值有：
 on：开启
 off：关闭
 注意：此字段可能返回 null，表示取不到有效值。
@@ -50,11 +54,19 @@ off：关闭
     public $MaxAgeRules;
 
     /**
-     * @param string $Switch 浏览器缓存配置开关
+     * @var MaxAgeCodeRule MaxAge 状态码相关规则
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $MaxAgeCodeRule;
+
+    /**
+     * @param string $Switch 浏览器缓存配置开关，取值有：
 on：开启
 off：关闭
 注意：此字段可能返回 null，表示取不到有效值。
      * @param array $MaxAgeRules MaxAge 规则
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param MaxAgeCodeRule $MaxAgeCodeRule MaxAge 状态码相关规则
 注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
@@ -81,6 +93,11 @@ off：关闭
                 $obj->deserialize($value);
                 array_push($this->MaxAgeRules, $obj);
             }
+        }
+
+        if (array_key_exists("MaxAgeCodeRule",$param) and $param["MaxAgeCodeRule"] !== null) {
+            $this->MaxAgeCodeRule = new MaxAgeCodeRule();
+            $this->MaxAgeCodeRule->deserialize($param["MaxAgeCodeRule"]);
         }
     }
 }

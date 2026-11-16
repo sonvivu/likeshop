@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,8 +20,8 @@ use TencentCloud\Common\AbstractModel;
 /**
  * 项目导出信息。
  *
- * @method string getMaterialId() 获取导出的云剪素材 MaterialId，仅当导出为云剪素材时有效。
- * @method void setMaterialId(string $MaterialId) 设置导出的云剪素材 MaterialId，仅当导出为云剪素材时有效。
+ * @method string getMaterialId() 获取导出的多媒体创作引擎媒体 Id，仅当导出目标为多媒体创作引擎媒体时有效。
+ * @method void setMaterialId(string $MaterialId) 设置导出的多媒体创作引擎媒体 Id，仅当导出目标为多媒体创作引擎媒体时有效。
  * @method string getVodFileId() 获取云点播媒资 FileId。
  * @method void setVodFileId(string $VodFileId) 设置云点播媒资 FileId。
  * @method string getURL() 获取导出的媒资 URL。
@@ -30,11 +30,13 @@ use TencentCloud\Common\AbstractModel;
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setMetaData(MediaMetaData $MetaData) 设置元信息。
 注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getCoverURL() 获取导出视频的封面图片 URL。
+ * @method void setCoverURL(string $CoverURL) 设置导出视频的封面图片 URL。
  */
 class VideoEditProjectOutput extends AbstractModel
 {
     /**
-     * @var string 导出的云剪素材 MaterialId，仅当导出为云剪素材时有效。
+     * @var string 导出的多媒体创作引擎媒体 Id，仅当导出目标为多媒体创作引擎媒体时有效。
      */
     public $MaterialId;
 
@@ -55,11 +57,17 @@ class VideoEditProjectOutput extends AbstractModel
     public $MetaData;
 
     /**
-     * @param string $MaterialId 导出的云剪素材 MaterialId，仅当导出为云剪素材时有效。
+     * @var string 导出视频的封面图片 URL。
+     */
+    public $CoverURL;
+
+    /**
+     * @param string $MaterialId 导出的多媒体创作引擎媒体 Id，仅当导出目标为多媒体创作引擎媒体时有效。
      * @param string $VodFileId 云点播媒资 FileId。
      * @param string $URL 导出的媒资 URL。
      * @param MediaMetaData $MetaData 元信息。
 注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $CoverURL 导出视频的封面图片 URL。
      */
     function __construct()
     {
@@ -89,6 +97,10 @@ class VideoEditProjectOutput extends AbstractModel
         if (array_key_exists("MetaData",$param) and $param["MetaData"] !== null) {
             $this->MetaData = new MediaMetaData();
             $this->MetaData->deserialize($param["MetaData"]);
+        }
+
+        if (array_key_exists("CoverURL",$param) and $param["CoverURL"] !== null) {
+            $this->CoverURL = $param["CoverURL"];
         }
     }
 }

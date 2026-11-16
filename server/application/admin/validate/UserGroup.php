@@ -19,7 +19,7 @@
 
 
 namespace app\admin\validate;
-use think\Db;
+use think\facade\Db;
 use think\Validate;
 
 class UserGroup extends Validate

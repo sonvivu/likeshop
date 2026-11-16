@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,18 +20,18 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeVpcResourceDashboard请求参数结构体
  *
- * @method array getVpcIds() 获取Vpc实例ID，例如：vpc-f1xjkw1b。
- * @method void setVpcIds(array $VpcIds) 设置Vpc实例ID，例如：vpc-f1xjkw1b。
+ * @method array getVpcIds() 获取<p>Vpc实例ID，例如：vpc-f1xjkw1b。</p>
+ * @method void setVpcIds(array $VpcIds) 设置<p>Vpc实例ID，例如：vpc-f1xjkw1b。</p>
  */
 class DescribeVpcResourceDashboardRequest extends AbstractModel
 {
     /**
-     * @var array Vpc实例ID，例如：vpc-f1xjkw1b。
+     * @var array <p>Vpc实例ID，例如：vpc-f1xjkw1b。</p>
      */
     public $VpcIds;
 
     /**
-     * @param array $VpcIds Vpc实例ID，例如：vpc-f1xjkw1b。
+     * @param array $VpcIds <p>Vpc实例ID，例如：vpc-f1xjkw1b。</p>
      */
     function __construct()
     {

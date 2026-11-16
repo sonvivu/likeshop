@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,41 +21,57 @@ use TencentCloud\Common\AbstractModel;
  * 常量参数
  *
  * @method string getName() 获取常量参数名称。只有 ServiceType 是 HTTP 才会用到此参数。
+注意：此字段可能返回 null，表示取不到有效值。
  * @method void setName(string $Name) 设置常量参数名称。只有 ServiceType 是 HTTP 才会用到此参数。
+注意：此字段可能返回 null，表示取不到有效值。
  * @method string getDesc() 获取常量参数描述。只有 ServiceType 是 HTTP 才会用到此参数。
+注意：此字段可能返回 null，表示取不到有效值。
  * @method void setDesc(string $Desc) 设置常量参数描述。只有 ServiceType 是 HTTP 才会用到此参数。
+注意：此字段可能返回 null，表示取不到有效值。
  * @method string getPosition() 获取常量参数位置。只有 ServiceType 是 HTTP 才会用到此参数。
+注意：此字段可能返回 null，表示取不到有效值。
  * @method void setPosition(string $Position) 设置常量参数位置。只有 ServiceType 是 HTTP 才会用到此参数。
+注意：此字段可能返回 null，表示取不到有效值。
  * @method string getDefaultValue() 获取常量参数默认值。只有 ServiceType 是 HTTP 才会用到此参数。
+注意：此字段可能返回 null，表示取不到有效值。
  * @method void setDefaultValue(string $DefaultValue) 设置常量参数默认值。只有 ServiceType 是 HTTP 才会用到此参数。
+注意：此字段可能返回 null，表示取不到有效值。
  */
 class ConstantParameter extends AbstractModel
 {
     /**
      * @var string 常量参数名称。只有 ServiceType 是 HTTP 才会用到此参数。
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Name;
 
     /**
      * @var string 常量参数描述。只有 ServiceType 是 HTTP 才会用到此参数。
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Desc;
 
     /**
      * @var string 常量参数位置。只有 ServiceType 是 HTTP 才会用到此参数。
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Position;
 
     /**
      * @var string 常量参数默认值。只有 ServiceType 是 HTTP 才会用到此参数。
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public $DefaultValue;
 
     /**
      * @param string $Name 常量参数名称。只有 ServiceType 是 HTTP 才会用到此参数。
+注意：此字段可能返回 null，表示取不到有效值。
      * @param string $Desc 常量参数描述。只有 ServiceType 是 HTTP 才会用到此参数。
+注意：此字段可能返回 null，表示取不到有效值。
      * @param string $Position 常量参数位置。只有 ServiceType 是 HTTP 才会用到此参数。
+注意：此字段可能返回 null，表示取不到有效值。
      * @param string $DefaultValue 常量参数默认值。只有 ServiceType 是 HTTP 才会用到此参数。
+注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
     {

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,26 +20,34 @@ use TencentCloud\Common\AbstractModel;
 /**
  * EnableReplicaReadonly请求参数结构体
  *
- * @method string getInstanceId() 获取实例序号ID
- * @method void setInstanceId(string $InstanceId) 设置实例序号ID
- * @method array getReadonlyPolicy() 获取账号路由策略：填写master或者replication，表示路由主节点，从节点；不填路由策略默认为写主节点，读从节点
- * @method void setReadonlyPolicy(array $ReadonlyPolicy) 设置账号路由策略：填写master或者replication，表示路由主节点，从节点；不填路由策略默认为写主节点，读从节点
+ * @method string getInstanceId() 获取实例 ID，请登录[Redis控制台](https://console.cloud.tencent.com/redis/instance/list)在实例列表复制实例 ID。
+ * @method void setInstanceId(string $InstanceId) 设置实例 ID，请登录[Redis控制台](https://console.cloud.tencent.com/redis/instance/list)在实例列表复制实例 ID。
+ * @method array getReadonlyPolicy() 获取只读路由策略。
+- master：表示只读路由至主节点。
+- replication：表示只读路由至从节点。默认值为：replication。
+ * @method void setReadonlyPolicy(array $ReadonlyPolicy) 设置只读路由策略。
+- master：表示只读路由至主节点。
+- replication：表示只读路由至从节点。默认值为：replication。
  */
 class EnableReplicaReadonlyRequest extends AbstractModel
 {
     /**
-     * @var string 实例序号ID
+     * @var string 实例 ID，请登录[Redis控制台](https://console.cloud.tencent.com/redis/instance/list)在实例列表复制实例 ID。
      */
     public $InstanceId;
 
     /**
-     * @var array 账号路由策略：填写master或者replication，表示路由主节点，从节点；不填路由策略默认为写主节点，读从节点
+     * @var array 只读路由策略。
+- master：表示只读路由至主节点。
+- replication：表示只读路由至从节点。默认值为：replication。
      */
     public $ReadonlyPolicy;
 
     /**
-     * @param string $InstanceId 实例序号ID
-     * @param array $ReadonlyPolicy 账号路由策略：填写master或者replication，表示路由主节点，从节点；不填路由策略默认为写主节点，读从节点
+     * @param string $InstanceId 实例 ID，请登录[Redis控制台](https://console.cloud.tencent.com/redis/instance/list)在实例列表复制实例 ID。
+     * @param array $ReadonlyPolicy 只读路由策略。
+- master：表示只读路由至主节点。
+- replication：表示只读路由至从节点。默认值为：replication。
      */
     function __construct()
     {

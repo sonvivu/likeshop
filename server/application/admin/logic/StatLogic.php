@@ -20,8 +20,8 @@
 namespace app\admin\logic;
 
 use app\common\model\Pay;
-use think\helper\Time;
-use think\Db;
+use app\common\helper\Time;
+use think\facade\Db;
 
 class StatLogic
 {

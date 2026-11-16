@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,66 +20,91 @@ use TencentCloud\Common\AbstractModel;
 /**
  * ResetProcedureTemplate请求参数结构体
  *
- * @method string getName() 获取任务流名字
- * @method void setName(string $Name) 设置任务流名字
- * @method string getComment() 获取模板描述信息，长度限制：256 个字符。
- * @method void setComment(string $Comment) 设置模板描述信息，长度限制：256 个字符。
- * @method MediaProcessTaskInput getMediaProcessTask() 获取视频处理类型任务参数。
- * @method void setMediaProcessTask(MediaProcessTaskInput $MediaProcessTask) 设置视频处理类型任务参数。
- * @method AiContentReviewTaskInput getAiContentReviewTask() 获取AI 智能内容审核类型任务参数。
- * @method void setAiContentReviewTask(AiContentReviewTaskInput $AiContentReviewTask) 设置AI 智能内容审核类型任务参数。
- * @method AiAnalysisTaskInput getAiAnalysisTask() 获取AI 智能内容分析类型任务参数。
- * @method void setAiAnalysisTask(AiAnalysisTaskInput $AiAnalysisTask) 设置AI 智能内容分析类型任务参数。
- * @method AiRecognitionTaskInput getAiRecognitionTask() 获取AI 内容识别类型任务参数。
- * @method void setAiRecognitionTask(AiRecognitionTaskInput $AiRecognitionTask) 设置AI 内容识别类型任务参数。
- * @method integer getSubAppId() 获取点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
- * @method void setSubAppId(integer $SubAppId) 设置点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
+ * @method string getName() 获取<p>任务流名字</p>
+ * @method void setName(string $Name) 设置<p>任务流名字</p>
+ * @method integer getSubAppId() 获取<p><b>点播<a href="/document/product/266/14574">应用</a> ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b></p>
+ * @method void setSubAppId(integer $SubAppId) 设置<p><b>点播<a href="/document/product/266/14574">应用</a> ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b></p>
+ * @method string getComment() 获取<p>模板描述信息，长度限制：256 个字符。</p>
+ * @method void setComment(string $Comment) 设置<p>模板描述信息，长度限制：256 个字符。</p>
+ * @method MediaProcessTaskInput getMediaProcessTask() 获取<p>视频处理类型任务参数。</p>
+ * @method void setMediaProcessTask(MediaProcessTaskInput $MediaProcessTask) 设置<p>视频处理类型任务参数。</p>
+ * @method AiContentReviewTaskInput getAiContentReviewTask() 获取<p>AI 智能内容审核类型任务参数 *。<br><font color="red">*：该参数用于发起旧版审核，不建议使用。推荐使用 ReviewAudioVideoTask 参数发起审核。</font></p>
+ * @method void setAiContentReviewTask(AiContentReviewTaskInput $AiContentReviewTask) 设置<p>AI 智能内容审核类型任务参数 *。<br><font color="red">*：该参数用于发起旧版审核，不建议使用。推荐使用 ReviewAudioVideoTask 参数发起审核。</font></p>
+ * @method AiAnalysisTaskInput getAiAnalysisTask() 获取<p>AI 智能内容分析类型任务参数。</p>
+ * @method void setAiAnalysisTask(AiAnalysisTaskInput $AiAnalysisTask) 设置<p>AI 智能内容分析类型任务参数。</p>
+ * @method array getAiRecognitionTaskSet() 获取<p>AI 内容识别类型任务参数。</p>
+ * @method void setAiRecognitionTaskSet(array $AiRecognitionTaskSet) 设置<p>AI 内容识别类型任务参数。</p>
+ * @method AiRecognitionTaskInput getAiRecognitionTask() 获取<p>该参数已不推荐使用，建议使用 AiRecognitionTaskSet。</p>
+ * @method void setAiRecognitionTask(AiRecognitionTaskInput $AiRecognitionTask) 设置<p>该参数已不推荐使用，建议使用 AiRecognitionTaskSet。</p>
+ * @method ProcedureReviewAudioVideoTaskInput getReviewAudioVideoTask() 获取<p>音视频审核类型任务参数。</p>
+ * @method void setReviewAudioVideoTask(ProcedureReviewAudioVideoTaskInput $ReviewAudioVideoTask) 设置<p>音视频审核类型任务参数。</p>
+ * @method array getImportMediaKnowledgeTaskSet() 获取<p>导入智能媒资知识库任务参数。</p>
+ * @method void setImportMediaKnowledgeTaskSet(array $ImportMediaKnowledgeTaskSet) 设置<p>导入智能媒资知识库任务参数。</p>
  */
 class ResetProcedureTemplateRequest extends AbstractModel
 {
     /**
-     * @var string 任务流名字
+     * @var string <p>任务流名字</p>
      */
     public $Name;
 
     /**
-     * @var string 模板描述信息，长度限制：256 个字符。
-     */
-    public $Comment;
-
-    /**
-     * @var MediaProcessTaskInput 视频处理类型任务参数。
-     */
-    public $MediaProcessTask;
-
-    /**
-     * @var AiContentReviewTaskInput AI 智能内容审核类型任务参数。
-     */
-    public $AiContentReviewTask;
-
-    /**
-     * @var AiAnalysisTaskInput AI 智能内容分析类型任务参数。
-     */
-    public $AiAnalysisTask;
-
-    /**
-     * @var AiRecognitionTaskInput AI 内容识别类型任务参数。
-     */
-    public $AiRecognitionTask;
-
-    /**
-     * @var integer 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
+     * @var integer <p><b>点播<a href="/document/product/266/14574">应用</a> ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b></p>
      */
     public $SubAppId;
 
     /**
-     * @param string $Name 任务流名字
-     * @param string $Comment 模板描述信息，长度限制：256 个字符。
-     * @param MediaProcessTaskInput $MediaProcessTask 视频处理类型任务参数。
-     * @param AiContentReviewTaskInput $AiContentReviewTask AI 智能内容审核类型任务参数。
-     * @param AiAnalysisTaskInput $AiAnalysisTask AI 智能内容分析类型任务参数。
-     * @param AiRecognitionTaskInput $AiRecognitionTask AI 内容识别类型任务参数。
-     * @param integer $SubAppId 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
+     * @var string <p>模板描述信息，长度限制：256 个字符。</p>
+     */
+    public $Comment;
+
+    /**
+     * @var MediaProcessTaskInput <p>视频处理类型任务参数。</p>
+     */
+    public $MediaProcessTask;
+
+    /**
+     * @var AiContentReviewTaskInput <p>AI 智能内容审核类型任务参数 *。<br><font color="red">*：该参数用于发起旧版审核，不建议使用。推荐使用 ReviewAudioVideoTask 参数发起审核。</font></p>
+     */
+    public $AiContentReviewTask;
+
+    /**
+     * @var AiAnalysisTaskInput <p>AI 智能内容分析类型任务参数。</p>
+     */
+    public $AiAnalysisTask;
+
+    /**
+     * @var array <p>AI 内容识别类型任务参数。</p>
+     */
+    public $AiRecognitionTaskSet;
+
+    /**
+     * @var AiRecognitionTaskInput <p>该参数已不推荐使用，建议使用 AiRecognitionTaskSet。</p>
+     * @deprecated
+     */
+    public $AiRecognitionTask;
+
+    /**
+     * @var ProcedureReviewAudioVideoTaskInput <p>音视频审核类型任务参数。</p>
+     */
+    public $ReviewAudioVideoTask;
+
+    /**
+     * @var array <p>导入智能媒资知识库任务参数。</p>
+     */
+    public $ImportMediaKnowledgeTaskSet;
+
+    /**
+     * @param string $Name <p>任务流名字</p>
+     * @param integer $SubAppId <p><b>点播<a href="/document/product/266/14574">应用</a> ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b></p>
+     * @param string $Comment <p>模板描述信息，长度限制：256 个字符。</p>
+     * @param MediaProcessTaskInput $MediaProcessTask <p>视频处理类型任务参数。</p>
+     * @param AiContentReviewTaskInput $AiContentReviewTask <p>AI 智能内容审核类型任务参数 *。<br><font color="red">*：该参数用于发起旧版审核，不建议使用。推荐使用 ReviewAudioVideoTask 参数发起审核。</font></p>
+     * @param AiAnalysisTaskInput $AiAnalysisTask <p>AI 智能内容分析类型任务参数。</p>
+     * @param array $AiRecognitionTaskSet <p>AI 内容识别类型任务参数。</p>
+     * @param AiRecognitionTaskInput $AiRecognitionTask <p>该参数已不推荐使用，建议使用 AiRecognitionTaskSet。</p>
+     * @param ProcedureReviewAudioVideoTaskInput $ReviewAudioVideoTask <p>音视频审核类型任务参数。</p>
+     * @param array $ImportMediaKnowledgeTaskSet <p>导入智能媒资知识库任务参数。</p>
      */
     function __construct()
     {
@@ -96,6 +121,10 @@ class ResetProcedureTemplateRequest extends AbstractModel
         }
         if (array_key_exists("Name",$param) and $param["Name"] !== null) {
             $this->Name = $param["Name"];
+        }
+
+        if (array_key_exists("SubAppId",$param) and $param["SubAppId"] !== null) {
+            $this->SubAppId = $param["SubAppId"];
         }
 
         if (array_key_exists("Comment",$param) and $param["Comment"] !== null) {
@@ -117,13 +146,32 @@ class ResetProcedureTemplateRequest extends AbstractModel
             $this->AiAnalysisTask->deserialize($param["AiAnalysisTask"]);
         }
 
+        if (array_key_exists("AiRecognitionTaskSet",$param) and $param["AiRecognitionTaskSet"] !== null) {
+            $this->AiRecognitionTaskSet = [];
+            foreach ($param["AiRecognitionTaskSet"] as $key => $value){
+                $obj = new AiRecognitionTaskInput();
+                $obj->deserialize($value);
+                array_push($this->AiRecognitionTaskSet, $obj);
+            }
+        }
+
         if (array_key_exists("AiRecognitionTask",$param) and $param["AiRecognitionTask"] !== null) {
             $this->AiRecognitionTask = new AiRecognitionTaskInput();
             $this->AiRecognitionTask->deserialize($param["AiRecognitionTask"]);
         }
 
-        if (array_key_exists("SubAppId",$param) and $param["SubAppId"] !== null) {
-            $this->SubAppId = $param["SubAppId"];
+        if (array_key_exists("ReviewAudioVideoTask",$param) and $param["ReviewAudioVideoTask"] !== null) {
+            $this->ReviewAudioVideoTask = new ProcedureReviewAudioVideoTaskInput();
+            $this->ReviewAudioVideoTask->deserialize($param["ReviewAudioVideoTask"]);
+        }
+
+        if (array_key_exists("ImportMediaKnowledgeTaskSet",$param) and $param["ImportMediaKnowledgeTaskSet"] !== null) {
+            $this->ImportMediaKnowledgeTaskSet = [];
+            foreach ($param["ImportMediaKnowledgeTaskSet"] as $key => $value){
+                $obj = new ImportMediaKnowledgeTaskInput();
+                $obj->deserialize($value);
+                array_push($this->ImportMediaKnowledgeTaskSet, $obj);
+            }
         }
     }
 }

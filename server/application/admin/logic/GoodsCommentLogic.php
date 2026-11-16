@@ -17,7 +17,7 @@
 // | author: likeshop.cn.team
 // +----------------------------------------------------------------------
 namespace app\admin\logic;
-use think\db;
+use think\facade\Db;
 use app\common\server\UrlServer;
 class GoodsCommentLogic{
 //评价
@@ -72,7 +72,7 @@ class GoodsCommentLogic{
             }
         }
 
-        $res = Db::name('goods_comment gc')
+        $res = Db::name('goods_comment')->alias('gc')
             ->join('goods g','g.id = gc.goods_id')
             ->leftjoin('goods_item gi','gi.id = gc.item_id')
             ->leftjoin('user u','u.id = gc.user_id')

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,261 +20,349 @@ use TencentCloud\Common\AbstractModel;
 /**
  * API 明细
  *
- * @method string getApiId() 获取API ID
+ * @method string getApiId() 获取<p>API ID</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setApiId(string $ApiId) 设置API ID
+ * @method void setApiId(string $ApiId) 设置<p>API ID</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getNamespaceId() 获取命名空间ID
+ * @method string getNamespaceId() 获取<p>命名空间ID</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setNamespaceId(string $NamespaceId) 设置命名空间ID
+ * @method void setNamespaceId(string $NamespaceId) 设置<p>命名空间ID</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getNamespaceName() 获取命名空间名称
+ * @method string getNamespaceName() 获取<p>命名空间名称</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setNamespaceName(string $NamespaceName) 设置命名空间名称
+ * @method void setNamespaceName(string $NamespaceName) 设置<p>命名空间名称</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getMicroserviceId() 获取服务ID
+ * @method string getMicroserviceId() 获取<p>服务ID</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setMicroserviceId(string $MicroserviceId) 设置服务ID
+ * @method void setMicroserviceId(string $MicroserviceId) 设置<p>服务ID</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getMicroserviceName() 获取服务名称
+ * @method string getMicroserviceName() 获取<p>服务名称</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setMicroserviceName(string $MicroserviceName) 设置服务名称
+ * @method void setMicroserviceName(string $MicroserviceName) 设置<p>服务名称</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getPath() 获取API 请求路径
+ * @method string getPath() 获取<p>API 请求路径</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setPath(string $Path) 设置API 请求路径
+ * @method void setPath(string $Path) 设置<p>API 请求路径</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getPathMapping() 获取Api 映射路径
+ * @method string getPathMapping() 获取<p>Api 映射路径</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setPathMapping(string $PathMapping) 设置Api 映射路径
+ * @method void setPathMapping(string $PathMapping) 设置<p>Api 映射路径</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getMethod() 获取请求方法
+ * @method string getMethod() 获取<p>请求方法</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setMethod(string $Method) 设置请求方法
+ * @method void setMethod(string $Method) 设置<p>请求方法</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getGroupId() 获取所属分组ID
+ * @method string getGroupId() 获取<p>所属分组ID</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setGroupId(string $GroupId) 设置所属分组ID
+ * @method void setGroupId(string $GroupId) 设置<p>所属分组ID</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getUsableStatus() 获取是否禁用
+ * @method string getUsableStatus() 获取<p>是否禁用</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setUsableStatus(string $UsableStatus) 设置是否禁用
+ * @method void setUsableStatus(string $UsableStatus) 设置<p>是否禁用</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getReleaseStatus() 获取发布状态
+ * @method string getReleaseStatus() 获取<p>发布状态</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setReleaseStatus(string $ReleaseStatus) 设置发布状态
+ * @method void setReleaseStatus(string $ReleaseStatus) 设置<p>发布状态</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getRateLimitStatus() 获取开启限流
+ * @method string getRateLimitStatus() 获取<p>开启限流</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setRateLimitStatus(string $RateLimitStatus) 设置开启限流
+ * @method void setRateLimitStatus(string $RateLimitStatus) 设置<p>开启限流</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getMockStatus() 获取是否开启mock
+ * @method string getMockStatus() 获取<p>是否开启mock</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setMockStatus(string $MockStatus) 设置是否开启mock
+ * @method void setMockStatus(string $MockStatus) 设置<p>是否开启mock</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getCreatedTime() 获取创建时间
+ * @method string getCreatedTime() 获取<p>创建时间</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setCreatedTime(string $CreatedTime) 设置创建时间
+ * @method void setCreatedTime(string $CreatedTime) 设置<p>创建时间</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getUpdatedTime() 获取更新时间
+ * @method string getUpdatedTime() 获取<p>更新时间</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setUpdatedTime(string $UpdatedTime) 设置更新时间
+ * @method void setUpdatedTime(string $UpdatedTime) 设置<p>更新时间</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getReleasedTime() 获取发布时间
+ * @method string getReleasedTime() 获取<p>发布时间</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setReleasedTime(string $ReleasedTime) 设置发布时间
+ * @method void setReleasedTime(string $ReleasedTime) 设置<p>发布时间</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getGroupName() 获取所属分组名称
+ * @method string getGroupName() 获取<p>所属分组名称</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setGroupName(string $GroupName) 设置所属分组名称
+ * @method void setGroupName(string $GroupName) 设置<p>所属分组名称</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method integer getTimeout() 获取API 超时，单位毫秒
+ * @method integer getTimeout() 获取<p>API 超时，单位毫秒</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setTimeout(integer $Timeout) 设置API 超时，单位毫秒
+ * @method void setTimeout(integer $Timeout) 设置<p>API 超时，单位毫秒</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getHost() 获取Api所在服务host
+ * @method string getHost() 获取<p>Api所在服务host</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setHost(string $Host) 设置Api所在服务host
+ * @method void setHost(string $Host) 设置<p>Api所在服务host</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getApiType() 获取API类型。 ms ： 微服务API； external :外部服务Api
+ * @method string getApiType() 获取<p>API类型。 ms ： 微服务API； external :外部服务Api</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setApiType(string $ApiType) 设置API类型。 ms ： 微服务API； external :外部服务Api
+ * @method void setApiType(string $ApiType) 设置<p>API类型。 ms ： 微服务API； external :外部服务Api</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getDescription() 获取Api描述信息
+ * @method string getDescription() 获取<p>Api描述信息</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setDescription(string $Description) 设置Api描述信息
+ * @method void setDescription(string $Description) 设置<p>Api描述信息</p>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getApiMatchType() 获取<p>API路径匹配类型。normal：普通API；wildcard：通配API。</p>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setApiMatchType(string $ApiMatchType) 设置<p>API路径匹配类型。normal：普通API；wildcard：通配API。</p>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getRpcExt() 获取<p>RPC 额外信息</p>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setRpcExt(string $RpcExt) 设置<p>RPC 额外信息</p>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getGatewayDeployGroupId() 获取<p>部署组id</p>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setGatewayDeployGroupId(string $GatewayDeployGroupId) 设置<p>部署组id</p>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getMd5() 获取<p>md5</p>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setMd5(string $Md5) 设置<p>md5</p>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getRpcType() 获取<p>RPC 类型</p>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setRpcType(string $RpcType) 设置<p>RPC 类型</p>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method boolean getPathMappingUnsupported() 获取<p>是否禁用短路径访问开关</p>
+ * @method void setPathMappingUnsupported(boolean $PathMappingUnsupported) 设置<p>是否禁用短路径访问开关</p>
+ * @method string getPathMappingUnsupportedMsg() 获取<p>禁用短路径访问开关原因</p>
+ * @method void setPathMappingUnsupportedMsg(string $PathMappingUnsupportedMsg) 设置<p>禁用短路径访问开关原因</p>
+ * @method string getApiOnlineStatus() 获取<p>API在线状态</p><p>枚举值：</p><ul><li>ONLINE： 在线</li><li>OFFLINE： 离线</li><li>UNKNOWN： 未知</li><li>DELETED： 查询服务治理API不存在</li></ul>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setApiOnlineStatus(string $ApiOnlineStatus) 设置<p>API在线状态</p><p>枚举值：</p><ul><li>ONLINE： 在线</li><li>OFFLINE： 离线</li><li>UNKNOWN： 未知</li><li>DELETED： 查询服务治理API不存在</li></ul>
 注意：此字段可能返回 null，表示取不到有效值。
  */
 class ApiDetailInfo extends AbstractModel
 {
     /**
-     * @var string API ID
+     * @var string <p>API ID</p>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $ApiId;
 
     /**
-     * @var string 命名空间ID
+     * @var string <p>命名空间ID</p>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $NamespaceId;
 
     /**
-     * @var string 命名空间名称
+     * @var string <p>命名空间名称</p>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $NamespaceName;
 
     /**
-     * @var string 服务ID
+     * @var string <p>服务ID</p>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $MicroserviceId;
 
     /**
-     * @var string 服务名称
+     * @var string <p>服务名称</p>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $MicroserviceName;
 
     /**
-     * @var string API 请求路径
+     * @var string <p>API 请求路径</p>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Path;
 
     /**
-     * @var string Api 映射路径
+     * @var string <p>Api 映射路径</p>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $PathMapping;
 
     /**
-     * @var string 请求方法
+     * @var string <p>请求方法</p>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Method;
 
     /**
-     * @var string 所属分组ID
+     * @var string <p>所属分组ID</p>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $GroupId;
 
     /**
-     * @var string 是否禁用
+     * @var string <p>是否禁用</p>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $UsableStatus;
 
     /**
-     * @var string 发布状态
+     * @var string <p>发布状态</p>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $ReleaseStatus;
 
     /**
-     * @var string 开启限流
+     * @var string <p>开启限流</p>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $RateLimitStatus;
 
     /**
-     * @var string 是否开启mock
+     * @var string <p>是否开启mock</p>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $MockStatus;
 
     /**
-     * @var string 创建时间
+     * @var string <p>创建时间</p>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $CreatedTime;
 
     /**
-     * @var string 更新时间
+     * @var string <p>更新时间</p>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $UpdatedTime;
 
     /**
-     * @var string 发布时间
+     * @var string <p>发布时间</p>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $ReleasedTime;
 
     /**
-     * @var string 所属分组名称
+     * @var string <p>所属分组名称</p>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $GroupName;
 
     /**
-     * @var integer API 超时，单位毫秒
+     * @var integer <p>API 超时，单位毫秒</p>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Timeout;
 
     /**
-     * @var string Api所在服务host
+     * @var string <p>Api所在服务host</p>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Host;
 
     /**
-     * @var string API类型。 ms ： 微服务API； external :外部服务Api
+     * @var string <p>API类型。 ms ： 微服务API； external :外部服务Api</p>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $ApiType;
 
     /**
-     * @var string Api描述信息
+     * @var string <p>Api描述信息</p>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Description;
 
     /**
-     * @param string $ApiId API ID
+     * @var string <p>API路径匹配类型。normal：普通API；wildcard：通配API。</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $NamespaceId 命名空间ID
+     */
+    public $ApiMatchType;
+
+    /**
+     * @var string <p>RPC 额外信息</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $NamespaceName 命名空间名称
+     */
+    public $RpcExt;
+
+    /**
+     * @var string <p>部署组id</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $MicroserviceId 服务ID
+     */
+    public $GatewayDeployGroupId;
+
+    /**
+     * @var string <p>md5</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $MicroserviceName 服务名称
+     */
+    public $Md5;
+
+    /**
+     * @var string <p>RPC 类型</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $Path API 请求路径
+     */
+    public $RpcType;
+
+    /**
+     * @var boolean <p>是否禁用短路径访问开关</p>
+     */
+    public $PathMappingUnsupported;
+
+    /**
+     * @var string <p>禁用短路径访问开关原因</p>
+     */
+    public $PathMappingUnsupportedMsg;
+
+    /**
+     * @var string <p>API在线状态</p><p>枚举值：</p><ul><li>ONLINE： 在线</li><li>OFFLINE： 离线</li><li>UNKNOWN： 未知</li><li>DELETED： 查询服务治理API不存在</li></ul>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $PathMapping Api 映射路径
+     */
+    public $ApiOnlineStatus;
+
+    /**
+     * @param string $ApiId <p>API ID</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $Method 请求方法
+     * @param string $NamespaceId <p>命名空间ID</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $GroupId 所属分组ID
+     * @param string $NamespaceName <p>命名空间名称</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $UsableStatus 是否禁用
+     * @param string $MicroserviceId <p>服务ID</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $ReleaseStatus 发布状态
+     * @param string $MicroserviceName <p>服务名称</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $RateLimitStatus 开启限流
+     * @param string $Path <p>API 请求路径</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $MockStatus 是否开启mock
+     * @param string $PathMapping <p>Api 映射路径</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $CreatedTime 创建时间
+     * @param string $Method <p>请求方法</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $UpdatedTime 更新时间
+     * @param string $GroupId <p>所属分组ID</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $ReleasedTime 发布时间
+     * @param string $UsableStatus <p>是否禁用</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $GroupName 所属分组名称
+     * @param string $ReleaseStatus <p>发布状态</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param integer $Timeout API 超时，单位毫秒
+     * @param string $RateLimitStatus <p>开启限流</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $Host Api所在服务host
+     * @param string $MockStatus <p>是否开启mock</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $ApiType API类型。 ms ： 微服务API； external :外部服务Api
+     * @param string $CreatedTime <p>创建时间</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $Description Api描述信息
+     * @param string $UpdatedTime <p>更新时间</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $ReleasedTime <p>发布时间</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $GroupName <p>所属分组名称</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param integer $Timeout <p>API 超时，单位毫秒</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $Host <p>Api所在服务host</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $ApiType <p>API类型。 ms ： 微服务API； external :外部服务Api</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $Description <p>Api描述信息</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $ApiMatchType <p>API路径匹配类型。normal：普通API；wildcard：通配API。</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $RpcExt <p>RPC 额外信息</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $GatewayDeployGroupId <p>部署组id</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $Md5 <p>md5</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $RpcType <p>RPC 类型</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param boolean $PathMappingUnsupported <p>是否禁用短路径访问开关</p>
+     * @param string $PathMappingUnsupportedMsg <p>禁用短路径访问开关原因</p>
+     * @param string $ApiOnlineStatus <p>API在线状态</p><p>枚举值：</p><ul><li>ONLINE： 在线</li><li>OFFLINE： 离线</li><li>UNKNOWN： 未知</li><li>DELETED： 查询服务治理API不存在</li></ul>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
@@ -372,6 +460,38 @@ class ApiDetailInfo extends AbstractModel
 
         if (array_key_exists("Description",$param) and $param["Description"] !== null) {
             $this->Description = $param["Description"];
+        }
+
+        if (array_key_exists("ApiMatchType",$param) and $param["ApiMatchType"] !== null) {
+            $this->ApiMatchType = $param["ApiMatchType"];
+        }
+
+        if (array_key_exists("RpcExt",$param) and $param["RpcExt"] !== null) {
+            $this->RpcExt = $param["RpcExt"];
+        }
+
+        if (array_key_exists("GatewayDeployGroupId",$param) and $param["GatewayDeployGroupId"] !== null) {
+            $this->GatewayDeployGroupId = $param["GatewayDeployGroupId"];
+        }
+
+        if (array_key_exists("Md5",$param) and $param["Md5"] !== null) {
+            $this->Md5 = $param["Md5"];
+        }
+
+        if (array_key_exists("RpcType",$param) and $param["RpcType"] !== null) {
+            $this->RpcType = $param["RpcType"];
+        }
+
+        if (array_key_exists("PathMappingUnsupported",$param) and $param["PathMappingUnsupported"] !== null) {
+            $this->PathMappingUnsupported = $param["PathMappingUnsupported"];
+        }
+
+        if (array_key_exists("PathMappingUnsupportedMsg",$param) and $param["PathMappingUnsupportedMsg"] !== null) {
+            $this->PathMappingUnsupportedMsg = $param["PathMappingUnsupportedMsg"];
+        }
+
+        if (array_key_exists("ApiOnlineStatus",$param) and $param["ApiOnlineStatus"] !== null) {
+            $this->ApiOnlineStatus = $param["ApiOnlineStatus"];
         }
     }
 }

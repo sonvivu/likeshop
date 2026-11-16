@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,18 +20,18 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeBundleDiscount请求参数结构体
  *
- * @method string getBundleId() 获取套餐 ID。
- * @method void setBundleId(string $BundleId) 设置套餐 ID。
+ * @method string getBundleId() 获取套餐 ID。可通过[DescribeBundles](https://cloud.tencent.com/document/product/1207/47575)接口返回值中的BundleId获取。
+ * @method void setBundleId(string $BundleId) 设置套餐 ID。可通过[DescribeBundles](https://cloud.tencent.com/document/product/1207/47575)接口返回值中的BundleId获取。
  */
 class DescribeBundleDiscountRequest extends AbstractModel
 {
     /**
-     * @var string 套餐 ID。
+     * @var string 套餐 ID。可通过[DescribeBundles](https://cloud.tencent.com/document/product/1207/47575)接口返回值中的BundleId获取。
      */
     public $BundleId;
 
     /**
-     * @param string $BundleId 套餐 ID。
+     * @param string $BundleId 套餐 ID。可通过[DescribeBundles](https://cloud.tencent.com/document/product/1207/47575)接口返回值中的BundleId获取。
      */
     function __construct()
     {

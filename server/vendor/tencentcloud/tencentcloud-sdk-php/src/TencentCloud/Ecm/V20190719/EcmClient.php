@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,19 @@ use TencentCloud\Ecm\V20190719\Models as Models;
 
 /**
  * @method Models\AllocateAddressesResponse AllocateAddresses(Models\AllocateAddressesRequest $req) 申请一个或多个弹性公网IP（简称 EIP）
+ * @method Models\AllocateIpv6AddressesBandwidthResponse AllocateIpv6AddressesBandwidth(Models\AllocateIpv6AddressesBandwidthRequest $req) 本接口用于给IPv6地址分配公网带宽
  * @method Models\AssignIpv6AddressesResponse AssignIpv6Addresses(Models\AssignIpv6AddressesRequest $req) 本接口（AssignIpv6Addresses）用于弹性网卡申请IPv6地址。
+ * @method Models\AssignIpv6CidrBlockResponse AssignIpv6CidrBlock(Models\AssignIpv6CidrBlockRequest $req) 本接口（AssignIpv6CidrBlock）用于分配IPv6网段。
+
+使用本接口前，您需要已有VPC实例，如果没有可通过接口CreateVpc创建。
+ * @method Models\AssignIpv6CidrBlocksResponse AssignIpv6CidrBlocks(Models\AssignIpv6CidrBlocksRequest $req) 本接口（AssignIpv6CidrBlocks）用于分配IPv6网段。
+
+使用本接口前，您需要已有VPC实例，如果没有可通过接口CreateVpc创建。
+每个VPC 可以同时支持运营商网络('CMCC'-中国移动, 'CTCC'-中国电信, 'CUCC'-中国联调)。本接口可以同时申请不同类型的IPv6网段
+ * @method Models\AssignIpv6SubnetCidrBlockResponse AssignIpv6SubnetCidrBlock(Models\AssignIpv6SubnetCidrBlockRequest $req) 本接口（AssignIpv6SubnetCidrBlock）用于分配IPv6子网段。
+
+给子网分配 IPv6 网段，要求子网所属 VPC 已获得 IPv6 网段。如果尚未分配，请先通过接口 AssignIpv6CidrBlock 给子网所属 VPC 分配一个 IPv6 网段。否则无法分配 IPv6 子网段。
+每个子网只能分配一个IPv6网段。
  * @method Models\AssignPrivateIpAddressesResponse AssignPrivateIpAddresses(Models\AssignPrivateIpAddressesRequest $req) 弹性网卡申请内网 IP
  * @method Models\AssociateAddressResponse AssociateAddress(Models\AssociateAddressRequest $req) 将弹性公网IP（简称 EIP）绑定到实例或弹性网卡的指定内网 IP 上。
 将 EIP 绑定到实例（ECM）上，其本质是将 EIP 绑定到实例上主网卡的主内网 IP 上。
@@ -37,6 +49,7 @@ use TencentCloud\Ecm\V20190719\Models as Models;
  * @method Models\BatchRegisterTargetsResponse BatchRegisterTargets(Models\BatchRegisterTargetsRequest $req) 批量绑定后端目标。
  * @method Models\CreateHaVipResponse CreateHaVip(Models\CreateHaVipRequest $req) 本接口（CreateHaVip）用于创建高可用虚拟IP（HAVIP）
  * @method Models\CreateImageResponse CreateImage(Models\CreateImageRequest $req) 本接口(CreateImage)用于将实例的系统盘制作为新镜像，创建后的镜像可以用于创建实例。
+ * @method Models\CreateKeyPairResponse CreateKeyPair(Models\CreateKeyPairRequest $req) 用于创建一个 OpenSSH RSA 密钥对，可以用于登录 Linux 实例。
  * @method Models\CreateListenerResponse CreateListener(Models\CreateListenerRequest $req) 创建负载均衡监听器。
  * @method Models\CreateLoadBalancerResponse CreateLoadBalancer(Models\CreateLoadBalancerRequest $req) 购买负载均衡实例。
  * @method Models\CreateModuleResponse CreateModule(Models\CreateModuleRequest $req) 创建模块
@@ -96,8 +109,11 @@ use TencentCloud\Ecm\V20190719\Models as Models;
  * @method Models\DescribeMonthPeakNetworkResponse DescribeMonthPeakNetwork(Models\DescribeMonthPeakNetworkRequest $req) 获取客户节点上的出入带宽月峰和计费带宽信息
  * @method Models\DescribeNetworkInterfacesResponse DescribeNetworkInterfaces(Models\DescribeNetworkInterfacesRequest $req) 查询弹性网卡列表
  * @method Models\DescribeNodeResponse DescribeNode(Models\DescribeNodeRequest $req) 获取节点列表
+ * @method Models\DescribePackingQuotaGroupResponse DescribePackingQuotaGroup(Models\DescribePackingQuotaGroupRequest $req) 使用本接口获取某种机型在某些区域的装箱配额（当使用虚拟机型时，返回的是一组相互关联的装箱配额）。
  * @method Models\DescribePeakBaseOverviewResponse DescribePeakBaseOverview(Models\DescribePeakBaseOverviewRequest $req) CPU 内存 硬盘等基础信息峰值数据
  * @method Models\DescribePeakNetworkOverviewResponse DescribePeakNetworkOverview(Models\DescribePeakNetworkOverviewRequest $req) 获取网络峰值数据
+ * @method Models\DescribePriceRunInstanceResponse DescribePriceRunInstance(Models\DescribePriceRunInstanceRequest $req) 查询实例价格
+ * @method Models\DescribeRegionIpv6AddressesResponse DescribeRegionIpv6Addresses(Models\DescribeRegionIpv6AddressesRequest $req) 该接口（DescribeRegionIpv6Addresses）用于查询ECM地域之下的IPV6地址信息。
  * @method Models\DescribeRouteConflictsResponse DescribeRouteConflicts(Models\DescribeRouteConflictsRequest $req) 查询自定义路由策略与云联网路由策略冲突列表
  * @method Models\DescribeRouteTablesResponse DescribeRouteTables(Models\DescribeRouteTablesRequest $req) 查询路由表对象列表
  * @method Models\DescribeSecurityGroupAssociationStatisticsResponse DescribeSecurityGroupAssociationStatistics(Models\DescribeSecurityGroupAssociationStatisticsRequest $req) 查询安全组关联实例统计
@@ -115,6 +131,7 @@ use TencentCloud\Ecm\V20190719\Models as Models;
  * @method Models\DisassociateAddressResponse DisassociateAddress(Models\DisassociateAddressRequest $req) 解绑弹性公网IP（简称 EIP）
 只有状态为 BIND 和 BIND_ENI 的 EIP 才能进行解绑定操作。
 EIP 如果被封堵，则不能进行解绑定操作。
+ * @method Models\DisassociateInstancesKeyPairsResponse DisassociateInstancesKeyPairs(Models\DisassociateInstancesKeyPairsRequest $req) 用于解除实例的密钥绑定关系。
  * @method Models\DisassociateSecurityGroupsResponse DisassociateSecurityGroups(Models\DisassociateSecurityGroupsRequest $req) 解绑安全组
  * @method Models\EnableRoutesResponse EnableRoutes(Models\EnableRoutesRequest $req) 启用已禁用的子网路由。
 本接口会校验启用后，是否与已有路由冲突，如果冲突，则无法启用，失败处理。路由冲突时，需要先禁用与之冲突的路由，才能启用该路由。
@@ -126,12 +143,12 @@ EIP 如果被封堵，则不能进行解绑定操作。
 迁移前后的弹性网卡必须在同一个子网内。
  * @method Models\ModifyAddressAttributeResponse ModifyAddressAttribute(Models\ModifyAddressAttributeRequest $req) 修改弹性公网IP属性
  * @method Models\ModifyAddressesBandwidthResponse ModifyAddressesBandwidth(Models\ModifyAddressesBandwidthRequest $req) 调整弹性公网IP带宽
-
  * @method Models\ModifyDefaultSubnetResponse ModifyDefaultSubnet(Models\ModifyDefaultSubnetRequest $req) 修改在一个可用区下创建实例时使用的默认子网（创建实例时，未填写VPC参数时使用的sunbetId）
  * @method Models\ModifyHaVipAttributeResponse ModifyHaVipAttribute(Models\ModifyHaVipAttributeRequest $req) 用于修改高可用虚拟IP（HAVIP）属性
  * @method Models\ModifyImageAttributeResponse ModifyImageAttribute(Models\ModifyImageAttributeRequest $req) 本接口（ModifyImageAttribute）用于修改镜像属性。
  * @method Models\ModifyInstancesAttributeResponse ModifyInstancesAttribute(Models\ModifyInstancesAttributeRequest $req) 修改实例的属性。
  * @method Models\ModifyIpv6AddressesAttributeResponse ModifyIpv6AddressesAttribute(Models\ModifyIpv6AddressesAttributeRequest $req) 本接口（ModifyIpv6AddressesAttribute）用于修改弹性网卡IPv6地址属性。
+ * @method Models\ModifyIpv6AddressesBandwidthResponse ModifyIpv6AddressesBandwidth(Models\ModifyIpv6AddressesBandwidthRequest $req) 该接口(ModifyIpv6AddressesBandwidth)用于修改IPV6地址访问internet的带宽
  * @method Models\ModifyListenerResponse ModifyListener(Models\ModifyListenerRequest $req) 修改负载均衡监听器属性。
  * @method Models\ModifyLoadBalancerAttributesResponse ModifyLoadBalancerAttributes(Models\ModifyLoadBalancerAttributesRequest $req) 修改负载均衡实例的属性。
  * @method Models\ModifyModuleConfigResponse ModifyModuleConfig(Models\ModifyModuleConfigRequest $req) 修改模块配置，已关联实例的模块不支持调整配置。
@@ -149,11 +166,13 @@ EIP 如果被封堵，则不能进行解绑定操作。
  * @method Models\ModifyTargetPortResponse ModifyTargetPort(Models\ModifyTargetPortRequest $req) 修改监听器绑定的后端机器的端口。
  * @method Models\ModifyTargetWeightResponse ModifyTargetWeight(Models\ModifyTargetWeightRequest $req) 修改监听器绑定的后端机器的转发权重。
  * @method Models\ModifyVpcAttributeResponse ModifyVpcAttribute(Models\ModifyVpcAttributeRequest $req) 修改私有网络（VPC）的相关属性
+ * @method Models\QueryVpcTaskResultResponse QueryVpcTaskResult(Models\QueryVpcTaskResultRequest $req) 查询私有网络下Vpc、子网、havip等异步任务请求结果
  * @method Models\RebootInstancesResponse RebootInstances(Models\RebootInstancesRequest $req) 只有状态为RUNNING的实例才可以进行此操作；接口调用成功时，实例会进入REBOOTING状态；重启实例成功时，实例会进入RUNNING状态；支持强制重启，强制重启的效果等同于关闭物理计算机的电源开关再重新启动。强制重启可能会导致数据丢失或文件系统损坏，请仅在服务器不能正常重启时使用。
  * @method Models\ReleaseAddressesResponse ReleaseAddresses(Models\ReleaseAddressesRequest $req) 释放一个或多个弹性公网IP（简称 EIP）。
 该操作不可逆，释放后 EIP 关联的 IP 地址将不再属于您的名下。
 只有状态为 UNBIND 的 EIP 才能进行释放操作。
  * @method Models\ReleaseIpv6AddressesResponse ReleaseIpv6Addresses(Models\ReleaseIpv6AddressesRequest $req) 本接口（UnassignIpv6Addresses）用于释放弹性网卡IPv6地址。
+ * @method Models\ReleaseIpv6AddressesBandwidthResponse ReleaseIpv6AddressesBandwidth(Models\ReleaseIpv6AddressesBandwidthRequest $req) 该接口用于给弹性公网IPv6地址释放带宽。
  * @method Models\RemovePrivateIpAddressesResponse RemovePrivateIpAddresses(Models\RemovePrivateIpAddressesRequest $req) 弹性网卡退还内网 IP。
 退还弹性网卡上的辅助内网IP，接口自动解关联弹性公网 IP。不能退还弹性网卡的主内网IP。
  * @method Models\ReplaceRouteTableAssociationResponse ReplaceRouteTableAssociation(Models\ReplaceRouteTableAssociationRequest $req) 修改子网关联的路由表，一个子网只能关联一个路由表。
@@ -171,6 +190,8 @@ EIP 如果被封堵，则不能进行解绑定操作。
 调用成功时，实例会进入STOPPING状态；关闭实例成功时，实例会进入STOPPED状态；
 支持强制关闭，强制关机的效果等同于关闭物理计算机的电源开关，强制关机可能会导致数据丢失或文件系统损坏，请仅在服务器不能正常关机时使用。
  * @method Models\TerminateInstancesResponse TerminateInstances(Models\TerminateInstancesRequest $req) 销毁实例
+ * @method Models\UnassignIpv6SubnetCidrBlockResponse UnassignIpv6SubnetCidrBlock(Models\UnassignIpv6SubnetCidrBlockRequest $req) 本接口（UnassignIpv6SubnetCidrBlock）用于释放IPv6子网段。
+子网段如果还有IP占用且未回收，则子网段无法释放。
  */
 
 class EcmClient extends AbstractClient

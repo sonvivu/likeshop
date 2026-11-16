@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,45 +21,41 @@ use TencentCloud\Common\AbstractModel;
  * 大小
  *
  * @method array getNumber() 获取数量
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setNumber(array $Number) 设置数量
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getType() 获取类型
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setType(string $Type) 设置类型
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getUnit() 获取单位
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setUnit(string $Unit) 设置单位
-注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getImpl() 获取归一化值
+ * @method void setImpl(string $Impl) 设置归一化值
  */
 class NormSize extends AbstractModel
 {
     /**
      * @var array 数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Number;
 
     /**
      * @var string 类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Type;
 
     /**
      * @var string 单位
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Unit;
 
     /**
+     * @var string 归一化值
+     */
+    public $Impl;
+
+    /**
      * @param array $Number 数量
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $Type 类型
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $Unit 单位
-注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $Impl 归一化值
      */
     function __construct()
     {
@@ -84,6 +80,10 @@ class NormSize extends AbstractModel
 
         if (array_key_exists("Unit",$param) and $param["Unit"] !== null) {
             $this->Unit = $param["Unit"];
+        }
+
+        if (array_key_exists("Impl",$param) and $param["Impl"] !== null) {
+            $this->Impl = $param["Impl"];
         }
     }
 }

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,8 +30,8 @@ use TencentCloud\Common\AbstractModel;
  * @method void setPath(string $Path) 设置规则路径
  * @method string getRealServerType() 获取源站类型
  * @method void setRealServerType(string $RealServerType) 设置源站类型
- * @method string getScheduler() 获取转发源站策略
- * @method void setScheduler(string $Scheduler) 设置转发源站策略
+ * @method string getScheduler() 获取监听器源站访问策略，其中：rr表示轮询；wrr表示加权轮询；lc表示最小连接数；lrtt表示最小时延。
+ * @method void setScheduler(string $Scheduler) 设置监听器源站访问策略，其中：rr表示轮询；wrr表示加权轮询；lc表示最小连接数；lrtt表示最小时延。
  * @method integer getHealthCheck() 获取是否开启健康检查标志，1表示开启，0表示关闭
  * @method void setHealthCheck(integer $HealthCheck) 设置是否开启健康检查标志，1表示开启，0表示关闭
  * @method integer getRuleStatus() 获取规则状态，0表示运行中，1表示创建中，2表示销毁中，3表示绑定解绑源站中，4表示配置更新中
@@ -41,15 +41,27 @@ use TencentCloud\Common\AbstractModel;
  * @method array getRealServerSet() 获取已绑定的源站相关信息
  * @method void setRealServerSet(array $RealServerSet) 设置已绑定的源站相关信息
  * @method integer getBindStatus() 获取源站的服务状态，0表示异常，1表示正常。
-未开启健康检查时，该状态始终未正常。
+未开启健康检查时，该状态始终为正常。
 只要有一个源站健康状态为异常时，该状态为异常，具体源站的状态请查看RealServerSet。
  * @method void setBindStatus(integer $BindStatus) 设置源站的服务状态，0表示异常，1表示正常。
-未开启健康检查时，该状态始终未正常。
+未开启健康检查时，该状态始终为正常。
 只要有一个源站健康状态为异常时，该状态为异常，具体源站的状态请查看RealServerSet。
  * @method string getForwardHost() 获取通道转发到源站的请求所携带的host，其中default表示直接转发接收到的host。
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setForwardHost(string $ForwardHost) 设置通道转发到源站的请求所携带的host，其中default表示直接转发接收到的host。
+ * @method string getServerNameIndicationSwitch() 获取服务器名称指示（ServerNameIndication，简称SNI）开关。ON表示开启，OFF表示关闭。
 注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setServerNameIndicationSwitch(string $ServerNameIndicationSwitch) 设置服务器名称指示（ServerNameIndication，简称SNI）开关。ON表示开启，OFF表示关闭。
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getServerNameIndication() 获取服务器名称指示（ServerNameIndication，简称SNI），当SNI开关打开时，该字段必填。
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setServerNameIndication(string $ServerNameIndication) 设置服务器名称指示（ServerNameIndication，简称SNI），当SNI开关打开时，该字段必填。
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getForcedRedirect() 获取强转HTTPS指示，当传递值为https:时表示强转为https
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setForcedRedirect(string $ForcedRedirect) 设置强转HTTPS指示，当传递值为https:时表示强转为https
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getForwardProtocol() 获取七层转发规则的回源协议类型
+ * @method void setForwardProtocol(string $ForwardProtocol) 设置七层转发规则的回源协议类型
  */
 class RuleInfo extends AbstractModel
 {
@@ -79,7 +91,7 @@ class RuleInfo extends AbstractModel
     public $RealServerType;
 
     /**
-     * @var string 转发源站策略
+     * @var string 监听器源站访问策略，其中：rr表示轮询；wrr表示加权轮询；lc表示最小连接数；lrtt表示最小时延。
      */
     public $Scheduler;
 
@@ -105,16 +117,38 @@ class RuleInfo extends AbstractModel
 
     /**
      * @var integer 源站的服务状态，0表示异常，1表示正常。
-未开启健康检查时，该状态始终未正常。
+未开启健康检查时，该状态始终为正常。
 只要有一个源站健康状态为异常时，该状态为异常，具体源站的状态请查看RealServerSet。
      */
     public $BindStatus;
 
     /**
      * @var string 通道转发到源站的请求所携带的host，其中default表示直接转发接收到的host。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $ForwardHost;
+
+    /**
+     * @var string 服务器名称指示（ServerNameIndication，简称SNI）开关。ON表示开启，OFF表示关闭。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $ServerNameIndicationSwitch;
+
+    /**
+     * @var string 服务器名称指示（ServerNameIndication，简称SNI），当SNI开关打开时，该字段必填。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $ServerNameIndication;
+
+    /**
+     * @var string 强转HTTPS指示，当传递值为https:时表示强转为https
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $ForcedRedirect;
+
+    /**
+     * @var string 七层转发规则的回源协议类型
+     */
+    public $ForwardProtocol;
 
     /**
      * @param string $RuleId 规则信息
@@ -122,16 +156,22 @@ class RuleInfo extends AbstractModel
      * @param string $Domain 规则域名
      * @param string $Path 规则路径
      * @param string $RealServerType 源站类型
-     * @param string $Scheduler 转发源站策略
+     * @param string $Scheduler 监听器源站访问策略，其中：rr表示轮询；wrr表示加权轮询；lc表示最小连接数；lrtt表示最小时延。
      * @param integer $HealthCheck 是否开启健康检查标志，1表示开启，0表示关闭
      * @param integer $RuleStatus 规则状态，0表示运行中，1表示创建中，2表示销毁中，3表示绑定解绑源站中，4表示配置更新中
      * @param RuleCheckParams $CheckParams 健康检查相关参数
      * @param array $RealServerSet 已绑定的源站相关信息
      * @param integer $BindStatus 源站的服务状态，0表示异常，1表示正常。
-未开启健康检查时，该状态始终未正常。
+未开启健康检查时，该状态始终为正常。
 只要有一个源站健康状态为异常时，该状态为异常，具体源站的状态请查看RealServerSet。
      * @param string $ForwardHost 通道转发到源站的请求所携带的host，其中default表示直接转发接收到的host。
+     * @param string $ServerNameIndicationSwitch 服务器名称指示（ServerNameIndication，简称SNI）开关。ON表示开启，OFF表示关闭。
 注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $ServerNameIndication 服务器名称指示（ServerNameIndication，简称SNI），当SNI开关打开时，该字段必填。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $ForcedRedirect 强转HTTPS指示，当传递值为https:时表示强转为https
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $ForwardProtocol 七层转发规则的回源协议类型
      */
     function __construct()
     {
@@ -198,6 +238,22 @@ class RuleInfo extends AbstractModel
 
         if (array_key_exists("ForwardHost",$param) and $param["ForwardHost"] !== null) {
             $this->ForwardHost = $param["ForwardHost"];
+        }
+
+        if (array_key_exists("ServerNameIndicationSwitch",$param) and $param["ServerNameIndicationSwitch"] !== null) {
+            $this->ServerNameIndicationSwitch = $param["ServerNameIndicationSwitch"];
+        }
+
+        if (array_key_exists("ServerNameIndication",$param) and $param["ServerNameIndication"] !== null) {
+            $this->ServerNameIndication = $param["ServerNameIndication"];
+        }
+
+        if (array_key_exists("ForcedRedirect",$param) and $param["ForcedRedirect"] !== null) {
+            $this->ForcedRedirect = $param["ForcedRedirect"];
+        }
+
+        if (array_key_exists("ForwardProtocol",$param) and $param["ForwardProtocol"] !== null) {
+            $this->ForwardProtocol = $param["ForwardProtocol"];
         }
     }
 }

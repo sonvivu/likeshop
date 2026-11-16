@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,34 +20,42 @@ use TencentCloud\Common\AbstractModel;
 /**
  * CreateCertificate返回参数结构体
  *
- * @method array getCertificateIds() 获取证书ID列表
- * @method void setCertificateIds(array $CertificateIds) 设置证书ID列表
- * @method array getDealIds() 获取订单号列表
- * @method void setDealIds(array $DealIds) 设置订单号列表
- * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
- * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method array getCertificateIds() 获取<p>证书ID列表</p>
+ * @method void setCertificateIds(array $CertificateIds) 设置<p>证书ID列表</p>
+ * @method array getDealIds() 获取<p>订单号列表</p>
+ * @method void setDealIds(array $DealIds) 设置<p>订单号列表</p>
+ * @method array getResourceIds() 获取<p>资源ID列表</p>
+ * @method void setResourceIds(array $ResourceIds) 设置<p>资源ID列表</p>
+ * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+ * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
 class CreateCertificateResponse extends AbstractModel
 {
     /**
-     * @var array 证书ID列表
+     * @var array <p>证书ID列表</p>
      */
     public $CertificateIds;
 
     /**
-     * @var array 订单号列表
+     * @var array <p>订单号列表</p>
      */
     public $DealIds;
 
     /**
-     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @var array <p>资源ID列表</p>
+     */
+    public $ResourceIds;
+
+    /**
+     * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public $RequestId;
 
     /**
-     * @param array $CertificateIds 证书ID列表
-     * @param array $DealIds 订单号列表
-     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @param array $CertificateIds <p>证书ID列表</p>
+     * @param array $DealIds <p>订单号列表</p>
+     * @param array $ResourceIds <p>资源ID列表</p>
+     * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
     {
@@ -68,6 +76,10 @@ class CreateCertificateResponse extends AbstractModel
 
         if (array_key_exists("DealIds",$param) and $param["DealIds"] !== null) {
             $this->DealIds = $param["DealIds"];
+        }
+
+        if (array_key_exists("ResourceIds",$param) and $param["ResourceIds"] !== null) {
+            $this->ResourceIds = $param["ResourceIds"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

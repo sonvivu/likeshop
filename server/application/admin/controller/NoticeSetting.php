@@ -24,7 +24,7 @@ namespace app\admin\controller;
 
 use app\admin\logic\NoticeSettingLogic;
 use app\common\model\NoticeSetting as NoticeSettingModel;
-use think\Db;
+use think\facade\Db;
 
 class NoticeSetting extends AdminBase
 {

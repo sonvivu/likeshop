@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,34 +20,34 @@ use TencentCloud\Common\AbstractModel;
 /**
  * 点播文件音频流信息
  *
- * @method integer getBitrate() 获取音频流的码率，单位：bps。
- * @method void setBitrate(integer $Bitrate) 设置音频流的码率，单位：bps。
- * @method integer getSamplingRate() 获取音频流的采样率，单位：hz。
- * @method void setSamplingRate(integer $SamplingRate) 设置音频流的采样率，单位：hz。
- * @method string getCodec() 获取音频流的编码格式，例如 aac。
- * @method void setCodec(string $Codec) 设置音频流的编码格式，例如 aac。
+ * @method integer getBitrate() 获取<p>音频流的码率，单位：bps。</p>
+ * @method void setBitrate(integer $Bitrate) 设置<p>音频流的码率，单位：bps。</p>
+ * @method integer getSamplingRate() 获取<p>音频流的采样率，单位：hz。</p>
+ * @method void setSamplingRate(integer $SamplingRate) 设置<p>音频流的采样率，单位：hz。</p>
+ * @method string getCodec() 获取<p>音频流的编码格式，例如 aac。</p>
+ * @method void setCodec(string $Codec) 设置<p>音频流的编码格式，例如 aac。</p>
  */
 class MediaAudioStreamItem extends AbstractModel
 {
     /**
-     * @var integer 音频流的码率，单位：bps。
+     * @var integer <p>音频流的码率，单位：bps。</p>
      */
     public $Bitrate;
 
     /**
-     * @var integer 音频流的采样率，单位：hz。
+     * @var integer <p>音频流的采样率，单位：hz。</p>
      */
     public $SamplingRate;
 
     /**
-     * @var string 音频流的编码格式，例如 aac。
+     * @var string <p>音频流的编码格式，例如 aac。</p>
      */
     public $Codec;
 
     /**
-     * @param integer $Bitrate 音频流的码率，单位：bps。
-     * @param integer $SamplingRate 音频流的采样率，单位：hz。
-     * @param string $Codec 音频流的编码格式，例如 aac。
+     * @param integer $Bitrate <p>音频流的码率，单位：bps。</p>
+     * @param integer $SamplingRate <p>音频流的采样率，单位：hz。</p>
+     * @param string $Codec <p>音频流的编码格式，例如 aac。</p>
      */
     function __construct()
     {

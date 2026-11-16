@@ -19,7 +19,7 @@
 
 namespace app\api\behavior;
 
-use think\Db;
+use think\facade\Db;
 use think\Request;
 
 class AppEnd

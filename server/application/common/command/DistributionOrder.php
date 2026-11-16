@@ -32,8 +32,7 @@ use app\common\server\ConfigServer;
 use think\console\Command;
 use think\console\Input;
 use think\console\Output;
-use think\Db;
-use think\facade\Hook;
+use think\facade\Db;
 use think\facade\Log;
 
 class DistributionOrder extends Command
@@ -90,7 +89,7 @@ class DistributionOrder extends Command
 
                 //增加佣金
                 $user = User::findOrEmpty($order['user_id']);
-                $user->earnings = ['inc', $order['money']];
+                $user->inc('earnings', $order['money']);
                 $user->update_time = time();
                 $user->save();
 
@@ -112,14 +111,14 @@ class DistributionOrder extends Command
                 DistributionLevelLogic::updateDistributionLevel($order['user_id']);
 
                 //通知会员
-                Hook::listen('notice', [
+                event('notice', [
                     'user_id'  => $order['user_id'],
                     'earnings' => $order['money'],
                     'scene'    => NoticeSetting::GET_EARNINGS_NOTICE,
                 ]);
 
                 // 赠送成长值和积分
-                Hook::listen('give_reward', [
+                event('give_reward', [
                     'order_id' => $order['order_id'],
                     'scene'    => 4, //4=订单结算
                 ]);

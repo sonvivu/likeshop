@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,10 +22,10 @@ use TencentCloud\Common\AbstractModel;
  *
  * @method string getDomain() 获取域名
  * @method void setDomain(string $Domain) 设置域名
- * @method integer getLockDays() 获取域名要锁定的天数，最多可锁定的天数可以通过获取域名权限接口获取。
- * @method void setLockDays(integer $LockDays) 设置域名要锁定的天数，最多可锁定的天数可以通过获取域名权限接口获取。
- * @method integer getDomainId() 获取域名 ID 。参数 DomainId 优先级比参数 Domain 高，如果传递参数 DomainId 将忽略参数 Domain 。
- * @method void setDomainId(integer $DomainId) 设置域名 ID 。参数 DomainId 优先级比参数 Domain 高，如果传递参数 DomainId 将忽略参数 Domain 。
+ * @method integer getLockDays() 获取域名要锁定的天数，最多可锁定的天数可以通过DescribeDomainPurview接口获取。
+ * @method void setLockDays(integer $LockDays) 设置域名要锁定的天数，最多可锁定的天数可以通过DescribeDomainPurview接口获取。
+ * @method integer getDomainId() 获取域名 ID 。参数 DomainId 优先级比参数 Domain 高，如果传递参数 DomainId 将忽略参数 Domain 。可以通过接口DescribeDomainList查到所有的Domain以及DomainId
+ * @method void setDomainId(integer $DomainId) 设置域名 ID 。参数 DomainId 优先级比参数 Domain 高，如果传递参数 DomainId 将忽略参数 Domain 。可以通过接口DescribeDomainList查到所有的Domain以及DomainId
  */
 class ModifyDomainLockRequest extends AbstractModel
 {
@@ -35,19 +35,19 @@ class ModifyDomainLockRequest extends AbstractModel
     public $Domain;
 
     /**
-     * @var integer 域名要锁定的天数，最多可锁定的天数可以通过获取域名权限接口获取。
+     * @var integer 域名要锁定的天数，最多可锁定的天数可以通过DescribeDomainPurview接口获取。
      */
     public $LockDays;
 
     /**
-     * @var integer 域名 ID 。参数 DomainId 优先级比参数 Domain 高，如果传递参数 DomainId 将忽略参数 Domain 。
+     * @var integer 域名 ID 。参数 DomainId 优先级比参数 Domain 高，如果传递参数 DomainId 将忽略参数 Domain 。可以通过接口DescribeDomainList查到所有的Domain以及DomainId
      */
     public $DomainId;
 
     /**
      * @param string $Domain 域名
-     * @param integer $LockDays 域名要锁定的天数，最多可锁定的天数可以通过获取域名权限接口获取。
-     * @param integer $DomainId 域名 ID 。参数 DomainId 优先级比参数 Domain 高，如果传递参数 DomainId 将忽略参数 Domain 。
+     * @param integer $LockDays 域名要锁定的天数，最多可锁定的天数可以通过DescribeDomainPurview接口获取。
+     * @param integer $DomainId 域名 ID 。参数 DomainId 优先级比参数 Domain 高，如果传递参数 DomainId 将忽略参数 Domain 。可以通过接口DescribeDomainList查到所有的Domain以及DomainId
      */
     function __construct()
     {

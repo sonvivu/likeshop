@@ -85,14 +85,14 @@ function putObjectByRawApis($ossClient, $bucket)
      */
     $partSize = 10 * 1024 * 1024;
     $uploadFile = __FILE__;
-    $uploadFileSize = filesize($uploadFile);
+    $uploadFileSize = sprintf('%u',filesize($uploadFile));
     $pieces = $ossClient->generateMultiuploadParts($uploadFileSize, $partSize);
     $responseUploadPart = array();
     $uploadPosition = 0;
     $isCheckMd5 = true;
     foreach ($pieces as $i => $piece) {
-        $fromPos = $uploadPosition + (integer)$piece[$ossClient::OSS_SEEK_TO];
-        $toPos = (integer)$piece[$ossClient::OSS_LENGTH] + $fromPos - 1;
+        $fromPos = $uploadPosition + (int)$piece[$ossClient::OSS_SEEK_TO];
+        $toPos = (int)$piece[$ossClient::OSS_LENGTH] + $fromPos - 1;
         $upOptions = array(
             $ossClient::OSS_FILE_UPLOAD => $uploadFile,
             $ossClient::OSS_PART_NUM => ($i + 1),

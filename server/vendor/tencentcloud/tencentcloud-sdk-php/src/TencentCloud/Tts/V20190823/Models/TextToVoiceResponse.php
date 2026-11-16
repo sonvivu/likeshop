@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,34 +20,42 @@ use TencentCloud\Common\AbstractModel;
 /**
  * TextToVoice返回参数结构体
  *
- * @method string getAudio() 获取base64编码的wav/mp3音频数据
- * @method void setAudio(string $Audio) 设置base64编码的wav/mp3音频数据
- * @method string getSessionId() 获取一次请求对应一个SessionId
- * @method void setSessionId(string $SessionId) 设置一次请求对应一个SessionId
- * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
- * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method string getAudio() 获取<p>base64编码的wav/mp3音频数据</p>
+ * @method void setAudio(string $Audio) 设置<p>base64编码的wav/mp3音频数据</p>
+ * @method string getSessionId() 获取<p>一次请求对应一个SessionId</p>
+ * @method void setSessionId(string $SessionId) 设置<p>一次请求对应一个SessionId</p>
+ * @method array getSubtitles() 获取<p>时间戳信息，若未开启时间戳，则返回空数组。</p>
+ * @method void setSubtitles(array $Subtitles) 设置<p>时间戳信息，若未开启时间戳，则返回空数组。</p>
+ * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+ * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
 class TextToVoiceResponse extends AbstractModel
 {
     /**
-     * @var string base64编码的wav/mp3音频数据
+     * @var string <p>base64编码的wav/mp3音频数据</p>
      */
     public $Audio;
 
     /**
-     * @var string 一次请求对应一个SessionId
+     * @var string <p>一次请求对应一个SessionId</p>
      */
     public $SessionId;
 
     /**
-     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @var array <p>时间戳信息，若未开启时间戳，则返回空数组。</p>
+     */
+    public $Subtitles;
+
+    /**
+     * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public $RequestId;
 
     /**
-     * @param string $Audio base64编码的wav/mp3音频数据
-     * @param string $SessionId 一次请求对应一个SessionId
-     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @param string $Audio <p>base64编码的wav/mp3音频数据</p>
+     * @param string $SessionId <p>一次请求对应一个SessionId</p>
+     * @param array $Subtitles <p>时间戳信息，若未开启时间戳，则返回空数组。</p>
+     * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
     {
@@ -68,6 +76,15 @@ class TextToVoiceResponse extends AbstractModel
 
         if (array_key_exists("SessionId",$param) and $param["SessionId"] !== null) {
             $this->SessionId = $param["SessionId"];
+        }
+
+        if (array_key_exists("Subtitles",$param) and $param["Subtitles"] !== null) {
+            $this->Subtitles = [];
+            foreach ($param["Subtitles"] as $key => $value){
+                $obj = new Subtitle();
+                $obj->deserialize($value);
+                array_push($this->Subtitles, $obj);
+            }
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

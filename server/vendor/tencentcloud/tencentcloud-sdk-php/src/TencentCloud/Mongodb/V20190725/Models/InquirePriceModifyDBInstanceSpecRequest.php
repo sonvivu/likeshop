@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,34 +20,78 @@ use TencentCloud\Common\AbstractModel;
 /**
  * InquirePriceModifyDBInstanceSpec请求参数结构体
  *
- * @method string getInstanceId() 获取实例ID，格式如：cmgo-p8vnipr5。与云数据库控制台页面中显示的实例ID相同。
- * @method void setInstanceId(string $InstanceId) 设置实例ID，格式如：cmgo-p8vnipr5。与云数据库控制台页面中显示的实例ID相同。
- * @method integer getMemory() 获取变更配置后实例内存大小，单位：GB。
- * @method void setMemory(integer $Memory) 设置变更配置后实例内存大小，单位：GB。
- * @method integer getVolume() 获取变更配置后实例磁盘大小，单位：GB。
- * @method void setVolume(integer $Volume) 设置变更配置后实例磁盘大小，单位：GB。
+ * @method string getInstanceId() 获取实例 ID，例如：cmgo-p8vn****。请登录 [MongoDB 控制台](https://console.cloud.tencent.com/mongodb)在实例列表复制实例 ID。
+ * @method void setInstanceId(string $InstanceId) 设置实例 ID，例如：cmgo-p8vn****。请登录 [MongoDB 控制台](https://console.cloud.tencent.com/mongodb)在实例列表复制实例 ID。
+ * @method integer getMemory() 获取变更配置后实例内存大小，单位：GB。具体售卖的内存规格，请通过接口 [DescribeSpecInfo](https://cloud.tencent.com/document/product/240/38567) 获取。
+ * @method void setMemory(integer $Memory) 设置变更配置后实例内存大小，单位：GB。具体售卖的内存规格，请通过接口 [DescribeSpecInfo](https://cloud.tencent.com/document/product/240/38567) 获取。
+ * @method integer getVolume() 获取变更配置后实例磁盘大小，单位：GB。每一个 CPU 规格对应的最大磁盘与最小磁盘范围，请通过接口 [DescribeSpecInfo](https://cloud.tencent.com/document/product/240/38567) 获取。
+ * @method void setVolume(integer $Volume) 设置变更配置后实例磁盘大小，单位：GB。每一个 CPU 规格对应的最大磁盘与最小磁盘范围，请通过接口 [DescribeSpecInfo](https://cloud.tencent.com/document/product/240/38567) 获取。
+ * @method integer getNodeNum() 获取实例节点数量。请通过接口 [DescribeSpecInfo](https://cloud.tencent.com/document/product/240/38567) 获取。
+- 副本集实例，指变更配置后实例的主从节点数量。
+- 分片集群实例，指变更配置后实例每一个分片的主从节点数。
+**说明**：切勿同时发起调整节点数、调整分片数、调整节点规格的任务。
+ * @method void setNodeNum(integer $NodeNum) 设置实例节点数量。请通过接口 [DescribeSpecInfo](https://cloud.tencent.com/document/product/240/38567) 获取。
+- 副本集实例，指变更配置后实例的主从节点数量。
+- 分片集群实例，指变更配置后实例每一个分片的主从节点数。
+**说明**：切勿同时发起调整节点数、调整分片数、调整节点规格的任务。
+ * @method integer getReplicateSetNum() 获取分片集群实例，指变更配置后实例的分片数量。取值范围：[2,36] 。
+**说明**：变更后的分片数量不能小于当前现有的数量。切勿同时发起调整节点数、调整分片数与调整节点规格的任务。
+ * @method void setReplicateSetNum(integer $ReplicateSetNum) 设置分片集群实例，指变更配置后实例的分片数量。取值范围：[2,36] 。
+**说明**：变更后的分片数量不能小于当前现有的数量。切勿同时发起调整节点数、调整分片数与调整节点规格的任务。
+ * @method integer getCpu() 获取变更配置后实例CPU大小，单位：C。具体售卖的CPU规格，请通过接口 [DescribeSpecInfo](https://cloud.tencent.com/document/product/240/38567) 获取。
+注意：通用 I 型实例询价时必须传入与内存对应的 CPU 核数大小
+ * @method void setCpu(integer $Cpu) 设置变更配置后实例CPU大小，单位：C。具体售卖的CPU规格，请通过接口 [DescribeSpecInfo](https://cloud.tencent.com/document/product/240/38567) 获取。
+注意：通用 I 型实例询价时必须传入与内存对应的 CPU 核数大小
  */
 class InquirePriceModifyDBInstanceSpecRequest extends AbstractModel
 {
     /**
-     * @var string 实例ID，格式如：cmgo-p8vnipr5。与云数据库控制台页面中显示的实例ID相同。
+     * @var string 实例 ID，例如：cmgo-p8vn****。请登录 [MongoDB 控制台](https://console.cloud.tencent.com/mongodb)在实例列表复制实例 ID。
      */
     public $InstanceId;
 
     /**
-     * @var integer 变更配置后实例内存大小，单位：GB。
+     * @var integer 变更配置后实例内存大小，单位：GB。具体售卖的内存规格，请通过接口 [DescribeSpecInfo](https://cloud.tencent.com/document/product/240/38567) 获取。
      */
     public $Memory;
 
     /**
-     * @var integer 变更配置后实例磁盘大小，单位：GB。
+     * @var integer 变更配置后实例磁盘大小，单位：GB。每一个 CPU 规格对应的最大磁盘与最小磁盘范围，请通过接口 [DescribeSpecInfo](https://cloud.tencent.com/document/product/240/38567) 获取。
      */
     public $Volume;
 
     /**
-     * @param string $InstanceId 实例ID，格式如：cmgo-p8vnipr5。与云数据库控制台页面中显示的实例ID相同。
-     * @param integer $Memory 变更配置后实例内存大小，单位：GB。
-     * @param integer $Volume 变更配置后实例磁盘大小，单位：GB。
+     * @var integer 实例节点数量。请通过接口 [DescribeSpecInfo](https://cloud.tencent.com/document/product/240/38567) 获取。
+- 副本集实例，指变更配置后实例的主从节点数量。
+- 分片集群实例，指变更配置后实例每一个分片的主从节点数。
+**说明**：切勿同时发起调整节点数、调整分片数、调整节点规格的任务。
+     */
+    public $NodeNum;
+
+    /**
+     * @var integer 分片集群实例，指变更配置后实例的分片数量。取值范围：[2,36] 。
+**说明**：变更后的分片数量不能小于当前现有的数量。切勿同时发起调整节点数、调整分片数与调整节点规格的任务。
+     */
+    public $ReplicateSetNum;
+
+    /**
+     * @var integer 变更配置后实例CPU大小，单位：C。具体售卖的CPU规格，请通过接口 [DescribeSpecInfo](https://cloud.tencent.com/document/product/240/38567) 获取。
+注意：通用 I 型实例询价时必须传入与内存对应的 CPU 核数大小
+     */
+    public $Cpu;
+
+    /**
+     * @param string $InstanceId 实例 ID，例如：cmgo-p8vn****。请登录 [MongoDB 控制台](https://console.cloud.tencent.com/mongodb)在实例列表复制实例 ID。
+     * @param integer $Memory 变更配置后实例内存大小，单位：GB。具体售卖的内存规格，请通过接口 [DescribeSpecInfo](https://cloud.tencent.com/document/product/240/38567) 获取。
+     * @param integer $Volume 变更配置后实例磁盘大小，单位：GB。每一个 CPU 规格对应的最大磁盘与最小磁盘范围，请通过接口 [DescribeSpecInfo](https://cloud.tencent.com/document/product/240/38567) 获取。
+     * @param integer $NodeNum 实例节点数量。请通过接口 [DescribeSpecInfo](https://cloud.tencent.com/document/product/240/38567) 获取。
+- 副本集实例，指变更配置后实例的主从节点数量。
+- 分片集群实例，指变更配置后实例每一个分片的主从节点数。
+**说明**：切勿同时发起调整节点数、调整分片数、调整节点规格的任务。
+     * @param integer $ReplicateSetNum 分片集群实例，指变更配置后实例的分片数量。取值范围：[2,36] 。
+**说明**：变更后的分片数量不能小于当前现有的数量。切勿同时发起调整节点数、调整分片数与调整节点规格的任务。
+     * @param integer $Cpu 变更配置后实例CPU大小，单位：C。具体售卖的CPU规格，请通过接口 [DescribeSpecInfo](https://cloud.tencent.com/document/product/240/38567) 获取。
+注意：通用 I 型实例询价时必须传入与内存对应的 CPU 核数大小
      */
     function __construct()
     {
@@ -72,6 +116,18 @@ class InquirePriceModifyDBInstanceSpecRequest extends AbstractModel
 
         if (array_key_exists("Volume",$param) and $param["Volume"] !== null) {
             $this->Volume = $param["Volume"];
+        }
+
+        if (array_key_exists("NodeNum",$param) and $param["NodeNum"] !== null) {
+            $this->NodeNum = $param["NodeNum"];
+        }
+
+        if (array_key_exists("ReplicateSetNum",$param) and $param["ReplicateSetNum"] !== null) {
+            $this->ReplicateSetNum = $param["ReplicateSetNum"];
+        }
+
+        if (array_key_exists("Cpu",$param) and $param["Cpu"] !== null) {
+            $this->Cpu = $param["Cpu"];
         }
     }
 }

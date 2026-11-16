@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,18 +20,18 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeZones请求参数结构体
  *
- * @method string getProduct() 获取待查询产品的名称，例如cvm、vpc
- * @method void setProduct(string $Product) 设置待查询产品的名称，例如cvm、vpc
+ * @method string getProduct() 获取待查询产品的名称，例如cvm，具体取值请查询DescribeProducts接口
+ * @method void setProduct(string $Product) 设置待查询产品的名称，例如cvm，具体取值请查询DescribeProducts接口
  */
 class DescribeZonesRequest extends AbstractModel
 {
     /**
-     * @var string 待查询产品的名称，例如cvm、vpc
+     * @var string 待查询产品的名称，例如cvm，具体取值请查询DescribeProducts接口
      */
     public $Product;
 
     /**
-     * @param string $Product 待查询产品的名称，例如cvm、vpc
+     * @param string $Product 待查询产品的名称，例如cvm，具体取值请查询DescribeProducts接口
      */
     function __construct()
     {

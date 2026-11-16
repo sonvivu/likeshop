@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,130 +20,110 @@ use TencentCloud\Common\AbstractModel;
 /**
  * 具体场景下的图片识别结果
  *
- * @method string getName() 获取任务名称
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setName(string $Name) 设置任务名称
-注意：此字段可能返回 null，表示取不到有效值。
- * @method string getText() 获取OCR识别文本
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setText(string $Text) 设置OCR识别文本
-注意：此字段可能返回 null，表示取不到有效值。
- * @method ImageResultsResultDetailLocation getLocation() 获取位置信息
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setLocation(ImageResultsResultDetailLocation $Location) 设置位置信息
-注意：此字段可能返回 null，表示取不到有效值。
- * @method string getLabel() 获取标签
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setLabel(string $Label) 设置标签
-注意：此字段可能返回 null，表示取不到有效值。
- * @method string getLibId() 获取库ID
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setLibId(string $LibId) 设置库ID
-注意：此字段可能返回 null，表示取不到有效值。
- * @method string getLibName() 获取库名称
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setLibName(string $LibName) 设置库名称
-注意：此字段可能返回 null，表示取不到有效值。
- * @method array getKeywords() 获取命中的关键词
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setKeywords(array $Keywords) 设置命中的关键词
-注意：此字段可能返回 null，表示取不到有效值。
- * @method string getSuggestion() 获取建议
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setSuggestion(string $Suggestion) 设置建议
-注意：此字段可能返回 null，表示取不到有效值。
- * @method integer getScore() 获取得分
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setScore(integer $Score) 设置得分
-注意：此字段可能返回 null，表示取不到有效值。
- * @method string getSubLabelCode() 获取子标签码
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setSubLabelCode(string $SubLabelCode) 设置子标签码
-注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getName() 获取该字段用于返回调用视频审核接口时传入的TaskInput参数中的任务名称，方便任务的识别与管理。
+ * @method void setName(string $Name) 设置该字段用于返回调用视频审核接口时传入的TaskInput参数中的任务名称，方便任务的识别与管理。
+ * @method string getText() 获取该字段用于返回图片OCR文本识别的检测结果，识别**上限在5000字节内**。
+ * @method void setText(string $Text) 设置该字段用于返回图片OCR文本识别的检测结果，识别**上限在5000字节内**。
+ * @method ImageResultsResultDetailLocation getLocation() 获取该字段用于返回图像审核子结果的详细位置信息，如坐标、大小、旋转角度等。详细返回内容敬请参考ImageResultsResultDetailLocation数据结构的描述。
+ * @method void setLocation(ImageResultsResultDetailLocation $Location) 设置该字段用于返回图像审核子结果的详细位置信息，如坐标、大小、旋转角度等。详细返回内容敬请参考ImageResultsResultDetailLocation数据结构的描述。
+ * @method string getLabel() 获取该字段用于返回检测结果所对应的恶意标签。<br>返回值：**Normal**：正常，**Porn**：色情，**Abuse**：谩骂，**Ad**：广告，**Custom**：自定义违规；以及其他令人反感、不安全或不适宜的内容类型。
+ * @method void setLabel(string $Label) 设置该字段用于返回检测结果所对应的恶意标签。<br>返回值：**Normal**：正常，**Porn**：色情，**Abuse**：谩骂，**Ad**：广告，**Custom**：自定义违规；以及其他令人反感、不安全或不适宜的内容类型。
+ * @method string getLibId() 获取该字段**仅当Label为Custom：自定义关键词时该参数有效**,用于返回自定义库的ID，以方便自定义库管理和配置。
+ * @method void setLibId(string $LibId) 设置该字段**仅当Label为Custom：自定义关键词时该参数有效**,用于返回自定义库的ID，以方便自定义库管理和配置。
+ * @method string getLibName() 获取该字段**仅当Label为Custom：自定义关键词时该参数有效**,用于返回自定义库的名称,以方便自定义库管理和配置。
+ * @method void setLibName(string $LibName) 设置该字段**仅当Label为Custom：自定义关键词时该参数有效**,用于返回自定义库的名称,以方便自定义库管理和配置。
+ * @method array getKeywords() 获取该字段用于返回检测文本命中的关键词信息，用于标注文本违规的具体原因（如：*加我微信*）。该参数可能会有多个返回值，代表命中的多个关键词；如返回值为空且Score不为空，则代表识别结果所对应的恶意标签（Label）是来自于语义模型判断的返回值。
+ * @method void setKeywords(array $Keywords) 设置该字段用于返回检测文本命中的关键词信息，用于标注文本违规的具体原因（如：*加我微信*）。该参数可能会有多个返回值，代表命中的多个关键词；如返回值为空且Score不为空，则代表识别结果所对应的恶意标签（Label）是来自于语义模型判断的返回值。
+ * @method string getSuggestion() 获取该字段用于返回后续操作建议。当您获取到判定结果后，返回值表示具体的后续建议操作。<br>
+返回值：**Block**：建议屏蔽，**Review** ：建议人工复审，**Pass**：建议通过
+ * @method void setSuggestion(string $Suggestion) 设置该字段用于返回后续操作建议。当您获取到判定结果后，返回值表示具体的后续建议操作。<br>
+返回值：**Block**：建议屏蔽，**Review** ：建议人工复审，**Pass**：建议通过
+ * @method integer getScore() 获取该字段用于返回当前标签下的置信度，取值范围：0（**置信度最低**）-100（**置信度最高** ），越高代表文本越有可能属于当前返回的标签；如：*色情 99*，则表明该文本非常有可能属于色情内容。
+ * @method void setScore(integer $Score) 设置该字段用于返回当前标签下的置信度，取值范围：0（**置信度最低**）-100（**置信度最高** ），越高代表文本越有可能属于当前返回的标签；如：*色情 99*，则表明该文本非常有可能属于色情内容。
+ * @method string getSubLabelCode() 获取该字段用于返回恶意标签下对应的子标签的检测结果，如：*Porn-SexBehavior*等子标签。
+ * @method void setSubLabelCode(string $SubLabelCode) 设置该字段用于返回恶意标签下对应的子标签的检测结果，如：*Porn-SexBehavior*等子标签。
+ * @method string getSubLabel() 获取该字段用于返回恶意标签下对应的子标签的检测结果，如：*Porn-SexBehavior*等子标签。
+ * @method void setSubLabel(string $SubLabel) 设置该字段用于返回恶意标签下对应的子标签的检测结果，如：*Porn-SexBehavior*等子标签。
+ * @method array getOcrHitInfos() 获取该字段用于返回OCR命中的关键词信息。
+ * @method void setOcrHitInfos(array $OcrHitInfos) 设置该字段用于返回OCR命中的关键词信息。
  */
 class ImageResultsResultDetail extends AbstractModel
 {
     /**
-     * @var string 任务名称
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string 该字段用于返回调用视频审核接口时传入的TaskInput参数中的任务名称，方便任务的识别与管理。
      */
     public $Name;
 
     /**
-     * @var string OCR识别文本
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string 该字段用于返回图片OCR文本识别的检测结果，识别**上限在5000字节内**。
      */
     public $Text;
 
     /**
-     * @var ImageResultsResultDetailLocation 位置信息
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var ImageResultsResultDetailLocation 该字段用于返回图像审核子结果的详细位置信息，如坐标、大小、旋转角度等。详细返回内容敬请参考ImageResultsResultDetailLocation数据结构的描述。
      */
     public $Location;
 
     /**
-     * @var string 标签
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string 该字段用于返回检测结果所对应的恶意标签。<br>返回值：**Normal**：正常，**Porn**：色情，**Abuse**：谩骂，**Ad**：广告，**Custom**：自定义违规；以及其他令人反感、不安全或不适宜的内容类型。
      */
     public $Label;
 
     /**
-     * @var string 库ID
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string 该字段**仅当Label为Custom：自定义关键词时该参数有效**,用于返回自定义库的ID，以方便自定义库管理和配置。
      */
     public $LibId;
 
     /**
-     * @var string 库名称
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string 该字段**仅当Label为Custom：自定义关键词时该参数有效**,用于返回自定义库的名称,以方便自定义库管理和配置。
      */
     public $LibName;
 
     /**
-     * @var array 命中的关键词
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var array 该字段用于返回检测文本命中的关键词信息，用于标注文本违规的具体原因（如：*加我微信*）。该参数可能会有多个返回值，代表命中的多个关键词；如返回值为空且Score不为空，则代表识别结果所对应的恶意标签（Label）是来自于语义模型判断的返回值。
      */
     public $Keywords;
 
     /**
-     * @var string 建议
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string 该字段用于返回后续操作建议。当您获取到判定结果后，返回值表示具体的后续建议操作。<br>
+返回值：**Block**：建议屏蔽，**Review** ：建议人工复审，**Pass**：建议通过
      */
     public $Suggestion;
 
     /**
-     * @var integer 得分
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var integer 该字段用于返回当前标签下的置信度，取值范围：0（**置信度最低**）-100（**置信度最高** ），越高代表文本越有可能属于当前返回的标签；如：*色情 99*，则表明该文本非常有可能属于色情内容。
      */
     public $Score;
 
     /**
-     * @var string 子标签码
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string 该字段用于返回恶意标签下对应的子标签的检测结果，如：*Porn-SexBehavior*等子标签。
      */
     public $SubLabelCode;
 
     /**
-     * @param string $Name 任务名称
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $Text OCR识别文本
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param ImageResultsResultDetailLocation $Location 位置信息
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $Label 标签
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $LibId 库ID
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $LibName 库名称
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param array $Keywords 命中的关键词
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $Suggestion 建议
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param integer $Score 得分
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $SubLabelCode 子标签码
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string 该字段用于返回恶意标签下对应的子标签的检测结果，如：*Porn-SexBehavior*等子标签。
+     */
+    public $SubLabel;
+
+    /**
+     * @var array 该字段用于返回OCR命中的关键词信息。
+     */
+    public $OcrHitInfos;
+
+    /**
+     * @param string $Name 该字段用于返回调用视频审核接口时传入的TaskInput参数中的任务名称，方便任务的识别与管理。
+     * @param string $Text 该字段用于返回图片OCR文本识别的检测结果，识别**上限在5000字节内**。
+     * @param ImageResultsResultDetailLocation $Location 该字段用于返回图像审核子结果的详细位置信息，如坐标、大小、旋转角度等。详细返回内容敬请参考ImageResultsResultDetailLocation数据结构的描述。
+     * @param string $Label 该字段用于返回检测结果所对应的恶意标签。<br>返回值：**Normal**：正常，**Porn**：色情，**Abuse**：谩骂，**Ad**：广告，**Custom**：自定义违规；以及其他令人反感、不安全或不适宜的内容类型。
+     * @param string $LibId 该字段**仅当Label为Custom：自定义关键词时该参数有效**,用于返回自定义库的ID，以方便自定义库管理和配置。
+     * @param string $LibName 该字段**仅当Label为Custom：自定义关键词时该参数有效**,用于返回自定义库的名称,以方便自定义库管理和配置。
+     * @param array $Keywords 该字段用于返回检测文本命中的关键词信息，用于标注文本违规的具体原因（如：*加我微信*）。该参数可能会有多个返回值，代表命中的多个关键词；如返回值为空且Score不为空，则代表识别结果所对应的恶意标签（Label）是来自于语义模型判断的返回值。
+     * @param string $Suggestion 该字段用于返回后续操作建议。当您获取到判定结果后，返回值表示具体的后续建议操作。<br>
+返回值：**Block**：建议屏蔽，**Review** ：建议人工复审，**Pass**：建议通过
+     * @param integer $Score 该字段用于返回当前标签下的置信度，取值范围：0（**置信度最低**）-100（**置信度最高** ），越高代表文本越有可能属于当前返回的标签；如：*色情 99*，则表明该文本非常有可能属于色情内容。
+     * @param string $SubLabelCode 该字段用于返回恶意标签下对应的子标签的检测结果，如：*Porn-SexBehavior*等子标签。
+     * @param string $SubLabel 该字段用于返回恶意标签下对应的子标签的检测结果，如：*Porn-SexBehavior*等子标签。
+     * @param array $OcrHitInfos 该字段用于返回OCR命中的关键词信息。
      */
     function __construct()
     {
@@ -197,6 +177,19 @@ class ImageResultsResultDetail extends AbstractModel
 
         if (array_key_exists("SubLabelCode",$param) and $param["SubLabelCode"] !== null) {
             $this->SubLabelCode = $param["SubLabelCode"];
+        }
+
+        if (array_key_exists("SubLabel",$param) and $param["SubLabel"] !== null) {
+            $this->SubLabel = $param["SubLabel"];
+        }
+
+        if (array_key_exists("OcrHitInfos",$param) and $param["OcrHitInfos"] !== null) {
+            $this->OcrHitInfos = [];
+            foreach ($param["OcrHitInfos"] as $key => $value){
+                $obj = new HitInfo();
+                $obj->deserialize($value);
+                array_push($this->OcrHitInfos, $obj);
+            }
         }
     }
 }

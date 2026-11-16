@@ -8,7 +8,7 @@ use app\common\model\DistributionLevel;
 use app\common\model\DistributionLevelUpdate;
 use app\common\model\DistributionOrderGoods;
 use app\common\model\Order;
-use think\Db;
+use think\facade\Db;
 
 class DistributionLevelLogic extends LogicBase
 {

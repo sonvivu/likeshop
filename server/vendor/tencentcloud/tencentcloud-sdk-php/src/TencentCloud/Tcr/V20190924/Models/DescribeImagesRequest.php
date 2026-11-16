@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,7 +31,15 @@ use TencentCloud\Common\AbstractModel;
  * @method integer getLimit() 获取每页个数，用于分页，默认20
  * @method void setLimit(integer $Limit) 设置每页个数，用于分页，默认20
  * @method integer getOffset() 获取页数，默认值为1
+补充说明：limit指的是每页的大小，offset指的是具体第几页。
+举例：limit 20 offset 1指的是1-20；limit 20 offset 2 指的是21-40；limit 30 offset 4 是指 90-120。
  * @method void setOffset(integer $Offset) 设置页数，默认值为1
+补充说明：limit指的是每页的大小，offset指的是具体第几页。
+举例：limit 20 offset 1指的是1-20；limit 20 offset 2 指的是21-40；limit 30 offset 4 是指 90-120。
+ * @method string getDigest() 获取指定镜像 Digest 进行查找
+ * @method void setDigest(string $Digest) 设置指定镜像 Digest 进行查找
+ * @method boolean getExactMatch() 获取指定是否为精准匹配，true为精准匹配，不填为模糊匹配
+ * @method void setExactMatch(boolean $ExactMatch) 设置指定是否为精准匹配，true为精准匹配，不填为模糊匹配
  */
 class DescribeImagesRequest extends AbstractModel
 {
@@ -62,8 +70,20 @@ class DescribeImagesRequest extends AbstractModel
 
     /**
      * @var integer 页数，默认值为1
+补充说明：limit指的是每页的大小，offset指的是具体第几页。
+举例：limit 20 offset 1指的是1-20；limit 20 offset 2 指的是21-40；limit 30 offset 4 是指 90-120。
      */
     public $Offset;
+
+    /**
+     * @var string 指定镜像 Digest 进行查找
+     */
+    public $Digest;
+
+    /**
+     * @var boolean 指定是否为精准匹配，true为精准匹配，不填为模糊匹配
+     */
+    public $ExactMatch;
 
     /**
      * @param string $RegistryId 实例ID
@@ -72,6 +92,10 @@ class DescribeImagesRequest extends AbstractModel
      * @param string $ImageVersion 指定镜像版本进行查找，当前为模糊搜索
      * @param integer $Limit 每页个数，用于分页，默认20
      * @param integer $Offset 页数，默认值为1
+补充说明：limit指的是每页的大小，offset指的是具体第几页。
+举例：limit 20 offset 1指的是1-20；limit 20 offset 2 指的是21-40；limit 30 offset 4 是指 90-120。
+     * @param string $Digest 指定镜像 Digest 进行查找
+     * @param boolean $ExactMatch 指定是否为精准匹配，true为精准匹配，不填为模糊匹配
      */
     function __construct()
     {
@@ -108,6 +132,14 @@ class DescribeImagesRequest extends AbstractModel
 
         if (array_key_exists("Offset",$param) and $param["Offset"] !== null) {
             $this->Offset = $param["Offset"];
+        }
+
+        if (array_key_exists("Digest",$param) and $param["Digest"] !== null) {
+            $this->Digest = $param["Digest"];
+        }
+
+        if (array_key_exists("ExactMatch",$param) and $param["ExactMatch"] !== null) {
+            $this->ExactMatch = $param["ExactMatch"];
         }
     }
 }

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,9 +25,7 @@ use TencentCloud\Common\AbstractModel;
  * @method string getEnvName() 获取计算环境名称
  * @method void setEnvName(string $EnvName) 设置计算环境名称
  * @method string getEnvDescription() 获取计算环境描述
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setEnvDescription(string $EnvDescription) 设置计算环境描述
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getEnvType() 获取计算环境类型，仅支持“MANAGED”类型
  * @method void setEnvType(string $EnvType) 设置计算环境类型，仅支持“MANAGED”类型
  * @method EnvData getEnvData() 获取计算环境参数
@@ -46,8 +44,8 @@ use TencentCloud\Common\AbstractModel;
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setTags(array $Tags) 设置计算环境绑定的标签列表
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
- * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+ * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
 class DescribeComputeEnvCreateInfoResponse extends AbstractModel
 {
@@ -63,7 +61,6 @@ class DescribeComputeEnvCreateInfoResponse extends AbstractModel
 
     /**
      * @var string 计算环境描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $EnvDescription;
 
@@ -109,7 +106,7 @@ class DescribeComputeEnvCreateInfoResponse extends AbstractModel
     public $Tags;
 
     /**
-     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public $RequestId;
 
@@ -117,7 +114,6 @@ class DescribeComputeEnvCreateInfoResponse extends AbstractModel
      * @param string $EnvId 计算环境 ID
      * @param string $EnvName 计算环境名称
      * @param string $EnvDescription 计算环境描述
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $EnvType 计算环境类型，仅支持“MANAGED”类型
      * @param EnvData $EnvData 计算环境参数
      * @param array $MountDataDisks 数据盘挂载选项
@@ -127,7 +123,7 @@ class DescribeComputeEnvCreateInfoResponse extends AbstractModel
      * @param integer $DesiredComputeNodeCount 计算节点期望个数
      * @param array $Tags 计算环境绑定的标签列表
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
     {

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,58 +20,90 @@ use TencentCloud\Common\AbstractModel;
 /**
  * CreateAlarmNotice请求参数结构体
  *
- * @method string getModule() 获取模块名，这里填“monitor”
- * @method void setModule(string $Module) 设置模块名，这里填“monitor”
- * @method string getName() 获取通知模板名称 60字符以内
- * @method void setName(string $Name) 设置通知模板名称 60字符以内
- * @method string getNoticeType() 获取通知类型 ALARM=未恢复通知 OK=已恢复通知 ALL=都通知
- * @method void setNoticeType(string $NoticeType) 设置通知类型 ALARM=未恢复通知 OK=已恢复通知 ALL=都通知
- * @method string getNoticeLanguage() 获取通知语言 zh-CN=中文 en-US=英文
- * @method void setNoticeLanguage(string $NoticeLanguage) 设置通知语言 zh-CN=中文 en-US=英文
- * @method array getUserNotices() 获取用户通知 最多5个
- * @method void setUserNotices(array $UserNotices) 设置用户通知 最多5个
- * @method array getURLNotices() 获取回调通知 最多3个
- * @method void setURLNotices(array $URLNotices) 设置回调通知 最多3个
+ * @method string getModule() 获取<p>模块名，这里填“monitor”</p>
+ * @method void setModule(string $Module) 设置<p>模块名，这里填“monitor”</p>
+ * @method string getName() 获取<p>通知模板名称 60字符以内</p>
+ * @method void setName(string $Name) 设置<p>通知模板名称 60字符以内</p>
+ * @method string getNoticeType() 获取<p>通知类型 ALARM=未恢复通知 OK=已恢复通知 ALL=都通知</p>
+ * @method void setNoticeType(string $NoticeType) 设置<p>通知类型 ALARM=未恢复通知 OK=已恢复通知 ALL=都通知</p>
+ * @method string getNoticeLanguage() 获取<p>通知语言 zh-CN=中文 en-US=英文</p>
+ * @method void setNoticeLanguage(string $NoticeLanguage) 设置<p>通知语言 zh-CN=中文 en-US=英文</p>
+ * @method array getUserNotices() 获取<p>用户通知 最多5个</p>
+ * @method void setUserNotices(array $UserNotices) 设置<p>用户通知 最多5个</p>
+ * @method array getURLNotices() 获取<p>回调通知 最多6个</p>
+ * @method void setURLNotices(array $URLNotices) 设置<p>回调通知 最多6个</p>
+ * @method array getCLSNotices() 获取<p>推送CLS日志服务的操作 最多1个</p>
+ * @method void setCLSNotices(array $CLSNotices) 设置<p>推送CLS日志服务的操作 最多1个</p>
+ * @method array getTags() 获取<p>模板绑定的标签</p>
+ * @method void setTags(array $Tags) 设置<p>模板绑定的标签</p>
+ * @method integer getIsLoginFree() 获取<p>是否免登录，0-否，1-是</p>
+ * @method void setIsLoginFree(integer $IsLoginFree) 设置<p>是否免登录，0-否，1-是</p>
+ * @method string getTimeZoneName() 获取<p>IANA 时区名</p>
+ * @method void setTimeZoneName(string $TimeZoneName) 设置<p>IANA 时区名</p>
  */
 class CreateAlarmNoticeRequest extends AbstractModel
 {
     /**
-     * @var string 模块名，这里填“monitor”
+     * @var string <p>模块名，这里填“monitor”</p>
      */
     public $Module;
 
     /**
-     * @var string 通知模板名称 60字符以内
+     * @var string <p>通知模板名称 60字符以内</p>
      */
     public $Name;
 
     /**
-     * @var string 通知类型 ALARM=未恢复通知 OK=已恢复通知 ALL=都通知
+     * @var string <p>通知类型 ALARM=未恢复通知 OK=已恢复通知 ALL=都通知</p>
      */
     public $NoticeType;
 
     /**
-     * @var string 通知语言 zh-CN=中文 en-US=英文
+     * @var string <p>通知语言 zh-CN=中文 en-US=英文</p>
      */
     public $NoticeLanguage;
 
     /**
-     * @var array 用户通知 最多5个
+     * @var array <p>用户通知 最多5个</p>
      */
     public $UserNotices;
 
     /**
-     * @var array 回调通知 最多3个
+     * @var array <p>回调通知 最多6个</p>
      */
     public $URLNotices;
 
     /**
-     * @param string $Module 模块名，这里填“monitor”
-     * @param string $Name 通知模板名称 60字符以内
-     * @param string $NoticeType 通知类型 ALARM=未恢复通知 OK=已恢复通知 ALL=都通知
-     * @param string $NoticeLanguage 通知语言 zh-CN=中文 en-US=英文
-     * @param array $UserNotices 用户通知 最多5个
-     * @param array $URLNotices 回调通知 最多3个
+     * @var array <p>推送CLS日志服务的操作 最多1个</p>
+     */
+    public $CLSNotices;
+
+    /**
+     * @var array <p>模板绑定的标签</p>
+     */
+    public $Tags;
+
+    /**
+     * @var integer <p>是否免登录，0-否，1-是</p>
+     */
+    public $IsLoginFree;
+
+    /**
+     * @var string <p>IANA 时区名</p>
+     */
+    public $TimeZoneName;
+
+    /**
+     * @param string $Module <p>模块名，这里填“monitor”</p>
+     * @param string $Name <p>通知模板名称 60字符以内</p>
+     * @param string $NoticeType <p>通知类型 ALARM=未恢复通知 OK=已恢复通知 ALL=都通知</p>
+     * @param string $NoticeLanguage <p>通知语言 zh-CN=中文 en-US=英文</p>
+     * @param array $UserNotices <p>用户通知 最多5个</p>
+     * @param array $URLNotices <p>回调通知 最多6个</p>
+     * @param array $CLSNotices <p>推送CLS日志服务的操作 最多1个</p>
+     * @param array $Tags <p>模板绑定的标签</p>
+     * @param integer $IsLoginFree <p>是否免登录，0-否，1-是</p>
+     * @param string $TimeZoneName <p>IANA 时区名</p>
      */
     function __construct()
     {
@@ -118,6 +150,32 @@ class CreateAlarmNoticeRequest extends AbstractModel
                 $obj->deserialize($value);
                 array_push($this->URLNotices, $obj);
             }
+        }
+
+        if (array_key_exists("CLSNotices",$param) and $param["CLSNotices"] !== null) {
+            $this->CLSNotices = [];
+            foreach ($param["CLSNotices"] as $key => $value){
+                $obj = new CLSNotice();
+                $obj->deserialize($value);
+                array_push($this->CLSNotices, $obj);
+            }
+        }
+
+        if (array_key_exists("Tags",$param) and $param["Tags"] !== null) {
+            $this->Tags = [];
+            foreach ($param["Tags"] as $key => $value){
+                $obj = new Tag();
+                $obj->deserialize($value);
+                array_push($this->Tags, $obj);
+            }
+        }
+
+        if (array_key_exists("IsLoginFree",$param) and $param["IsLoginFree"] !== null) {
+            $this->IsLoginFree = $param["IsLoginFree"];
+        }
+
+        if (array_key_exists("TimeZoneName",$param) and $param["TimeZoneName"] !== null) {
+            $this->TimeZoneName = $param["TimeZoneName"];
         }
     }
 }

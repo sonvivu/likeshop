@@ -1,0 +1,199 @@
+<?php
+/*
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+namespace TencentCloud\Mps\V20190612\Models;
+use TencentCloud\Common\AbstractModel;
+
+/**
+ * 智能擦除结果信息
+ *
+ * @method string getPath() 获取<p>擦除后文件的路径。</p>
+ * @method void setPath(string $Path) 设置<p>擦除后文件的路径。</p>
+ * @method TaskOutputStorage getOutputStorage() 获取<p>擦除后文件的存储位置。</p>
+ * @method void setOutputStorage(TaskOutputStorage $OutputStorage) 设置<p>擦除后文件的存储位置。</p>
+ * @method string getOriginSubtitlePath() 获取<p>基于画面提取的字幕文件路径。</p>
+ * @method void setOriginSubtitlePath(string $OriginSubtitlePath) 设置<p>基于画面提取的字幕文件路径。</p>
+ * @method string getTranslateSubtitlePath() 获取<p>基于画面提取的字幕翻译文件路径。</p>
+ * @method void setTranslateSubtitlePath(string $TranslateSubtitlePath) 设置<p>基于画面提取的字幕翻译文件路径。</p>
+ * @method SubtitlePosition getSubtitlePos() 获取<p>擦除的字幕位置。<strong>注意</strong>：仅对字幕提取且开启返回字幕位置时有效。</p>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setSubtitlePos(SubtitlePosition $SubtitlePos) 设置<p>擦除的字幕位置。<strong>注意</strong>：仅对字幕提取且开启返回字幕位置时有效。</p>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getVoiceClonedVideo() 获取<p>音色克隆后的视频文件地址</p>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setVoiceClonedVideo(string $VoiceClonedVideo) 设置<p>音色克隆后的视频文件地址</p>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getVoiceClonedMarkFile() 获取<p>音色克隆的标注文件地址</p>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setVoiceClonedMarkFile(string $VoiceClonedMarkFile) 设置<p>音色克隆的标注文件地址</p>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getErasedVideoPath() 获取<p>仅做擦除的视频结果路径</p>
+ * @method void setErasedVideoPath(string $ErasedVideoPath) 设置<p>仅做擦除的视频结果路径</p>
+ * @method string getDubbingEditInfoUrl() 获取<p>音色克隆编辑信息</p><p>用于音色克隆二次修改的编辑信息</p>
+ * @method void setDubbingEditInfoUrl(string $DubbingEditInfoUrl) 设置<p>音色克隆编辑信息</p><p>用于音色克隆二次修改的编辑信息</p>
+ * @method string getFileId() 获取<p>擦除后文件的FileId。</p>
+ * @method void setFileId(string $FileId) 设置<p>擦除后文件的FileId。</p>
+ * @method string getOriginSubtitleFileId() 获取<p>基于画面提取的字幕文件FileId。</p>
+ * @method void setOriginSubtitleFileId(string $OriginSubtitleFileId) 设置<p>基于画面提取的字幕文件FileId。</p>
+ * @method string getTranslateSubtitleFileId() 获取<p>基于画面提取的字幕翻译文件FileId    。</p>
+ * @method void setTranslateSubtitleFileId(string $TranslateSubtitleFileId) 设置<p>基于画面提取的字幕翻译文件FileId    。</p>
+ */
+class AiAnalysisTaskDelLogoOutput extends AbstractModel
+{
+    /**
+     * @var string <p>擦除后文件的路径。</p>
+     */
+    public $Path;
+
+    /**
+     * @var TaskOutputStorage <p>擦除后文件的存储位置。</p>
+     */
+    public $OutputStorage;
+
+    /**
+     * @var string <p>基于画面提取的字幕文件路径。</p>
+     */
+    public $OriginSubtitlePath;
+
+    /**
+     * @var string <p>基于画面提取的字幕翻译文件路径。</p>
+     */
+    public $TranslateSubtitlePath;
+
+    /**
+     * @var SubtitlePosition <p>擦除的字幕位置。<strong>注意</strong>：仅对字幕提取且开启返回字幕位置时有效。</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $SubtitlePos;
+
+    /**
+     * @var string <p>音色克隆后的视频文件地址</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $VoiceClonedVideo;
+
+    /**
+     * @var string <p>音色克隆的标注文件地址</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $VoiceClonedMarkFile;
+
+    /**
+     * @var string <p>仅做擦除的视频结果路径</p>
+     */
+    public $ErasedVideoPath;
+
+    /**
+     * @var string <p>音色克隆编辑信息</p><p>用于音色克隆二次修改的编辑信息</p>
+     */
+    public $DubbingEditInfoUrl;
+
+    /**
+     * @var string <p>擦除后文件的FileId。</p>
+     */
+    public $FileId;
+
+    /**
+     * @var string <p>基于画面提取的字幕文件FileId。</p>
+     */
+    public $OriginSubtitleFileId;
+
+    /**
+     * @var string <p>基于画面提取的字幕翻译文件FileId    。</p>
+     */
+    public $TranslateSubtitleFileId;
+
+    /**
+     * @param string $Path <p>擦除后文件的路径。</p>
+     * @param TaskOutputStorage $OutputStorage <p>擦除后文件的存储位置。</p>
+     * @param string $OriginSubtitlePath <p>基于画面提取的字幕文件路径。</p>
+     * @param string $TranslateSubtitlePath <p>基于画面提取的字幕翻译文件路径。</p>
+     * @param SubtitlePosition $SubtitlePos <p>擦除的字幕位置。<strong>注意</strong>：仅对字幕提取且开启返回字幕位置时有效。</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $VoiceClonedVideo <p>音色克隆后的视频文件地址</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $VoiceClonedMarkFile <p>音色克隆的标注文件地址</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $ErasedVideoPath <p>仅做擦除的视频结果路径</p>
+     * @param string $DubbingEditInfoUrl <p>音色克隆编辑信息</p><p>用于音色克隆二次修改的编辑信息</p>
+     * @param string $FileId <p>擦除后文件的FileId。</p>
+     * @param string $OriginSubtitleFileId <p>基于画面提取的字幕文件FileId。</p>
+     * @param string $TranslateSubtitleFileId <p>基于画面提取的字幕翻译文件FileId    。</p>
+     */
+    function __construct()
+    {
+
+    }
+
+    /**
+     * For internal only. DO NOT USE IT.
+     */
+    public function deserialize($param)
+    {
+        if ($param === null) {
+            return;
+        }
+        if (array_key_exists("Path",$param) and $param["Path"] !== null) {
+            $this->Path = $param["Path"];
+        }
+
+        if (array_key_exists("OutputStorage",$param) and $param["OutputStorage"] !== null) {
+            $this->OutputStorage = new TaskOutputStorage();
+            $this->OutputStorage->deserialize($param["OutputStorage"]);
+        }
+
+        if (array_key_exists("OriginSubtitlePath",$param) and $param["OriginSubtitlePath"] !== null) {
+            $this->OriginSubtitlePath = $param["OriginSubtitlePath"];
+        }
+
+        if (array_key_exists("TranslateSubtitlePath",$param) and $param["TranslateSubtitlePath"] !== null) {
+            $this->TranslateSubtitlePath = $param["TranslateSubtitlePath"];
+        }
+
+        if (array_key_exists("SubtitlePos",$param) and $param["SubtitlePos"] !== null) {
+            $this->SubtitlePos = new SubtitlePosition();
+            $this->SubtitlePos->deserialize($param["SubtitlePos"]);
+        }
+
+        if (array_key_exists("VoiceClonedVideo",$param) and $param["VoiceClonedVideo"] !== null) {
+            $this->VoiceClonedVideo = $param["VoiceClonedVideo"];
+        }
+
+        if (array_key_exists("VoiceClonedMarkFile",$param) and $param["VoiceClonedMarkFile"] !== null) {
+            $this->VoiceClonedMarkFile = $param["VoiceClonedMarkFile"];
+        }
+
+        if (array_key_exists("ErasedVideoPath",$param) and $param["ErasedVideoPath"] !== null) {
+            $this->ErasedVideoPath = $param["ErasedVideoPath"];
+        }
+
+        if (array_key_exists("DubbingEditInfoUrl",$param) and $param["DubbingEditInfoUrl"] !== null) {
+            $this->DubbingEditInfoUrl = $param["DubbingEditInfoUrl"];
+        }
+
+        if (array_key_exists("FileId",$param) and $param["FileId"] !== null) {
+            $this->FileId = $param["FileId"];
+        }
+
+        if (array_key_exists("OriginSubtitleFileId",$param) and $param["OriginSubtitleFileId"] !== null) {
+            $this->OriginSubtitleFileId = $param["OriginSubtitleFileId"];
+        }
+
+        if (array_key_exists("TranslateSubtitleFileId",$param) and $param["TranslateSubtitleFileId"] !== null) {
+            $this->TranslateSubtitleFileId = $param["TranslateSubtitleFileId"];
+        }
+    }
+}

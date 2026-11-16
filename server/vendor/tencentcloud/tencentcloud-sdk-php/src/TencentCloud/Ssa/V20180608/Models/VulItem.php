@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -111,6 +111,10 @@ use TencentCloud\Common\AbstractModel;
  * @method string getVulRepairPlan() 获取漏洞描述
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setVulRepairPlan(string $VulRepairPlan) 设置漏洞描述
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getVulPath() 获取漏洞文件路径
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setVulPath(string $VulPath) 设置漏洞文件路径
 注意：此字段可能返回 null，表示取不到有效值。
  */
 class VulItem extends AbstractModel
@@ -286,6 +290,12 @@ class VulItem extends AbstractModel
     public $VulRepairPlan;
 
     /**
+     * @var string 漏洞文件路径
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $VulPath;
+
+    /**
      * @param string $Id 标识
      * @param string $VulName 漏洞名称
      * @param integer $Type 漏洞类型
@@ -331,6 +341,8 @@ class VulItem extends AbstractModel
      * @param integer $YzHostId 御知主机id
 注意：此字段可能返回 null，表示取不到有效值。
      * @param string $VulRepairPlan 漏洞描述
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $VulPath 漏洞文件路径
 注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
@@ -468,6 +480,10 @@ class VulItem extends AbstractModel
 
         if (array_key_exists("VulRepairPlan",$param) and $param["VulRepairPlan"] !== null) {
             $this->VulRepairPlan = $param["VulRepairPlan"];
+        }
+
+        if (array_key_exists("VulPath",$param) and $param["VulPath"] !== null) {
+            $this->VulPath = $param["VulPath"];
         }
     }
 }

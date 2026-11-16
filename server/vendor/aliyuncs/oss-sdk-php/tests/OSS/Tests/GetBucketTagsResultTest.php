@@ -6,37 +6,37 @@ use OSS\Result\GetBucketTagsResult;
 use OSS\Core\OssException;
 use OSS\Http\ResponseCore;
 
-class GetBucketTagsResultTest extends \PHPUnit_Framework_TestCase
+class GetBucketTagsResultTest extends \PHPUnit\Framework\TestCase
 {
     private $validXml = <<<BBBB
-        <?xml version="1.0" ?>
-        <Tagging>
-          <TagSet>
-            <Tag>
-              <Key>testa</Key>
-              <Value>value1-test</Value>
-            </Tag>
-            <Tag>
-              <Key>testb</Key>
-              <Value>value2-test</Value>
-            </Tag>
-          </TagSet>
-        </Tagging>
-        BBBB;
+<?xml version="1.0" ?>
+<Tagging>
+<TagSet>
+<Tag>
+  <Key>testa</Key>
+  <Value>value1-test</Value>
+</Tag>
+<Tag>
+  <Key>testb</Key>
+  <Value>value2-test</Value>
+</Tag>
+</TagSet>
+</Tagging>
+BBBB;
 
     private $invalidXml = <<<BBBB
-        <?xml version="1.0" ?>
-        <Tagging>
-        </Tagging>
-        BBBB;
+<?xml version="1.0" ?>
+<Tagging>
+</Tagging>
+BBBB;
 
     private $invalidXml2 = <<<BBBB
-        <?xml version="1.0" ?>
-        <Tagging>
-          <TagSet>
-          </TagSet>
-        </Tagging>
-        BBBB;
+<?xml version="1.0" ?>
+<Tagging>
+  <TagSet>
+  </TagSet>
+</Tagging>
+BBBB;
 
     public function testParseValidXml()
     {

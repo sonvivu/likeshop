@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,9 +25,7 @@ use TencentCloud\Common\AbstractModel;
  * @method string getUnit() 获取指标单位。
  * @method void setUnit(string $Unit) 设置指标单位。
  * @method array getValues() 获取指标值。
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setValues(array $Values) 设置指标值。
-注意：此字段可能返回 null，表示取不到有效值。
  */
 class MonitorMetric extends AbstractModel
 {
@@ -43,7 +41,6 @@ class MonitorMetric extends AbstractModel
 
     /**
      * @var array 指标值。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Values;
 
@@ -51,7 +48,6 @@ class MonitorMetric extends AbstractModel
      * @param string $Metric 指标名称。
      * @param string $Unit 指标单位。
      * @param array $Values 指标值。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
     {

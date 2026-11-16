@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -63,25 +63,41 @@ NAT类型支持网络地址转换配置，类型确定后不能修改；一个�
  * @method boolean getEnableBGPCommunity() 获取开启和关闭BGP的community属性。
  * @method void setEnableBGPCommunity(boolean $EnableBGPCommunity) 设置开启和关闭BGP的community属性。
  * @method string getNatGatewayId() 获取绑定的NAT网关ID。
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setNatGatewayId(string $NatGatewayId) 设置绑定的NAT网关ID。
-注意：此字段可能返回 null，表示取不到有效值。
  * @method array getVXLANSupport() 获取专线网关是否支持VXLAN架构
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setVXLANSupport(array $VXLANSupport) 设置专线网关是否支持VXLAN架构
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getModeType() 获取云联网路由发布模式：`standard`（标准模式）、`exquisite`（精细模式）。
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setModeType(string $ModeType) 设置云联网路由发布模式：`standard`（标准模式）、`exquisite`（精细模式）。
-注意：此字段可能返回 null，表示取不到有效值。
  * @method boolean getLocalZone() 获取是否为localZone专线网关。
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setLocalZone(boolean $LocalZone) 设置是否为localZone专线网关。
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getZone() 获取专线网关所在可用区
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setZone(string $Zone) 设置专线网关所在可用区
-注意：此字段可能返回 null，表示取不到有效值。
+ * @method integer getEnableFlowDetails() 获取网关流控明细启用状态：
+0：关闭
+1：开启
+ * @method void setEnableFlowDetails(integer $EnableFlowDetails) 设置网关流控明细启用状态：
+0：关闭
+1：开启
+ * @method string getFlowDetailsUpdateTime() 获取开启、关闭网关流控明细时间
+ * @method void setFlowDetailsUpdateTime(string $FlowDetailsUpdateTime) 设置开启、关闭网关流控明细时间
+ * @method integer getNewAfc() 获取是否支持开启网关流控明细
+0：不支持
+1：支持
+ * @method void setNewAfc(integer $NewAfc) 设置是否支持开启网关流控明细
+0：不支持
+1：支持
+ * @method string getAccessNetworkType() 获取专线网关接入网络类型：
+<li>`VXLAN` - VXLAN类型。</li>
+<li>`MPLS` - MPLS类型。</li>
+<li>`Hybrid` - Hybrid类型。</li>
+ * @method void setAccessNetworkType(string $AccessNetworkType) 设置专线网关接入网络类型：
+<li>`VXLAN` - VXLAN类型。</li>
+<li>`MPLS` - MPLS类型。</li>
+<li>`Hybrid` - Hybrid类型。</li>
+ * @method array getHaZoneList() 获取跨可用区容灾专线网关的可用区列表
+ * @method void setHaZoneList(array $HaZoneList) 设置跨可用区容灾专线网关的可用区列表
+ * @method integer getGatewayAsn() 获取专线网关自定义ASN
+ * @method void setGatewayAsn(integer $GatewayAsn) 设置专线网关自定义ASN
  */
 class DirectConnectGateway extends AbstractModel
 {
@@ -156,33 +172,65 @@ NAT类型支持网络地址转换配置，类型确定后不能修改；一个�
 
     /**
      * @var string 绑定的NAT网关ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $NatGatewayId;
 
     /**
      * @var array 专线网关是否支持VXLAN架构
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $VXLANSupport;
 
     /**
      * @var string 云联网路由发布模式：`standard`（标准模式）、`exquisite`（精细模式）。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $ModeType;
 
     /**
      * @var boolean 是否为localZone专线网关。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $LocalZone;
 
     /**
      * @var string 专线网关所在可用区
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Zone;
+
+    /**
+     * @var integer 网关流控明细启用状态：
+0：关闭
+1：开启
+     */
+    public $EnableFlowDetails;
+
+    /**
+     * @var string 开启、关闭网关流控明细时间
+     */
+    public $FlowDetailsUpdateTime;
+
+    /**
+     * @var integer 是否支持开启网关流控明细
+0：不支持
+1：支持
+     */
+    public $NewAfc;
+
+    /**
+     * @var string 专线网关接入网络类型：
+<li>`VXLAN` - VXLAN类型。</li>
+<li>`MPLS` - MPLS类型。</li>
+<li>`Hybrid` - Hybrid类型。</li>
+     */
+    public $AccessNetworkType;
+
+    /**
+     * @var array 跨可用区容灾专线网关的可用区列表
+     */
+    public $HaZoneList;
+
+    /**
+     * @var integer 专线网关自定义ASN
+     */
+    public $GatewayAsn;
 
     /**
      * @param string $DirectConnectGatewayId 专线网关`ID`。
@@ -207,15 +255,23 @@ NAT类型支持网络地址转换配置，类型确定后不能修改；一个�
      * @param boolean $EnableBGP 是否启用BGP。
      * @param boolean $EnableBGPCommunity 开启和关闭BGP的community属性。
      * @param string $NatGatewayId 绑定的NAT网关ID。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param array $VXLANSupport 专线网关是否支持VXLAN架构
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $ModeType 云联网路由发布模式：`standard`（标准模式）、`exquisite`（精细模式）。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param boolean $LocalZone 是否为localZone专线网关。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $Zone 专线网关所在可用区
-注意：此字段可能返回 null，表示取不到有效值。
+     * @param integer $EnableFlowDetails 网关流控明细启用状态：
+0：关闭
+1：开启
+     * @param string $FlowDetailsUpdateTime 开启、关闭网关流控明细时间
+     * @param integer $NewAfc 是否支持开启网关流控明细
+0：不支持
+1：支持
+     * @param string $AccessNetworkType 专线网关接入网络类型：
+<li>`VXLAN` - VXLAN类型。</li>
+<li>`MPLS` - MPLS类型。</li>
+<li>`Hybrid` - Hybrid类型。</li>
+     * @param array $HaZoneList 跨可用区容灾专线网关的可用区列表
+     * @param integer $GatewayAsn 专线网关自定义ASN
      */
     function __construct()
     {
@@ -296,6 +352,30 @@ NAT类型支持网络地址转换配置，类型确定后不能修改；一个�
 
         if (array_key_exists("Zone",$param) and $param["Zone"] !== null) {
             $this->Zone = $param["Zone"];
+        }
+
+        if (array_key_exists("EnableFlowDetails",$param) and $param["EnableFlowDetails"] !== null) {
+            $this->EnableFlowDetails = $param["EnableFlowDetails"];
+        }
+
+        if (array_key_exists("FlowDetailsUpdateTime",$param) and $param["FlowDetailsUpdateTime"] !== null) {
+            $this->FlowDetailsUpdateTime = $param["FlowDetailsUpdateTime"];
+        }
+
+        if (array_key_exists("NewAfc",$param) and $param["NewAfc"] !== null) {
+            $this->NewAfc = $param["NewAfc"];
+        }
+
+        if (array_key_exists("AccessNetworkType",$param) and $param["AccessNetworkType"] !== null) {
+            $this->AccessNetworkType = $param["AccessNetworkType"];
+        }
+
+        if (array_key_exists("HaZoneList",$param) and $param["HaZoneList"] !== null) {
+            $this->HaZoneList = $param["HaZoneList"];
+        }
+
+        if (array_key_exists("GatewayAsn",$param) and $param["GatewayAsn"] !== null) {
+            $this->GatewayAsn = $param["GatewayAsn"];
         }
     }
 }

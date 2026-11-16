@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,9 +31,13 @@ use TencentCloud\Common\AbstractModel;
  * @method AiRecognitionTaskOcrFullTextResultInput getInput() 获取文本全文识别任务输入信息。
  * @method void setInput(AiRecognitionTaskOcrFullTextResultInput $Input) 设置文本全文识别任务输入信息。
  * @method AiRecognitionTaskOcrFullTextResultOutput getOutput() 获取文本全文识别任务输出信息。
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setOutput(AiRecognitionTaskOcrFullTextResultOutput $Output) 设置文本全文识别任务输出信息。
-注意：此字段可能返回 null，表示取不到有效值。
+ * @method integer getProgress() 获取文本全文识别任务进度，取值范围 [0-100] 。
+ * @method void setProgress(integer $Progress) 设置文本全文识别任务进度，取值范围 [0-100] 。
+ * @method string getBeginProcessTime() 获取文本全文识别任务开始执行的时间，采用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
+ * @method void setBeginProcessTime(string $BeginProcessTime) 设置文本全文识别任务开始执行的时间，采用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
+ * @method string getFinishTime() 获取文本全文识别任务执行完毕的时间，采用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
+ * @method void setFinishTime(string $FinishTime) 设置文本全文识别任务执行完毕的时间，采用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
  */
 class AiRecognitionTaskOcrFullTextResult extends AbstractModel
 {
@@ -64,9 +68,23 @@ class AiRecognitionTaskOcrFullTextResult extends AbstractModel
 
     /**
      * @var AiRecognitionTaskOcrFullTextResultOutput 文本全文识别任务输出信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Output;
+
+    /**
+     * @var integer 文本全文识别任务进度，取值范围 [0-100] 。
+     */
+    public $Progress;
+
+    /**
+     * @var string 文本全文识别任务开始执行的时间，采用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
+     */
+    public $BeginProcessTime;
+
+    /**
+     * @var string 文本全文识别任务执行完毕的时间，采用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
+     */
+    public $FinishTime;
 
     /**
      * @param string $Status 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
@@ -75,7 +93,9 @@ class AiRecognitionTaskOcrFullTextResult extends AbstractModel
      * @param string $Message 错误信息。
      * @param AiRecognitionTaskOcrFullTextResultInput $Input 文本全文识别任务输入信息。
      * @param AiRecognitionTaskOcrFullTextResultOutput $Output 文本全文识别任务输出信息。
-注意：此字段可能返回 null，表示取不到有效值。
+     * @param integer $Progress 文本全文识别任务进度，取值范围 [0-100] 。
+     * @param string $BeginProcessTime 文本全文识别任务开始执行的时间，采用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
+     * @param string $FinishTime 文本全文识别任务执行完毕的时间，采用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
      */
     function __construct()
     {
@@ -114,6 +134,18 @@ class AiRecognitionTaskOcrFullTextResult extends AbstractModel
         if (array_key_exists("Output",$param) and $param["Output"] !== null) {
             $this->Output = new AiRecognitionTaskOcrFullTextResultOutput();
             $this->Output->deserialize($param["Output"]);
+        }
+
+        if (array_key_exists("Progress",$param) and $param["Progress"] !== null) {
+            $this->Progress = $param["Progress"];
+        }
+
+        if (array_key_exists("BeginProcessTime",$param) and $param["BeginProcessTime"] !== null) {
+            $this->BeginProcessTime = $param["BeginProcessTime"];
+        }
+
+        if (array_key_exists("FinishTime",$param) and $param["FinishTime"] !== null) {
+            $this->FinishTime = $param["FinishTime"];
         }
     }
 }

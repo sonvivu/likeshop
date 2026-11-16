@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,33 +21,33 @@ use TencentCloud\Common\AbstractModel;
  * DescribeGroup的返回
  *
  * @method integer getTotalCount() 获取计数
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setTotalCount(integer $TotalCount) 设置计数
-注意：此字段可能返回 null，表示取不到有效值。
  * @method array getGroupList() 获取GroupList
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setGroupList(array $GroupList) 设置GroupList
-注意：此字段可能返回 null，表示取不到有效值。
+ * @method integer getGroupCountQuota() 获取消费分组配额
+ * @method void setGroupCountQuota(integer $GroupCountQuota) 设置消费分组配额
  */
 class GroupResponse extends AbstractModel
 {
     /**
      * @var integer 计数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $TotalCount;
 
     /**
      * @var array GroupList
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $GroupList;
 
     /**
+     * @var integer 消费分组配额
+     */
+    public $GroupCountQuota;
+
+    /**
      * @param integer $TotalCount 计数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param array $GroupList GroupList
-注意：此字段可能返回 null，表示取不到有效值。
+     * @param integer $GroupCountQuota 消费分组配额
      */
     function __construct()
     {
@@ -73,6 +73,10 @@ class GroupResponse extends AbstractModel
                 $obj->deserialize($value);
                 array_push($this->GroupList, $obj);
             }
+        }
+
+        if (array_key_exists("GroupCountQuota",$param) and $param["GroupCountQuota"] !== null) {
+            $this->GroupCountQuota = $param["GroupCountQuota"];
         }
     }
 }

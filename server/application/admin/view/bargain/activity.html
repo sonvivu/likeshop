@@ -56,10 +56,10 @@
                 </div>
             </script>
             <script type="text/html" id="table-cost_price">
-                ￥{{d.goods.min_price}} ~ ￥{{d.goods.max_price}}
+                {:config('currency.symbol')}{{d.goods.min_price}} ~ {:config('currency.symbol')}{{d.goods.max_price}}
             </script>
             <script type="text/html" id="table-floor_price">
-                ￥{{d.bargain_min_price}} ~ ￥{{d.bargain_max_price}}
+                {:config('currency.symbol')}{{d.bargain_min_price}} ~ {:config('currency.symbol')}{{d.bargain_max_price}}
             </script>
             <script type="text/html" id="table-activity_time">
                 {{d.activity_start_time}} ~ {{d.activity_end_time}}

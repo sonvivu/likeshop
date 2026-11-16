@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,9 +25,7 @@ use TencentCloud\Common\AbstractModel;
  * @method array getPorts() 获取端口信息列表
  * @method void setPorts(array $Ports) 设置端口信息列表
  * @method HealthCheckConfig getHealthCheck() 获取健康检查配置
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setHealthCheck(HealthCheckConfig $HealthCheck) 设置健康检查配置
-注意：此字段可能返回 null，表示取不到有效值。
  */
 class ServiceConfig extends AbstractModel
 {
@@ -43,7 +41,6 @@ class ServiceConfig extends AbstractModel
 
     /**
      * @var HealthCheckConfig 健康检查配置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $HealthCheck;
 
@@ -51,7 +48,6 @@ class ServiceConfig extends AbstractModel
      * @param string $Name 服务名
      * @param array $Ports 端口信息列表
      * @param HealthCheckConfig $HealthCheck 健康检查配置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
     {

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,9 +49,7 @@ use TencentCloud\Common\AbstractModel;
  * @method string getSupplier() 获取当实例为RDS实例时，填写为aliyun, 其他情况均填写others
  * @method void setSupplier(string $Supplier) 设置当实例为RDS实例时，填写为aliyun, 其他情况均填写others
  * @method string getCcnId() 获取云联网ID，如：ccn-afp6kltc
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setCcnId(string $CcnId) 设置云联网ID，如：ccn-afp6kltc
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getEngineVersion() 获取数据库版本，当实例为RDS实例时才有效，格式如：5.6或者5.7，默认为5.6
  * @method void setEngineVersion(string $EngineVersion) 设置数据库版本，当实例为RDS实例时才有效，格式如：5.6或者5.7，默认为5.6
  */
@@ -129,7 +127,6 @@ class SrcInfo extends AbstractModel
 
     /**
      * @var string 云联网ID，如：ccn-afp6kltc
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $CcnId;
 
@@ -154,7 +151,6 @@ class SrcInfo extends AbstractModel
      * @param string $Region 地域英文名，如：ap-guangzhou
      * @param string $Supplier 当实例为RDS实例时，填写为aliyun, 其他情况均填写others
      * @param string $CcnId 云联网ID，如：ccn-afp6kltc
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $EngineVersion 数据库版本，当实例为RDS实例时才有效，格式如：5.6或者5.7，默认为5.6
      */
     function __construct()

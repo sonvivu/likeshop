@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,12 +22,12 @@ use TencentCloud\Common\AbstractModel;
  *
  * @method boolean getIsSupported() 获取是否是DBbrain支持的实例，固定传 true。
  * @method void setIsSupported(boolean $IsSupported) 设置是否是DBbrain支持的实例，固定传 true。
- * @method string getProduct() 获取服务产品类型，支持值包括： "mysql" - 云数据库 MySQL， "cynosdb" - 云数据库 TDSQL-C for MySQL，默认为"mysql"。
- * @method void setProduct(string $Product) 设置服务产品类型，支持值包括： "mysql" - 云数据库 MySQL， "cynosdb" - 云数据库 TDSQL-C for MySQL，默认为"mysql"。
+ * @method string getProduct() 获取服务产品类型，支持值包括："mysql" - 云数据库 MySQL，"cynosdb" - 云数据库 TDSQL-C for MySQL，"dbbrain-mysql" - 自建 MySQL，"redis" - 云数据库 Redis，默认为"mysql"。
+ * @method void setProduct(string $Product) 设置服务产品类型，支持值包括："mysql" - 云数据库 MySQL，"cynosdb" - 云数据库 TDSQL-C for MySQL，"dbbrain-mysql" - 自建 MySQL，"redis" - 云数据库 Redis，默认为"mysql"。
  * @method integer getOffset() 获取分页参数，偏移量。
  * @method void setOffset(integer $Offset) 设置分页参数，偏移量。
- * @method integer getLimit() 获取分页参数，分页值。
- * @method void setLimit(integer $Limit) 设置分页参数，分页值。
+ * @method integer getLimit() 获取分页参数，分页值，最大值为100。
+ * @method void setLimit(integer $Limit) 设置分页参数，分页值，最大值为100。
  * @method array getInstanceNames() 获取根据实例名称条件查询。
  * @method void setInstanceNames(array $InstanceNames) 设置根据实例名称条件查询。
  * @method array getInstanceIds() 获取根据实例ID条件查询。
@@ -43,7 +43,7 @@ class DescribeDiagDBInstancesRequest extends AbstractModel
     public $IsSupported;
 
     /**
-     * @var string 服务产品类型，支持值包括： "mysql" - 云数据库 MySQL， "cynosdb" - 云数据库 TDSQL-C for MySQL，默认为"mysql"。
+     * @var string 服务产品类型，支持值包括："mysql" - 云数据库 MySQL，"cynosdb" - 云数据库 TDSQL-C for MySQL，"dbbrain-mysql" - 自建 MySQL，"redis" - 云数据库 Redis，默认为"mysql"。
      */
     public $Product;
 
@@ -53,7 +53,7 @@ class DescribeDiagDBInstancesRequest extends AbstractModel
     public $Offset;
 
     /**
-     * @var integer 分页参数，分页值。
+     * @var integer 分页参数，分页值，最大值为100。
      */
     public $Limit;
 
@@ -74,9 +74,9 @@ class DescribeDiagDBInstancesRequest extends AbstractModel
 
     /**
      * @param boolean $IsSupported 是否是DBbrain支持的实例，固定传 true。
-     * @param string $Product 服务产品类型，支持值包括： "mysql" - 云数据库 MySQL， "cynosdb" - 云数据库 TDSQL-C for MySQL，默认为"mysql"。
+     * @param string $Product 服务产品类型，支持值包括："mysql" - 云数据库 MySQL，"cynosdb" - 云数据库 TDSQL-C for MySQL，"dbbrain-mysql" - 自建 MySQL，"redis" - 云数据库 Redis，默认为"mysql"。
      * @param integer $Offset 分页参数，偏移量。
-     * @param integer $Limit 分页参数，分页值。
+     * @param integer $Limit 分页参数，分页值，最大值为100。
      * @param array $InstanceNames 根据实例名称条件查询。
      * @param array $InstanceIds 根据实例ID条件查询。
      * @param array $Regions 根据地域条件查询。

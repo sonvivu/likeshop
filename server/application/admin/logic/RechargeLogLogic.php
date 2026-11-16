@@ -18,8 +18,8 @@
 // +----------------------------------------------------------------------
 namespace app\admin\logic;
 use app\common\model\Pay;
-use think\Db;
-use think\helper\Time;
+use think\facade\Db;
+use app\common\helper\Time;
 
 class RechargeLogLogic{
     public static function lists($get){
@@ -54,8 +54,9 @@ class RechargeLogLogic{
                 ->page($get['page'],$get['limit'])
                 ->order('ro.id desc')
                 ->select();
+        $list = $list->toArray(); // ThinkPHP 6：select() 返回 Collection，TP5 返回数组；直接写 $list[$k]['x'] 或 foreach(&$item) 改值会丢/报错，先转数组。
         foreach ($list as &$order){
-            $order['order_amount'] = '￥'.$order['order_amount'];
+            $order['order_amount'] = config('currency.symbol').$order['order_amount'];
             $order['pay_way'] = Pay::getPayWay($order['pay_way']);
             $order['pay_status'] = Pay::getPayStatus($order['pay_status']);
             if($order['pay_time']){

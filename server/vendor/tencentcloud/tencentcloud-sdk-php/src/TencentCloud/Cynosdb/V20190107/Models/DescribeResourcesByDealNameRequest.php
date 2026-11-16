@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,18 +20,34 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeResourcesByDealName请求参数结构体
  *
- * @method string getDealName() 获取计费订单id
- * @method void setDealName(string $DealName) 设置计费订单id
+ * @method string getDealName() 获取计费订单ID（如果计费还没回调业务发货，可能出现错误码InvalidParameterValue.DealNameNotFound，这种情况需要业务重试DescribeResourcesByDealName接口直到成功）。
+DealName与DealNames至少应输入一项，两者都传时以DealName为准。
+ * @method void setDealName(string $DealName) 设置计费订单ID（如果计费还没回调业务发货，可能出现错误码InvalidParameterValue.DealNameNotFound，这种情况需要业务重试DescribeResourcesByDealName接口直到成功）。
+DealName与DealNames至少应输入一项，两者都传时以DealName为准。
+ * @method array getDealNames() 获取计费订单ID列表，可以一次查询若干条订单ID对应资源信息（如果计费还没回调业务发货，可能出现错误码InvalidParameterValue.DealNameNotFound，这种情况需要业务重试DescribeResourcesByDealName接口直到成功）。
+DealName与DealNames至少应输入一项，两者都传时以DealName为准。
+ * @method void setDealNames(array $DealNames) 设置计费订单ID列表，可以一次查询若干条订单ID对应资源信息（如果计费还没回调业务发货，可能出现错误码InvalidParameterValue.DealNameNotFound，这种情况需要业务重试DescribeResourcesByDealName接口直到成功）。
+DealName与DealNames至少应输入一项，两者都传时以DealName为准。
  */
 class DescribeResourcesByDealNameRequest extends AbstractModel
 {
     /**
-     * @var string 计费订单id
+     * @var string 计费订单ID（如果计费还没回调业务发货，可能出现错误码InvalidParameterValue.DealNameNotFound，这种情况需要业务重试DescribeResourcesByDealName接口直到成功）。
+DealName与DealNames至少应输入一项，两者都传时以DealName为准。
      */
     public $DealName;
 
     /**
-     * @param string $DealName 计费订单id
+     * @var array 计费订单ID列表，可以一次查询若干条订单ID对应资源信息（如果计费还没回调业务发货，可能出现错误码InvalidParameterValue.DealNameNotFound，这种情况需要业务重试DescribeResourcesByDealName接口直到成功）。
+DealName与DealNames至少应输入一项，两者都传时以DealName为准。
+     */
+    public $DealNames;
+
+    /**
+     * @param string $DealName 计费订单ID（如果计费还没回调业务发货，可能出现错误码InvalidParameterValue.DealNameNotFound，这种情况需要业务重试DescribeResourcesByDealName接口直到成功）。
+DealName与DealNames至少应输入一项，两者都传时以DealName为准。
+     * @param array $DealNames 计费订单ID列表，可以一次查询若干条订单ID对应资源信息（如果计费还没回调业务发货，可能出现错误码InvalidParameterValue.DealNameNotFound，这种情况需要业务重试DescribeResourcesByDealName接口直到成功）。
+DealName与DealNames至少应输入一项，两者都传时以DealName为准。
      */
     function __construct()
     {
@@ -48,6 +64,10 @@ class DescribeResourcesByDealNameRequest extends AbstractModel
         }
         if (array_key_exists("DealName",$param) and $param["DealName"] !== null) {
             $this->DealName = $param["DealName"];
+        }
+
+        if (array_key_exists("DealNames",$param) and $param["DealNames"] !== null) {
+            $this->DealNames = $param["DealNames"];
         }
     }
 }

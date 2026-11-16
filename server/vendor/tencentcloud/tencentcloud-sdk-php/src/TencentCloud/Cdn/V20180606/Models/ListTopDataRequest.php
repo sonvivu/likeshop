@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,33 +20,29 @@ use TencentCloud\Common\AbstractModel;
 /**
  * ListTopData请求参数结构体
  *
- * @method string getStartTime() 获取查询起始日期：yyyy-MM-dd HH:mm:ss
-仅支持按天粒度的数据查询，取入参中的天信息作为起始日期
-返回大于等于起始日期当天 00:00:00 点产生的数据
+ * @method string getStartTime() 获取查询起始时间：yyyy-MM-dd HH:mm:ss
+仅支持按分钟粒度的数据查询，按入参抹去秒位作为起始时间，如 StartTime为2018-09-04 10:40:23，返回数据的起始时间为2018-09-04 10:40:00
 仅支持 90 天内数据查询
- * @method void setStartTime(string $StartTime) 设置查询起始日期：yyyy-MM-dd HH:mm:ss
-仅支持按天粒度的数据查询，取入参中的天信息作为起始日期
-返回大于等于起始日期当天 00:00:00 点产生的数据
+ * @method void setStartTime(string $StartTime) 设置查询起始时间：yyyy-MM-dd HH:mm:ss
+仅支持按分钟粒度的数据查询，按入参抹去秒位作为起始时间，如 StartTime为2018-09-04 10:40:23，返回数据的起始时间为2018-09-04 10:40:00
 仅支持 90 天内数据查询
- * @method string getEndTime() 获取查询结束日期：yyyy-MM-dd HH:mm:ss
-仅支持按天粒度的数据查询，取入参中的天信息作为结束日期
-返回小于等于结束日期当天 23:59:59 产生的数据
+ * @method string getEndTime() 获取查询结束时间：yyyy-MM-dd HH:mm:ss
+仅支持按天粒度的数据查询，取入参中的天信息作为结束日期 返回小于等于结束日期当天 23:59:59 产生的数据，如EndTime为2018-09-05 22:40:00，返回数据的结束时间为2018-09-05 23:59:59
 EndTime 需要大于等于 StartTime
- * @method void setEndTime(string $EndTime) 设置查询结束日期：yyyy-MM-dd HH:mm:ss
-仅支持按天粒度的数据查询，取入参中的天信息作为结束日期
-返回小于等于结束日期当天 23:59:59 产生的数据
+ * @method void setEndTime(string $EndTime) 设置查询结束时间：yyyy-MM-dd HH:mm:ss
+仅支持按天粒度的数据查询，取入参中的天信息作为结束日期 返回小于等于结束日期当天 23:59:59 产生的数据，如EndTime为2018-09-05 22:40:00，返回数据的结束时间为2018-09-05 23:59:59
 EndTime 需要大于等于 StartTime
  * @method string getMetric() 获取排序对象，支持以下几种形式：
 url：访问 URL 排序（无参数的URL），支持的 Filter 为 flux、request
 district：省份、国家/地区排序，支持的 Filter 为 flux、request
 isp：运营商排序，支持的 Filter 为 flux、request
-host：域名访问数据排序，支持的 Filter 为：flux、request、bandwidth、fluxHitRate、2XX、3XX、4XX、5XX、statusCode
+host：域名访问数据排序，支持的Filter 为：flux、request、bandwidth、fluxHitRate、2XX、3XX、4XX、5XX、statusCode   
 originHost：域名回源数据排序，支持的 Filter 为 flux、request、bandwidth、origin_2XX、origin_3XX、origin_4XX、origin_5XX、OriginStatusCode
  * @method void setMetric(string $Metric) 设置排序对象，支持以下几种形式：
 url：访问 URL 排序（无参数的URL），支持的 Filter 为 flux、request
 district：省份、国家/地区排序，支持的 Filter 为 flux、request
 isp：运营商排序，支持的 Filter 为 flux、request
-host：域名访问数据排序，支持的 Filter 为：flux、request、bandwidth、fluxHitRate、2XX、3XX、4XX、5XX、statusCode
+host：域名访问数据排序，支持的Filter 为：flux、request、bandwidth、fluxHitRate、2XX、3XX、4XX、5XX、statusCode   
 originHost：域名回源数据排序，支持的 Filter 为 flux、request、bandwidth、origin_2XX、origin_3XX、origin_4XX、origin_5XX、OriginStatusCode
  * @method string getFilter() 获取排序使用的指标名称：
 flux：Metric 为 host 时指代访问流量，originHost 时指代回源流量
@@ -102,21 +98,23 @@ client：指定查询客户端地区（用户请求终端所在地区）数据�
  * @method void setAreaType(string $AreaType) 设置查询中国境外CDN数据，且仅当 Metric 为 district 或 host 时，可指定地区类型查询，不填充表示查询服务地区数据（仅在 Area 为 overseas，且 Metric 是 district 或 host 时可用）
 server：指定查询服务地区（腾讯云 CDN 节点服务器所在地区）数据
 client：指定查询客户端地区（用户请求终端所在地区）数据，当 Metric 为 host 时仅支持 flux、request、bandwidth Filter
+ * @method string getProduct() 获取指定查询的产品数据，可选为cdn或者ecdn，默认为cdn
+ * @method void setProduct(string $Product) 设置指定查询的产品数据，可选为cdn或者ecdn，默认为cdn
+ * @method integer getLimit() 获取只返回前N条数据，默认为最大值100，metric=url时默认为最大值1000
+ * @method void setLimit(integer $Limit) 设置只返回前N条数据，默认为最大值100，metric=url时默认为最大值1000
  */
 class ListTopDataRequest extends AbstractModel
 {
     /**
-     * @var string 查询起始日期：yyyy-MM-dd HH:mm:ss
-仅支持按天粒度的数据查询，取入参中的天信息作为起始日期
-返回大于等于起始日期当天 00:00:00 点产生的数据
+     * @var string 查询起始时间：yyyy-MM-dd HH:mm:ss
+仅支持按分钟粒度的数据查询，按入参抹去秒位作为起始时间，如 StartTime为2018-09-04 10:40:23，返回数据的起始时间为2018-09-04 10:40:00
 仅支持 90 天内数据查询
      */
     public $StartTime;
 
     /**
-     * @var string 查询结束日期：yyyy-MM-dd HH:mm:ss
-仅支持按天粒度的数据查询，取入参中的天信息作为结束日期
-返回小于等于结束日期当天 23:59:59 产生的数据
+     * @var string 查询结束时间：yyyy-MM-dd HH:mm:ss
+仅支持按天粒度的数据查询，取入参中的天信息作为结束日期 返回小于等于结束日期当天 23:59:59 产生的数据，如EndTime为2018-09-05 22:40:00，返回数据的结束时间为2018-09-05 23:59:59
 EndTime 需要大于等于 StartTime
      */
     public $EndTime;
@@ -126,7 +124,7 @@ EndTime 需要大于等于 StartTime
 url：访问 URL 排序（无参数的URL），支持的 Filter 为 flux、request
 district：省份、国家/地区排序，支持的 Filter 为 flux、request
 isp：运营商排序，支持的 Filter 为 flux、request
-host：域名访问数据排序，支持的 Filter 为：flux、request、bandwidth、fluxHitRate、2XX、3XX、4XX、5XX、statusCode
+host：域名访问数据排序，支持的Filter 为：flux、request、bandwidth、fluxHitRate、2XX、3XX、4XX、5XX、statusCode   
 originHost：域名回源数据排序，支持的 Filter 为 flux、request、bandwidth、origin_2XX、origin_3XX、origin_4XX、origin_5XX、OriginStatusCode
      */
     public $Metric;
@@ -187,19 +185,27 @@ client：指定查询客户端地区（用户请求终端所在地区）数据�
     public $AreaType;
 
     /**
-     * @param string $StartTime 查询起始日期：yyyy-MM-dd HH:mm:ss
-仅支持按天粒度的数据查询，取入参中的天信息作为起始日期
-返回大于等于起始日期当天 00:00:00 点产生的数据
+     * @var string 指定查询的产品数据，可选为cdn或者ecdn，默认为cdn
+     */
+    public $Product;
+
+    /**
+     * @var integer 只返回前N条数据，默认为最大值100，metric=url时默认为最大值1000
+     */
+    public $Limit;
+
+    /**
+     * @param string $StartTime 查询起始时间：yyyy-MM-dd HH:mm:ss
+仅支持按分钟粒度的数据查询，按入参抹去秒位作为起始时间，如 StartTime为2018-09-04 10:40:23，返回数据的起始时间为2018-09-04 10:40:00
 仅支持 90 天内数据查询
-     * @param string $EndTime 查询结束日期：yyyy-MM-dd HH:mm:ss
-仅支持按天粒度的数据查询，取入参中的天信息作为结束日期
-返回小于等于结束日期当天 23:59:59 产生的数据
+     * @param string $EndTime 查询结束时间：yyyy-MM-dd HH:mm:ss
+仅支持按天粒度的数据查询，取入参中的天信息作为结束日期 返回小于等于结束日期当天 23:59:59 产生的数据，如EndTime为2018-09-05 22:40:00，返回数据的结束时间为2018-09-05 23:59:59
 EndTime 需要大于等于 StartTime
      * @param string $Metric 排序对象，支持以下几种形式：
 url：访问 URL 排序（无参数的URL），支持的 Filter 为 flux、request
 district：省份、国家/地区排序，支持的 Filter 为 flux、request
 isp：运营商排序，支持的 Filter 为 flux、request
-host：域名访问数据排序，支持的 Filter 为：flux、request、bandwidth、fluxHitRate、2XX、3XX、4XX、5XX、statusCode
+host：域名访问数据排序，支持的Filter 为：flux、request、bandwidth、fluxHitRate、2XX、3XX、4XX、5XX、statusCode   
 originHost：域名回源数据排序，支持的 Filter 为 flux、request、bandwidth、origin_2XX、origin_3XX、origin_4XX、origin_5XX、OriginStatusCode
      * @param string $Filter 排序使用的指标名称：
 flux：Metric 为 host 时指代访问流量，originHost 时指代回源流量
@@ -228,6 +234,8 @@ overseas：指定查询中国境外 CDN 数据，支持的 Metric 为 url、dist
      * @param string $AreaType 查询中国境外CDN数据，且仅当 Metric 为 district 或 host 时，可指定地区类型查询，不填充表示查询服务地区数据（仅在 Area 为 overseas，且 Metric 是 district 或 host 时可用）
 server：指定查询服务地区（腾讯云 CDN 节点服务器所在地区）数据
 client：指定查询客户端地区（用户请求终端所在地区）数据，当 Metric 为 host 时仅支持 flux、request、bandwidth Filter
+     * @param string $Product 指定查询的产品数据，可选为cdn或者ecdn，默认为cdn
+     * @param integer $Limit 只返回前N条数据，默认为最大值100，metric=url时默认为最大值1000
      */
     function __construct()
     {
@@ -280,6 +288,14 @@ client：指定查询客户端地区（用户请求终端所在地区）数据�
 
         if (array_key_exists("AreaType",$param) and $param["AreaType"] !== null) {
             $this->AreaType = $param["AreaType"];
+        }
+
+        if (array_key_exists("Product",$param) and $param["Product"] !== null) {
+            $this->Product = $param["Product"];
+        }
+
+        if (array_key_exists("Limit",$param) and $param["Limit"] !== null) {
+            $this->Limit = $param["Limit"];
         }
     }
 }

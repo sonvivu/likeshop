@@ -19,7 +19,7 @@
 
 namespace app\common\model;
 
-use think\Db;
+use think\facade\Db;
 use think\Model;
 
 class Order extends Model

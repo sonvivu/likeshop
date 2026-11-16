@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,446 +20,194 @@ use TencentCloud\Common\AbstractModel;
 /**
  * 全栈式风控引擎入参
  *
- * @method AccountInfo getAccount() 获取账号信息。
- * @method void setAccount(AccountInfo $Account) 设置账号信息。
- * @method string getSceneCode() 获取场景类型：场景SceneCode, 控制台上新建对应的场景并获取对应的值；
-例如：e_register_protection_1521184361
-控制台链接：https://console.cloud.tencent.com/rce/risk/sceneroot；
- * @method void setSceneCode(string $SceneCode) 设置场景类型：场景SceneCode, 控制台上新建对应的场景并获取对应的值；
-例如：e_register_protection_1521184361
-控制台链接：https://console.cloud.tencent.com/rce/risk/sceneroot；
- * @method string getUserIp() 获取登录来源的外网IP
- * @method void setUserIp(string $UserIp) 设置登录来源的外网IP
- * @method integer getPostTime() 获取用户操作时间戳，单位秒（格林威治时间精确到秒，如1501590972）。
- * @method void setPostTime(integer $PostTime) 设置用户操作时间戳，单位秒（格林威治时间精确到秒，如1501590972）。
- * @method string getUserId() 获取用户唯一标识。
- * @method void setUserId(string $UserId) 设置用户唯一标识。
- * @method string getDeviceToken() 获取设备指纹token。
- * @method void setDeviceToken(string $DeviceToken) 设置设备指纹token。
- * @method integer getDeviceBusinessId() 获取设备指纹BusinessId
- * @method void setDeviceBusinessId(integer $DeviceBusinessId) 设置设备指纹BusinessId
- * @method integer getBusinessId() 获取业务ID。网站或应用在多个业务中使用此服务，通过此ID区分统计数据。
- * @method void setBusinessId(integer $BusinessId) 设置业务ID。网站或应用在多个业务中使用此服务，通过此ID区分统计数据。
- * @method string getNickname() 获取昵称，UTF-8 编码。
- * @method void setNickname(string $Nickname) 设置昵称，UTF-8 编码。
- * @method string getEmailAddress() 获取用户邮箱地址（非系统自动生成）。
- * @method void setEmailAddress(string $EmailAddress) 设置用户邮箱地址（非系统自动生成）。
- * @method integer getCheckDevice() 获取是否识别设备异常：
-0：不识别。
-1：识别。
- * @method void setCheckDevice(integer $CheckDevice) 设置是否识别设备异常：
-0：不识别。
-1：识别。
- * @method string getCookieHash() 获取用户HTTP请求中的Cookie进行2次hash的值，只要保证相同Cookie的hash值一致即可。
- * @method void setCookieHash(string $CookieHash) 设置用户HTTP请求中的Cookie进行2次hash的值，只要保证相同Cookie的hash值一致即可。
- * @method string getReferer() 获取用户HTTP请求的Referer值。
- * @method void setReferer(string $Referer) 设置用户HTTP请求的Referer值。
- * @method string getUserAgent() 获取用户HTTP请求的User-Agent值。
- * @method void setUserAgent(string $UserAgent) 设置用户HTTP请求的User-Agent值。
- * @method string getXForwardedFor() 获取用户HTTP请求的X-Forwarded-For值。
- * @method void setXForwardedFor(string $XForwardedFor) 设置用户HTTP请求的X-Forwarded-For值。
- * @method string getMacAddress() 获取MAC地址或设备唯一标识。
- * @method void setMacAddress(string $MacAddress) 设置MAC地址或设备唯一标识。
- * @method string getVendorId() 获取手机制造商ID，如果手机注册，请带上此信息。
- * @method void setVendorId(string $VendorId) 设置手机制造商ID，如果手机注册，请带上此信息。
- * @method integer getDeviceType() 获取设备类型：
-1：Android
-2：IOS
- * @method void setDeviceType(integer $DeviceType) 设置设备类型：
-1：Android
-2：IOS
- * @method array getDetails() 获取详细信息
-FieldName 清单
-Android serial_number String 否 设备序列号
-Android carrier String 否 运营商；-1: 获取失败，0: 其他，1: 移动，2: 联通，3: 电信，4: 铁通
-Android mcc_mnc String 否 netOperator MCC+MNC
-Android model String 否 手机型号
-Android os_system String 否 操作系统
-Android vendor_id String 否 设备品牌 “华为”“oppo”“小米”
-Android device_version String 否 设备版本
-Android android_api_level String 否 安卓API等级
-Android phone_chip_info String 否 手机芯片信息
-Android resolution_w String 否 屏幕分辨率宽，保留整数
-Android resolution_h String 否 屏幕分辨率高，保留整数
-Android brightness String 否 屏幕亮度
-Android bluetooth_address String 否 蓝牙地址
-Android baseband_version String 否 基带版本
-Android kernel_version String 否 kernel 版本
-Android cpu_core String 否 CPU 核数
-Android cpu_model String 否 CPU 型号
-Android memory String 否 内存容量，单位转换为 GB
-Android storage String 否 存储容量，单位转换为 GB
-Android volume String 否 手机音量
-Android battery_power String 否 电池电量
-Android language String 否 语言
-Android package_name String 否 软件包名
-Android App_version String 否 App 版本号
-Android App_name String 否 App 显示名称
-Android is_debug String 否 是否 debug；0 为正常模式，1 为 debug 模式；其他值无效
-Android is_root String 否 是否越狱；0 为正常，1 为越狱；其他值无效
-Android is_proxy String 否 是否启动代理；0 为未开启，1 为开启；其他值无效
-Android is_emulator String 否 是否模拟器；0 为未开启，1 为开启；其他值无效
-Android charge_status String 否 充电状态；1-不在充电，2-USB充电，3-电源充电
-Android network_type String 否 网络类型：2G/3G/4G/5G/WiFi/WWAN/other
-Android wifi_mac String 否 WiFi MAC地址
-IOS model String 否 机器型号 iPhone11
-IOS memory String 否 内存容量，单位转换为 GB
-IOS os_system String 否 操作系统
-IOS device_version String 否 设备版本
-IOS phone_chip_info String 否 手机芯片信息
-IOS device_name String 否 设备名称 "xxx 的 iPhone"，"xxx's IPhone" 等等
-IOS uptime String 否 开机时间
-IOS language String 否 系统语言
-IOS carrier String 否 运营商
-IOS cpu_model String 否 CPU 型号
-IOS cpu_core String 否 CPU 个数
-IOS volume String 否 手机音量
-IOS battery_power String 否 电池电量
-IOS resolution_w String 否 屏幕分辨率宽，保留整数
-IOS resolution_h String 否 屏幕分辨率高，保留整数
-IOS package_name String 否 App 包名
-IOS App_version String 否 App 版本号
-IOS App_name String 否 App 显示名称
-IOS is_debug String 否 是否 debug；0 为正常模式，1 为 debug 模式；其他值无效
-IOS is_root String 否 是否越狱；0 为正常，1 为越狱；其他值无效
-IOS is_proxy String 否 是否启动代理；0 为未开启，1 为开启；其他值无效
-IOS is_emulator String 否 是否模拟器；0 为未开启，1 为开启；其他值无效
-IOS charge_status String 否 充电状态；1-不在充电，2-USB充电，3-电源充电
-IOS network_type String 否 网络类型：2G/3G/4G/5G/WiFi/WWAN/other
-IOS wifi_mac String 否 WiFi MAC地址
-其他 os_system String 否 操作系统
-其他 browser String 否 浏览器信息
-其他 from_url String 否 来源链接
- * @method void setDetails(array $Details) 设置详细信息
-FieldName 清单
-Android serial_number String 否 设备序列号
-Android carrier String 否 运营商；-1: 获取失败，0: 其他，1: 移动，2: 联通，3: 电信，4: 铁通
-Android mcc_mnc String 否 netOperator MCC+MNC
-Android model String 否 手机型号
-Android os_system String 否 操作系统
-Android vendor_id String 否 设备品牌 “华为”“oppo”“小米”
-Android device_version String 否 设备版本
-Android android_api_level String 否 安卓API等级
-Android phone_chip_info String 否 手机芯片信息
-Android resolution_w String 否 屏幕分辨率宽，保留整数
-Android resolution_h String 否 屏幕分辨率高，保留整数
-Android brightness String 否 屏幕亮度
-Android bluetooth_address String 否 蓝牙地址
-Android baseband_version String 否 基带版本
-Android kernel_version String 否 kernel 版本
-Android cpu_core String 否 CPU 核数
-Android cpu_model String 否 CPU 型号
-Android memory String 否 内存容量，单位转换为 GB
-Android storage String 否 存储容量，单位转换为 GB
-Android volume String 否 手机音量
-Android battery_power String 否 电池电量
-Android language String 否 语言
-Android package_name String 否 软件包名
-Android App_version String 否 App 版本号
-Android App_name String 否 App 显示名称
-Android is_debug String 否 是否 debug；0 为正常模式，1 为 debug 模式；其他值无效
-Android is_root String 否 是否越狱；0 为正常，1 为越狱；其他值无效
-Android is_proxy String 否 是否启动代理；0 为未开启，1 为开启；其他值无效
-Android is_emulator String 否 是否模拟器；0 为未开启，1 为开启；其他值无效
-Android charge_status String 否 充电状态；1-不在充电，2-USB充电，3-电源充电
-Android network_type String 否 网络类型：2G/3G/4G/5G/WiFi/WWAN/other
-Android wifi_mac String 否 WiFi MAC地址
-IOS model String 否 机器型号 iPhone11
-IOS memory String 否 内存容量，单位转换为 GB
-IOS os_system String 否 操作系统
-IOS device_version String 否 设备版本
-IOS phone_chip_info String 否 手机芯片信息
-IOS device_name String 否 设备名称 "xxx 的 iPhone"，"xxx's IPhone" 等等
-IOS uptime String 否 开机时间
-IOS language String 否 系统语言
-IOS carrier String 否 运营商
-IOS cpu_model String 否 CPU 型号
-IOS cpu_core String 否 CPU 个数
-IOS volume String 否 手机音量
-IOS battery_power String 否 电池电量
-IOS resolution_w String 否 屏幕分辨率宽，保留整数
-IOS resolution_h String 否 屏幕分辨率高，保留整数
-IOS package_name String 否 App 包名
-IOS App_version String 否 App 版本号
-IOS App_name String 否 App 显示名称
-IOS is_debug String 否 是否 debug；0 为正常模式，1 为 debug 模式；其他值无效
-IOS is_root String 否 是否越狱；0 为正常，1 为越狱；其他值无效
-IOS is_proxy String 否 是否启动代理；0 为未开启，1 为开启；其他值无效
-IOS is_emulator String 否 是否模拟器；0 为未开启，1 为开启；其他值无效
-IOS charge_status String 否 充电状态；1-不在充电，2-USB充电，3-电源充电
-IOS network_type String 否 网络类型：2G/3G/4G/5G/WiFi/WWAN/other
-IOS wifi_mac String 否 WiFi MAC地址
-其他 os_system String 否 操作系统
-其他 browser String 否 浏览器信息
-其他 from_url String 否 来源链接
- * @method SponsorInfo getSponsor() 获取可选填写。详情请跳转至SponsorInfo查看。
- * @method void setSponsor(SponsorInfo $Sponsor) 设置可选填写。详情请跳转至SponsorInfo查看。
- * @method OnlineScamInfo getOnlineScam() 获取可选填写。详情请跳转至OnlineScamInfo查看。
- * @method void setOnlineScam(OnlineScamInfo $OnlineScam) 设置可选填写。详情请跳转至OnlineScamInfo查看。
+ * @method AccountInfo getAccount() 获取<p>用户账号类型；默认开通QQOpenId、手机号MD5权限；如果需要使用微信OpenId入参，则需要&quot;提交工单&quot;或联系对接人进行资格审核，审核通过后方可正常使用微信开放账号。<br>1：QQ开放账号<br>2：微信开放账号<br>10004：手机号MD5，中国大陆11位手机号进行MD5加密，取32位小写值<br>10005：手机号SHA256，中国大陆11位手机号进行SHA256加密，取64位小写值</p>
+ * @method void setAccount(AccountInfo $Account) 设置<p>用户账号类型；默认开通QQOpenId、手机号MD5权限；如果需要使用微信OpenId入参，则需要&quot;提交工单&quot;或联系对接人进行资格审核，审核通过后方可正常使用微信开放账号。<br>1：QQ开放账号<br>2：微信开放账号<br>10004：手机号MD5，中国大陆11位手机号进行MD5加密，取32位小写值<br>10005：手机号SHA256，中国大陆11位手机号进行SHA256加密，取64位小写值</p>
+ * @method string getSceneCode() 获取<p>场景码，用于识别和区分不同的业务场景，可在控制台上新建和管理<br>控制台链接：https://console.cloud.tencent.com/rce/risk/strategy/scene-root<br>活动防刷默认场景码：e_activity_antirush<br>登录保护默认场景码：e_login_protection<br>注册保护默认场景码：e_register_protection</p>
+ * @method void setSceneCode(string $SceneCode) 设置<p>场景码，用于识别和区分不同的业务场景，可在控制台上新建和管理<br>控制台链接：https://console.cloud.tencent.com/rce/risk/strategy/scene-root<br>活动防刷默认场景码：e_activity_antirush<br>登录保护默认场景码：e_login_protection<br>注册保护默认场景码：e_register_protection</p>
+ * @method string getUserIp() 获取<p>用户外网ip（传入用户非外网ip会影响判断结果）。</p>
+ * @method void setUserIp(string $UserIp) 设置<p>用户外网ip（传入用户非外网ip会影响判断结果）。</p>
+ * @method integer getPostTime() 获取<p>用户操作时间戳，精确到秒。</p>
+ * @method void setPostTime(integer $PostTime) 设置<p>用户操作时间戳，精确到秒。</p>
+ * @method string getUserId() 获取<p>业务平台用户唯一标识，支持自定义。</p>
+ * @method void setUserId(string $UserId) 设置<p>业务平台用户唯一标识，支持自定义。</p>
+ * @method string getDeviceToken() 获取<p>设备指纹DeviceToken值，集成设备指纹后获取；如果集成了相应的设备指纹，该字段必填。</p>
+ * @method void setDeviceToken(string $DeviceToken) 设置<p>设备指纹DeviceToken值，集成设备指纹后获取；如果集成了相应的设备指纹，该字段必填。</p>
+ * @method integer getDeviceBusinessId() 获取<p>设备指纹 BusinessId。</p>
+ * @method void setDeviceBusinessId(integer $DeviceBusinessId) 设置<p>设备指纹 BusinessId。</p>
+ * @method integer getBusinessId() 获取<p>业务ID。网站或应用在多个业务中使用此服务，通过此ID区分统计数据。</p>
+ * @method void setBusinessId(integer $BusinessId) 设置<p>业务ID。网站或应用在多个业务中使用此服务，通过此ID区分统计数据。</p>
+ * @method string getNickname() 获取<p>昵称，UTF-8 编码。</p>
+ * @method void setNickname(string $Nickname) 设置<p>昵称，UTF-8 编码。</p>
+ * @method string getEmailAddress() 获取<p>用户邮箱地址。</p>
+ * @method void setEmailAddress(string $EmailAddress) 设置<p>用户邮箱地址。</p>
+ * @method integer getCheckDevice() 获取<p>是否识别设备异常：<br>0：不识别。<br>1：识别。</p>
+ * @method void setCheckDevice(integer $CheckDevice) 设置<p>是否识别设备异常：<br>0：不识别。<br>1：识别。</p>
+ * @method string getCookieHash() 获取<p>用户HTTP请求中的Cookie进行2次hash的值，只要保证相同Cookie的hash值一致即可。</p>
+ * @method void setCookieHash(string $CookieHash) 设置<p>用户HTTP请求中的Cookie进行2次hash的值，只要保证相同Cookie的hash值一致即可。</p>
+ * @method string getReferer() 获取<p>用户HTTP请求的Referer值。</p>
+ * @method void setReferer(string $Referer) 设置<p>用户HTTP请求的Referer值。</p>
+ * @method string getUserAgent() 获取<p>用户HTTP请求的User-Agent值。</p>
+ * @method void setUserAgent(string $UserAgent) 设置<p>用户HTTP请求的User-Agent值。</p>
+ * @method string getXForwardedFor() 获取<p>用户HTTP请求的X-Forwarded-For值。</p>
+ * @method void setXForwardedFor(string $XForwardedFor) 设置<p>用户HTTP请求的X-Forwarded-For值。</p>
+ * @method string getMacAddress() 获取<p>MAC地址或设备唯一标识。</p>
+ * @method void setMacAddress(string $MacAddress) 设置<p>MAC地址或设备唯一标识。</p>
+ * @method string getVendorId() 获取<p>手机制造商ID，如果手机注册，请带上此信息。</p>
+ * @method void setVendorId(string $VendorId) 设置<p>手机制造商ID，如果手机注册，请带上此信息。</p>
+ * @method integer getDeviceType() 获取<p>设备类型(已不推荐使用)。</p>
+ * @method void setDeviceType(integer $DeviceType) 设置<p>设备类型(已不推荐使用)。</p>
+ * @method array getDetails() 获取<p>扩展字段。</p>
+ * @method void setDetails(array $Details) 设置<p>扩展字段。</p>
+ * @method SponsorInfo getSponsor() 获取<p>邀请助力场景相关信息。</p>
+ * @method void setSponsor(SponsorInfo $Sponsor) 设置<p>邀请助力场景相关信息。</p>
+ * @method OnlineScamInfo getOnlineScam() 获取<p>详情请跳转至OnlineScamInfo查看。</p>
+ * @method void setOnlineScam(OnlineScamInfo $OnlineScam) 设置<p>详情请跳转至OnlineScamInfo查看。</p>
+ * @method string getPlatform() 获取<p>1：Android<br>2：iOS<br>3：H5<br>4：小程序<br>5：鸿蒙</p>
+ * @method void setPlatform(string $Platform) 设置<p>1：Android<br>2：iOS<br>3：H5<br>4：小程序<br>5：鸿蒙</p>
+ * @method DataAuthorizationInfo getDataAuthorization() 获取<p>数据授权信息。<br>注意：新接入通用业务欺诈保护（RCE）服务的客户该字段【必传】。</p>
+ * @method void setDataAuthorization(DataAuthorizationInfo $DataAuthorization) 设置<p>数据授权信息。<br>注意：新接入通用业务欺诈保护（RCE）服务的客户该字段【必传】。</p>
  */
 class InputManageMarketingRisk extends AbstractModel
 {
     /**
-     * @var AccountInfo 账号信息。
+     * @var AccountInfo <p>用户账号类型；默认开通QQOpenId、手机号MD5权限；如果需要使用微信OpenId入参，则需要&quot;提交工单&quot;或联系对接人进行资格审核，审核通过后方可正常使用微信开放账号。<br>1：QQ开放账号<br>2：微信开放账号<br>10004：手机号MD5，中国大陆11位手机号进行MD5加密，取32位小写值<br>10005：手机号SHA256，中国大陆11位手机号进行SHA256加密，取64位小写值</p>
      */
     public $Account;
 
     /**
-     * @var string 场景类型：场景SceneCode, 控制台上新建对应的场景并获取对应的值；
-例如：e_register_protection_1521184361
-控制台链接：https://console.cloud.tencent.com/rce/risk/sceneroot；
+     * @var string <p>场景码，用于识别和区分不同的业务场景，可在控制台上新建和管理<br>控制台链接：https://console.cloud.tencent.com/rce/risk/strategy/scene-root<br>活动防刷默认场景码：e_activity_antirush<br>登录保护默认场景码：e_login_protection<br>注册保护默认场景码：e_register_protection</p>
      */
     public $SceneCode;
 
     /**
-     * @var string 登录来源的外网IP
+     * @var string <p>用户外网ip（传入用户非外网ip会影响判断结果）。</p>
      */
     public $UserIp;
 
     /**
-     * @var integer 用户操作时间戳，单位秒（格林威治时间精确到秒，如1501590972）。
+     * @var integer <p>用户操作时间戳，精确到秒。</p>
      */
     public $PostTime;
 
     /**
-     * @var string 用户唯一标识。
+     * @var string <p>业务平台用户唯一标识，支持自定义。</p>
      */
     public $UserId;
 
     /**
-     * @var string 设备指纹token。
+     * @var string <p>设备指纹DeviceToken值，集成设备指纹后获取；如果集成了相应的设备指纹，该字段必填。</p>
      */
     public $DeviceToken;
 
     /**
-     * @var integer 设备指纹BusinessId
+     * @var integer <p>设备指纹 BusinessId。</p>
      */
     public $DeviceBusinessId;
 
     /**
-     * @var integer 业务ID。网站或应用在多个业务中使用此服务，通过此ID区分统计数据。
+     * @var integer <p>业务ID。网站或应用在多个业务中使用此服务，通过此ID区分统计数据。</p>
      */
     public $BusinessId;
 
     /**
-     * @var string 昵称，UTF-8 编码。
+     * @var string <p>昵称，UTF-8 编码。</p>
      */
     public $Nickname;
 
     /**
-     * @var string 用户邮箱地址（非系统自动生成）。
+     * @var string <p>用户邮箱地址。</p>
      */
     public $EmailAddress;
 
     /**
-     * @var integer 是否识别设备异常：
-0：不识别。
-1：识别。
+     * @var integer <p>是否识别设备异常：<br>0：不识别。<br>1：识别。</p>
      */
     public $CheckDevice;
 
     /**
-     * @var string 用户HTTP请求中的Cookie进行2次hash的值，只要保证相同Cookie的hash值一致即可。
+     * @var string <p>用户HTTP请求中的Cookie进行2次hash的值，只要保证相同Cookie的hash值一致即可。</p>
      */
     public $CookieHash;
 
     /**
-     * @var string 用户HTTP请求的Referer值。
+     * @var string <p>用户HTTP请求的Referer值。</p>
      */
     public $Referer;
 
     /**
-     * @var string 用户HTTP请求的User-Agent值。
+     * @var string <p>用户HTTP请求的User-Agent值。</p>
      */
     public $UserAgent;
 
     /**
-     * @var string 用户HTTP请求的X-Forwarded-For值。
+     * @var string <p>用户HTTP请求的X-Forwarded-For值。</p>
      */
     public $XForwardedFor;
 
     /**
-     * @var string MAC地址或设备唯一标识。
+     * @var string <p>MAC地址或设备唯一标识。</p>
      */
     public $MacAddress;
 
     /**
-     * @var string 手机制造商ID，如果手机注册，请带上此信息。
+     * @var string <p>手机制造商ID，如果手机注册，请带上此信息。</p>
      */
     public $VendorId;
 
     /**
-     * @var integer 设备类型：
-1：Android
-2：IOS
+     * @var integer <p>设备类型(已不推荐使用)。</p>
      */
     public $DeviceType;
 
     /**
-     * @var array 详细信息
-FieldName 清单
-Android serial_number String 否 设备序列号
-Android carrier String 否 运营商；-1: 获取失败，0: 其他，1: 移动，2: 联通，3: 电信，4: 铁通
-Android mcc_mnc String 否 netOperator MCC+MNC
-Android model String 否 手机型号
-Android os_system String 否 操作系统
-Android vendor_id String 否 设备品牌 “华为”“oppo”“小米”
-Android device_version String 否 设备版本
-Android android_api_level String 否 安卓API等级
-Android phone_chip_info String 否 手机芯片信息
-Android resolution_w String 否 屏幕分辨率宽，保留整数
-Android resolution_h String 否 屏幕分辨率高，保留整数
-Android brightness String 否 屏幕亮度
-Android bluetooth_address String 否 蓝牙地址
-Android baseband_version String 否 基带版本
-Android kernel_version String 否 kernel 版本
-Android cpu_core String 否 CPU 核数
-Android cpu_model String 否 CPU 型号
-Android memory String 否 内存容量，单位转换为 GB
-Android storage String 否 存储容量，单位转换为 GB
-Android volume String 否 手机音量
-Android battery_power String 否 电池电量
-Android language String 否 语言
-Android package_name String 否 软件包名
-Android App_version String 否 App 版本号
-Android App_name String 否 App 显示名称
-Android is_debug String 否 是否 debug；0 为正常模式，1 为 debug 模式；其他值无效
-Android is_root String 否 是否越狱；0 为正常，1 为越狱；其他值无效
-Android is_proxy String 否 是否启动代理；0 为未开启，1 为开启；其他值无效
-Android is_emulator String 否 是否模拟器；0 为未开启，1 为开启；其他值无效
-Android charge_status String 否 充电状态；1-不在充电，2-USB充电，3-电源充电
-Android network_type String 否 网络类型：2G/3G/4G/5G/WiFi/WWAN/other
-Android wifi_mac String 否 WiFi MAC地址
-IOS model String 否 机器型号 iPhone11
-IOS memory String 否 内存容量，单位转换为 GB
-IOS os_system String 否 操作系统
-IOS device_version String 否 设备版本
-IOS phone_chip_info String 否 手机芯片信息
-IOS device_name String 否 设备名称 "xxx 的 iPhone"，"xxx's IPhone" 等等
-IOS uptime String 否 开机时间
-IOS language String 否 系统语言
-IOS carrier String 否 运营商
-IOS cpu_model String 否 CPU 型号
-IOS cpu_core String 否 CPU 个数
-IOS volume String 否 手机音量
-IOS battery_power String 否 电池电量
-IOS resolution_w String 否 屏幕分辨率宽，保留整数
-IOS resolution_h String 否 屏幕分辨率高，保留整数
-IOS package_name String 否 App 包名
-IOS App_version String 否 App 版本号
-IOS App_name String 否 App 显示名称
-IOS is_debug String 否 是否 debug；0 为正常模式，1 为 debug 模式；其他值无效
-IOS is_root String 否 是否越狱；0 为正常，1 为越狱；其他值无效
-IOS is_proxy String 否 是否启动代理；0 为未开启，1 为开启；其他值无效
-IOS is_emulator String 否 是否模拟器；0 为未开启，1 为开启；其他值无效
-IOS charge_status String 否 充电状态；1-不在充电，2-USB充电，3-电源充电
-IOS network_type String 否 网络类型：2G/3G/4G/5G/WiFi/WWAN/other
-IOS wifi_mac String 否 WiFi MAC地址
-其他 os_system String 否 操作系统
-其他 browser String 否 浏览器信息
-其他 from_url String 否 来源链接
+     * @var array <p>扩展字段。</p>
      */
     public $Details;
 
     /**
-     * @var SponsorInfo 可选填写。详情请跳转至SponsorInfo查看。
+     * @var SponsorInfo <p>邀请助力场景相关信息。</p>
      */
     public $Sponsor;
 
     /**
-     * @var OnlineScamInfo 可选填写。详情请跳转至OnlineScamInfo查看。
+     * @var OnlineScamInfo <p>详情请跳转至OnlineScamInfo查看。</p>
      */
     public $OnlineScam;
 
     /**
-     * @param AccountInfo $Account 账号信息。
-     * @param string $SceneCode 场景类型：场景SceneCode, 控制台上新建对应的场景并获取对应的值；
-例如：e_register_protection_1521184361
-控制台链接：https://console.cloud.tencent.com/rce/risk/sceneroot；
-     * @param string $UserIp 登录来源的外网IP
-     * @param integer $PostTime 用户操作时间戳，单位秒（格林威治时间精确到秒，如1501590972）。
-     * @param string $UserId 用户唯一标识。
-     * @param string $DeviceToken 设备指纹token。
-     * @param integer $DeviceBusinessId 设备指纹BusinessId
-     * @param integer $BusinessId 业务ID。网站或应用在多个业务中使用此服务，通过此ID区分统计数据。
-     * @param string $Nickname 昵称，UTF-8 编码。
-     * @param string $EmailAddress 用户邮箱地址（非系统自动生成）。
-     * @param integer $CheckDevice 是否识别设备异常：
-0：不识别。
-1：识别。
-     * @param string $CookieHash 用户HTTP请求中的Cookie进行2次hash的值，只要保证相同Cookie的hash值一致即可。
-     * @param string $Referer 用户HTTP请求的Referer值。
-     * @param string $UserAgent 用户HTTP请求的User-Agent值。
-     * @param string $XForwardedFor 用户HTTP请求的X-Forwarded-For值。
-     * @param string $MacAddress MAC地址或设备唯一标识。
-     * @param string $VendorId 手机制造商ID，如果手机注册，请带上此信息。
-     * @param integer $DeviceType 设备类型：
-1：Android
-2：IOS
-     * @param array $Details 详细信息
-FieldName 清单
-Android serial_number String 否 设备序列号
-Android carrier String 否 运营商；-1: 获取失败，0: 其他，1: 移动，2: 联通，3: 电信，4: 铁通
-Android mcc_mnc String 否 netOperator MCC+MNC
-Android model String 否 手机型号
-Android os_system String 否 操作系统
-Android vendor_id String 否 设备品牌 “华为”“oppo”“小米”
-Android device_version String 否 设备版本
-Android android_api_level String 否 安卓API等级
-Android phone_chip_info String 否 手机芯片信息
-Android resolution_w String 否 屏幕分辨率宽，保留整数
-Android resolution_h String 否 屏幕分辨率高，保留整数
-Android brightness String 否 屏幕亮度
-Android bluetooth_address String 否 蓝牙地址
-Android baseband_version String 否 基带版本
-Android kernel_version String 否 kernel 版本
-Android cpu_core String 否 CPU 核数
-Android cpu_model String 否 CPU 型号
-Android memory String 否 内存容量，单位转换为 GB
-Android storage String 否 存储容量，单位转换为 GB
-Android volume String 否 手机音量
-Android battery_power String 否 电池电量
-Android language String 否 语言
-Android package_name String 否 软件包名
-Android App_version String 否 App 版本号
-Android App_name String 否 App 显示名称
-Android is_debug String 否 是否 debug；0 为正常模式，1 为 debug 模式；其他值无效
-Android is_root String 否 是否越狱；0 为正常，1 为越狱；其他值无效
-Android is_proxy String 否 是否启动代理；0 为未开启，1 为开启；其他值无效
-Android is_emulator String 否 是否模拟器；0 为未开启，1 为开启；其他值无效
-Android charge_status String 否 充电状态；1-不在充电，2-USB充电，3-电源充电
-Android network_type String 否 网络类型：2G/3G/4G/5G/WiFi/WWAN/other
-Android wifi_mac String 否 WiFi MAC地址
-IOS model String 否 机器型号 iPhone11
-IOS memory String 否 内存容量，单位转换为 GB
-IOS os_system String 否 操作系统
-IOS device_version String 否 设备版本
-IOS phone_chip_info String 否 手机芯片信息
-IOS device_name String 否 设备名称 "xxx 的 iPhone"，"xxx's IPhone" 等等
-IOS uptime String 否 开机时间
-IOS language String 否 系统语言
-IOS carrier String 否 运营商
-IOS cpu_model String 否 CPU 型号
-IOS cpu_core String 否 CPU 个数
-IOS volume String 否 手机音量
-IOS battery_power String 否 电池电量
-IOS resolution_w String 否 屏幕分辨率宽，保留整数
-IOS resolution_h String 否 屏幕分辨率高，保留整数
-IOS package_name String 否 App 包名
-IOS App_version String 否 App 版本号
-IOS App_name String 否 App 显示名称
-IOS is_debug String 否 是否 debug；0 为正常模式，1 为 debug 模式；其他值无效
-IOS is_root String 否 是否越狱；0 为正常，1 为越狱；其他值无效
-IOS is_proxy String 否 是否启动代理；0 为未开启，1 为开启；其他值无效
-IOS is_emulator String 否 是否模拟器；0 为未开启，1 为开启；其他值无效
-IOS charge_status String 否 充电状态；1-不在充电，2-USB充电，3-电源充电
-IOS network_type String 否 网络类型：2G/3G/4G/5G/WiFi/WWAN/other
-IOS wifi_mac String 否 WiFi MAC地址
-其他 os_system String 否 操作系统
-其他 browser String 否 浏览器信息
-其他 from_url String 否 来源链接
-     * @param SponsorInfo $Sponsor 可选填写。详情请跳转至SponsorInfo查看。
-     * @param OnlineScamInfo $OnlineScam 可选填写。详情请跳转至OnlineScamInfo查看。
+     * @var string <p>1：Android<br>2：iOS<br>3：H5<br>4：小程序<br>5：鸿蒙</p>
+     */
+    public $Platform;
+
+    /**
+     * @var DataAuthorizationInfo <p>数据授权信息。<br>注意：新接入通用业务欺诈保护（RCE）服务的客户该字段【必传】。</p>
+     */
+    public $DataAuthorization;
+
+    /**
+     * @param AccountInfo $Account <p>用户账号类型；默认开通QQOpenId、手机号MD5权限；如果需要使用微信OpenId入参，则需要&quot;提交工单&quot;或联系对接人进行资格审核，审核通过后方可正常使用微信开放账号。<br>1：QQ开放账号<br>2：微信开放账号<br>10004：手机号MD5，中国大陆11位手机号进行MD5加密，取32位小写值<br>10005：手机号SHA256，中国大陆11位手机号进行SHA256加密，取64位小写值</p>
+     * @param string $SceneCode <p>场景码，用于识别和区分不同的业务场景，可在控制台上新建和管理<br>控制台链接：https://console.cloud.tencent.com/rce/risk/strategy/scene-root<br>活动防刷默认场景码：e_activity_antirush<br>登录保护默认场景码：e_login_protection<br>注册保护默认场景码：e_register_protection</p>
+     * @param string $UserIp <p>用户外网ip（传入用户非外网ip会影响判断结果）。</p>
+     * @param integer $PostTime <p>用户操作时间戳，精确到秒。</p>
+     * @param string $UserId <p>业务平台用户唯一标识，支持自定义。</p>
+     * @param string $DeviceToken <p>设备指纹DeviceToken值，集成设备指纹后获取；如果集成了相应的设备指纹，该字段必填。</p>
+     * @param integer $DeviceBusinessId <p>设备指纹 BusinessId。</p>
+     * @param integer $BusinessId <p>业务ID。网站或应用在多个业务中使用此服务，通过此ID区分统计数据。</p>
+     * @param string $Nickname <p>昵称，UTF-8 编码。</p>
+     * @param string $EmailAddress <p>用户邮箱地址。</p>
+     * @param integer $CheckDevice <p>是否识别设备异常：<br>0：不识别。<br>1：识别。</p>
+     * @param string $CookieHash <p>用户HTTP请求中的Cookie进行2次hash的值，只要保证相同Cookie的hash值一致即可。</p>
+     * @param string $Referer <p>用户HTTP请求的Referer值。</p>
+     * @param string $UserAgent <p>用户HTTP请求的User-Agent值。</p>
+     * @param string $XForwardedFor <p>用户HTTP请求的X-Forwarded-For值。</p>
+     * @param string $MacAddress <p>MAC地址或设备唯一标识。</p>
+     * @param string $VendorId <p>手机制造商ID，如果手机注册，请带上此信息。</p>
+     * @param integer $DeviceType <p>设备类型(已不推荐使用)。</p>
+     * @param array $Details <p>扩展字段。</p>
+     * @param SponsorInfo $Sponsor <p>邀请助力场景相关信息。</p>
+     * @param OnlineScamInfo $OnlineScam <p>详情请跳转至OnlineScamInfo查看。</p>
+     * @param string $Platform <p>1：Android<br>2：iOS<br>3：H5<br>4：小程序<br>5：鸿蒙</p>
+     * @param DataAuthorizationInfo $DataAuthorization <p>数据授权信息。<br>注意：新接入通用业务欺诈保护（RCE）服务的客户该字段【必传】。</p>
      */
     function __construct()
     {
@@ -564,6 +312,15 @@ IOS wifi_mac String 否 WiFi MAC地址
         if (array_key_exists("OnlineScam",$param) and $param["OnlineScam"] !== null) {
             $this->OnlineScam = new OnlineScamInfo();
             $this->OnlineScam->deserialize($param["OnlineScam"]);
+        }
+
+        if (array_key_exists("Platform",$param) and $param["Platform"] !== null) {
+            $this->Platform = $param["Platform"];
+        }
+
+        if (array_key_exists("DataAuthorization",$param) and $param["DataAuthorization"] !== null) {
+            $this->DataAuthorization = new DataAuthorizationInfo();
+            $this->DataAuthorization->deserialize($param["DataAuthorization"]);
         }
     }
 }

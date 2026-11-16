@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,10 +33,12 @@ use TencentCloud\Drm\V20181115\Models as Models;
 由于缓存，删除操作需要约半小时生效
  * @method Models\DescribeAllKeysResponse DescribeAllKeys(Models\DescribeAllKeysRequest $req) 本接口用来查询指定DRM类型、ContentType的所有加密密钥
 
+ * @method Models\DescribeDRMLicenseResponse DescribeDRMLicense(Models\DescribeDRMLicenseRequest $req) 开发者需要指定使用的DRM类型取值 NORMALAES、和需要加密的Track类型取值 SD,ContentType取值 LiveVideo
  * @method Models\DescribeFairPlayPemResponse DescribeFairPlayPem(Models\DescribeFairPlayPemRequest $req) 该接口用来查询设置的FairPlay私钥校验信息。可用该接口校验设置的私钥与本身的私钥是否一致。
  * @method Models\DescribeKeysResponse DescribeKeys(Models\DescribeKeysRequest $req) 开发者需要指定使用的DRM类型、和需要加密的Track类型，后台返回加密使用的密钥
 如果加密使用的ContentID没有关联的密钥信息，后台会自动生成新的密钥返回
 
+ * @method Models\GenerateTDRMKeyResponse GenerateTDRMKey(Models\GenerateTDRMKeyRequest $req) 开发者需要指定使用的DRM类型取值 NORMALAES、和需要加密的Track类型取值 SD,ContentType取值 LiveVideo
  * @method Models\ModifyFairPlayPemResponse ModifyFairPlayPem(Models\ModifyFairPlayPemRequest $req) 本接口用来设置fairplay方案所需的私钥、私钥密钥、ask等信息。
 如需使用fairplay方案，请务必先设置私钥。
  * @method Models\StartEncryptionResponse StartEncryption(Models\StartEncryptionRequest $req) 开发者调用该接口，启动一次内容文件的DRM加密工作流。

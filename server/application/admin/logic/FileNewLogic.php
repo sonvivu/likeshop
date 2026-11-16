@@ -21,7 +21,7 @@ namespace app\admin\logic;
 
 use app\common\model\FileCate;
 use app\common\server\UrlServer;
-use think\Db;
+use think\facade\Db;
 
 class FileNewLogic
 {
@@ -35,6 +35,7 @@ class FileNewLogic
             'cate_id' => $get['cate_id']
         ];
         $lists = Db::name('file')->field($field)->where($where)->page($get['page_no'], $get['page_size'])->select();
+        $lists = $lists->toArray(); // ThinkPHP 6：select() 返回 Collection，TP5 返回数组；直接写 $lists[$k]['x'] 或 foreach(&$item) 改值会丢/报错，先转数组。
         $count = Db::name('file')->where($where)->count();
         foreach($lists as &$item) {
             $item['uri'] = UrlServer::getFileUrl($item['uri']);
@@ -57,6 +58,7 @@ class FileNewLogic
             $where[] = ['cate_id', 'in', $child];
         }
         $lists = Db::name('file')->field($field)->where($where)->page($get['page_no'], $get['page_size'])->select();
+        $lists = $lists->toArray(); // ThinkPHP 6：select() 返回 Collection，TP5 返回数组；直接写 $lists[$k]['x'] 或 foreach(&$item) 改值会丢/报错，先转数组。
         $count = Db::name('file')->where($where)->count();
         foreach($lists as &$item) {
             $item['uri'] = UrlServer::getFileUrl($item['uri']);

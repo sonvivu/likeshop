@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,38 +20,46 @@ use TencentCloud\Common\AbstractModel;
 /**
  * CreateKeyPair请求参数结构体
  *
- * @method string getKeyName() 获取密钥对名称，可由数字，字母和下划线组成，长度不超过25个字符。
- * @method void setKeyName(string $KeyName) 设置密钥对名称，可由数字，字母和下划线组成，长度不超过25个字符。
- * @method integer getProjectId() 获取密钥对创建后所属的项目ID。
+ * @method string getKeyName() 获取密钥对名称，可由数字、字母和下划线组成，长度不超过25个字符。密钥对名称不能和已经存在的密钥对名称重复。
+ * @method void setKeyName(string $KeyName) 设置密钥对名称，可由数字、字母和下划线组成，长度不超过25个字符。密钥对名称不能和已经存在的密钥对名称重复。
+ * @method integer getProjectId() 获取密钥对创建后所属的项目ID，ProjectId为0表示默认项目。
 可以通过以下方式获取项目ID：
-<li>通过项目列表查询项目ID。
-<li>通过调用接口DescribeProject，取返回信息中的`projectId `获取项目ID。
- * @method void setProjectId(integer $ProjectId) 设置密钥对创建后所属的项目ID。
+<li>通过项目列表查询项目ID。</li>
+<li>通过调用接口 [DescribeProjects](https://cloud.tencent.com/document/api/651/78725)，取返回信息中的`projectId `获取项目ID。</li>
+ * @method void setProjectId(integer $ProjectId) 设置密钥对创建后所属的项目ID，ProjectId为0表示默认项目。
 可以通过以下方式获取项目ID：
-<li>通过项目列表查询项目ID。
-<li>通过调用接口DescribeProject，取返回信息中的`projectId `获取项目ID。
+<li>通过项目列表查询项目ID。</li>
+<li>通过调用接口 [DescribeProjects](https://cloud.tencent.com/document/api/651/78725)，取返回信息中的`projectId `获取项目ID。</li>
+ * @method array getTagSpecification() 获取标签描述列表。通过指定该参数可以同时绑定标签到密钥对。
+ * @method void setTagSpecification(array $TagSpecification) 设置标签描述列表。通过指定该参数可以同时绑定标签到密钥对。
  */
 class CreateKeyPairRequest extends AbstractModel
 {
     /**
-     * @var string 密钥对名称，可由数字，字母和下划线组成，长度不超过25个字符。
+     * @var string 密钥对名称，可由数字、字母和下划线组成，长度不超过25个字符。密钥对名称不能和已经存在的密钥对名称重复。
      */
     public $KeyName;
 
     /**
-     * @var integer 密钥对创建后所属的项目ID。
+     * @var integer 密钥对创建后所属的项目ID，ProjectId为0表示默认项目。
 可以通过以下方式获取项目ID：
-<li>通过项目列表查询项目ID。
-<li>通过调用接口DescribeProject，取返回信息中的`projectId `获取项目ID。
+<li>通过项目列表查询项目ID。</li>
+<li>通过调用接口 [DescribeProjects](https://cloud.tencent.com/document/api/651/78725)，取返回信息中的`projectId `获取项目ID。</li>
      */
     public $ProjectId;
 
     /**
-     * @param string $KeyName 密钥对名称，可由数字，字母和下划线组成，长度不超过25个字符。
-     * @param integer $ProjectId 密钥对创建后所属的项目ID。
+     * @var array 标签描述列表。通过指定该参数可以同时绑定标签到密钥对。
+     */
+    public $TagSpecification;
+
+    /**
+     * @param string $KeyName 密钥对名称，可由数字、字母和下划线组成，长度不超过25个字符。密钥对名称不能和已经存在的密钥对名称重复。
+     * @param integer $ProjectId 密钥对创建后所属的项目ID，ProjectId为0表示默认项目。
 可以通过以下方式获取项目ID：
-<li>通过项目列表查询项目ID。
-<li>通过调用接口DescribeProject，取返回信息中的`projectId `获取项目ID。
+<li>通过项目列表查询项目ID。</li>
+<li>通过调用接口 [DescribeProjects](https://cloud.tencent.com/document/api/651/78725)，取返回信息中的`projectId `获取项目ID。</li>
+     * @param array $TagSpecification 标签描述列表。通过指定该参数可以同时绑定标签到密钥对。
      */
     function __construct()
     {
@@ -72,6 +80,15 @@ class CreateKeyPairRequest extends AbstractModel
 
         if (array_key_exists("ProjectId",$param) and $param["ProjectId"] !== null) {
             $this->ProjectId = $param["ProjectId"];
+        }
+
+        if (array_key_exists("TagSpecification",$param) and $param["TagSpecification"] !== null) {
+            $this->TagSpecification = [];
+            foreach ($param["TagSpecification"] as $key => $value){
+                $obj = new TagSpecification();
+                $obj->deserialize($value);
+                array_push($this->TagSpecification, $obj);
+            }
         }
     }
 }

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,19 +20,45 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeKeyPairs请求参数结构体
  *
- * @method array getKeyIds() 获取密钥对 ID 列表。
- * @method void setKeyIds(array $KeyIds) 设置密钥对 ID 列表。
+ * @method array getKeyIds() 获取密钥对 ID 列表。可通过[DescribeKeyPairs](https://cloud.tencent.com/document/product/1207/55540)接口返回值字段KeyPairSet获取。列表长度最大值为100。
+ * @method void setKeyIds(array $KeyIds) 设置密钥对 ID 列表。可通过[DescribeKeyPairs](https://cloud.tencent.com/document/product/1207/55540)接口返回值字段KeyPairSet获取。列表长度最大值为100。
  * @method integer getOffset() 获取偏移量，默认为 0。
  * @method void setOffset(integer $Offset) 设置偏移量，默认为 0。
  * @method integer getLimit() 获取返回数量，默认为 20，最大值为 100。
  * @method void setLimit(integer $Limit) 设置返回数量，默认为 20，最大值为 100。
- * @method array getFilters() 获取过滤条件，每次请求的 Filters 的上限为10， Filters.Values 的上限为5。参数不可以同时指定 KeyIds 和 Filters 。详细的过滤条件如下： key-id - String - 是否必填： 否 - （过滤条件）按照KeyID进行过滤; key-name - String - 是否必填： 否 - （过滤条件）按照KeyName进行过滤。
- * @method void setFilters(array $Filters) 设置过滤条件，每次请求的 Filters 的上限为10， Filters.Values 的上限为5。参数不可以同时指定 KeyIds 和 Filters 。详细的过滤条件如下： key-id - String - 是否必填： 否 - （过滤条件）按照KeyID进行过滤; key-name - String - 是否必填： 否 - （过滤条件）按照KeyName进行过滤。
+ * @method array getFilters() 获取过滤器列表。
+<li>key-id</li>按照【密钥对ID】进行过滤。
+类型：String
+必选：否
+<li>key-name</li>按照【密钥对名称】进行过滤（支持模糊匹配）。
+类型：String
+必选：否
+<li>tag-key</li>
+按照【标签键】进行过滤。 类型：String 必选：否
+<li>tag-value</li>
+按照【标签值】进行过滤。 类型：String 必选：否
+<li>tag:tag-key</li>
+按照【标签键值对】进行过滤。 tag-key使用具体的标签键进行替换。
+每次请求的 Filters 的上限为 10，Filter.Values 的上限为 5。参数不支持同时指定 KeyIds 和 Filters。
+ * @method void setFilters(array $Filters) 设置过滤器列表。
+<li>key-id</li>按照【密钥对ID】进行过滤。
+类型：String
+必选：否
+<li>key-name</li>按照【密钥对名称】进行过滤（支持模糊匹配）。
+类型：String
+必选：否
+<li>tag-key</li>
+按照【标签键】进行过滤。 类型：String 必选：否
+<li>tag-value</li>
+按照【标签值】进行过滤。 类型：String 必选：否
+<li>tag:tag-key</li>
+按照【标签键值对】进行过滤。 tag-key使用具体的标签键进行替换。
+每次请求的 Filters 的上限为 10，Filter.Values 的上限为 5。参数不支持同时指定 KeyIds 和 Filters。
  */
 class DescribeKeyPairsRequest extends AbstractModel
 {
     /**
-     * @var array 密钥对 ID 列表。
+     * @var array 密钥对 ID 列表。可通过[DescribeKeyPairs](https://cloud.tencent.com/document/product/1207/55540)接口返回值字段KeyPairSet获取。列表长度最大值为100。
      */
     public $KeyIds;
 
@@ -47,15 +73,41 @@ class DescribeKeyPairsRequest extends AbstractModel
     public $Limit;
 
     /**
-     * @var array 过滤条件，每次请求的 Filters 的上限为10， Filters.Values 的上限为5。参数不可以同时指定 KeyIds 和 Filters 。详细的过滤条件如下： key-id - String - 是否必填： 否 - （过滤条件）按照KeyID进行过滤; key-name - String - 是否必填： 否 - （过滤条件）按照KeyName进行过滤。
+     * @var array 过滤器列表。
+<li>key-id</li>按照【密钥对ID】进行过滤。
+类型：String
+必选：否
+<li>key-name</li>按照【密钥对名称】进行过滤（支持模糊匹配）。
+类型：String
+必选：否
+<li>tag-key</li>
+按照【标签键】进行过滤。 类型：String 必选：否
+<li>tag-value</li>
+按照【标签值】进行过滤。 类型：String 必选：否
+<li>tag:tag-key</li>
+按照【标签键值对】进行过滤。 tag-key使用具体的标签键进行替换。
+每次请求的 Filters 的上限为 10，Filter.Values 的上限为 5。参数不支持同时指定 KeyIds 和 Filters。
      */
     public $Filters;
 
     /**
-     * @param array $KeyIds 密钥对 ID 列表。
+     * @param array $KeyIds 密钥对 ID 列表。可通过[DescribeKeyPairs](https://cloud.tencent.com/document/product/1207/55540)接口返回值字段KeyPairSet获取。列表长度最大值为100。
      * @param integer $Offset 偏移量，默认为 0。
      * @param integer $Limit 返回数量，默认为 20，最大值为 100。
-     * @param array $Filters 过滤条件，每次请求的 Filters 的上限为10， Filters.Values 的上限为5。参数不可以同时指定 KeyIds 和 Filters 。详细的过滤条件如下： key-id - String - 是否必填： 否 - （过滤条件）按照KeyID进行过滤; key-name - String - 是否必填： 否 - （过滤条件）按照KeyName进行过滤。
+     * @param array $Filters 过滤器列表。
+<li>key-id</li>按照【密钥对ID】进行过滤。
+类型：String
+必选：否
+<li>key-name</li>按照【密钥对名称】进行过滤（支持模糊匹配）。
+类型：String
+必选：否
+<li>tag-key</li>
+按照【标签键】进行过滤。 类型：String 必选：否
+<li>tag-value</li>
+按照【标签值】进行过滤。 类型：String 必选：否
+<li>tag:tag-key</li>
+按照【标签键值对】进行过滤。 tag-key使用具体的标签键进行替换。
+每次请求的 Filters 的上限为 10，Filter.Values 的上限为 5。参数不支持同时指定 KeyIds 和 Filters。
      */
     function __construct()
     {

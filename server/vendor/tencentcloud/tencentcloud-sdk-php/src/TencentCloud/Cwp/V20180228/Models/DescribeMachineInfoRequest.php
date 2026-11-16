@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,26 +20,26 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeMachineInfo请求参数结构体
  *
- * @method string getUuid() 获取云镜客户端唯一Uuid。
- * @method void setUuid(string $Uuid) 设置云镜客户端唯一Uuid。
- * @method string getQuuid() 获取cvm id， quuid、uuid必填一个
- * @method void setQuuid(string $Quuid) 设置cvm id， quuid、uuid必填一个
+ * @method string getUuid() 获取主机安全客户端唯一Uuid。
+ * @method void setUuid(string $Uuid) 设置主机安全客户端唯一Uuid。
+ * @method string getQuuid() 获取Quuid , Uuid 必填一项
+ * @method void setQuuid(string $Quuid) 设置Quuid , Uuid 必填一项
  */
 class DescribeMachineInfoRequest extends AbstractModel
 {
     /**
-     * @var string 云镜客户端唯一Uuid。
+     * @var string 主机安全客户端唯一Uuid。
      */
     public $Uuid;
 
     /**
-     * @var string cvm id， quuid、uuid必填一个
+     * @var string Quuid , Uuid 必填一项
      */
     public $Quuid;
 
     /**
-     * @param string $Uuid 云镜客户端唯一Uuid。
-     * @param string $Quuid cvm id， quuid、uuid必填一个
+     * @param string $Uuid 主机安全客户端唯一Uuid。
+     * @param string $Quuid Quuid , Uuid 必填一项
      */
     function __construct()
     {

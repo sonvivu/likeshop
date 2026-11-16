@@ -31,23 +31,8 @@ class BaseMiddleware
     {
         //过滤前后空格
         $request->filter(['trim']);
-        // i18n nhánh vi: chuẩn hóa langset về vi/zh-cn.
-        // Trình duyệt Việt gửi Accept-Language: vi-VN,... → detect() ra 'vi-vn',
-        // không có file ngôn ngữ tương ứng nên sẽ rơi về msgid (chữ Trung).
-        // ?lang=zh-cn và cookie think_var=zh-cn vẫn được giữ nguyên.
-        // Lưu ý: loadLangPack() đã chạy ở init với langset sai nên file ngôn ngữ
-        // của module (vd application/admin/lang/vi.php) chưa được nạp — phải nạp
-        // bù cả file app lẫn file module (module lấy từ đoạn đầu của path).
-        $lang = \think\facade\Lang::range();
-        if (!in_array($lang, ['vi', 'zh-cn'])) {
-            \think\facade\Lang::range('vi');
-            \think\facade\Lang::load([app()->getAppPath() . 'lang' . DIRECTORY_SEPARATOR . 'vi.php']);
-            $segments = explode('/', trim($request->path(), '/'));
-            $moduleLang = app()->getAppPath() . $segments[0] . DIRECTORY_SEPARATOR . 'lang' . DIRECTORY_SEPARATOR . 'vi.php';
-            if (is_file($moduleLang)) {
-                \think\facade\Lang::load([$moduleLang]);
-            }
-        }
+        // i18n: 语言侦测 + 加载语言包由各模块 middleware.php 注册的
+        // app\common\http\middleware\LangPack 处理（必须在 MultiApp 解析模块之后运行）。
         return $next($request);
     }
 }

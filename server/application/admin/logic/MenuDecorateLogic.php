@@ -19,7 +19,7 @@
 namespace app\admin\logic;
 use app\common\model\Menu_;
 use app\common\server\UrlServer;
-use think\Db;
+use think\facade\Db;
 
 class MenuDecorateLogic{
     /*
@@ -37,6 +37,7 @@ class MenuDecorateLogic{
             ->page($get['page'], $get['limit'])
             ->order('id desc')
             ->select();
+        $lists = $lists->toArray(); // ThinkPHP 6：select() 返回 Collection，TP5 返回数组；直接写 $lists[$k]['x'] 或 foreach(&$item) 改值会丢/报错，先转数组。
 
         foreach ($lists as &$item){
             $item['image'] = UrlServer::getFileUrl($item['image']);
@@ -61,6 +62,7 @@ class MenuDecorateLogic{
             ->page($get['page'], $get['limit'])
             ->order('id desc')
             ->select();
+        $lists = $lists->toArray(); // ThinkPHP 6：select() 返回 Collection，TP5 返回数组；直接写 $lists[$k]['x'] 或 foreach(&$item) 改值会丢/报错，先转数组。
 
         foreach ($lists as &$item){
             $item['image'] = UrlServer::getFileUrl($item['image']);
@@ -84,6 +86,7 @@ class MenuDecorateLogic{
             ->page($get['page'], $get['limit'])
             ->order('id desc')
             ->select();
+        $lists = $lists->toArray(); // ThinkPHP 6：select() 返回 Collection，TP5 返回数组；直接写 $lists[$k]['x'] 或 foreach(&$item) 改值会丢/报错，先转数组。
 
         foreach ($lists as &$item){
             $item['image'] = UrlServer::getFileUrl($item['image']);
@@ -221,6 +224,7 @@ class MenuDecorateLogic{
       ->page($get['page'], $get['limit'])
       ->order('id', 'desc')
       ->select();
+    $lists = $lists->toArray(); // ThinkPHP 6：select() 返回 Collection，TP5 返回数组；直接写 $lists[$k]['x'] 或 foreach(&$item) 改值会丢/报错，先转数组。
     $count = Db::name('dev_navigation')->count();
     foreach($lists as &$item) {
       $item['selected_icon'] = UrlServer::getFileUrl($item['selected_icon']);

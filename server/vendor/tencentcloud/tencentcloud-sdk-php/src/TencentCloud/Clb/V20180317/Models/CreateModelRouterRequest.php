@@ -1,0 +1,319 @@
+<?php
+/*
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+namespace TencentCloud\Clb\V20180317\Models;
+use TencentCloud\Common\AbstractModel;
+
+/**
+ * CreateModelRouter请求参数结构体
+ *
+ * @method string getModelRouterType() 获取<p>模型路由类型</p><p>枚举值：</p><ul><li>Shared： 共享型</li><li>Enterprise： 企业级</li></ul>
+ * @method void setModelRouterType(string $ModelRouterType) 设置<p>模型路由类型</p><p>枚举值：</p><ul><li>Shared： 共享型</li><li>Enterprise： 企业级</li></ul>
+ * @method string getBudgetId() 获取<p>关联的积分预算ID</p>
+ * @method void setBudgetId(string $BudgetId) 设置<p>关联的积分预算ID</p>
+ * @method string getCertId() 获取<p>证书ID</p><p>入参限制：当Scheme为HTTPS时，该参数必传</p>
+ * @method void setCertId(string $CertId) 设置<p>证书ID</p><p>入参限制：当Scheme为HTTPS时，该参数必传</p>
+ * @method ClusterInfoInput getClusterInfo() 获取<p>集群信息</p>
+ * @method void setClusterInfo(ClusterInfoInput $ClusterInfo) 设置<p>集群信息</p>
+ * @method string getModelRouterName() 获取<p>模型路由实例名称</p><p>默认值：-</p>
+ * @method void setModelRouterName(string $ModelRouterName) 设置<p>模型路由实例名称</p><p>默认值：-</p>
+ * @method string getNetworkType() 获取<p>网络类型</p><p>枚举值：</p><ul><li>Internet： 公网</li><li>Intranet： 内网</li></ul>
+ * @method void setNetworkType(string $NetworkType) 设置<p>网络类型</p><p>枚举值：</p><ul><li>Internet： 公网</li><li>Intranet： 内网</li></ul>
+ * @method integer getPort() 获取<p>模型路由的监听端口</p><p>取值范围：[1, 65535]</p>
+ * @method void setPort(integer $Port) 设置<p>模型路由的监听端口</p><p>取值范围：[1, 65535]</p>
+ * @method RateLimitConfigForModelRouter getRateLimitConfig() 获取<p>限速配置</p>
+ * @method void setRateLimitConfig(RateLimitConfigForModelRouter $RateLimitConfig) 设置<p>限速配置</p>
+ * @method RouterSettingWithoutFallBack getRouterSetting() 获取<p>路由配置</p><p>新创建实例时，默认会开启粘连路由</p>
+ * @method void setRouterSetting(RouterSettingWithoutFallBack $RouterSetting) 设置<p>路由配置</p><p>新创建实例时，默认会开启粘连路由</p>
+ * @method string getSchema() 获取<p>模型路由实例的网络协议</p><p>枚举值：</p><ul><li>HTTP： HTTP协议</li><li>HTTPS： HTTPS协议</li></ul>
+ * @method void setSchema(string $Schema) 设置<p>模型路由实例的网络协议</p><p>枚举值：</p><ul><li>HTTP： HTTP协议</li><li>HTTPS： HTTPS协议</li></ul>
+ * @method string getSubnetId() 获取<p>模型路由实例所属子网的ID</p>
+ * @method void setSubnetId(string $SubnetId) 设置<p>模型路由实例所属子网的ID</p>
+ * @method array getTags() 获取<p>标签</p>
+ * @method void setTags(array $Tags) 设置<p>标签</p>
+ * @method string getVpcId() 获取<p>模型路由实例所属VPC的ID</p>
+ * @method void setVpcId(string $VpcId) 设置<p>模型路由实例所属VPC的ID</p>
+ * @method ModelRouterBillingConfigInput getModelRouterBillingConfig() 获取<p>模型路由实例计费信息</p>
+ * @method void setModelRouterBillingConfig(ModelRouterBillingConfigInput $ModelRouterBillingConfig) 设置<p>模型路由实例计费信息</p>
+ * @method string getClientToken() 获取<p>客户端Token，用于保证请求的幂等性。  从您的客户端生成一个参数值，确保不同请求间该参数值唯一。ClientToken只支持ASCII字符。</p>
+ * @method void setClientToken(string $ClientToken) 设置<p>客户端Token，用于保证请求的幂等性。  从您的客户端生成一个参数值，确保不同请求间该参数值唯一。ClientToken只支持ASCII字符。</p>
+ * @method string getEipAddressId() 获取<p>弹性公网IP的ID</p>
+ * @method void setEipAddressId(string $EipAddressId) 设置<p>弹性公网IP的ID</p>
+ * @method integer getBandwidth() 获取<p>单位</p><p>取值范围：[1, 2048]</p><p>单位：Mbps</p>
+ * @method void setBandwidth(integer $Bandwidth) 设置<p>单位</p><p>取值范围：[1, 2048]</p><p>单位：Mbps</p>
+ * @method EmbeddingConfig getEmbeddingConfig() 获取<p>Embedding 调度配置</p>
+ * @method void setEmbeddingConfig(EmbeddingConfig $EmbeddingConfig) 设置<p>Embedding 调度配置</p>
+ * @method VideoConfig getVideoConfig() 获取<p>Video 配置</p>
+ * @method void setVideoConfig(VideoConfig $VideoConfig) 设置<p>Video 配置</p>
+ * @method RerankConfig getRerankConfig() 获取<p>Rerank 调度配置</p>
+ * @method void setRerankConfig(RerankConfig $RerankConfig) 设置<p>Rerank 调度配置</p>
+ * @method DecisionsConfig getDecisionsConfig() 获取<p>Decisions 调度配置</p>
+ * @method void setDecisionsConfig(DecisionsConfig $DecisionsConfig) 设置<p>Decisions 调度配置</p>
+ * @method ImageConfig getImageConfig() 获取<p>Images 生图配置</p>
+ * @method void setImageConfig(ImageConfig $ImageConfig) 设置<p>Images 生图配置</p>
+ */
+class CreateModelRouterRequest extends AbstractModel
+{
+    /**
+     * @var string <p>模型路由类型</p><p>枚举值：</p><ul><li>Shared： 共享型</li><li>Enterprise： 企业级</li></ul>
+     */
+    public $ModelRouterType;
+
+    /**
+     * @var string <p>关联的积分预算ID</p>
+     */
+    public $BudgetId;
+
+    /**
+     * @var string <p>证书ID</p><p>入参限制：当Scheme为HTTPS时，该参数必传</p>
+     */
+    public $CertId;
+
+    /**
+     * @var ClusterInfoInput <p>集群信息</p>
+     */
+    public $ClusterInfo;
+
+    /**
+     * @var string <p>模型路由实例名称</p><p>默认值：-</p>
+     */
+    public $ModelRouterName;
+
+    /**
+     * @var string <p>网络类型</p><p>枚举值：</p><ul><li>Internet： 公网</li><li>Intranet： 内网</li></ul>
+     */
+    public $NetworkType;
+
+    /**
+     * @var integer <p>模型路由的监听端口</p><p>取值范围：[1, 65535]</p>
+     */
+    public $Port;
+
+    /**
+     * @var RateLimitConfigForModelRouter <p>限速配置</p>
+     */
+    public $RateLimitConfig;
+
+    /**
+     * @var RouterSettingWithoutFallBack <p>路由配置</p><p>新创建实例时，默认会开启粘连路由</p>
+     */
+    public $RouterSetting;
+
+    /**
+     * @var string <p>模型路由实例的网络协议</p><p>枚举值：</p><ul><li>HTTP： HTTP协议</li><li>HTTPS： HTTPS协议</li></ul>
+     */
+    public $Schema;
+
+    /**
+     * @var string <p>模型路由实例所属子网的ID</p>
+     */
+    public $SubnetId;
+
+    /**
+     * @var array <p>标签</p>
+     */
+    public $Tags;
+
+    /**
+     * @var string <p>模型路由实例所属VPC的ID</p>
+     */
+    public $VpcId;
+
+    /**
+     * @var ModelRouterBillingConfigInput <p>模型路由实例计费信息</p>
+     */
+    public $ModelRouterBillingConfig;
+
+    /**
+     * @var string <p>客户端Token，用于保证请求的幂等性。  从您的客户端生成一个参数值，确保不同请求间该参数值唯一。ClientToken只支持ASCII字符。</p>
+     */
+    public $ClientToken;
+
+    /**
+     * @var string <p>弹性公网IP的ID</p>
+     */
+    public $EipAddressId;
+
+    /**
+     * @var integer <p>单位</p><p>取值范围：[1, 2048]</p><p>单位：Mbps</p>
+     */
+    public $Bandwidth;
+
+    /**
+     * @var EmbeddingConfig <p>Embedding 调度配置</p>
+     */
+    public $EmbeddingConfig;
+
+    /**
+     * @var VideoConfig <p>Video 配置</p>
+     */
+    public $VideoConfig;
+
+    /**
+     * @var RerankConfig <p>Rerank 调度配置</p>
+     */
+    public $RerankConfig;
+
+    /**
+     * @var DecisionsConfig <p>Decisions 调度配置</p>
+     */
+    public $DecisionsConfig;
+
+    /**
+     * @var ImageConfig <p>Images 生图配置</p>
+     */
+    public $ImageConfig;
+
+    /**
+     * @param string $ModelRouterType <p>模型路由类型</p><p>枚举值：</p><ul><li>Shared： 共享型</li><li>Enterprise： 企业级</li></ul>
+     * @param string $BudgetId <p>关联的积分预算ID</p>
+     * @param string $CertId <p>证书ID</p><p>入参限制：当Scheme为HTTPS时，该参数必传</p>
+     * @param ClusterInfoInput $ClusterInfo <p>集群信息</p>
+     * @param string $ModelRouterName <p>模型路由实例名称</p><p>默认值：-</p>
+     * @param string $NetworkType <p>网络类型</p><p>枚举值：</p><ul><li>Internet： 公网</li><li>Intranet： 内网</li></ul>
+     * @param integer $Port <p>模型路由的监听端口</p><p>取值范围：[1, 65535]</p>
+     * @param RateLimitConfigForModelRouter $RateLimitConfig <p>限速配置</p>
+     * @param RouterSettingWithoutFallBack $RouterSetting <p>路由配置</p><p>新创建实例时，默认会开启粘连路由</p>
+     * @param string $Schema <p>模型路由实例的网络协议</p><p>枚举值：</p><ul><li>HTTP： HTTP协议</li><li>HTTPS： HTTPS协议</li></ul>
+     * @param string $SubnetId <p>模型路由实例所属子网的ID</p>
+     * @param array $Tags <p>标签</p>
+     * @param string $VpcId <p>模型路由实例所属VPC的ID</p>
+     * @param ModelRouterBillingConfigInput $ModelRouterBillingConfig <p>模型路由实例计费信息</p>
+     * @param string $ClientToken <p>客户端Token，用于保证请求的幂等性。  从您的客户端生成一个参数值，确保不同请求间该参数值唯一。ClientToken只支持ASCII字符。</p>
+     * @param string $EipAddressId <p>弹性公网IP的ID</p>
+     * @param integer $Bandwidth <p>单位</p><p>取值范围：[1, 2048]</p><p>单位：Mbps</p>
+     * @param EmbeddingConfig $EmbeddingConfig <p>Embedding 调度配置</p>
+     * @param VideoConfig $VideoConfig <p>Video 配置</p>
+     * @param RerankConfig $RerankConfig <p>Rerank 调度配置</p>
+     * @param DecisionsConfig $DecisionsConfig <p>Decisions 调度配置</p>
+     * @param ImageConfig $ImageConfig <p>Images 生图配置</p>
+     */
+    function __construct()
+    {
+
+    }
+
+    /**
+     * For internal only. DO NOT USE IT.
+     */
+    public function deserialize($param)
+    {
+        if ($param === null) {
+            return;
+        }
+        if (array_key_exists("ModelRouterType",$param) and $param["ModelRouterType"] !== null) {
+            $this->ModelRouterType = $param["ModelRouterType"];
+        }
+
+        if (array_key_exists("BudgetId",$param) and $param["BudgetId"] !== null) {
+            $this->BudgetId = $param["BudgetId"];
+        }
+
+        if (array_key_exists("CertId",$param) and $param["CertId"] !== null) {
+            $this->CertId = $param["CertId"];
+        }
+
+        if (array_key_exists("ClusterInfo",$param) and $param["ClusterInfo"] !== null) {
+            $this->ClusterInfo = new ClusterInfoInput();
+            $this->ClusterInfo->deserialize($param["ClusterInfo"]);
+        }
+
+        if (array_key_exists("ModelRouterName",$param) and $param["ModelRouterName"] !== null) {
+            $this->ModelRouterName = $param["ModelRouterName"];
+        }
+
+        if (array_key_exists("NetworkType",$param) and $param["NetworkType"] !== null) {
+            $this->NetworkType = $param["NetworkType"];
+        }
+
+        if (array_key_exists("Port",$param) and $param["Port"] !== null) {
+            $this->Port = $param["Port"];
+        }
+
+        if (array_key_exists("RateLimitConfig",$param) and $param["RateLimitConfig"] !== null) {
+            $this->RateLimitConfig = new RateLimitConfigForModelRouter();
+            $this->RateLimitConfig->deserialize($param["RateLimitConfig"]);
+        }
+
+        if (array_key_exists("RouterSetting",$param) and $param["RouterSetting"] !== null) {
+            $this->RouterSetting = new RouterSettingWithoutFallBack();
+            $this->RouterSetting->deserialize($param["RouterSetting"]);
+        }
+
+        if (array_key_exists("Schema",$param) and $param["Schema"] !== null) {
+            $this->Schema = $param["Schema"];
+        }
+
+        if (array_key_exists("SubnetId",$param) and $param["SubnetId"] !== null) {
+            $this->SubnetId = $param["SubnetId"];
+        }
+
+        if (array_key_exists("Tags",$param) and $param["Tags"] !== null) {
+            $this->Tags = [];
+            foreach ($param["Tags"] as $key => $value){
+                $obj = new TagInfo();
+                $obj->deserialize($value);
+                array_push($this->Tags, $obj);
+            }
+        }
+
+        if (array_key_exists("VpcId",$param) and $param["VpcId"] !== null) {
+            $this->VpcId = $param["VpcId"];
+        }
+
+        if (array_key_exists("ModelRouterBillingConfig",$param) and $param["ModelRouterBillingConfig"] !== null) {
+            $this->ModelRouterBillingConfig = new ModelRouterBillingConfigInput();
+            $this->ModelRouterBillingConfig->deserialize($param["ModelRouterBillingConfig"]);
+        }
+
+        if (array_key_exists("ClientToken",$param) and $param["ClientToken"] !== null) {
+            $this->ClientToken = $param["ClientToken"];
+        }
+
+        if (array_key_exists("EipAddressId",$param) and $param["EipAddressId"] !== null) {
+            $this->EipAddressId = $param["EipAddressId"];
+        }
+
+        if (array_key_exists("Bandwidth",$param) and $param["Bandwidth"] !== null) {
+            $this->Bandwidth = $param["Bandwidth"];
+        }
+
+        if (array_key_exists("EmbeddingConfig",$param) and $param["EmbeddingConfig"] !== null) {
+            $this->EmbeddingConfig = new EmbeddingConfig();
+            $this->EmbeddingConfig->deserialize($param["EmbeddingConfig"]);
+        }
+
+        if (array_key_exists("VideoConfig",$param) and $param["VideoConfig"] !== null) {
+            $this->VideoConfig = new VideoConfig();
+            $this->VideoConfig->deserialize($param["VideoConfig"]);
+        }
+
+        if (array_key_exists("RerankConfig",$param) and $param["RerankConfig"] !== null) {
+            $this->RerankConfig = new RerankConfig();
+            $this->RerankConfig->deserialize($param["RerankConfig"]);
+        }
+
+        if (array_key_exists("DecisionsConfig",$param) and $param["DecisionsConfig"] !== null) {
+            $this->DecisionsConfig = new DecisionsConfig();
+            $this->DecisionsConfig->deserialize($param["DecisionsConfig"]);
+        }
+
+        if (array_key_exists("ImageConfig",$param) and $param["ImageConfig"] !== null) {
+            $this->ImageConfig = new ImageConfig();
+            $this->ImageConfig->deserialize($param["ImageConfig"]);
+        }
+    }
+}

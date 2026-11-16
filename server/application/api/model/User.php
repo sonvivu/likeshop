@@ -19,7 +19,7 @@
 namespace app\api\model;
 use app\common\model\DistributionOrder;
 use app\common\server\UrlServer;
-use think\Db;
+use think\facade\Db;
 use think\Model;
 
 class User extends Model{

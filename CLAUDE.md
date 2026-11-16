@@ -8,14 +8,14 @@
 
 这是 Likeshop 单商户 B2C 商城免费企业版 `v3.5.1`，不是参考项目 `php-amdj` 的新技术栈：
 
-- `server/`：PHP 7.x + ThinkPHP 5.1 单体工程。
+- `server/`：PHP 8.x + ThinkPHP 8.1.4 单体工程（分支 `upgrade/tp8-php82`，2026-11-16 从 ThinkPHP 6.1.5 升级；迁移细节见 `AGENTS.md` 的“ThinkPHP 8 迁移”，TP6 迁移见“ThinkPHP 6 迁移”）。
 - admin：`server/application/admin/` 中的服务端渲染后台，使用 Think 模板、Layui/Layui Admin、jQuery；没有独立 admin 前端工程。
 - mobile：`uniapp/` 中的 Vue 2 + uni-app + Vuex + uView JavaScript 工程，面向 H5、微信小程序和 App。
 - PC 商城：最新 `php-b2c` Nuxt 2/Vue 2 源码位于 `pc/`；`server/public/pc/` 是生成部署目录。
 - `server/public/mobile/`：H5 编译产物，不是源码。
 - 当前业务代码没有可用自动化测试套件，也没有完整的前端 CLI 开发、lint 或 type-check 流程。
 
-不要引入 Vue 3、TypeScript、Vite、Element Plus、Pinia、ThinkPHP 8 等参考项目约定，除非用户明确批准独立升级任务。
+不要引入 Vue 3、TypeScript、Vite、Element Plus、Pinia 等参考项目约定，除非用户明确批准独立升级任务。
 
 ## 目录速记
 
@@ -92,13 +92,15 @@ PC 本地构建/启动约定：
 ## 多语言 i18n（分支 `vi`）
 
 - 键 = 中文原文；语言 `vi` 默认、`zh` 回退；译文唯一来源 `tools/i18n/locales/<surface>/vi.part*.json`，用 `merge.py <surface>` 合并。不要对已包 `$t()`/`lang()` 的代码重跑 `--scan`，会污染 locale。
-- 后端 `lang()`、Admin `{:lang()}`、uniapp vue-i18n v8、PC `nuxt-i18n@6.28.1`（`@nuxtjs/i18n` v6 不存在）。货币按 VND 显示。
+- 后端 `lang()`、Admin `{:lang()}`、uniapp vue-i18n v8、PC `nuxt-i18n@6.28.1`（`@nuxtjs/i18n` v6 不存在）。货币按 VND 显示，唯一来源 `server/config/currency.php`（`symbol: ₫`）：PHP 用 `config('currency.symbol')`，Admin 模板用 `{:config('currency.symbol')}`；`server/application/` 内已无 `￥` hardcode（uniapp 5 处未动，见 `AGENTS.md`）。新文件须 www-data 可读，否则配置静默为空（2026-11-16 曾因此丢符号）。
 - `pc/plugins/axios.js` 的 `onResponse` 必须 `return response`，缺失会使首页报错。`server/public/pc/` 是生成目录，发布前确认再跑 `autoRelease.sh`。
 - Validate 的 `$message` 在 `__construct` 里逐条 `lang()` 翻译（含 rule-key 标题）。中文拼接 `lang().$var` 在越南语会粘字：冒号结尾的 key 在 part 文件值尾加空格，其余在代码里显式加 `' '`；`积分`/`级` 两份 locale 前导空格不一致，用 `ltrim()` 处理。uView 内部文案用 `$t`/`this.$t`，prop 默认值用 `default() { return this.$t('key') }`。`.vue` 的 CRLF 文件改写须用 `newline=''`。
 
 ## 后端开发规则
 
-- 保持 PHP 7.x / ThinkPHP 5.1 兼容，不使用 PHP 8 专属语法。
+- 当前基线是 PHP 8.x / ThinkPHP 8.1.4（分支 `upgrade/tp8-php82`）。新增代码可使用 PHP 8 语法，但仍以邻近代码风格为准。
+- TP8 迁移要点（详见 `AGENTS.md`）：`field('...', true)` 已失效，排除列改 `withoutField()`；时间字段读出变字符串，`config/database.php` 顶层用 `'datetime_format' => false`；Model 数组赋值 `['inc'/'dec', $v]` 已删，改 `$model->inc()/dec()`（Query Builder 的 `->update(['f' => ['inc', $v]])` 仍可用）。
+- TP6 迁移要点（详见 `AGENTS.md`）：`server/app` 是指向 `application/` 的 symlink；事件文件在 `server/application/event.php`；`Cache::rm()` 已删，改 `delete()`；`url()` 返回对象，存库须 `(string)`；`Validate::remove('field', true)`；`config/database.php` 顶层须有 `auto_timestamp => false`；`find(数组)` 是按主键查；Db-Collection 须 `->toArray()` 后改写；controller 不得直接 `return` Logic 的数组，须包 `_success()/_error()`；Session 须挂 `SessionInit`。
 - 遵循当前 `controller -> validate/logic -> model/server` 分层。
 - controller 只处理 HTTP 上下文、校验和响应，复杂业务进入 logic。
 - 公共模型/逻辑/第三方能力优先放 `application/common/`；新增前搜索已有实现。
@@ -135,7 +137,7 @@ PC 本地构建/启动约定：
 6. mobile 变更检查页面注册与多平台分支；发布产物仅在明确发布任务中更新。
 7. 执行可用验证，明确报告无法运行的检查。
 
-跨端开发计划至少写明：用户入口、API、权限、数据/配置、兼容性、验证方式、是否交付编译产物。当前 PC 迁入已完成首轮，后续架构演进应先固化环境和关键业务基线，再补测试、拆分非破坏性 build/deploy，之后才做公共逻辑收敛和 PHP/ThinkPHP 升级。该路线不是自动授权。
+跨端开发计划至少写明：用户入口、API、权限、数据/配置、兼容性、验证方式、是否交付编译产物。当前 PC 迁入已完成首轮，PHP/ThinkPHP 升级已在分支 `upgrade/tp8-php82` 完成两轮（TP6、TP8；尚未合入 `vi`），后续架构演进应先固化环境和关键业务基线，再补测试、拆分非破坏性 build/deploy，之后才做公共逻辑收敛。该路线不是自动授权。
 
 ## 安全与变更边界
 

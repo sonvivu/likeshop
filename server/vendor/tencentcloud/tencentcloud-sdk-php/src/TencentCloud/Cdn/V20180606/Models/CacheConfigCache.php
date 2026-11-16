@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,11 +20,11 @@ use TencentCloud\Common\AbstractModel;
 /**
  * 路径缓存缓存配置
  *
- * @method string getSwitch() 获取缓存配置开关
+ * @method string getSwitch() 获取路径缓存配置开关，取值有：
 on：开启
 off：关闭
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setSwitch(string $Switch) 设置缓存配置开关
+ * @method void setSwitch(string $Switch) 设置路径缓存配置开关，取值有：
 on：开启
 off：关闭
 注意：此字段可能返回 null，表示取不到有效值。
@@ -64,11 +64,21 @@ on：开启，不缓存该头部及body
 off：关闭，遵循用户自定义的节点缓存规则
 默认为关闭状态
 注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getOriginMtimeCheckType() 获取当缓存过期后，是否开启源站 mtime 校验，配置值为equal、since、none 和 null。默认配置值为equal，会校验源站文件的mtime与长度。2024-09-12 18:00 之前创建的域名默认值 null，行为保持不变。
+equal：源站响应mtime必须和缓存mtime一致，若mtime值不一致，清除缓存。
+since：若源站响应mtime大于缓存mtime，清除缓存。
+none： 缓存过期回源重新获取文件mtime和长度后，不会校验源站响应mtime，若源站响应携带Content-Length头部，只有文件大小改变时才会更新缓存；若源站响应不携带Content-Length头部，会更新缓存。
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setOriginMtimeCheckType(string $OriginMtimeCheckType) 设置当缓存过期后，是否开启源站 mtime 校验，配置值为equal、since、none 和 null。默认配置值为equal，会校验源站文件的mtime与长度。2024-09-12 18:00 之前创建的域名默认值 null，行为保持不变。
+equal：源站响应mtime必须和缓存mtime一致，若mtime值不一致，清除缓存。
+since：若源站响应mtime大于缓存mtime，清除缓存。
+none： 缓存过期回源重新获取文件mtime和长度后，不会校验源站响应mtime，若源站响应携带Content-Length头部，只有文件大小改变时才会更新缓存；若源站响应不携带Content-Length头部，会更新缓存。
+注意：此字段可能返回 null，表示取不到有效值。
  */
 class CacheConfigCache extends AbstractModel
 {
     /**
-     * @var string 缓存配置开关
+     * @var string 路径缓存配置开关，取值有：
 on：开启
 off：关闭
 注意：此字段可能返回 null，表示取不到有效值。
@@ -110,7 +120,16 @@ off：关闭，遵循用户自定义的节点缓存规则
     public $IgnoreSetCookie;
 
     /**
-     * @param string $Switch 缓存配置开关
+     * @var string 当缓存过期后，是否开启源站 mtime 校验，配置值为equal、since、none 和 null。默认配置值为equal，会校验源站文件的mtime与长度。2024-09-12 18:00 之前创建的域名默认值 null，行为保持不变。
+equal：源站响应mtime必须和缓存mtime一致，若mtime值不一致，清除缓存。
+since：若源站响应mtime大于缓存mtime，清除缓存。
+none： 缓存过期回源重新获取文件mtime和长度后，不会校验源站响应mtime，若源站响应携带Content-Length头部，只有文件大小改变时才会更新缓存；若源站响应不携带Content-Length头部，会更新缓存。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $OriginMtimeCheckType;
+
+    /**
+     * @param string $Switch 路径缓存配置开关，取值有：
 on：开启
 off：关闭
 注意：此字段可能返回 null，表示取不到有效值。
@@ -131,6 +150,11 @@ off：关闭
 on：开启，不缓存该头部及body
 off：关闭，遵循用户自定义的节点缓存规则
 默认为关闭状态
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $OriginMtimeCheckType 当缓存过期后，是否开启源站 mtime 校验，配置值为equal、since、none 和 null。默认配置值为equal，会校验源站文件的mtime与长度。2024-09-12 18:00 之前创建的域名默认值 null，行为保持不变。
+equal：源站响应mtime必须和缓存mtime一致，若mtime值不一致，清除缓存。
+since：若源站响应mtime大于缓存mtime，清除缓存。
+none： 缓存过期回源重新获取文件mtime和长度后，不会校验源站响应mtime，若源站响应携带Content-Length头部，只有文件大小改变时才会更新缓存；若源站响应不携带Content-Length头部，会更新缓存。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
@@ -164,6 +188,10 @@ off：关闭，遵循用户自定义的节点缓存规则
 
         if (array_key_exists("IgnoreSetCookie",$param) and $param["IgnoreSetCookie"] !== null) {
             $this->IgnoreSetCookie = $param["IgnoreSetCookie"];
+        }
+
+        if (array_key_exists("OriginMtimeCheckType",$param) and $param["OriginMtimeCheckType"] !== null) {
+            $this->OriginMtimeCheckType = $param["OriginMtimeCheckType"];
         }
     }
 }

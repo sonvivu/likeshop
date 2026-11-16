@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,14 +20,23 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeModifyInstanceBundles请求参数结构体
  *
- * @method string getInstanceId() 获取实例 ID。
- * @method void setInstanceId(string $InstanceId) 设置实例 ID。
+ * @method string getInstanceId() 获取实例 ID。可通过 <a href="https://cloud.tencent.com/document/product/1207/47573">DescribeInstances</a> 接口返回值中的 InstanceId 获取。
+ * @method void setInstanceId(string $InstanceId) 设置实例 ID。可通过 <a href="https://cloud.tencent.com/document/product/1207/47573">DescribeInstances</a> 接口返回值中的 InstanceId 获取。
  * @method array getFilters() 获取过滤器列表。
 <li>bundle-id</li>按照【套餐 ID】进行过滤。
 类型：String
 必选：否
+可通过<a href="https://cloud.tencent.com/document/product/1207/47575"> DescribeBundles </a>接口返回值中的 BundleId 获取。
 <li>support-platform-type</li>按照【系统类型】进行过滤。
 取值： LINUX_UNIX（Linux/Unix系统）；WINDOWS（Windows 系统）
+类型：String
+必选：否
+<li>bundle-type</li>按照 【套餐类型进行过滤】。
+取值：GENERAL_BUNDLE (通用型套餐); STORAGE_BUNDLE(存储型套餐);ENTERPRISE_BUNDLE( 企业型套餐);EXCLUSIVE_BUNDLE(专属型套餐);BEFAST_BUNDLE(蜂驰型套餐);STARTER_BUNDLE(入门型套餐);ECONOMY_BUNDLE(经济型套餐);RAZOR_SPEED_BUNDLE(锐驰型套餐)
+类型：String
+必选：否
+<li>bundle-state</li>按照【套餐状态】进行过滤。
+取值: ‘ONLINE’(在线); ‘OFFLINE’(下线);
 类型：String
 必选：否
 每次请求的 Filters 的上限为 10，Filter.Values 的上限为 5。
@@ -35,8 +44,17 @@ use TencentCloud\Common\AbstractModel;
 <li>bundle-id</li>按照【套餐 ID】进行过滤。
 类型：String
 必选：否
+可通过<a href="https://cloud.tencent.com/document/product/1207/47575"> DescribeBundles </a>接口返回值中的 BundleId 获取。
 <li>support-platform-type</li>按照【系统类型】进行过滤。
 取值： LINUX_UNIX（Linux/Unix系统）；WINDOWS（Windows 系统）
+类型：String
+必选：否
+<li>bundle-type</li>按照 【套餐类型进行过滤】。
+取值：GENERAL_BUNDLE (通用型套餐); STORAGE_BUNDLE(存储型套餐);ENTERPRISE_BUNDLE( 企业型套餐);EXCLUSIVE_BUNDLE(专属型套餐);BEFAST_BUNDLE(蜂驰型套餐);STARTER_BUNDLE(入门型套餐);ECONOMY_BUNDLE(经济型套餐);RAZOR_SPEED_BUNDLE(锐驰型套餐)
+类型：String
+必选：否
+<li>bundle-state</li>按照【套餐状态】进行过滤。
+取值: ‘ONLINE’(在线); ‘OFFLINE’(下线);
 类型：String
 必选：否
 每次请求的 Filters 的上限为 10，Filter.Values 的上限为 5。
@@ -48,7 +66,7 @@ use TencentCloud\Common\AbstractModel;
 class DescribeModifyInstanceBundlesRequest extends AbstractModel
 {
     /**
-     * @var string 实例 ID。
+     * @var string 实例 ID。可通过 <a href="https://cloud.tencent.com/document/product/1207/47573">DescribeInstances</a> 接口返回值中的 InstanceId 获取。
      */
     public $InstanceId;
 
@@ -57,8 +75,17 @@ class DescribeModifyInstanceBundlesRequest extends AbstractModel
 <li>bundle-id</li>按照【套餐 ID】进行过滤。
 类型：String
 必选：否
+可通过<a href="https://cloud.tencent.com/document/product/1207/47575"> DescribeBundles </a>接口返回值中的 BundleId 获取。
 <li>support-platform-type</li>按照【系统类型】进行过滤。
 取值： LINUX_UNIX（Linux/Unix系统）；WINDOWS（Windows 系统）
+类型：String
+必选：否
+<li>bundle-type</li>按照 【套餐类型进行过滤】。
+取值：GENERAL_BUNDLE (通用型套餐); STORAGE_BUNDLE(存储型套餐);ENTERPRISE_BUNDLE( 企业型套餐);EXCLUSIVE_BUNDLE(专属型套餐);BEFAST_BUNDLE(蜂驰型套餐);STARTER_BUNDLE(入门型套餐);ECONOMY_BUNDLE(经济型套餐);RAZOR_SPEED_BUNDLE(锐驰型套餐)
+类型：String
+必选：否
+<li>bundle-state</li>按照【套餐状态】进行过滤。
+取值: ‘ONLINE’(在线); ‘OFFLINE’(下线);
 类型：String
 必选：否
 每次请求的 Filters 的上限为 10，Filter.Values 的上限为 5。
@@ -76,13 +103,22 @@ class DescribeModifyInstanceBundlesRequest extends AbstractModel
     public $Limit;
 
     /**
-     * @param string $InstanceId 实例 ID。
+     * @param string $InstanceId 实例 ID。可通过 <a href="https://cloud.tencent.com/document/product/1207/47573">DescribeInstances</a> 接口返回值中的 InstanceId 获取。
      * @param array $Filters 过滤器列表。
 <li>bundle-id</li>按照【套餐 ID】进行过滤。
 类型：String
 必选：否
+可通过<a href="https://cloud.tencent.com/document/product/1207/47575"> DescribeBundles </a>接口返回值中的 BundleId 获取。
 <li>support-platform-type</li>按照【系统类型】进行过滤。
 取值： LINUX_UNIX（Linux/Unix系统）；WINDOWS（Windows 系统）
+类型：String
+必选：否
+<li>bundle-type</li>按照 【套餐类型进行过滤】。
+取值：GENERAL_BUNDLE (通用型套餐); STORAGE_BUNDLE(存储型套餐);ENTERPRISE_BUNDLE( 企业型套餐);EXCLUSIVE_BUNDLE(专属型套餐);BEFAST_BUNDLE(蜂驰型套餐);STARTER_BUNDLE(入门型套餐);ECONOMY_BUNDLE(经济型套餐);RAZOR_SPEED_BUNDLE(锐驰型套餐)
+类型：String
+必选：否
+<li>bundle-state</li>按照【套餐状态】进行过滤。
+取值: ‘ONLINE’(在线); ‘OFFLINE’(下线);
 类型：String
 必选：否
 每次请求的 Filters 的上限为 10，Filter.Values 的上限为 5。

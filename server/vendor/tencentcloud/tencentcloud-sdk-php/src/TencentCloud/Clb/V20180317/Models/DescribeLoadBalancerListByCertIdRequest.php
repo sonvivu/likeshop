@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,18 +20,22 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeLoadBalancerListByCertId请求参数结构体
  *
- * @method array getCertIds() 获取服务端证书的ID，或客户端证书的ID
- * @method void setCertIds(array $CertIds) 设置服务端证书的ID，或客户端证书的ID
+ * @method array getCertIds() 获取服务端证书的ID，或客户端证书的ID。可以通过 [DescribeCertificate](https://cloud.tencent.com/document/api/400/41674) 接口查询。
+数组最大长度为20。
+ * @method void setCertIds(array $CertIds) 设置服务端证书的ID，或客户端证书的ID。可以通过 [DescribeCertificate](https://cloud.tencent.com/document/api/400/41674) 接口查询。
+数组最大长度为20。
  */
 class DescribeLoadBalancerListByCertIdRequest extends AbstractModel
 {
     /**
-     * @var array 服务端证书的ID，或客户端证书的ID
+     * @var array 服务端证书的ID，或客户端证书的ID。可以通过 [DescribeCertificate](https://cloud.tencent.com/document/api/400/41674) 接口查询。
+数组最大长度为20。
      */
     public $CertIds;
 
     /**
-     * @param array $CertIds 服务端证书的ID，或客户端证书的ID
+     * @param array $CertIds 服务端证书的ID，或客户端证书的ID。可以通过 [DescribeCertificate](https://cloud.tencent.com/document/api/400/41674) 接口查询。
+数组最大长度为20。
      */
     function __construct()
     {

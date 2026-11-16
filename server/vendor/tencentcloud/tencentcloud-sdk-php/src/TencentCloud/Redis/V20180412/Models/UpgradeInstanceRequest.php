@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,50 +20,94 @@ use TencentCloud\Common\AbstractModel;
 /**
  * UpgradeInstance请求参数结构体
  *
- * @method string getInstanceId() 获取实例ID
- * @method void setInstanceId(string $InstanceId) 设置实例ID
- * @method integer getMemSize() 获取分片大小 单位 MB
- * @method void setMemSize(integer $MemSize) 设置分片大小 单位 MB
- * @method integer getRedisShardNum() 获取分片数量，Redis2.8主从版、CKV主从版和Redis2.8单机版不需要填写
- * @method void setRedisShardNum(integer $RedisShardNum) 设置分片数量，Redis2.8主从版、CKV主从版和Redis2.8单机版不需要填写
- * @method integer getRedisReplicasNum() 获取副本数量，Redis2.8主从版、CKV主从版和Redis2.8单机版不需要填写
- * @method void setRedisReplicasNum(integer $RedisReplicasNum) 设置副本数量，Redis2.8主从版、CKV主从版和Redis2.8单机版不需要填写
- * @method array getNodeSet() 获取多AZ实例增加副本时的附带信息，非多AZ实例不需要传此参数。多AZ增加副本时此参数为必传参数，传入要增加的副本的信息，包括副本的可用区和副本的类型（NodeType为1）
- * @method void setNodeSet(array $NodeSet) 设置多AZ实例增加副本时的附带信息，非多AZ实例不需要传此参数。多AZ增加副本时此参数为必传参数，传入要增加的副本的信息，包括副本的可用区和副本的类型（NodeType为1）
+ * @method string getInstanceId() 获取待变更实例 ID。请登录[Redis控制台](https://console.cloud.tencent.com/redis/instance/list)在实例列表复制实例 ID。
+ * @method void setInstanceId(string $InstanceId) 设置待变更实例 ID。请登录[Redis控制台](https://console.cloud.tencent.com/redis/instance/list)在实例列表复制实例 ID。
+ * @method integer getMemSize() 获取指实例每个分片内存变更后的大小。
+- 单位 MB。
+- 每次只能修改参数MemSize、RedisShardNum和RedisReplicasNum其中的一个，不能同时修改。且修改其中一个参数时，其他两个参数需输入实例原有的配置规格。
+- 缩容时，缩容后的规格务必要大于等于使用容量的1.3倍，否则将执行失败。
+ * @method void setMemSize(integer $MemSize) 设置指实例每个分片内存变更后的大小。
+- 单位 MB。
+- 每次只能修改参数MemSize、RedisShardNum和RedisReplicasNum其中的一个，不能同时修改。且修改其中一个参数时，其他两个参数需输入实例原有的配置规格。
+- 缩容时，缩容后的规格务必要大于等于使用容量的1.3倍，否则将执行失败。
+ * @method integer getRedisShardNum() 获取指实例变更后的分片数量。
+- 标准架构不需要配置该参数，集群架构为必填参数。
+- 集群架构，每次只能修改参数RedisShardNum、MemSize和RedisReplicasNum其中的一个，不能同时修改。且修改其中一个参数时，其他两个参数需输入实例原有的配置规格。
+ * @method void setRedisShardNum(integer $RedisShardNum) 设置指实例变更后的分片数量。
+- 标准架构不需要配置该参数，集群架构为必填参数。
+- 集群架构，每次只能修改参数RedisShardNum、MemSize和RedisReplicasNum其中的一个，不能同时修改。且修改其中一个参数时，其他两个参数需输入实例原有的配置规格。
+ * @method integer getRedisReplicasNum() 获取指实例变更后的副本数量。
+- 每次只能修改参数 RedisReplicasNum、MemSize 和 RedisShardNum 其中的一个，不能同时修改。且修改其中一个参数时，其他两个参数需输入实例原有的配置规格。
+- 多AZ实例修改副本时必须要传入 NodeSet。
+ * @method void setRedisReplicasNum(integer $RedisReplicasNum) 设置指实例变更后的副本数量。
+- 每次只能修改参数 RedisReplicasNum、MemSize 和 RedisShardNum 其中的一个，不能同时修改。且修改其中一个参数时，其他两个参数需输入实例原有的配置规格。
+- 多AZ实例修改副本时必须要传入 NodeSet。
+ * @method array getNodeSet() 获取多AZ实例，增加副本时的节点信息，包括副本的 ID 编号及可用区信息。非多AZ实例不需要配置该参数。
+ * @method void setNodeSet(array $NodeSet) 设置多AZ实例，增加副本时的节点信息，包括副本的 ID 编号及可用区信息。非多AZ实例不需要配置该参数。
+ * @method integer getSwitchOption() 获取切换时间。 
+- 1：维护时间窗操作：指升级规格在设置的维护时间窗内执行。请通过接口[DescribeMaintenanceWindow](https://cloud.tencent.com/document/product/239/46336)查询设置的维护时间窗时间段。增减副本、增减分片、扩缩内存均支持在维护时间窗执行操作。维护时间窗升级规格正在分地域逐步测试发布中，部分区域已支持，未覆盖地域若需紧急接入，请[提交工单](https://console.cloud.tencent.com/workorder/category)申请白名单。
+- 2：立即操作：操作将立即执行，无需等待维护时间窗。系统默认设置为立即操作。
+ * @method void setSwitchOption(integer $SwitchOption) 设置切换时间。 
+- 1：维护时间窗操作：指升级规格在设置的维护时间窗内执行。请通过接口[DescribeMaintenanceWindow](https://cloud.tencent.com/document/product/239/46336)查询设置的维护时间窗时间段。增减副本、增减分片、扩缩内存均支持在维护时间窗执行操作。维护时间窗升级规格正在分地域逐步测试发布中，部分区域已支持，未覆盖地域若需紧急接入，请[提交工单](https://console.cloud.tencent.com/workorder/category)申请白名单。
+- 2：立即操作：操作将立即执行，无需等待维护时间窗。系统默认设置为立即操作。
  */
 class UpgradeInstanceRequest extends AbstractModel
 {
     /**
-     * @var string 实例ID
+     * @var string 待变更实例 ID。请登录[Redis控制台](https://console.cloud.tencent.com/redis/instance/list)在实例列表复制实例 ID。
      */
     public $InstanceId;
 
     /**
-     * @var integer 分片大小 单位 MB
+     * @var integer 指实例每个分片内存变更后的大小。
+- 单位 MB。
+- 每次只能修改参数MemSize、RedisShardNum和RedisReplicasNum其中的一个，不能同时修改。且修改其中一个参数时，其他两个参数需输入实例原有的配置规格。
+- 缩容时，缩容后的规格务必要大于等于使用容量的1.3倍，否则将执行失败。
      */
     public $MemSize;
 
     /**
-     * @var integer 分片数量，Redis2.8主从版、CKV主从版和Redis2.8单机版不需要填写
+     * @var integer 指实例变更后的分片数量。
+- 标准架构不需要配置该参数，集群架构为必填参数。
+- 集群架构，每次只能修改参数RedisShardNum、MemSize和RedisReplicasNum其中的一个，不能同时修改。且修改其中一个参数时，其他两个参数需输入实例原有的配置规格。
      */
     public $RedisShardNum;
 
     /**
-     * @var integer 副本数量，Redis2.8主从版、CKV主从版和Redis2.8单机版不需要填写
+     * @var integer 指实例变更后的副本数量。
+- 每次只能修改参数 RedisReplicasNum、MemSize 和 RedisShardNum 其中的一个，不能同时修改。且修改其中一个参数时，其他两个参数需输入实例原有的配置规格。
+- 多AZ实例修改副本时必须要传入 NodeSet。
      */
     public $RedisReplicasNum;
 
     /**
-     * @var array 多AZ实例增加副本时的附带信息，非多AZ实例不需要传此参数。多AZ增加副本时此参数为必传参数，传入要增加的副本的信息，包括副本的可用区和副本的类型（NodeType为1）
+     * @var array 多AZ实例，增加副本时的节点信息，包括副本的 ID 编号及可用区信息。非多AZ实例不需要配置该参数。
      */
     public $NodeSet;
 
     /**
-     * @param string $InstanceId 实例ID
-     * @param integer $MemSize 分片大小 单位 MB
-     * @param integer $RedisShardNum 分片数量，Redis2.8主从版、CKV主从版和Redis2.8单机版不需要填写
-     * @param integer $RedisReplicasNum 副本数量，Redis2.8主从版、CKV主从版和Redis2.8单机版不需要填写
-     * @param array $NodeSet 多AZ实例增加副本时的附带信息，非多AZ实例不需要传此参数。多AZ增加副本时此参数为必传参数，传入要增加的副本的信息，包括副本的可用区和副本的类型（NodeType为1）
+     * @var integer 切换时间。 
+- 1：维护时间窗操作：指升级规格在设置的维护时间窗内执行。请通过接口[DescribeMaintenanceWindow](https://cloud.tencent.com/document/product/239/46336)查询设置的维护时间窗时间段。增减副本、增减分片、扩缩内存均支持在维护时间窗执行操作。维护时间窗升级规格正在分地域逐步测试发布中，部分区域已支持，未覆盖地域若需紧急接入，请[提交工单](https://console.cloud.tencent.com/workorder/category)申请白名单。
+- 2：立即操作：操作将立即执行，无需等待维护时间窗。系统默认设置为立即操作。
+     */
+    public $SwitchOption;
+
+    /**
+     * @param string $InstanceId 待变更实例 ID。请登录[Redis控制台](https://console.cloud.tencent.com/redis/instance/list)在实例列表复制实例 ID。
+     * @param integer $MemSize 指实例每个分片内存变更后的大小。
+- 单位 MB。
+- 每次只能修改参数MemSize、RedisShardNum和RedisReplicasNum其中的一个，不能同时修改。且修改其中一个参数时，其他两个参数需输入实例原有的配置规格。
+- 缩容时，缩容后的规格务必要大于等于使用容量的1.3倍，否则将执行失败。
+     * @param integer $RedisShardNum 指实例变更后的分片数量。
+- 标准架构不需要配置该参数，集群架构为必填参数。
+- 集群架构，每次只能修改参数RedisShardNum、MemSize和RedisReplicasNum其中的一个，不能同时修改。且修改其中一个参数时，其他两个参数需输入实例原有的配置规格。
+     * @param integer $RedisReplicasNum 指实例变更后的副本数量。
+- 每次只能修改参数 RedisReplicasNum、MemSize 和 RedisShardNum 其中的一个，不能同时修改。且修改其中一个参数时，其他两个参数需输入实例原有的配置规格。
+- 多AZ实例修改副本时必须要传入 NodeSet。
+     * @param array $NodeSet 多AZ实例，增加副本时的节点信息，包括副本的 ID 编号及可用区信息。非多AZ实例不需要配置该参数。
+     * @param integer $SwitchOption 切换时间。 
+- 1：维护时间窗操作：指升级规格在设置的维护时间窗内执行。请通过接口[DescribeMaintenanceWindow](https://cloud.tencent.com/document/product/239/46336)查询设置的维护时间窗时间段。增减副本、增减分片、扩缩内存均支持在维护时间窗执行操作。维护时间窗升级规格正在分地域逐步测试发布中，部分区域已支持，未覆盖地域若需紧急接入，请[提交工单](https://console.cloud.tencent.com/workorder/category)申请白名单。
+- 2：立即操作：操作将立即执行，无需等待维护时间窗。系统默认设置为立即操作。
      */
     function __construct()
     {
@@ -101,6 +145,10 @@ class UpgradeInstanceRequest extends AbstractModel
                 $obj->deserialize($value);
                 array_push($this->NodeSet, $obj);
             }
+        }
+
+        if (array_key_exists("SwitchOption",$param) and $param["SwitchOption"] !== null) {
+            $this->SwitchOption = $param["SwitchOption"];
         }
     }
 }

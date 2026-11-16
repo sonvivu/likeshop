@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,22 +20,26 @@ use TencentCloud\Common\AbstractModel;
 /**
  * 操作类型返回的Data结构
  *
- * @method integer getFlowId() 获取FlowId
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setFlowId(integer $FlowId) 设置FlowId
-注意：此字段可能返回 null，表示取不到有效值。
+ * @method integer getFlowId() 获取流程Id
+ * @method void setFlowId(integer $FlowId) 设置流程Id
+ * @method RouteDTO getRouteDTO() 获取RouteIdDto
+ * @method void setRouteDTO(RouteDTO $RouteDTO) 设置RouteIdDto
  */
 class OperateResponseData extends AbstractModel
 {
     /**
-     * @var integer FlowId
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var integer 流程Id
      */
     public $FlowId;
 
     /**
-     * @param integer $FlowId FlowId
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var RouteDTO RouteIdDto
+     */
+    public $RouteDTO;
+
+    /**
+     * @param integer $FlowId 流程Id
+     * @param RouteDTO $RouteDTO RouteIdDto
      */
     function __construct()
     {
@@ -52,6 +56,11 @@ class OperateResponseData extends AbstractModel
         }
         if (array_key_exists("FlowId",$param) and $param["FlowId"] !== null) {
             $this->FlowId = $param["FlowId"];
+        }
+
+        if (array_key_exists("RouteDTO",$param) and $param["RouteDTO"] !== null) {
+            $this->RouteDTO = new RouteDTO();
+            $this->RouteDTO->deserialize($param["RouteDTO"]);
         }
     }
 }

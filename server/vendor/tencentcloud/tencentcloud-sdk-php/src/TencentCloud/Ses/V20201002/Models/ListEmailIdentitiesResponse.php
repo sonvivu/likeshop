@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,8 +22,14 @@ use TencentCloud\Common\AbstractModel;
  *
  * @method array getEmailIdentities() 获取发信域名列表
  * @method void setEmailIdentities(array $EmailIdentities) 设置发信域名列表
- * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
- * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method integer getMaxReputationLevel() 获取最大信誉等级
+ * @method void setMaxReputationLevel(integer $MaxReputationLevel) 设置最大信誉等级
+ * @method integer getMaxDailyQuota() 获取单域名最高日发送量
+ * @method void setMaxDailyQuota(integer $MaxDailyQuota) 设置单域名最高日发送量
+ * @method integer getTotal() 获取总数
+ * @method void setTotal(integer $Total) 设置总数
+ * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+ * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
 class ListEmailIdentitiesResponse extends AbstractModel
 {
@@ -33,13 +39,31 @@ class ListEmailIdentitiesResponse extends AbstractModel
     public $EmailIdentities;
 
     /**
-     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @var integer 最大信誉等级
+     */
+    public $MaxReputationLevel;
+
+    /**
+     * @var integer 单域名最高日发送量
+     */
+    public $MaxDailyQuota;
+
+    /**
+     * @var integer 总数
+     */
+    public $Total;
+
+    /**
+     * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public $RequestId;
 
     /**
      * @param array $EmailIdentities 发信域名列表
-     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @param integer $MaxReputationLevel 最大信誉等级
+     * @param integer $MaxDailyQuota 单域名最高日发送量
+     * @param integer $Total 总数
+     * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
     {
@@ -61,6 +85,18 @@ class ListEmailIdentitiesResponse extends AbstractModel
                 $obj->deserialize($value);
                 array_push($this->EmailIdentities, $obj);
             }
+        }
+
+        if (array_key_exists("MaxReputationLevel",$param) and $param["MaxReputationLevel"] !== null) {
+            $this->MaxReputationLevel = $param["MaxReputationLevel"];
+        }
+
+        if (array_key_exists("MaxDailyQuota",$param) and $param["MaxDailyQuota"] !== null) {
+            $this->MaxDailyQuota = $param["MaxDailyQuota"];
+        }
+
+        if (array_key_exists("Total",$param) and $param["Total"] !== null) {
+            $this->Total = $param["Total"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

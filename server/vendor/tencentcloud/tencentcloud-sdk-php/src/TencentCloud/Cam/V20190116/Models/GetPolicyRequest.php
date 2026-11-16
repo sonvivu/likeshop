@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,18 +20,18 @@ use TencentCloud\Common\AbstractModel;
 /**
  * GetPolicy请求参数结构体
  *
- * @method integer getPolicyId() 获取策略Id
- * @method void setPolicyId(integer $PolicyId) 设置策略Id
+ * @method integer getPolicyId() 获取策略Id。
+ * @method void setPolicyId(integer $PolicyId) 设置策略Id。
  */
 class GetPolicyRequest extends AbstractModel
 {
     /**
-     * @var integer 策略Id
+     * @var integer 策略Id。
      */
     public $PolicyId;
 
     /**
-     * @param integer $PolicyId 策略Id
+     * @param integer $PolicyId 策略Id。
      */
     function __construct()
     {

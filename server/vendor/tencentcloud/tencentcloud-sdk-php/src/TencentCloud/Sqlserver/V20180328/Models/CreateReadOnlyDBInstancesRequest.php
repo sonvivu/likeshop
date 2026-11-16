@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,8 +44,8 @@ use TencentCloud\Common\AbstractModel;
  * @method void setReadOnlyGroupMinInGroup(integer $ReadOnlyGroupMinInGroup) 设置ReadOnlyGroupType=2 且 ReadOnlyGroupIsOfflineDelay=1时必填，新建的只读组延迟剔除后至少保留只读副本的个数。
  * @method string getInstanceChargeType() 获取付费模式，取值支持 PREPAID（预付费），POSTPAID（后付费）。
  * @method void setInstanceChargeType(string $InstanceChargeType) 设置付费模式，取值支持 PREPAID（预付费），POSTPAID（后付费）。
- * @method integer getGoodsNum() 获取本次购买几个只读实例，默认值为1。
- * @method void setGoodsNum(integer $GoodsNum) 设置本次购买几个只读实例，默认值为1。
+ * @method integer getGoodsNum() 获取本次购买几个只读实例，默认值为2。
+ * @method void setGoodsNum(integer $GoodsNum) 设置本次购买几个只读实例，默认值为2。
  * @method string getSubnetId() 获取VPC子网ID，形如subnet-bdoe83fa；SubnetId和VpcId需同时设置或者同时不设置
  * @method void setSubnetId(string $SubnetId) 设置VPC子网ID，形如subnet-bdoe83fa；SubnetId和VpcId需同时设置或者同时不设置
  * @method string getVpcId() 获取VPC网络ID，形如vpc-dsp338hz；SubnetId和VpcId需同时设置或者同时不设置
@@ -60,6 +60,10 @@ use TencentCloud\Common\AbstractModel;
  * @method void setVoucherIds(array $VoucherIds) 设置代金券ID数组，目前单个订单只能使用一张
  * @method array getResourceTags() 获取新建实例绑定的标签集合
  * @method void setResourceTags(array $ResourceTags) 设置新建实例绑定的标签集合
+ * @method string getCollation() 获取系统字符集排序规则，默认：Chinese_PRC_CI_AS
+ * @method void setCollation(string $Collation) 设置系统字符集排序规则，默认：Chinese_PRC_CI_AS
+ * @method string getTimeZone() 获取系统时区，默认：China Standard Time
+ * @method void setTimeZone(string $TimeZone) 设置系统时区，默认：China Standard Time
  */
 class CreateReadOnlyDBInstancesRequest extends AbstractModel
 {
@@ -124,7 +128,7 @@ class CreateReadOnlyDBInstancesRequest extends AbstractModel
     public $InstanceChargeType;
 
     /**
-     * @var integer 本次购买几个只读实例，默认值为1。
+     * @var integer 本次购买几个只读实例，默认值为2。
      */
     public $GoodsNum;
 
@@ -164,6 +168,16 @@ class CreateReadOnlyDBInstancesRequest extends AbstractModel
     public $ResourceTags;
 
     /**
+     * @var string 系统字符集排序规则，默认：Chinese_PRC_CI_AS
+     */
+    public $Collation;
+
+    /**
+     * @var string 系统时区，默认：China Standard Time
+     */
+    public $TimeZone;
+
+    /**
      * @param string $InstanceId 主实例ID，格式如：mssql-3l3fgqn7
      * @param string $Zone 实例可用区，类似ap-guangzhou-1（广州一区）；实例可售卖区域可以通过接口DescribeZones获取
      * @param integer $ReadOnlyGroupType 只读组类型选项，1-按照一个实例一个只读组的方式发货，2-新建只读组后发货，所有实例都在这个只读组下面， 3-发货的所有实例都在已有的只读组下面
@@ -176,7 +190,7 @@ class CreateReadOnlyDBInstancesRequest extends AbstractModel
      * @param integer $ReadOnlyGroupMaxDelayTime ReadOnlyGroupType=2 且 ReadOnlyGroupIsOfflineDelay=1时必填，新建的只读组延迟剔除的阈值。
      * @param integer $ReadOnlyGroupMinInGroup ReadOnlyGroupType=2 且 ReadOnlyGroupIsOfflineDelay=1时必填，新建的只读组延迟剔除后至少保留只读副本的个数。
      * @param string $InstanceChargeType 付费模式，取值支持 PREPAID（预付费），POSTPAID（后付费）。
-     * @param integer $GoodsNum 本次购买几个只读实例，默认值为1。
+     * @param integer $GoodsNum 本次购买几个只读实例，默认值为2。
      * @param string $SubnetId VPC子网ID，形如subnet-bdoe83fa；SubnetId和VpcId需同时设置或者同时不设置
      * @param string $VpcId VPC网络ID，形如vpc-dsp338hz；SubnetId和VpcId需同时设置或者同时不设置
      * @param integer $Period 购买实例周期，默认取值为1，表示一个月。取值不超过48
@@ -184,6 +198,8 @@ class CreateReadOnlyDBInstancesRequest extends AbstractModel
      * @param integer $AutoVoucher 是否自动使用代金券；1 - 是，0 - 否，默认不使用
      * @param array $VoucherIds 代金券ID数组，目前单个订单只能使用一张
      * @param array $ResourceTags 新建实例绑定的标签集合
+     * @param string $Collation 系统字符集排序规则，默认：Chinese_PRC_CI_AS
+     * @param string $TimeZone 系统时区，默认：China Standard Time
      */
     function __construct()
     {
@@ -281,6 +297,14 @@ class CreateReadOnlyDBInstancesRequest extends AbstractModel
                 $obj->deserialize($value);
                 array_push($this->ResourceTags, $obj);
             }
+        }
+
+        if (array_key_exists("Collation",$param) and $param["Collation"] !== null) {
+            $this->Collation = $param["Collation"];
+        }
+
+        if (array_key_exists("TimeZone",$param) and $param["TimeZone"] !== null) {
+            $this->TimeZone = $param["TimeZone"];
         }
     }
 }

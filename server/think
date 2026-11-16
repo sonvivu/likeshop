@@ -7,18 +7,22 @@
 // +----------------------------------------------------------------------
 // | Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
 // +----------------------------------------------------------------------
-// | Author: yunwuxin <448901948@qq.com>
+// | Author: liu21st <liu21st@gmail.com>
 // +----------------------------------------------------------------------
 
+// [ 控制台入口文件 ] ThinkPHP 6
 namespace think;
 
-// 加载基础文件
-require __DIR__ . '/thinkphp/base.php';
+require __DIR__ . '/vendor/autoload.php';
 
-define('ROOT_PATH',__DIR__);
+// ThinkPHP 6 不再自动加载应用公共文件，这里显式加载
+require __DIR__ . '/application/common.php';
+
+define('ROOT_PATH', __DIR__);
 
 // 应用初始化
-Container::get('app')->path(__DIR__ . '/application/')->initialize();
+$app = new App(__DIR__ . '/');
+$app->initialize();
 
-// 控制台初始化
-Console::init();
+// 控制台初始化（ThinkPHP 6：Console::init() 已删除，改为取 console 服务再 run）
+$app->console->run();

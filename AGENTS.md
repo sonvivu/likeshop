@@ -10,7 +10,7 @@
 
 Likeshop 是单商户 B2C 商城。当前仓库是免费企业版 `v3.5.1`，包含一个 ThinkPHP 单体服务端、服务端渲染的 PC 管理后台，以及一个 Vue 2 uni-app 移动商城源码。
 
-- 服务端：PHP `>= 7.0`、ThinkPHP `5.1.*`、MySQL，Composer 管理依赖。
+- 服务端：PHP `>= 8.0`、ThinkPHP `8.1.4`、MySQL，Composer 管理依赖（分支 `upgrade/tp8-php82`，2026-11-16 从 ThinkPHP 6.1.5 升级；见下文“ThinkPHP 8 迁移”。TP6 迁移记录保留在“ThinkPHP 6 迁移”一节）。
 - 管理后台：admin 模块服务端渲染，Think 模板 + Layui/Layui Admin + jQuery；不是 Vue/React 独立工程。
 - 移动商城：Vue 2 + uni-app + Vuex + 本地 uView 组件，JavaScript 项目；主要通过 HBuilderX 构建。
 - PC 商城：最新 `php-b2c` Nuxt 2/Vue 2 源码已迁入 `pc/`；构建产物按发布步骤输出到 `server/public/pc/`，该目录未必存在于源码工作区。
@@ -33,7 +33,7 @@ Likeshop 是单商户 B2C 商城。当前仓库是免费企业版 `v3.5.1`，包
 - `server/public/mobile/`：uni-app H5 的已编译产物，属于发布结果，不是移动端源码。
 - `server/public/install/db/like.sql`：新安装环境的数据库结构和初始化数据，默认表前缀为 `ls_`。
 - `server/extend/`：非 Composer 扩展代码。
-- `server/thinkphp/`、`server/vendor/`：框架和第三方依赖，除非任务明确要求依赖升级，否则不要直接修改。
+- `server/vendor/`：框架（ThinkPHP 6.1.5 在 `vendor/topthink/`）和第三方依赖，除非任务明确要求依赖升级，否则不要直接修改。旧 `server/thinkphp/` 目录已随升级删除。
 - `server/runtime/`：运行缓存和日志；不要把运行产物纳入功能修改。
 - `server/public/uploads/`：用户上传数据；不要清理、覆盖或提交真实业务文件。
 - `uniapp/`：mobile/H5/微信小程序/App 的唯一可编辑源码。
@@ -81,9 +81,42 @@ ThinkPHP 开启多模块但未强制路由，因此主要 URL 由“模块/控�
 
 ## 服务端架构与开发约定
 
+### ThinkPHP 6 迁移（分支 `upgrade/tp6-php82`，2026-11-16，已验证）
+
+服务端已从 ThinkPHP 5.1.41 / PHP 7.4 升级到 ThinkPHP 6.1.5 / PHP `>= 8.0`（Composer：`topthink/framework ^6.0` → v6.1.5、`think-multi-app` 1.1.1、`think-view` 2.0.5、`think-template` 3.0.2、`think-captcha ^3.0`、`think-helper ^3.1`、`endroid/qr-code ^5.0`）。以下事实按 TP6 源码核实，改动相关代码前先读：
+
+- 入口 `server/public/index.php` 不再设 `$http->path(...)`；`server/app` 是指向 `application/` 的 symlink（git mode 120000），多应用靠它发现各模块配置/中间件/语言包。`server/think` 是 CLI 入口（`php think list` 可用）。
+- `server/config/event.php` 已移到 `server/application/event.php`（`App::load()` 不读全局 `config/event.php` 做监听器注册）。
+- 旧 `think\Controller`、trait Jump、`Model::get()/all()`、`Hook`、`Url`、`Debug` facade 已删除。`application/BaseController.php` 是自研替代（`validate()`/`success/error/result/redirect`，HTML 分支渲染 dispatch 模板）；Admin/Api Base 继承它。
+- `Request::module()` 已删除，用 `app('http')->getName()` 替代。中间件在路由分发前运行，`$request->controller()/action()` 此时为空，须从 pathinfo 解析。
+- `Cache::rm()` 已删除，只剩 `Cache::delete()`。`url()` 返回 `UrlBuild` 对象（不再是 string）：存库/拼 JSON 必须 `(string) url(...)`。
+- `think\helper\Time` 已删除，由 `app\common\helper\Time`（`application/common/helper/Time.php`，today/yesterday/month/dayToNow，沿用 TP5.1 语义）替代。
+- `Validate::remove('field')` 在 TP6 是 NO-OP，必须 `remove('field', true)`；`remove(['a','b'], 'rule')` 也失效，改为链式 `remove('a', true)->remove('b', true)`。
+- `config/database.php` 顶层须有 `'auto_timestamp' => false, 'datetime_format' => 'Y-m-d H:i:s'`（TP6 ModelService 只读顶层，不读 `connections.mysql.*`），否则读 `create_time` 整数会抛 TypeError。
+- `Model::find($where, ['relation'])` 第二参数已删除，改为 `Model::with(['rel'])->find($where)`。`find(数组)` 在两版都是按主键查（`find(['status'=>1])` 实为 `id IN (1)`），不是 where 条件。
+- `Db::name('goods g')` 不拆别名，必须 `Db::name('goods')->alias('g')`。
+- `Db::name()` 返回的 Collection 是纯数组集合：`$coll[$k]['x'] = ...` 或 `foreach ($coll as &$item)` 改写会静默失效或抛错，须先 `->toArray()`；Model 查询返回的 Collection 是 Model 对象集合，改写安全。`array_values()/array_column()` 接收 Collection 会 TypeError（`catch (\Exception)` 抓不到）。
+- TP6 `Dispatch::autoResponse` 按 `$request->isJson()` 决定返回类型，不读 `default_return_type`：controller 直接 `return` 数组且客户端非 JSON 时会 500（`variable type error: array`）。Logic 的 `dataSuccess/dataError` 数组必须经 controller 包 `_success()/_error()` 再返回（`Order::buy`、`Share::userPoster`、`AfterSale::add` 已按此修）。
+- 自定义 Validate rule 必须显式 `return true`：无 return（null）时 `validate()` 返回 null，controller `_error(null)` 得 `{"code":0,"msg":null}`（`api/validate/Order.php::checkCoupon`、`admin/validate/SendCoupon.php::checkCoupon` 已修）。
+- Session 须挂 `think\middleware\SessionInit`（已加在 `server/application/middleware.php` 最前），否则登录后不发 PHPSESSID；`config/session.php` 的 `type` 须为 `'file'`。
+- `vendor/services.php` 须存在（`think\app\Service` + `think\captcha\CaptchaService`），否则多应用与验证码服务不注册。
+- PHP 8.1 deprecation（null 传给内部函数非空参数）会被 TP6 handler 转成 ErrorException → 500；按“错误出现再修”处理，不批量改。
+- `overtrue/wechat` 4.x 已废弃但仍可在 PHP 8.2 下安装，微信路径未在 8.2 验证；升级 EasyWeChat 是独立任务。
+- `git rm` 已删 `server/thinkphp/`（216 文件）与 `server/config/template.php`（改用 `config/view.php`）。
+
+### ThinkPHP 8 迁移（分支 `upgrade/tp8-php82`，2026-11-16，已验证）
+
+服务端已从 ThinkPHP 6.1.5 升级到 ThinkPHP 8.1.4 / PHP `>= 8.0`（Composer：`topthink/framework ^8.1` → v8.1.4、`think-orm` v4.0.46、`think-container` v3.0.2（新增拆分包）、`think-validate` v3.0.7（新增拆分包）、`psr/container` 2.0.2、`psr/log` 3.0.2；`think-multi-app` 1.1.1、`think-view` 2.0.5、`think-template` 3.0.2、`think-captcha` 3.0.11、`think-helper` 3.1.12 保持不变）。TP6 迁移的全部约定继续有效，除以下三处 ORM 4 破坏性变化：
+
+- **`BaseQuery::field()` 失去 `$except` 参数**（ORM 4 只有 1 个参数；多传会被静默忽略，`field('password,pay_password,salt', true)` 会变成只查这 3 列——既 500 又泄露密码）。改用 **`withoutField()`**（不要链在 `field(true)` 后面，会失效）。全应用仅 1 处：`application/admin/logic/UserLogic.php`。
+- **ORM 4 读时间字段时把整数转成字符串**（`Attribute::getAttr` 遇 `isTimeAttr` 且有 `datetime_format` 就格式化），`date('Y-m-d H:i:s', $int)` 会抛 TypeError。`server/config/database.php` 顶层改为 **`'datetime_format' => false`**（取代 TP6 的 `'Y-m-d H:i:s'`；`'auto_timestamp' => false` 不变）。
+- **ORM 4 取消 Model 上的数组赋值 `['inc', $v]` / `['dec', $v]`**（`Attribute::set()` 把数组转字符串 → "Array to string conversion" ErrorException；`PayNotifyLogic` 只 catch `Exception` 不抓 `Error`，会造成“钱已扣、单未标已付”）。改用 **`$model->inc('field', $v)` / `->dec('field', $v)`**。已改 21 处（8 文件：PayNotifyLogic、IntegralLogic、WithdrawLogic、WechatCorporatePaymentLogic、BargainLogic、DistributionOrder、WechatMerchantTransfer、OrderRefundLogic）。**Query Builder 形式 `->update(['f' => ['inc', $v]])` 在 ORM 4 仍可用**，不用改。
+- 验证（2026-11-16，PHP 8.2 + MariaDB 10.11，DB 重建后复测）：admin 登录/列表/统计、API 登录/商品/购物车、下单（普通/秒杀）、buy/info 优惠券（减 10）与积分（抵 27）、余额预付（200→173，积分 +20）、售后全流程（退款 27，余额回到 200.00）全部通过；日志无新增错误（仅一条既有 `YlyPrinter.php:134` PHP 8.2 deprecation 警告，预付仍成功）。
+- 部署注意：**新文件默认 mode 660（root 创建）时 php-fpm（www-data）读不到**——`config/currency.php` 曾因此 `include` 报 Permission denied、配置静默为空、页面符号消失，CLI（root）却正常。新建的服务端文件一律 `chmod 644`（或 `o+rX`），改完 composer 也要 `chmod -R o+rX server/vendor/`；runtime 目录由 root 建的要 `chmod -R o+rwx runtime/cache runtime/temp runtime/log`。
+
 ### 技术与分层
 
-- PHP 目标基线以 Composer 和 Docker 配置为准：PHP 7.x，ThinkPHP 5.1。不要在普通功能开发中使用 PHP 8 专属语法。
+- PHP 目标基线以 Composer 配置为准：PHP 8.x，ThinkPHP 8.1.4。新增代码可使用 PHP 8 语法，但仍以邻近代码风格为准，不做整体“现代化”重写。
 - PSR-4 根命名空间是 `app\`，对应 `server/application/`。
 - 现有业务分层通常为 `controller -> validate/logic -> model/server`。
 - `controller` 负责 HTTP 参数、登录上下文、校验调用和响应，不应堆积复杂业务规则。
@@ -167,6 +200,7 @@ PC 页面修改应优先复用 `pc/` 现有 API、路由、Nuxt 插件和 Elemen
 ## 多语言 i18n（分支 `vi`，2026-11-15）
 
 - 键 = 中文原文（gettext 风格 msgid）；语言 `vi`（默认）/`zh`；缺译回退到 msgid。新增语言只需加一份 locale 文件。货币按 VND 显示（元→"đồng"，￥→"₫"），数据库金额仍为纯数字；越南支付网关接入另行立项。
+- **货币配置（2026-11-16，分支 `upgrade/tp8-php82`）**：显示用货币符号不再 hardcode，唯一来源是 **`server/config/currency.php`**（`code: VND` / `symbol: ₫` / `name: đồng`；换货币只改这一个文件）。PHP 用 `config('currency.symbol')`（28 处，14 文件），Admin 模板用 `{:config('currency.symbol')}`（23 处，14 文件），`YlyPrinter.php` 的 4 处打印金额把符号拼在 `lang()` 外面。4 个带 `￥` 的 lang key 已去掉符号（`商品金额：￥`→`商品金额：` 等，值尾保留空格）；`server/application/` 内 PHP+HTML 已无 `￥`。uniapp 还有 5 处 `￥` hardcode（confirm_order、shop_cart、bargain-list、share-popup poster），前端读不到 PHP config，要做须另立前端常量——本次未动。注意：`config/currency.php` 必须是 www-data 可读（见上文“ThinkPHP 8 迁移”部署注意），否则配置静默为空。
 - 唯一译文来源：`tools/i18n/locales/<surface>/vi.part*.json`；`tools/i18n/extract.py`（扫描/替换）、`merge.py`（合并并校验）、`build_lang_php.py`（生成 PHP 语言文件）。`uniapp/locales/` 与 `pc/locales/` 是运行时副本，须与合并结果一致。详细设计见 `docs/i18n-VIETNAMESE.md`。
 - 四端实现：后端 ThinkPHP `lang()`（`server/application/lang/{vi,zh-cn}.php`）；Admin 模板 `{:lang('...')}`（`server/application/admin/lang/`，模块语言文件优先于应用级）；uniapp vue-i18n v8（`uniapp/utils/i18n.js`，空值回退 msgid）；PC `nuxt-i18n@6.28.1` + vue-i18n v8（注意：`@nuxtjs/i18n` v6 不存在，v7+ 仅支持 Nuxt 3；`pc/locales/{vi,zh}.json`）。
 - `extract.py --scan` 只能在替换前对未翻译代码运行；已包 `$t()`/`lang()` 的代码再扫会污染 locale（属性 `:placeholder="$t('x')"` 会被当成新键，分类器会把 display 误判为 data）。需要重建 `zh.json`/`vi.json` 时，从 part 文件生成（`zh` 为 key 的恒等映射）再跑 `merge.py <surface>`，不要重扫。
@@ -279,7 +313,7 @@ PC 页面修改应优先复用 `pc/` 现有 API、路由、Nuxt 插件和 Elemen
 3. **P2 前端构建可复现**：锁定 HBuilderX/uni-app 版本，增加非破坏性 build 与独立 deploy 脚本，把编译和覆盖 `public/mobile` 分开。
 4. **P3 业务边界收敛**：在不改变接口的前提下，减少 controller 和重复 logic 中的公共逻辑，逐步补齐服务层和事务测试。
 5. **P4 PC 商城迁入（当前已完成首轮）**：`pc/` 已采用最新 `php-b2c` Nuxt 2 前台；后续只需按兼容矩阵补齐业务测试、构建环境和发布流程。
-6. **P5 基础设施升级**：PHP、ThinkPHP、数据库和前端框架升级必须独立立项，先有测试和兼容矩阵，再分阶段迁移，不能夹带在业务需求中。
+6. **P5 基础设施升级**：PHP/ThinkPHP 升级已在分支 `upgrade/tp8-php82` 完成两轮（ThinkPHP 6.1.5，见“ThinkPHP 6 迁移”；ThinkPHP 8.1.4，见“ThinkPHP 8 迁移”），尚未合入 `vi`；后续升级仍须独立立项，先有测试和兼容矩阵，再分阶段迁移。
 
 ## 文档维护
 

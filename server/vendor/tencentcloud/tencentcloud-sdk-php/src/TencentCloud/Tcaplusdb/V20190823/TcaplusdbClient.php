@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,13 +30,20 @@ use TencentCloud\Tcaplusdb\V20190823\Models as Models;
  * @method Models\CreateSnapshotsResponse CreateSnapshots(Models\CreateSnapshotsRequest $req) 构造表格过去时间点的快照
  * @method Models\CreateTableGroupResponse CreateTableGroup(Models\CreateTableGroupRequest $req) 在TcaplusDB集群下创建表格组
  * @method Models\CreateTablesResponse CreateTables(Models\CreateTablesRequest $req) 根据选择的IDL文件列表，批量创建表格
+ * @method Models\DeleteBackupRecordsResponse DeleteBackupRecords(Models\DeleteBackupRecordsRequest $req) 删除手工备份
  * @method Models\DeleteClusterResponse DeleteCluster(Models\DeleteClusterRequest $req) 删除TcaplusDB集群，必须在集群所属所有资源（包括表格组，表）都已经释放的情况下才会成功。
  * @method Models\DeleteIdlFilesResponse DeleteIdlFiles(Models\DeleteIdlFilesRequest $req) 指定集群ID和待删除IDL文件的信息，删除目标文件，如果文件正在被表关联则删除失败。
  * @method Models\DeleteSnapshotsResponse DeleteSnapshots(Models\DeleteSnapshotsRequest $req) 删除表格的快照
+ * @method Models\DeleteTableDataFlowResponse DeleteTableDataFlow(Models\DeleteTableDataFlowRequest $req) 删除表格的数据订阅
  * @method Models\DeleteTableGroupResponse DeleteTableGroup(Models\DeleteTableGroupRequest $req) 删除表格组
  * @method Models\DeleteTableIndexResponse DeleteTableIndex(Models\DeleteTableIndexRequest $req) 删除表格的分布式索引
  * @method Models\DeleteTablesResponse DeleteTables(Models\DeleteTablesRequest $req) 删除指定的表,第一次调用此接口代表将表移动至回收站，再次调用代表将此表格从回收站中彻底删除。
  * @method Models\DescribeApplicationsResponse DescribeApplications(Models\DescribeApplicationsRequest $req) 获取审批管理的申请单
+ * @method Models\DescribeBackupRecordsResponse DescribeBackupRecords(Models\DescribeBackupRecordsRequest $req) 查询备份记录
+
+查询集群级别时， 将TableGroupId设置为"-1", 将TableName设置为"-1"
+查询集群+表格组级别时， 将TableName设置为"-1"
+查询集群+表格组+表格级别时， 都不能设置为“-1”
  * @method Models\DescribeClusterTagsResponse DescribeClusterTags(Models\DescribeClusterTagsRequest $req) 获取集群关联的标签列表
  * @method Models\DescribeClustersResponse DescribeClusters(Models\DescribeClustersRequest $req) 查询TcaplusDB集群列表，包含集群详细信息。
  * @method Models\DescribeIdlFileInfosResponse DescribeIdlFileInfos(Models\DescribeIdlFileInfosRequest $req) 查询表描述文件详情
@@ -51,7 +58,7 @@ use TencentCloud\Tcaplusdb\V20190823\Models as Models;
  * @method Models\DescribeTasksResponse DescribeTasks(Models\DescribeTasksRequest $req) 查询任务列表
  * @method Models\DescribeUinInWhitelistResponse DescribeUinInWhitelist(Models\DescribeUinInWhitelistRequest $req) 查询本用户是否在白名单中，控制是否能创建TDR类型的APP或表
  * @method Models\DisableRestProxyResponse DisableRestProxy(Models\DisableRestProxyRequest $req) 当restful api为关闭状态时，可以通过此接口关闭restful api
- * @method Models\EnableRestProxyResponse EnableRestProxy(Models\EnableRestProxyRequest $req) 当restful api为关闭状态时，可以通过此接口开启restful apu
+ * @method Models\EnableRestProxyResponse EnableRestProxy(Models\EnableRestProxyRequest $req) 当restful api为关闭状态时，可以通过此接口开启restful api。
  * @method Models\ImportSnapshotsResponse ImportSnapshots(Models\ImportSnapshotsRequest $req) 将快照数据导入到新表或当前表
  * @method Models\MergeTablesDataResponse MergeTablesData(Models\MergeTablesDataRequest $req) 合并指定表格
  * @method Models\ModifyCensorshipResponse ModifyCensorship(Models\ModifyCensorshipRequest $req) 修改集群审批状态
@@ -67,7 +74,8 @@ use TencentCloud\Tcaplusdb\V20190823\Models as Models;
  * @method Models\ModifyTableTagsResponse ModifyTableTags(Models\ModifyTableTagsRequest $req) 修改表格标签
  * @method Models\ModifyTablesResponse ModifyTables(Models\ModifyTablesRequest $req) 根据用户选定的表定义IDL文件，批量修改指定的表
  * @method Models\RecoverRecycleTablesResponse RecoverRecycleTables(Models\RecoverRecycleTablesRequest $req) 恢复回收站中，用户自行删除的表。对欠费待释放的表无效。
- * @method Models\RollbackTablesResponse RollbackTables(Models\RollbackTablesRequest $req) 表格数据回档
+ * @method Models\SetBackupExpireRuleResponse SetBackupExpireRule(Models\SetBackupExpireRuleRequest $req) 新增、删除、修改备份过期策略， ClusterId必须为具体的集群Id（appid）
+ * @method Models\SetTableDataFlowResponse SetTableDataFlow(Models\SetTableDataFlowRequest $req) 新增、修改表格数据订阅
  * @method Models\SetTableIndexResponse SetTableIndex(Models\SetTableIndexRequest $req) 设置表格分布式索引
  * @method Models\UpdateApplyResponse UpdateApply(Models\UpdateApplyRequest $req) 更新申请单状态
  * @method Models\VerifyIdlFilesResponse VerifyIdlFiles(Models\VerifyIdlFilesRequest $req) 上传并校验创建表格文件，返回校验合法的表格定义

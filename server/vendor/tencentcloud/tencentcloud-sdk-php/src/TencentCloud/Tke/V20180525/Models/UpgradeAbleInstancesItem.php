@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,9 +25,11 @@ use TencentCloud\Common\AbstractModel;
  * @method string getVersion() 获取节点的当前版本
  * @method void setVersion(string $Version) 设置节点的当前版本
  * @method string getLatestVersion() 获取当前版本的最新小版本
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setLatestVersion(string $LatestVersion) 设置当前版本的最新小版本
-注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getRuntimeVersion() 获取RuntimeVersion
+ * @method void setRuntimeVersion(string $RuntimeVersion) 设置RuntimeVersion
+ * @method string getRuntimeLatestVersion() 获取RuntimeLatestVersion
+ * @method void setRuntimeLatestVersion(string $RuntimeLatestVersion) 设置RuntimeLatestVersion
  */
 class UpgradeAbleInstancesItem extends AbstractModel
 {
@@ -43,15 +45,25 @@ class UpgradeAbleInstancesItem extends AbstractModel
 
     /**
      * @var string 当前版本的最新小版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $LatestVersion;
+
+    /**
+     * @var string RuntimeVersion
+     */
+    public $RuntimeVersion;
+
+    /**
+     * @var string RuntimeLatestVersion
+     */
+    public $RuntimeLatestVersion;
 
     /**
      * @param string $InstanceId 节点Id
      * @param string $Version 节点的当前版本
      * @param string $LatestVersion 当前版本的最新小版本
-注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $RuntimeVersion RuntimeVersion
+     * @param string $RuntimeLatestVersion RuntimeLatestVersion
      */
     function __construct()
     {
@@ -76,6 +88,14 @@ class UpgradeAbleInstancesItem extends AbstractModel
 
         if (array_key_exists("LatestVersion",$param) and $param["LatestVersion"] !== null) {
             $this->LatestVersion = $param["LatestVersion"];
+        }
+
+        if (array_key_exists("RuntimeVersion",$param) and $param["RuntimeVersion"] !== null) {
+            $this->RuntimeVersion = $param["RuntimeVersion"];
+        }
+
+        if (array_key_exists("RuntimeLatestVersion",$param) and $param["RuntimeLatestVersion"] !== null) {
+            $this->RuntimeLatestVersion = $param["RuntimeLatestVersion"];
         }
     }
 }

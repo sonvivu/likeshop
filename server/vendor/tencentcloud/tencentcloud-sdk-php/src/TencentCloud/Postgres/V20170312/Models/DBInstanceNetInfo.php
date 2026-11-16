@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,50 +20,74 @@ use TencentCloud\Common\AbstractModel;
 /**
  * 描述实例的网络连接信息。
  *
- * @method string getAddress() 获取DNS域名
- * @method void setAddress(string $Address) 设置DNS域名
- * @method string getIp() 获取IP地址
- * @method void setIp(string $Ip) 设置IP地址
- * @method integer getPort() 获取连接Port地址
- * @method void setPort(integer $Port) 设置连接Port地址
- * @method string getNetType() 获取网络类型，1、inner（基础网络内网地址）；2、private（私有网络内网地址）；3、public（基础网络或私有网络的外网地址）；
- * @method void setNetType(string $NetType) 设置网络类型，1、inner（基础网络内网地址）；2、private（私有网络内网地址）；3、public（基础网络或私有网络的外网地址）；
- * @method string getStatus() 获取网络连接状态
- * @method void setStatus(string $Status) 设置网络连接状态
+ * @method string getAddress() 获取<p>DNS域名</p>
+ * @method void setAddress(string $Address) 设置<p>DNS域名</p>
+ * @method string getIp() 获取<p>IP地址</p>
+ * @method void setIp(string $Ip) 设置<p>IP地址</p>
+ * @method integer getPort() 获取<p>连接Port地址</p>
+ * @method void setPort(integer $Port) 设置<p>连接Port地址</p>
+ * @method string getNetType() 获取<p>网络类型，1、inner（基础网络内网地址）；2、private（私有网络内网地址）；3、public（基础网络或私有网络的外网地址）；</p>
+ * @method void setNetType(string $NetType) 设置<p>网络类型，1、inner（基础网络内网地址）；2、private（私有网络内网地址）；3、public（基础网络或私有网络的外网地址）；</p>
+ * @method string getStatus() 获取<p>网络连接状态，1、initing（未开通）；2、opened（已开通）；3、closed（已关闭）；4、opening（开通中）；5、closing（关闭中）；</p>
+ * @method void setStatus(string $Status) 设置<p>网络连接状态，1、initing（未开通）；2、opened（已开通）；3、closed（已关闭）；4、opening（开通中）；5、closing（关闭中）；</p>
+ * @method string getVpcId() 获取<p>私有网络ID</p>
+ * @method void setVpcId(string $VpcId) 设置<p>私有网络ID</p>
+ * @method string getSubnetId() 获取<p>子网ID</p>
+ * @method void setSubnetId(string $SubnetId) 设置<p>子网ID</p>
+ * @method string getProtocolType() 获取<p>连接数据库的协议类型，当前支持：postgresql、mssql（MSSQL兼容语法）</p>
+ * @method void setProtocolType(string $ProtocolType) 设置<p>连接数据库的协议类型，当前支持：postgresql、mssql（MSSQL兼容语法）</p>
  */
 class DBInstanceNetInfo extends AbstractModel
 {
     /**
-     * @var string DNS域名
+     * @var string <p>DNS域名</p>
      */
     public $Address;
 
     /**
-     * @var string IP地址
+     * @var string <p>IP地址</p>
      */
     public $Ip;
 
     /**
-     * @var integer 连接Port地址
+     * @var integer <p>连接Port地址</p>
      */
     public $Port;
 
     /**
-     * @var string 网络类型，1、inner（基础网络内网地址）；2、private（私有网络内网地址）；3、public（基础网络或私有网络的外网地址）；
+     * @var string <p>网络类型，1、inner（基础网络内网地址）；2、private（私有网络内网地址）；3、public（基础网络或私有网络的外网地址）；</p>
      */
     public $NetType;
 
     /**
-     * @var string 网络连接状态
+     * @var string <p>网络连接状态，1、initing（未开通）；2、opened（已开通）；3、closed（已关闭）；4、opening（开通中）；5、closing（关闭中）；</p>
      */
     public $Status;
 
     /**
-     * @param string $Address DNS域名
-     * @param string $Ip IP地址
-     * @param integer $Port 连接Port地址
-     * @param string $NetType 网络类型，1、inner（基础网络内网地址）；2、private（私有网络内网地址）；3、public（基础网络或私有网络的外网地址）；
-     * @param string $Status 网络连接状态
+     * @var string <p>私有网络ID</p>
+     */
+    public $VpcId;
+
+    /**
+     * @var string <p>子网ID</p>
+     */
+    public $SubnetId;
+
+    /**
+     * @var string <p>连接数据库的协议类型，当前支持：postgresql、mssql（MSSQL兼容语法）</p>
+     */
+    public $ProtocolType;
+
+    /**
+     * @param string $Address <p>DNS域名</p>
+     * @param string $Ip <p>IP地址</p>
+     * @param integer $Port <p>连接Port地址</p>
+     * @param string $NetType <p>网络类型，1、inner（基础网络内网地址）；2、private（私有网络内网地址）；3、public（基础网络或私有网络的外网地址）；</p>
+     * @param string $Status <p>网络连接状态，1、initing（未开通）；2、opened（已开通）；3、closed（已关闭）；4、opening（开通中）；5、closing（关闭中）；</p>
+     * @param string $VpcId <p>私有网络ID</p>
+     * @param string $SubnetId <p>子网ID</p>
+     * @param string $ProtocolType <p>连接数据库的协议类型，当前支持：postgresql、mssql（MSSQL兼容语法）</p>
      */
     function __construct()
     {
@@ -96,6 +120,18 @@ class DBInstanceNetInfo extends AbstractModel
 
         if (array_key_exists("Status",$param) and $param["Status"] !== null) {
             $this->Status = $param["Status"];
+        }
+
+        if (array_key_exists("VpcId",$param) and $param["VpcId"] !== null) {
+            $this->VpcId = $param["VpcId"];
+        }
+
+        if (array_key_exists("SubnetId",$param) and $param["SubnetId"] !== null) {
+            $this->SubnetId = $param["SubnetId"];
+        }
+
+        if (array_key_exists("ProtocolType",$param) and $param["ProtocolType"] !== null) {
+            $this->ProtocolType = $param["ProtocolType"];
         }
     }
 }

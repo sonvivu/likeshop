@@ -20,7 +20,8 @@ return [
     // SESSION 前缀
     'prefix'         => 'think',
     // 驱动方式 支持redis memcache memcached
-    'type'           => '',
+    // ThinkPHP 6：'' 不再表示默认驱动，必须显式写 'file'
+    'type'           => 'file',
     // 是否自动开启 SESSION
     'auto_start'     => true,
 ];

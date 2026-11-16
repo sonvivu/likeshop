@@ -21,7 +21,7 @@ namespace app\api\validate;
 
 use app\api\logic\DistributionLogic;
 use app\common\server\ConfigServer;
-use think\Db;
+use think\facade\Db;
 use think\Validate;
 
 class Withdraw extends Validate

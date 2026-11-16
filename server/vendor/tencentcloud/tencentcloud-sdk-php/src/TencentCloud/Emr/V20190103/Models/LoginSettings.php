@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,26 +20,26 @@ use TencentCloud\Common\AbstractModel;
 /**
  * 登录设置
  *
- * @method string getPassword() 获取Password
- * @method void setPassword(string $Password) 设置Password
- * @method string getPublicKeyId() 获取Public Key
- * @method void setPublicKeyId(string $PublicKeyId) 设置Public Key
+ * @method string getPassword() 获取实例登录密码，8-16个字符，包含大写字母、小写字母、数字和特殊字符四种，特殊符号仅支持!@%^*，密码第一位不能为特殊字符
+ * @method void setPassword(string $Password) 设置实例登录密码，8-16个字符，包含大写字母、小写字母、数字和特殊字符四种，特殊符号仅支持!@%^*，密码第一位不能为特殊字符
+ * @method string getPublicKeyId() 获取密钥ID。关联密钥后，就可以通过对应的私钥来访问实例；PublicKeyId可通过接口[DescribeKeyPairs](https://cloud.tencent.com/document/api/213/15699)获取
+ * @method void setPublicKeyId(string $PublicKeyId) 设置密钥ID。关联密钥后，就可以通过对应的私钥来访问实例；PublicKeyId可通过接口[DescribeKeyPairs](https://cloud.tencent.com/document/api/213/15699)获取
  */
 class LoginSettings extends AbstractModel
 {
     /**
-     * @var string Password
+     * @var string 实例登录密码，8-16个字符，包含大写字母、小写字母、数字和特殊字符四种，特殊符号仅支持!@%^*，密码第一位不能为特殊字符
      */
     public $Password;
 
     /**
-     * @var string Public Key
+     * @var string 密钥ID。关联密钥后，就可以通过对应的私钥来访问实例；PublicKeyId可通过接口[DescribeKeyPairs](https://cloud.tencent.com/document/api/213/15699)获取
      */
     public $PublicKeyId;
 
     /**
-     * @param string $Password Password
-     * @param string $PublicKeyId Public Key
+     * @param string $Password 实例登录密码，8-16个字符，包含大写字母、小写字母、数字和特殊字符四种，特殊符号仅支持!@%^*，密码第一位不能为特殊字符
+     * @param string $PublicKeyId 密钥ID。关联密钥后，就可以通过对应的私钥来访问实例；PublicKeyId可通过接口[DescribeKeyPairs](https://cloud.tencent.com/document/api/213/15699)获取
      */
     function __construct()
     {

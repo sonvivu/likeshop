@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,11 +31,13 @@ use TencentCloud\Common\AbstractModel;
  * @method string getStatus() 获取加速服务状态
 rejected：域名审核未通过，域名备案过期/被注销导致
 processing：部署中
+closing：关闭中
 online：已启动
 offline：已关闭
  * @method void setStatus(string $Status) 设置加速服务状态
 rejected：域名审核未通过，域名备案过期/被注销导致
 processing：部署中
+closing：关闭中
 online：已启动
 offline：已关闭
  * @method integer getProjectId() 获取项目 ID，可前往腾讯云项目管理页面查看
@@ -90,6 +92,10 @@ normal：未锁定
 mainland：中国境内锁定
 overseas：中国境外锁定
 global：全球锁定
+ * @method string getProduct() 获取域名所属产品，cdn/ecdn
+ * @method void setProduct(string $Product) 设置域名所属产品，cdn/ecdn
+ * @method string getParentHost() 获取主域名
+ * @method void setParentHost(string $ParentHost) 设置主域名
  */
 class BriefDomain extends AbstractModel
 {
@@ -117,6 +123,7 @@ class BriefDomain extends AbstractModel
      * @var string 加速服务状态
 rejected：域名审核未通过，域名备案过期/被注销导致
 processing：部署中
+closing：关闭中
 online：已启动
 offline：已关闭
      */
@@ -181,6 +188,16 @@ global：全球锁定
     public $Readonly;
 
     /**
+     * @var string 域名所属产品，cdn/ecdn
+     */
+    public $Product;
+
+    /**
+     * @var string 主域名
+     */
+    public $ParentHost;
+
+    /**
      * @param string $ResourceId 域名 ID
      * @param integer $AppId 腾讯云账号 ID
      * @param string $Domain 加速域名
@@ -188,6 +205,7 @@ global：全球锁定
      * @param string $Status 加速服务状态
 rejected：域名审核未通过，域名备案过期/被注销导致
 processing：部署中
+closing：关闭中
 online：已启动
 offline：已关闭
      * @param integer $ProjectId 项目 ID，可前往腾讯云项目管理页面查看
@@ -216,6 +234,8 @@ normal：未锁定
 mainland：中国境内锁定
 overseas：中国境外锁定
 global：全球锁定
+     * @param string $Product 域名所属产品，cdn/ecdn
+     * @param string $ParentHost 主域名
      */
     function __construct()
     {
@@ -281,6 +301,14 @@ global：全球锁定
 
         if (array_key_exists("Readonly",$param) and $param["Readonly"] !== null) {
             $this->Readonly = $param["Readonly"];
+        }
+
+        if (array_key_exists("Product",$param) and $param["Product"] !== null) {
+            $this->Product = $param["Product"];
+        }
+
+        if (array_key_exists("ParentHost",$param) and $param["ParentHost"] !== null) {
+            $this->ParentHost = $param["ParentHost"];
         }
     }
 }

@@ -21,7 +21,7 @@ namespace app\admin\logic;
 
 use app\admin\model\Help;
 use app\common\server\UrlServer;
-use think\Db;
+use think\facade\Db;
 
 class HelpLogic
 {
@@ -44,6 +44,7 @@ class HelpLogic
 
         $help_count = Db::name('help')->where($where)->count();
         $help_list = Db::name('help')->where($where)->page($get['page'], $get['limit'])->order('id desc')->select();
+        $help_list = $help_list->toArray(); // ThinkPHP 6：select() 返回 Collection，TP5 返回数组；直接写 $help_list[$k]['x'] 或 foreach(&$item) 改值会丢/报错，先转数组。
 
         foreach ($help_list as &$item) {
             $item['image'] = UrlServer::getFileUrl($item['image']);
@@ -97,7 +98,7 @@ class HelpLogic
     public static function getHelp($id)
     {
         $help = new Help();
-        $detail =  $help::get(['id' => $id, 'del' => 0]);
+        $detail =  $help::find(['id' => $id, 'del' => 0]);
         $detail['abs_image'] = UrlServer::getFileUrl($detail['image']);
         return $detail;
     }

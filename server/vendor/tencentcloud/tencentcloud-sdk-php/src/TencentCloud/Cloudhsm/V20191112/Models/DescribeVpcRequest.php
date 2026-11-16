@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,22 +20,22 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeVpc请求参数结构体
  *
- * @method integer getOffset() 获取返回偏移量。
- * @method void setOffset(integer $Offset) 设置返回偏移量。
- * @method integer getLimit() 获取返回数量。
- * @method void setLimit(integer $Limit) 设置返回数量。
+ * @method integer getOffset() 获取返回偏移量。Offset最小为0。
+ * @method void setOffset(integer $Offset) 设置返回偏移量。Offset最小为0。
+ * @method integer getLimit() 获取返回数量。Limit需要在[1, 100]之间。
+ * @method void setLimit(integer $Limit) 设置返回数量。Limit需要在[1, 100]之间。
  * @method string getSearchWord() 获取搜索关键字
  * @method void setSearchWord(string $SearchWord) 设置搜索关键字
  */
 class DescribeVpcRequest extends AbstractModel
 {
     /**
-     * @var integer 返回偏移量。
+     * @var integer 返回偏移量。Offset最小为0。
      */
     public $Offset;
 
     /**
-     * @var integer 返回数量。
+     * @var integer 返回数量。Limit需要在[1, 100]之间。
      */
     public $Limit;
 
@@ -45,8 +45,8 @@ class DescribeVpcRequest extends AbstractModel
     public $SearchWord;
 
     /**
-     * @param integer $Offset 返回偏移量。
-     * @param integer $Limit 返回数量。
+     * @param integer $Offset 返回偏移量。Offset最小为0。
+     * @param integer $Limit 返回数量。Limit需要在[1, 100]之间。
      * @param string $SearchWord 搜索关键字
      */
     function __construct()

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,66 +20,56 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeAlarms请求参数结构体
  *
- * @method array getFilters() 获取<br><li> name
+ * @method array getFilters() 获取name
+- 按照【告警策略名称】进行过滤。
+- 类型：String
+- 必选：否
+- 示例：test-alarm
 
-按照【告警策略名称】进行过滤。
-类型：String
+alarmId
+- 按照【告警策略ID】进行过滤。
+- 类型：String
+- 必选：否
+- 示例：alarm-b60cf034-c3d6-4b01-xxxx-4e877ebb4751
 
-必选：否
+topicId
+- 按照【监控对象的日志主题ID】进行过滤。
+- 类型：String
+- 必选：否
+- 示例：6766f83d-659e-xxxx-a8f7-9104a1012743
 
-<br><li> alarmId
-
-按照【告警策略ID】进行过滤。
-类型：String
-
-必选：否
-
-<br><li> topicId
-
-按照【监控对象的日志主题ID】进行过滤。
-
-类型：String
-
-必选：否
-
-<br><li> enable
-
-按照【启用状态】进行过滤。
-
-类型：String
-
-必选：否
+enable
+- 按照【启用状态】进行过滤。
+- 类型：String
+- 备注：enable参数值范围: 1, t, T, TRUE, true, True, 0, f, F, FALSE, false, False。 其它值将返回参数错误信息.
+- 必选：否
+- 示例：true
 
 每次请求的Filters的上限为10，Filter.Values的上限为5。
- * @method void setFilters(array $Filters) 设置<br><li> name
+ * @method void setFilters(array $Filters) 设置name
+- 按照【告警策略名称】进行过滤。
+- 类型：String
+- 必选：否
+- 示例：test-alarm
 
-按照【告警策略名称】进行过滤。
-类型：String
+alarmId
+- 按照【告警策略ID】进行过滤。
+- 类型：String
+- 必选：否
+- 示例：alarm-b60cf034-c3d6-4b01-xxxx-4e877ebb4751
 
-必选：否
+topicId
+- 按照【监控对象的日志主题ID】进行过滤。
+- 类型：String
+- 必选：否
+- 示例：6766f83d-659e-xxxx-a8f7-9104a1012743
 
-<br><li> alarmId
-
-按照【告警策略ID】进行过滤。
-类型：String
-
-必选：否
-
-<br><li> topicId
-
-按照【监控对象的日志主题ID】进行过滤。
-
-类型：String
-
-必选：否
-
-<br><li> enable
-
-按照【启用状态】进行过滤。
-
-类型：String
-
-必选：否
+enable
+- 按照【启用状态】进行过滤。
+- 类型：String
+- 备注：enable参数值范围: 1, t, T, TRUE, true, True, 0, f, F, FALSE, false, False。 其它值将返回参数错误信息.
+- 必选：否
+- 示例：true
 
 每次请求的Filters的上限为10，Filter.Values的上限为5。
  * @method integer getOffset() 获取分页的偏移量，默认值为0。
@@ -90,35 +80,30 @@ use TencentCloud\Common\AbstractModel;
 class DescribeAlarmsRequest extends AbstractModel
 {
     /**
-     * @var array <br><li> name
+     * @var array name
+- 按照【告警策略名称】进行过滤。
+- 类型：String
+- 必选：否
+- 示例：test-alarm
 
-按照【告警策略名称】进行过滤。
-类型：String
+alarmId
+- 按照【告警策略ID】进行过滤。
+- 类型：String
+- 必选：否
+- 示例：alarm-b60cf034-c3d6-4b01-xxxx-4e877ebb4751
 
-必选：否
+topicId
+- 按照【监控对象的日志主题ID】进行过滤。
+- 类型：String
+- 必选：否
+- 示例：6766f83d-659e-xxxx-a8f7-9104a1012743
 
-<br><li> alarmId
-
-按照【告警策略ID】进行过滤。
-类型：String
-
-必选：否
-
-<br><li> topicId
-
-按照【监控对象的日志主题ID】进行过滤。
-
-类型：String
-
-必选：否
-
-<br><li> enable
-
-按照【启用状态】进行过滤。
-
-类型：String
-
-必选：否
+enable
+- 按照【启用状态】进行过滤。
+- 类型：String
+- 备注：enable参数值范围: 1, t, T, TRUE, true, True, 0, f, F, FALSE, false, False。 其它值将返回参数错误信息.
+- 必选：否
+- 示例：true
 
 每次请求的Filters的上限为10，Filter.Values的上限为5。
      */
@@ -135,35 +120,30 @@ class DescribeAlarmsRequest extends AbstractModel
     public $Limit;
 
     /**
-     * @param array $Filters <br><li> name
+     * @param array $Filters name
+- 按照【告警策略名称】进行过滤。
+- 类型：String
+- 必选：否
+- 示例：test-alarm
 
-按照【告警策略名称】进行过滤。
-类型：String
+alarmId
+- 按照【告警策略ID】进行过滤。
+- 类型：String
+- 必选：否
+- 示例：alarm-b60cf034-c3d6-4b01-xxxx-4e877ebb4751
 
-必选：否
+topicId
+- 按照【监控对象的日志主题ID】进行过滤。
+- 类型：String
+- 必选：否
+- 示例：6766f83d-659e-xxxx-a8f7-9104a1012743
 
-<br><li> alarmId
-
-按照【告警策略ID】进行过滤。
-类型：String
-
-必选：否
-
-<br><li> topicId
-
-按照【监控对象的日志主题ID】进行过滤。
-
-类型：String
-
-必选：否
-
-<br><li> enable
-
-按照【启用状态】进行过滤。
-
-类型：String
-
-必选：否
+enable
+- 按照【启用状态】进行过滤。
+- 类型：String
+- 备注：enable参数值范围: 1, t, T, TRUE, true, True, 0, f, F, FALSE, false, False。 其它值将返回参数错误信息.
+- 必选：否
+- 示例：true
 
 每次请求的Filters的上限为10，Filter.Values的上限为5。
      * @param integer $Offset 分页的偏移量，默认值为0。

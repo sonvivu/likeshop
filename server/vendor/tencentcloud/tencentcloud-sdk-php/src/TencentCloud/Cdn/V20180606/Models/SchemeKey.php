@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,21 +20,29 @@ use TencentCloud\Common\AbstractModel;
 /**
  * 作为CacheKey的一部分
  *
- * @method string getSwitch() 获取on | off 是否使用scheme作为cache key的一部分
+ * @method string getSwitch() 获取scheme作为cache key配置开关，取值有：
+on：开启
+off：关闭
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setSwitch(string $Switch) 设置on | off 是否使用scheme作为cache key的一部分
+ * @method void setSwitch(string $Switch) 设置scheme作为cache key配置开关，取值有：
+on：开启
+off：关闭
 注意：此字段可能返回 null，表示取不到有效值。
  */
 class SchemeKey extends AbstractModel
 {
     /**
-     * @var string on | off 是否使用scheme作为cache key的一部分
+     * @var string scheme作为cache key配置开关，取值有：
+on：开启
+off：关闭
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Switch;
 
     /**
-     * @param string $Switch on | off 是否使用scheme作为cache key的一部分
+     * @param string $Switch scheme作为cache key配置开关，取值有：
+on：开启
+off：关闭
 注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()

@@ -21,7 +21,7 @@ namespace app\api\logic;
 
 use app\common\model\Client_;
 use app\common\logic\LogicBase;
-use think\Db;
+use think\facade\Db;
 use think\facade\Config;
 
 class LoginPasswordLogic extends LogicBase

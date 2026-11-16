@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,18 +20,18 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DisassociateTargetGroups请求参数结构体
  *
- * @method array getAssociations() 获取待解绑的规则关系数组。
- * @method void setAssociations(array $Associations) 设置待解绑的规则关系数组。
+ * @method array getAssociations() 获取待解绑的规则关系数组，支持批量解绑多个监听器，单次批量解除最多20个。
+ * @method void setAssociations(array $Associations) 设置待解绑的规则关系数组，支持批量解绑多个监听器，单次批量解除最多20个。
  */
 class DisassociateTargetGroupsRequest extends AbstractModel
 {
     /**
-     * @var array 待解绑的规则关系数组。
+     * @var array 待解绑的规则关系数组，支持批量解绑多个监听器，单次批量解除最多20个。
      */
     public $Associations;
 
     /**
-     * @param array $Associations 待解绑的规则关系数组。
+     * @param array $Associations 待解绑的规则关系数组，支持批量解绑多个监听器，单次批量解除最多20个。
      */
     function __construct()
     {

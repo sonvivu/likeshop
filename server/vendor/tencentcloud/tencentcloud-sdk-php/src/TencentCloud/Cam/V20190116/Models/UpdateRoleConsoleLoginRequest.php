@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,10 +22,10 @@ use TencentCloud\Common\AbstractModel;
  *
  * @method integer getConsoleLogin() 获取是否可登录，可登录：1，不可登录：0
  * @method void setConsoleLogin(integer $ConsoleLogin) 设置是否可登录，可登录：1，不可登录：0
- * @method integer getRoleId() 获取角色ID
- * @method void setRoleId(integer $RoleId) 设置角色ID
- * @method string getRoleName() 获取角色名
- * @method void setRoleName(string $RoleName) 设置角色名
+ * @method integer getRoleId() 获取角色ID，入参 RoleId 与 RoleName 二选一
+ * @method void setRoleId(integer $RoleId) 设置角色ID，入参 RoleId 与 RoleName 二选一
+ * @method string getRoleName() 获取角色名，入参 RoleId 与 RoleName 二选一
+ * @method void setRoleName(string $RoleName) 设置角色名，入参 RoleId 与 RoleName 二选一
  */
 class UpdateRoleConsoleLoginRequest extends AbstractModel
 {
@@ -35,19 +35,19 @@ class UpdateRoleConsoleLoginRequest extends AbstractModel
     public $ConsoleLogin;
 
     /**
-     * @var integer 角色ID
+     * @var integer 角色ID，入参 RoleId 与 RoleName 二选一
      */
     public $RoleId;
 
     /**
-     * @var string 角色名
+     * @var string 角色名，入参 RoleId 与 RoleName 二选一
      */
     public $RoleName;
 
     /**
      * @param integer $ConsoleLogin 是否可登录，可登录：1，不可登录：0
-     * @param integer $RoleId 角色ID
-     * @param string $RoleName 角色名
+     * @param integer $RoleId 角色ID，入参 RoleId 与 RoleName 二选一
+     * @param string $RoleName 角色名，入参 RoleId 与 RoleName 二选一
      */
     function __construct()
     {

@@ -23,7 +23,7 @@ namespace app\api\validate;
 
 use app\admin\logic\UserSettingLogic;
 use app\common\server\ConfigServer;
-use think\Db;
+use think\facade\Db;
 use think\Validate;
 
 class DistributionCode extends Validate

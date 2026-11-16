@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,10 +28,14 @@ use TencentCloud\Common\AbstractModel;
  * @method void setLoginTime(integer $LoginTime) 设置设备最后上线时间
  * @method string getDevicePsk() 获取设备密钥
  * @method void setDevicePsk(string $DevicePsk) 设置设备密钥
- * @method integer getEnableState() 获取设备启用状态
- * @method void setEnableState(integer $EnableState) 设置设备启用状态
+ * @method integer getEnableState() 获取设备启用状态 0为停用 1为可用
+ * @method void setEnableState(integer $EnableState) 设置设备启用状态 0为停用 1为可用
  * @method integer getExpireTime() 获取设备过期时间
  * @method void setExpireTime(integer $ExpireTime) 设置设备过期时间
+ * @method integer getLogLevel() 获取设备的sdk日志等级，0：关闭，1：错误，2：告警，3：信息，4：调试
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setLogLevel(integer $LogLevel) 设置设备的sdk日志等级，0：关闭，1：错误，2：告警，3：信息，4：调试
+注意：此字段可能返回 null，表示取不到有效值。
  */
 class DeviceInfo extends AbstractModel
 {
@@ -56,7 +60,7 @@ class DeviceInfo extends AbstractModel
     public $DevicePsk;
 
     /**
-     * @var integer 设备启用状态
+     * @var integer 设备启用状态 0为停用 1为可用
      */
     public $EnableState;
 
@@ -66,12 +70,20 @@ class DeviceInfo extends AbstractModel
     public $ExpireTime;
 
     /**
+     * @var integer 设备的sdk日志等级，0：关闭，1：错误，2：告警，3：信息，4：调试
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $LogLevel;
+
+    /**
      * @param string $DeviceName 设备名
      * @param integer $Online 设备是否在线，0不在线，1在线，2获取失败，3未激活
      * @param integer $LoginTime 设备最后上线时间
      * @param string $DevicePsk 设备密钥
-     * @param integer $EnableState 设备启用状态
+     * @param integer $EnableState 设备启用状态 0为停用 1为可用
      * @param integer $ExpireTime 设备过期时间
+     * @param integer $LogLevel 设备的sdk日志等级，0：关闭，1：错误，2：告警，3：信息，4：调试
+注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
     {
@@ -108,6 +120,10 @@ class DeviceInfo extends AbstractModel
 
         if (array_key_exists("ExpireTime",$param) and $param["ExpireTime"] !== null) {
             $this->ExpireTime = $param["ExpireTime"];
+        }
+
+        if (array_key_exists("LogLevel",$param) and $param["LogLevel"] !== null) {
+            $this->LogLevel = $param["LogLevel"];
         }
     }
 }

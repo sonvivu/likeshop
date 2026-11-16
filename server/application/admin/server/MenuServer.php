@@ -21,9 +21,8 @@
 namespace app\admin\server;
 
 
-use think\Db;
+use think\facade\Db;
 use think\facade\Cache;
-use think\facade\Url;
 
 class MenuServer
 {
@@ -60,6 +59,9 @@ class MenuServer
      */
     private static function setRoleMenu(&$none_auth, $lists)
     {
+        // ThinkPHP 6：select() 总是返回 Collection，array_values() 不接受
+        // Collection（TypeError）；先转数组再过滤。
+        $lists = $lists instanceof \think\Collection ? $lists->toArray() : $lists;
         foreach ($lists as $k => $v) {
             if (in_array($v['id'], $none_auth)) {
                 unset($lists[$k]);
@@ -76,7 +78,9 @@ class MenuServer
     private static function uri($uri)
     {
         if ($uri) {
-            return Url::build($uri);
+            // ThinkPHP 6 的 url() 返回 UrlBuild 对象：模板/json_encode 会
+            // 变成 {}，必须转字符串（5.1 返回字符串）。
+            return (string) url($uri);
         }
         return '';
     }

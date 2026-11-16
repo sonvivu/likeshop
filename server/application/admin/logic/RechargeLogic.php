@@ -18,14 +18,15 @@
 // +----------------------------------------------------------------------
 namespace app\admin\logic;
 use app\common\server\ConfigServer;
-use think\Db;
+use think\facade\Db;
 
 class RechargeLogic{
     public static function templatelists(){
         $list = Db::name('recharge_template')->where(['del'=>0])->order('id desc')->select();
+        $list = $list->toArray(); // ThinkPHP 6：select() 返回 Collection，TP5 返回数组；直接写 $list[$k]['x'] 或 foreach(&$item) 改值会丢/报错，先转数组。
         foreach ($list as &$item){
-            $item['money'] && $item['money'] = '￥'.$item['money'];
-            $item['give_money'] && $item['give_money'] = '￥'.$item['give_money'];
+            $item['money'] && $item['money'] = config('currency.symbol').$item['money'];
+            $item['give_money'] && $item['give_money'] = config('currency.symbol').$item['give_money'];
         }
         return $list;
     }

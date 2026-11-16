@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,8 +22,8 @@ use TencentCloud\Common\AbstractModel;
  *
  * @method string getSubnetId() 获取子网实例`ID`。形如：`subnet-pxir56ns`。
  * @method void setSubnetId(string $SubnetId) 设置子网实例`ID`。形如：`subnet-pxir56ns`。
- * @method string getIpv6CidrBlock() 获取`IPv6`子网段。形如：`3402:4e00:20:1001::/64`
- * @method void setIpv6CidrBlock(string $Ipv6CidrBlock) 设置`IPv6`子网段。形如：`3402:4e00:20:1001::/64`
+ * @method string getIpv6CidrBlock() 获取`IPv6`子网段。形如：`3402:4e00:20:1001::/64`。作为AssignIpv6SubnetCidrBlock接口入参时，该参数必填。
+ * @method void setIpv6CidrBlock(string $Ipv6CidrBlock) 设置`IPv6`子网段。形如：`3402:4e00:20:1001::/64`。作为AssignIpv6SubnetCidrBlock接口入参时，该参数必填。
  */
 class Ipv6SubnetCidrBlock extends AbstractModel
 {
@@ -33,13 +33,13 @@ class Ipv6SubnetCidrBlock extends AbstractModel
     public $SubnetId;
 
     /**
-     * @var string `IPv6`子网段。形如：`3402:4e00:20:1001::/64`
+     * @var string `IPv6`子网段。形如：`3402:4e00:20:1001::/64`。作为AssignIpv6SubnetCidrBlock接口入参时，该参数必填。
      */
     public $Ipv6CidrBlock;
 
     /**
      * @param string $SubnetId 子网实例`ID`。形如：`subnet-pxir56ns`。
-     * @param string $Ipv6CidrBlock `IPv6`子网段。形如：`3402:4e00:20:1001::/64`
+     * @param string $Ipv6CidrBlock `IPv6`子网段。形如：`3402:4e00:20:1001::/64`。作为AssignIpv6SubnetCidrBlock接口入参时，该参数必填。
      */
     function __construct()
     {

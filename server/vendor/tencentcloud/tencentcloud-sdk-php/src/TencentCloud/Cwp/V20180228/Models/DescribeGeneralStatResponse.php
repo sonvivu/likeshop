@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,8 +28,8 @@ use TencentCloud\Common\AbstractModel;
  * @method void setAgentsAll(integer $AgentsAll) 设置主机安全客户端总数的总数
  * @method integer getAgentsOnline() 获取主机安全客户端在线的总数
  * @method void setAgentsOnline(integer $AgentsOnline) 设置主机安全客户端在线的总数
- * @method integer getAgentsOffline() 获取主机安全客户端离线的总数
- * @method void setAgentsOffline(integer $AgentsOffline) 设置主机安全客户端离线的总数
+ * @method integer getAgentsOffline() 获取主机安全客户端 离线+关机 的总数
+ * @method void setAgentsOffline(integer $AgentsOffline) 设置主机安全客户端 离线+关机 的总数
  * @method integer getAgentsPro() 获取主机安全客户端专业版的总数
  * @method void setAgentsPro(integer $AgentsPro) 设置主机安全客户端专业版的总数
  * @method integer getAgentsBasic() 获取主机安全客户端基础版的总数
@@ -38,8 +38,18 @@ use TencentCloud\Common\AbstractModel;
  * @method void setAgentsProExpireWithInSevenDays(integer $AgentsProExpireWithInSevenDays) 设置7天内到期的预付费专业版总数
  * @method integer getRiskMachine() 获取风险主机总数
  * @method void setRiskMachine(integer $RiskMachine) 设置风险主机总数
- * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
- * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method integer getShutdown() 获取已关机总数
+ * @method void setShutdown(integer $Shutdown) 设置已关机总数
+ * @method integer getOffline() 获取已离线总数
+ * @method void setOffline(integer $Offline) 设置已离线总数
+ * @method integer getFlagshipMachineCnt() 获取旗舰版主机数
+ * @method void setFlagshipMachineCnt(integer $FlagshipMachineCnt) 设置旗舰版主机数
+ * @method integer getProtectDays() 获取保护天数
+ * @method void setProtectDays(integer $ProtectDays) 设置保护天数
+ * @method integer getAddedOnTheFifteen() 获取15天内新增的主机数
+ * @method void setAddedOnTheFifteen(integer $AddedOnTheFifteen) 设置15天内新增的主机数
+ * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+ * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
 class DescribeGeneralStatResponse extends AbstractModel
 {
@@ -64,7 +74,7 @@ class DescribeGeneralStatResponse extends AbstractModel
     public $AgentsOnline;
 
     /**
-     * @var integer 主机安全客户端离线的总数
+     * @var integer 主机安全客户端 离线+关机 的总数
      */
     public $AgentsOffline;
 
@@ -89,7 +99,32 @@ class DescribeGeneralStatResponse extends AbstractModel
     public $RiskMachine;
 
     /**
-     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @var integer 已关机总数
+     */
+    public $Shutdown;
+
+    /**
+     * @var integer 已离线总数
+     */
+    public $Offline;
+
+    /**
+     * @var integer 旗舰版主机数
+     */
+    public $FlagshipMachineCnt;
+
+    /**
+     * @var integer 保护天数
+     */
+    public $ProtectDays;
+
+    /**
+     * @var integer 15天内新增的主机数
+     */
+    public $AddedOnTheFifteen;
+
+    /**
+     * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public $RequestId;
 
@@ -98,12 +133,17 @@ class DescribeGeneralStatResponse extends AbstractModel
      * @param integer $MachinesUninstalled 云主机没有安装主机安全客户端的总数
      * @param integer $AgentsAll 主机安全客户端总数的总数
      * @param integer $AgentsOnline 主机安全客户端在线的总数
-     * @param integer $AgentsOffline 主机安全客户端离线的总数
+     * @param integer $AgentsOffline 主机安全客户端 离线+关机 的总数
      * @param integer $AgentsPro 主机安全客户端专业版的总数
      * @param integer $AgentsBasic 主机安全客户端基础版的总数
      * @param integer $AgentsProExpireWithInSevenDays 7天内到期的预付费专业版总数
      * @param integer $RiskMachine 风险主机总数
-     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @param integer $Shutdown 已关机总数
+     * @param integer $Offline 已离线总数
+     * @param integer $FlagshipMachineCnt 旗舰版主机数
+     * @param integer $ProtectDays 保护天数
+     * @param integer $AddedOnTheFifteen 15天内新增的主机数
+     * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
     {
@@ -152,6 +192,26 @@ class DescribeGeneralStatResponse extends AbstractModel
 
         if (array_key_exists("RiskMachine",$param) and $param["RiskMachine"] !== null) {
             $this->RiskMachine = $param["RiskMachine"];
+        }
+
+        if (array_key_exists("Shutdown",$param) and $param["Shutdown"] !== null) {
+            $this->Shutdown = $param["Shutdown"];
+        }
+
+        if (array_key_exists("Offline",$param) and $param["Offline"] !== null) {
+            $this->Offline = $param["Offline"];
+        }
+
+        if (array_key_exists("FlagshipMachineCnt",$param) and $param["FlagshipMachineCnt"] !== null) {
+            $this->FlagshipMachineCnt = $param["FlagshipMachineCnt"];
+        }
+
+        if (array_key_exists("ProtectDays",$param) and $param["ProtectDays"] !== null) {
+            $this->ProtectDays = $param["ProtectDays"];
+        }
+
+        if (array_key_exists("AddedOnTheFifteen",$param) and $param["AddedOnTheFifteen"] !== null) {
+            $this->AddedOnTheFifteen = $param["AddedOnTheFifteen"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

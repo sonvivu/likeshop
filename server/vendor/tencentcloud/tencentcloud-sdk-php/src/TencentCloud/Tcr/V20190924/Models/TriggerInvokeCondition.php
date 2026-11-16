@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,9 +23,7 @@ use TencentCloud\Common\AbstractModel;
  * @method string getInvokeMethod() 获取触发方式
  * @method void setInvokeMethod(string $InvokeMethod) 设置触发方式
  * @method string getInvokeExpr() 获取触发表达式
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setInvokeExpr(string $InvokeExpr) 设置触发表达式
-注意：此字段可能返回 null，表示取不到有效值。
  */
 class TriggerInvokeCondition extends AbstractModel
 {
@@ -36,14 +34,12 @@ class TriggerInvokeCondition extends AbstractModel
 
     /**
      * @var string 触发表达式
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $InvokeExpr;
 
     /**
      * @param string $InvokeMethod 触发方式
      * @param string $InvokeExpr 触发表达式
-注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
     {

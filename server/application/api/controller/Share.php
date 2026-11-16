@@ -49,7 +49,11 @@ class Share extends ApiBase
             $this->_error(lang('参数缺失'));
         }
         $result = ShareLogic::getUserPoster($this->user_id, $url, $client);
-        return $result;
+        if ($result['code'] == 0) {
+            $this->_error($result['msg']);
+        }
+        // 同 Order::buy：TP6 不再按 default_return_type 自动转数组为 JSON。
+        $this->_success($result['msg'], $result['data']);
     }
 
     /**

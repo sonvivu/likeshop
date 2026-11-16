@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,50 +20,50 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeDBSpaceStatus返回参数结构体
  *
- * @method integer getGrowth() 获取磁盘增长量(MB)。
- * @method void setGrowth(integer $Growth) 设置磁盘增长量(MB)。
- * @method integer getRemain() 获取磁盘剩余(MB)。
- * @method void setRemain(integer $Remain) 设置磁盘剩余(MB)。
- * @method integer getTotal() 获取磁盘总量(MB)。
- * @method void setTotal(integer $Total) 设置磁盘总量(MB)。
- * @method integer getAvailableDays() 获取预计可用天数。
- * @method void setAvailableDays(integer $AvailableDays) 设置预计可用天数。
- * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
- * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method integer getGrowth() 获取<p>磁盘增长量(MB)。</p>
+ * @method void setGrowth(integer $Growth) 设置<p>磁盘增长量(MB)。</p>
+ * @method integer getRemain() 获取<p>磁盘剩余(MB)。</p>
+ * @method void setRemain(integer $Remain) 设置<p>磁盘剩余(MB)。</p>
+ * @method integer getTotal() 获取<p>磁盘总量(MB)。</p>
+ * @method void setTotal(integer $Total) 设置<p>磁盘总量(MB)。</p>
+ * @method integer getAvailableDays() 获取<p>预计可用天数。</p>
+ * @method void setAvailableDays(integer $AvailableDays) 设置<p>预计可用天数。</p>
+ * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+ * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
 class DescribeDBSpaceStatusResponse extends AbstractModel
 {
     /**
-     * @var integer 磁盘增长量(MB)。
+     * @var integer <p>磁盘增长量(MB)。</p>
      */
     public $Growth;
 
     /**
-     * @var integer 磁盘剩余(MB)。
+     * @var integer <p>磁盘剩余(MB)。</p>
      */
     public $Remain;
 
     /**
-     * @var integer 磁盘总量(MB)。
+     * @var integer <p>磁盘总量(MB)。</p>
      */
     public $Total;
 
     /**
-     * @var integer 预计可用天数。
+     * @var integer <p>预计可用天数。</p>
      */
     public $AvailableDays;
 
     /**
-     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public $RequestId;
 
     /**
-     * @param integer $Growth 磁盘增长量(MB)。
-     * @param integer $Remain 磁盘剩余(MB)。
-     * @param integer $Total 磁盘总量(MB)。
-     * @param integer $AvailableDays 预计可用天数。
-     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @param integer $Growth <p>磁盘增长量(MB)。</p>
+     * @param integer $Remain <p>磁盘剩余(MB)。</p>
+     * @param integer $Total <p>磁盘总量(MB)。</p>
+     * @param integer $AvailableDays <p>预计可用天数。</p>
+     * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
     {

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,10 +22,10 @@ use TencentCloud\Common\AbstractModel;
  *
  * @method string getDomainName() 获取播放域名。
  * @method void setDomainName(string $DomainName) 设置播放域名。
- * @method string getAppName() 获取推流路径，与推流和播放地址中的AppName保持一致。如果只绑定域名，则此处填空。
- * @method void setAppName(string $AppName) 设置推流路径，与推流和播放地址中的AppName保持一致。如果只绑定域名，则此处填空。
- * @method string getStreamName() 获取流名称。如果只绑定域名或路径，则此处填空。
- * @method void setStreamName(string $StreamName) 设置流名称。如果只绑定域名或路径，则此处填空。
+ * @method string getAppName() 获取推流路径，与推流和播放地址中的AppName保持一致。如果只绑定域名，则此处填""。
+ * @method void setAppName(string $AppName) 设置推流路径，与推流和播放地址中的AppName保持一致。如果只绑定域名，则此处填""。
+ * @method string getStreamName() 获取流名称。已废弃该字段，请传入空字符串。
+ * @method void setStreamName(string $StreamName) 设置流名称。已废弃该字段，请传入空字符串。
  * @method integer getTemplateId() 获取指定已有的模板Id。
  * @method void setTemplateId(integer $TemplateId) 设置指定已有的模板Id。
  */
@@ -37,12 +37,12 @@ class CreateLiveTranscodeRuleRequest extends AbstractModel
     public $DomainName;
 
     /**
-     * @var string 推流路径，与推流和播放地址中的AppName保持一致。如果只绑定域名，则此处填空。
+     * @var string 推流路径，与推流和播放地址中的AppName保持一致。如果只绑定域名，则此处填""。
      */
     public $AppName;
 
     /**
-     * @var string 流名称。如果只绑定域名或路径，则此处填空。
+     * @var string 流名称。已废弃该字段，请传入空字符串。
      */
     public $StreamName;
 
@@ -53,8 +53,8 @@ class CreateLiveTranscodeRuleRequest extends AbstractModel
 
     /**
      * @param string $DomainName 播放域名。
-     * @param string $AppName 推流路径，与推流和播放地址中的AppName保持一致。如果只绑定域名，则此处填空。
-     * @param string $StreamName 流名称。如果只绑定域名或路径，则此处填空。
+     * @param string $AppName 推流路径，与推流和播放地址中的AppName保持一致。如果只绑定域名，则此处填""。
+     * @param string $StreamName 流名称。已废弃该字段，请传入空字符串。
      * @param integer $TemplateId 指定已有的模板Id。
      */
     function __construct()

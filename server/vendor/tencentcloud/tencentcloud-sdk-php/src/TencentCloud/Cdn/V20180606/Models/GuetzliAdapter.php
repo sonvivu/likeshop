@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,21 +20,29 @@ use TencentCloud\Common\AbstractModel;
 /**
  * 图片优化-GuetzliAdapter配置
  *
- * @method string getSwitch() 获取开关，"on/off"
+ * @method string getSwitch() 获取图片优化-GuetzliAdapter配置开关，取值有：
+on：开启
+off：关闭
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setSwitch(string $Switch) 设置开关，"on/off"
+ * @method void setSwitch(string $Switch) 设置图片优化-GuetzliAdapter配置开关，取值有：
+on：开启
+off：关闭
 注意：此字段可能返回 null，表示取不到有效值。
  */
 class GuetzliAdapter extends AbstractModel
 {
     /**
-     * @var string 开关，"on/off"
+     * @var string 图片优化-GuetzliAdapter配置开关，取值有：
+on：开启
+off：关闭
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Switch;
 
     /**
-     * @param string $Switch 开关，"on/off"
+     * @param string $Switch 图片优化-GuetzliAdapter配置开关，取值有：
+on：开启
+off：关闭
 注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()

@@ -21,7 +21,7 @@
 namespace app\common\validate;
 
 
-use think\Db;
+use think\facade\Db;
 use think\Validate;
 
 class Crontab extends Validate

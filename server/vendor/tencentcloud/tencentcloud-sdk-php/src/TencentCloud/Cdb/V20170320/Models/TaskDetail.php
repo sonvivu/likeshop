@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,8 +20,8 @@ use TencentCloud\Common\AbstractModel;
 /**
  * 实例任务详情
  *
- * @method integer getCode() 获取错误码。
- * @method void setCode(integer $Code) 设置错误码。
+ * @method integer getCode() 获取错误码。0代表成功，其他对应不同的报错场景。
+ * @method void setCode(integer $Code) 设置错误码。0代表成功，其他对应不同的报错场景。
  * @method string getMessage() 获取错误信息。
  * @method void setMessage(string $Message) 设置错误信息。
  * @method integer getJobId() 获取实例任务 ID。
@@ -79,16 +79,16 @@ use TencentCloud\Common\AbstractModel;
  * @method string getEndTime() 获取实例任务结束时间。
  * @method void setEndTime(string $EndTime) 设置实例任务结束时间。
  * @method array getInstanceIds() 获取任务关联的实例 ID。
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setInstanceIds(array $InstanceIds) 设置任务关联的实例 ID。
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getAsyncRequestId() 获取异步任务的请求 ID。
  * @method void setAsyncRequestId(string $AsyncRequestId) 设置异步任务的请求 ID。
+ * @method array getTaskAttachInfo() 获取任务的附加信息。
+ * @method void setTaskAttachInfo(array $TaskAttachInfo) 设置任务的附加信息。
  */
 class TaskDetail extends AbstractModel
 {
     /**
-     * @var integer 错误码。
+     * @var integer 错误码。0代表成功，其他对应不同的报错场景。
      */
     public $Code;
 
@@ -150,7 +150,6 @@ class TaskDetail extends AbstractModel
 
     /**
      * @var array 任务关联的实例 ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $InstanceIds;
 
@@ -160,7 +159,12 @@ class TaskDetail extends AbstractModel
     public $AsyncRequestId;
 
     /**
-     * @param integer $Code 错误码。
+     * @var array 任务的附加信息。
+     */
+    public $TaskAttachInfo;
+
+    /**
+     * @param integer $Code 错误码。0代表成功，其他对应不同的报错场景。
      * @param string $Message 错误信息。
      * @param integer $JobId 实例任务 ID。
      * @param integer $Progress 实例任务进度。
@@ -190,8 +194,8 @@ class TaskDetail extends AbstractModel
      * @param string $StartTime 实例任务开始时间。
      * @param string $EndTime 实例任务结束时间。
      * @param array $InstanceIds 任务关联的实例 ID。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $AsyncRequestId 异步任务的请求 ID。
+     * @param array $TaskAttachInfo 任务的附加信息。
      */
     function __construct()
     {
@@ -244,6 +248,15 @@ class TaskDetail extends AbstractModel
 
         if (array_key_exists("AsyncRequestId",$param) and $param["AsyncRequestId"] !== null) {
             $this->AsyncRequestId = $param["AsyncRequestId"];
+        }
+
+        if (array_key_exists("TaskAttachInfo",$param) and $param["TaskAttachInfo"] !== null) {
+            $this->TaskAttachInfo = [];
+            foreach ($param["TaskAttachInfo"] as $key => $value){
+                $obj = new TaskAttachInfo();
+                $obj->deserialize($value);
+                array_push($this->TaskAttachInfo, $obj);
+            }
         }
     }
 }

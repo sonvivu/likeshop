@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,8 +34,8 @@ use TencentCloud\Common\AbstractModel;
  * @method void setBillDuration(integer $BillDuration) 设置表示函数的计费耗时，单位是毫秒，异步调用返回为空
  * @method string getFunctionRequestId() 获取此次函数执行的Id
  * @method void setFunctionRequestId(string $FunctionRequestId) 设置此次函数执行的Id
- * @method integer getInvokeResult() 获取0为正确，异步调用返回为空
- * @method void setInvokeResult(integer $InvokeResult) 设置0为正确，异步调用返回为空
+ * @method integer getInvokeResult() 获取该参数不再维护，不推荐用户继续使用。
+ * @method void setInvokeResult(integer $InvokeResult) 设置该参数不再维护，不推荐用户继续使用。
  */
 class Result extends AbstractModel
 {
@@ -75,7 +75,7 @@ class Result extends AbstractModel
     public $FunctionRequestId;
 
     /**
-     * @var integer 0为正确，异步调用返回为空
+     * @var integer 该参数不再维护，不推荐用户继续使用。
      */
     public $InvokeResult;
 
@@ -87,7 +87,7 @@ class Result extends AbstractModel
      * @param float $Duration 表示执行函数的耗时，单位是毫秒，异步调用返回为空
      * @param integer $BillDuration 表示函数的计费耗时，单位是毫秒，异步调用返回为空
      * @param string $FunctionRequestId 此次函数执行的Id
-     * @param integer $InvokeResult 0为正确，异步调用返回为空
+     * @param integer $InvokeResult 该参数不再维护，不推荐用户继续使用。
      */
     function __construct()
     {

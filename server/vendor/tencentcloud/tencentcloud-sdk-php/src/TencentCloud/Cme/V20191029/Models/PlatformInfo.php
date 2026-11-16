@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,14 +20,22 @@ use TencentCloud\Common\AbstractModel;
 /**
  * 平台信息。
  *
- * @method string getPlatform() 获取平台名称。
- * @method void setPlatform(string $Platform) 设置平台名称。
+ * @method string getPlatform() 获取平台标识。
+ * @method void setPlatform(string $Platform) 设置平台标识。
  * @method string getDescription() 获取平台描述。
  * @method void setDescription(string $Description) 设置平台描述。
  * @method integer getVodSubAppId() 获取云点播子应用 Id。
  * @method void setVodSubAppId(integer $VodSubAppId) 设置云点播子应用 Id。
  * @method string getLicenseId() 获取平台绑定的 license Id。
  * @method void setLicenseId(string $LicenseId) 设置平台绑定的 license Id。
+ * @method string getStatus() 获取平台状态，可取值为：
+<li>Normal：正常，可使用。；</li>
+<li>Stopped：已停用，暂无法使用；</li>
+<li>Expired：已过期，需要重新购买会员包。</li>
+ * @method void setStatus(string $Status) 设置平台状态，可取值为：
+<li>Normal：正常，可使用。；</li>
+<li>Stopped：已停用，暂无法使用；</li>
+<li>Expired：已过期，需要重新购买会员包。</li>
  * @method string getCreateTime() 获取创建时间，格式按照 ISO 8601 标准表示。
  * @method void setCreateTime(string $CreateTime) 设置创建时间，格式按照 ISO 8601 标准表示。
  * @method string getUpdateTime() 获取更新时间，格式按照 ISO 8601 标准表示。
@@ -36,7 +44,7 @@ use TencentCloud\Common\AbstractModel;
 class PlatformInfo extends AbstractModel
 {
     /**
-     * @var string 平台名称。
+     * @var string 平台标识。
      */
     public $Platform;
 
@@ -56,6 +64,14 @@ class PlatformInfo extends AbstractModel
     public $LicenseId;
 
     /**
+     * @var string 平台状态，可取值为：
+<li>Normal：正常，可使用。；</li>
+<li>Stopped：已停用，暂无法使用；</li>
+<li>Expired：已过期，需要重新购买会员包。</li>
+     */
+    public $Status;
+
+    /**
      * @var string 创建时间，格式按照 ISO 8601 标准表示。
      */
     public $CreateTime;
@@ -66,10 +82,14 @@ class PlatformInfo extends AbstractModel
     public $UpdateTime;
 
     /**
-     * @param string $Platform 平台名称。
+     * @param string $Platform 平台标识。
      * @param string $Description 平台描述。
      * @param integer $VodSubAppId 云点播子应用 Id。
      * @param string $LicenseId 平台绑定的 license Id。
+     * @param string $Status 平台状态，可取值为：
+<li>Normal：正常，可使用。；</li>
+<li>Stopped：已停用，暂无法使用；</li>
+<li>Expired：已过期，需要重新购买会员包。</li>
      * @param string $CreateTime 创建时间，格式按照 ISO 8601 标准表示。
      * @param string $UpdateTime 更新时间，格式按照 ISO 8601 标准表示。
      */
@@ -100,6 +120,10 @@ class PlatformInfo extends AbstractModel
 
         if (array_key_exists("LicenseId",$param) and $param["LicenseId"] !== null) {
             $this->LicenseId = $param["LicenseId"];
+        }
+
+        if (array_key_exists("Status",$param) and $param["Status"] !== null) {
+            $this->Status = $param["Status"];
         }
 
         if (array_key_exists("CreateTime",$param) and $param["CreateTime"] !== null) {

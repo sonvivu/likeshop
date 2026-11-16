@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,42 +20,90 @@ use TencentCloud\Common\AbstractModel;
 /**
  * 消耗按产品汇总详情
  *
- * @method string getBusinessCode() 获取产品码
- * @method void setBusinessCode(string $BusinessCode) 设置产品码
- * @method string getBusinessCodeName() 获取产品名称
- * @method void setBusinessCodeName(string $BusinessCodeName) 设置产品名称
- * @method string getRealTotalCost() 获取折后总价
- * @method void setRealTotalCost(string $RealTotalCost) 设置折后总价
- * @method ConsumptionSummaryTrend getTrend() 获取费用趋势
- * @method void setTrend(ConsumptionSummaryTrend $Trend) 设置费用趋势
+ * @method string getBusinessCode() 获取<p>产品名称代码</p>
+ * @method void setBusinessCode(string $BusinessCode) 设置<p>产品名称代码</p>
+ * @method string getBusinessCodeName() 获取<p>产品名称</p>
+ * @method void setBusinessCodeName(string $BusinessCodeName) 设置<p>产品名称</p>
+ * @method string getRealTotalCost() 获取<p>折后总价</p>
+ * @method void setRealTotalCost(string $RealTotalCost) 设置<p>折后总价</p>
+ * @method ConsumptionSummaryTrend getTrend() 获取<p>费用趋势</p>
+ * @method void setTrend(ConsumptionSummaryTrend $Trend) 设置<p>费用趋势</p>
+ * @method string getCashPayAmount() 获取<p>现金</p>
+ * @method void setCashPayAmount(string $CashPayAmount) 设置<p>现金</p>
+ * @method string getIncentivePayAmount() 获取<p>赠送金</p>
+ * @method void setIncentivePayAmount(string $IncentivePayAmount) 设置<p>赠送金</p>
+ * @method string getVoucherPayAmount() 获取<p>代金券</p>
+ * @method void setVoucherPayAmount(string $VoucherPayAmount) 设置<p>代金券</p>
+ * @method string getTransferPayAmount() 获取<p>分成金</p>
+ * @method void setTransferPayAmount(string $TransferPayAmount) 设置<p>分成金</p>
+ * @method string getRegionName() 获取<p>地域名称（仅在地域汇总中展示）</p>
+ * @method void setRegionName(string $RegionName) 设置<p>地域名称（仅在地域汇总中展示）</p>
+ * @method string getLeftRealTotalCost() 获取<p>待分摊金额</p><p>剩余待分摊的折后总金额</p>
+ * @method void setLeftRealTotalCost(string $LeftRealTotalCost) 设置<p>待分摊金额</p><p>剩余待分摊的折后总金额</p>
  */
 class ConsumptionBusinessSummaryDataItem extends AbstractModel
 {
     /**
-     * @var string 产品码
+     * @var string <p>产品名称代码</p>
      */
     public $BusinessCode;
 
     /**
-     * @var string 产品名称
+     * @var string <p>产品名称</p>
      */
     public $BusinessCodeName;
 
     /**
-     * @var string 折后总价
+     * @var string <p>折后总价</p>
      */
     public $RealTotalCost;
 
     /**
-     * @var ConsumptionSummaryTrend 费用趋势
+     * @var ConsumptionSummaryTrend <p>费用趋势</p>
      */
     public $Trend;
 
     /**
-     * @param string $BusinessCode 产品码
-     * @param string $BusinessCodeName 产品名称
-     * @param string $RealTotalCost 折后总价
-     * @param ConsumptionSummaryTrend $Trend 费用趋势
+     * @var string <p>现金</p>
+     */
+    public $CashPayAmount;
+
+    /**
+     * @var string <p>赠送金</p>
+     */
+    public $IncentivePayAmount;
+
+    /**
+     * @var string <p>代金券</p>
+     */
+    public $VoucherPayAmount;
+
+    /**
+     * @var string <p>分成金</p>
+     */
+    public $TransferPayAmount;
+
+    /**
+     * @var string <p>地域名称（仅在地域汇总中展示）</p>
+     */
+    public $RegionName;
+
+    /**
+     * @var string <p>待分摊金额</p><p>剩余待分摊的折后总金额</p>
+     */
+    public $LeftRealTotalCost;
+
+    /**
+     * @param string $BusinessCode <p>产品名称代码</p>
+     * @param string $BusinessCodeName <p>产品名称</p>
+     * @param string $RealTotalCost <p>折后总价</p>
+     * @param ConsumptionSummaryTrend $Trend <p>费用趋势</p>
+     * @param string $CashPayAmount <p>现金</p>
+     * @param string $IncentivePayAmount <p>赠送金</p>
+     * @param string $VoucherPayAmount <p>代金券</p>
+     * @param string $TransferPayAmount <p>分成金</p>
+     * @param string $RegionName <p>地域名称（仅在地域汇总中展示）</p>
+     * @param string $LeftRealTotalCost <p>待分摊金额</p><p>剩余待分摊的折后总金额</p>
      */
     function __construct()
     {
@@ -85,6 +133,30 @@ class ConsumptionBusinessSummaryDataItem extends AbstractModel
         if (array_key_exists("Trend",$param) and $param["Trend"] !== null) {
             $this->Trend = new ConsumptionSummaryTrend();
             $this->Trend->deserialize($param["Trend"]);
+        }
+
+        if (array_key_exists("CashPayAmount",$param) and $param["CashPayAmount"] !== null) {
+            $this->CashPayAmount = $param["CashPayAmount"];
+        }
+
+        if (array_key_exists("IncentivePayAmount",$param) and $param["IncentivePayAmount"] !== null) {
+            $this->IncentivePayAmount = $param["IncentivePayAmount"];
+        }
+
+        if (array_key_exists("VoucherPayAmount",$param) and $param["VoucherPayAmount"] !== null) {
+            $this->VoucherPayAmount = $param["VoucherPayAmount"];
+        }
+
+        if (array_key_exists("TransferPayAmount",$param) and $param["TransferPayAmount"] !== null) {
+            $this->TransferPayAmount = $param["TransferPayAmount"];
+        }
+
+        if (array_key_exists("RegionName",$param) and $param["RegionName"] !== null) {
+            $this->RegionName = $param["RegionName"];
+        }
+
+        if (array_key_exists("LeftRealTotalCost",$param) and $param["LeftRealTotalCost"] !== null) {
+            $this->LeftRealTotalCost = $param["LeftRealTotalCost"];
         }
     }
 }

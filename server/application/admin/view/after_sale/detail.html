@@ -49,7 +49,7 @@
 
         <div class="layui-form-item div-flex">
             <label class="layui-form-label ">{:lang('退款金额:')}</label>
-            <div class="width-160 refund_price_text">￥{$detail.refund_price}</div>
+            <div class="width-160 refund_price_text">{:config('currency.symbol')}{$detail.refund_price}</div>
             <label class="layui-form-label ">{:lang('退款原因:')}</label>
             <div class="width-160 ">{$detail.refund_reason}</div>
             <label class="layui-form-label ">{:lang('退款说明:')}</label>
@@ -73,7 +73,7 @@
             <label class="layui-form-label ">{:lang('订单编号:')}</label>
             <div class="width-160">{$detail.order.order_sn}</div>
             <label class="layui-form-label ">{:lang('订单金额:')}</label>
-            <div class="width-160">￥{$detail.order.order_amount}</div>
+            <div class="width-160">{:config('currency.symbol')}{$detail.order.order_amount}</div>
             <label class="layui-form-label ">{:lang('付款方式:')}</label>
             <div class="width-160 pay_way_text">{$detail.order.pay_way}</div>
         </div>
@@ -144,7 +144,7 @@
                             </div>
                         </div>
                     </td>
-                    <td>￥{$goods.goods_price}</td>
+                    <td>{:config('currency.symbol')}{$goods.goods_price}</td>
                     <td>{$goods.goods_num}</td>
                     <td>{$goods.total_price}</td>
                 </tr>

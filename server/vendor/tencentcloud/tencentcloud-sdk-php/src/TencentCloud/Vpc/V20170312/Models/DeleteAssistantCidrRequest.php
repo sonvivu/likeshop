@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,26 +20,26 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DeleteAssistantCidr请求参数结构体
  *
- * @method string getVpcId() 获取`VPC`实例`ID`。形如：`vpc-6v2ht8q5`
- * @method void setVpcId(string $VpcId) 设置`VPC`实例`ID`。形如：`vpc-6v2ht8q5`
- * @method array getCidrBlocks() 获取CIDR数组，格式如["10.0.0.0/16", "172.16.0.0/16"]
- * @method void setCidrBlocks(array $CidrBlocks) 设置CIDR数组，格式如["10.0.0.0/16", "172.16.0.0/16"]
+ * @method string getVpcId() 获取`VPC`实例`ID`。形如：`vpc-6v2ht8q5`。
+ * @method void setVpcId(string $VpcId) 设置`VPC`实例`ID`。形如：`vpc-6v2ht8q5`。
+ * @method array getCidrBlocks() 获取CIDR数组，格式如["10.0.0.0/16", "172.16.0.0/16"]。
+ * @method void setCidrBlocks(array $CidrBlocks) 设置CIDR数组，格式如["10.0.0.0/16", "172.16.0.0/16"]。
  */
 class DeleteAssistantCidrRequest extends AbstractModel
 {
     /**
-     * @var string `VPC`实例`ID`。形如：`vpc-6v2ht8q5`
+     * @var string `VPC`实例`ID`。形如：`vpc-6v2ht8q5`。
      */
     public $VpcId;
 
     /**
-     * @var array CIDR数组，格式如["10.0.0.0/16", "172.16.0.0/16"]
+     * @var array CIDR数组，格式如["10.0.0.0/16", "172.16.0.0/16"]。
      */
     public $CidrBlocks;
 
     /**
-     * @param string $VpcId `VPC`实例`ID`。形如：`vpc-6v2ht8q5`
-     * @param array $CidrBlocks CIDR数组，格式如["10.0.0.0/16", "172.16.0.0/16"]
+     * @param string $VpcId `VPC`实例`ID`。形如：`vpc-6v2ht8q5`。
+     * @param array $CidrBlocks CIDR数组，格式如["10.0.0.0/16", "172.16.0.0/16"]。
      */
     function __construct()
     {

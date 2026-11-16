@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,9 +25,7 @@ use TencentCloud\Common\AbstractModel;
  * @method void setIsScaleDownEnabled(boolean $IsScaleDownEnabled) 设置是否开启缩容
 注意：此字段可能返回 null，表示取不到有效值。
  * @method string getExpander() 获取多伸缩组情况下扩容选择算法(random 随机选择，most-pods 最多类型的Pod least-waste 最少的资源浪费，默认为random)
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setExpander(string $Expander) 设置多伸缩组情况下扩容选择算法(random 随机选择，most-pods 最多类型的Pod least-waste 最少的资源浪费，默认为random)
-注意：此字段可能返回 null，表示取不到有效值。
  * @method integer getMaxEmptyBulkDelete() 获取最大并发缩容数
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setMaxEmptyBulkDelete(integer $MaxEmptyBulkDelete) 设置最大并发缩容数
@@ -44,13 +42,13 @@ use TencentCloud\Common\AbstractModel;
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setScaleDownUtilizationThreshold(integer $ScaleDownUtilizationThreshold) 设置节点资源使用量低于多少(百分比)时认为空闲(默认: 50(百分比))
 注意：此字段可能返回 null，表示取不到有效值。
- * @method boolean getSkipNodesWithLocalStorage() 获取含有本地存储Pod的节点是否不缩容(默认： FALSE)
+ * @method boolean getSkipNodesWithLocalStorage() 获取含有本地存储Pod的节点是否不缩容(默认： true)
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setSkipNodesWithLocalStorage(boolean $SkipNodesWithLocalStorage) 设置含有本地存储Pod的节点是否不缩容(默认： FALSE)
+ * @method void setSkipNodesWithLocalStorage(boolean $SkipNodesWithLocalStorage) 设置含有本地存储Pod的节点是否不缩容(默认： true)
 注意：此字段可能返回 null，表示取不到有效值。
- * @method boolean getSkipNodesWithSystemPods() 获取含有kube-system namespace下非DaemonSet管理的Pod的节点是否不缩容 (默认： FALSE)
+ * @method boolean getSkipNodesWithSystemPods() 获取含有kube-system namespace下非DaemonSet管理的Pod的节点是否不缩容 (默认： true)
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setSkipNodesWithSystemPods(boolean $SkipNodesWithSystemPods) 设置含有kube-system namespace下非DaemonSet管理的Pod的节点是否不缩容 (默认： FALSE)
+ * @method void setSkipNodesWithSystemPods(boolean $SkipNodesWithSystemPods) 设置含有kube-system namespace下非DaemonSet管理的Pod的节点是否不缩容 (默认： true)
 注意：此字段可能返回 null，表示取不到有效值。
  * @method boolean getIgnoreDaemonSetsUtilization() 获取计算资源使用量时是否默认忽略DaemonSet的实例(默认值: False，不忽略)
 注意：此字段可能返回 null，表示取不到有效值。
@@ -64,13 +62,13 @@ use TencentCloud\Common\AbstractModel;
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setMaxTotalUnreadyPercentage(integer $MaxTotalUnreadyPercentage) 设置未就绪节点的最大百分比，此后CA会停止操作
 注意：此字段可能返回 null，表示取不到有效值。
- * @method integer getScaleDownUnreadyTime() 获取表示未准备就绪的节点在有资格进行缩减之前应该停留多长时间
+ * @method integer getScaleDownUnreadyTime() 获取表示未准备就绪的节点在有资格进行缩减之前应该停留多少分钟
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setScaleDownUnreadyTime(integer $ScaleDownUnreadyTime) 设置表示未准备就绪的节点在有资格进行缩减之前应该停留多长时间
+ * @method void setScaleDownUnreadyTime(integer $ScaleDownUnreadyTime) 设置表示未准备就绪的节点在有资格进行缩减之前应该停留多少分钟
 注意：此字段可能返回 null，表示取不到有效值。
- * @method integer getUnregisteredNodeRemovalTime() 获取CA删除未在Kubernetes中注册的节点之前等待的时间
+ * @method integer getUnregisteredNodeRemovalTime() 获取CA删除未在Kubernetes中注册的节点之前等待的分钟数
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setUnregisteredNodeRemovalTime(integer $UnregisteredNodeRemovalTime) 设置CA删除未在Kubernetes中注册的节点之前等待的时间
+ * @method void setUnregisteredNodeRemovalTime(integer $UnregisteredNodeRemovalTime) 设置CA删除未在Kubernetes中注册的节点之前等待的分钟数
 注意：此字段可能返回 null，表示取不到有效值。
  */
 class ClusterAsGroupOption extends AbstractModel
@@ -83,7 +81,6 @@ class ClusterAsGroupOption extends AbstractModel
 
     /**
      * @var string 多伸缩组情况下扩容选择算法(random 随机选择，most-pods 最多类型的Pod least-waste 最少的资源浪费，默认为random)
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Expander;
 
@@ -112,13 +109,13 @@ class ClusterAsGroupOption extends AbstractModel
     public $ScaleDownUtilizationThreshold;
 
     /**
-     * @var boolean 含有本地存储Pod的节点是否不缩容(默认： FALSE)
+     * @var boolean 含有本地存储Pod的节点是否不缩容(默认： true)
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $SkipNodesWithLocalStorage;
 
     /**
-     * @var boolean 含有kube-system namespace下非DaemonSet管理的Pod的节点是否不缩容 (默认： FALSE)
+     * @var boolean 含有kube-system namespace下非DaemonSet管理的Pod的节点是否不缩容 (默认： true)
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $SkipNodesWithSystemPods;
@@ -142,13 +139,13 @@ class ClusterAsGroupOption extends AbstractModel
     public $MaxTotalUnreadyPercentage;
 
     /**
-     * @var integer 表示未准备就绪的节点在有资格进行缩减之前应该停留多长时间
+     * @var integer 表示未准备就绪的节点在有资格进行缩减之前应该停留多少分钟
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $ScaleDownUnreadyTime;
 
     /**
-     * @var integer CA删除未在Kubernetes中注册的节点之前等待的时间
+     * @var integer CA删除未在Kubernetes中注册的节点之前等待的分钟数
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $UnregisteredNodeRemovalTime;
@@ -157,7 +154,6 @@ class ClusterAsGroupOption extends AbstractModel
      * @param boolean $IsScaleDownEnabled 是否开启缩容
 注意：此字段可能返回 null，表示取不到有效值。
      * @param string $Expander 多伸缩组情况下扩容选择算法(random 随机选择，most-pods 最多类型的Pod least-waste 最少的资源浪费，默认为random)
-注意：此字段可能返回 null，表示取不到有效值。
      * @param integer $MaxEmptyBulkDelete 最大并发缩容数
 注意：此字段可能返回 null，表示取不到有效值。
      * @param integer $ScaleDownDelay 集群扩容后多少分钟开始判断缩容（默认为10分钟）
@@ -166,9 +162,9 @@ class ClusterAsGroupOption extends AbstractModel
 注意：此字段可能返回 null，表示取不到有效值。
      * @param integer $ScaleDownUtilizationThreshold 节点资源使用量低于多少(百分比)时认为空闲(默认: 50(百分比))
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param boolean $SkipNodesWithLocalStorage 含有本地存储Pod的节点是否不缩容(默认： FALSE)
+     * @param boolean $SkipNodesWithLocalStorage 含有本地存储Pod的节点是否不缩容(默认： true)
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param boolean $SkipNodesWithSystemPods 含有kube-system namespace下非DaemonSet管理的Pod的节点是否不缩容 (默认： FALSE)
+     * @param boolean $SkipNodesWithSystemPods 含有kube-system namespace下非DaemonSet管理的Pod的节点是否不缩容 (默认： true)
 注意：此字段可能返回 null，表示取不到有效值。
      * @param boolean $IgnoreDaemonSetsUtilization 计算资源使用量时是否默认忽略DaemonSet的实例(默认值: False，不忽略)
 注意：此字段可能返回 null，表示取不到有效值。
@@ -176,9 +172,9 @@ class ClusterAsGroupOption extends AbstractModel
 注意：此字段可能返回 null，表示取不到有效值。
      * @param integer $MaxTotalUnreadyPercentage 未就绪节点的最大百分比，此后CA会停止操作
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param integer $ScaleDownUnreadyTime 表示未准备就绪的节点在有资格进行缩减之前应该停留多长时间
+     * @param integer $ScaleDownUnreadyTime 表示未准备就绪的节点在有资格进行缩减之前应该停留多少分钟
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param integer $UnregisteredNodeRemovalTime CA删除未在Kubernetes中注册的节点之前等待的时间
+     * @param integer $UnregisteredNodeRemovalTime CA删除未在Kubernetes中注册的节点之前等待的分钟数
 注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()

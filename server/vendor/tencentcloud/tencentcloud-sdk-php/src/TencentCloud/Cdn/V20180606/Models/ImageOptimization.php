@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,6 +32,10 @@ use TencentCloud\Common\AbstractModel;
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setGuetzliAdapter(GuetzliAdapter $GuetzliAdapter) 设置GuetzliAdapter配置
 注意：此字段可能返回 null，表示取不到有效值。
+ * @method AvifAdapter getAvifAdapter() 获取AvifAdapter配置
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setAvifAdapter(AvifAdapter $AvifAdapter) 设置AvifAdapter配置
+注意：此字段可能返回 null，表示取不到有效值。
  */
 class ImageOptimization extends AbstractModel
 {
@@ -54,11 +58,19 @@ class ImageOptimization extends AbstractModel
     public $GuetzliAdapter;
 
     /**
+     * @var AvifAdapter AvifAdapter配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $AvifAdapter;
+
+    /**
      * @param WebpAdapter $WebpAdapter WebpAdapter配置
 注意：此字段可能返回 null，表示取不到有效值。
      * @param TpgAdapter $TpgAdapter TpgAdapter配置
 注意：此字段可能返回 null，表示取不到有效值。
      * @param GuetzliAdapter $GuetzliAdapter GuetzliAdapter配置
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AvifAdapter $AvifAdapter AvifAdapter配置
 注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
@@ -87,6 +99,11 @@ class ImageOptimization extends AbstractModel
         if (array_key_exists("GuetzliAdapter",$param) and $param["GuetzliAdapter"] !== null) {
             $this->GuetzliAdapter = new GuetzliAdapter();
             $this->GuetzliAdapter->deserialize($param["GuetzliAdapter"]);
+        }
+
+        if (array_key_exists("AvifAdapter",$param) and $param["AvifAdapter"] !== null) {
+            $this->AvifAdapter = new AvifAdapter();
+            $this->AvifAdapter->deserialize($param["AvifAdapter"]);
         }
     }
 }

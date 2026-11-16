@@ -20,7 +20,7 @@
 namespace app\admin\logic;
 
 use app\admin\model\HelpCategory;
-use think\Db;
+use think\facade\Db;
 
 class HelpCategoryLogic
 {

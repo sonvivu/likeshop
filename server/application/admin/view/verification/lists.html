@@ -235,7 +235,7 @@
                                     <img src="{{ item.image }}" style="height:80px;width: 80px" class="image-show layui-col-md4">
                                     <div class="layui-input-inline layui-col-md8">
                                         <span class="layui-col-md7 goods_name_hide">{{ item.goods_name }}</span>
-                                        <span class="layui-col-md5">￥{{ item.goods_price }}</span>
+                                        <span class="layui-col-md5">{:config('currency.symbol')}{{ item.goods_price }}</span>
                                         <br>
                                         <span class="layui-col-md7 goods_name_hide">{{ item.spec_value }}</span>
                                         <span class="layui-col-md5">{{ item.goods_num }}{:lang('件')}</span>

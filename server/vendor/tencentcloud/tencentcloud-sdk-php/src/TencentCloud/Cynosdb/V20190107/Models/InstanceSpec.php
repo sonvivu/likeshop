@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,22 @@ use TencentCloud\Common\AbstractModel;
  * @method void setMaxStorageSize(integer $MaxStorageSize) 设置实例最大可用存储，单位：GB
  * @method integer getMinStorageSize() 获取实例最小可用存储，单位：GB
  * @method void setMinStorageSize(integer $MinStorageSize) 设置实例最小可用存储，单位：GB
+ * @method boolean getHasStock() 获取是否有库存
+ * @method void setHasStock(boolean $HasStock) 设置是否有库存
+ * @method string getMachineType() 获取机器类型
+ * @method void setMachineType(string $MachineType) 设置机器类型
+ * @method integer getMaxIops() 获取最大IOPS
+ * @method void setMaxIops(integer $MaxIops) 设置最大IOPS
+ * @method integer getMaxIoBandWidth() 获取最大IO带宽
+ * @method void setMaxIoBandWidth(integer $MaxIoBandWidth) 设置最大IO带宽
+ * @method array getZoneStockInfos() 获取地域库存信息
+ * @method void setZoneStockInfos(array $ZoneStockInfos) 设置地域库存信息
+ * @method integer getStockCount() 获取库存数量
+ * @method void setStockCount(integer $StockCount) 设置库存数量
+ * @method float getMaxCpu() 获取最大cpu
+ * @method void setMaxCpu(float $MaxCpu) 设置最大cpu
+ * @method float getMinCpu() 获取最小cpu
+ * @method void setMinCpu(float $MinCpu) 设置最小cpu
  */
 class InstanceSpec extends AbstractModel
 {
@@ -52,10 +68,58 @@ class InstanceSpec extends AbstractModel
     public $MinStorageSize;
 
     /**
+     * @var boolean 是否有库存
+     */
+    public $HasStock;
+
+    /**
+     * @var string 机器类型
+     */
+    public $MachineType;
+
+    /**
+     * @var integer 最大IOPS
+     */
+    public $MaxIops;
+
+    /**
+     * @var integer 最大IO带宽
+     */
+    public $MaxIoBandWidth;
+
+    /**
+     * @var array 地域库存信息
+     */
+    public $ZoneStockInfos;
+
+    /**
+     * @var integer 库存数量
+     */
+    public $StockCount;
+
+    /**
+     * @var float 最大cpu
+     */
+    public $MaxCpu;
+
+    /**
+     * @var float 最小cpu
+     */
+    public $MinCpu;
+
+    /**
      * @param integer $Cpu 实例CPU，单位：核
      * @param integer $Memory 实例内存，单位：GB
      * @param integer $MaxStorageSize 实例最大可用存储，单位：GB
      * @param integer $MinStorageSize 实例最小可用存储，单位：GB
+     * @param boolean $HasStock 是否有库存
+     * @param string $MachineType 机器类型
+     * @param integer $MaxIops 最大IOPS
+     * @param integer $MaxIoBandWidth 最大IO带宽
+     * @param array $ZoneStockInfos 地域库存信息
+     * @param integer $StockCount 库存数量
+     * @param float $MaxCpu 最大cpu
+     * @param float $MinCpu 最小cpu
      */
     function __construct()
     {
@@ -84,6 +148,43 @@ class InstanceSpec extends AbstractModel
 
         if (array_key_exists("MinStorageSize",$param) and $param["MinStorageSize"] !== null) {
             $this->MinStorageSize = $param["MinStorageSize"];
+        }
+
+        if (array_key_exists("HasStock",$param) and $param["HasStock"] !== null) {
+            $this->HasStock = $param["HasStock"];
+        }
+
+        if (array_key_exists("MachineType",$param) and $param["MachineType"] !== null) {
+            $this->MachineType = $param["MachineType"];
+        }
+
+        if (array_key_exists("MaxIops",$param) and $param["MaxIops"] !== null) {
+            $this->MaxIops = $param["MaxIops"];
+        }
+
+        if (array_key_exists("MaxIoBandWidth",$param) and $param["MaxIoBandWidth"] !== null) {
+            $this->MaxIoBandWidth = $param["MaxIoBandWidth"];
+        }
+
+        if (array_key_exists("ZoneStockInfos",$param) and $param["ZoneStockInfos"] !== null) {
+            $this->ZoneStockInfos = [];
+            foreach ($param["ZoneStockInfos"] as $key => $value){
+                $obj = new ZoneStockInfo();
+                $obj->deserialize($value);
+                array_push($this->ZoneStockInfos, $obj);
+            }
+        }
+
+        if (array_key_exists("StockCount",$param) and $param["StockCount"] !== null) {
+            $this->StockCount = $param["StockCount"];
+        }
+
+        if (array_key_exists("MaxCpu",$param) and $param["MaxCpu"] !== null) {
+            $this->MaxCpu = $param["MaxCpu"];
+        }
+
+        if (array_key_exists("MinCpu",$param) and $param["MinCpu"] !== null) {
+            $this->MinCpu = $param["MinCpu"];
         }
     }
 }

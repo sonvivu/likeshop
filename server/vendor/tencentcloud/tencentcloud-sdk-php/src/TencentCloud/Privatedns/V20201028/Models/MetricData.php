@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,6 +26,8 @@ use TencentCloud\Common\AbstractModel;
  * @method void setMetric(string $Metric) 设置表名
  * @method array getDataSet() 获取表数据
  * @method void setDataSet(array $DataSet) 设置表数据
+ * @method integer getMetricCount() 获取查询范围内的请求总量
+ * @method void setMetricCount(integer $MetricCount) 设置查询范围内的请求总量
  */
 class MetricData extends AbstractModel
 {
@@ -45,9 +47,15 @@ class MetricData extends AbstractModel
     public $DataSet;
 
     /**
+     * @var integer 查询范围内的请求总量
+     */
+    public $MetricCount;
+
+    /**
      * @param string $Resource 资源描述
      * @param string $Metric 表名
      * @param array $DataSet 表数据
+     * @param integer $MetricCount 查询范围内的请求总量
      */
     function __construct()
     {
@@ -77,6 +85,10 @@ class MetricData extends AbstractModel
                 $obj->deserialize($value);
                 array_push($this->DataSet, $obj);
             }
+        }
+
+        if (array_key_exists("MetricCount",$param) and $param["MetricCount"] !== null) {
+            $this->MetricCount = $param["MetricCount"];
         }
     }
 }

@@ -70,10 +70,10 @@
                 </div>
             </script>
             <script type="text/html" id="table-cost_price">
-                ￥{{d.min_price}}~￥{{d.max_price}}
+                {:config('currency.symbol')}{{d.min_price}}~{:config('currency.symbol')}{{d.max_price}}
             </script>
             <script type="text/html" id="table-team_price">
-                ￥{{d.team_min_price}} ~ ￥{{d.team_max_price}}
+                {:config('currency.symbol')}{{d.team_min_price}} ~ {:config('currency.symbol')}{{d.team_max_price}}
             </script>
             <script type="text/html" id="table-team_time">
                 {{d.start_time}} ~ {{d.end_time}}

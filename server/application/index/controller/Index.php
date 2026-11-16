@@ -18,11 +18,11 @@
 // +----------------------------------------------------------------------
 namespace app\index\controller;
 
+use app\BaseController;
 use app\common\server\ConfigServer;
 use think\Console;
-use think\Controller;
 
-class Index extends Controller
+class Index extends BaseController
 {
     public function index()
     {

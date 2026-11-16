@@ -22,7 +22,7 @@ namespace app\admin\logic;
 
 use app\admin\model\AdPosition;
 use app\common\model\Ad;
-use think\Db;
+use think\facade\Db;
 use think\Exception;
 
 class AdPositionLogic
@@ -188,7 +188,7 @@ class AdPositionLogic
     {
 
         $ad_position = new AdPosition();
-        $info = $ad_position::get(['id' => $id]);
+        $info = $ad_position::find(['id' => $id]);
 
         return $info;
     }

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,8 +22,8 @@ use TencentCloud\Common\AbstractModel;
  *
  * @method string getDomainName() 获取域名名称。
  * @method void setDomainName(string $DomainName) 设置域名名称。
- * @method integer getStatus() 获取域名解析状态。True 表示正常解析，False 表示解析失败。
- * @method void setStatus(integer $Status) 设置域名解析状态。True 表示正常解析，False 表示解析失败。
+ * @method integer getStatus() 获取域名解析状态。1 表示正常解析，0 表示解析失败。
+ * @method void setStatus(integer $Status) 设置域名解析状态。1 表示正常解析，0 表示解析失败。
  * @method string getCertificateId() 获取证书ID。
  * @method void setCertificateId(string $CertificateId) 设置证书ID。
  * @method boolean getIsDefaultMapping() 获取是否使用默认路径映射。
@@ -32,6 +32,10 @@ use TencentCloud\Common\AbstractModel;
  * @method void setProtocol(string $Protocol) 设置自定义域名协议类型。
  * @method string getNetType() 获取网络类型（'INNER' 或 'OUTER'）。
  * @method void setNetType(string $NetType) 设置网络类型（'INNER' 或 'OUTER'）。
+ * @method boolean getIsForcedHttps() 获取是否将HTTP请求强制跳转 HTTPS，默认为false。参数为 true时，API网关会将所有使用该自定义域名的 HTTP 协议的请求重定向至 HTTPS 协议进行转发。
+ * @method void setIsForcedHttps(boolean $IsForcedHttps) 设置是否将HTTP请求强制跳转 HTTPS，默认为false。参数为 true时，API网关会将所有使用该自定义域名的 HTTP 协议的请求重定向至 HTTPS 协议进行转发。
+ * @method boolean getRegistrationStatus() 获取域名备案注册状态
+ * @method void setRegistrationStatus(boolean $RegistrationStatus) 设置域名备案注册状态
  */
 class DomainSetList extends AbstractModel
 {
@@ -41,7 +45,7 @@ class DomainSetList extends AbstractModel
     public $DomainName;
 
     /**
-     * @var integer 域名解析状态。True 表示正常解析，False 表示解析失败。
+     * @var integer 域名解析状态。1 表示正常解析，0 表示解析失败。
      */
     public $Status;
 
@@ -66,12 +70,24 @@ class DomainSetList extends AbstractModel
     public $NetType;
 
     /**
+     * @var boolean 是否将HTTP请求强制跳转 HTTPS，默认为false。参数为 true时，API网关会将所有使用该自定义域名的 HTTP 协议的请求重定向至 HTTPS 协议进行转发。
+     */
+    public $IsForcedHttps;
+
+    /**
+     * @var boolean 域名备案注册状态
+     */
+    public $RegistrationStatus;
+
+    /**
      * @param string $DomainName 域名名称。
-     * @param integer $Status 域名解析状态。True 表示正常解析，False 表示解析失败。
+     * @param integer $Status 域名解析状态。1 表示正常解析，0 表示解析失败。
      * @param string $CertificateId 证书ID。
      * @param boolean $IsDefaultMapping 是否使用默认路径映射。
      * @param string $Protocol 自定义域名协议类型。
      * @param string $NetType 网络类型（'INNER' 或 'OUTER'）。
+     * @param boolean $IsForcedHttps 是否将HTTP请求强制跳转 HTTPS，默认为false。参数为 true时，API网关会将所有使用该自定义域名的 HTTP 协议的请求重定向至 HTTPS 协议进行转发。
+     * @param boolean $RegistrationStatus 域名备案注册状态
      */
     function __construct()
     {
@@ -108,6 +124,14 @@ class DomainSetList extends AbstractModel
 
         if (array_key_exists("NetType",$param) and $param["NetType"] !== null) {
             $this->NetType = $param["NetType"];
+        }
+
+        if (array_key_exists("IsForcedHttps",$param) and $param["IsForcedHttps"] !== null) {
+            $this->IsForcedHttps = $param["IsForcedHttps"];
+        }
+
+        if (array_key_exists("RegistrationStatus",$param) and $param["RegistrationStatus"] !== null) {
+            $this->RegistrationStatus = $param["RegistrationStatus"];
         }
     }
 }

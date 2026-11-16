@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,10 +38,22 @@ use TencentCloud\Common\AbstractModel;
 1：慢直播。
  * @method void setIsDelayLive(integer $IsDelayLive) 设置0：普通直播，
 1：慢直播。
- * @method HlsSpecialParam getHlsSpecialParam() 获取HLS 录制定制参数
- * @method void setHlsSpecialParam(HlsSpecialParam $HlsSpecialParam) 设置HLS 录制定制参数
+ * @method HlsSpecialParam getHlsSpecialParam() 获取HLS 录制定制参数。
+ * @method void setHlsSpecialParam(HlsSpecialParam $HlsSpecialParam) 设置HLS 录制定制参数。
  * @method RecordParam getMp3Param() 获取MP3 录制参数。
  * @method void setMp3Param(RecordParam $Mp3Param) 设置MP3 录制参数。
+ * @method boolean getRemoveWatermark() 获取是否去除水印。
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setRemoveWatermark(boolean $RemoveWatermark) 设置是否去除水印。
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method integer getCosStore() 获取是否存储至cos
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setCosStore(integer $CosStore) 设置是否存储至cos
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method FlvSpecialParam getFlvSpecialParam() 获取FLV 录制定制参数。
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setFlvSpecialParam(FlvSpecialParam $FlvSpecialParam) 设置FLV 录制定制参数。
+注意：此字段可能返回 null，表示取不到有效值。
  */
 class RecordTemplateInfo extends AbstractModel
 {
@@ -87,7 +99,7 @@ class RecordTemplateInfo extends AbstractModel
     public $IsDelayLive;
 
     /**
-     * @var HlsSpecialParam HLS 录制定制参数
+     * @var HlsSpecialParam HLS 录制定制参数。
      */
     public $HlsSpecialParam;
 
@@ -95,6 +107,24 @@ class RecordTemplateInfo extends AbstractModel
      * @var RecordParam MP3 录制参数。
      */
     public $Mp3Param;
+
+    /**
+     * @var boolean 是否去除水印。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $RemoveWatermark;
+
+    /**
+     * @var integer 是否存储至cos
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $CosStore;
+
+    /**
+     * @var FlvSpecialParam FLV 录制定制参数。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $FlvSpecialParam;
 
     /**
      * @param integer $TemplateId 模板 ID。
@@ -106,8 +136,14 @@ class RecordTemplateInfo extends AbstractModel
      * @param RecordParam $AacParam AAC 录制参数。
      * @param integer $IsDelayLive 0：普通直播，
 1：慢直播。
-     * @param HlsSpecialParam $HlsSpecialParam HLS 录制定制参数
+     * @param HlsSpecialParam $HlsSpecialParam HLS 录制定制参数。
      * @param RecordParam $Mp3Param MP3 录制参数。
+     * @param boolean $RemoveWatermark 是否去除水印。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param integer $CosStore 是否存储至cos
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param FlvSpecialParam $FlvSpecialParam FLV 录制定制参数。
+注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
     {
@@ -166,6 +202,19 @@ class RecordTemplateInfo extends AbstractModel
         if (array_key_exists("Mp3Param",$param) and $param["Mp3Param"] !== null) {
             $this->Mp3Param = new RecordParam();
             $this->Mp3Param->deserialize($param["Mp3Param"]);
+        }
+
+        if (array_key_exists("RemoveWatermark",$param) and $param["RemoveWatermark"] !== null) {
+            $this->RemoveWatermark = $param["RemoveWatermark"];
+        }
+
+        if (array_key_exists("CosStore",$param) and $param["CosStore"] !== null) {
+            $this->CosStore = $param["CosStore"];
+        }
+
+        if (array_key_exists("FlvSpecialParam",$param) and $param["FlvSpecialParam"] !== null) {
+            $this->FlvSpecialParam = new FlvSpecialParam();
+            $this->FlvSpecialParam->deserialize($param["FlvSpecialParam"]);
         }
     }
 }

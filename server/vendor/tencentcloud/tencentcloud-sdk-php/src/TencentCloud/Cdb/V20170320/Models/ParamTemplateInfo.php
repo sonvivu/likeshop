@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,19 +20,23 @@ use TencentCloud\Common\AbstractModel;
 /**
  * 参数模板信息
  *
- * @method integer getTemplateId() 获取参数模板ID
- * @method void setTemplateId(integer $TemplateId) 设置参数模板ID
+ * @method integer getTemplateId() 获取参数模板 ID
+ * @method void setTemplateId(integer $TemplateId) 设置参数模板 ID
  * @method string getName() 获取参数模板名称
  * @method void setName(string $Name) 设置参数模板名称
  * @method string getDescription() 获取参数模板描述
  * @method void setDescription(string $Description) 设置参数模板描述
- * @method string getEngineVersion() 获取实例引擎版本
- * @method void setEngineVersion(string $EngineVersion) 设置实例引擎版本
+ * @method string getEngineVersion() 获取实例引擎版本，值为：5.5、5.6、5.7、8.0。
+ * @method void setEngineVersion(string $EngineVersion) 设置实例引擎版本，值为：5.5、5.6、5.7、8.0。
+ * @method string getTemplateType() 获取参数模板类型，值为：HIGH_STABILITY、HIGH_PERFORMANCE。
+ * @method void setTemplateType(string $TemplateType) 设置参数模板类型，值为：HIGH_STABILITY、HIGH_PERFORMANCE。
+ * @method string getEngineType() 获取参数模板引擎，值为：InnoDB、RocksDB。
+ * @method void setEngineType(string $EngineType) 设置参数模板引擎，值为：InnoDB、RocksDB。
  */
 class ParamTemplateInfo extends AbstractModel
 {
     /**
-     * @var integer 参数模板ID
+     * @var integer 参数模板 ID
      */
     public $TemplateId;
 
@@ -47,15 +51,27 @@ class ParamTemplateInfo extends AbstractModel
     public $Description;
 
     /**
-     * @var string 实例引擎版本
+     * @var string 实例引擎版本，值为：5.5、5.6、5.7、8.0。
      */
     public $EngineVersion;
 
     /**
-     * @param integer $TemplateId 参数模板ID
+     * @var string 参数模板类型，值为：HIGH_STABILITY、HIGH_PERFORMANCE。
+     */
+    public $TemplateType;
+
+    /**
+     * @var string 参数模板引擎，值为：InnoDB、RocksDB。
+     */
+    public $EngineType;
+
+    /**
+     * @param integer $TemplateId 参数模板 ID
      * @param string $Name 参数模板名称
      * @param string $Description 参数模板描述
-     * @param string $EngineVersion 实例引擎版本
+     * @param string $EngineVersion 实例引擎版本，值为：5.5、5.6、5.7、8.0。
+     * @param string $TemplateType 参数模板类型，值为：HIGH_STABILITY、HIGH_PERFORMANCE。
+     * @param string $EngineType 参数模板引擎，值为：InnoDB、RocksDB。
      */
     function __construct()
     {
@@ -84,6 +100,14 @@ class ParamTemplateInfo extends AbstractModel
 
         if (array_key_exists("EngineVersion",$param) and $param["EngineVersion"] !== null) {
             $this->EngineVersion = $param["EngineVersion"];
+        }
+
+        if (array_key_exists("TemplateType",$param) and $param["TemplateType"] !== null) {
+            $this->TemplateType = $param["TemplateType"];
+        }
+
+        if (array_key_exists("EngineType",$param) and $param["EngineType"] !== null) {
+            $this->EngineType = $param["EngineType"];
         }
     }
 }

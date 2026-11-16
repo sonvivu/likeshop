@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,18 +30,16 @@ use TencentCloud\Common\AbstractModel;
 0表示正常；
 1表示异常。
 未开启健康检查状态时，该状态始终为正常。
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setRealServerStatus(integer $RealServerStatus) 设置源站健康检查状态，其中：
 0表示正常；
 1表示异常。
 未开启健康检查状态时，该状态始终为正常。
-注意：此字段可能返回 null，表示取不到有效值。
  * @method integer getRealServerPort() 获取源站的端口号
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setRealServerPort(integer $RealServerPort) 设置源站的端口号
-注意：此字段可能返回 null，表示取不到有效值。
  * @method array getDownIPList() 获取当源站为域名时，域名被解析成一个或者多个IP，该字段表示其中异常的IP列表。状态异常，但该字段为空时，表示域名解析异常。
  * @method void setDownIPList(array $DownIPList) 设置当源站为域名时，域名被解析成一个或者多个IP，该字段表示其中异常的IP列表。状态异常，但该字段为空时，表示域名解析异常。
+ * @method string getRealServerFailoverRole() 获取源站主备角色：master表示主，slave表示备，该参数必须在监听器打开了源站主备模式。
+ * @method void setRealServerFailoverRole(string $RealServerFailoverRole) 设置源站主备角色：master表示主，slave表示备，该参数必须在监听器打开了源站主备模式。
  */
 class BindRealServer extends AbstractModel
 {
@@ -65,13 +63,11 @@ class BindRealServer extends AbstractModel
 0表示正常；
 1表示异常。
 未开启健康检查状态时，该状态始终为正常。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $RealServerStatus;
 
     /**
      * @var integer 源站的端口号
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $RealServerPort;
 
@@ -81,6 +77,11 @@ class BindRealServer extends AbstractModel
     public $DownIPList;
 
     /**
+     * @var string 源站主备角色：master表示主，slave表示备，该参数必须在监听器打开了源站主备模式。
+     */
+    public $RealServerFailoverRole;
+
+    /**
      * @param string $RealServerId 源站ID
      * @param string $RealServerIP 源站IP或者域名
      * @param integer $RealServerWeight 该源站所占权重
@@ -88,10 +89,9 @@ class BindRealServer extends AbstractModel
 0表示正常；
 1表示异常。
 未开启健康检查状态时，该状态始终为正常。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param integer $RealServerPort 源站的端口号
-注意：此字段可能返回 null，表示取不到有效值。
      * @param array $DownIPList 当源站为域名时，域名被解析成一个或者多个IP，该字段表示其中异常的IP列表。状态异常，但该字段为空时，表示域名解析异常。
+     * @param string $RealServerFailoverRole 源站主备角色：master表示主，slave表示备，该参数必须在监听器打开了源站主备模式。
      */
     function __construct()
     {
@@ -128,6 +128,10 @@ class BindRealServer extends AbstractModel
 
         if (array_key_exists("DownIPList",$param) and $param["DownIPList"] !== null) {
             $this->DownIPList = $param["DownIPList"];
+        }
+
+        if (array_key_exists("RealServerFailoverRole",$param) and $param["RealServerFailoverRole"] !== null) {
+            $this->RealServerFailoverRole = $param["RealServerFailoverRole"];
         }
     }
 }

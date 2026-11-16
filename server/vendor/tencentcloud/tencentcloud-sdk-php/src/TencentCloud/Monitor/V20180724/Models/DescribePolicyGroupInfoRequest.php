@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,26 +20,26 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribePolicyGroupInfo请求参数结构体
  *
- * @method string getModule() 获取固定值，为"monitor"
- * @method void setModule(string $Module) 设置固定值，为"monitor"
- * @method integer getGroupId() 获取策略组id
- * @method void setGroupId(integer $GroupId) 设置策略组id
+ * @method string getModule() 获取<p>固定值，为&quot;monitor&quot;</p>
+ * @method void setModule(string $Module) 设置<p>固定值，为&quot;monitor&quot;</p>
+ * @method integer getGroupId() 获取<p>策略组id</p>
+ * @method void setGroupId(integer $GroupId) 设置<p>策略组id</p>
  */
 class DescribePolicyGroupInfoRequest extends AbstractModel
 {
     /**
-     * @var string 固定值，为"monitor"
+     * @var string <p>固定值，为&quot;monitor&quot;</p>
      */
     public $Module;
 
     /**
-     * @var integer 策略组id
+     * @var integer <p>策略组id</p>
      */
     public $GroupId;
 
     /**
-     * @param string $Module 固定值，为"monitor"
-     * @param integer $GroupId 策略组id
+     * @param string $Module <p>固定值，为&quot;monitor&quot;</p>
+     * @param integer $GroupId <p>策略组id</p>
      */
     function __construct()
     {

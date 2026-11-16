@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,58 +20,46 @@ use TencentCloud\Common\AbstractModel;
 /**
  * 全栈式风控引擎出参
  *
- * @method integer getCode() 获取返回码。0表示成功，非0标识失败错误码。
+ * @method integer getCode() 获取<p>错误码，0 表示成功，非0表示失败错误码。<br>0：成功<br>1002：参数错误<br>4300：未开通服务<br>4301：后端未创建对应产品<br>6000：系统内部错误</p>
+ * @method void setCode(integer $Code) 设置<p>错误码，0 表示成功，非0表示失败错误码。<br>0：成功<br>1002：参数错误<br>4300：未开通服务<br>4301：后端未创建对应产品<br>6000：系统内部错误</p>
+ * @method string getMessage() 获取<p>UTF-8编码，出错消息。</p>
+ * @method void setMessage(string $Message) 设置<p>UTF-8编码，出错消息。</p>
+ * @method OutputManageMarketingRiskValue getValue() 获取<p>业务详情。</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setCode(integer $Code) 设置返回码。0表示成功，非0标识失败错误码。
+ * @method void setValue(OutputManageMarketingRiskValue $Value) 设置<p>业务详情。</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getMessage() 获取UTF-8编码，出错消息。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setMessage(string $Message) 设置UTF-8编码，出错消息。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method OutputManageMarketingRiskValue getValue() 获取业务详情。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setValue(OutputManageMarketingRiskValue $Value) 设置业务详情。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method string getUUid() 获取控制台显示的req_id。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setUUid(string $UUid) 设置控制台显示的req_id。
-注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getUUid() 获取<p>控制台显示的req_id。</p>
+ * @method void setUUid(string $UUid) 设置<p>控制台显示的req_id。</p>
  */
 class OutputManageMarketingRisk extends AbstractModel
 {
     /**
-     * @var integer 返回码。0表示成功，非0标识失败错误码。
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var integer <p>错误码，0 表示成功，非0表示失败错误码。<br>0：成功<br>1002：参数错误<br>4300：未开通服务<br>4301：后端未创建对应产品<br>6000：系统内部错误</p>
      */
     public $Code;
 
     /**
-     * @var string UTF-8编码，出错消息。
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string <p>UTF-8编码，出错消息。</p>
      */
     public $Message;
 
     /**
-     * @var OutputManageMarketingRiskValue 业务详情。
+     * @var OutputManageMarketingRiskValue <p>业务详情。</p>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Value;
 
     /**
-     * @var string 控制台显示的req_id。
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string <p>控制台显示的req_id。</p>
      */
     public $UUid;
 
     /**
-     * @param integer $Code 返回码。0表示成功，非0标识失败错误码。
+     * @param integer $Code <p>错误码，0 表示成功，非0表示失败错误码。<br>0：成功<br>1002：参数错误<br>4300：未开通服务<br>4301：后端未创建对应产品<br>6000：系统内部错误</p>
+     * @param string $Message <p>UTF-8编码，出错消息。</p>
+     * @param OutputManageMarketingRiskValue $Value <p>业务详情。</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $Message UTF-8编码，出错消息。
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param OutputManageMarketingRiskValue $Value 业务详情。
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $UUid 控制台显示的req_id。
-注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $UUid <p>控制台显示的req_id。</p>
      */
     function __construct()
     {

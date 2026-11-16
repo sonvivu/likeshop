@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,8 +20,8 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeManagerDetail请求参数结构体
  *
- * @method integer getManagerId() 获取管理人ID
- * @method void setManagerId(integer $ManagerId) 设置管理人ID
+ * @method integer getManagerId() 获取管理人ID,可以从describeManagers接口获得
+ * @method void setManagerId(integer $ManagerId) 设置管理人ID,可以从describeManagers接口获得
  * @method integer getLimit() 获取分页每页数量
  * @method void setLimit(integer $Limit) 设置分页每页数量
  * @method integer getOffset() 获取分页偏移量
@@ -30,22 +30,24 @@ use TencentCloud\Common\AbstractModel;
 class DescribeManagerDetailRequest extends AbstractModel
 {
     /**
-     * @var integer 管理人ID
+     * @var integer 管理人ID,可以从describeManagers接口获得
      */
     public $ManagerId;
 
     /**
      * @var integer 分页每页数量
+     * @deprecated
      */
     public $Limit;
 
     /**
      * @var integer 分页偏移量
+     * @deprecated
      */
     public $Offset;
 
     /**
-     * @param integer $ManagerId 管理人ID
+     * @param integer $ManagerId 管理人ID,可以从describeManagers接口获得
      * @param integer $Limit 分页每页数量
      * @param integer $Offset 分页偏移量
      */

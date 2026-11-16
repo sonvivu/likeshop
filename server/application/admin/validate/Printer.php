@@ -17,7 +17,7 @@
 // | author: likeshop.cn.team
 // +----------------------------------------------------------------------
 namespace app\admin\validate;
-use think\Db;
+use think\facade\Db;
 use think\Validate;
 
 class Printer extends Validate{
@@ -49,7 +49,7 @@ class Printer extends Validate{
     ];
     public function sceneAdd()
     {
-        return $this->remove('id');
+        return $this->remove('id', true);
     }
 
     public function sceneDel()

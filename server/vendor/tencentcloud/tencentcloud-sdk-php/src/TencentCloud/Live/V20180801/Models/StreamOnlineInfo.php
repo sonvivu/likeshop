@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,12 @@ use TencentCloud\Common\AbstractModel;
  * @method void setAppName(string $AppName) 设置应用名称。
  * @method string getDomainName() 获取推流域名。
  * @method void setDomainName(string $DomainName) 设置推流域名。
+ * @method integer getPushToDelay() 获取流是否推送到延播。
+0 - 无延播，
+1 - 有延播。
+ * @method void setPushToDelay(integer $PushToDelay) 设置流是否推送到延播。
+0 - 无延播，
+1 - 有延播。
  */
 class StreamOnlineInfo extends AbstractModel
 {
@@ -52,10 +58,20 @@ class StreamOnlineInfo extends AbstractModel
     public $DomainName;
 
     /**
+     * @var integer 流是否推送到延播。
+0 - 无延播，
+1 - 有延播。
+     */
+    public $PushToDelay;
+
+    /**
      * @param string $StreamName 流名称。
      * @param array $PublishTimeList 推流时间列表
      * @param string $AppName 应用名称。
      * @param string $DomainName 推流域名。
+     * @param integer $PushToDelay 流是否推送到延播。
+0 - 无延播，
+1 - 有延播。
      */
     function __construct()
     {
@@ -89,6 +105,10 @@ class StreamOnlineInfo extends AbstractModel
 
         if (array_key_exists("DomainName",$param) and $param["DomainName"] !== null) {
             $this->DomainName = $param["DomainName"];
+        }
+
+        if (array_key_exists("PushToDelay",$param) and $param["PushToDelay"] !== null) {
+            $this->PushToDelay = $param["PushToDelay"];
         }
     }
 }

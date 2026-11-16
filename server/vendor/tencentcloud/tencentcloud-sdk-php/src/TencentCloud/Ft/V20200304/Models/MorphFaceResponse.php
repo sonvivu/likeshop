@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,34 +20,34 @@ use TencentCloud\Common\AbstractModel;
 /**
  * MorphFace返回参数结构体
  *
- * @method string getJobId() 获取人像渐变任务的Job id
- * @method void setJobId(string $JobId) 设置人像渐变任务的Job id
- * @method integer getEstimatedProcessTime() 获取预估处理时间，粒度为秒
- * @method void setEstimatedProcessTime(integer $EstimatedProcessTime) 设置预估处理时间，粒度为秒
- * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
- * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method string getJobId() 获取<p>人像渐变任务的Job id</p>
+ * @method void setJobId(string $JobId) 设置<p>人像渐变任务的Job id</p>
+ * @method integer getEstimatedProcessTime() 获取<p>预估处理时间，粒度为秒</p>
+ * @method void setEstimatedProcessTime(integer $EstimatedProcessTime) 设置<p>预估处理时间，粒度为秒</p>
+ * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+ * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
 class MorphFaceResponse extends AbstractModel
 {
     /**
-     * @var string 人像渐变任务的Job id
+     * @var string <p>人像渐变任务的Job id</p>
      */
     public $JobId;
 
     /**
-     * @var integer 预估处理时间，粒度为秒
+     * @var integer <p>预估处理时间，粒度为秒</p>
      */
     public $EstimatedProcessTime;
 
     /**
-     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public $RequestId;
 
     /**
-     * @param string $JobId 人像渐变任务的Job id
-     * @param integer $EstimatedProcessTime 预估处理时间，粒度为秒
-     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @param string $JobId <p>人像渐变任务的Job id</p>
+     * @param integer $EstimatedProcessTime <p>预估处理时间，粒度为秒</p>
+     * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
     {

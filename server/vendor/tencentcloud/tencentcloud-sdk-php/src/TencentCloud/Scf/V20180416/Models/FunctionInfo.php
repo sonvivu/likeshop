@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,15 +25,17 @@ use TencentCloud\Common\AbstractModel;
  * @method string getAddTime() 获取创建时间
  * @method void setAddTime(string $AddTime) 设置创建时间
  * @method string getRuntime() 获取运行时
+注意：此字段可能返回 null，表示取不到有效值。
  * @method void setRuntime(string $Runtime) 设置运行时
+注意：此字段可能返回 null，表示取不到有效值。
  * @method string getFunctionName() 获取函数名称
  * @method void setFunctionName(string $FunctionName) 设置函数名称
  * @method string getFunctionId() 获取函数ID
  * @method void setFunctionId(string $FunctionId) 设置函数ID
  * @method string getNamespace() 获取命名空间
  * @method void setNamespace(string $Namespace) 设置命名空间
- * @method string getStatus() 获取函数状态，状态值及流转[参考此处](https://cloud.tencent.com/document/product/583/47175)
- * @method void setStatus(string $Status) 设置函数状态，状态值及流转[参考此处](https://cloud.tencent.com/document/product/583/47175)
+ * @method string getStatus() 获取函数状态，状态值及流转[参考此处](https://cloud.tencent.com/document/product/583/17244)
+ * @method void setStatus(string $Status) 设置函数状态，状态值及流转[参考此处](https://cloud.tencent.com/document/product/583/17244)
  * @method string getStatusDesc() 获取函数状态详情
  * @method void setStatusDesc(string $StatusDesc) 设置函数状态详情
  * @method string getDescription() 获取函数描述
@@ -52,6 +54,10 @@ use TencentCloud\Common\AbstractModel;
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setReservedConcurrencyMem(integer $ReservedConcurrencyMem) 设置函数并发保留内存
 注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getAsyncRunEnable() 获取函数异步属性，取值 TRUE 或者 FALSE
+ * @method void setAsyncRunEnable(string $AsyncRunEnable) 设置函数异步属性，取值 TRUE 或者 FALSE
+ * @method string getTraceEnable() 获取异步函数是否开启调用追踪，取值 TRUE 或者 FALSE
+ * @method void setTraceEnable(string $TraceEnable) 设置异步函数是否开启调用追踪，取值 TRUE 或者 FALSE
  */
 class FunctionInfo extends AbstractModel
 {
@@ -67,6 +73,7 @@ class FunctionInfo extends AbstractModel
 
     /**
      * @var string 运行时
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Runtime;
 
@@ -86,7 +93,7 @@ class FunctionInfo extends AbstractModel
     public $Namespace;
 
     /**
-     * @var string 函数状态，状态值及流转[参考此处](https://cloud.tencent.com/document/product/583/47175)
+     * @var string 函数状态，状态值及流转[参考此处](https://cloud.tencent.com/document/product/583/17244)
      */
     public $Status;
 
@@ -128,13 +135,24 @@ class FunctionInfo extends AbstractModel
     public $ReservedConcurrencyMem;
 
     /**
+     * @var string 函数异步属性，取值 TRUE 或者 FALSE
+     */
+    public $AsyncRunEnable;
+
+    /**
+     * @var string 异步函数是否开启调用追踪，取值 TRUE 或者 FALSE
+     */
+    public $TraceEnable;
+
+    /**
      * @param string $ModTime 修改时间
      * @param string $AddTime 创建时间
      * @param string $Runtime 运行时
+注意：此字段可能返回 null，表示取不到有效值。
      * @param string $FunctionName 函数名称
      * @param string $FunctionId 函数ID
      * @param string $Namespace 命名空间
-     * @param string $Status 函数状态，状态值及流转[参考此处](https://cloud.tencent.com/document/product/583/47175)
+     * @param string $Status 函数状态，状态值及流转[参考此处](https://cloud.tencent.com/document/product/583/17244)
      * @param string $StatusDesc 函数状态详情
      * @param string $Description 函数描述
      * @param array $Tags 函数标签
@@ -144,6 +162,8 @@ class FunctionInfo extends AbstractModel
 注意：此字段可能返回 null，表示取不到有效值。
      * @param integer $ReservedConcurrencyMem 函数并发保留内存
 注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $AsyncRunEnable 函数异步属性，取值 TRUE 或者 FALSE
+     * @param string $TraceEnable 异步函数是否开启调用追踪，取值 TRUE 或者 FALSE
      */
     function __construct()
     {
@@ -222,6 +242,14 @@ class FunctionInfo extends AbstractModel
 
         if (array_key_exists("ReservedConcurrencyMem",$param) and $param["ReservedConcurrencyMem"] !== null) {
             $this->ReservedConcurrencyMem = $param["ReservedConcurrencyMem"];
+        }
+
+        if (array_key_exists("AsyncRunEnable",$param) and $param["AsyncRunEnable"] !== null) {
+            $this->AsyncRunEnable = $param["AsyncRunEnable"];
+        }
+
+        if (array_key_exists("TraceEnable",$param) and $param["TraceEnable"] !== null) {
+            $this->TraceEnable = $param["TraceEnable"];
         }
     }
 }

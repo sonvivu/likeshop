@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,33 +21,25 @@ use TencentCloud\Common\AbstractModel;
  * 集群所在的可用区。
  *
  * @method array getMasterZone() 获取集群所在的主可用区。
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setMasterZone(array $MasterZone) 设置集群所在的主可用区。
-注意：此字段可能返回 null，表示取不到有效值。
  * @method array getSlaveZone() 获取集群所在的备可用区。
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setSlaveZone(array $SlaveZone) 设置集群所在的备可用区。
-注意：此字段可能返回 null，表示取不到有效值。
  */
 class ClustersZone extends AbstractModel
 {
     /**
      * @var array 集群所在的主可用区。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $MasterZone;
 
     /**
      * @var array 集群所在的备可用区。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $SlaveZone;
 
     /**
      * @param array $MasterZone 集群所在的主可用区。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param array $SlaveZone 集群所在的备可用区。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
     {

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,101 +21,88 @@ use TencentCloud\Common\AbstractModel;
  * 只读组信息
  *
  * @method string getReadOnlyGroupId() 获取只读组标识
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setReadOnlyGroupId(string $ReadOnlyGroupId) 设置只读组标识
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getReadOnlyGroupName() 获取只读组名字
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setReadOnlyGroupName(string $ReadOnlyGroupName) 设置只读组名字
-注意：此字段可能返回 null，表示取不到有效值。
  * @method integer getProjectId() 获取项目id
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setProjectId(integer $ProjectId) 设置项目id
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getMasterDBInstanceId() 获取主实例id
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setMasterDBInstanceId(string $MasterDBInstanceId) 设置主实例id
-注意：此字段可能返回 null，表示取不到有效值。
  * @method integer getMinDelayEliminateReserve() 获取最小保留实例数
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setMinDelayEliminateReserve(integer $MinDelayEliminateReserve) 设置最小保留实例数
-注意：此字段可能返回 null，表示取不到有效值。
- * @method integer getMaxReplayLatency() 获取延迟空间大小阈值
- * @method void setMaxReplayLatency(integer $MaxReplayLatency) 设置延迟空间大小阈值
- * @method integer getReplayLatencyEliminate() 获取延迟大小开关
- * @method void setReplayLatencyEliminate(integer $ReplayLatencyEliminate) 设置延迟大小开关
- * @method float getMaxReplayLag() 获取延迟时间大小阈值
- * @method void setMaxReplayLag(float $MaxReplayLag) 设置延迟时间大小阈值
- * @method integer getReplayLagEliminate() 获取延迟时间开关
- * @method void setReplayLagEliminate(integer $ReplayLagEliminate) 设置延迟时间开关
+ * @method integer getMaxReplayLatency() 获取延迟空间大小阈值。单位MB。
+ * @method void setMaxReplayLatency(integer $MaxReplayLatency) 设置延迟空间大小阈值。单位MB。
+ * @method integer getReplayLatencyEliminate() 获取延迟大小开关。0 - 关闭； 1 - 开启。
+ * @method void setReplayLatencyEliminate(integer $ReplayLatencyEliminate) 设置延迟大小开关。0 - 关闭； 1 - 开启。
+ * @method float getMaxReplayLag() 获取延迟时间大小阈值，单位：秒。
+ * @method void setMaxReplayLag(float $MaxReplayLag) 设置延迟时间大小阈值，单位：秒。
+ * @method integer getReplayLagEliminate() 获取延迟时间开关。0 - 关闭； 1 - 开启。
+ * @method void setReplayLagEliminate(integer $ReplayLagEliminate) 设置延迟时间开关。0 - 关闭； 1 - 开启。
  * @method string getVpcId() 获取虚拟网络id
  * @method void setVpcId(string $VpcId) 设置虚拟网络id
  * @method string getSubnetId() 获取子网id
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setSubnetId(string $SubnetId) 设置子网id
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getRegion() 获取地域id
  * @method void setRegion(string $Region) 设置地域id
  * @method string getZone() 获取地区id
  * @method void setZone(string $Zone) 设置地区id
- * @method string getStatus() 获取状态
- * @method void setStatus(string $Status) 设置状态
+ * @method string getStatus() 获取状态。枚举值：creating、ok、modifying、deleting、deleted
+ * @method void setStatus(string $Status) 设置状态。枚举值：creating、ok、modifying、deleting、deleted
  * @method array getReadOnlyDBInstanceList() 获取实例详细信息
  * @method void setReadOnlyDBInstanceList(array $ReadOnlyDBInstanceList) 设置实例详细信息
  * @method integer getRebalance() 获取自动负载均衡开关
  * @method void setRebalance(integer $Rebalance) 设置自动负载均衡开关
  * @method array getDBInstanceNetInfo() 获取网络信息
  * @method void setDBInstanceNetInfo(array $DBInstanceNetInfo) 设置网络信息
+ * @method array getNetworkAccessList() 获取只读组网络信息列表（此字段已废弃）
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setNetworkAccessList(array $NetworkAccessList) 设置只读组网络信息列表（此字段已废弃）
+注意：此字段可能返回 null，表示取不到有效值。
  */
 class ReadOnlyGroup extends AbstractModel
 {
     /**
      * @var string 只读组标识
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $ReadOnlyGroupId;
 
     /**
      * @var string 只读组名字
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $ReadOnlyGroupName;
 
     /**
      * @var integer 项目id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $ProjectId;
 
     /**
      * @var string 主实例id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $MasterDBInstanceId;
 
     /**
      * @var integer 最小保留实例数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $MinDelayEliminateReserve;
 
     /**
-     * @var integer 延迟空间大小阈值
+     * @var integer 延迟空间大小阈值。单位MB。
      */
     public $MaxReplayLatency;
 
     /**
-     * @var integer 延迟大小开关
+     * @var integer 延迟大小开关。0 - 关闭； 1 - 开启。
      */
     public $ReplayLatencyEliminate;
 
     /**
-     * @var float 延迟时间大小阈值
+     * @var float 延迟时间大小阈值，单位：秒。
      */
     public $MaxReplayLag;
 
     /**
-     * @var integer 延迟时间开关
+     * @var integer 延迟时间开关。0 - 关闭； 1 - 开启。
      */
     public $ReplayLagEliminate;
 
@@ -126,7 +113,6 @@ class ReadOnlyGroup extends AbstractModel
 
     /**
      * @var string 子网id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $SubnetId;
 
@@ -141,7 +127,7 @@ class ReadOnlyGroup extends AbstractModel
     public $Zone;
 
     /**
-     * @var string 状态
+     * @var string 状态。枚举值：creating、ok、modifying、deleting、deleted
      */
     public $Status;
 
@@ -161,29 +147,31 @@ class ReadOnlyGroup extends AbstractModel
     public $DBInstanceNetInfo;
 
     /**
+     * @var array 只读组网络信息列表（此字段已废弃）
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $NetworkAccessList;
+
+    /**
      * @param string $ReadOnlyGroupId 只读组标识
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $ReadOnlyGroupName 只读组名字
-注意：此字段可能返回 null，表示取不到有效值。
      * @param integer $ProjectId 项目id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $MasterDBInstanceId 主实例id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param integer $MinDelayEliminateReserve 最小保留实例数
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param integer $MaxReplayLatency 延迟空间大小阈值
-     * @param integer $ReplayLatencyEliminate 延迟大小开关
-     * @param float $MaxReplayLag 延迟时间大小阈值
-     * @param integer $ReplayLagEliminate 延迟时间开关
+     * @param integer $MaxReplayLatency 延迟空间大小阈值。单位MB。
+     * @param integer $ReplayLatencyEliminate 延迟大小开关。0 - 关闭； 1 - 开启。
+     * @param float $MaxReplayLag 延迟时间大小阈值，单位：秒。
+     * @param integer $ReplayLagEliminate 延迟时间开关。0 - 关闭； 1 - 开启。
      * @param string $VpcId 虚拟网络id
      * @param string $SubnetId 子网id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $Region 地域id
      * @param string $Zone 地区id
-     * @param string $Status 状态
+     * @param string $Status 状态。枚举值：creating、ok、modifying、deleting、deleted
      * @param array $ReadOnlyDBInstanceList 实例详细信息
      * @param integer $Rebalance 自动负载均衡开关
      * @param array $DBInstanceNetInfo 网络信息
+     * @param array $NetworkAccessList 只读组网络信息列表（此字段已废弃）
+注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
     {
@@ -273,6 +261,15 @@ class ReadOnlyGroup extends AbstractModel
                 $obj = new DBInstanceNetInfo();
                 $obj->deserialize($value);
                 array_push($this->DBInstanceNetInfo, $obj);
+            }
+        }
+
+        if (array_key_exists("NetworkAccessList",$param) and $param["NetworkAccessList"] !== null) {
+            $this->NetworkAccessList = [];
+            foreach ($param["NetworkAccessList"] as $key => $value){
+                $obj = new NetworkAccess();
+                $obj->deserialize($value);
+                array_push($this->NetworkAccessList, $obj);
             }
         }
     }

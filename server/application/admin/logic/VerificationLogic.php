@@ -26,8 +26,7 @@ use app\common\model\OrderLog;
 use app\common\model\UserLevel;
 use app\common\model\Verification;
 use app\common\server\UrlServer;
-use think\Db;
-use think\facade\Hook;
+use think\facade\Db;
 
 class VerificationLogic
 {
@@ -287,7 +286,7 @@ class VerificationLogic
             );
 
             // 赠送成长值和积分
-            Hook::listen('give_reward', [
+            event('give_reward', [
                 'order_id' => $params['id'],
                 'scene'    => 3, //3=订单完成
             ]);

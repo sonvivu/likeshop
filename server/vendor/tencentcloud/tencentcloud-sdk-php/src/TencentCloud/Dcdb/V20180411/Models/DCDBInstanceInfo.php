@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,8 +38,8 @@ use TencentCloud\Common\AbstractModel;
  * @method void setSubnetId(integer $SubnetId) 设置Subnet数字ID
  * @method string getStatusDesc() 获取状态中文描述
  * @method void setStatusDesc(string $StatusDesc) 设置状态中文描述
- * @method integer getStatus() 获取实例状态：0 创建中，1 流程处理中， 2 运行中，3 实例未初始化，-1 实例已隔离，-2 实例已删除，4 实例初始化中，5 实例删除中，6 实例重启中，7 数据迁移中
- * @method void setStatus(integer $Status) 设置实例状态：0 创建中，1 流程处理中， 2 运行中，3 实例未初始化，-1 实例已隔离，-2 实例已删除，4 实例初始化中，5 实例删除中，6 实例重启中，7 数据迁移中
+ * @method integer getStatus() 获取实例状态：0 创建中，1 流程处理中， 2 运行中，3 实例未初始化，-1 实例已隔离，4 实例初始化中，5 实例删除中，6 实例重启中，7 数据迁移中
+ * @method void setStatus(integer $Status) 设置实例状态：0 创建中，1 流程处理中， 2 运行中，3 实例未初始化，-1 实例已隔离，4 实例初始化中，5 实例删除中，6 实例重启中，7 数据迁移中
  * @method string getVip() 获取内网IP
  * @method void setVip(string $Vip) 设置内网IP
  * @method integer getVport() 获取内网端口
@@ -91,9 +91,7 @@ use TencentCloud\Common\AbstractModel;
  * @method string getPaymode() 获取付费模式
  * @method void setPaymode(string $Paymode) 设置付费模式
  * @method integer getLocker() 获取实例处于异步任务状态时，表示异步任务流程ID
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setLocker(integer $Locker) 设置实例处于异步任务状态时，表示异步任务流程ID
-注意：此字段可能返回 null，表示取不到有效值。
  * @method integer getWanStatus() 获取外网状态，0-未开通；1-已开通；2-关闭；3-开通中
  * @method void setWanStatus(integer $WanStatus) 设置外网状态，0-未开通；1-已开通；2-关闭；3-开通中
  * @method integer getIsAuditSupported() 获取该实例是否支持审计。1-支持；0-不支持
@@ -101,41 +99,29 @@ use TencentCloud\Common\AbstractModel;
  * @method integer getCpu() 获取Cpu核数
  * @method void setCpu(integer $Cpu) 设置Cpu核数
  * @method integer getIpv6Flag() 获取实例IPv6标志
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setIpv6Flag(integer $Ipv6Flag) 设置实例IPv6标志
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getVipv6() 获取内网IPv6
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setVipv6(string $Vipv6) 设置内网IPv6
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getWanVipv6() 获取外网IPv6
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setWanVipv6(string $WanVipv6) 设置外网IPv6
-注意：此字段可能返回 null，表示取不到有效值。
  * @method integer getWanPortIpv6() 获取外网IPv6端口
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setWanPortIpv6(integer $WanPortIpv6) 设置外网IPv6端口
-注意：此字段可能返回 null，表示取不到有效值。
  * @method integer getWanStatusIpv6() 获取外网IPv6状态
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setWanStatusIpv6(integer $WanStatusIpv6) 设置外网IPv6状态
-注意：此字段可能返回 null，表示取不到有效值。
  * @method integer getDcnFlag() 获取DCN标志，0-无，1-主实例，2-灾备实例
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setDcnFlag(integer $DcnFlag) 设置DCN标志，0-无，1-主实例，2-灾备实例
-注意：此字段可能返回 null，表示取不到有效值。
  * @method integer getDcnStatus() 获取DCN状态，0-无，1-创建中，2-同步中，3-已断开
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setDcnStatus(integer $DcnStatus) 设置DCN状态，0-无，1-创建中，2-同步中，3-已断开
-注意：此字段可能返回 null，表示取不到有效值。
  * @method integer getDcnDstNum() 获取DCN灾备实例数
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setDcnDstNum(integer $DcnDstNum) 设置DCN灾备实例数
-注意：此字段可能返回 null，表示取不到有效值。
  * @method integer getInstanceType() 获取1： 主实例（独享型）, 2: 主实例, 3： 灾备实例, 4： 灾备实例（独享型）
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setInstanceType(integer $InstanceType) 设置1： 主实例（独享型）, 2: 主实例, 3： 灾备实例, 4： 灾备实例（独享型）
-注意：此字段可能返回 null，表示取不到有效值。
+ * @method array getResourceTags() 获取实例标签信息
+ * @method void setResourceTags(array $ResourceTags) 设置实例标签信息
+ * @method string getDbVersionId() 获取数据库引擎版本
+ * @method void setDbVersionId(string $DbVersionId) 设置数据库引擎版本
+ * @method integer getProtectedProperty() 获取实例删除保护标签，1: 已开启删除保护，0: 未开启删除保护
+ * @method void setProtectedProperty(integer $ProtectedProperty) 设置实例删除保护标签，1: 已开启删除保护，0: 未开启删除保护
  */
 class DCDBInstanceInfo extends AbstractModel
 {
@@ -185,7 +171,7 @@ class DCDBInstanceInfo extends AbstractModel
     public $StatusDesc;
 
     /**
-     * @var integer 实例状态：0 创建中，1 流程处理中， 2 运行中，3 实例未初始化，-1 实例已隔离，-2 实例已删除，4 实例初始化中，5 实例删除中，6 实例重启中，7 数据迁移中
+     * @var integer 实例状态：0 创建中，1 流程处理中， 2 运行中，3 实例未初始化，-1 实例已隔离，4 实例初始化中，5 实例删除中，6 实例重启中，7 数据迁移中
      */
     public $Status;
 
@@ -316,7 +302,6 @@ class DCDBInstanceInfo extends AbstractModel
 
     /**
      * @var integer 实例处于异步任务状态时，表示异步任务流程ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Locker;
 
@@ -337,57 +322,63 @@ class DCDBInstanceInfo extends AbstractModel
 
     /**
      * @var integer 实例IPv6标志
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Ipv6Flag;
 
     /**
      * @var string 内网IPv6
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Vipv6;
 
     /**
      * @var string 外网IPv6
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $WanVipv6;
 
     /**
      * @var integer 外网IPv6端口
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $WanPortIpv6;
 
     /**
      * @var integer 外网IPv6状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $WanStatusIpv6;
 
     /**
      * @var integer DCN标志，0-无，1-主实例，2-灾备实例
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $DcnFlag;
 
     /**
      * @var integer DCN状态，0-无，1-创建中，2-同步中，3-已断开
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $DcnStatus;
 
     /**
      * @var integer DCN灾备实例数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $DcnDstNum;
 
     /**
      * @var integer 1： 主实例（独享型）, 2: 主实例, 3： 灾备实例, 4： 灾备实例（独享型）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $InstanceType;
+
+    /**
+     * @var array 实例标签信息
+     */
+    public $ResourceTags;
+
+    /**
+     * @var string 数据库引擎版本
+     */
+    public $DbVersionId;
+
+    /**
+     * @var integer 实例删除保护标签，1: 已开启删除保护，0: 未开启删除保护
+     */
+    public $ProtectedProperty;
 
     /**
      * @param string $InstanceId 实例ID
@@ -399,7 +390,7 @@ class DCDBInstanceInfo extends AbstractModel
      * @param integer $VpcId VPC数字ID
      * @param integer $SubnetId Subnet数字ID
      * @param string $StatusDesc 状态中文描述
-     * @param integer $Status 实例状态：0 创建中，1 流程处理中， 2 运行中，3 实例未初始化，-1 实例已隔离，-2 实例已删除，4 实例初始化中，5 实例删除中，6 实例重启中，7 数据迁移中
+     * @param integer $Status 实例状态：0 创建中，1 流程处理中， 2 运行中，3 实例未初始化，-1 实例已隔离，4 实例初始化中，5 实例删除中，6 实例重启中，7 数据迁移中
      * @param string $Vip 内网IP
      * @param integer $Vport 内网端口
      * @param string $CreateTime 创建时间
@@ -426,28 +417,21 @@ class DCDBInstanceInfo extends AbstractModel
      * @param string $DbVersion 数据库引擎版本
      * @param string $Paymode 付费模式
      * @param integer $Locker 实例处于异步任务状态时，表示异步任务流程ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param integer $WanStatus 外网状态，0-未开通；1-已开通；2-关闭；3-开通中
      * @param integer $IsAuditSupported 该实例是否支持审计。1-支持；0-不支持
      * @param integer $Cpu Cpu核数
      * @param integer $Ipv6Flag 实例IPv6标志
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $Vipv6 内网IPv6
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $WanVipv6 外网IPv6
-注意：此字段可能返回 null，表示取不到有效值。
      * @param integer $WanPortIpv6 外网IPv6端口
-注意：此字段可能返回 null，表示取不到有效值。
      * @param integer $WanStatusIpv6 外网IPv6状态
-注意：此字段可能返回 null，表示取不到有效值。
      * @param integer $DcnFlag DCN标志，0-无，1-主实例，2-灾备实例
-注意：此字段可能返回 null，表示取不到有效值。
      * @param integer $DcnStatus DCN状态，0-无，1-创建中，2-同步中，3-已断开
-注意：此字段可能返回 null，表示取不到有效值。
      * @param integer $DcnDstNum DCN灾备实例数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param integer $InstanceType 1： 主实例（独享型）, 2: 主实例, 3： 灾备实例, 4： 灾备实例（独享型）
-注意：此字段可能返回 null，表示取不到有效值。
+     * @param array $ResourceTags 实例标签信息
+     * @param string $DbVersionId 数据库引擎版本
+     * @param integer $ProtectedProperty 实例删除保护标签，1: 已开启删除保护，0: 未开启删除保护
      */
     function __construct()
     {
@@ -657,6 +641,23 @@ class DCDBInstanceInfo extends AbstractModel
 
         if (array_key_exists("InstanceType",$param) and $param["InstanceType"] !== null) {
             $this->InstanceType = $param["InstanceType"];
+        }
+
+        if (array_key_exists("ResourceTags",$param) and $param["ResourceTags"] !== null) {
+            $this->ResourceTags = [];
+            foreach ($param["ResourceTags"] as $key => $value){
+                $obj = new ResourceTag();
+                $obj->deserialize($value);
+                array_push($this->ResourceTags, $obj);
+            }
+        }
+
+        if (array_key_exists("DbVersionId",$param) and $param["DbVersionId"] !== null) {
+            $this->DbVersionId = $param["DbVersionId"];
+        }
+
+        if (array_key_exists("ProtectedProperty",$param) and $param["ProtectedProperty"] !== null) {
+            $this->ProtectedProperty = $param["ProtectedProperty"];
         }
     }
 }

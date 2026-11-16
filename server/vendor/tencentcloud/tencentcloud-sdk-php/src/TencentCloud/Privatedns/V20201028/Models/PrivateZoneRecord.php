@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,9 +33,7 @@ use TencentCloud\Common\AbstractModel;
  * @method integer getTTL() 获取记录缓存时间，数值越小生效越快，取值1-86400s, 默认 600
  * @method void setTTL(integer $TTL) 设置记录缓存时间，数值越小生效越快，取值1-86400s, 默认 600
  * @method integer getMX() 获取MX优先级：记录类型为MX时必填。取值范围：5,10,15,20,30,40,50
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setMX(integer $MX) 设置MX优先级：记录类型为MX时必填。取值范围：5,10,15,20,30,40,50
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getStatus() 获取记录状态：ENABLED
  * @method void setStatus(string $Status) 设置记录状态：ENABLED
  * @method integer getWeight() 获取记录权重，值为1-100
@@ -50,6 +48,10 @@ use TencentCloud\Common\AbstractModel;
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setExtra(string $Extra) 设置附加信息
 注意：此字段可能返回 null，表示取不到有效值。
+ * @method integer getEnabled() 获取0暂停，1启用
+ * @method void setEnabled(integer $Enabled) 设置0暂停，1启用
+ * @method string getRemark() 获取备注
+ * @method void setRemark(string $Remark) 设置备注
  */
 class PrivateZoneRecord extends AbstractModel
 {
@@ -85,7 +87,6 @@ class PrivateZoneRecord extends AbstractModel
 
     /**
      * @var integer MX优先级：记录类型为MX时必填。取值范围：5,10,15,20,30,40,50
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $MX;
 
@@ -117,6 +118,16 @@ class PrivateZoneRecord extends AbstractModel
     public $Extra;
 
     /**
+     * @var integer 0暂停，1启用
+     */
+    public $Enabled;
+
+    /**
+     * @var string 备注
+     */
+    public $Remark;
+
+    /**
      * @param string $RecordId 记录id
      * @param string $ZoneId 私有域id: zone-xxxxxxxx
      * @param string $SubDomain 子域名
@@ -124,7 +135,6 @@ class PrivateZoneRecord extends AbstractModel
      * @param string $RecordValue 记录值
      * @param integer $TTL 记录缓存时间，数值越小生效越快，取值1-86400s, 默认 600
      * @param integer $MX MX优先级：记录类型为MX时必填。取值范围：5,10,15,20,30,40,50
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $Status 记录状态：ENABLED
      * @param integer $Weight 记录权重，值为1-100
 注意：此字段可能返回 null，表示取不到有效值。
@@ -132,6 +142,8 @@ class PrivateZoneRecord extends AbstractModel
      * @param string $UpdatedOn 记录更新时间
      * @param string $Extra 附加信息
 注意：此字段可能返回 null，表示取不到有效值。
+     * @param integer $Enabled 0暂停，1启用
+     * @param string $Remark 备注
      */
     function __construct()
     {
@@ -192,6 +204,14 @@ class PrivateZoneRecord extends AbstractModel
 
         if (array_key_exists("Extra",$param) and $param["Extra"] !== null) {
             $this->Extra = $param["Extra"];
+        }
+
+        if (array_key_exists("Enabled",$param) and $param["Enabled"] !== null) {
+            $this->Enabled = $param["Enabled"];
+        }
+
+        if (array_key_exists("Remark",$param) and $param["Remark"] !== null) {
+            $this->Remark = $param["Remark"];
         }
     }
 }

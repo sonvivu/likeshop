@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,8 +22,8 @@ use TencentCloud\Common\AbstractModel;
  *
  * @method string getCosBucketName() 获取对象存储桶名称（填写存储桶名称自定义部分，不包含-appid）
  * @method void setCosBucketName(string $CosBucketName) 设置对象存储桶名称（填写存储桶名称自定义部分，不包含-appid）
- * @method string getCosObjectName() 获取对象存储对象路径
- * @method void setCosObjectName(string $CosObjectName) 设置对象存储对象路径
+ * @method string getCosObjectName() 获取对象存储中代码包文件路径，以/开头
+ * @method void setCosObjectName(string $CosObjectName) 设置对象存储中代码包文件路径，以/开头
  * @method string getZipFile() 获取包含函数代码文件及其依赖项的 zip 格式文件，zip包大小上限为 50MB，使用该接口时要求将 zip 文件的内容转成 base64 编码
  * @method void setZipFile(string $ZipFile) 设置包含函数代码文件及其依赖项的 zip 格式文件，zip包大小上限为 50MB，使用该接口时要求将 zip 文件的内容转成 base64 编码
  * @method string getCosBucketRegion() 获取对象存储的地域，地域为北京时需要传入ap-beijing,北京一区时需要传递ap-beijing-1，其他的地域不需要传递。
@@ -32,22 +32,24 @@ use TencentCloud\Common\AbstractModel;
  * @method void setDemoId(string $DemoId) 设置如果是通过Demo创建的话，需要传入DemoId
  * @method string getTempCosObjectName() 获取如果是从TempCos创建的话，需要传入TempCosObjectName
  * @method void setTempCosObjectName(string $TempCosObjectName) 设置如果是从TempCos创建的话，需要传入TempCosObjectName
- * @method string getGitUrl() 获取Git地址
- * @method void setGitUrl(string $GitUrl) 设置Git地址
- * @method string getGitUserName() 获取Git用户名
- * @method void setGitUserName(string $GitUserName) 设置Git用户名
- * @method string getGitPassword() 获取Git密码
- * @method void setGitPassword(string $GitPassword) 设置Git密码
- * @method string getGitPasswordSecret() 获取加密后的Git密码，一般无需指定
- * @method void setGitPasswordSecret(string $GitPasswordSecret) 设置加密后的Git密码，一般无需指定
- * @method string getGitBranch() 获取Git分支
- * @method void setGitBranch(string $GitBranch) 设置Git分支
- * @method string getGitDirectory() 获取代码在Git仓库中的路径
- * @method void setGitDirectory(string $GitDirectory) 设置代码在Git仓库中的路径
- * @method string getGitCommitId() 获取指定要拉取的版本
- * @method void setGitCommitId(string $GitCommitId) 设置指定要拉取的版本
- * @method string getGitUserNameSecret() 获取加密后的Git用户名，一般无需指定
- * @method void setGitUserNameSecret(string $GitUserNameSecret) 设置加密后的Git用户名，一般无需指定
+ * @method string getGitUrl() 获取Git地址。该功能已下线。
+ * @method void setGitUrl(string $GitUrl) 设置Git地址。该功能已下线。
+ * @method string getGitUserName() 获取Git用户名。该功能已下线。
+ * @method void setGitUserName(string $GitUserName) 设置Git用户名。该功能已下线。
+ * @method string getGitPassword() 获取Git密码。该功能已下线。
+ * @method void setGitPassword(string $GitPassword) 设置Git密码。该功能已下线。
+ * @method string getGitPasswordSecret() 获取加密后的Git密码，一般无需指定。该功能已下线。
+ * @method void setGitPasswordSecret(string $GitPasswordSecret) 设置加密后的Git密码，一般无需指定。该功能已下线。
+ * @method string getGitBranch() 获取Git分支。该功能已下线。
+ * @method void setGitBranch(string $GitBranch) 设置Git分支。该功能已下线。
+ * @method string getGitDirectory() 获取代码在Git仓库中的路径。该功能已下线。
+ * @method void setGitDirectory(string $GitDirectory) 设置代码在Git仓库中的路径。该功能已下线。
+ * @method string getGitCommitId() 获取指定要拉取的版本。该功能已下线。
+ * @method void setGitCommitId(string $GitCommitId) 设置指定要拉取的版本。该功能已下线。
+ * @method string getGitUserNameSecret() 获取加密后的Git用户名，一般无需指定。该功能已下线。
+ * @method void setGitUserNameSecret(string $GitUserNameSecret) 设置加密后的Git用户名，一般无需指定。该功能已下线。
+ * @method ImageConfig getImageConfig() 获取镜像部署时配置TCR镜像信息
+ * @method void setImageConfig(ImageConfig $ImageConfig) 设置镜像部署时配置TCR镜像信息
  */
 class Code extends AbstractModel
 {
@@ -57,7 +59,7 @@ class Code extends AbstractModel
     public $CosBucketName;
 
     /**
-     * @var string 对象存储对象路径
+     * @var string 对象存储中代码包文件路径，以/开头
      */
     public $CosObjectName;
 
@@ -82,60 +84,66 @@ class Code extends AbstractModel
     public $TempCosObjectName;
 
     /**
-     * @var string Git地址
+     * @var string Git地址。该功能已下线。
      */
     public $GitUrl;
 
     /**
-     * @var string Git用户名
+     * @var string Git用户名。该功能已下线。
      */
     public $GitUserName;
 
     /**
-     * @var string Git密码
+     * @var string Git密码。该功能已下线。
      */
     public $GitPassword;
 
     /**
-     * @var string 加密后的Git密码，一般无需指定
+     * @var string 加密后的Git密码，一般无需指定。该功能已下线。
      */
     public $GitPasswordSecret;
 
     /**
-     * @var string Git分支
+     * @var string Git分支。该功能已下线。
      */
     public $GitBranch;
 
     /**
-     * @var string 代码在Git仓库中的路径
+     * @var string 代码在Git仓库中的路径。该功能已下线。
      */
     public $GitDirectory;
 
     /**
-     * @var string 指定要拉取的版本
+     * @var string 指定要拉取的版本。该功能已下线。
      */
     public $GitCommitId;
 
     /**
-     * @var string 加密后的Git用户名，一般无需指定
+     * @var string 加密后的Git用户名，一般无需指定。该功能已下线。
      */
     public $GitUserNameSecret;
 
     /**
+     * @var ImageConfig 镜像部署时配置TCR镜像信息
+     */
+    public $ImageConfig;
+
+    /**
      * @param string $CosBucketName 对象存储桶名称（填写存储桶名称自定义部分，不包含-appid）
-     * @param string $CosObjectName 对象存储对象路径
+     * @param string $CosObjectName 对象存储中代码包文件路径，以/开头
      * @param string $ZipFile 包含函数代码文件及其依赖项的 zip 格式文件，zip包大小上限为 50MB，使用该接口时要求将 zip 文件的内容转成 base64 编码
      * @param string $CosBucketRegion 对象存储的地域，地域为北京时需要传入ap-beijing,北京一区时需要传递ap-beijing-1，其他的地域不需要传递。
      * @param string $DemoId 如果是通过Demo创建的话，需要传入DemoId
      * @param string $TempCosObjectName 如果是从TempCos创建的话，需要传入TempCosObjectName
-     * @param string $GitUrl Git地址
-     * @param string $GitUserName Git用户名
-     * @param string $GitPassword Git密码
-     * @param string $GitPasswordSecret 加密后的Git密码，一般无需指定
-     * @param string $GitBranch Git分支
-     * @param string $GitDirectory 代码在Git仓库中的路径
-     * @param string $GitCommitId 指定要拉取的版本
-     * @param string $GitUserNameSecret 加密后的Git用户名，一般无需指定
+     * @param string $GitUrl Git地址。该功能已下线。
+     * @param string $GitUserName Git用户名。该功能已下线。
+     * @param string $GitPassword Git密码。该功能已下线。
+     * @param string $GitPasswordSecret 加密后的Git密码，一般无需指定。该功能已下线。
+     * @param string $GitBranch Git分支。该功能已下线。
+     * @param string $GitDirectory 代码在Git仓库中的路径。该功能已下线。
+     * @param string $GitCommitId 指定要拉取的版本。该功能已下线。
+     * @param string $GitUserNameSecret 加密后的Git用户名，一般无需指定。该功能已下线。
+     * @param ImageConfig $ImageConfig 镜像部署时配置TCR镜像信息
      */
     function __construct()
     {
@@ -204,6 +212,11 @@ class Code extends AbstractModel
 
         if (array_key_exists("GitUserNameSecret",$param) and $param["GitUserNameSecret"] !== null) {
             $this->GitUserNameSecret = $param["GitUserNameSecret"];
+        }
+
+        if (array_key_exists("ImageConfig",$param) and $param["ImageConfig"] !== null) {
+            $this->ImageConfig = new ImageConfig();
+            $this->ImageConfig->deserialize($param["ImageConfig"]);
         }
     }
 }

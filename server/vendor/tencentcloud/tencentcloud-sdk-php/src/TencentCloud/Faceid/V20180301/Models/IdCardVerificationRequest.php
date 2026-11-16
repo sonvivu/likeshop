@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,26 +20,38 @@ use TencentCloud\Common\AbstractModel;
 /**
  * IdCardVerification请求参数结构体
  *
- * @method string getIdCard() 获取身份证号
- * @method void setIdCard(string $IdCard) 设置身份证号
- * @method string getName() 获取姓名
- * @method void setName(string $Name) 设置姓名
+ * @method string getIdCard() 获取身份证号。
+ * @method void setIdCard(string $IdCard) 设置身份证号。
+ * @method string getName() 获取姓名。
+ * @method void setName(string $Name) 设置姓名。
+ * @method Encryption getEncryption() 获取敏感数据加密信息。
+- 对传入信息（姓名、身份证号）有加密需求的用户可使用此参数，详情请点击左侧链接。
+ * @method void setEncryption(Encryption $Encryption) 设置敏感数据加密信息。
+- 对传入信息（姓名、身份证号）有加密需求的用户可使用此参数，详情请点击左侧链接。
  */
 class IdCardVerificationRequest extends AbstractModel
 {
     /**
-     * @var string 身份证号
+     * @var string 身份证号。
      */
     public $IdCard;
 
     /**
-     * @var string 姓名
+     * @var string 姓名。
      */
     public $Name;
 
     /**
-     * @param string $IdCard 身份证号
-     * @param string $Name 姓名
+     * @var Encryption 敏感数据加密信息。
+- 对传入信息（姓名、身份证号）有加密需求的用户可使用此参数，详情请点击左侧链接。
+     */
+    public $Encryption;
+
+    /**
+     * @param string $IdCard 身份证号。
+     * @param string $Name 姓名。
+     * @param Encryption $Encryption 敏感数据加密信息。
+- 对传入信息（姓名、身份证号）有加密需求的用户可使用此参数，详情请点击左侧链接。
      */
     function __construct()
     {
@@ -60,6 +72,11 @@ class IdCardVerificationRequest extends AbstractModel
 
         if (array_key_exists("Name",$param) and $param["Name"] !== null) {
             $this->Name = $param["Name"];
+        }
+
+        if (array_key_exists("Encryption",$param) and $param["Encryption"] !== null) {
+            $this->Encryption = new Encryption();
+            $this->Encryption->deserialize($param["Encryption"]);
         }
     }
 }

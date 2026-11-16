@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,36 +18,36 @@ namespace TencentCloud\Mps\V20190612\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * 鉴政任务控制参数
+ * 涉敏任务控制参数
  *
- * @method PoliticalImgReviewTemplateInfo getImgReviewInfo() 获取画面鉴政控制参数。
- * @method void setImgReviewInfo(PoliticalImgReviewTemplateInfo $ImgReviewInfo) 设置画面鉴政控制参数。
- * @method PoliticalAsrReviewTemplateInfo getAsrReviewInfo() 获取语音鉴政控制参数。
- * @method void setAsrReviewInfo(PoliticalAsrReviewTemplateInfo $AsrReviewInfo) 设置语音鉴政控制参数。
- * @method PoliticalOcrReviewTemplateInfo getOcrReviewInfo() 获取文本鉴政控制参数。
- * @method void setOcrReviewInfo(PoliticalOcrReviewTemplateInfo $OcrReviewInfo) 设置文本鉴政控制参数。
+ * @method PoliticalImgReviewTemplateInfo getImgReviewInfo() 获取画面涉敏控制参数。
+ * @method void setImgReviewInfo(PoliticalImgReviewTemplateInfo $ImgReviewInfo) 设置画面涉敏控制参数。
+ * @method PoliticalAsrReviewTemplateInfo getAsrReviewInfo() 获取语音涉敏控制参数。
+ * @method void setAsrReviewInfo(PoliticalAsrReviewTemplateInfo $AsrReviewInfo) 设置语音涉敏控制参数。
+ * @method PoliticalOcrReviewTemplateInfo getOcrReviewInfo() 获取文本涉敏控制参数。
+ * @method void setOcrReviewInfo(PoliticalOcrReviewTemplateInfo $OcrReviewInfo) 设置文本涉敏控制参数。
  */
 class PoliticalConfigureInfo extends AbstractModel
 {
     /**
-     * @var PoliticalImgReviewTemplateInfo 画面鉴政控制参数。
+     * @var PoliticalImgReviewTemplateInfo 画面涉敏控制参数。
      */
     public $ImgReviewInfo;
 
     /**
-     * @var PoliticalAsrReviewTemplateInfo 语音鉴政控制参数。
+     * @var PoliticalAsrReviewTemplateInfo 语音涉敏控制参数。
      */
     public $AsrReviewInfo;
 
     /**
-     * @var PoliticalOcrReviewTemplateInfo 文本鉴政控制参数。
+     * @var PoliticalOcrReviewTemplateInfo 文本涉敏控制参数。
      */
     public $OcrReviewInfo;
 
     /**
-     * @param PoliticalImgReviewTemplateInfo $ImgReviewInfo 画面鉴政控制参数。
-     * @param PoliticalAsrReviewTemplateInfo $AsrReviewInfo 语音鉴政控制参数。
-     * @param PoliticalOcrReviewTemplateInfo $OcrReviewInfo 文本鉴政控制参数。
+     * @param PoliticalImgReviewTemplateInfo $ImgReviewInfo 画面涉敏控制参数。
+     * @param PoliticalAsrReviewTemplateInfo $AsrReviewInfo 语音涉敏控制参数。
+     * @param PoliticalOcrReviewTemplateInfo $OcrReviewInfo 文本涉敏控制参数。
      */
     function __construct()
     {

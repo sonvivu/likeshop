@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,6 @@ use TencentCloud\Common\AbstractModel;
 rand 为随机字符串，0 ~ 100 位大小写字母与数字组成；
 uid 为 0；
 md5hash：MD5（文件路径-timestamp-rand-uid-自定义密钥）
-
  *
  * @method string getSecretKey() 获取计算签名的密钥
 仅允许大小写字母与数字，长度 6~32 位
@@ -48,6 +47,12 @@ md5hash：MD5（文件路径-timestamp-rand-uid-自定义密钥）
 blacklist：黑名单，表示仅对 FileExtensions 中的类型进行鉴权
  * @method void setFilterType(string $FilterType) 设置whitelist：白名单，表示对除了 FileExtensions 列表之外的所有类型进行鉴权
 blacklist：黑名单，表示仅对 FileExtensions 中的类型进行鉴权
+ * @method string getBackupSecretKey() 获取计算签名的备用密钥
+仅允许大小写字母与数字，长度 6~32 位
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setBackupSecretKey(string $BackupSecretKey) 设置计算签名的备用密钥
+仅允许大小写字母与数字，长度 6~32 位
+注意：此字段可能返回 null，表示取不到有效值。
  */
 class AuthenticationTypeA extends AbstractModel
 {
@@ -83,6 +88,13 @@ blacklist：黑名单，表示仅对 FileExtensions 中的类型进行鉴权
     public $FilterType;
 
     /**
+     * @var string 计算签名的备用密钥
+仅允许大小写字母与数字，长度 6~32 位
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $BackupSecretKey;
+
+    /**
      * @param string $SecretKey 计算签名的密钥
 仅允许大小写字母与数字，长度 6~32 位
 注意：此字段可能返回 null，表示取不到有效值。
@@ -94,6 +106,9 @@ blacklist：黑名单，表示仅对 FileExtensions 中的类型进行鉴权
 如果包含字符 *  则表示所有文件
      * @param string $FilterType whitelist：白名单，表示对除了 FileExtensions 列表之外的所有类型进行鉴权
 blacklist：黑名单，表示仅对 FileExtensions 中的类型进行鉴权
+     * @param string $BackupSecretKey 计算签名的备用密钥
+仅允许大小写字母与数字，长度 6~32 位
+注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
     {
@@ -126,6 +141,10 @@ blacklist：黑名单，表示仅对 FileExtensions 中的类型进行鉴权
 
         if (array_key_exists("FilterType",$param) and $param["FilterType"] !== null) {
             $this->FilterType = $param["FilterType"];
+        }
+
+        if (array_key_exists("BackupSecretKey",$param) and $param["BackupSecretKey"] !== null) {
+            $this->BackupSecretKey = $param["BackupSecretKey"];
         }
     }
 }

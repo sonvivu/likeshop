@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,8 +22,8 @@ use TencentCloud\Common\AbstractModel;
  *
  * @method string getName() 获取参数名称
  * @method void setName(string $Name) 设置参数名称
- * @method string getParamType() 获取参数类型
- * @method void setParamType(string $ParamType) 设置参数类型
+ * @method string getParamType() 获取参数类型：integer，enum，float，string，func
+ * @method void setParamType(string $ParamType) 设置参数类型：integer，enum，float，string，func
  * @method string getDefault() 获取参数默认值
  * @method void setDefault(string $Default) 设置参数默认值
  * @method string getDescription() 获取参数描述
@@ -38,6 +38,12 @@ use TencentCloud\Common\AbstractModel;
  * @method void setMin(integer $Min) 设置参数允许的最小值
  * @method array getEnumValue() 获取参数的可选枚举值。如果为非枚举参数，则为空
  * @method void setEnumValue(array $EnumValue) 设置参数的可选枚举值。如果为非枚举参数，则为空
+ * @method string getMaxFunc() 获取参数是公式类型时，该字段有效，表示公式类型最大值
+ * @method void setMaxFunc(string $MaxFunc) 设置参数是公式类型时，该字段有效，表示公式类型最大值
+ * @method string getMinFunc() 获取参数是公式类型时，该字段有效，表示公式类型最小值
+ * @method void setMinFunc(string $MinFunc) 设置参数是公式类型时，该字段有效，表示公式类型最小值
+ * @method boolean getIsNotSupportEdit() 获取参数是否不支持修改
+ * @method void setIsNotSupportEdit(boolean $IsNotSupportEdit) 设置参数是否不支持修改
  */
 class ParameterDetail extends AbstractModel
 {
@@ -47,7 +53,7 @@ class ParameterDetail extends AbstractModel
     public $Name;
 
     /**
-     * @var string 参数类型
+     * @var string 参数类型：integer，enum，float，string，func
      */
     public $ParamType;
 
@@ -87,8 +93,23 @@ class ParameterDetail extends AbstractModel
     public $EnumValue;
 
     /**
+     * @var string 参数是公式类型时，该字段有效，表示公式类型最大值
+     */
+    public $MaxFunc;
+
+    /**
+     * @var string 参数是公式类型时，该字段有效，表示公式类型最小值
+     */
+    public $MinFunc;
+
+    /**
+     * @var boolean 参数是否不支持修改
+     */
+    public $IsNotSupportEdit;
+
+    /**
      * @param string $Name 参数名称
-     * @param string $ParamType 参数类型
+     * @param string $ParamType 参数类型：integer，enum，float，string，func
      * @param string $Default 参数默认值
      * @param string $Description 参数描述
      * @param string $CurrentValue 参数当前值
@@ -96,6 +117,9 @@ class ParameterDetail extends AbstractModel
      * @param integer $Max 参数允许的最大值
      * @param integer $Min 参数允许的最小值
      * @param array $EnumValue 参数的可选枚举值。如果为非枚举参数，则为空
+     * @param string $MaxFunc 参数是公式类型时，该字段有效，表示公式类型最大值
+     * @param string $MinFunc 参数是公式类型时，该字段有效，表示公式类型最小值
+     * @param boolean $IsNotSupportEdit 参数是否不支持修改
      */
     function __construct()
     {
@@ -144,6 +168,18 @@ class ParameterDetail extends AbstractModel
 
         if (array_key_exists("EnumValue",$param) and $param["EnumValue"] !== null) {
             $this->EnumValue = $param["EnumValue"];
+        }
+
+        if (array_key_exists("MaxFunc",$param) and $param["MaxFunc"] !== null) {
+            $this->MaxFunc = $param["MaxFunc"];
+        }
+
+        if (array_key_exists("MinFunc",$param) and $param["MinFunc"] !== null) {
+            $this->MinFunc = $param["MinFunc"];
+        }
+
+        if (array_key_exists("IsNotSupportEdit",$param) and $param["IsNotSupportEdit"] !== null) {
+            $this->IsNotSupportEdit = $param["IsNotSupportEdit"];
         }
     }
 }

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -184,9 +184,9 @@ use TencentCloud\Common\AbstractModel;
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setServiceWebsocketTransportFunctionQualifier(string $ServiceWebsocketTransportFunctionQualifier) 设置scf websocket传输函数版本。当前端类型是WEBSOCKET且后端类型是SCF时生效。
 注意：此字段可能返回 null，表示取不到有效值。
- * @method array getMicroServices() 获取API绑定微服务服务列表。
+ * @method array getMicroServices() 获取API绑定微服务列表。
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setMicroServices(array $MicroServices) 设置API绑定微服务服务列表。
+ * @method void setMicroServices(array $MicroServices) 设置API绑定微服务列表。
 注意：此字段可能返回 null，表示取不到有效值。
  * @method array getMicroServicesInfo() 获取微服务信息详情。
 注意：此字段可能返回 null，表示取不到有效值。
@@ -223,6 +223,10 @@ use TencentCloud\Common\AbstractModel;
  * @method array getBase64EncodedTriggerRules() 获取Header触发规则，总规则数量不超过10。
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setBase64EncodedTriggerRules(array $Base64EncodedTriggerRules) 设置Header触发规则，总规则数量不超过10。
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method boolean getServiceScfEventIsAsyncCall() 获取是否开启SCF Event异步调用。
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setServiceScfEventIsAsyncCall(boolean $ServiceScfEventIsAsyncCall) 设置是否开启SCF Event异步调用。
 注意：此字段可能返回 null，表示取不到有效值。
  */
 class ApiInfo extends AbstractModel
@@ -474,7 +478,7 @@ class ApiInfo extends AbstractModel
     public $ServiceWebsocketTransportFunctionQualifier;
 
     /**
-     * @var array API绑定微服务服务列表。
+     * @var array API绑定微服务列表。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $MicroServices;
@@ -532,6 +536,12 @@ class ApiInfo extends AbstractModel
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Base64EncodedTriggerRules;
+
+    /**
+     * @var boolean 是否开启SCF Event异步调用。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $ServiceScfEventIsAsyncCall;
 
     /**
      * @param string $ServiceId API 所在的服务唯一 ID。
@@ -616,7 +626,7 @@ class ApiInfo extends AbstractModel
 注意：此字段可能返回 null，表示取不到有效值。
      * @param string $ServiceWebsocketTransportFunctionQualifier scf websocket传输函数版本。当前端类型是WEBSOCKET且后端类型是SCF时生效。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param array $MicroServices API绑定微服务服务列表。
+     * @param array $MicroServices API绑定微服务列表。
 注意：此字段可能返回 null，表示取不到有效值。
      * @param array $MicroServicesInfo 微服务信息详情。
 注意：此字段可能返回 null，表示取不到有效值。
@@ -635,6 +645,8 @@ class ApiInfo extends AbstractModel
      * @param boolean $IsBase64Trigger 是否开启Base64编码的header触发，只有后端为scf时才会生效。
 注意：此字段可能返回 null，表示取不到有效值。
      * @param array $Base64EncodedTriggerRules Header触发规则，总规则数量不超过10。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param boolean $ServiceScfEventIsAsyncCall 是否开启SCF Event异步调用。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
@@ -762,7 +774,7 @@ class ApiInfo extends AbstractModel
         if (array_key_exists("ServiceParameters",$param) and $param["ServiceParameters"] !== null) {
             $this->ServiceParameters = [];
             foreach ($param["ServiceParameters"] as $key => $value){
-                $obj = new ServiceParameter();
+                $obj = new DescribeApiResultServiceParametersInfo();
                 $obj->deserialize($value);
                 array_push($this->ServiceParameters, $obj);
             }
@@ -892,6 +904,10 @@ class ApiInfo extends AbstractModel
                 $obj->deserialize($value);
                 array_push($this->Base64EncodedTriggerRules, $obj);
             }
+        }
+
+        if (array_key_exists("ServiceScfEventIsAsyncCall",$param) and $param["ServiceScfEventIsAsyncCall"] !== null) {
+            $this->ServiceScfEventIsAsyncCall = $param["ServiceScfEventIsAsyncCall"];
         }
     }
 }

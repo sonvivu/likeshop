@@ -22,7 +22,7 @@ namespace app\api\model;
 use app\common\model\Pay;
 use app\common\server\AreaServer;
 use app\common\server\ConfigServer;
-use think\Db;
+use think\facade\Db;
 use think\Model;
 use app\common\model\Order as CommonOrder;
 

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,15 +29,15 @@ NotUpload：未实名认证
 InAudit：实名审核中
 Approved：实名审核通过
 Reject：实名审核失败
+NoAudit: 无需实名认证
  * @method void setRealNameAuditStatus(string $RealNameAuditStatus) 设置域名实名认证状态。
 NotUpload：未实名认证
 InAudit：实名审核中
 Approved：实名审核通过
 Reject：实名审核失败
- * @method string getRealNameAuditUnpassReason() 获取域名实名认证不通过原因。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setRealNameAuditUnpassReason(string $RealNameAuditUnpassReason) 设置域名实名认证不通过原因。
-注意：此字段可能返回 null，表示取不到有效值。
+NoAudit: 无需实名认证
+ * @method string getRealNameAuditUnpassReason() 获取域名实名认证不通过原因。<具体内容以实名审核机构返回为准>
+ * @method void setRealNameAuditUnpassReason(string $RealNameAuditUnpassReason) 设置域名实名认证不通过原因。<具体内容以实名审核机构返回为准>
  * @method string getDomainNameAuditStatus() 获取域名命名审核状态。
 NotAudit：命名审核未上传
 Pending：命名审核待上传
@@ -50,14 +50,18 @@ Pending：命名审核待上传
 Auditing：域名命名审核中
 Approved：域名命名审核通过
 Rejected：域名命名审核拒绝
- * @method string getDomainNameAuditUnpassReason() 获取域名命名审核不通过原因。
+ * @method string getDomainNameAuditUnpassReason() 获取域名命名审核不通过原因。<具体内容以实名审核机构返回为准>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setDomainNameAuditUnpassReason(string $DomainNameAuditUnpassReason) 设置域名命名审核不通过原因。
+ * @method void setDomainNameAuditUnpassReason(string $DomainNameAuditUnpassReason) 设置域名命名审核不通过原因。<具体内容以实名审核机构返回为准>
 注意：此字段可能返回 null，表示取不到有效值。
  * @method string getCreationDate() 获取注册时间。
+格式:YYYY-MM-DD
  * @method void setCreationDate(string $CreationDate) 设置注册时间。
+格式:YYYY-MM-DD
  * @method string getExpirationDate() 获取到期时间
+格式:YYYY-MM-DD
  * @method void setExpirationDate(string $ExpirationDate) 设置到期时间
+格式:YYYY-MM-DD
  * @method array getDomainStatus() 获取域名状态。
 ok：正常
 serverHold：注册局暂停解析 
@@ -72,6 +76,8 @@ serverDeleteProhibited：注册局禁止删除
 clientTransferProhibited：注册商禁止转移
 clientUpdateProhibited：注册商禁止更新
 clientDeleteProhibited：注册商禁止删除
+serverRenewProhibited: 注册局禁止续费
+clientRenewProhibited: 注册商禁止续费
  * @method void setDomainStatus(array $DomainStatus) 设置域名状态。
 ok：正常
 serverHold：注册局暂停解析 
@@ -86,6 +92,8 @@ serverDeleteProhibited：注册局禁止删除
 clientTransferProhibited：注册商禁止转移
 clientUpdateProhibited：注册商禁止更新
 clientDeleteProhibited：注册商禁止删除
+serverRenewProhibited: 注册局禁止续费
+clientRenewProhibited: 注册商禁止续费
  * @method string getBuyStatus() 获取域名购买状态。
 ok：正常
 RegisterPending：待注册
@@ -129,7 +137,9 @@ false：关闭锁定
  * @method void setLockTransfer(boolean $LockTransfer) 设置true：开启锁定
 false：关闭锁定
  * @method string getLockEndTime() 获取锁定结束时间
+格式:YYYY-MM-DD HH:mm:ss
  * @method void setLockEndTime(string $LockEndTime) 设置锁定结束时间
+格式:YYYY-MM-DD HH:mm:ss
  */
 class DomainBaseInfo extends AbstractModel
 {
@@ -149,12 +159,12 @@ NotUpload：未实名认证
 InAudit：实名审核中
 Approved：实名审核通过
 Reject：实名审核失败
+NoAudit: 无需实名认证
      */
     public $RealNameAuditStatus;
 
     /**
-     * @var string 域名实名认证不通过原因。
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string 域名实名认证不通过原因。<具体内容以实名审核机构返回为准>
      */
     public $RealNameAuditUnpassReason;
 
@@ -169,18 +179,20 @@ Rejected：域名命名审核拒绝
     public $DomainNameAuditStatus;
 
     /**
-     * @var string 域名命名审核不通过原因。
+     * @var string 域名命名审核不通过原因。<具体内容以实名审核机构返回为准>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $DomainNameAuditUnpassReason;
 
     /**
      * @var string 注册时间。
+格式:YYYY-MM-DD
      */
     public $CreationDate;
 
     /**
      * @var string 到期时间
+格式:YYYY-MM-DD
      */
     public $ExpirationDate;
 
@@ -199,6 +211,8 @@ serverDeleteProhibited：注册局禁止删除
 clientTransferProhibited：注册商禁止转移
 clientUpdateProhibited：注册商禁止更新
 clientDeleteProhibited：注册商禁止删除
+serverRenewProhibited: 注册局禁止续费
+clientRenewProhibited: 注册商禁止续费
      */
     public $DomainStatus;
 
@@ -241,6 +255,7 @@ false：关闭锁定
 
     /**
      * @var string 锁定结束时间
+格式:YYYY-MM-DD HH:mm:ss
      */
     public $LockEndTime;
 
@@ -252,18 +267,20 @@ NotUpload：未实名认证
 InAudit：实名审核中
 Approved：实名审核通过
 Reject：实名审核失败
-     * @param string $RealNameAuditUnpassReason 域名实名认证不通过原因。
-注意：此字段可能返回 null，表示取不到有效值。
+NoAudit: 无需实名认证
+     * @param string $RealNameAuditUnpassReason 域名实名认证不通过原因。<具体内容以实名审核机构返回为准>
      * @param string $DomainNameAuditStatus 域名命名审核状态。
 NotAudit：命名审核未上传
 Pending：命名审核待上传
 Auditing：域名命名审核中
 Approved：域名命名审核通过
 Rejected：域名命名审核拒绝
-     * @param string $DomainNameAuditUnpassReason 域名命名审核不通过原因。
+     * @param string $DomainNameAuditUnpassReason 域名命名审核不通过原因。<具体内容以实名审核机构返回为准>
 注意：此字段可能返回 null，表示取不到有效值。
      * @param string $CreationDate 注册时间。
+格式:YYYY-MM-DD
      * @param string $ExpirationDate 到期时间
+格式:YYYY-MM-DD
      * @param array $DomainStatus 域名状态。
 ok：正常
 serverHold：注册局暂停解析 
@@ -278,6 +295,8 @@ serverDeleteProhibited：注册局禁止删除
 clientTransferProhibited：注册商禁止转移
 clientUpdateProhibited：注册商禁止更新
 clientDeleteProhibited：注册商禁止删除
+serverRenewProhibited: 注册局禁止续费
+clientRenewProhibited: 注册商禁止续费
      * @param string $BuyStatus 域名购买状态。
 ok：正常
 RegisterPending：待注册
@@ -300,6 +319,7 @@ xinnet: Xin Net Technology Corporation（北京新网数码信息技术有限公
      * @param boolean $LockTransfer true：开启锁定
 false：关闭锁定
      * @param string $LockEndTime 锁定结束时间
+格式:YYYY-MM-DD HH:mm:ss
      */
     function __construct()
     {

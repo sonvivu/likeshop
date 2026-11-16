@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,9 +20,13 @@ use TencentCloud\Common\AbstractModel;
 /**
  * 组成CacheKey的一部分
  *
- * @method string getSwitch() 获取是否使用CacheTag作为CacheKey的一部分
+ * @method string getSwitch() 获取使用CacheTag作为CacheKey的一部分配置开关，取值有
+on：开启，使用CacheTag作为CacheKey的一部分
+off：关闭，不使用CacheTag作为CacheKey的一部分
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setSwitch(string $Switch) 设置是否使用CacheTag作为CacheKey的一部分
+ * @method void setSwitch(string $Switch) 设置使用CacheTag作为CacheKey的一部分配置开关，取值有
+on：开启，使用CacheTag作为CacheKey的一部分
+off：关闭，不使用CacheTag作为CacheKey的一部分
 注意：此字段可能返回 null，表示取不到有效值。
  * @method string getValue() 获取自定义CacheTag的值
 注意：此字段可能返回 null，表示取不到有效值。
@@ -32,7 +36,9 @@ use TencentCloud\Common\AbstractModel;
 class CacheTagKey extends AbstractModel
 {
     /**
-     * @var string 是否使用CacheTag作为CacheKey的一部分
+     * @var string 使用CacheTag作为CacheKey的一部分配置开关，取值有
+on：开启，使用CacheTag作为CacheKey的一部分
+off：关闭，不使用CacheTag作为CacheKey的一部分
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Switch;
@@ -44,7 +50,9 @@ class CacheTagKey extends AbstractModel
     public $Value;
 
     /**
-     * @param string $Switch 是否使用CacheTag作为CacheKey的一部分
+     * @param string $Switch 使用CacheTag作为CacheKey的一部分配置开关，取值有
+on：开启，使用CacheTag作为CacheKey的一部分
+off：关闭，不使用CacheTag作为CacheKey的一部分
 注意：此字段可能返回 null，表示取不到有效值。
      * @param string $Value 自定义CacheTag的值
 注意：此字段可能返回 null，表示取不到有效值。

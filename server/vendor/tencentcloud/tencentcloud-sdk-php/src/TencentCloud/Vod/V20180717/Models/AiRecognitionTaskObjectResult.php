@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,9 +31,13 @@ use TencentCloud\Common\AbstractModel;
  * @method AiRecognitionTaskObjectResultInput getInput() 获取物体识别任务输入信息。
  * @method void setInput(AiRecognitionTaskObjectResultInput $Input) 设置物体识别任务输入信息。
  * @method AiRecognitionTaskObjectResultOutput getOutput() 获取物体识别任务输出信息。
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setOutput(AiRecognitionTaskObjectResultOutput $Output) 设置物体识别任务输出信息。
-注意：此字段可能返回 null，表示取不到有效值。
+ * @method integer getProgress() 获取物体识别任务进度，取值范围 [0-100] 。
+ * @method void setProgress(integer $Progress) 设置物体识别任务进度，取值范围 [0-100] 。
+ * @method string getBeginProcessTime() 获取物体识别任务开始执行的时间，采用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
+ * @method void setBeginProcessTime(string $BeginProcessTime) 设置物体识别任务开始执行的时间，采用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
+ * @method string getFinishTime() 获取物体识别任务执行完毕的时间，采用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
+ * @method void setFinishTime(string $FinishTime) 设置物体识别任务执行完毕的时间，采用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
  */
 class AiRecognitionTaskObjectResult extends AbstractModel
 {
@@ -64,9 +68,23 @@ class AiRecognitionTaskObjectResult extends AbstractModel
 
     /**
      * @var AiRecognitionTaskObjectResultOutput 物体识别任务输出信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Output;
+
+    /**
+     * @var integer 物体识别任务进度，取值范围 [0-100] 。
+     */
+    public $Progress;
+
+    /**
+     * @var string 物体识别任务开始执行的时间，采用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
+     */
+    public $BeginProcessTime;
+
+    /**
+     * @var string 物体识别任务执行完毕的时间，采用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
+     */
+    public $FinishTime;
 
     /**
      * @param string $Status 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
@@ -75,7 +93,9 @@ class AiRecognitionTaskObjectResult extends AbstractModel
      * @param string $Message 错误信息。
      * @param AiRecognitionTaskObjectResultInput $Input 物体识别任务输入信息。
      * @param AiRecognitionTaskObjectResultOutput $Output 物体识别任务输出信息。
-注意：此字段可能返回 null，表示取不到有效值。
+     * @param integer $Progress 物体识别任务进度，取值范围 [0-100] 。
+     * @param string $BeginProcessTime 物体识别任务开始执行的时间，采用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
+     * @param string $FinishTime 物体识别任务执行完毕的时间，采用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
      */
     function __construct()
     {
@@ -114,6 +134,18 @@ class AiRecognitionTaskObjectResult extends AbstractModel
         if (array_key_exists("Output",$param) and $param["Output"] !== null) {
             $this->Output = new AiRecognitionTaskObjectResultOutput();
             $this->Output->deserialize($param["Output"]);
+        }
+
+        if (array_key_exists("Progress",$param) and $param["Progress"] !== null) {
+            $this->Progress = $param["Progress"];
+        }
+
+        if (array_key_exists("BeginProcessTime",$param) and $param["BeginProcessTime"] !== null) {
+            $this->BeginProcessTime = $param["BeginProcessTime"];
+        }
+
+        if (array_key_exists("FinishTime",$param) and $param["FinishTime"] !== null) {
+            $this->FinishTime = $param["FinishTime"];
         }
     }
 }

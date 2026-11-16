@@ -32,9 +32,8 @@ use app\common\model\User;
 use app\common\server\AliPayServer;
 use app\common\server\WeChatPayServer;
 use app\common\server\WeChatServer;
-use think\Db;
+use think\facade\Db;
 use think\Exception;
-use think\facade\Hook;
 use think\facade\Log;
 
 /**
@@ -56,14 +55,14 @@ class OrderRefundLogic
     public static function cancelOrder($order_id, $handle_type = OrderLog::TYPE_SYSTEM, $handle_id = 0)
     {
         //更新订单状态
-        $order = Order::get($order_id);
+        $order = Order::find($order_id);
         $order->order_status = CommonOrder::STATUS_CLOSE;
         $order->update_time = time();
         $order->cancel_time = time();
         $order->save();
 
         //取消订单后操作
-        Hook::listen('cancel_order', ['order_id'  => $order_id, 'handle_id' => $handle_id, 'handle_type' => $handle_type]);
+        event('cancel_order', ['order_id'  => $order_id, 'handle_id' => $handle_id, 'handle_type' => $handle_type]);
         return $order;
     }
 
@@ -257,12 +256,12 @@ class OrderRefundLogic
      */
     public static function afterSaleRefundUpdate($order, $order_goods_id, $admin_id = 0)
     {
-        $order_goods = OrderGoods::get(['id' => $order_goods_id]);
+        $order_goods = OrderGoods::find(['id' => $order_goods_id]);
         $order_goods->refund_status = OrderGoods::REFUND_STATUS_SUCCESS;//退款成功
         $order_goods->save();
 
         //更新订单状态
-        $order = \app\common\model\Order::get(['id' => $order['id']]);
+        $order = \app\common\model\Order::find(['id' => $order['id']]);
 //        $order->pay_status = Pay::REFUNDED;
         $order->refund_amount += $order_goods['total_pay_price'];//退款金额 + 以前的退款金额
         $order->refund_status = 1;//退款状态：0-未退款；1-部分退款；2-全部退款
@@ -316,8 +315,8 @@ class OrderRefundLogic
      */
     public static function balancePayRefund($order, $refund_amount)
     {
-        $user = User::get($order['user_id']);
-        $user->user_money = ['inc', $refund_amount];
+        $user = User::find($order['user_id']);
+        $user->inc('user_money', $refund_amount);
         $user->save();
 
         AccountLogLogic::AccountRecord(

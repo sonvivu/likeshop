@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,11 +29,15 @@ use TencentCloud\Common\AbstractModel;
  * @method void setImageUrl(string $ImageUrl) 设置图片的 Url 地址。要求图片经Base64编码后不超过 7M，分辨率建议500*800以上，支持PNG、JPG、JPEG、BMP格式。建议卡片部分占据图片2/3以上。图片下载时间不超过 3 秒。
 建议图片存储于腾讯云，可保障更高的下载速度和稳定性。
  * @method string getCardSide() 获取FRONT 为行驶证主页正面（有红色印章的一面），
-BACK 为行驶证副页正面（有号码号牌的一面）。
+BACK 为行驶证副页正面（有号码号牌的一面），
+DOUBLE 为行驶证主页正面和副页正面。
 默认值为：FRONT。
  * @method void setCardSide(string $CardSide) 设置FRONT 为行驶证主页正面（有红色印章的一面），
-BACK 为行驶证副页正面（有号码号牌的一面）。
+BACK 为行驶证副页正面（有号码号牌的一面），
+DOUBLE 为行驶证主页正面和副页正面。
 默认值为：FRONT。
+ * @method string getTractorCardSide() 获取FRONT为行驶证主页正面（有红色印章的一面），BACK 为拖拉机行驶证副页正面识别
+ * @method void setTractorCardSide(string $TractorCardSide) 设置FRONT为行驶证主页正面（有红色印章的一面），BACK 为拖拉机行驶证副页正面识别
  */
 class VehicleLicenseOCRRequest extends AbstractModel
 {
@@ -51,10 +55,16 @@ class VehicleLicenseOCRRequest extends AbstractModel
 
     /**
      * @var string FRONT 为行驶证主页正面（有红色印章的一面），
-BACK 为行驶证副页正面（有号码号牌的一面）。
+BACK 为行驶证副页正面（有号码号牌的一面），
+DOUBLE 为行驶证主页正面和副页正面。
 默认值为：FRONT。
      */
     public $CardSide;
+
+    /**
+     * @var string FRONT为行驶证主页正面（有红色印章的一面），BACK 为拖拉机行驶证副页正面识别
+     */
+    public $TractorCardSide;
 
     /**
      * @param string $ImageBase64 图片的 Base64 值。要求图片经Base64编码后不超过 7M，分辨率建议500*800以上，支持PNG、JPG、JPEG、BMP格式。建议卡片部分占据图片2/3以上。
@@ -62,8 +72,10 @@ BACK 为行驶证副页正面（有号码号牌的一面）。
      * @param string $ImageUrl 图片的 Url 地址。要求图片经Base64编码后不超过 7M，分辨率建议500*800以上，支持PNG、JPG、JPEG、BMP格式。建议卡片部分占据图片2/3以上。图片下载时间不超过 3 秒。
 建议图片存储于腾讯云，可保障更高的下载速度和稳定性。
      * @param string $CardSide FRONT 为行驶证主页正面（有红色印章的一面），
-BACK 为行驶证副页正面（有号码号牌的一面）。
+BACK 为行驶证副页正面（有号码号牌的一面），
+DOUBLE 为行驶证主页正面和副页正面。
 默认值为：FRONT。
+     * @param string $TractorCardSide FRONT为行驶证主页正面（有红色印章的一面），BACK 为拖拉机行驶证副页正面识别
      */
     function __construct()
     {
@@ -88,6 +100,10 @@ BACK 为行驶证副页正面（有号码号牌的一面）。
 
         if (array_key_exists("CardSide",$param) and $param["CardSide"] !== null) {
             $this->CardSide = $param["CardSide"];
+        }
+
+        if (array_key_exists("TractorCardSide",$param) and $param["TractorCardSide"] !== null) {
+            $this->TractorCardSide = $param["TractorCardSide"];
         }
     }
 }

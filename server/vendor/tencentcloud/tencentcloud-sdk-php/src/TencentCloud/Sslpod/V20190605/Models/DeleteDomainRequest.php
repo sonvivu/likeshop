@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,18 +20,18 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DeleteDomain请求参数结构体
  *
- * @method integer getDomainId() 获取域名ID，可通过搜索域名接口获得
- * @method void setDomainId(integer $DomainId) 设置域名ID，可通过搜索域名接口获得
+ * @method integer getDomainId() 获取域名ID，可通过<a href="https://cloud.tencent.com/document/api/1084/49339">搜索域名</a>接口获得
+ * @method void setDomainId(integer $DomainId) 设置域名ID，可通过<a href="https://cloud.tencent.com/document/api/1084/49339">搜索域名</a>接口获得
  */
 class DeleteDomainRequest extends AbstractModel
 {
     /**
-     * @var integer 域名ID，可通过搜索域名接口获得
+     * @var integer 域名ID，可通过<a href="https://cloud.tencent.com/document/api/1084/49339">搜索域名</a>接口获得
      */
     public $DomainId;
 
     /**
-     * @param integer $DomainId 域名ID，可通过搜索域名接口获得
+     * @param integer $DomainId 域名ID，可通过<a href="https://cloud.tencent.com/document/api/1084/49339">搜索域名</a>接口获得
      */
     function __construct()
     {

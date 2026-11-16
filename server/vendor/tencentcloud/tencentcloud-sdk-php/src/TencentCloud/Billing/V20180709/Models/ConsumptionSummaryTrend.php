@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,9 +23,7 @@ use TencentCloud\Common\AbstractModel;
  * @method string getType() 获取趋势类型，upward上升/downward下降/none无
  * @method void setType(string $Type) 设置趋势类型，upward上升/downward下降/none无
  * @method string getValue() 获取趋势值，Type为none是该字段值为null
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setValue(string $Value) 设置趋势值，Type为none是该字段值为null
-注意：此字段可能返回 null，表示取不到有效值。
  */
 class ConsumptionSummaryTrend extends AbstractModel
 {
@@ -36,14 +34,12 @@ class ConsumptionSummaryTrend extends AbstractModel
 
     /**
      * @var string 趋势值，Type为none是该字段值为null
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Value;
 
     /**
      * @param string $Type 趋势类型，upward上升/downward下降/none无
      * @param string $Value 趋势值，Type为none是该字段值为null
-注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
     {

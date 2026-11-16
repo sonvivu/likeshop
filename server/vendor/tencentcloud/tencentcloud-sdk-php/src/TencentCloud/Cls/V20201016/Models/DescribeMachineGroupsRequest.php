@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,66 +20,58 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeMachineGroups请求参数结构体
  *
- * @method array getFilters() 获取<br><li> machineGroupName
+ * @method array getFilters() 获取过滤条件
+machineGroupName
+- 按照【机器组名称】进行过滤。
+- 类型：String
+- 必选：否
 
-按照【机器组名称】进行过滤。
-类型：String
+machineGroupId
+- 按照【机器组ID】进行过滤。
+- 类型：String
+- 必选：否
 
-必选：否
+osType
+- 按照【操作系统类型】进行过滤。0： Linux；1： Windows
+- 类型：Int
+- 必选：否
 
-<br><li> machineGroupId
+tagKey
+- 按照【标签键】进行过滤。
+- 类型：String
+- 必选：否
 
-按照【机器组ID】进行过滤。
-类型：String
-
-必选：否
-
-<br><li> tagKey
-
-按照【标签键】进行过滤。
-
-类型：String
-
-必选：否
-
-<br><li> tag:tagKey
-
-按照【标签键值对】进行过滤。tagKey使用具体的标签键进行替换。
-类型：String
-
-必选：否
-
+tag:tagKey
+- 按照【标签键值对】进行过滤。tagKey使用具体的标签键进行替换。
+- 类型：String
+- 必选：否
 
 每次请求的Filters的上限为10，Filter.Values的上限为5。
- * @method void setFilters(array $Filters) 设置<br><li> machineGroupName
+ * @method void setFilters(array $Filters) 设置过滤条件
+machineGroupName
+- 按照【机器组名称】进行过滤。
+- 类型：String
+- 必选：否
 
-按照【机器组名称】进行过滤。
-类型：String
+machineGroupId
+- 按照【机器组ID】进行过滤。
+- 类型：String
+- 必选：否
 
-必选：否
+osType
+- 按照【操作系统类型】进行过滤。0： Linux；1： Windows
+- 类型：Int
+- 必选：否
 
-<br><li> machineGroupId
+tagKey
+- 按照【标签键】进行过滤。
+- 类型：String
+- 必选：否
 
-按照【机器组ID】进行过滤。
-类型：String
-
-必选：否
-
-<br><li> tagKey
-
-按照【标签键】进行过滤。
-
-类型：String
-
-必选：否
-
-<br><li> tag:tagKey
-
-按照【标签键值对】进行过滤。tagKey使用具体的标签键进行替换。
-类型：String
-
-必选：否
-
+tag:tagKey
+- 按照【标签键值对】进行过滤。tagKey使用具体的标签键进行替换。
+- 类型：String
+- 必选：否
 
 每次请求的Filters的上限为10，Filter.Values的上限为5。
  * @method integer getOffset() 获取分页的偏移量，默认值为0
@@ -90,35 +82,31 @@ use TencentCloud\Common\AbstractModel;
 class DescribeMachineGroupsRequest extends AbstractModel
 {
     /**
-     * @var array <br><li> machineGroupName
+     * @var array 过滤条件
+machineGroupName
+- 按照【机器组名称】进行过滤。
+- 类型：String
+- 必选：否
 
-按照【机器组名称】进行过滤。
-类型：String
+machineGroupId
+- 按照【机器组ID】进行过滤。
+- 类型：String
+- 必选：否
 
-必选：否
+osType
+- 按照【操作系统类型】进行过滤。0： Linux；1： Windows
+- 类型：Int
+- 必选：否
 
-<br><li> machineGroupId
+tagKey
+- 按照【标签键】进行过滤。
+- 类型：String
+- 必选：否
 
-按照【机器组ID】进行过滤。
-类型：String
-
-必选：否
-
-<br><li> tagKey
-
-按照【标签键】进行过滤。
-
-类型：String
-
-必选：否
-
-<br><li> tag:tagKey
-
-按照【标签键值对】进行过滤。tagKey使用具体的标签键进行替换。
-类型：String
-
-必选：否
-
+tag:tagKey
+- 按照【标签键值对】进行过滤。tagKey使用具体的标签键进行替换。
+- 类型：String
+- 必选：否
 
 每次请求的Filters的上限为10，Filter.Values的上限为5。
      */
@@ -135,35 +123,31 @@ class DescribeMachineGroupsRequest extends AbstractModel
     public $Limit;
 
     /**
-     * @param array $Filters <br><li> machineGroupName
+     * @param array $Filters 过滤条件
+machineGroupName
+- 按照【机器组名称】进行过滤。
+- 类型：String
+- 必选：否
 
-按照【机器组名称】进行过滤。
-类型：String
+machineGroupId
+- 按照【机器组ID】进行过滤。
+- 类型：String
+- 必选：否
 
-必选：否
+osType
+- 按照【操作系统类型】进行过滤。0： Linux；1： Windows
+- 类型：Int
+- 必选：否
 
-<br><li> machineGroupId
+tagKey
+- 按照【标签键】进行过滤。
+- 类型：String
+- 必选：否
 
-按照【机器组ID】进行过滤。
-类型：String
-
-必选：否
-
-<br><li> tagKey
-
-按照【标签键】进行过滤。
-
-类型：String
-
-必选：否
-
-<br><li> tag:tagKey
-
-按照【标签键值对】进行过滤。tagKey使用具体的标签键进行替换。
-类型：String
-
-必选：否
-
+tag:tagKey
+- 按照【标签键值对】进行过滤。tagKey使用具体的标签键进行替换。
+- 类型：String
+- 必选：否
 
 每次请求的Filters的上限为10，Filter.Values的上限为5。
      * @param integer $Offset 分页的偏移量，默认值为0

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,26 +20,26 @@ use TencentCloud\Common\AbstractModel;
 /**
  * SignUpCfsService返回参数结构体
  *
- * @method string getCfsServiceStatus() 获取该用户当前 CFS 服务的状态，none 是未开通，creating 是开通中，created 是已开通
- * @method void setCfsServiceStatus(string $CfsServiceStatus) 设置该用户当前 CFS 服务的状态，none 是未开通，creating 是开通中，created 是已开通
- * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
- * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method string getCfsServiceStatus() 获取该用户当前 CFS 服务的状态，creating 是开通中，created 是已开通
+ * @method void setCfsServiceStatus(string $CfsServiceStatus) 设置该用户当前 CFS 服务的状态，creating 是开通中，created 是已开通
+ * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+ * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
 class SignUpCfsServiceResponse extends AbstractModel
 {
     /**
-     * @var string 该用户当前 CFS 服务的状态，none 是未开通，creating 是开通中，created 是已开通
+     * @var string 该用户当前 CFS 服务的状态，creating 是开通中，created 是已开通
      */
     public $CfsServiceStatus;
 
     /**
-     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public $RequestId;
 
     /**
-     * @param string $CfsServiceStatus 该用户当前 CFS 服务的状态，none 是未开通，creating 是开通中，created 是已开通
-     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @param string $CfsServiceStatus 该用户当前 CFS 服务的状态，creating 是开通中，created 是已开通
+     * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
     {

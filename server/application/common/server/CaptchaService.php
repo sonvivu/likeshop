@@ -41,7 +41,7 @@ class CaptchaService
     {
         $cacheKey = self::CACHE_PREFIX . trim((string) $key);
         $captcha = Cache::get($cacheKey);
-        Cache::rm($cacheKey);
+        Cache::delete($cacheKey);
 
         if (empty($captcha)) {
             return false;

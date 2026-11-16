@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -37,17 +37,13 @@ use TencentCloud\Common\AbstractModel;
  * @method integer getWebAppCount() 获取WebApp数量
  * @method void setWebAppCount(integer $WebAppCount) 设置WebApp数量
  * @method string getInstanceId() 获取实例ID
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setInstanceId(string $InstanceId) 设置实例ID
-注意：此字段可能返回 null，表示取不到有效值。
  * @method integer getApplicationCount() 获取应用数量
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setApplicationCount(integer $ApplicationCount) 设置应用数量
-注意：此字段可能返回 null，表示取不到有效值。
  * @method integer getDeviceCount() 获取设备注册总数
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setDeviceCount(integer $DeviceCount) 设置设备注册总数
-注意：此字段可能返回 null，表示取不到有效值。
+ * @method integer getEnableOpenState() 获取是否开通物联使能
+ * @method void setEnableOpenState(integer $EnableOpenState) 设置是否开通物联使能
  */
 class ProjectEntryEx extends AbstractModel
 {
@@ -93,21 +89,23 @@ class ProjectEntryEx extends AbstractModel
 
     /**
      * @var string 实例ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $InstanceId;
 
     /**
      * @var integer 应用数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $ApplicationCount;
 
     /**
      * @var integer 设备注册总数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $DeviceCount;
+
+    /**
+     * @var integer 是否开通物联使能
+     */
+    public $EnableOpenState;
 
     /**
      * @param string $ProjectId 项目ID
@@ -119,11 +117,9 @@ class ProjectEntryEx extends AbstractModel
      * @param integer $NativeAppCount NativeApp数量
      * @param integer $WebAppCount WebApp数量
      * @param string $InstanceId 实例ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param integer $ApplicationCount 应用数量
-注意：此字段可能返回 null，表示取不到有效值。
      * @param integer $DeviceCount 设备注册总数
-注意：此字段可能返回 null，表示取不到有效值。
+     * @param integer $EnableOpenState 是否开通物联使能
      */
     function __construct()
     {
@@ -180,6 +176,10 @@ class ProjectEntryEx extends AbstractModel
 
         if (array_key_exists("DeviceCount",$param) and $param["DeviceCount"] !== null) {
             $this->DeviceCount = $param["DeviceCount"];
+        }
+
+        if (array_key_exists("EnableOpenState",$param) and $param["EnableOpenState"] !== null) {
+            $this->EnableOpenState = $param["EnableOpenState"];
         }
     }
 }

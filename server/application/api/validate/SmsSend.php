@@ -23,7 +23,7 @@ use app\api\model\User;
 use app\common\model\NoticeSetting;
 use app\common\server\CaptchaService;
 use think\{
-    Db,
+    facade\Db,
     Validate
 };
 
@@ -74,7 +74,7 @@ class SmsSend extends Validate
 
     protected function checkMobile($value, $rule, $data)
     {
-        $user = User::get(['mobile' => $data['mobile'], 'del' => 0]);
+        $user = User::find(['mobile' => $data['mobile'], 'del' => 0]);
         switch ($value) {
             case 'ZCYZ':    //注册验证
             case 'BDSJHM':  //绑定手机号码

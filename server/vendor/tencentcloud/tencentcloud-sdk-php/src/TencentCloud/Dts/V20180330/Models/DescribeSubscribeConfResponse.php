@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -69,15 +69,17 @@ use TencentCloud\Common\AbstractModel;
  * @method string getRegion() 获取地域
  * @method void setRegion(string $Region) 设置地域
  * @method array getTags() 获取订阅实例的标签
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setTags(array $Tags) 设置订阅实例的标签
-注意：此字段可能返回 null，表示取不到有效值。
  * @method integer getAutoRenewFlag() 获取自动续费标识,0-不自动续费，1-自动续费
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setAutoRenewFlag(integer $AutoRenewFlag) 设置自动续费标识,0-不自动续费，1-自动续费
+ * @method string getSubscribeVersion() 获取数据订阅版本。老版订阅填txdts，kafka版填kafka
+ * @method void setSubscribeVersion(string $SubscribeVersion) 设置数据订阅版本。老版订阅填txdts，kafka版填kafka
+ * @method array getErrors() 获取错误信息
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
- * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method void setErrors(array $Errors) 设置错误信息
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+ * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
 class DescribeSubscribeConfResponse extends AbstractModel
 {
@@ -203,18 +205,27 @@ class DescribeSubscribeConfResponse extends AbstractModel
 
     /**
      * @var array 订阅实例的标签
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Tags;
 
     /**
      * @var integer 自动续费标识,0-不自动续费，1-自动续费
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $AutoRenewFlag;
 
     /**
-     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @var string 数据订阅版本。老版订阅填txdts，kafka版填kafka
+     */
+    public $SubscribeVersion;
+
+    /**
+     * @var array 错误信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $Errors;
+
+    /**
+     * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public $RequestId;
 
@@ -244,10 +255,11 @@ class DescribeSubscribeConfResponse extends AbstractModel
      * @param string $ModifyTime 修改时间
      * @param string $Region 地域
      * @param array $Tags 订阅实例的标签
-注意：此字段可能返回 null，表示取不到有效值。
      * @param integer $AutoRenewFlag 自动续费标识,0-不自动续费，1-自动续费
+     * @param string $SubscribeVersion 数据订阅版本。老版订阅填txdts，kafka版填kafka
+     * @param array $Errors 错误信息
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
     {
@@ -374,6 +386,19 @@ class DescribeSubscribeConfResponse extends AbstractModel
 
         if (array_key_exists("AutoRenewFlag",$param) and $param["AutoRenewFlag"] !== null) {
             $this->AutoRenewFlag = $param["AutoRenewFlag"];
+        }
+
+        if (array_key_exists("SubscribeVersion",$param) and $param["SubscribeVersion"] !== null) {
+            $this->SubscribeVersion = $param["SubscribeVersion"];
+        }
+
+        if (array_key_exists("Errors",$param) and $param["Errors"] !== null) {
+            $this->Errors = [];
+            foreach ($param["Errors"] as $key => $value){
+                $obj = new SubsErr();
+                $obj->deserialize($value);
+                array_push($this->Errors, $obj);
+            }
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

@@ -17,7 +17,7 @@
 // | author: likeshop.cn.team
 // +----------------------------------------------------------------------
 namespace app\admin\validate;
-use think\Db;
+use think\facade\Db;
 use think\Validate;
 
 class SeckillGoods extends Validate{

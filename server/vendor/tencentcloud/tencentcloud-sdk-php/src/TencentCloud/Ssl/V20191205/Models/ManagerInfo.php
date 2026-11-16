@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -56,6 +56,12 @@ use TencentCloud\Common\AbstractModel;
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setVerifyTime(string $VerifyTime) 设置审核通过时间
 注意：此字段可能返回 null，表示取不到有效值。
+ * @method array getStatusInfo() 获取具体审核状态信息
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setStatusInfo(array $StatusInfo) 设置具体审核状态信息
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method array getTags() 获取标签
+ * @method void setTags(array $Tags) 设置标签
  */
 class ManagerInfo extends AbstractModel
 {
@@ -134,6 +140,17 @@ class ManagerInfo extends AbstractModel
     public $VerifyTime;
 
     /**
+     * @var array 具体审核状态信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $StatusInfo;
+
+    /**
+     * @var array 标签
+     */
+    public $Tags;
+
+    /**
      * @param string $Status 状态: audit: 审核中 ok: 审核通过 invalid: 失效 expiring: 即将过期 expired: 已过期
      * @param string $ManagerFirstName 管理人姓名
      * @param string $ManagerLastName 管理人姓名
@@ -152,6 +169,9 @@ class ManagerInfo extends AbstractModel
 注意：此字段可能返回 null，表示取不到有效值。
      * @param string $VerifyTime 审核通过时间
 注意：此字段可能返回 null，表示取不到有效值。
+     * @param array $StatusInfo 具体审核状态信息
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param array $Tags 标签
      */
     function __construct()
     {
@@ -220,6 +240,24 @@ class ManagerInfo extends AbstractModel
 
         if (array_key_exists("VerifyTime",$param) and $param["VerifyTime"] !== null) {
             $this->VerifyTime = $param["VerifyTime"];
+        }
+
+        if (array_key_exists("StatusInfo",$param) and $param["StatusInfo"] !== null) {
+            $this->StatusInfo = [];
+            foreach ($param["StatusInfo"] as $key => $value){
+                $obj = new ManagerStatusInfo();
+                $obj->deserialize($value);
+                array_push($this->StatusInfo, $obj);
+            }
+        }
+
+        if (array_key_exists("Tags",$param) and $param["Tags"] !== null) {
+            $this->Tags = [];
+            foreach ($param["Tags"] as $key => $value){
+                $obj = new Tags();
+                $obj->deserialize($value);
+                array_push($this->Tags, $obj);
+            }
         }
     }
 }

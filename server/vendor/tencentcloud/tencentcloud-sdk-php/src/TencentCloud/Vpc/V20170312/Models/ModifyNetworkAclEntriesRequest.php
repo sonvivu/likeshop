@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,8 +22,12 @@ use TencentCloud\Common\AbstractModel;
  *
  * @method string getNetworkAclId() 获取网络ACL实例ID。例如：acl-12345678。
  * @method void setNetworkAclId(string $NetworkAclId) 设置网络ACL实例ID。例如：acl-12345678。
- * @method NetworkAclEntrySet getNetworkAclEntrySet() 获取网络ACL规则集。
- * @method void setNetworkAclEntrySet(NetworkAclEntrySet $NetworkAclEntrySet) 设置网络ACL规则集。
+ * @method NetworkAclEntrySet getNetworkAclEntrySet() 获取网络ACL规则集。NetworkAclEntrySet和NetworkAclQuintupleSet只能输入一个。
+ * @method void setNetworkAclEntrySet(NetworkAclEntrySet $NetworkAclEntrySet) 设置网络ACL规则集。NetworkAclEntrySet和NetworkAclQuintupleSet只能输入一个。
+ * @method NetworkAclQuintupleEntries getNetworkAclQuintupleSet() 获取网络ACL五元组规则集。NetworkAclEntrySet和NetworkAclQuintupleSet只能输入一个。
+ * @method void setNetworkAclQuintupleSet(NetworkAclQuintupleEntries $NetworkAclQuintupleSet) 设置网络ACL五元组规则集。NetworkAclEntrySet和NetworkAclQuintupleSet只能输入一个。
+ * @method boolean getEnableUpdateAclEntries() 获取三元组的增量更新。该接口的默认语义为全量覆盖。当需要实现增量更新语义时，设置该参数为True。
+ * @method void setEnableUpdateAclEntries(boolean $EnableUpdateAclEntries) 设置三元组的增量更新。该接口的默认语义为全量覆盖。当需要实现增量更新语义时，设置该参数为True。
  */
 class ModifyNetworkAclEntriesRequest extends AbstractModel
 {
@@ -33,13 +37,25 @@ class ModifyNetworkAclEntriesRequest extends AbstractModel
     public $NetworkAclId;
 
     /**
-     * @var NetworkAclEntrySet 网络ACL规则集。
+     * @var NetworkAclEntrySet 网络ACL规则集。NetworkAclEntrySet和NetworkAclQuintupleSet只能输入一个。
      */
     public $NetworkAclEntrySet;
 
     /**
+     * @var NetworkAclQuintupleEntries 网络ACL五元组规则集。NetworkAclEntrySet和NetworkAclQuintupleSet只能输入一个。
+     */
+    public $NetworkAclQuintupleSet;
+
+    /**
+     * @var boolean 三元组的增量更新。该接口的默认语义为全量覆盖。当需要实现增量更新语义时，设置该参数为True。
+     */
+    public $EnableUpdateAclEntries;
+
+    /**
      * @param string $NetworkAclId 网络ACL实例ID。例如：acl-12345678。
-     * @param NetworkAclEntrySet $NetworkAclEntrySet 网络ACL规则集。
+     * @param NetworkAclEntrySet $NetworkAclEntrySet 网络ACL规则集。NetworkAclEntrySet和NetworkAclQuintupleSet只能输入一个。
+     * @param NetworkAclQuintupleEntries $NetworkAclQuintupleSet 网络ACL五元组规则集。NetworkAclEntrySet和NetworkAclQuintupleSet只能输入一个。
+     * @param boolean $EnableUpdateAclEntries 三元组的增量更新。该接口的默认语义为全量覆盖。当需要实现增量更新语义时，设置该参数为True。
      */
     function __construct()
     {
@@ -61,6 +77,15 @@ class ModifyNetworkAclEntriesRequest extends AbstractModel
         if (array_key_exists("NetworkAclEntrySet",$param) and $param["NetworkAclEntrySet"] !== null) {
             $this->NetworkAclEntrySet = new NetworkAclEntrySet();
             $this->NetworkAclEntrySet->deserialize($param["NetworkAclEntrySet"]);
+        }
+
+        if (array_key_exists("NetworkAclQuintupleSet",$param) and $param["NetworkAclQuintupleSet"] !== null) {
+            $this->NetworkAclQuintupleSet = new NetworkAclQuintupleEntries();
+            $this->NetworkAclQuintupleSet->deserialize($param["NetworkAclQuintupleSet"]);
+        }
+
+        if (array_key_exists("EnableUpdateAclEntries",$param) and $param["EnableUpdateAclEntries"] !== null) {
+            $this->EnableUpdateAclEntries = $param["EnableUpdateAclEntries"];
         }
     }
 }

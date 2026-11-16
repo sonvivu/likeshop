@@ -26,7 +26,7 @@ use Alipay\EasySDK\Kernel\Config;
 use app\common\logic\PayNotifyLogic;
 use app\common\model\Client_;
 use app\common\model\Pay;
-use think\Db;
+use think\facade\Db;
 use think\facade\Log;
 
 class AliPayServer

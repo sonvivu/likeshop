@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,118 +20,139 @@ use TencentCloud\Common\AbstractModel;
 /**
  * 检验指标项
  *
- * @method string getCode() 获取英文缩写
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setCode(string $Code) 设置英文缩写
-注意：此字段可能返回 null，表示取不到有效值。
- * @method string getScode() 获取标准缩写
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setScode(string $Scode) 设置标准缩写
-注意：此字段可能返回 null，表示取不到有效值。
- * @method string getName() 获取项目名称
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setName(string $Name) 设置项目名称
-注意：此字段可能返回 null，表示取不到有效值。
- * @method string getSname() 获取标准名
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setSname(string $Sname) 设置标准名
-注意：此字段可能返回 null，表示取不到有效值。
- * @method string getResult() 获取结果
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setResult(string $Result) 设置结果
-注意：此字段可能返回 null，表示取不到有效值。
- * @method string getUnit() 获取单位
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setUnit(string $Unit) 设置单位
-注意：此字段可能返回 null，表示取不到有效值。
- * @method string getRange() 获取参考范围
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setRange(string $Range) 设置参考范围
-注意：此字段可能返回 null，表示取不到有效值。
- * @method string getArrow() 获取上下箭头
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setArrow(string $Arrow) 设置上下箭头
-注意：此字段可能返回 null，表示取不到有效值。
- * @method boolean getNormal() 获取是否正常
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setNormal(boolean $Normal) 设置是否正常
-注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getCode() 获取<p>英文缩写</p>
+ * @method void setCode(string $Code) 设置<p>英文缩写</p>
+ * @method string getScode() 获取<p>标准缩写</p>
+ * @method void setScode(string $Scode) 设置<p>标准缩写</p>
+ * @method string getName() 获取<p>项目名称</p>
+ * @method void setName(string $Name) 设置<p>项目名称</p>
+ * @method string getSname() 获取<p>标准名</p>
+ * @method void setSname(string $Sname) 设置<p>标准名</p>
+ * @method string getResult() 获取<p>结果</p>
+ * @method void setResult(string $Result) 设置<p>结果</p>
+ * @method string getUnit() 获取<p>单位</p>
+ * @method void setUnit(string $Unit) 设置<p>单位</p>
+ * @method string getRange() 获取<p>参考范围</p>
+ * @method void setRange(string $Range) 设置<p>参考范围</p>
+ * @method string getArrow() 获取<p>上下箭头</p>
+ * @method void setArrow(string $Arrow) 设置<p>上下箭头</p>
+ * @method boolean getNormal() 获取<p>是否正常</p>
+ * @method void setNormal(boolean $Normal) 设置<p>是否正常</p>
+ * @method string getItemString() 获取<p>项目原文</p>
+ * @method void setItemString(string $ItemString) 设置<p>项目原文</p>
+ * @method integer getId() 获取<p>指标项ID</p>
+ * @method void setId(integer $Id) 设置<p>指标项ID</p>
+ * @method Coordinate getCoords() 获取<p>指标项坐标位置</p>
+ * @method void setCoords(Coordinate $Coords) 设置<p>指标项坐标位置</p>
+ * @method string getInferNormal() 获取<p>推测结果是否异常</p>
+ * @method void setInferNormal(string $InferNormal) 设置<p>推测结果是否异常</p>
+ * @method string getSample() 获取<p>标本</p>
+ * @method void setSample(string $Sample) 设置<p>标本</p>
+ * @method string getMethod() 获取<p>检测方法</p>
+ * @method void setMethod(string $Method) 设置<p>检测方法</p>
+ * @method ItemCoordinate getItemCoords() 获取<p>检验指标项坐标信息</p>
+ * @method void setItemCoords(ItemCoordinate $ItemCoords) 设置<p>检验指标项坐标信息</p>
  */
 class IndicatorItem extends AbstractModel
 {
     /**
-     * @var string 英文缩写
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string <p>英文缩写</p>
      */
     public $Code;
 
     /**
-     * @var string 标准缩写
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string <p>标准缩写</p>
      */
     public $Scode;
 
     /**
-     * @var string 项目名称
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string <p>项目名称</p>
      */
     public $Name;
 
     /**
-     * @var string 标准名
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string <p>标准名</p>
      */
     public $Sname;
 
     /**
-     * @var string 结果
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string <p>结果</p>
      */
     public $Result;
 
     /**
-     * @var string 单位
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string <p>单位</p>
      */
     public $Unit;
 
     /**
-     * @var string 参考范围
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string <p>参考范围</p>
      */
     public $Range;
 
     /**
-     * @var string 上下箭头
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string <p>上下箭头</p>
      */
     public $Arrow;
 
     /**
-     * @var boolean 是否正常
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var boolean <p>是否正常</p>
      */
     public $Normal;
 
     /**
-     * @param string $Code 英文缩写
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $Scode 标准缩写
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $Name 项目名称
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $Sname 标准名
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $Result 结果
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $Unit 单位
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $Range 参考范围
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $Arrow 上下箭头
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param boolean $Normal 是否正常
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string <p>项目原文</p>
+     */
+    public $ItemString;
+
+    /**
+     * @var integer <p>指标项ID</p>
+     */
+    public $Id;
+
+    /**
+     * @var Coordinate <p>指标项坐标位置</p>
+     * @deprecated
+     */
+    public $Coords;
+
+    /**
+     * @var string <p>推测结果是否异常</p>
+     */
+    public $InferNormal;
+
+    /**
+     * @var string <p>标本</p>
+     */
+    public $Sample;
+
+    /**
+     * @var string <p>检测方法</p>
+     */
+    public $Method;
+
+    /**
+     * @var ItemCoordinate <p>检验指标项坐标信息</p>
+     */
+    public $ItemCoords;
+
+    /**
+     * @param string $Code <p>英文缩写</p>
+     * @param string $Scode <p>标准缩写</p>
+     * @param string $Name <p>项目名称</p>
+     * @param string $Sname <p>标准名</p>
+     * @param string $Result <p>结果</p>
+     * @param string $Unit <p>单位</p>
+     * @param string $Range <p>参考范围</p>
+     * @param string $Arrow <p>上下箭头</p>
+     * @param boolean $Normal <p>是否正常</p>
+     * @param string $ItemString <p>项目原文</p>
+     * @param integer $Id <p>指标项ID</p>
+     * @param Coordinate $Coords <p>指标项坐标位置</p>
+     * @param string $InferNormal <p>推测结果是否异常</p>
+     * @param string $Sample <p>标本</p>
+     * @param string $Method <p>检测方法</p>
+     * @param ItemCoordinate $ItemCoords <p>检验指标项坐标信息</p>
      */
     function __construct()
     {
@@ -180,6 +201,36 @@ class IndicatorItem extends AbstractModel
 
         if (array_key_exists("Normal",$param) and $param["Normal"] !== null) {
             $this->Normal = $param["Normal"];
+        }
+
+        if (array_key_exists("ItemString",$param) and $param["ItemString"] !== null) {
+            $this->ItemString = $param["ItemString"];
+        }
+
+        if (array_key_exists("Id",$param) and $param["Id"] !== null) {
+            $this->Id = $param["Id"];
+        }
+
+        if (array_key_exists("Coords",$param) and $param["Coords"] !== null) {
+            $this->Coords = new Coordinate();
+            $this->Coords->deserialize($param["Coords"]);
+        }
+
+        if (array_key_exists("InferNormal",$param) and $param["InferNormal"] !== null) {
+            $this->InferNormal = $param["InferNormal"];
+        }
+
+        if (array_key_exists("Sample",$param) and $param["Sample"] !== null) {
+            $this->Sample = $param["Sample"];
+        }
+
+        if (array_key_exists("Method",$param) and $param["Method"] !== null) {
+            $this->Method = $param["Method"];
+        }
+
+        if (array_key_exists("ItemCoords",$param) and $param["ItemCoords"] !== null) {
+            $this->ItemCoords = new ItemCoordinate();
+            $this->ItemCoords->deserialize($param["ItemCoords"]);
         }
     }
 }

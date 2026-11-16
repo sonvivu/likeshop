@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,18 +20,18 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DeleteTags请求参数结构体
  *
- * @method array getIds() 获取标签ID
- * @method void setIds(array $Ids) 设置标签ID
+ * @method array getIds() 获取标签ID (最大100 条)
+ * @method void setIds(array $Ids) 设置标签ID (最大100 条)
  */
 class DeleteTagsRequest extends AbstractModel
 {
     /**
-     * @var array 标签ID
+     * @var array 标签ID (最大100 条)
      */
     public $Ids;
 
     /**
-     * @param array $Ids 标签ID
+     * @param array $Ids 标签ID (最大100 条)
      */
     function __construct()
     {

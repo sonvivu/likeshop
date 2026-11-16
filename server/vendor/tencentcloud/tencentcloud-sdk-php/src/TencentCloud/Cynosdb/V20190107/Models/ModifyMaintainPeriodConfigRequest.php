@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,8 +26,8 @@ use TencentCloud\Common\AbstractModel;
  * @method void setMaintainStartTime(integer $MaintainStartTime) 设置维护开始时间，单位为秒，如3:00为10800
  * @method integer getMaintainDuration() 获取维护持续时间，单位为秒，如1小时为3600
  * @method void setMaintainDuration(integer $MaintainDuration) 设置维护持续时间，单位为秒，如1小时为3600
- * @method array getMaintainWeekDays() 获取每周维护日期
- * @method void setMaintainWeekDays(array $MaintainWeekDays) 设置每周维护日期
+ * @method array getMaintainWeekDays() 获取每周维护日期，日期取值范围[Mon, Tue, Wed, Thu, Fri, Sat, Sun]
+ * @method void setMaintainWeekDays(array $MaintainWeekDays) 设置每周维护日期，日期取值范围[Mon, Tue, Wed, Thu, Fri, Sat, Sun]
  */
 class ModifyMaintainPeriodConfigRequest extends AbstractModel
 {
@@ -47,7 +47,7 @@ class ModifyMaintainPeriodConfigRequest extends AbstractModel
     public $MaintainDuration;
 
     /**
-     * @var array 每周维护日期
+     * @var array 每周维护日期，日期取值范围[Mon, Tue, Wed, Thu, Fri, Sat, Sun]
      */
     public $MaintainWeekDays;
 
@@ -55,7 +55,7 @@ class ModifyMaintainPeriodConfigRequest extends AbstractModel
      * @param string $InstanceId 实例ID
      * @param integer $MaintainStartTime 维护开始时间，单位为秒，如3:00为10800
      * @param integer $MaintainDuration 维护持续时间，单位为秒，如1小时为3600
-     * @param array $MaintainWeekDays 每周维护日期
+     * @param array $MaintainWeekDays 每周维护日期，日期取值范围[Mon, Tue, Wed, Thu, Fri, Sat, Sun]
      */
     function __construct()
     {

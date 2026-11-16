@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,18 +20,18 @@ use TencentCloud\Common\AbstractModel;
 /**
  * SyncAssetScan请求参数结构体
  *
- * @method boolean getSync() 获取是否同步
- * @method void setSync(boolean $Sync) 设置是否同步
+ * @method boolean getSync() 获取是否同步：true-是 false-否；默认false
+ * @method void setSync(boolean $Sync) 设置是否同步：true-是 false-否；默认false
  */
 class SyncAssetScanRequest extends AbstractModel
 {
     /**
-     * @var boolean 是否同步
+     * @var boolean 是否同步：true-是 false-否；默认false
      */
     public $Sync;
 
     /**
-     * @param boolean $Sync 是否同步
+     * @param boolean $Sync 是否同步：true-是 false-否；默认false
      */
     function __construct()
     {

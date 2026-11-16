@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,18 +20,18 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeCcnRegionBandwidthLimits请求参数结构体
  *
- * @method string getCcnId() 获取CCN实例ID。形如：ccn-f49l6u0z。
- * @method void setCcnId(string $CcnId) 设置CCN实例ID。形如：ccn-f49l6u0z。
+ * @method string getCcnId() 获取CCN实例ID，形如：ccn-f49l6u0z。
+ * @method void setCcnId(string $CcnId) 设置CCN实例ID，形如：ccn-f49l6u0z。
  */
 class DescribeCcnRegionBandwidthLimitsRequest extends AbstractModel
 {
     /**
-     * @var string CCN实例ID。形如：ccn-f49l6u0z。
+     * @var string CCN实例ID，形如：ccn-f49l6u0z。
      */
     public $CcnId;
 
     /**
-     * @param string $CcnId CCN实例ID。形如：ccn-f49l6u0z。
+     * @param string $CcnId CCN实例ID，形如：ccn-f49l6u0z。
      */
     function __construct()
     {

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,69 +21,49 @@ use TencentCloud\Common\AbstractModel;
  * 出入院诊断
  *
  * @method integer getTableIndex() 获取表格位置
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setTableIndex(integer $TableIndex) 设置表格位置
-注意：此字段可能返回 null，表示取不到有效值。
  * @method BlockInfo getOutDiagnosis() 获取出院诊断
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setOutDiagnosis(BlockInfo $OutDiagnosis) 设置出院诊断
-注意：此字段可能返回 null，表示取不到有效值。
  * @method BlockInfo getDiseaseCode() 获取疾病编码
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setDiseaseCode(BlockInfo $DiseaseCode) 设置疾病编码
-注意：此字段可能返回 null，表示取不到有效值。
  * @method BlockInfo getInStatus() 获取入院情况
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setInStatus(BlockInfo $InStatus) 设置入院情况
-注意：此字段可能返回 null，表示取不到有效值。
  * @method BlockInfo getOutStatus() 获取出院情况
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setOutStatus(BlockInfo $OutStatus) 设置出院情况
-注意：此字段可能返回 null，表示取不到有效值。
  */
 class DischargeDiagnosis extends AbstractModel
 {
     /**
      * @var integer 表格位置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $TableIndex;
 
     /**
      * @var BlockInfo 出院诊断
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $OutDiagnosis;
 
     /**
      * @var BlockInfo 疾病编码
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $DiseaseCode;
 
     /**
      * @var BlockInfo 入院情况
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $InStatus;
 
     /**
      * @var BlockInfo 出院情况
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $OutStatus;
 
     /**
      * @param integer $TableIndex 表格位置
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BlockInfo $OutDiagnosis 出院诊断
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BlockInfo $DiseaseCode 疾病编码
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BlockInfo $InStatus 入院情况
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BlockInfo $OutStatus 出院情况
-注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
     {

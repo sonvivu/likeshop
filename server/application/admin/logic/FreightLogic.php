@@ -22,7 +22,7 @@ namespace app\admin\logic;
 use app\common\model\Freight;
 use app\common\model\FreightConfig;
 use app\common\server\UrlServer;
-use think\Db;
+use think\facade\Db;
 use think\Exception;
 
 class FreightLogic

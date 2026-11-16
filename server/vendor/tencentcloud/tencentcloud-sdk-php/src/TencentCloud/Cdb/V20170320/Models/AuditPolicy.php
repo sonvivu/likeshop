@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,9 +43,9 @@ use TencentCloud\Common\AbstractModel;
  * @method string getRuleId() 获取审计规则 ID。
  * @method void setRuleId(string $RuleId) 设置审计规则 ID。
  * @method string getRuleName() 获取审计规则名称。
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setRuleName(string $RuleName) 设置审计规则名称。
-注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getInstanceName() 获取数据库实例名称
+ * @method void setInstanceName(string $InstanceName) 设置数据库实例名称
  */
 class AuditPolicy extends AbstractModel
 {
@@ -90,9 +90,13 @@ class AuditPolicy extends AbstractModel
 
     /**
      * @var string 审计规则名称。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $RuleName;
+
+    /**
+     * @var string 数据库实例名称
+     */
+    public $InstanceName;
 
     /**
      * @param string $PolicyId 审计策略 ID。
@@ -107,7 +111,7 @@ class AuditPolicy extends AbstractModel
      * @param string $PolicyName 审计策略名称。
      * @param string $RuleId 审计规则 ID。
      * @param string $RuleName 审计规则名称。
-注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $InstanceName 数据库实例名称
      */
     function __construct()
     {
@@ -152,6 +156,10 @@ class AuditPolicy extends AbstractModel
 
         if (array_key_exists("RuleName",$param) and $param["RuleName"] !== null) {
             $this->RuleName = $param["RuleName"];
+        }
+
+        if (array_key_exists("InstanceName",$param) and $param["InstanceName"] !== null) {
+            $this->InstanceName = $param["InstanceName"];
         }
     }
 }

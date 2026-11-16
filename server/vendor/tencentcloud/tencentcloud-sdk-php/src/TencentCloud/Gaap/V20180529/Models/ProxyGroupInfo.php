@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,9 +27,7 @@ use TencentCloud\Common\AbstractModel;
  * @method void setDomain(string $Domain) 设置通道组域名
 注意：此字段可能返回 null，表示取不到有效值。
  * @method string getGroupName() 获取通道组名称
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setGroupName(string $GroupName) 设置通道组名称
-注意：此字段可能返回 null，表示取不到有效值。
  * @method integer getProjectId() 获取项目ID
  * @method void setProjectId(integer $ProjectId) 设置项目ID
  * @method RegionDetail getRealServerRegionInfo() 获取目标地域
@@ -39,26 +37,54 @@ use TencentCloud\Common\AbstractModel;
 RUNNING表示运行中；
 CREATING表示创建中；
 DESTROYING表示销毁中；
-MOVING表示通道迁移中。
+MOVING表示通道迁移中；
+CLOSED表示已关闭；
+CHANGING表示部分部署中。
  * @method void setStatus(string $Status) 设置通道组状态。
 其中，
 RUNNING表示运行中；
 CREATING表示创建中；
 DESTROYING表示销毁中；
-MOVING表示通道迁移中。
+MOVING表示通道迁移中；
+CLOSED表示已关闭；
+CHANGING表示部分部署中。
  * @method array getTagSet() 获取标签列表。
  * @method void setTagSet(array $TagSet) 设置标签列表。
  * @method string getVersion() 获取通道组版本
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setVersion(string $Version) 设置通道组版本
-注意：此字段可能返回 null，表示取不到有效值。
  * @method integer getCreateTime() 获取创建时间
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setCreateTime(integer $CreateTime) 设置创建时间
-注意：此字段可能返回 null，表示取不到有效值。
  * @method integer getProxyType() 获取通道组是否包含微软通道
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setProxyType(integer $ProxyType) 设置通道组是否包含微软通道
+ * @method integer getHttp3Supported() 获取支持Http3特性的标识，其中：
+0表示关闭；
+1表示启用。
+ * @method void setHttp3Supported(integer $Http3Supported) 设置支持Http3特性的标识，其中：
+0表示关闭；
+1表示启用。
+ * @method integer getFeatureBitmap() 获取特性位图，每个bit位代表一种特性，其中：
+0，表示不支持该特性；
+1，表示支持该特性。
+特性位图含义如下（从右往左）：
+第1个bit，支持4层加速；
+第2个bit，支持7层加速；
+第3个bit，支持Http3接入；
+第4个bit，支持IPv6；
+第5个bit，支持精品BGP接入；
+第6个bit，支持三网接入；
+第7个bit，支持接入段Qos加速。
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setFeatureBitmap(integer $FeatureBitmap) 设置特性位图，每个bit位代表一种特性，其中：
+0，表示不支持该特性；
+1，表示支持该特性。
+特性位图含义如下（从右往左）：
+第1个bit，支持4层加速；
+第2个bit，支持7层加速；
+第3个bit，支持Http3接入；
+第4个bit，支持IPv6；
+第5个bit，支持精品BGP接入；
+第6个bit，支持三网接入；
+第7个bit，支持接入段Qos加速。
 注意：此字段可能返回 null，表示取不到有效值。
  */
 class ProxyGroupInfo extends AbstractModel
@@ -76,7 +102,6 @@ class ProxyGroupInfo extends AbstractModel
 
     /**
      * @var string 通道组名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $GroupName;
 
@@ -96,7 +121,9 @@ class ProxyGroupInfo extends AbstractModel
 RUNNING表示运行中；
 CREATING表示创建中；
 DESTROYING表示销毁中；
-MOVING表示通道迁移中。
+MOVING表示通道迁移中；
+CLOSED表示已关闭；
+CHANGING表示部分部署中。
      */
     public $Status;
 
@@ -107,28 +134,47 @@ MOVING表示通道迁移中。
 
     /**
      * @var string 通道组版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Version;
 
     /**
      * @var integer 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $CreateTime;
 
     /**
      * @var integer 通道组是否包含微软通道
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $ProxyType;
+
+    /**
+     * @var integer 支持Http3特性的标识，其中：
+0表示关闭；
+1表示启用。
+     */
+    public $Http3Supported;
+
+    /**
+     * @var integer 特性位图，每个bit位代表一种特性，其中：
+0，表示不支持该特性；
+1，表示支持该特性。
+特性位图含义如下（从右往左）：
+第1个bit，支持4层加速；
+第2个bit，支持7层加速；
+第3个bit，支持Http3接入；
+第4个bit，支持IPv6；
+第5个bit，支持精品BGP接入；
+第6个bit，支持三网接入；
+第7个bit，支持接入段Qos加速。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $FeatureBitmap;
 
     /**
      * @param string $GroupId 通道组id
      * @param string $Domain 通道组域名
 注意：此字段可能返回 null，表示取不到有效值。
      * @param string $GroupName 通道组名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param integer $ProjectId 项目ID
      * @param RegionDetail $RealServerRegionInfo 目标地域
      * @param string $Status 通道组状态。
@@ -136,13 +182,27 @@ MOVING表示通道迁移中。
 RUNNING表示运行中；
 CREATING表示创建中；
 DESTROYING表示销毁中；
-MOVING表示通道迁移中。
+MOVING表示通道迁移中；
+CLOSED表示已关闭；
+CHANGING表示部分部署中。
      * @param array $TagSet 标签列表。
      * @param string $Version 通道组版本
-注意：此字段可能返回 null，表示取不到有效值。
      * @param integer $CreateTime 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param integer $ProxyType 通道组是否包含微软通道
+     * @param integer $Http3Supported 支持Http3特性的标识，其中：
+0表示关闭；
+1表示启用。
+     * @param integer $FeatureBitmap 特性位图，每个bit位代表一种特性，其中：
+0，表示不支持该特性；
+1，表示支持该特性。
+特性位图含义如下（从右往左）：
+第1个bit，支持4层加速；
+第2个bit，支持7层加速；
+第3个bit，支持Http3接入；
+第4个bit，支持IPv6；
+第5个bit，支持精品BGP接入；
+第6个bit，支持三网接入；
+第7个bit，支持接入段Qos加速。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
@@ -202,6 +262,14 @@ MOVING表示通道迁移中。
 
         if (array_key_exists("ProxyType",$param) and $param["ProxyType"] !== null) {
             $this->ProxyType = $param["ProxyType"];
+        }
+
+        if (array_key_exists("Http3Supported",$param) and $param["Http3Supported"] !== null) {
+            $this->Http3Supported = $param["Http3Supported"];
+        }
+
+        if (array_key_exists("FeatureBitmap",$param) and $param["FeatureBitmap"] !== null) {
+            $this->FeatureBitmap = $param["FeatureBitmap"];
         }
     }
 }

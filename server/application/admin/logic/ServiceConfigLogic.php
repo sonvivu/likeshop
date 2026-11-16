@@ -19,7 +19,7 @@
 namespace app\admin\logic;
 use app\common\server\ConfigServer;
 use app\common\server\UrlServer;
-use think\Db;
+use think\facade\Db;
 
 class ServiceConfigLogic
 {

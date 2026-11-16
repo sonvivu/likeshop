@@ -22,7 +22,7 @@ namespace app\admin\validate;
 use app\common\model\AfterSale as CommonAfterSale;
 use app\common\model\OrderGoods;
 use app\common\model\Team;
-use think\Db;
+use think\facade\Db;
 use think\Validate;
 
 class Order extends Validate

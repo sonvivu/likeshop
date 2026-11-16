@@ -20,9 +20,9 @@ namespace app\api\logic;
 use app\common\logic\AccountLogLogic;
 use app\common\model\AccountLog;
 use app\common\server\UrlServer;
-use think\Db;
+use think\facade\Db;
 use think\Exception;
-use think\helper\Time;
+use app\common\helper\Time;
 use app\common\server\ConfigServer;
 class SignLogic
 {

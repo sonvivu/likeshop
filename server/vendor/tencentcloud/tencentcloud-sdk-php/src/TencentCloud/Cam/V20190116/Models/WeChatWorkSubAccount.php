@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -37,13 +37,9 @@ use TencentCloud\Common\AbstractModel;
  * @method string getEmail() 获取邮箱
  * @method void setEmail(string $Email) 设置邮箱
  * @method string getWeChatWorkUserId() 获取企业微信UserId
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setWeChatWorkUserId(string $WeChatWorkUserId) 设置企业微信UserId
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getCreateTime() 获取创建时间
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setCreateTime(string $CreateTime) 设置创建时间
-注意：此字段可能返回 null，表示取不到有效值。
  */
 class WeChatWorkSubAccount extends AbstractModel
 {
@@ -89,13 +85,11 @@ class WeChatWorkSubAccount extends AbstractModel
 
     /**
      * @var string 企业微信UserId
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $WeChatWorkUserId;
 
     /**
      * @var string 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $CreateTime;
 
@@ -109,9 +103,7 @@ class WeChatWorkSubAccount extends AbstractModel
      * @param string $CountryCode 区号
      * @param string $Email 邮箱
      * @param string $WeChatWorkUserId 企业微信UserId
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $CreateTime 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
     {

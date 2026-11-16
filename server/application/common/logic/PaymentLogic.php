@@ -24,7 +24,7 @@ use app\common\server\BalancePayServer;
 use app\common\server\WeChatPayServer;
 use app\common\model\{Client_, Order, Pay, User};
 use think\facade\Env;
-use think\Db;
+use think\facade\Db;
 
 class PaymentLogic extends LogicBase
 {
@@ -147,7 +147,7 @@ class PaymentLogic extends LogicBase
                 }
                 break;
             case Pay::BALANCE_PAY:
-                $user = User::get($order['user_id']);
+                $user = User::find($order['user_id']);
                 if ($user['user_money'] < $order['order_amount']) {
                     self::$error = lang('余额不足');
                     return false;

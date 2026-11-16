@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,50 +20,73 @@ use TencentCloud\Common\AbstractModel;
 /**
  * PhoneVerification返回参数结构体
  *
- * @method string getResult() 获取认证结果码:
-收费结果码
-0: 认证通过
--4: 信息不一致（手机号已实名，但姓名和身份证号与实名信息不一致）
--5: 手机号未实名
-不收费结果码
--6: 手机号码不合法
--7: 身份证号码有误
--8: 姓名校验不通过
--9: 没有记录
--10: 认证未通过
--11: 验证中心服务繁忙
- * @method void setResult(string $Result) 设置认证结果码:
-收费结果码
-0: 认证通过
--4: 信息不一致（手机号已实名，但姓名和身份证号与实名信息不一致）
--5: 手机号未实名
-不收费结果码
--6: 手机号码不合法
--7: 身份证号码有误
--8: 姓名校验不通过
--9: 没有记录
--10: 认证未通过
--11: 验证中心服务繁忙
+ * @method string getResult() 获取认证结果码。
+- 收费结果码
+0: 三要素信息一致。
+-4: 三要素信息不一致。
+
+- 不收费结果码
+-6: 手机号码不合法。
+-7: 身份证号码有误。
+-8: 姓名校验不通过。
+-9: 没有记录。
+-11: 验证中心服务繁忙。
+-12: 认证次数超过当日限制，请次日重试。
+-13：该号段不支持验证
+ * @method void setResult(string $Result) 设置认证结果码。
+- 收费结果码
+0: 三要素信息一致。
+-4: 三要素信息不一致。
+
+- 不收费结果码
+-6: 手机号码不合法。
+-7: 身份证号码有误。
+-8: 姓名校验不通过。
+-9: 没有记录。
+-11: 验证中心服务繁忙。
+-12: 认证次数超过当日限制，请次日重试。
+-13：该号段不支持验证
  * @method string getDescription() 获取业务结果描述。
  * @method void setDescription(string $Description) 设置业务结果描述。
- * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
- * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method string getIsp() 获取运营商名称。
+- 取值范围为["","移动","电信","联通"]
+ * @method void setIsp(string $Isp) 设置运营商名称。
+- 取值范围为["","移动","电信","联通"]
+ * @method string getResultDetail() 获取业务结果详细信息。
+- 当VerifyMode配置"详版"，且Result为"-4: 三要素信息不一致"时返回。
+- 枚举值：
+PhoneIdCardMismatch：手机号码与姓名一致，与身份证号不一致。
+PhoneNameMismatch：手机号码身份证号一致，与姓名不一致。
+PhoneNameIdCardMismatch：手机号码与姓名和身份证号均不一致。
+NameIdCardMismatch：姓名和身份证号不一致。
+OtherMismatch：其他不一致。
+ * @method void setResultDetail(string $ResultDetail) 设置业务结果详细信息。
+- 当VerifyMode配置"详版"，且Result为"-4: 三要素信息不一致"时返回。
+- 枚举值：
+PhoneIdCardMismatch：手机号码与姓名一致，与身份证号不一致。
+PhoneNameMismatch：手机号码身份证号一致，与姓名不一致。
+PhoneNameIdCardMismatch：手机号码与姓名和身份证号均不一致。
+NameIdCardMismatch：姓名和身份证号不一致。
+OtherMismatch：其他不一致。
+ * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+ * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
 class PhoneVerificationResponse extends AbstractModel
 {
     /**
-     * @var string 认证结果码:
-收费结果码
-0: 认证通过
--4: 信息不一致（手机号已实名，但姓名和身份证号与实名信息不一致）
--5: 手机号未实名
-不收费结果码
--6: 手机号码不合法
--7: 身份证号码有误
--8: 姓名校验不通过
--9: 没有记录
--10: 认证未通过
--11: 验证中心服务繁忙
+     * @var string 认证结果码。
+- 收费结果码
+0: 三要素信息一致。
+-4: 三要素信息不一致。
+
+- 不收费结果码
+-6: 手机号码不合法。
+-7: 身份证号码有误。
+-8: 姓名校验不通过。
+-9: 没有记录。
+-11: 验证中心服务繁忙。
+-12: 认证次数超过当日限制，请次日重试。
+-13：该号段不支持验证
      */
     public $Result;
 
@@ -73,25 +96,54 @@ class PhoneVerificationResponse extends AbstractModel
     public $Description;
 
     /**
-     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @var string 运营商名称。
+- 取值范围为["","移动","电信","联通"]
+     */
+    public $Isp;
+
+    /**
+     * @var string 业务结果详细信息。
+- 当VerifyMode配置"详版"，且Result为"-4: 三要素信息不一致"时返回。
+- 枚举值：
+PhoneIdCardMismatch：手机号码与姓名一致，与身份证号不一致。
+PhoneNameMismatch：手机号码身份证号一致，与姓名不一致。
+PhoneNameIdCardMismatch：手机号码与姓名和身份证号均不一致。
+NameIdCardMismatch：姓名和身份证号不一致。
+OtherMismatch：其他不一致。
+     */
+    public $ResultDetail;
+
+    /**
+     * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public $RequestId;
 
     /**
-     * @param string $Result 认证结果码:
-收费结果码
-0: 认证通过
--4: 信息不一致（手机号已实名，但姓名和身份证号与实名信息不一致）
--5: 手机号未实名
-不收费结果码
--6: 手机号码不合法
--7: 身份证号码有误
--8: 姓名校验不通过
--9: 没有记录
--10: 认证未通过
--11: 验证中心服务繁忙
+     * @param string $Result 认证结果码。
+- 收费结果码
+0: 三要素信息一致。
+-4: 三要素信息不一致。
+
+- 不收费结果码
+-6: 手机号码不合法。
+-7: 身份证号码有误。
+-8: 姓名校验不通过。
+-9: 没有记录。
+-11: 验证中心服务繁忙。
+-12: 认证次数超过当日限制，请次日重试。
+-13：该号段不支持验证
      * @param string $Description 业务结果描述。
-     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @param string $Isp 运营商名称。
+- 取值范围为["","移动","电信","联通"]
+     * @param string $ResultDetail 业务结果详细信息。
+- 当VerifyMode配置"详版"，且Result为"-4: 三要素信息不一致"时返回。
+- 枚举值：
+PhoneIdCardMismatch：手机号码与姓名一致，与身份证号不一致。
+PhoneNameMismatch：手机号码身份证号一致，与姓名不一致。
+PhoneNameIdCardMismatch：手机号码与姓名和身份证号均不一致。
+NameIdCardMismatch：姓名和身份证号不一致。
+OtherMismatch：其他不一致。
+     * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
     {
@@ -112,6 +164,14 @@ class PhoneVerificationResponse extends AbstractModel
 
         if (array_key_exists("Description",$param) and $param["Description"] !== null) {
             $this->Description = $param["Description"];
+        }
+
+        if (array_key_exists("Isp",$param) and $param["Isp"] !== null) {
+            $this->Isp = $param["Isp"];
+        }
+
+        if (array_key_exists("ResultDetail",$param) and $param["ResultDetail"] !== null) {
+            $this->ResultDetail = $param["ResultDetail"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

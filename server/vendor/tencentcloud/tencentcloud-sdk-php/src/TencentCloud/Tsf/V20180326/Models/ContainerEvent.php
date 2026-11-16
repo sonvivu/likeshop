@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,105 +21,73 @@ use TencentCloud\Common\AbstractModel;
  * 返回容器的事件，比如 k8s deployment 或者 pod 的 events
  *
  * @method integer getFirstTimestamp() 获取第一次出现的时间，以 ms 为单位的时间戳
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setFirstTimestamp(integer $FirstTimestamp) 设置第一次出现的时间，以 ms 为单位的时间戳
-注意：此字段可能返回 null，表示取不到有效值。
  * @method integer getLastTimestamp() 获取最后一次出现的时间，以 ms 为单位的时间戳
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setLastTimestamp(integer $LastTimestamp) 设置最后一次出现的时间，以 ms 为单位的时间戳
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getType() 获取级别
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setType(string $Type) 设置级别
-注意：此字段可能返回 null，表示取不到有效值。
- * @method string getKind() 获取资源类型
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setKind(string $Kind) 设置资源类型
-注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getKind() 获取Kubernetes 资源类型，典型取值有 Deployment(部署资源)、Pod(容器组)、Service(服务资源) 等
+ * @method void setKind(string $Kind) 设置Kubernetes 资源类型，典型取值有 Deployment(部署资源)、Pod(容器组)、Service(服务资源) 等
  * @method string getName() 获取资源名称
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setName(string $Name) 设置资源名称
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getReason() 获取内容
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setReason(string $Reason) 设置内容
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getMessage() 获取详细描述
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setMessage(string $Message) 设置详细描述
-注意：此字段可能返回 null，表示取不到有效值。
  * @method integer getCount() 获取出现次数
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setCount(integer $Count) 设置出现次数
-注意：此字段可能返回 null，表示取不到有效值。
  */
 class ContainerEvent extends AbstractModel
 {
     /**
      * @var integer 第一次出现的时间，以 ms 为单位的时间戳
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $FirstTimestamp;
 
     /**
      * @var integer 最后一次出现的时间，以 ms 为单位的时间戳
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $LastTimestamp;
 
     /**
      * @var string 级别
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Type;
 
     /**
-     * @var string 资源类型
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string Kubernetes 资源类型，典型取值有 Deployment(部署资源)、Pod(容器组)、Service(服务资源) 等
      */
     public $Kind;
 
     /**
      * @var string 资源名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Name;
 
     /**
      * @var string 内容
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Reason;
 
     /**
      * @var string 详细描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Message;
 
     /**
      * @var integer 出现次数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Count;
 
     /**
      * @param integer $FirstTimestamp 第一次出现的时间，以 ms 为单位的时间戳
-注意：此字段可能返回 null，表示取不到有效值。
      * @param integer $LastTimestamp 最后一次出现的时间，以 ms 为单位的时间戳
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $Type 级别
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $Kind 资源类型
-注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $Kind Kubernetes 资源类型，典型取值有 Deployment(部署资源)、Pod(容器组)、Service(服务资源) 等
      * @param string $Name 资源名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $Reason 内容
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $Message 详细描述
-注意：此字段可能返回 null，表示取不到有效值。
      * @param integer $Count 出现次数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
     {

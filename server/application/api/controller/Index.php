@@ -24,8 +24,7 @@ use app\common\model\Client_;
 use app\common\model\MessageScene_;
 use app\common\server\ConfigServer;
 use app\common\server\UrlServer;
-use think\facade\Hook;
-use think\Db;
+use think\facade\Db;
 class Index extends ApiBase
 {
    public $like_not_need_login = ['test', 'lists', 'appInit', 'downLine', 'share', 'config','pcLists','copyright'];
@@ -132,6 +131,7 @@ class Index extends ApiBase
           ->where('del', 0)
           ->order('id', 'desc')
           ->select();
+        $navigation = $navigation->toArray(); // ThinkPHP 6：select() 返回 Collection，TP5 返回数组；直接写 $navigation[$k]['x'] 或 foreach(&$item) 改值会丢/报错，先转数组。
         foreach($navigation as &$item) {
           $item['selected_icon'] =  empty($item['selected_icon']) ? '' : UrlServer::getFileUrl($item['selected_icon']);
           $item['un_selected_icon'] =  empty($item['un_selected_icon']) ? '' : UrlServer::getFileUrl($item['un_selected_icon']);

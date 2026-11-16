@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,7 +33,7 @@ CLOSED表示已关闭；
 ADJUSTING表示配置变更中；
 ISOLATING表示隔离中；
 ISOLATED表示已隔离；
-UNKNOWN表示未知状态。
+MOVING表示迁移中。
  * @method void setStatus(string $Status) 设置通道状态。
 其中：
 RUNNING表示运行中；
@@ -45,7 +45,7 @@ CLOSED表示已关闭；
 ADJUSTING表示配置变更中；
 ISOLATING表示隔离中；
 ISOLATED表示已隔离；
-UNKNOWN表示未知状态。
+MOVING表示迁移中。
  */
 class ProxyStatus extends AbstractModel
 {
@@ -66,7 +66,7 @@ CLOSED表示已关闭；
 ADJUSTING表示配置变更中；
 ISOLATING表示隔离中；
 ISOLATED表示已隔离；
-UNKNOWN表示未知状态。
+MOVING表示迁移中。
      */
     public $Status;
 
@@ -83,7 +83,7 @@ CLOSED表示已关闭；
 ADJUSTING表示配置变更中；
 ISOLATING表示隔离中；
 ISOLATED表示已隔离；
-UNKNOWN表示未知状态。
+MOVING表示迁移中。
      */
     function __construct()
     {

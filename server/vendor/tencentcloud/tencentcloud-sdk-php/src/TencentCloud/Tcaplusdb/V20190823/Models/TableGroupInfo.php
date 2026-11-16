@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,6 +30,14 @@ use TencentCloud\Common\AbstractModel;
  * @method void setTableCount(integer $TableCount) 设置表格组包含的表格数量
  * @method integer getTotalSize() 获取表格组包含的表格存储总量（MB）
  * @method void setTotalSize(integer $TotalSize) 设置表格组包含的表格存储总量（MB）
+ * @method integer getTxhBackupExpireDay() 获取表格Txh备份文件多少天后过期删除
+ * @method void setTxhBackupExpireDay(integer $TxhBackupExpireDay) 设置表格Txh备份文件多少天后过期删除
+ * @method integer getEnableMysql() 获取是否开启mysql负载均衡,0未开启 1开启中 2已开启
+ * @method void setEnableMysql(integer $EnableMysql) 设置是否开启mysql负载均衡,0未开启 1开启中 2已开启
+ * @method string getMysqlConnIp() 获取mysql负载均衡vip
+ * @method void setMysqlConnIp(string $MysqlConnIp) 设置mysql负载均衡vip
+ * @method integer getMysqlConnPort() 获取mysql负载均衡vport
+ * @method void setMysqlConnPort(integer $MysqlConnPort) 设置mysql负载均衡vport
  */
 class TableGroupInfo extends AbstractModel
 {
@@ -59,11 +67,35 @@ class TableGroupInfo extends AbstractModel
     public $TotalSize;
 
     /**
+     * @var integer 表格Txh备份文件多少天后过期删除
+     */
+    public $TxhBackupExpireDay;
+
+    /**
+     * @var integer 是否开启mysql负载均衡,0未开启 1开启中 2已开启
+     */
+    public $EnableMysql;
+
+    /**
+     * @var string mysql负载均衡vip
+     */
+    public $MysqlConnIp;
+
+    /**
+     * @var integer mysql负载均衡vport
+     */
+    public $MysqlConnPort;
+
+    /**
      * @param string $TableGroupId 表格组ID
      * @param string $TableGroupName 表格组名称
      * @param string $CreatedTime 表格组创建时间
      * @param integer $TableCount 表格组包含的表格数量
      * @param integer $TotalSize 表格组包含的表格存储总量（MB）
+     * @param integer $TxhBackupExpireDay 表格Txh备份文件多少天后过期删除
+     * @param integer $EnableMysql 是否开启mysql负载均衡,0未开启 1开启中 2已开启
+     * @param string $MysqlConnIp mysql负载均衡vip
+     * @param integer $MysqlConnPort mysql负载均衡vport
      */
     function __construct()
     {
@@ -96,6 +128,22 @@ class TableGroupInfo extends AbstractModel
 
         if (array_key_exists("TotalSize",$param) and $param["TotalSize"] !== null) {
             $this->TotalSize = $param["TotalSize"];
+        }
+
+        if (array_key_exists("TxhBackupExpireDay",$param) and $param["TxhBackupExpireDay"] !== null) {
+            $this->TxhBackupExpireDay = $param["TxhBackupExpireDay"];
+        }
+
+        if (array_key_exists("EnableMysql",$param) and $param["EnableMysql"] !== null) {
+            $this->EnableMysql = $param["EnableMysql"];
+        }
+
+        if (array_key_exists("MysqlConnIp",$param) and $param["MysqlConnIp"] !== null) {
+            $this->MysqlConnIp = $param["MysqlConnIp"];
+        }
+
+        if (array_key_exists("MysqlConnPort",$param) and $param["MysqlConnPort"] !== null) {
+            $this->MysqlConnPort = $param["MysqlConnPort"];
         }
     }
 }

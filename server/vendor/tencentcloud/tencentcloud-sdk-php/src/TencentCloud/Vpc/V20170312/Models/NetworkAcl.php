@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,66 +20,82 @@ use TencentCloud\Common\AbstractModel;
 /**
  * 网络ACL
  *
- * @method string getVpcId() 获取`VPC`实例`ID`。
- * @method void setVpcId(string $VpcId) 设置`VPC`实例`ID`。
- * @method string getNetworkAclId() 获取网络ACL实例`ID`。
- * @method void setNetworkAclId(string $NetworkAclId) 设置网络ACL实例`ID`。
- * @method string getNetworkAclName() 获取网络ACL名称，最大长度为60。
- * @method void setNetworkAclName(string $NetworkAclName) 设置网络ACL名称，最大长度为60。
- * @method string getCreatedTime() 获取创建时间。
- * @method void setCreatedTime(string $CreatedTime) 设置创建时间。
- * @method array getSubnetSet() 获取网络ACL关联的子网数组。
- * @method void setSubnetSet(array $SubnetSet) 设置网络ACL关联的子网数组。
- * @method array getIngressEntries() 获取网络ACl入站规则。
- * @method void setIngressEntries(array $IngressEntries) 设置网络ACl入站规则。
- * @method array getEgressEntries() 获取网络ACL出站规则。
- * @method void setEgressEntries(array $EgressEntries) 设置网络ACL出站规则。
+ * @method string getVpcId() 获取<p><code>VPC</code>实例<code>ID</code>。</p>
+ * @method void setVpcId(string $VpcId) 设置<p><code>VPC</code>实例<code>ID</code>。</p>
+ * @method string getNetworkAclId() 获取<p>网络ACL实例<code>ID</code>。</p>
+ * @method void setNetworkAclId(string $NetworkAclId) 设置<p>网络ACL实例<code>ID</code>。</p>
+ * @method string getNetworkAclName() 获取<p>网络ACL名称，最大长度为60。</p>
+ * @method void setNetworkAclName(string $NetworkAclName) 设置<p>网络ACL名称，最大长度为60。</p>
+ * @method string getCreatedTime() 获取<p>创建时间。</p>
+ * @method void setCreatedTime(string $CreatedTime) 设置<p>创建时间。</p>
+ * @method array getSubnetSet() 获取<p>网络ACL关联的子网数组。</p>
+ * @method void setSubnetSet(array $SubnetSet) 设置<p>网络ACL关联的子网数组。</p>
+ * @method array getIngressEntries() 获取<p>该参数仅对三元组ACL有效，网络ACl入站规则。</p>
+ * @method void setIngressEntries(array $IngressEntries) 设置<p>该参数仅对三元组ACL有效，网络ACl入站规则。</p>
+ * @method array getEgressEntries() 获取<p>该参数仅对三元组ACL有效，网络ACL出站规则。</p>
+ * @method void setEgressEntries(array $EgressEntries) 设置<p>该参数仅对三元组ACL有效，网络ACL出站规则。</p>
+ * @method string getNetworkAclType() 获取<p>网络ACL类型。三元组：&#39;TRIPLE&#39;   五元组：&#39;QUINTUPLE&#39;</p>
+ * @method void setNetworkAclType(string $NetworkAclType) 设置<p>网络ACL类型。三元组：&#39;TRIPLE&#39;   五元组：&#39;QUINTUPLE&#39;</p>
+ * @method array getTagSet() 获取<p>标签键值对</p>
+ * @method void setTagSet(array $TagSet) 设置<p>标签键值对</p>
  */
 class NetworkAcl extends AbstractModel
 {
     /**
-     * @var string `VPC`实例`ID`。
+     * @var string <p><code>VPC</code>实例<code>ID</code>。</p>
      */
     public $VpcId;
 
     /**
-     * @var string 网络ACL实例`ID`。
+     * @var string <p>网络ACL实例<code>ID</code>。</p>
      */
     public $NetworkAclId;
 
     /**
-     * @var string 网络ACL名称，最大长度为60。
+     * @var string <p>网络ACL名称，最大长度为60。</p>
      */
     public $NetworkAclName;
 
     /**
-     * @var string 创建时间。
+     * @var string <p>创建时间。</p>
      */
     public $CreatedTime;
 
     /**
-     * @var array 网络ACL关联的子网数组。
+     * @var array <p>网络ACL关联的子网数组。</p>
      */
     public $SubnetSet;
 
     /**
-     * @var array 网络ACl入站规则。
+     * @var array <p>该参数仅对三元组ACL有效，网络ACl入站规则。</p>
      */
     public $IngressEntries;
 
     /**
-     * @var array 网络ACL出站规则。
+     * @var array <p>该参数仅对三元组ACL有效，网络ACL出站规则。</p>
      */
     public $EgressEntries;
 
     /**
-     * @param string $VpcId `VPC`实例`ID`。
-     * @param string $NetworkAclId 网络ACL实例`ID`。
-     * @param string $NetworkAclName 网络ACL名称，最大长度为60。
-     * @param string $CreatedTime 创建时间。
-     * @param array $SubnetSet 网络ACL关联的子网数组。
-     * @param array $IngressEntries 网络ACl入站规则。
-     * @param array $EgressEntries 网络ACL出站规则。
+     * @var string <p>网络ACL类型。三元组：&#39;TRIPLE&#39;   五元组：&#39;QUINTUPLE&#39;</p>
+     */
+    public $NetworkAclType;
+
+    /**
+     * @var array <p>标签键值对</p>
+     */
+    public $TagSet;
+
+    /**
+     * @param string $VpcId <p><code>VPC</code>实例<code>ID</code>。</p>
+     * @param string $NetworkAclId <p>网络ACL实例<code>ID</code>。</p>
+     * @param string $NetworkAclName <p>网络ACL名称，最大长度为60。</p>
+     * @param string $CreatedTime <p>创建时间。</p>
+     * @param array $SubnetSet <p>网络ACL关联的子网数组。</p>
+     * @param array $IngressEntries <p>该参数仅对三元组ACL有效，网络ACl入站规则。</p>
+     * @param array $EgressEntries <p>该参数仅对三元组ACL有效，网络ACL出站规则。</p>
+     * @param string $NetworkAclType <p>网络ACL类型。三元组：&#39;TRIPLE&#39;   五元组：&#39;QUINTUPLE&#39;</p>
+     * @param array $TagSet <p>标签键值对</p>
      */
     function __construct()
     {
@@ -134,6 +150,19 @@ class NetworkAcl extends AbstractModel
                 $obj = new NetworkAclEntry();
                 $obj->deserialize($value);
                 array_push($this->EgressEntries, $obj);
+            }
+        }
+
+        if (array_key_exists("NetworkAclType",$param) and $param["NetworkAclType"] !== null) {
+            $this->NetworkAclType = $param["NetworkAclType"];
+        }
+
+        if (array_key_exists("TagSet",$param) and $param["TagSet"] !== null) {
+            $this->TagSet = [];
+            foreach ($param["TagSet"] as $key => $value){
+                $obj = new Tag();
+                $obj->deserialize($value);
+                array_push($this->TagSet, $obj);
             }
         }
     }

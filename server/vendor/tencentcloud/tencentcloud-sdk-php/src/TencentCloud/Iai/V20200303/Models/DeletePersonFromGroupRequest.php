@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,26 +20,26 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DeletePersonFromGroup请求参数结构体
  *
- * @method string getPersonId() 获取人员ID，取值为创建人员接口中的PersonId
- * @method void setPersonId(string $PersonId) 设置人员ID，取值为创建人员接口中的PersonId
- * @method string getGroupId() 获取人员库ID，取值为创建人员库接口中的GroupId
- * @method void setGroupId(string $GroupId) 设置人员库ID，取值为创建人员库接口中的GroupId
+ * @method string getPersonId() 获取人员ID，取值为创建人员接口中的PersonId。
+ * @method void setPersonId(string $PersonId) 设置人员ID，取值为创建人员接口中的PersonId。
+ * @method string getGroupId() 获取人员库ID，取值为创建人员库接口中的GroupId。
+ * @method void setGroupId(string $GroupId) 设置人员库ID，取值为创建人员库接口中的GroupId。
  */
 class DeletePersonFromGroupRequest extends AbstractModel
 {
     /**
-     * @var string 人员ID，取值为创建人员接口中的PersonId
+     * @var string 人员ID，取值为创建人员接口中的PersonId。
      */
     public $PersonId;
 
     /**
-     * @var string 人员库ID，取值为创建人员库接口中的GroupId
+     * @var string 人员库ID，取值为创建人员库接口中的GroupId。
      */
     public $GroupId;
 
     /**
-     * @param string $PersonId 人员ID，取值为创建人员接口中的PersonId
-     * @param string $GroupId 人员库ID，取值为创建人员库接口中的GroupId
+     * @param string $PersonId 人员ID，取值为创建人员接口中的PersonId。
+     * @param string $GroupId 人员库ID，取值为创建人员库接口中的GroupId。
      */
     function __construct()
     {

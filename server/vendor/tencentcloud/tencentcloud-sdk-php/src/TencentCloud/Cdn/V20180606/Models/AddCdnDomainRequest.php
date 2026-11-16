@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,13 +23,17 @@ use TencentCloud\Common\AbstractModel;
  * @method string getDomain() 获取域名
  * @method void setDomain(string $Domain) 设置域名
  * @method string getServiceType() 获取加速域名业务类型
-web：静态加速
-download：下载加速
-media：流媒体点播加速
+web：网页小文件
+download：下载大文件
+media：音视频点播
+hybrid:  动静加速
+dynamic:  动态加速
  * @method void setServiceType(string $ServiceType) 设置加速域名业务类型
-web：静态加速
-download：下载加速
-media：流媒体点播加速
+web：网页小文件
+download：下载大文件
+media：音视频点播
+hybrid:  动静加速
+dynamic:  动态加速
  * @method Origin getOrigin() 获取源站配置
  * @method void setOrigin(Origin $Origin) 设置源站配置
  * @method integer getProjectId() 获取项目 ID，默认为 0，代表【默认项目】
@@ -102,8 +106,20 @@ global：全球加速
  * @method void setIpv6Access(Ipv6Access $Ipv6Access) 设置Ipv6 访问配置
  * @method OfflineCache getOfflineCache() 获取离线缓存
  * @method void setOfflineCache(OfflineCache $OfflineCache) 设置离线缓存
- * @method Quic getQuic() 获取QUIC正在内测中，请先提交内测申请，详情请前往QUIC产品文档。
- * @method void setQuic(Quic $Quic) 设置QUIC正在内测中，请先提交内测申请，详情请前往QUIC产品文档。
+ * @method Quic getQuic() 获取Quic访问（收费服务，详见计费说明和产品文档）
+ * @method void setQuic(Quic $Quic) 设置Quic访问（收费服务，详见计费说明和产品文档）
+ * @method AwsPrivateAccess getAwsPrivateAccess() 获取回源S3私有鉴权
+ * @method void setAwsPrivateAccess(AwsPrivateAccess $AwsPrivateAccess) 设置回源S3私有鉴权
+ * @method OssPrivateAccess getOssPrivateAccess() 获取回源OSS私有鉴权
+ * @method void setOssPrivateAccess(OssPrivateAccess $OssPrivateAccess) 设置回源OSS私有鉴权
+ * @method HwPrivateAccess getHwPrivateAccess() 获取华为云对象存储回源鉴权
+ * @method void setHwPrivateAccess(HwPrivateAccess $HwPrivateAccess) 设置华为云对象存储回源鉴权
+ * @method QnPrivateAccess getQnPrivateAccess() 获取七牛云对象存储回源鉴权
+ * @method void setQnPrivateAccess(QnPrivateAccess $QnPrivateAccess) 设置七牛云对象存储回源鉴权
+ * @method OthersPrivateAccess getOthersPrivateAccess() 获取其他厂商对象存储回源鉴权
+ * @method void setOthersPrivateAccess(OthersPrivateAccess $OthersPrivateAccess) 设置其他厂商对象存储回源鉴权
+ * @method HttpsBilling getHttpsBilling() 获取HTTPS服务，默认开启（收费服务，详见计费说明和产品文档）
+ * @method void setHttpsBilling(HttpsBilling $HttpsBilling) 设置HTTPS服务，默认开启（收费服务，详见计费说明和产品文档）
  */
 class AddCdnDomainRequest extends AbstractModel
 {
@@ -114,9 +130,11 @@ class AddCdnDomainRequest extends AbstractModel
 
     /**
      * @var string 加速域名业务类型
-web：静态加速
-download：下载加速
-media：流媒体点播加速
+web：网页小文件
+download：下载大文件
+media：音视频点播
+hybrid:  动静加速
+dynamic:  动态加速
      */
     public $ServiceType;
 
@@ -281,16 +299,48 @@ global：全球加速
     public $OfflineCache;
 
     /**
-     * @var Quic QUIC正在内测中，请先提交内测申请，详情请前往QUIC产品文档。
+     * @var Quic Quic访问（收费服务，详见计费说明和产品文档）
      */
     public $Quic;
 
     /**
+     * @var AwsPrivateAccess 回源S3私有鉴权
+     */
+    public $AwsPrivateAccess;
+
+    /**
+     * @var OssPrivateAccess 回源OSS私有鉴权
+     */
+    public $OssPrivateAccess;
+
+    /**
+     * @var HwPrivateAccess 华为云对象存储回源鉴权
+     */
+    public $HwPrivateAccess;
+
+    /**
+     * @var QnPrivateAccess 七牛云对象存储回源鉴权
+     */
+    public $QnPrivateAccess;
+
+    /**
+     * @var OthersPrivateAccess 其他厂商对象存储回源鉴权
+     */
+    public $OthersPrivateAccess;
+
+    /**
+     * @var HttpsBilling HTTPS服务，默认开启（收费服务，详见计费说明和产品文档）
+     */
+    public $HttpsBilling;
+
+    /**
      * @param string $Domain 域名
      * @param string $ServiceType 加速域名业务类型
-web：静态加速
-download：下载加速
-media：流媒体点播加速
+web：网页小文件
+download：下载大文件
+media：音视频点播
+hybrid:  动静加速
+dynamic:  动态加速
      * @param Origin $Origin 源站配置
      * @param integer $ProjectId 项目 ID，默认为 0，代表【默认项目】
      * @param IpFilter $IpFilter IP 黑白名单配置
@@ -327,7 +377,13 @@ global：全球加速
      * @param array $Tag 标签配置
      * @param Ipv6Access $Ipv6Access Ipv6 访问配置
      * @param OfflineCache $OfflineCache 离线缓存
-     * @param Quic $Quic QUIC正在内测中，请先提交内测申请，详情请前往QUIC产品文档。
+     * @param Quic $Quic Quic访问（收费服务，详见计费说明和产品文档）
+     * @param AwsPrivateAccess $AwsPrivateAccess 回源S3私有鉴权
+     * @param OssPrivateAccess $OssPrivateAccess 回源OSS私有鉴权
+     * @param HwPrivateAccess $HwPrivateAccess 华为云对象存储回源鉴权
+     * @param QnPrivateAccess $QnPrivateAccess 七牛云对象存储回源鉴权
+     * @param OthersPrivateAccess $OthersPrivateAccess 其他厂商对象存储回源鉴权
+     * @param HttpsBilling $HttpsBilling HTTPS服务，默认开启（收费服务，详见计费说明和产品文档）
      */
     function __construct()
     {
@@ -510,6 +566,36 @@ global：全球加速
         if (array_key_exists("Quic",$param) and $param["Quic"] !== null) {
             $this->Quic = new Quic();
             $this->Quic->deserialize($param["Quic"]);
+        }
+
+        if (array_key_exists("AwsPrivateAccess",$param) and $param["AwsPrivateAccess"] !== null) {
+            $this->AwsPrivateAccess = new AwsPrivateAccess();
+            $this->AwsPrivateAccess->deserialize($param["AwsPrivateAccess"]);
+        }
+
+        if (array_key_exists("OssPrivateAccess",$param) and $param["OssPrivateAccess"] !== null) {
+            $this->OssPrivateAccess = new OssPrivateAccess();
+            $this->OssPrivateAccess->deserialize($param["OssPrivateAccess"]);
+        }
+
+        if (array_key_exists("HwPrivateAccess",$param) and $param["HwPrivateAccess"] !== null) {
+            $this->HwPrivateAccess = new HwPrivateAccess();
+            $this->HwPrivateAccess->deserialize($param["HwPrivateAccess"]);
+        }
+
+        if (array_key_exists("QnPrivateAccess",$param) and $param["QnPrivateAccess"] !== null) {
+            $this->QnPrivateAccess = new QnPrivateAccess();
+            $this->QnPrivateAccess->deserialize($param["QnPrivateAccess"]);
+        }
+
+        if (array_key_exists("OthersPrivateAccess",$param) and $param["OthersPrivateAccess"] !== null) {
+            $this->OthersPrivateAccess = new OthersPrivateAccess();
+            $this->OthersPrivateAccess->deserialize($param["OthersPrivateAccess"]);
+        }
+
+        if (array_key_exists("HttpsBilling",$param) and $param["HttpsBilling"] !== null) {
+            $this->HttpsBilling = new HttpsBilling();
+            $this->HttpsBilling->deserialize($param["HttpsBilling"]);
         }
     }
 }

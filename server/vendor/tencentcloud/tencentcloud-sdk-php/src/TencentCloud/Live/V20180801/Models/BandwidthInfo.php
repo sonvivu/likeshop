@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,10 +21,14 @@ use TencentCloud\Common\AbstractModel;
  * 带宽信息
  *
  * @method string getTime() 获取返回格式：
-yyyy-mm-dd HH:MM:SS
+使用UTC格式时间，
+例如：2019-01-08T10:00:00Z。
+注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/267/38543#:~:text=I-,ISO,-%E6%97%A5%E6%9C%9F%E6%A0%BC%E5%BC%8F)。
 根据粒度会有不同程度的缩减。
  * @method void setTime(string $Time) 设置返回格式：
-yyyy-mm-dd HH:MM:SS
+使用UTC格式时间，
+例如：2019-01-08T10:00:00Z。
+注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/267/38543#:~:text=I-,ISO,-%E6%97%A5%E6%9C%9F%E6%A0%BC%E5%BC%8F)。
 根据粒度会有不同程度的缩减。
  * @method float getBandwidth() 获取带宽。
  * @method void setBandwidth(float $Bandwidth) 设置带宽。
@@ -33,7 +37,9 @@ class BandwidthInfo extends AbstractModel
 {
     /**
      * @var string 返回格式：
-yyyy-mm-dd HH:MM:SS
+使用UTC格式时间，
+例如：2019-01-08T10:00:00Z。
+注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/267/38543#:~:text=I-,ISO,-%E6%97%A5%E6%9C%9F%E6%A0%BC%E5%BC%8F)。
 根据粒度会有不同程度的缩减。
      */
     public $Time;
@@ -45,7 +51,9 @@ yyyy-mm-dd HH:MM:SS
 
     /**
      * @param string $Time 返回格式：
-yyyy-mm-dd HH:MM:SS
+使用UTC格式时间，
+例如：2019-01-08T10:00:00Z。
+注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/267/38543#:~:text=I-,ISO,-%E6%97%A5%E6%9C%9F%E6%A0%BC%E5%BC%8F)。
 根据粒度会有不同程度的缩减。
      * @param float $Bandwidth 带宽。
      */

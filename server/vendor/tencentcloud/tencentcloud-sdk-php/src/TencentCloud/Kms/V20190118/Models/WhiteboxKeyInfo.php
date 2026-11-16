@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,9 +43,7 @@ use TencentCloud\Common\AbstractModel;
  * @method string getResourceId() 获取资源ID，格式：creatorUin/$creatorUin/$keyId
  * @method void setResourceId(string $ResourceId) 设置资源ID，格式：creatorUin/$creatorUin/$keyId
  * @method boolean getDeviceFingerprintBind() 获取是否有设备指纹与当前密钥绑定
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setDeviceFingerprintBind(boolean $DeviceFingerprintBind) 设置是否有设备指纹与当前密钥绑定
-注意：此字段可能返回 null，表示取不到有效值。
  */
 class WhiteboxKeyInfo extends AbstractModel
 {
@@ -106,7 +104,6 @@ class WhiteboxKeyInfo extends AbstractModel
 
     /**
      * @var boolean 是否有设备指纹与当前密钥绑定
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $DeviceFingerprintBind;
 
@@ -123,7 +120,6 @@ class WhiteboxKeyInfo extends AbstractModel
      * @param string $DecryptKey 白盒解密密钥，base64编码
      * @param string $ResourceId 资源ID，格式：creatorUin/$creatorUin/$keyId
      * @param boolean $DeviceFingerprintBind 是否有设备指纹与当前密钥绑定
-注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
     {

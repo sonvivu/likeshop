@@ -21,7 +21,7 @@
 namespace app\admin\logic;
 
 
-use think\Db;
+use think\facade\Db;
 
 class AuthLogic
 {
@@ -40,6 +40,7 @@ class AuthLogic
             ->field(['id', 'type', 'system', 'pid', 'name', 'sort', 'icon', 'uri', 'disable'])
             ->order(['sort' => 'desc', 'type' => 'asc'])
             ->select();
+        $lists = $lists->toArray(); // ThinkPHP 6：select() 返回 Collection，TP5 返回数组；直接写 $lists[$k]['x'] 或 foreach(&$item) 改值会丢/报错，先转数组。
         $pids = Db::name('dev_auth')
             ->where(['del'=>0,'type'=>1])
             ->column('pid');

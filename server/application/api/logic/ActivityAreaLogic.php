@@ -19,7 +19,7 @@
 namespace app\api\logic;
 
 use app\api\model\Goods;
-use think\Db;
+use think\facade\Db;
 
 
 class ActivityAreaLogic

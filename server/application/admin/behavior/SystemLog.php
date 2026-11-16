@@ -21,7 +21,7 @@
 namespace app\admin\behavior;
 
 
-use think\Db;
+use think\facade\Db;
 use think\Request;
 
 class SystemLog
@@ -41,7 +41,10 @@ class SystemLog
             'account' => $admin_info['account'],
             'name' => $admin_info['name'],
             'create_time' => time(),
-            'uri' => url(),
+            // ThinkPHP 6 的 url() 返回 UrlBuild 对象（5.1 返回字符串）：
+            // 直接放进 insert 数据会被 ORM 当成非标量丢掉，导致 uri 列缺失
+            // （1364 Field 'uri' doesn't have a default value）；转字符串。
+            'uri' => (string) url(),
             'type' => $request->isPost() ? 'POST' : 'GET',
             'param' => json_encode($request->param(),JSON_UNESCAPED_UNICODE),
             'ip' => $request->ip(),

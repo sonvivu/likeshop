@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,35 +22,35 @@ use TencentCloud\Common\AbstractModel;
 > * 若存在多个`Filter`时，`Filter`间的关系为逻辑与（`AND`）关系。
 > * 若同一个`Filter`存在多个`Values`，同一`Filter`下`Values`间的关系为逻辑或（`OR`）关系。
 >
-> 以[DescribeInstances](https://cloud.tencent.com/document/api/213/15728)接口的`Filter`为例。若我们需要查询可用区（`zone`）为广州一区 ***并且*** 实例计费模式（`instance-charge-type`）为包年包月 ***或者*** 按量计费的实例时，可如下实现：
+> 以[DescribeInstances](https://cloud.tencent.com/document/api/213/15728)接口的`Filter`为例。若我们需要查询可用区（`zone`）为广州六区 ***并且*** 实例计费模式（`instance-charge-type`）为包年包月 ***或者*** 按量计费的实例时，可如下实现：
 ```
 Filters.0.Name=zone
-&Filters.0.Values.0=ap-guangzhou-1
+&Filters.0.Values.0=ap-guangzhou-6
 &Filters.1.Name=instance-charge-type
 &Filters.1.Values.0=PREPAID
 &Filters.1.Values.1=POSTPAID_BY_HOUR
 ```
  *
- * @method string getName() 获取需要过滤的字段。
- * @method void setName(string $Name) 设置需要过滤的字段。
- * @method array getValues() 获取字段的过滤值。
- * @method void setValues(array $Values) 设置字段的过滤值。
+ * @method string getName() 获取<p>需要过滤的字段。</p>
+ * @method void setName(string $Name) 设置<p>需要过滤的字段。</p>
+ * @method array getValues() 获取<p>字段的过滤值。</p>
+ * @method void setValues(array $Values) 设置<p>字段的过滤值。</p>
  */
 class Filter extends AbstractModel
 {
     /**
-     * @var string 需要过滤的字段。
+     * @var string <p>需要过滤的字段。</p>
      */
     public $Name;
 
     /**
-     * @var array 字段的过滤值。
+     * @var array <p>字段的过滤值。</p>
      */
     public $Values;
 
     /**
-     * @param string $Name 需要过滤的字段。
-     * @param array $Values 字段的过滤值。
+     * @param string $Name <p>需要过滤的字段。</p>
+     * @param array $Values <p>字段的过滤值。</p>
      */
     function __construct()
     {

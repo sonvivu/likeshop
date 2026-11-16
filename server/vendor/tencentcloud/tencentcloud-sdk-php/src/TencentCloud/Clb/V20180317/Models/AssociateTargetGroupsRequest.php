@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,18 +20,24 @@ use TencentCloud\Common\AbstractModel;
 /**
  * AssociateTargetGroups请求参数结构体
  *
- * @method array getAssociations() 获取绑定的关系数组。
- * @method void setAssociations(array $Associations) 设置绑定的关系数组。
+ * @method array getAssociations() 获取绑定的关系数组，目标组类型需要一致。
+一次请求最多支持20个。
+
+ * @method void setAssociations(array $Associations) 设置绑定的关系数组，目标组类型需要一致。
+一次请求最多支持20个。
  */
 class AssociateTargetGroupsRequest extends AbstractModel
 {
     /**
-     * @var array 绑定的关系数组。
+     * @var array 绑定的关系数组，目标组类型需要一致。
+一次请求最多支持20个。
+
      */
     public $Associations;
 
     /**
-     * @param array $Associations 绑定的关系数组。
+     * @param array $Associations 绑定的关系数组，目标组类型需要一致。
+一次请求最多支持20个。
      */
     function __construct()
     {

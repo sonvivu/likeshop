@@ -23,7 +23,7 @@ namespace app\api\validate;
 
 use app\common\model\Client_;
 use http\Client;
-use think\Db;
+use think\facade\Db;
 use think\facade\Cache;
 use think\Validate;
 use app\common\logic\SmsLogic;
@@ -72,7 +72,7 @@ class Login extends Validate
 
     public function scenePassword()
     {
-        $this->remove(['code']);
+        $this->remove('code', true);
     }
 
     public function sceneCode()

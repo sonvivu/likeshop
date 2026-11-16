@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,74 +20,90 @@ use TencentCloud\Common\AbstractModel;
 /**
  * ImageModeration请求参数结构体
  *
- * @method string getBizType() 获取该字段用于标识业务场景。您可以在内容安全控制台创建对应的ID，配置不同的内容审核策略，通过接口调用，默认不填为0，后端使用默认策略。 -- 该字段暂未开放。
- * @method void setBizType(string $BizType) 设置该字段用于标识业务场景。您可以在内容安全控制台创建对应的ID，配置不同的内容审核策略，通过接口调用，默认不填为0，后端使用默认策略。 -- 该字段暂未开放。
- * @method string getDataId() 获取数据ID，可以由英文字母、数字、下划线、-、@#组成，不超过64个字符
- * @method void setDataId(string $DataId) 设置数据ID，可以由英文字母、数字、下划线、-、@#组成，不超过64个字符
- * @method string getFileContent() 获取数据Base64编码，图片检测接口为图片文件内容，大小不能超过5M
- * @method void setFileContent(string $FileContent) 设置数据Base64编码，图片检测接口为图片文件内容，大小不能超过5M
- * @method string getFileUrl() 获取图片资源访问链接，__与FileContent参数必须二选一输入__
- * @method void setFileUrl(string $FileUrl) 设置图片资源访问链接，__与FileContent参数必须二选一输入__
- * @method integer getInterval() 获取截帧频率，GIF图/长图检测专用，默认值为0，表示只会检测GIF图/长图的第一帧
- * @method void setInterval(integer $Interval) 设置截帧频率，GIF图/长图检测专用，默认值为0，表示只会检测GIF图/长图的第一帧
- * @method integer getMaxFrames() 获取GIF图/长图检测专用，代表均匀最大截帧数量，默认值为1（即只取GIF第一张，或长图不做切分处理（可能会造成处理超时））。
- * @method void setMaxFrames(integer $MaxFrames) 设置GIF图/长图检测专用，代表均匀最大截帧数量，默认值为1（即只取GIF第一张，或长图不做切分处理（可能会造成处理超时））。
- * @method User getUser() 获取账号相关信息字段，填入后可识别违规风险账号。
- * @method void setUser(User $User) 设置账号相关信息字段，填入后可识别违规风险账号。
- * @method Device getDevice() 获取设备相关信息字段，填入后可识别违规风险设备。
- * @method void setDevice(Device $Device) 设置设备相关信息字段，填入后可识别违规风险设备。
+ * @method string getBizType() 获取<p>该字段表示使用的策略的具体编号，该字段需要先在<a href="https://console.cloud.tencent.com/cms/clouds/manage">内容安全控制台</a>中配置。<br>备注：不同Biztype关联不同的业务场景与识别能力策略，调用前请确认正确的Biztype。</p>
+ * @method void setBizType(string $BizType) 设置<p>该字段表示使用的策略的具体编号，该字段需要先在<a href="https://console.cloud.tencent.com/cms/clouds/manage">内容安全控制台</a>中配置。<br>备注：不同Biztype关联不同的业务场景与识别能力策略，调用前请确认正确的Biztype。</p>
+ * @method string getDataId() 获取<p>该字段表示您为待检测对象分配的数据ID，传入后可方便您对文件进行标识和管理。<br>取值：由英文字母（大小写均可）、数字及四个特殊符号（_，-，@，#）组成，<strong>长度不超过64个字符</strong>。</p>
+ * @method void setDataId(string $DataId) 设置<p>该字段表示您为待检测对象分配的数据ID，传入后可方便您对文件进行标识和管理。<br>取值：由英文字母（大小写均可）、数字及四个特殊符号（_，-，@，#）组成，<strong>长度不超过64个字符</strong>。</p>
+ * @method string getFileContent() 获取<p>该字段表示待检测图片文件内容的Base64编码，由于云API对请求包体有大小限制，图片的<strong>Base64编码内容大小不得超过10MB</strong>。<br>备注：<strong>该字段与FileUrl必须选择输入其中一个</strong>。</p>
+ * @method void setFileContent(string $FileContent) 设置<p>该字段表示待检测图片文件内容的Base64编码，由于云API对请求包体有大小限制，图片的<strong>Base64编码内容大小不得超过10MB</strong>。<br>备注：<strong>该字段与FileUrl必须选择输入其中一个</strong>。</p>
+ * @method string getFileUrl() 获取<p>该字段表示待检测图片文件的访问链接，URL源图<strong>大小不超过30MB</strong>。<br>备注：该字段与FileContent必须选择输入其中一个。</p>
+ * @method void setFileUrl(string $FileUrl) 设置<p>该字段表示待检测图片文件的访问链接，URL源图<strong>大小不超过30MB</strong>。<br>备注：该字段与FileContent必须选择输入其中一个。</p>
+ * @method integer getInterval() 获取<p><strong>GIF检测专用</strong>，用于表示GIF截帧频率（每隔多少张图片抽取一帧进行检测）；默认值为0，此时只会检测GIF的第一帧或不进行切分处理。<br>备注：Interval与MaxFrames参数需要组合使用。例如，Interval=3, MaxFrames=400，则代表在检测GIF时，将每间隔2帧检测一次且最多检测400帧。</p>
+ * @method void setInterval(integer $Interval) 设置<p><strong>GIF检测专用</strong>，用于表示GIF截帧频率（每隔多少张图片抽取一帧进行检测）；默认值为0，此时只会检测GIF的第一帧或不进行切分处理。<br>备注：Interval与MaxFrames参数需要组合使用。例如，Interval=3, MaxFrames=400，则代表在检测GIF时，将每间隔2帧检测一次且最多检测400帧。</p>
+ * @method integer getMaxFrames() 获取<p><strong>GIF检测专用</strong>，用于标识最大截帧数量；默认值为1，此时只会检测输入GIF的第一帧不进行切分处理（可能会造成处理超时）。<br>备注：Interval与MaxFrames参数需要组合使用。例如，Interval=3, MaxFrames=400，则代表在检测GIF时，将每间隔2帧检测一次且最多检测400帧。</p>
+ * @method void setMaxFrames(integer $MaxFrames) 设置<p><strong>GIF检测专用</strong>，用于标识最大截帧数量；默认值为1，此时只会检测输入GIF的第一帧不进行切分处理（可能会造成处理超时）。<br>备注：Interval与MaxFrames参数需要组合使用。例如，Interval=3, MaxFrames=400，则代表在检测GIF时，将每间隔2帧检测一次且最多检测400帧。</p>
+ * @method User getUser() 获取<p>该字段表示待检测对象对应的用户相关信息，若填入则可甄别相应违规风险用户。</p>
+ * @method void setUser(User $User) 设置<p>该字段表示待检测对象对应的用户相关信息，若填入则可甄别相应违规风险用户。</p>
+ * @method Device getDevice() 获取<p>该字段表示待检测对象对应的设备相关信息，若填入则可甄别相应违规风险设备。</p>
+ * @method void setDevice(Device $Device) 设置<p>该字段表示待检测对象对应的设备相关信息，若填入则可甄别相应违规风险设备。</p>
+ * @method string getType() 获取<p>该字段表示输入的图片审核类型，取值含：IMAGE（内容安全）、IMAGE_AIGC（AI生成识别）两种，默认值为IMAGE。</p>
+ * @method void setType(string $Type) 设置<p>该字段表示输入的图片审核类型，取值含：IMAGE（内容安全）、IMAGE_AIGC（AI生成识别）两种，默认值为IMAGE。</p>
+ * @method string getBizTag() 获取<p>该字段表示输入的策略标识用于调用业务来区分策略场景</p>
+ * @method void setBizTag(string $BizTag) 设置<p>该字段表示输入的策略标识用于调用业务来区分策略场景</p>
  */
 class ImageModerationRequest extends AbstractModel
 {
     /**
-     * @var string 该字段用于标识业务场景。您可以在内容安全控制台创建对应的ID，配置不同的内容审核策略，通过接口调用，默认不填为0，后端使用默认策略。 -- 该字段暂未开放。
+     * @var string <p>该字段表示使用的策略的具体编号，该字段需要先在<a href="https://console.cloud.tencent.com/cms/clouds/manage">内容安全控制台</a>中配置。<br>备注：不同Biztype关联不同的业务场景与识别能力策略，调用前请确认正确的Biztype。</p>
      */
     public $BizType;
 
     /**
-     * @var string 数据ID，可以由英文字母、数字、下划线、-、@#组成，不超过64个字符
+     * @var string <p>该字段表示您为待检测对象分配的数据ID，传入后可方便您对文件进行标识和管理。<br>取值：由英文字母（大小写均可）、数字及四个特殊符号（_，-，@，#）组成，<strong>长度不超过64个字符</strong>。</p>
      */
     public $DataId;
 
     /**
-     * @var string 数据Base64编码，图片检测接口为图片文件内容，大小不能超过5M
+     * @var string <p>该字段表示待检测图片文件内容的Base64编码，由于云API对请求包体有大小限制，图片的<strong>Base64编码内容大小不得超过10MB</strong>。<br>备注：<strong>该字段与FileUrl必须选择输入其中一个</strong>。</p>
      */
     public $FileContent;
 
     /**
-     * @var string 图片资源访问链接，__与FileContent参数必须二选一输入__
+     * @var string <p>该字段表示待检测图片文件的访问链接，URL源图<strong>大小不超过30MB</strong>。<br>备注：该字段与FileContent必须选择输入其中一个。</p>
      */
     public $FileUrl;
 
     /**
-     * @var integer 截帧频率，GIF图/长图检测专用，默认值为0，表示只会检测GIF图/长图的第一帧
+     * @var integer <p><strong>GIF检测专用</strong>，用于表示GIF截帧频率（每隔多少张图片抽取一帧进行检测）；默认值为0，此时只会检测GIF的第一帧或不进行切分处理。<br>备注：Interval与MaxFrames参数需要组合使用。例如，Interval=3, MaxFrames=400，则代表在检测GIF时，将每间隔2帧检测一次且最多检测400帧。</p>
      */
     public $Interval;
 
     /**
-     * @var integer GIF图/长图检测专用，代表均匀最大截帧数量，默认值为1（即只取GIF第一张，或长图不做切分处理（可能会造成处理超时））。
+     * @var integer <p><strong>GIF检测专用</strong>，用于标识最大截帧数量；默认值为1，此时只会检测输入GIF的第一帧不进行切分处理（可能会造成处理超时）。<br>备注：Interval与MaxFrames参数需要组合使用。例如，Interval=3, MaxFrames=400，则代表在检测GIF时，将每间隔2帧检测一次且最多检测400帧。</p>
      */
     public $MaxFrames;
 
     /**
-     * @var User 账号相关信息字段，填入后可识别违规风险账号。
+     * @var User <p>该字段表示待检测对象对应的用户相关信息，若填入则可甄别相应违规风险用户。</p>
      */
     public $User;
 
     /**
-     * @var Device 设备相关信息字段，填入后可识别违规风险设备。
+     * @var Device <p>该字段表示待检测对象对应的设备相关信息，若填入则可甄别相应违规风险设备。</p>
      */
     public $Device;
 
     /**
-     * @param string $BizType 该字段用于标识业务场景。您可以在内容安全控制台创建对应的ID，配置不同的内容审核策略，通过接口调用，默认不填为0，后端使用默认策略。 -- 该字段暂未开放。
-     * @param string $DataId 数据ID，可以由英文字母、数字、下划线、-、@#组成，不超过64个字符
-     * @param string $FileContent 数据Base64编码，图片检测接口为图片文件内容，大小不能超过5M
-     * @param string $FileUrl 图片资源访问链接，__与FileContent参数必须二选一输入__
-     * @param integer $Interval 截帧频率，GIF图/长图检测专用，默认值为0，表示只会检测GIF图/长图的第一帧
-     * @param integer $MaxFrames GIF图/长图检测专用，代表均匀最大截帧数量，默认值为1（即只取GIF第一张，或长图不做切分处理（可能会造成处理超时））。
-     * @param User $User 账号相关信息字段，填入后可识别违规风险账号。
-     * @param Device $Device 设备相关信息字段，填入后可识别违规风险设备。
+     * @var string <p>该字段表示输入的图片审核类型，取值含：IMAGE（内容安全）、IMAGE_AIGC（AI生成识别）两种，默认值为IMAGE。</p>
+     */
+    public $Type;
+
+    /**
+     * @var string <p>该字段表示输入的策略标识用于调用业务来区分策略场景</p>
+     */
+    public $BizTag;
+
+    /**
+     * @param string $BizType <p>该字段表示使用的策略的具体编号，该字段需要先在<a href="https://console.cloud.tencent.com/cms/clouds/manage">内容安全控制台</a>中配置。<br>备注：不同Biztype关联不同的业务场景与识别能力策略，调用前请确认正确的Biztype。</p>
+     * @param string $DataId <p>该字段表示您为待检测对象分配的数据ID，传入后可方便您对文件进行标识和管理。<br>取值：由英文字母（大小写均可）、数字及四个特殊符号（_，-，@，#）组成，<strong>长度不超过64个字符</strong>。</p>
+     * @param string $FileContent <p>该字段表示待检测图片文件内容的Base64编码，由于云API对请求包体有大小限制，图片的<strong>Base64编码内容大小不得超过10MB</strong>。<br>备注：<strong>该字段与FileUrl必须选择输入其中一个</strong>。</p>
+     * @param string $FileUrl <p>该字段表示待检测图片文件的访问链接，URL源图<strong>大小不超过30MB</strong>。<br>备注：该字段与FileContent必须选择输入其中一个。</p>
+     * @param integer $Interval <p><strong>GIF检测专用</strong>，用于表示GIF截帧频率（每隔多少张图片抽取一帧进行检测）；默认值为0，此时只会检测GIF的第一帧或不进行切分处理。<br>备注：Interval与MaxFrames参数需要组合使用。例如，Interval=3, MaxFrames=400，则代表在检测GIF时，将每间隔2帧检测一次且最多检测400帧。</p>
+     * @param integer $MaxFrames <p><strong>GIF检测专用</strong>，用于标识最大截帧数量；默认值为1，此时只会检测输入GIF的第一帧不进行切分处理（可能会造成处理超时）。<br>备注：Interval与MaxFrames参数需要组合使用。例如，Interval=3, MaxFrames=400，则代表在检测GIF时，将每间隔2帧检测一次且最多检测400帧。</p>
+     * @param User $User <p>该字段表示待检测对象对应的用户相关信息，若填入则可甄别相应违规风险用户。</p>
+     * @param Device $Device <p>该字段表示待检测对象对应的设备相关信息，若填入则可甄别相应违规风险设备。</p>
+     * @param string $Type <p>该字段表示输入的图片审核类型，取值含：IMAGE（内容安全）、IMAGE_AIGC（AI生成识别）两种，默认值为IMAGE。</p>
+     * @param string $BizTag <p>该字段表示输入的策略标识用于调用业务来区分策略场景</p>
      */
     function __construct()
     {
@@ -134,6 +150,14 @@ class ImageModerationRequest extends AbstractModel
         if (array_key_exists("Device",$param) and $param["Device"] !== null) {
             $this->Device = new Device();
             $this->Device->deserialize($param["Device"]);
+        }
+
+        if (array_key_exists("Type",$param) and $param["Type"] !== null) {
+            $this->Type = $param["Type"];
+        }
+
+        if (array_key_exists("BizTag",$param) and $param["BizTag"] !== null) {
+            $this->BizTag = $param["BizTag"];
         }
     }
 }

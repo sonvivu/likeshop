@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,16 +22,26 @@ use TencentCloud\Common\AbstractModel;
  *
  * @method integer getSdkAppId() 获取客户的SdkAppId
  * @method void setSdkAppId(integer $SdkAppId) 设置客户的SdkAppId
- * @method integer getRoomId() 获取需要录制的房间号，取值范围: (1, 4294967295)
- * @method void setRoomId(integer $RoomId) 设置需要录制的房间号，取值范围: (1, 4294967295)
+ * @method integer getRoomId() 获取需要录制的白板房间号，取值范围: (1, 4294967295)。
+
+1. 在没有指定`GroupId`的情况下，实时录制默认以`RoomId`的字符串表达形式作为同步白板信令的IM群组ID（比如`RoomId`为12358，则IM群组ID为"12358"），并加群进行信令同步，请在开始录制前确保相应IM群组已创建完成，否则会导致录制失败。
+2. 在没有指定`TRTCRoomId`和`TRTCRoomIdStr`的情况下，默认会以`RoomId`作为TRTC房间号进房拉流进行录制。
+ * @method void setRoomId(integer $RoomId) 设置需要录制的白板房间号，取值范围: (1, 4294967295)。
+
+1. 在没有指定`GroupId`的情况下，实时录制默认以`RoomId`的字符串表达形式作为同步白板信令的IM群组ID（比如`RoomId`为12358，则IM群组ID为"12358"），并加群进行信令同步，请在开始录制前确保相应IM群组已创建完成，否则会导致录制失败。
+2. 在没有指定`TRTCRoomId`和`TRTCRoomIdStr`的情况下，默认会以`RoomId`作为TRTC房间号进房拉流进行录制。
  * @method string getRecordUserId() 获取用于录制服务进房的用户ID，最大长度不能大于60个字节，格式为`tic_record_user_${RoomId}_${Random}`，其中 `${RoomId} `与录制房间号对应，`${Random}`为一个随机字符串。
 该ID必须是一个单独的未在SDK中使用的ID，录制服务使用这个用户ID进入房间进行音视频与白板录制，若该ID和SDK中使用的ID重复，会导致SDK和录制服务互踢，影响正常录制。
  * @method void setRecordUserId(string $RecordUserId) 设置用于录制服务进房的用户ID，最大长度不能大于60个字节，格式为`tic_record_user_${RoomId}_${Random}`，其中 `${RoomId} `与录制房间号对应，`${Random}`为一个随机字符串。
 该ID必须是一个单独的未在SDK中使用的ID，录制服务使用这个用户ID进入房间进行音视频与白板录制，若该ID和SDK中使用的ID重复，会导致SDK和录制服务互踢，影响正常录制。
- * @method string getRecordUserSig() 获取与RecordUserId对应的签名
- * @method void setRecordUserSig(string $RecordUserSig) 设置与RecordUserId对应的签名
- * @method string getGroupId() 获取（已废弃，设置无效）白板的 IM 群组 Id，默认同房间号
- * @method void setGroupId(string $GroupId) 设置（已废弃，设置无效）白板的 IM 群组 Id，默认同房间号
+ * @method string getRecordUserSig() 获取与`RecordUserId`对应的IM签名
+ * @method void setRecordUserSig(string $RecordUserSig) 设置与`RecordUserId`对应的IM签名
+ * @method string getGroupId() 获取白板进行信令同步的 IM 群组 ID。
+在没有指定`GroupId`的情况下，实时录制服务将使用 `RoomId` 的字符串形式作为同步白板信令的IM群组ID。
+在指定了`GroupId`的情况下，实时录制将优先使用`GroupId`作为同步白板信令的群组ID。请在开始录制前确保相应的IM群组已创建完成，否则会导致录制失败。
+ * @method void setGroupId(string $GroupId) 设置白板进行信令同步的 IM 群组 ID。
+在没有指定`GroupId`的情况下，实时录制服务将使用 `RoomId` 的字符串形式作为同步白板信令的IM群组ID。
+在指定了`GroupId`的情况下，实时录制将优先使用`GroupId`作为同步白板信令的群组ID。请在开始录制前确保相应的IM群组已创建完成，否则会导致录制失败。
  * @method Concat getConcat() 获取录制视频拼接参数
  * @method void setConcat(Concat $Concat) 设置录制视频拼接参数
  * @method Whiteboard getWhiteboard() 获取录制白板参数，例如白板宽高等
@@ -76,6 +86,22 @@ VIDEO_GENERATION_MODE - 视频生成模式（内测中，需邮件申请开通�
 当超过设定时间房间内没有音视频上行且没有白板操作的时候，录制服务会自动停止当前录制任务。
  * @method string getExtraData() 获取内部参数，可忽略
  * @method void setExtraData(string $ExtraData) 设置内部参数，可忽略
+ * @method integer getTRTCRoomId() 获取TRTC数字类型房间号，取值范围: (1, 4294967295)。
+
+在同时指定了`RoomId`与`TRTCRoomId`的情况下，优先使用`TRTCRoomId`作为实时录制拉TRTC流的TRTC房间号。
+
+当指定了`TRTCRoomIdStr`的情况下，此字段将被忽略。
+ * @method void setTRTCRoomId(integer $TRTCRoomId) 设置TRTC数字类型房间号，取值范围: (1, 4294967295)。
+
+在同时指定了`RoomId`与`TRTCRoomId`的情况下，优先使用`TRTCRoomId`作为实时录制拉TRTC流的TRTC房间号。
+
+当指定了`TRTCRoomIdStr`的情况下，此字段将被忽略。
+ * @method string getTRTCRoomIdStr() 获取TRTC字符串类型房间号。
+
+在指定了`TRTCRoomIdStr`的情况下，会优先使用`TRTCRoomIdStr`作为实时录制拉TRTC流的TRTC房间号。
+ * @method void setTRTCRoomIdStr(string $TRTCRoomIdStr) 设置TRTC字符串类型房间号。
+
+在指定了`TRTCRoomIdStr`的情况下，会优先使用`TRTCRoomIdStr`作为实时录制拉TRTC流的TRTC房间号。
  */
 class StartOnlineRecordRequest extends AbstractModel
 {
@@ -85,7 +111,10 @@ class StartOnlineRecordRequest extends AbstractModel
     public $SdkAppId;
 
     /**
-     * @var integer 需要录制的房间号，取值范围: (1, 4294967295)
+     * @var integer 需要录制的白板房间号，取值范围: (1, 4294967295)。
+
+1. 在没有指定`GroupId`的情况下，实时录制默认以`RoomId`的字符串表达形式作为同步白板信令的IM群组ID（比如`RoomId`为12358，则IM群组ID为"12358"），并加群进行信令同步，请在开始录制前确保相应IM群组已创建完成，否则会导致录制失败。
+2. 在没有指定`TRTCRoomId`和`TRTCRoomIdStr`的情况下，默认会以`RoomId`作为TRTC房间号进房拉流进行录制。
      */
     public $RoomId;
 
@@ -96,12 +125,14 @@ class StartOnlineRecordRequest extends AbstractModel
     public $RecordUserId;
 
     /**
-     * @var string 与RecordUserId对应的签名
+     * @var string 与`RecordUserId`对应的IM签名
      */
     public $RecordUserSig;
 
     /**
-     * @var string （已废弃，设置无效）白板的 IM 群组 Id，默认同房间号
+     * @var string 白板进行信令同步的 IM 群组 ID。
+在没有指定`GroupId`的情况下，实时录制服务将使用 `RoomId` 的字符串形式作为同步白板信令的IM群组ID。
+在指定了`GroupId`的情况下，实时录制将优先使用`GroupId`作为同步白板信令的群组ID。请在开始录制前确保相应的IM群组已创建完成，否则会导致录制失败。
      */
     public $GroupId;
 
@@ -168,12 +199,33 @@ VIDEO_GENERATION_MODE - 视频生成模式（内测中，需邮件申请开通�
     public $ExtraData;
 
     /**
+     * @var integer TRTC数字类型房间号，取值范围: (1, 4294967295)。
+
+在同时指定了`RoomId`与`TRTCRoomId`的情况下，优先使用`TRTCRoomId`作为实时录制拉TRTC流的TRTC房间号。
+
+当指定了`TRTCRoomIdStr`的情况下，此字段将被忽略。
+     */
+    public $TRTCRoomId;
+
+    /**
+     * @var string TRTC字符串类型房间号。
+
+在指定了`TRTCRoomIdStr`的情况下，会优先使用`TRTCRoomIdStr`作为实时录制拉TRTC流的TRTC房间号。
+     */
+    public $TRTCRoomIdStr;
+
+    /**
      * @param integer $SdkAppId 客户的SdkAppId
-     * @param integer $RoomId 需要录制的房间号，取值范围: (1, 4294967295)
+     * @param integer $RoomId 需要录制的白板房间号，取值范围: (1, 4294967295)。
+
+1. 在没有指定`GroupId`的情况下，实时录制默认以`RoomId`的字符串表达形式作为同步白板信令的IM群组ID（比如`RoomId`为12358，则IM群组ID为"12358"），并加群进行信令同步，请在开始录制前确保相应IM群组已创建完成，否则会导致录制失败。
+2. 在没有指定`TRTCRoomId`和`TRTCRoomIdStr`的情况下，默认会以`RoomId`作为TRTC房间号进房拉流进行录制。
      * @param string $RecordUserId 用于录制服务进房的用户ID，最大长度不能大于60个字节，格式为`tic_record_user_${RoomId}_${Random}`，其中 `${RoomId} `与录制房间号对应，`${Random}`为一个随机字符串。
 该ID必须是一个单独的未在SDK中使用的ID，录制服务使用这个用户ID进入房间进行音视频与白板录制，若该ID和SDK中使用的ID重复，会导致SDK和录制服务互踢，影响正常录制。
-     * @param string $RecordUserSig 与RecordUserId对应的签名
-     * @param string $GroupId （已废弃，设置无效）白板的 IM 群组 Id，默认同房间号
+     * @param string $RecordUserSig 与`RecordUserId`对应的IM签名
+     * @param string $GroupId 白板进行信令同步的 IM 群组 ID。
+在没有指定`GroupId`的情况下，实时录制服务将使用 `RoomId` 的字符串形式作为同步白板信令的IM群组ID。
+在指定了`GroupId`的情况下，实时录制将优先使用`GroupId`作为同步白板信令的群组ID。请在开始录制前确保相应的IM群组已创建完成，否则会导致录制失败。
      * @param Concat $Concat 录制视频拼接参数
      * @param Whiteboard $Whiteboard 录制白板参数，例如白板宽高等
      * @param MixStream $MixStream 录制混流参数
@@ -196,6 +248,14 @@ VIDEO_GENERATION_MODE - 视频生成模式（内测中，需邮件申请开通�
 
 当超过设定时间房间内没有音视频上行且没有白板操作的时候，录制服务会自动停止当前录制任务。
      * @param string $ExtraData 内部参数，可忽略
+     * @param integer $TRTCRoomId TRTC数字类型房间号，取值范围: (1, 4294967295)。
+
+在同时指定了`RoomId`与`TRTCRoomId`的情况下，优先使用`TRTCRoomId`作为实时录制拉TRTC流的TRTC房间号。
+
+当指定了`TRTCRoomIdStr`的情况下，此字段将被忽略。
+     * @param string $TRTCRoomIdStr TRTC字符串类型房间号。
+
+在指定了`TRTCRoomIdStr`的情况下，会优先使用`TRTCRoomIdStr`作为实时录制拉TRTC流的TRTC房间号。
      */
     function __construct()
     {
@@ -272,6 +332,14 @@ VIDEO_GENERATION_MODE - 视频生成模式（内测中，需邮件申请开通�
 
         if (array_key_exists("ExtraData",$param) and $param["ExtraData"] !== null) {
             $this->ExtraData = $param["ExtraData"];
+        }
+
+        if (array_key_exists("TRTCRoomId",$param) and $param["TRTCRoomId"] !== null) {
+            $this->TRTCRoomId = $param["TRTCRoomId"];
+        }
+
+        if (array_key_exists("TRTCRoomIdStr",$param) and $param["TRTCRoomIdStr"] !== null) {
+            $this->TRTCRoomIdStr = $param["TRTCRoomIdStr"];
         }
     }
 }

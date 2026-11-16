@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,8 +20,8 @@ use TencentCloud\Common\AbstractModel;
 /**
  * CreateDBInstance请求参数结构体
  *
- * @method array getZones() 获取实例节点可用区分布，最多可填两个可用区。当分片规格为一主两从时，其中两个节点在第一个可用区。
- * @method void setZones(array $Zones) 设置实例节点可用区分布，最多可填两个可用区。当分片规格为一主两从时，其中两个节点在第一个可用区。
+ * @method array getZones() 获取实例节点可用区分布，可填写多个可用区。
+ * @method void setZones(array $Zones) 设置实例节点可用区分布，可填写多个可用区。
  * @method integer getNodeCount() 获取节点个数大小，可以通过 DescribeDBInstanceSpecs
  查询实例规格获得。
  * @method void setNodeCount(integer $NodeCount) 设置节点个数大小，可以通过 DescribeDBInstanceSpecs
@@ -48,25 +48,33 @@ use TencentCloud\Common\AbstractModel;
  * @method void setSubnetId(string $SubnetId) 设置虚拟私有网络子网 ID，VpcId 不为空时必填
  * @method integer getProjectId() 获取项目 ID，可以通过查看项目列表获取，不传则关联到默认项目
  * @method void setProjectId(integer $ProjectId) 设置项目 ID，可以通过查看项目列表获取，不传则关联到默认项目
- * @method string getDbVersionId() 获取数据库引擎版本，当前可选：8.0.18，10.1.9，5.7.17。如果不传的话，默认为 Percona 5.7.17。
- * @method void setDbVersionId(string $DbVersionId) 设置数据库引擎版本，当前可选：8.0.18，10.1.9，5.7.17。如果不传的话，默认为 Percona 5.7.17。
+ * @method string getDbVersionId() 获取数据库引擎版本，当前可选：8.0，5.7，10.1。
+ * @method void setDbVersionId(string $DbVersionId) 设置数据库引擎版本，当前可选：8.0，5.7，10.1。
  * @method string getInstanceName() 获取实例名称， 可以通过该字段自主的设置实例的名字
  * @method void setInstanceName(string $InstanceName) 设置实例名称， 可以通过该字段自主的设置实例的名字
  * @method array getSecurityGroupIds() 获取安全组ID列表
  * @method void setSecurityGroupIds(array $SecurityGroupIds) 设置安全组ID列表
  * @method integer getAutoRenewFlag() 获取自动续费标志，1:自动续费，2:不自动续费
  * @method void setAutoRenewFlag(integer $AutoRenewFlag) 设置自动续费标志，1:自动续费，2:不自动续费
- * @method integer getIpv6Flag() 获取是否支持IPv6
- * @method void setIpv6Flag(integer $Ipv6Flag) 设置是否支持IPv6
+ * @method integer getIpv6Flag() 获取是否支持IPv6，0:不支持，1:支持
+ * @method void setIpv6Flag(integer $Ipv6Flag) 设置是否支持IPv6，0:不支持，1:支持
  * @method array getResourceTags() 获取标签键值对数组
  * @method void setResourceTags(array $ResourceTags) 设置标签键值对数组
  * @method array getInitParams() 获取参数列表。本接口的可选值为：character_set_server（字符集，必传），lower_case_table_names（表名大小写敏感，必传，0 - 敏感；1-不敏感），innodb_page_size（innodb数据页，默认16K），sync_mode（同步模式：0 - 异步； 1 - 强同步；2 - 强同步可退化。默认为强同步可退化）。
  * @method void setInitParams(array $InitParams) 设置参数列表。本接口的可选值为：character_set_server（字符集，必传），lower_case_table_names（表名大小写敏感，必传，0 - 敏感；1-不敏感），innodb_page_size（innodb数据页，默认16K），sync_mode（同步模式：0 - 异步； 1 - 强同步；2 - 强同步可退化。默认为强同步可退化）。
+ * @method string getDcnRegion() 获取DCN源地域
+ * @method void setDcnRegion(string $DcnRegion) 设置DCN源地域
+ * @method string getDcnInstanceId() 获取DCN源实例ID
+ * @method void setDcnInstanceId(string $DcnInstanceId) 设置DCN源实例ID
+ * @method integer getDcnSyncMode() 获取DCN同步模式，0：异步， 1：强同步
+ * @method void setDcnSyncMode(integer $DcnSyncMode) 设置DCN同步模式，0：异步， 1：强同步
+ * @method string getCpuType() 获取cpu类型，英特尔：Intel/AMD，海光：Hygon，默认Intel/AMD
+ * @method void setCpuType(string $CpuType) 设置cpu类型，英特尔：Intel/AMD，海光：Hygon，默认Intel/AMD
  */
 class CreateDBInstanceRequest extends AbstractModel
 {
     /**
-     * @var array 实例节点可用区分布，最多可填两个可用区。当分片规格为一主两从时，其中两个节点在第一个可用区。
+     * @var array 实例节点可用区分布，可填写多个可用区。
      */
     public $Zones;
 
@@ -124,7 +132,7 @@ class CreateDBInstanceRequest extends AbstractModel
     public $ProjectId;
 
     /**
-     * @var string 数据库引擎版本，当前可选：8.0.18，10.1.9，5.7.17。如果不传的话，默认为 Percona 5.7.17。
+     * @var string 数据库引擎版本，当前可选：8.0，5.7，10.1。
      */
     public $DbVersionId;
 
@@ -144,7 +152,7 @@ class CreateDBInstanceRequest extends AbstractModel
     public $AutoRenewFlag;
 
     /**
-     * @var integer 是否支持IPv6
+     * @var integer 是否支持IPv6，0:不支持，1:支持
      */
     public $Ipv6Flag;
 
@@ -159,7 +167,27 @@ class CreateDBInstanceRequest extends AbstractModel
     public $InitParams;
 
     /**
-     * @param array $Zones 实例节点可用区分布，最多可填两个可用区。当分片规格为一主两从时，其中两个节点在第一个可用区。
+     * @var string DCN源地域
+     */
+    public $DcnRegion;
+
+    /**
+     * @var string DCN源实例ID
+     */
+    public $DcnInstanceId;
+
+    /**
+     * @var integer DCN同步模式，0：异步， 1：强同步
+     */
+    public $DcnSyncMode;
+
+    /**
+     * @var string cpu类型，英特尔：Intel/AMD，海光：Hygon，默认Intel/AMD
+     */
+    public $CpuType;
+
+    /**
+     * @param array $Zones 实例节点可用区分布，可填写多个可用区。
      * @param integer $NodeCount 节点个数大小，可以通过 DescribeDBInstanceSpecs
  查询实例规格获得。
      * @param integer $Memory 内存大小，单位：GB，可以通过 DescribeDBInstanceSpecs
@@ -173,13 +201,17 @@ class CreateDBInstanceRequest extends AbstractModel
      * @param string $VpcId 虚拟私有网络 ID，不传表示创建为基础网络
      * @param string $SubnetId 虚拟私有网络子网 ID，VpcId 不为空时必填
      * @param integer $ProjectId 项目 ID，可以通过查看项目列表获取，不传则关联到默认项目
-     * @param string $DbVersionId 数据库引擎版本，当前可选：8.0.18，10.1.9，5.7.17。如果不传的话，默认为 Percona 5.7.17。
+     * @param string $DbVersionId 数据库引擎版本，当前可选：8.0，5.7，10.1。
      * @param string $InstanceName 实例名称， 可以通过该字段自主的设置实例的名字
      * @param array $SecurityGroupIds 安全组ID列表
      * @param integer $AutoRenewFlag 自动续费标志，1:自动续费，2:不自动续费
-     * @param integer $Ipv6Flag 是否支持IPv6
+     * @param integer $Ipv6Flag 是否支持IPv6，0:不支持，1:支持
      * @param array $ResourceTags 标签键值对数组
      * @param array $InitParams 参数列表。本接口的可选值为：character_set_server（字符集，必传），lower_case_table_names（表名大小写敏感，必传，0 - 敏感；1-不敏感），innodb_page_size（innodb数据页，默认16K），sync_mode（同步模式：0 - 异步； 1 - 强同步；2 - 强同步可退化。默认为强同步可退化）。
+     * @param string $DcnRegion DCN源地域
+     * @param string $DcnInstanceId DCN源实例ID
+     * @param integer $DcnSyncMode DCN同步模式，0：异步， 1：强同步
+     * @param string $CpuType cpu类型，英特尔：Intel/AMD，海光：Hygon，默认Intel/AMD
      */
     function __construct()
     {
@@ -274,6 +306,22 @@ class CreateDBInstanceRequest extends AbstractModel
                 $obj->deserialize($value);
                 array_push($this->InitParams, $obj);
             }
+        }
+
+        if (array_key_exists("DcnRegion",$param) and $param["DcnRegion"] !== null) {
+            $this->DcnRegion = $param["DcnRegion"];
+        }
+
+        if (array_key_exists("DcnInstanceId",$param) and $param["DcnInstanceId"] !== null) {
+            $this->DcnInstanceId = $param["DcnInstanceId"];
+        }
+
+        if (array_key_exists("DcnSyncMode",$param) and $param["DcnSyncMode"] !== null) {
+            $this->DcnSyncMode = $param["DcnSyncMode"];
+        }
+
+        if (array_key_exists("CpuType",$param) and $param["CpuType"] !== null) {
+            $this->CpuType = $param["CpuType"];
         }
     }
 }

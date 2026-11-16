@@ -29,10 +29,9 @@ use app\common\server\WeChatServer;
 use app\common\logic\AfterSaleLogLogic;
 use app\common\logic\PaymentLogic;
 use app\common\model\{AccountLog, AfterSale, AfterSaleLog, Goods, MessageScene_, NoticeSetting, Order, OrderGoods, Pay};
-use think\Db;
+use think\facade\Db;
 use think\Exception;
 use think\facade\Env;
-use think\facade\Hook;
 
 class AfterSaleLogic
 {
@@ -222,7 +221,7 @@ class AfterSaleLogic
      */
     public static function agree($id, $admin_id)
     {
-        $after_sale = AfterSale::get($id);
+        $after_sale = AfterSale::find($id);
 
         $after_sale->update_time = time();
         //仅退款
@@ -248,7 +247,7 @@ class AfterSaleLogic
 
         // 仅退款;更新订单商品为等待退款
         if ($after_sale['refund_type'] == AfterSale::TYPE_ONLY_REFUND) {
-            $order_goods = OrderGoods::get(['id' => $after_sale['order_goods_id']]);
+            $order_goods = OrderGoods::find(['id' => $after_sale['order_goods_id']]);
             $order_goods->refund_status = OrderGoods::REFUND_STATUS_WAIT;//等待退款
             $order_goods->save();
         }
@@ -256,7 +255,7 @@ class AfterSaleLogic
         $mobile = Db::name('order')->where(['id'=>$after_sale->order_id])->value('mobile');
         //发送短信
         $nickname = Db::name('user')->where(['id' => $after_sale->user_id])->value('nickname');
-        Hook::listen('sms_send',  [
+        event('sms_send',  [
             'key' => NoticeSetting::PLATFORM_PASS_REFUND_NOTICE,
             'mobile' => $mobile,
             'user_id' => $after_sale['user_id'],
@@ -264,7 +263,7 @@ class AfterSaleLogic
         ]);
 
         //消息通知
-        Hook::listen('notice', [
+        event('notice', [
             'user_id' => $after_sale['user_id'],
             'order_id' => $after_sale['order_id'],
             'refund_amount' => $after_sale['refund_price'],
@@ -283,7 +282,7 @@ class AfterSaleLogic
     public static function refuse($post, $admin_id)
     {
         $id = $post['id'];
-        $after_sale = AfterSale::get($id);
+        $after_sale = AfterSale::find($id);
         $after_sale->update_time = time();
         $after_sale->status = AfterSale::STATUS_REFUSE_REFUND;//更新为拒绝退款状态
         $after_sale->admin_remark = isset($post['remark']) ? $post['remark'] : '';
@@ -300,7 +299,7 @@ class AfterSaleLogic
         $nickname = Db::name('user')->where(['id' => $after_sale->user_id])->value('nickname');
         $mobile = Db::name('order')->where(['id'=>$after_sale->order_id])->value('mobile');
         //发送短信
-        Hook::listen('sms_send', [
+        event('sms_send', [
             'key' => NoticeSetting::PLATFORM_REFUSE_REFUND_NOTICE,
             'mobile' => $mobile,
             'user_id' => $after_sale['user_id'],
@@ -308,7 +307,7 @@ class AfterSaleLogic
         ]);
 
         //消息通知
-        Hook::listen('notice', [
+        event('notice', [
             'user_id' => $after_sale['user_id'],
             'order_id' => $after_sale['order_id'],
             'scene' => NoticeSetting::PLATFORM_REFUSE_REFUND_NOTICE,
@@ -326,7 +325,7 @@ class AfterSaleLogic
     public static function takeGoods($post, $admin_id)
     {
         $id = $post['id'];
-        $after_sale = AfterSale::get($id);
+        $after_sale = AfterSale::find($id);
         $after_sale->update_time = time();
         $after_sale->status = AfterSale::STATUS_WAIT_REFUND;//更新为等待退款状态
         $after_sale->save();
@@ -340,7 +339,7 @@ class AfterSaleLogic
             AfterSaleLog::SHOP_TAKE_GOODS
         );
         //更新订单商品为等待退款状态
-        $order_goods = OrderGoods::get(['id' => $after_sale['order_goods_id']]);
+        $order_goods = OrderGoods::find(['id' => $after_sale['order_goods_id']]);
         $order_goods->refund_status = OrderGoods::REFUND_STATUS_WAIT;//等待退款
         $order_goods->save();
     }
@@ -356,7 +355,7 @@ class AfterSaleLogic
     public static function refuseGoods($post, $admin_id)
     {
         $id = $post['id'];
-        $after_sale = AfterSale::get($id);
+        $after_sale = AfterSale::find($id);
         $after_sale->update_time = time();
         $after_sale->status = AfterSale::STATUS_REFUSE_RECEIVE_GOODS;//更新为拒绝收货状态
         $after_sale->admin_remark = isset($post['remark']) ? $post['remark'] : '';
@@ -387,9 +386,9 @@ class AfterSaleLogic
     public static function confirm($id, $admin_id)
     {
         //售后记录状态
-        $after_sale = AfterSale::get($id);
-        $order = Order::get(['id' => $after_sale['order_id']]);
-        $order_goods = OrderGoods::get(['id' => $after_sale['order_goods_id']]);
+        $after_sale = AfterSale::find($id);
+        $order = Order::find(['id' => $after_sale['order_id']]);
+        $order_goods = OrderGoods::find(['id' => $after_sale['order_goods_id']]);
 
         Db::startTrans();
         try {

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,174 +20,186 @@ use TencentCloud\Common\AbstractModel;
 /**
  * CreateDirectConnectTunnel请求参数结构体
  *
- * @method string getDirectConnectId() 获取专线 ID，例如：dc-kd7d06of
- * @method void setDirectConnectId(string $DirectConnectId) 设置专线 ID，例如：dc-kd7d06of
- * @method string getDirectConnectTunnelName() 获取专用通道名称
- * @method void setDirectConnectTunnelName(string $DirectConnectTunnelName) 设置专用通道名称
- * @method string getDirectConnectOwnerAccount() 获取物理专线 owner，缺省为当前客户（物理专线 owner）
-共享专线时这里需要填写共享专线的开发商账号 ID
- * @method void setDirectConnectOwnerAccount(string $DirectConnectOwnerAccount) 设置物理专线 owner，缺省为当前客户（物理专线 owner）
-共享专线时这里需要填写共享专线的开发商账号 ID
- * @method string getNetworkType() 获取网络类型，分别为VPC、BMVPC，CCN，默认是VPC
-VPC：私有网络
-BMVPC：黑石网络
-CCN：云联网
- * @method void setNetworkType(string $NetworkType) 设置网络类型，分别为VPC、BMVPC，CCN，默认是VPC
-VPC：私有网络
-BMVPC：黑石网络
-CCN：云联网
- * @method string getNetworkRegion() 获取网络地域
- * @method void setNetworkRegion(string $NetworkRegion) 设置网络地域
- * @method string getVpcId() 获取私有网络统一 ID 或者黑石网络统一 ID
- * @method void setVpcId(string $VpcId) 设置私有网络统一 ID 或者黑石网络统一 ID
- * @method string getDirectConnectGatewayId() 获取专线网关 ID，例如 dcg-d545ddf
- * @method void setDirectConnectGatewayId(string $DirectConnectGatewayId) 设置专线网关 ID，例如 dcg-d545ddf
- * @method integer getBandwidth() 获取专线带宽，单位：Mbps
-默认是物理专线带宽值
- * @method void setBandwidth(integer $Bandwidth) 设置专线带宽，单位：Mbps
-默认是物理专线带宽值
- * @method string getRouteType() 获取BGP ：BGP路由
-STATIC：静态
-默认为 BGP 路由
- * @method void setRouteType(string $RouteType) 设置BGP ：BGP路由
-STATIC：静态
-默认为 BGP 路由
- * @method BgpPeer getBgpPeer() 获取BgpPeer，用户侧bgp信息，包括Asn和AuthKey
- * @method void setBgpPeer(BgpPeer $BgpPeer) 设置BgpPeer，用户侧bgp信息，包括Asn和AuthKey
- * @method array getRouteFilterPrefixes() 获取静态路由，用户IDC的网段地址
- * @method void setRouteFilterPrefixes(array $RouteFilterPrefixes) 设置静态路由，用户IDC的网段地址
- * @method integer getVlan() 获取vlan，范围：0 ~ 3000
-0：不开启子接口
-默认值是非0
- * @method void setVlan(integer $Vlan) 设置vlan，范围：0 ~ 3000
-0：不开启子接口
-默认值是非0
- * @method string getTencentAddress() 获取TencentAddress，腾讯侧互联 IP
- * @method void setTencentAddress(string $TencentAddress) 设置TencentAddress，腾讯侧互联 IP
- * @method string getCustomerAddress() 获取CustomerAddress，用户侧互联 IP
- * @method void setCustomerAddress(string $CustomerAddress) 设置CustomerAddress，用户侧互联 IP
- * @method string getTencentBackupAddress() 获取TencentBackupAddress，腾讯侧备用互联 IP
- * @method void setTencentBackupAddress(string $TencentBackupAddress) 设置TencentBackupAddress，腾讯侧备用互联 IP
- * @method string getCloudAttachId() 获取高速上云服务ID
- * @method void setCloudAttachId(string $CloudAttachId) 设置高速上云服务ID
+ * @method string getDirectConnectId() 获取物理专线ID，例如：dc-kd7d06of。
+ * @method void setDirectConnectId(string $DirectConnectId) 设置物理专线ID，例如：dc-kd7d06of。
+ * @method string getDirectConnectTunnelName() 获取专用通道名称。
+ * @method void setDirectConnectTunnelName(string $DirectConnectTunnelName) 设置专用通道名称。
+ * @method string getDirectConnectOwnerAccount() 获取物理专线owner，缺省为当前客户（物理专线 owner）
+共享专线时这里需要填写共享专线的开发商账号 ID。
+ * @method void setDirectConnectOwnerAccount(string $DirectConnectOwnerAccount) 设置物理专线owner，缺省为当前客户（物理专线 owner）
+共享专线时这里需要填写共享专线的开发商账号 ID。
+ * @method string getNetworkType() 获取网络类型，枚举：VPC、CCN、NAT；默认为VPC。VPC：私有网络；CCN：云联网；NAT：NAT网络）。
+ * @method void setNetworkType(string $NetworkType) 设置网络类型，枚举：VPC、CCN、NAT；默认为VPC。VPC：私有网络；CCN：云联网；NAT：NAT网络）。
+ * @method string getNetworkRegion() 获取网络地域。
+ * @method void setNetworkRegion(string $NetworkRegion) 设置网络地域。
+ * @method string getVpcId() 获取私有网络统一ID，在NetworkType为VPC时必填，且与专线网关所属的VPCID一致；NetworkType为其它组网类型时可不填，内部会统一处理。
+ * @method void setVpcId(string $VpcId) 设置私有网络统一ID，在NetworkType为VPC时必填，且与专线网关所属的VPCID一致；NetworkType为其它组网类型时可不填，内部会统一处理。
+ * @method string getDirectConnectGatewayId() 获取专线网关ID，例如 dcg-d545ddf。
+ * @method void setDirectConnectGatewayId(string $DirectConnectGatewayId) 设置专线网关ID，例如 dcg-d545ddf。
+ * @method integer getBandwidth() 获取专线带宽，单位：Mbps；默认是物理专线带宽值。
+ * @method void setBandwidth(integer $Bandwidth) 设置专线带宽，单位：Mbps；默认是物理专线带宽值。
+ * @method string getRouteType() 获取路由类型，枚举：BGP、STATIC；默认为BGP 。（BGP ：BGP路由；STATIC：静态）。
+ * @method void setRouteType(string $RouteType) 设置路由类型，枚举：BGP、STATIC；默认为BGP 。（BGP ：BGP路由；STATIC：静态）。
+ * @method BgpPeer getBgpPeer() 获取BgpPeer，用户侧bgp信息，包括Asn和AuthKey。
+ * @method void setBgpPeer(BgpPeer $BgpPeer) 设置BgpPeer，用户侧bgp信息，包括Asn和AuthKey。
+ * @method array getRouteFilterPrefixes() 获取静态路由，用户IDC的网段地址。
+ * @method void setRouteFilterPrefixes(array $RouteFilterPrefixes) 设置静态路由，用户IDC的网段地址。
+ * @method integer getVlan() 获取vlan，范围：0 ~ 3000。
+0：不开启子接口，默认值是非0。
+ * @method void setVlan(integer $Vlan) 设置vlan，范围：0 ~ 3000。
+0：不开启子接口，默认值是非0。
+ * @method string getTencentAddress() 获取TencentAddress，腾讯侧互联 IP。
+ * @method void setTencentAddress(string $TencentAddress) 设置TencentAddress，腾讯侧互联 IP。
+ * @method string getCustomerAddress() 获取CustomerAddress，用户侧互联 IP。
+ * @method void setCustomerAddress(string $CustomerAddress) 设置CustomerAddress，用户侧互联 IP。
+ * @method string getTencentBackupAddress() 获取TencentBackupAddress，腾讯侧备用互联 IP。
+ * @method void setTencentBackupAddress(string $TencentBackupAddress) 设置TencentBackupAddress，腾讯侧备用互联 IP。
+ * @method string getCloudAttachId() 获取高速上云服务ID。
+ * @method void setCloudAttachId(string $CloudAttachId) 设置高速上云服务ID。
+ * @method integer getBfdEnable() 获取是否开启BFD。
+ * @method void setBfdEnable(integer $BfdEnable) 设置是否开启BFD。
+ * @method integer getNqaEnable() 获取是否开启NQA。
+ * @method void setNqaEnable(integer $NqaEnable) 设置是否开启NQA。
+ * @method BFDInfo getBfdInfo() 获取BFD配置信息。
+ * @method void setBfdInfo(BFDInfo $BfdInfo) 设置BFD配置信息。
+ * @method NQAInfo getNqaInfo() 获取NQA配置信息。
+ * @method void setNqaInfo(NQAInfo $NqaInfo) 设置NQA配置信息。
+ * @method array getTags() 获取标签键值对
+ * @method void setTags(array $Tags) 设置标签键值对
  */
 class CreateDirectConnectTunnelRequest extends AbstractModel
 {
     /**
-     * @var string 专线 ID，例如：dc-kd7d06of
+     * @var string 物理专线ID，例如：dc-kd7d06of。
      */
     public $DirectConnectId;
 
     /**
-     * @var string 专用通道名称
+     * @var string 专用通道名称。
      */
     public $DirectConnectTunnelName;
 
     /**
-     * @var string 物理专线 owner，缺省为当前客户（物理专线 owner）
-共享专线时这里需要填写共享专线的开发商账号 ID
+     * @var string 物理专线owner，缺省为当前客户（物理专线 owner）
+共享专线时这里需要填写共享专线的开发商账号 ID。
      */
     public $DirectConnectOwnerAccount;
 
     /**
-     * @var string 网络类型，分别为VPC、BMVPC，CCN，默认是VPC
-VPC：私有网络
-BMVPC：黑石网络
-CCN：云联网
+     * @var string 网络类型，枚举：VPC、CCN、NAT；默认为VPC。VPC：私有网络；CCN：云联网；NAT：NAT网络）。
      */
     public $NetworkType;
 
     /**
-     * @var string 网络地域
+     * @var string 网络地域。
      */
     public $NetworkRegion;
 
     /**
-     * @var string 私有网络统一 ID 或者黑石网络统一 ID
+     * @var string 私有网络统一ID，在NetworkType为VPC时必填，且与专线网关所属的VPCID一致；NetworkType为其它组网类型时可不填，内部会统一处理。
      */
     public $VpcId;
 
     /**
-     * @var string 专线网关 ID，例如 dcg-d545ddf
+     * @var string 专线网关ID，例如 dcg-d545ddf。
      */
     public $DirectConnectGatewayId;
 
     /**
-     * @var integer 专线带宽，单位：Mbps
-默认是物理专线带宽值
+     * @var integer 专线带宽，单位：Mbps；默认是物理专线带宽值。
      */
     public $Bandwidth;
 
     /**
-     * @var string BGP ：BGP路由
-STATIC：静态
-默认为 BGP 路由
+     * @var string 路由类型，枚举：BGP、STATIC；默认为BGP 。（BGP ：BGP路由；STATIC：静态）。
      */
     public $RouteType;
 
     /**
-     * @var BgpPeer BgpPeer，用户侧bgp信息，包括Asn和AuthKey
+     * @var BgpPeer BgpPeer，用户侧bgp信息，包括Asn和AuthKey。
      */
     public $BgpPeer;
 
     /**
-     * @var array 静态路由，用户IDC的网段地址
+     * @var array 静态路由，用户IDC的网段地址。
      */
     public $RouteFilterPrefixes;
 
     /**
-     * @var integer vlan，范围：0 ~ 3000
-0：不开启子接口
-默认值是非0
+     * @var integer vlan，范围：0 ~ 3000。
+0：不开启子接口，默认值是非0。
      */
     public $Vlan;
 
     /**
-     * @var string TencentAddress，腾讯侧互联 IP
+     * @var string TencentAddress，腾讯侧互联 IP。
      */
     public $TencentAddress;
 
     /**
-     * @var string CustomerAddress，用户侧互联 IP
+     * @var string CustomerAddress，用户侧互联 IP。
      */
     public $CustomerAddress;
 
     /**
-     * @var string TencentBackupAddress，腾讯侧备用互联 IP
+     * @var string TencentBackupAddress，腾讯侧备用互联 IP。
      */
     public $TencentBackupAddress;
 
     /**
-     * @var string 高速上云服务ID
+     * @var string 高速上云服务ID。
      */
     public $CloudAttachId;
 
     /**
-     * @param string $DirectConnectId 专线 ID，例如：dc-kd7d06of
-     * @param string $DirectConnectTunnelName 专用通道名称
-     * @param string $DirectConnectOwnerAccount 物理专线 owner，缺省为当前客户（物理专线 owner）
-共享专线时这里需要填写共享专线的开发商账号 ID
-     * @param string $NetworkType 网络类型，分别为VPC、BMVPC，CCN，默认是VPC
-VPC：私有网络
-BMVPC：黑石网络
-CCN：云联网
-     * @param string $NetworkRegion 网络地域
-     * @param string $VpcId 私有网络统一 ID 或者黑石网络统一 ID
-     * @param string $DirectConnectGatewayId 专线网关 ID，例如 dcg-d545ddf
-     * @param integer $Bandwidth 专线带宽，单位：Mbps
-默认是物理专线带宽值
-     * @param string $RouteType BGP ：BGP路由
-STATIC：静态
-默认为 BGP 路由
-     * @param BgpPeer $BgpPeer BgpPeer，用户侧bgp信息，包括Asn和AuthKey
-     * @param array $RouteFilterPrefixes 静态路由，用户IDC的网段地址
-     * @param integer $Vlan vlan，范围：0 ~ 3000
-0：不开启子接口
-默认值是非0
-     * @param string $TencentAddress TencentAddress，腾讯侧互联 IP
-     * @param string $CustomerAddress CustomerAddress，用户侧互联 IP
-     * @param string $TencentBackupAddress TencentBackupAddress，腾讯侧备用互联 IP
-     * @param string $CloudAttachId 高速上云服务ID
+     * @var integer 是否开启BFD。
+     */
+    public $BfdEnable;
+
+    /**
+     * @var integer 是否开启NQA。
+     */
+    public $NqaEnable;
+
+    /**
+     * @var BFDInfo BFD配置信息。
+     */
+    public $BfdInfo;
+
+    /**
+     * @var NQAInfo NQA配置信息。
+     */
+    public $NqaInfo;
+
+    /**
+     * @var array 标签键值对
+     */
+    public $Tags;
+
+    /**
+     * @param string $DirectConnectId 物理专线ID，例如：dc-kd7d06of。
+     * @param string $DirectConnectTunnelName 专用通道名称。
+     * @param string $DirectConnectOwnerAccount 物理专线owner，缺省为当前客户（物理专线 owner）
+共享专线时这里需要填写共享专线的开发商账号 ID。
+     * @param string $NetworkType 网络类型，枚举：VPC、CCN、NAT；默认为VPC。VPC：私有网络；CCN：云联网；NAT：NAT网络）。
+     * @param string $NetworkRegion 网络地域。
+     * @param string $VpcId 私有网络统一ID，在NetworkType为VPC时必填，且与专线网关所属的VPCID一致；NetworkType为其它组网类型时可不填，内部会统一处理。
+     * @param string $DirectConnectGatewayId 专线网关ID，例如 dcg-d545ddf。
+     * @param integer $Bandwidth 专线带宽，单位：Mbps；默认是物理专线带宽值。
+     * @param string $RouteType 路由类型，枚举：BGP、STATIC；默认为BGP 。（BGP ：BGP路由；STATIC：静态）。
+     * @param BgpPeer $BgpPeer BgpPeer，用户侧bgp信息，包括Asn和AuthKey。
+     * @param array $RouteFilterPrefixes 静态路由，用户IDC的网段地址。
+     * @param integer $Vlan vlan，范围：0 ~ 3000。
+0：不开启子接口，默认值是非0。
+     * @param string $TencentAddress TencentAddress，腾讯侧互联 IP。
+     * @param string $CustomerAddress CustomerAddress，用户侧互联 IP。
+     * @param string $TencentBackupAddress TencentBackupAddress，腾讯侧备用互联 IP。
+     * @param string $CloudAttachId 高速上云服务ID。
+     * @param integer $BfdEnable 是否开启BFD。
+     * @param integer $NqaEnable 是否开启NQA。
+     * @param BFDInfo $BfdInfo BFD配置信息。
+     * @param NQAInfo $NqaInfo NQA配置信息。
+     * @param array $Tags 标签键值对
      */
     function __construct()
     {
@@ -270,6 +282,33 @@ STATIC：静态
 
         if (array_key_exists("CloudAttachId",$param) and $param["CloudAttachId"] !== null) {
             $this->CloudAttachId = $param["CloudAttachId"];
+        }
+
+        if (array_key_exists("BfdEnable",$param) and $param["BfdEnable"] !== null) {
+            $this->BfdEnable = $param["BfdEnable"];
+        }
+
+        if (array_key_exists("NqaEnable",$param) and $param["NqaEnable"] !== null) {
+            $this->NqaEnable = $param["NqaEnable"];
+        }
+
+        if (array_key_exists("BfdInfo",$param) and $param["BfdInfo"] !== null) {
+            $this->BfdInfo = new BFDInfo();
+            $this->BfdInfo->deserialize($param["BfdInfo"]);
+        }
+
+        if (array_key_exists("NqaInfo",$param) and $param["NqaInfo"] !== null) {
+            $this->NqaInfo = new NQAInfo();
+            $this->NqaInfo->deserialize($param["NqaInfo"]);
+        }
+
+        if (array_key_exists("Tags",$param) and $param["Tags"] !== null) {
+            $this->Tags = [];
+            foreach ($param["Tags"] as $key => $value){
+                $obj = new Tag();
+                $obj->deserialize($value);
+                array_push($this->Tags, $obj);
+            }
         }
     }
 }

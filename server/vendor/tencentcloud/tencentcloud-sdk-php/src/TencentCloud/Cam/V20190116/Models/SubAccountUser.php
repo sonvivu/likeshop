@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,21 +24,21 @@ use TencentCloud\Common\AbstractModel;
  * @method void setUin(integer $Uin) 设置子用户用户 ID
  * @method string getName() 获取子用户用户名
  * @method void setName(string $Name) 设置子用户用户名
- * @method integer getUid() 获取子用户 UID
- * @method void setUid(integer $Uid) 设置子用户 UID
+ * @method integer getUid() 获取子用户 UID，UID是用户作为消息接收人时的唯一标识，和 UIN 一样可以唯一标识一个用户，可通过接口https://cloud.tencent.com/document/api/598/53486 获取
+ * @method void setUid(integer $Uid) 设置子用户 UID，UID是用户作为消息接收人时的唯一标识，和 UIN 一样可以唯一标识一个用户，可通过接口https://cloud.tencent.com/document/api/598/53486 获取
  * @method string getRemark() 获取子用户备注
  * @method void setRemark(string $Remark) 设置子用户备注
  * @method string getCreateTime() 获取创建时间
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setCreateTime(string $CreateTime) 设置创建时间
 注意：此字段可能返回 null，表示取不到有效值。
- * @method integer getUserType() 获取用户类型(1:主账号;2:子用户;3:企业微信子用户;4:协作者;5:消息接收人)
- * @method void setUserType(integer $UserType) 设置用户类型(1:主账号;2:子用户;3:企业微信子用户;4:协作者;5:消息接收人)
+ * @method integer getUserType() 获取用户类型(2:子用户;3:企业微信子用户;4:协作者;5:消息接收人)
+ * @method void setUserType(integer $UserType) 设置用户类型(2:子用户;3:企业微信子用户;4:协作者;5:消息接收人)
  * @method string getLastLoginIp() 获取最近登录IP
  * @method void setLastLoginIp(string $LastLoginIp) 设置最近登录IP
- * @method string getLastLoginTime() 获取最近登录时间
+ * @method string getLastLoginTime() 获取最近登录时间，回参为空，即为未登录过控制台
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setLastLoginTime(string $LastLoginTime) 设置最近登录时间
+ * @method void setLastLoginTime(string $LastLoginTime) 设置最近登录时间，回参为空，即为未登录过控制台
 注意：此字段可能返回 null，表示取不到有效值。
  */
 class SubAccountUser extends AbstractModel
@@ -54,7 +54,7 @@ class SubAccountUser extends AbstractModel
     public $Name;
 
     /**
-     * @var integer 子用户 UID
+     * @var integer 子用户 UID，UID是用户作为消息接收人时的唯一标识，和 UIN 一样可以唯一标识一个用户，可通过接口https://cloud.tencent.com/document/api/598/53486 获取
      */
     public $Uid;
 
@@ -70,7 +70,7 @@ class SubAccountUser extends AbstractModel
     public $CreateTime;
 
     /**
-     * @var integer 用户类型(1:主账号;2:子用户;3:企业微信子用户;4:协作者;5:消息接收人)
+     * @var integer 用户类型(2:子用户;3:企业微信子用户;4:协作者;5:消息接收人)
      */
     public $UserType;
 
@@ -80,7 +80,7 @@ class SubAccountUser extends AbstractModel
     public $LastLoginIp;
 
     /**
-     * @var string 最近登录时间
+     * @var string 最近登录时间，回参为空，即为未登录过控制台
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $LastLoginTime;
@@ -88,13 +88,13 @@ class SubAccountUser extends AbstractModel
     /**
      * @param integer $Uin 子用户用户 ID
      * @param string $Name 子用户用户名
-     * @param integer $Uid 子用户 UID
+     * @param integer $Uid 子用户 UID，UID是用户作为消息接收人时的唯一标识，和 UIN 一样可以唯一标识一个用户，可通过接口https://cloud.tencent.com/document/api/598/53486 获取
      * @param string $Remark 子用户备注
      * @param string $CreateTime 创建时间
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param integer $UserType 用户类型(1:主账号;2:子用户;3:企业微信子用户;4:协作者;5:消息接收人)
+     * @param integer $UserType 用户类型(2:子用户;3:企业微信子用户;4:协作者;5:消息接收人)
      * @param string $LastLoginIp 最近登录IP
-     * @param string $LastLoginTime 最近登录时间
+     * @param string $LastLoginTime 最近登录时间，回参为空，即为未登录过控制台
 注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()

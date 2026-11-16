@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,6 +26,18 @@ use TencentCloud\Common\AbstractModel;
  * @method void setSamplingRate(integer $SamplingRate) 设置音频流的采样率，单位：hz。
  * @method string getCodec() 获取音频流的编码格式，例如 aac。
  * @method void setCodec(string $Codec) 设置音频流的编码格式，例如 aac。
+ * @method integer getChannel() 获取音频声道数，例如 2。
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setChannel(integer $Channel) 设置音频声道数，例如 2。
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getCodecs() 获取音频Codecs。
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setCodecs(string $Codecs) 设置音频Codecs。
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method float getLoudness() 获取音频响度。
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setLoudness(float $Loudness) 设置音频响度。
+注意：此字段可能返回 null，表示取不到有效值。
  */
 class MediaAudioStreamItem extends AbstractModel
 {
@@ -45,9 +57,33 @@ class MediaAudioStreamItem extends AbstractModel
     public $Codec;
 
     /**
+     * @var integer 音频声道数，例如 2。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $Channel;
+
+    /**
+     * @var string 音频Codecs。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $Codecs;
+
+    /**
+     * @var float 音频响度。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $Loudness;
+
+    /**
      * @param integer $Bitrate 音频流的码率，单位：bps。
      * @param integer $SamplingRate 音频流的采样率，单位：hz。
      * @param string $Codec 音频流的编码格式，例如 aac。
+     * @param integer $Channel 音频声道数，例如 2。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $Codecs 音频Codecs。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param float $Loudness 音频响度。
+注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
     {
@@ -72,6 +108,18 @@ class MediaAudioStreamItem extends AbstractModel
 
         if (array_key_exists("Codec",$param) and $param["Codec"] !== null) {
             $this->Codec = $param["Codec"];
+        }
+
+        if (array_key_exists("Channel",$param) and $param["Channel"] !== null) {
+            $this->Channel = $param["Channel"];
+        }
+
+        if (array_key_exists("Codecs",$param) and $param["Codecs"] !== null) {
+            $this->Codecs = $param["Codecs"];
+        }
+
+        if (array_key_exists("Loudness",$param) and $param["Loudness"] !== null) {
+            $this->Loudness = $param["Loudness"];
         }
     }
 }

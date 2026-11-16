@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,23 +20,21 @@ use TencentCloud\Common\AbstractModel;
 /**
  * 域名 https 加速配置，默认为关闭状态
  *
- * @method string getSwitch() 获取https 配置开关
+ * @method string getSwitch() 获取https 配置开关，取值有：
 on：开启
 off：关闭
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setSwitch(string $Switch) 设置https 配置开关
+ * @method void setSwitch(string $Switch) 设置https 配置开关，取值有：
 on：开启
 off：关闭
 注意：此字段可能返回 null，表示取不到有效值。
  * @method string getHttp2() 获取http2 配置开关
 on：开启
 off：关闭
-初次启用 https 加速会默认开启 http2 配置
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setHttp2(string $Http2) 设置http2 配置开关
 on：开启
 off：关闭
-初次启用 https 加速会默认开启 http2 配置
 注意：此字段可能返回 null，表示取不到有效值。
  * @method string getOcspStapling() 获取OCSP 配置开关
 on：开启
@@ -92,15 +90,15 @@ failed：部署失败
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setHsts(Hsts $Hsts) 设置Hsts配置
 注意：此字段可能返回 null，表示取不到有效值。
- * @method array getTlsVersion() 获取Tls版本设置，仅支持部分Advance域名，支持设置 TLSv1, TLSV1.1, TLSV1.2, TLSv1.3，修改时必须开启连续的版本
+ * @method array getTlsVersion() 获取Tls版本设置，仅支持部分Advance域名，支持设置 TLSv1, TLSv1.1, TLSv1.2, TLSv1.3，修改时必须开启连续的版本
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setTlsVersion(array $TlsVersion) 设置Tls版本设置，仅支持部分Advance域名，支持设置 TLSv1, TLSV1.1, TLSV1.2, TLSv1.3，修改时必须开启连续的版本
+ * @method void setTlsVersion(array $TlsVersion) 设置Tls版本设置，仅支持部分Advance域名，支持设置 TLSv1, TLSv1.1, TLSv1.2, TLSv1.3，修改时必须开启连续的版本
 注意：此字段可能返回 null，表示取不到有效值。
  */
 class Https extends AbstractModel
 {
     /**
-     * @var string https 配置开关
+     * @var string https 配置开关，取值有：
 on：开启
 off：关闭
 注意：此字段可能返回 null，表示取不到有效值。
@@ -111,7 +109,6 @@ off：关闭
      * @var string http2 配置开关
 on：开启
 off：关闭
-初次启用 https 加速会默认开启 http2 配置
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Http2;
@@ -172,20 +169,19 @@ failed：部署失败
     public $Hsts;
 
     /**
-     * @var array Tls版本设置，仅支持部分Advance域名，支持设置 TLSv1, TLSV1.1, TLSV1.2, TLSv1.3，修改时必须开启连续的版本
+     * @var array Tls版本设置，仅支持部分Advance域名，支持设置 TLSv1, TLSv1.1, TLSv1.2, TLSv1.3，修改时必须开启连续的版本
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $TlsVersion;
 
     /**
-     * @param string $Switch https 配置开关
+     * @param string $Switch https 配置开关，取值有：
 on：开启
 off：关闭
 注意：此字段可能返回 null，表示取不到有效值。
      * @param string $Http2 http2 配置开关
 on：开启
 off：关闭
-初次启用 https 加速会默认开启 http2 配置
 注意：此字段可能返回 null，表示取不到有效值。
      * @param string $OcspStapling OCSP 配置开关
 on：开启
@@ -214,7 +210,7 @@ failed：部署失败
 注意：此字段可能返回 null，表示取不到有效值。
      * @param Hsts $Hsts Hsts配置
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param array $TlsVersion Tls版本设置，仅支持部分Advance域名，支持设置 TLSv1, TLSV1.1, TLSV1.2, TLSv1.3，修改时必须开启连续的版本
+     * @param array $TlsVersion Tls版本设置，仅支持部分Advance域名，支持设置 TLSv1, TLSv1.1, TLSv1.2, TLSv1.3，修改时必须开启连续的版本
 注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()

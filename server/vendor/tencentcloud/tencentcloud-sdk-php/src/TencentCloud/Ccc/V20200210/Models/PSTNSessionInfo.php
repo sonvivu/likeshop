@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,16 +32,20 @@ use TencentCloud\Common\AbstractModel;
  * @method void setStartTimestamp(string $StartTimestamp) 设置开始时间，Unix 时间戳
  * @method string getAcceptTimestamp() 获取接听时间，Unix 时间戳
  * @method void setAcceptTimestamp(string $AcceptTimestamp) 设置接听时间，Unix 时间戳
- * @method string getStaffEmail() 获取坐席邮箱
- * @method void setStaffEmail(string $StaffEmail) 设置坐席邮箱
- * @method string getStaffNumber() 获取坐席工号
- * @method void setStaffNumber(string $StaffNumber) 设置坐席工号
- * @method string getSessionStatus() 获取坐席状态 inProgress 进行中
- * @method void setSessionStatus(string $SessionStatus) 设置坐席状态 inProgress 进行中
+ * @method string getStaffEmail() 获取座席邮箱
+ * @method void setStaffEmail(string $StaffEmail) 设置座席邮箱
+ * @method string getStaffNumber() 获取座席工号
+ * @method void setStaffNumber(string $StaffNumber) 设置座席工号
+ * @method string getSessionStatus() 获取座席状态 inProgress 进行中
+ * @method void setSessionStatus(string $SessionStatus) 设置座席状态 inProgress 进行中
  * @method integer getDirection() 获取会话呼叫方向， 0 呼入 | 1 - 呼出
  * @method void setDirection(integer $Direction) 设置会话呼叫方向， 0 呼入 | 1 - 呼出
  * @method integer getRingTimestamp() 获取振铃时间，Unix 时间戳
  * @method void setRingTimestamp(integer $RingTimestamp) 设置振铃时间，Unix 时间戳
+ * @method string getProtectedCaller() 获取主叫号码保护ID，开启号码保护映射功能时有效，且Caller字段置空
+ * @method void setProtectedCaller(string $ProtectedCaller) 设置主叫号码保护ID，开启号码保护映射功能时有效，且Caller字段置空
+ * @method string getProtectedCallee() 获取被叫号码保护ID，开启号码保护映射功能时有效，且Callee字段置空
+ * @method void setProtectedCallee(string $ProtectedCallee) 设置被叫号码保护ID，开启号码保护映射功能时有效，且Callee字段置空
  */
 class PSTNSessionInfo extends AbstractModel
 {
@@ -76,17 +80,17 @@ class PSTNSessionInfo extends AbstractModel
     public $AcceptTimestamp;
 
     /**
-     * @var string 坐席邮箱
+     * @var string 座席邮箱
      */
     public $StaffEmail;
 
     /**
-     * @var string 坐席工号
+     * @var string 座席工号
      */
     public $StaffNumber;
 
     /**
-     * @var string 坐席状态 inProgress 进行中
+     * @var string 座席状态 inProgress 进行中
      */
     public $SessionStatus;
 
@@ -101,17 +105,29 @@ class PSTNSessionInfo extends AbstractModel
     public $RingTimestamp;
 
     /**
+     * @var string 主叫号码保护ID，开启号码保护映射功能时有效，且Caller字段置空
+     */
+    public $ProtectedCaller;
+
+    /**
+     * @var string 被叫号码保护ID，开启号码保护映射功能时有效，且Callee字段置空
+     */
+    public $ProtectedCallee;
+
+    /**
      * @param string $SessionID 会话 ID
      * @param string $RoomID 会话临时房间 ID
      * @param string $Caller 主叫
      * @param string $Callee 被叫
      * @param string $StartTimestamp 开始时间，Unix 时间戳
      * @param string $AcceptTimestamp 接听时间，Unix 时间戳
-     * @param string $StaffEmail 坐席邮箱
-     * @param string $StaffNumber 坐席工号
-     * @param string $SessionStatus 坐席状态 inProgress 进行中
+     * @param string $StaffEmail 座席邮箱
+     * @param string $StaffNumber 座席工号
+     * @param string $SessionStatus 座席状态 inProgress 进行中
      * @param integer $Direction 会话呼叫方向， 0 呼入 | 1 - 呼出
      * @param integer $RingTimestamp 振铃时间，Unix 时间戳
+     * @param string $ProtectedCaller 主叫号码保护ID，开启号码保护映射功能时有效，且Caller字段置空
+     * @param string $ProtectedCallee 被叫号码保护ID，开启号码保护映射功能时有效，且Callee字段置空
      */
     function __construct()
     {
@@ -168,6 +184,14 @@ class PSTNSessionInfo extends AbstractModel
 
         if (array_key_exists("RingTimestamp",$param) and $param["RingTimestamp"] !== null) {
             $this->RingTimestamp = $param["RingTimestamp"];
+        }
+
+        if (array_key_exists("ProtectedCaller",$param) and $param["ProtectedCaller"] !== null) {
+            $this->ProtectedCaller = $param["ProtectedCaller"];
+        }
+
+        if (array_key_exists("ProtectedCallee",$param) and $param["ProtectedCallee"] !== null) {
+            $this->ProtectedCallee = $param["ProtectedCallee"];
         }
     }
 }

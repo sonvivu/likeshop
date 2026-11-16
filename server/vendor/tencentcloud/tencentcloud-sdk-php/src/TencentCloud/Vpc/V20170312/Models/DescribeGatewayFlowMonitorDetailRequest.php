@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,14 +30,16 @@ use TencentCloud\Common\AbstractModel;
  * @method void setPeeringConnectionId(string $PeeringConnectionId) 设置对等连接实例ID，形如：`pcx-ltjahce6`。
  * @method string getNatId() 获取NAT网关实例ID，形如：`nat-ltjahce6`。
  * @method void setNatId(string $NatId) 设置NAT网关实例ID，形如：`nat-ltjahce6`。
- * @method integer getOffset() 获取偏移量。
- * @method void setOffset(integer $Offset) 设置偏移量。
- * @method integer getLimit() 获取返回数量。
- * @method void setLimit(integer $Limit) 设置返回数量。
- * @method string getOrderField() 获取排序字段。支持 `InPkg` `OutPkg` `InTraffic` `OutTraffic`。
- * @method void setOrderField(string $OrderField) 设置排序字段。支持 `InPkg` `OutPkg` `InTraffic` `OutTraffic`。
- * @method string getOrderDirection() 获取排序方法。顺序：`ASC`，倒序：`DESC`。
- * @method void setOrderDirection(string $OrderDirection) 设置排序方法。顺序：`ASC`，倒序：`DESC`。
+ * @method integer getOffset() 获取偏移量，默认为0。
+ * @method void setOffset(integer $Offset) 设置偏移量，默认为0。
+ * @method integer getLimit() 获取返回数量，默认为20，最大值为100。
+ * @method void setLimit(integer $Limit) 设置返回数量，默认为20，最大值为100。
+ * @method string getOrderField() 获取排序字段。支持 `InPkg` `OutPkg` `InTraffic` `OutTraffic`，标准型nat额外支持 并发连接数`ConcurrentConnectionCount` 、新建连接速率`NewConnectionRate`。默认值`OutTraffic`。
+ * @method void setOrderField(string $OrderField) 设置排序字段。支持 `InPkg` `OutPkg` `InTraffic` `OutTraffic`，标准型nat额外支持 并发连接数`ConcurrentConnectionCount` 、新建连接速率`NewConnectionRate`。默认值`OutTraffic`。
+ * @method string getOrderDirection() 获取排序方法。顺序：`ASC`，倒序：`DESC`。默认值`DESC`。
+ * @method void setOrderDirection(string $OrderDirection) 设置排序方法。顺序：`ASC`，倒序：`DESC`。默认值`DESC`。
+ * @method string getPrivateIpAddress() 获取VPC内部IPv4地址，精确匹配
+ * @method void setPrivateIpAddress(string $PrivateIpAddress) 设置VPC内部IPv4地址，精确匹配
  */
 class DescribeGatewayFlowMonitorDetailRequest extends AbstractModel
 {
@@ -67,24 +69,29 @@ class DescribeGatewayFlowMonitorDetailRequest extends AbstractModel
     public $NatId;
 
     /**
-     * @var integer 偏移量。
+     * @var integer 偏移量，默认为0。
      */
     public $Offset;
 
     /**
-     * @var integer 返回数量。
+     * @var integer 返回数量，默认为20，最大值为100。
      */
     public $Limit;
 
     /**
-     * @var string 排序字段。支持 `InPkg` `OutPkg` `InTraffic` `OutTraffic`。
+     * @var string 排序字段。支持 `InPkg` `OutPkg` `InTraffic` `OutTraffic`，标准型nat额外支持 并发连接数`ConcurrentConnectionCount` 、新建连接速率`NewConnectionRate`。默认值`OutTraffic`。
      */
     public $OrderField;
 
     /**
-     * @var string 排序方法。顺序：`ASC`，倒序：`DESC`。
+     * @var string 排序方法。顺序：`ASC`，倒序：`DESC`。默认值`DESC`。
      */
     public $OrderDirection;
+
+    /**
+     * @var string VPC内部IPv4地址，精确匹配
+     */
+    public $PrivateIpAddress;
 
     /**
      * @param string $TimePoint 时间点。表示要查询这分钟内的明细。如：`2019-02-28 18:15:20`，将查询 `18:15` 这一分钟内的明细。
@@ -92,10 +99,11 @@ class DescribeGatewayFlowMonitorDetailRequest extends AbstractModel
      * @param string $DirectConnectGatewayId 专线网关实例ID，形如：`dcg-ltjahce6`。
      * @param string $PeeringConnectionId 对等连接实例ID，形如：`pcx-ltjahce6`。
      * @param string $NatId NAT网关实例ID，形如：`nat-ltjahce6`。
-     * @param integer $Offset 偏移量。
-     * @param integer $Limit 返回数量。
-     * @param string $OrderField 排序字段。支持 `InPkg` `OutPkg` `InTraffic` `OutTraffic`。
-     * @param string $OrderDirection 排序方法。顺序：`ASC`，倒序：`DESC`。
+     * @param integer $Offset 偏移量，默认为0。
+     * @param integer $Limit 返回数量，默认为20，最大值为100。
+     * @param string $OrderField 排序字段。支持 `InPkg` `OutPkg` `InTraffic` `OutTraffic`，标准型nat额外支持 并发连接数`ConcurrentConnectionCount` 、新建连接速率`NewConnectionRate`。默认值`OutTraffic`。
+     * @param string $OrderDirection 排序方法。顺序：`ASC`，倒序：`DESC`。默认值`DESC`。
+     * @param string $PrivateIpAddress VPC内部IPv4地址，精确匹配
      */
     function __construct()
     {
@@ -144,6 +152,10 @@ class DescribeGatewayFlowMonitorDetailRequest extends AbstractModel
 
         if (array_key_exists("OrderDirection",$param) and $param["OrderDirection"] !== null) {
             $this->OrderDirection = $param["OrderDirection"];
+        }
+
+        if (array_key_exists("PrivateIpAddress",$param) and $param["PrivateIpAddress"] !== null) {
+            $this->PrivateIpAddress = $param["PrivateIpAddress"];
         }
     }
 }

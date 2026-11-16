@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,190 +20,50 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeTopics请求参数结构体
  *
- * @method array getFilters() 获取<br><li> topicName
-
-按照【日志主题名称】进行过滤。
-类型：String
-
-必选：否
-
-<br><li> topicId
-
-按照【日志主题ID】进行过滤。
-类型：String
-
-必选：否
-
-<br><li> logsetId
-
-按照【日志集ID】进行过滤，可通过调用DescribeLogsets查询已创建的日志集列表或登录控制台进行查看；也可以调用CreateLogset创建新的日志集。
-
-类型：String
-
-必选：否
-
-<br><li> tagKey
-
-按照【标签键】进行过滤。
-
-类型：String
-
-必选：否
-
-<br><li> tag:tagKey
-
-按照【标签键值对】进行过滤。tag-key使用具体的标签键进行替换。使用请参考示例2。
-
-类型：String
-
-必选：否
-
-
-每次请求的Filters的上限为10，Filter.Values的上限为5。
- * @method void setFilters(array $Filters) 设置<br><li> topicName
-
-按照【日志主题名称】进行过滤。
-类型：String
-
-必选：否
-
-<br><li> topicId
-
-按照【日志主题ID】进行过滤。
-类型：String
-
-必选：否
-
-<br><li> logsetId
-
-按照【日志集ID】进行过滤，可通过调用DescribeLogsets查询已创建的日志集列表或登录控制台进行查看；也可以调用CreateLogset创建新的日志集。
-
-类型：String
-
-必选：否
-
-<br><li> tagKey
-
-按照【标签键】进行过滤。
-
-类型：String
-
-必选：否
-
-<br><li> tag:tagKey
-
-按照【标签键值对】进行过滤。tag-key使用具体的标签键进行替换。使用请参考示例2。
-
-类型：String
-
-必选：否
-
-
-每次请求的Filters的上限为10，Filter.Values的上限为5。
- * @method integer getOffset() 获取分页的偏移量，默认值为0。
- * @method void setOffset(integer $Offset) 设置分页的偏移量，默认值为0。
- * @method integer getLimit() 获取分页单页限制数目，默认值为20，最大值100。
- * @method void setLimit(integer $Limit) 设置分页单页限制数目，默认值为20，最大值100。
+ * @method array getFilters() 获取<ul><li>topicName 按照【主题名称】进行过滤，默认为模糊匹配，可使用 PreciseSearch 参数设置为精确匹配。类型：String。必选：否</li><li>logsetName 按照【日志集名称】进行过滤，默认为模糊匹配，可使用 PreciseSearch 参数设置为精确匹配。类型：String。必选：否</li><li>topicId 按照【主题ID】进行过滤。类型：String。必选：否</li><li>logsetId 按照【日志集ID】进行过滤，可通过调用 <a href="https://cloud.tencent.com/document/product/614/58624">DescribeLogsets</a> 查询已创建的日志集列表或登录控制台进行查看；也可以调用<a href="https://cloud.tencent.com/document/product/614/58626">CreateLogset</a> 创建新的日志集。类型：String。必选：否</li><li>tagKey 按照【标签键】进行过滤。类型：String。必选：否</li><li>tag:tagKey 按照【标签键值对】进行过滤。tagKey 使用具体的标签键进行替换，例如 tag:exampleKey。类型：String。必选：否</li><li>storageType 按照【主题的存储类型】进行过滤。可选值 hot（标准存储），cold（低频存储）类型：String。必选：否</li></ul>注意：每次请求的 Filters 的上限为10，Filter.Values 的上限为100。
+ * @method void setFilters(array $Filters) 设置<ul><li>topicName 按照【主题名称】进行过滤，默认为模糊匹配，可使用 PreciseSearch 参数设置为精确匹配。类型：String。必选：否</li><li>logsetName 按照【日志集名称】进行过滤，默认为模糊匹配，可使用 PreciseSearch 参数设置为精确匹配。类型：String。必选：否</li><li>topicId 按照【主题ID】进行过滤。类型：String。必选：否</li><li>logsetId 按照【日志集ID】进行过滤，可通过调用 <a href="https://cloud.tencent.com/document/product/614/58624">DescribeLogsets</a> 查询已创建的日志集列表或登录控制台进行查看；也可以调用<a href="https://cloud.tencent.com/document/product/614/58626">CreateLogset</a> 创建新的日志集。类型：String。必选：否</li><li>tagKey 按照【标签键】进行过滤。类型：String。必选：否</li><li>tag:tagKey 按照【标签键值对】进行过滤。tagKey 使用具体的标签键进行替换，例如 tag:exampleKey。类型：String。必选：否</li><li>storageType 按照【主题的存储类型】进行过滤。可选值 hot（标准存储），cold（低频存储）类型：String。必选：否</li></ul>注意：每次请求的 Filters 的上限为10，Filter.Values 的上限为100。
+ * @method integer getOffset() 获取<p>分页的偏移量，默认值为0。</p>
+ * @method void setOffset(integer $Offset) 设置<p>分页的偏移量，默认值为0。</p>
+ * @method integer getLimit() 获取<p>分页单页限制数目，默认值为20，最大值100。</p>
+ * @method void setLimit(integer $Limit) 设置<p>分页单页限制数目，默认值为20，最大值100。</p>
+ * @method integer getPreciseSearch() 获取<p>控制Filters相关字段是否为精确匹配。</p><ul><li>0: 默认值，topicName 和 logsetName 模糊匹配</li><li>1: topicName   精确匹配</li><li>2: logsetName精确匹配</li><li>3: topicName 和logsetName 都精确匹配</li></ul>
+ * @method void setPreciseSearch(integer $PreciseSearch) 设置<p>控制Filters相关字段是否为精确匹配。</p><ul><li>0: 默认值，topicName 和 logsetName 模糊匹配</li><li>1: topicName   精确匹配</li><li>2: logsetName精确匹配</li><li>3: topicName 和logsetName 都精确匹配</li></ul>
+ * @method integer getBizType() 获取<p>主题类型</p><ul><li>0:日志主题，默认值</li><li>1:指标主题</li></ul>
+ * @method void setBizType(integer $BizType) 设置<p>主题类型</p><ul><li>0:日志主题，默认值</li><li>1:指标主题</li></ul>
  */
 class DescribeTopicsRequest extends AbstractModel
 {
     /**
-     * @var array <br><li> topicName
-
-按照【日志主题名称】进行过滤。
-类型：String
-
-必选：否
-
-<br><li> topicId
-
-按照【日志主题ID】进行过滤。
-类型：String
-
-必选：否
-
-<br><li> logsetId
-
-按照【日志集ID】进行过滤，可通过调用DescribeLogsets查询已创建的日志集列表或登录控制台进行查看；也可以调用CreateLogset创建新的日志集。
-
-类型：String
-
-必选：否
-
-<br><li> tagKey
-
-按照【标签键】进行过滤。
-
-类型：String
-
-必选：否
-
-<br><li> tag:tagKey
-
-按照【标签键值对】进行过滤。tag-key使用具体的标签键进行替换。使用请参考示例2。
-
-类型：String
-
-必选：否
-
-
-每次请求的Filters的上限为10，Filter.Values的上限为5。
+     * @var array <ul><li>topicName 按照【主题名称】进行过滤，默认为模糊匹配，可使用 PreciseSearch 参数设置为精确匹配。类型：String。必选：否</li><li>logsetName 按照【日志集名称】进行过滤，默认为模糊匹配，可使用 PreciseSearch 参数设置为精确匹配。类型：String。必选：否</li><li>topicId 按照【主题ID】进行过滤。类型：String。必选：否</li><li>logsetId 按照【日志集ID】进行过滤，可通过调用 <a href="https://cloud.tencent.com/document/product/614/58624">DescribeLogsets</a> 查询已创建的日志集列表或登录控制台进行查看；也可以调用<a href="https://cloud.tencent.com/document/product/614/58626">CreateLogset</a> 创建新的日志集。类型：String。必选：否</li><li>tagKey 按照【标签键】进行过滤。类型：String。必选：否</li><li>tag:tagKey 按照【标签键值对】进行过滤。tagKey 使用具体的标签键进行替换，例如 tag:exampleKey。类型：String。必选：否</li><li>storageType 按照【主题的存储类型】进行过滤。可选值 hot（标准存储），cold（低频存储）类型：String。必选：否</li></ul>注意：每次请求的 Filters 的上限为10，Filter.Values 的上限为100。
      */
     public $Filters;
 
     /**
-     * @var integer 分页的偏移量，默认值为0。
+     * @var integer <p>分页的偏移量，默认值为0。</p>
      */
     public $Offset;
 
     /**
-     * @var integer 分页单页限制数目，默认值为20，最大值100。
+     * @var integer <p>分页单页限制数目，默认值为20，最大值100。</p>
      */
     public $Limit;
 
     /**
-     * @param array $Filters <br><li> topicName
+     * @var integer <p>控制Filters相关字段是否为精确匹配。</p><ul><li>0: 默认值，topicName 和 logsetName 模糊匹配</li><li>1: topicName   精确匹配</li><li>2: logsetName精确匹配</li><li>3: topicName 和logsetName 都精确匹配</li></ul>
+     */
+    public $PreciseSearch;
 
-按照【日志主题名称】进行过滤。
-类型：String
+    /**
+     * @var integer <p>主题类型</p><ul><li>0:日志主题，默认值</li><li>1:指标主题</li></ul>
+     */
+    public $BizType;
 
-必选：否
-
-<br><li> topicId
-
-按照【日志主题ID】进行过滤。
-类型：String
-
-必选：否
-
-<br><li> logsetId
-
-按照【日志集ID】进行过滤，可通过调用DescribeLogsets查询已创建的日志集列表或登录控制台进行查看；也可以调用CreateLogset创建新的日志集。
-
-类型：String
-
-必选：否
-
-<br><li> tagKey
-
-按照【标签键】进行过滤。
-
-类型：String
-
-必选：否
-
-<br><li> tag:tagKey
-
-按照【标签键值对】进行过滤。tag-key使用具体的标签键进行替换。使用请参考示例2。
-
-类型：String
-
-必选：否
-
-
-每次请求的Filters的上限为10，Filter.Values的上限为5。
-     * @param integer $Offset 分页的偏移量，默认值为0。
-     * @param integer $Limit 分页单页限制数目，默认值为20，最大值100。
+    /**
+     * @param array $Filters <ul><li>topicName 按照【主题名称】进行过滤，默认为模糊匹配，可使用 PreciseSearch 参数设置为精确匹配。类型：String。必选：否</li><li>logsetName 按照【日志集名称】进行过滤，默认为模糊匹配，可使用 PreciseSearch 参数设置为精确匹配。类型：String。必选：否</li><li>topicId 按照【主题ID】进行过滤。类型：String。必选：否</li><li>logsetId 按照【日志集ID】进行过滤，可通过调用 <a href="https://cloud.tencent.com/document/product/614/58624">DescribeLogsets</a> 查询已创建的日志集列表或登录控制台进行查看；也可以调用<a href="https://cloud.tencent.com/document/product/614/58626">CreateLogset</a> 创建新的日志集。类型：String。必选：否</li><li>tagKey 按照【标签键】进行过滤。类型：String。必选：否</li><li>tag:tagKey 按照【标签键值对】进行过滤。tagKey 使用具体的标签键进行替换，例如 tag:exampleKey。类型：String。必选：否</li><li>storageType 按照【主题的存储类型】进行过滤。可选值 hot（标准存储），cold（低频存储）类型：String。必选：否</li></ul>注意：每次请求的 Filters 的上限为10，Filter.Values 的上限为100。
+     * @param integer $Offset <p>分页的偏移量，默认值为0。</p>
+     * @param integer $Limit <p>分页单页限制数目，默认值为20，最大值100。</p>
+     * @param integer $PreciseSearch <p>控制Filters相关字段是否为精确匹配。</p><ul><li>0: 默认值，topicName 和 logsetName 模糊匹配</li><li>1: topicName   精确匹配</li><li>2: logsetName精确匹配</li><li>3: topicName 和logsetName 都精确匹配</li></ul>
+     * @param integer $BizType <p>主题类型</p><ul><li>0:日志主题，默认值</li><li>1:指标主题</li></ul>
      */
     function __construct()
     {
@@ -233,6 +93,14 @@ class DescribeTopicsRequest extends AbstractModel
 
         if (array_key_exists("Limit",$param) and $param["Limit"] !== null) {
             $this->Limit = $param["Limit"];
+        }
+
+        if (array_key_exists("PreciseSearch",$param) and $param["PreciseSearch"] !== null) {
+            $this->PreciseSearch = $param["PreciseSearch"];
+        }
+
+        if (array_key_exists("BizType",$param) and $param["BizType"] !== null) {
+            $this->BizType = $param["BizType"];
         }
     }
 }

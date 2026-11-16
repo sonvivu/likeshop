@@ -19,15 +19,14 @@
 
 namespace app\api\controller;
 
+use app\api\behavior\AppEnd;
+use app\BaseController;
 use app\common\server\PasswordCryptoService;
-use think\App;
-use think\Controller;
 use think\exception\HttpResponseException;
 use think\facade\Config;
-use think\facade\Debug;
 use think\Response;
 
-class ApiBase extends Controller
+class ApiBase extends BaseController
 {
     public $user_info = [];
     public $user_id = null;
@@ -40,13 +39,14 @@ class ApiBase extends Controller
 
     /**
      * 底层控制器初始化
-     * ApiBase constructor.
-     * @param App|null $app
      */
-    public function __construct(App $app = null)
+    public function __construct()
     {
-        parent::__construct($app);
+        parent::__construct();
         self::setValue();
+        // ThinkPHP 6 已删除 app_end 行为：原行为（按 IP 统计访问量）改为在基类构造中直接调用。
+        // 注意：5.1 里 app_end 在中间件拦截的请求上也会触发，6.x 下被中间件拦截的请求不再计数。
+        (new AppEnd())->run($this->request);
     }
 
     /**
@@ -81,7 +81,7 @@ class ApiBase extends Controller
     protected function _success($msg = '', $data = [], $code = 1, $show = 0, array $header = [])
     {
         $type = $this->getResponseType();
-        $time = Debug::getUseTime();
+        $time = number_format(microtime(true) - app()->getBeginTime(), 6);
         $result = [
             'code' => $code,
             'msg' => $msg,
@@ -90,7 +90,7 @@ class ApiBase extends Controller
             'time' => $time,
         ];
 
-        if (Config::get('app_trace')) {
+        if (Config::get('app.app_trace')) {
             $result['debug'] = [
                 'request' => [
                     'get' => $this->request->get(),
@@ -99,13 +99,13 @@ class ApiBase extends Controller
                 ]
             ];
         }
-        $type = $this->getResponseType();
         // 把跳转模板的渲染下沉，这样在 response_send 行为里通过getData()获得的数据是一致性的格式
         if ('html' == strtolower($type)) {
-            $type = 'jump';
+            $response = $this->jumpResponse($result, Config::get('app.dispatch_success_tmpl'));
+        } else {
+            $response = Response::create($result, $type);
         }
-
-        $response = Response::create($result, $type)->header($header)->options(['jump_template' => $this->app['config']->get('dispatch_success_tmpl')]);
+        $response->header($header);
 
         throw new HttpResponseException($response);
     }
@@ -122,7 +122,7 @@ class ApiBase extends Controller
     protected function _error($msg = '', $data = [], $code = 0, $show = 1, array $header = [])
     {
         $type = $this->getResponseType();
-        $time = Debug::getUseTime();
+        $time = number_format(microtime(true) - app()->getBeginTime(), 6);
         $result = [
             'code' => $code,
             'msg' => $msg,
@@ -131,7 +131,7 @@ class ApiBase extends Controller
             'time' => $time,
         ];
 
-        if (Config::get('app_trace')) {
+        if (Config::get('app.app_trace')) {
             $result['debug'] = [
                 'request' => [
                     'get' => $this->request->get(),
@@ -142,10 +142,11 @@ class ApiBase extends Controller
         }
 
         if ('html' == strtolower($type)) {
-            $type = 'jump';
+            $response = $this->jumpResponse($result, Config::get('app.dispatch_error_tmpl'));
+        } else {
+            $response = Response::create($result, $type);
         }
-
-        $response = Response::create($result, $type)->header($header)->options(['jump_template' => $this->app['config']->get('dispatch_error_tmpl')]);
+        $response->header($header);
 
         throw new HttpResponseException($response);
     }

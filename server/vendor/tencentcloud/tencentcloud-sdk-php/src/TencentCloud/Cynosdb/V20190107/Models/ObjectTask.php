@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,69 +21,49 @@ use TencentCloud\Common\AbstractModel;
  * 任务信息
  *
  * @method integer getTaskId() 获取任务自增ID
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setTaskId(integer $TaskId) 设置任务自增ID
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getTaskType() 获取任务类型
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setTaskType(string $TaskType) 设置任务类型
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getTaskStatus() 获取任务状态
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setTaskStatus(string $TaskStatus) 设置任务状态
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getObjectId() 获取任务ID（集群ID|实例组ID|实例ID）
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setObjectId(string $ObjectId) 设置任务ID（集群ID|实例组ID|实例ID）
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getObjectType() 获取任务类型
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setObjectType(string $ObjectType) 设置任务类型
-注意：此字段可能返回 null，表示取不到有效值。
  */
 class ObjectTask extends AbstractModel
 {
     /**
      * @var integer 任务自增ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $TaskId;
 
     /**
      * @var string 任务类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $TaskType;
 
     /**
      * @var string 任务状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $TaskStatus;
 
     /**
      * @var string 任务ID（集群ID|实例组ID|实例ID）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $ObjectId;
 
     /**
      * @var string 任务类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $ObjectType;
 
     /**
      * @param integer $TaskId 任务自增ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $TaskType 任务类型
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $TaskStatus 任务状态
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $ObjectId 任务ID（集群ID|实例组ID|实例ID）
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $ObjectType 任务类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
     {

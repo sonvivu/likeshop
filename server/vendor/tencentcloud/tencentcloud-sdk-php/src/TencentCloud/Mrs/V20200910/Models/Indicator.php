@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,21 +21,33 @@ use TencentCloud\Common\AbstractModel;
  * 检验报告
  *
  * @method array getIndicators() 获取检验指标项
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setIndicators(array $Indicators) 设置检验指标项
-注意：此字段可能返回 null，表示取不到有效值。
+ * @method array getBlockTitle() 获取检验报告块标题
+ * @method void setBlockTitle(array $BlockTitle) 设置检验报告块标题
+ * @method integer getPage() 获取数据在原PDF文件中的第几页
+ * @method void setPage(integer $Page) 设置数据在原PDF文件中的第几页
  */
 class Indicator extends AbstractModel
 {
     /**
      * @var array 检验指标项
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Indicators;
 
     /**
+     * @var array 检验报告块标题
+     */
+    public $BlockTitle;
+
+    /**
+     * @var integer 数据在原PDF文件中的第几页
+     */
+    public $Page;
+
+    /**
      * @param array $Indicators 检验指标项
-注意：此字段可能返回 null，表示取不到有效值。
+     * @param array $BlockTitle 检验报告块标题
+     * @param integer $Page 数据在原PDF文件中的第几页
      */
     function __construct()
     {
@@ -57,6 +69,19 @@ class Indicator extends AbstractModel
                 $obj->deserialize($value);
                 array_push($this->Indicators, $obj);
             }
+        }
+
+        if (array_key_exists("BlockTitle",$param) and $param["BlockTitle"] !== null) {
+            $this->BlockTitle = [];
+            foreach ($param["BlockTitle"] as $key => $value){
+                $obj = new BlockTitle();
+                $obj->deserialize($value);
+                array_push($this->BlockTitle, $obj);
+            }
+        }
+
+        if (array_key_exists("Page",$param) and $param["Page"] !== null) {
+            $this->Page = $param["Page"];
         }
     }
 }

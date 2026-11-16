@@ -18,7 +18,7 @@
 // +----------------------------------------------------------------------
 namespace app\common\behavior;
 
-use think\Db;
+use think\facade\Db;
 
 /**
  * 更新商品收藏夹
@@ -27,7 +27,7 @@ use think\Db;
  */
 class UpdateCollect
 {
-    public function run($params)
+    public function handle($params)
     {
         try {
             $goods_ids = $params['goods_id'] ?? '';

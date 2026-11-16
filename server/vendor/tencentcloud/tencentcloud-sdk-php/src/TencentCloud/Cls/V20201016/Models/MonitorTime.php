@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,34 +20,34 @@ use TencentCloud\Common\AbstractModel;
 /**
  * 告警策略中监控任务的执行时间点
  *
- * @method string getType() 获取可选值：
-<br><li> Period - 周期执行
-<br><li> Fixed - 定期执行
- * @method void setType(string $Type) 设置可选值：
-<br><li> Period - 周期执行
-<br><li> Fixed - 定期执行
- * @method integer getTime() 获取执行的周期，或者定制执行的时间节点。单位为分钟，取值范围为1~1440。
- * @method void setTime(integer $Time) 设置执行的周期，或者定制执行的时间节点。单位为分钟，取值范围为1~1440。
+ * @method string getType() 获取<p>执行周期， 可选值：<code>Period</code>、<code>Fixed</code>、<code>Cron</code>。</p><ul><li>Period：固定频率</li><li>Fixed：固定时间</li><li>Cron：Cron表达式</li></ul>
+ * @method void setType(string $Type) 设置<p>执行周期， 可选值：<code>Period</code>、<code>Fixed</code>、<code>Cron</code>。</p><ul><li>Period：固定频率</li><li>Fixed：固定时间</li><li>Cron：Cron表达式</li></ul>
+ * @method integer getTime() 获取<p>执行的周期，或者定制执行的时间节点。单位为分钟，取值范围为1~1440。<br>当type为<code>Period</code>,<code>Fixed</code>时，time字段生效。</p>
+ * @method void setTime(integer $Time) 设置<p>执行的周期，或者定制执行的时间节点。单位为分钟，取值范围为1~1440。<br>当type为<code>Period</code>,<code>Fixed</code>时，time字段生效。</p>
+ * @method string getCronExpression() 获取<p>执行的周期cron表达式。示例：<code>0/1 * * * *</code> 从左到右每个field的含义 Minutes field(分钟), Hours field(小时),Day of month field(日期),Month field(月份),Day of week field(星期)， 不支持秒级别。当type为<code>Cron</code>时，CronExpression字段生效。</p>
+ * @method void setCronExpression(string $CronExpression) 设置<p>执行的周期cron表达式。示例：<code>0/1 * * * *</code> 从左到右每个field的含义 Minutes field(分钟), Hours field(小时),Day of month field(日期),Month field(月份),Day of week field(星期)， 不支持秒级别。当type为<code>Cron</code>时，CronExpression字段生效。</p>
  */
 class MonitorTime extends AbstractModel
 {
     /**
-     * @var string 可选值：
-<br><li> Period - 周期执行
-<br><li> Fixed - 定期执行
+     * @var string <p>执行周期， 可选值：<code>Period</code>、<code>Fixed</code>、<code>Cron</code>。</p><ul><li>Period：固定频率</li><li>Fixed：固定时间</li><li>Cron：Cron表达式</li></ul>
      */
     public $Type;
 
     /**
-     * @var integer 执行的周期，或者定制执行的时间节点。单位为分钟，取值范围为1~1440。
+     * @var integer <p>执行的周期，或者定制执行的时间节点。单位为分钟，取值范围为1~1440。<br>当type为<code>Period</code>,<code>Fixed</code>时，time字段生效。</p>
      */
     public $Time;
 
     /**
-     * @param string $Type 可选值：
-<br><li> Period - 周期执行
-<br><li> Fixed - 定期执行
-     * @param integer $Time 执行的周期，或者定制执行的时间节点。单位为分钟，取值范围为1~1440。
+     * @var string <p>执行的周期cron表达式。示例：<code>0/1 * * * *</code> 从左到右每个field的含义 Minutes field(分钟), Hours field(小时),Day of month field(日期),Month field(月份),Day of week field(星期)， 不支持秒级别。当type为<code>Cron</code>时，CronExpression字段生效。</p>
+     */
+    public $CronExpression;
+
+    /**
+     * @param string $Type <p>执行周期， 可选值：<code>Period</code>、<code>Fixed</code>、<code>Cron</code>。</p><ul><li>Period：固定频率</li><li>Fixed：固定时间</li><li>Cron：Cron表达式</li></ul>
+     * @param integer $Time <p>执行的周期，或者定制执行的时间节点。单位为分钟，取值范围为1~1440。<br>当type为<code>Period</code>,<code>Fixed</code>时，time字段生效。</p>
+     * @param string $CronExpression <p>执行的周期cron表达式。示例：<code>0/1 * * * *</code> 从左到右每个field的含义 Minutes field(分钟), Hours field(小时),Day of month field(日期),Month field(月份),Day of week field(星期)， 不支持秒级别。当type为<code>Cron</code>时，CronExpression字段生效。</p>
      */
     function __construct()
     {
@@ -68,6 +68,10 @@ class MonitorTime extends AbstractModel
 
         if (array_key_exists("Time",$param) and $param["Time"] !== null) {
             $this->Time = $param["Time"];
+        }
+
+        if (array_key_exists("CronExpression",$param) and $param["CronExpression"] !== null) {
+            $this->CronExpression = $param["CronExpression"];
         }
     }
 }

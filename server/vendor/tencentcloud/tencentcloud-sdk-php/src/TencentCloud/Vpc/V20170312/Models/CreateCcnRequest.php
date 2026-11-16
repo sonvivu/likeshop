@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,12 +24,14 @@ use TencentCloud\Common\AbstractModel;
  * @method void setCcnName(string $CcnName) 设置CCN名称，最大长度不能超过60个字节。
  * @method string getCcnDescription() 获取CCN描述信息，最大长度不能超过100个字节。
  * @method void setCcnDescription(string $CcnDescription) 设置CCN描述信息，最大长度不能超过100个字节。
- * @method string getQosLevel() 获取CCN服务质量，'PT'：白金，'AU'：金，'AG'：银，默认为‘AU’。
- * @method void setQosLevel(string $QosLevel) 设置CCN服务质量，'PT'：白金，'AU'：金，'AG'：银，默认为‘AU’。
- * @method string getInstanceChargeType() 获取计费模式，PREPAID：表示预付费，即包年包月，POSTPAID：表示后付费，即按量计费。默认：POSTPAID。
- * @method void setInstanceChargeType(string $InstanceChargeType) 设置计费模式，PREPAID：表示预付费，即包年包月，POSTPAID：表示后付费，即按量计费。默认：POSTPAID。
- * @method string getBandwidthLimitType() 获取限速类型，OUTER_REGION_LIMIT表示地域出口限速，INTER_REGION_LIMIT为地域间限速，默认为OUTER_REGION_LIMIT。预付费模式仅支持地域间限速，后付费模式支持地域间限速和地域出口限速。
- * @method void setBandwidthLimitType(string $BandwidthLimitType) 设置限速类型，OUTER_REGION_LIMIT表示地域出口限速，INTER_REGION_LIMIT为地域间限速，默认为OUTER_REGION_LIMIT。预付费模式仅支持地域间限速，后付费模式支持地域间限速和地域出口限速。
+ * @method string getQosLevel() 获取CCN服务质量，`PT`：白金，`AU`：金，`AG`：银，默认为`AU`。
+ * @method void setQosLevel(string $QosLevel) 设置CCN服务质量，`PT`：白金，`AU`：金，`AG`：银，默认为`AU`。
+ * @method string getInstanceChargeType() 获取计费模式，`PREPAID`：表示预付费，即包年包月，`POSTPAID`：表示后付费，即按量计费。默认：`POSTPAID`。
+ * @method void setInstanceChargeType(string $InstanceChargeType) 设置计费模式，`PREPAID`：表示预付费，即包年包月，`POSTPAID`：表示后付费，即按量计费。默认：`POSTPAID`。
+ * @method string getInstanceMeteringType() 获取计量模式,`BANDWIDTH`：表示带宽,即带宽计量模式，`TRAFFIC`：表示流量,即流量计量模式。
+ * @method void setInstanceMeteringType(string $InstanceMeteringType) 设置计量模式,`BANDWIDTH`：表示带宽,即带宽计量模式，`TRAFFIC`：表示流量,即流量计量模式。
+ * @method string getBandwidthLimitType() 获取限速类型，`OUTER_REGION_LIMIT`表示地域出口限速，`INTER_REGION_LIMIT`为地域间限速，默认为`OUTER_REGION_LIMIT`。预付费模式仅支持地域间限速，后付费模式支持地域间限速和地域出口限速。
+ * @method void setBandwidthLimitType(string $BandwidthLimitType) 设置限速类型，`OUTER_REGION_LIMIT`表示地域出口限速，`INTER_REGION_LIMIT`为地域间限速，默认为`OUTER_REGION_LIMIT`。预付费模式仅支持地域间限速，后付费模式支持地域间限速和地域出口限速。
  * @method array getTags() 获取指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]
  * @method void setTags(array $Tags) 设置指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]
  */
@@ -46,17 +48,22 @@ class CreateCcnRequest extends AbstractModel
     public $CcnDescription;
 
     /**
-     * @var string CCN服务质量，'PT'：白金，'AU'：金，'AG'：银，默认为‘AU’。
+     * @var string CCN服务质量，`PT`：白金，`AU`：金，`AG`：银，默认为`AU`。
      */
     public $QosLevel;
 
     /**
-     * @var string 计费模式，PREPAID：表示预付费，即包年包月，POSTPAID：表示后付费，即按量计费。默认：POSTPAID。
+     * @var string 计费模式，`PREPAID`：表示预付费，即包年包月，`POSTPAID`：表示后付费，即按量计费。默认：`POSTPAID`。
      */
     public $InstanceChargeType;
 
     /**
-     * @var string 限速类型，OUTER_REGION_LIMIT表示地域出口限速，INTER_REGION_LIMIT为地域间限速，默认为OUTER_REGION_LIMIT。预付费模式仅支持地域间限速，后付费模式支持地域间限速和地域出口限速。
+     * @var string 计量模式,`BANDWIDTH`：表示带宽,即带宽计量模式，`TRAFFIC`：表示流量,即流量计量模式。
+     */
+    public $InstanceMeteringType;
+
+    /**
+     * @var string 限速类型，`OUTER_REGION_LIMIT`表示地域出口限速，`INTER_REGION_LIMIT`为地域间限速，默认为`OUTER_REGION_LIMIT`。预付费模式仅支持地域间限速，后付费模式支持地域间限速和地域出口限速。
      */
     public $BandwidthLimitType;
 
@@ -68,9 +75,10 @@ class CreateCcnRequest extends AbstractModel
     /**
      * @param string $CcnName CCN名称，最大长度不能超过60个字节。
      * @param string $CcnDescription CCN描述信息，最大长度不能超过100个字节。
-     * @param string $QosLevel CCN服务质量，'PT'：白金，'AU'：金，'AG'：银，默认为‘AU’。
-     * @param string $InstanceChargeType 计费模式，PREPAID：表示预付费，即包年包月，POSTPAID：表示后付费，即按量计费。默认：POSTPAID。
-     * @param string $BandwidthLimitType 限速类型，OUTER_REGION_LIMIT表示地域出口限速，INTER_REGION_LIMIT为地域间限速，默认为OUTER_REGION_LIMIT。预付费模式仅支持地域间限速，后付费模式支持地域间限速和地域出口限速。
+     * @param string $QosLevel CCN服务质量，`PT`：白金，`AU`：金，`AG`：银，默认为`AU`。
+     * @param string $InstanceChargeType 计费模式，`PREPAID`：表示预付费，即包年包月，`POSTPAID`：表示后付费，即按量计费。默认：`POSTPAID`。
+     * @param string $InstanceMeteringType 计量模式,`BANDWIDTH`：表示带宽,即带宽计量模式，`TRAFFIC`：表示流量,即流量计量模式。
+     * @param string $BandwidthLimitType 限速类型，`OUTER_REGION_LIMIT`表示地域出口限速，`INTER_REGION_LIMIT`为地域间限速，默认为`OUTER_REGION_LIMIT`。预付费模式仅支持地域间限速，后付费模式支持地域间限速和地域出口限速。
      * @param array $Tags 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]
      */
     function __construct()
@@ -100,6 +108,10 @@ class CreateCcnRequest extends AbstractModel
 
         if (array_key_exists("InstanceChargeType",$param) and $param["InstanceChargeType"] !== null) {
             $this->InstanceChargeType = $param["InstanceChargeType"];
+        }
+
+        if (array_key_exists("InstanceMeteringType",$param) and $param["InstanceMeteringType"] !== null) {
+            $this->InstanceMeteringType = $param["InstanceMeteringType"];
         }
 
         if (array_key_exists("BandwidthLimitType",$param) and $param["BandwidthLimitType"] !== null) {

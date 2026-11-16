@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,18 +20,18 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeBatchTask请求参数结构体
  *
- * @method integer getJobId() 获取任务ID
- * @method void setJobId(integer $JobId) 设置任务ID
+ * @method integer getJobId() 获取任务ID。操作批量接口时会返回JobId
+ * @method void setJobId(integer $JobId) 设置任务ID。操作批量接口时会返回JobId
  */
 class DescribeBatchTaskRequest extends AbstractModel
 {
     /**
-     * @var integer 任务ID
+     * @var integer 任务ID。操作批量接口时会返回JobId
      */
     public $JobId;
 
     /**
-     * @param integer $JobId 任务ID
+     * @param integer $JobId 任务ID。操作批量接口时会返回JobId
      */
     function __construct()
     {

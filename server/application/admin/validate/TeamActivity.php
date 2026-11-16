@@ -74,7 +74,7 @@ class TeamActivity extends Validate
     // 添加场景
     public function sceneAdd()
     {
-        $this->remove('team_id');
+        $this->remove('team_id', true);
     }
 
     public function endTime($value, $rule, $data)

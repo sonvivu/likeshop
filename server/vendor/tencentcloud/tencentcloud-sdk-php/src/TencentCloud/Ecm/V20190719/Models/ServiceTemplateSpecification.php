@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@ namespace TencentCloud\Ecm\V20190719\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * 协议端口模版
+ * 协议端口模板
  *
  * @method string getServiceId() 获取协议端口ID，例如：eppm-f5n1f8da。
  * @method void setServiceId(string $ServiceId) 设置协议端口ID，例如：eppm-f5n1f8da。

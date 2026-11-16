@@ -46,7 +46,8 @@ class Login
             ]);
         }
 
-        if (strtolower($request->action()) === 'passwordkey') {
+        [$controller, $action] = $this->parseControllerAction($request);
+        if (strtolower($action) === 'passwordkey') {
             return $next($request);
         }
 
@@ -77,15 +78,41 @@ class Login
      */
     private function isNotNeedLogin($request)
     {
-        $data = app()->controller($request->controller())->like_not_need_login;
+        [$controller, $action] = $this->parseControllerAction($request);
+        $class = app()->parseClass('controller', $controller);
+        if (!class_exists($class)) {
+            return false;
+        }
+        // 直接读类默认属性，不实例化控制器（实例化会跑 AdminBase 构造，导致操作日志重复记录）。
+        $props = (new \ReflectionClass($class))->getDefaultProperties();
+        $data = $props['like_not_need_login'] ?? [];
         if (empty($data)) {
             return false;
         }
-        $action = strtolower($request->action());
         $data = array_map('strtolower', $data);
-        if (!in_array($action, $data)) {
+        if (!in_array(strtolower($action), $data)) {
             return false;
         }
         return true;
+    }
+
+    /**
+     * 从 pathinfo 解析当前控制器/操作。
+     * ThinkPHP 6：中间件运行时路由尚未分发，$request->controller()/$request->action()
+     * 为空；改为从 pathinfo 解析（MultiApp 已去掉模块段，如 account/login）。
+     * @return array [控制器名（StudlyCase）, 操作名]
+     */
+    private function parseControllerAction($request)
+    {
+        $segments = explode('/', trim($request->pathinfo(), '/'));
+        $controller = $segments[0] ?? '';
+        $action = $segments[1] ?? '';
+        $suffix = config('app.url_html_suffix');
+        if ($suffix && str_ends_with($action, '.' . $suffix)) {
+            $action = substr($action, 0, -strlen($suffix) - 1);
+        }
+        $controller = \think\helper\Str::studly($controller ?: config('app.default_controller'));
+        $action = $action ?: config('app.default_action');
+        return [$controller, $action];
     }
 }

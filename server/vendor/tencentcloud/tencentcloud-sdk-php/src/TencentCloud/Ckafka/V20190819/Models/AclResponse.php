@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,9 +23,7 @@ use TencentCloud\Common\AbstractModel;
  * @method integer getTotalCount() 获取符合条件的总数据条数
  * @method void setTotalCount(integer $TotalCount) 设置符合条件的总数据条数
  * @method array getAclList() 获取ACL列表
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setAclList(array $AclList) 设置ACL列表
-注意：此字段可能返回 null，表示取不到有效值。
  */
 class AclResponse extends AbstractModel
 {
@@ -36,14 +34,12 @@ class AclResponse extends AbstractModel
 
     /**
      * @var array ACL列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $AclList;
 
     /**
      * @param integer $TotalCount 符合条件的总数据条数
      * @param array $AclList ACL列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
     {

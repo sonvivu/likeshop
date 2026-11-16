@@ -19,7 +19,7 @@
 
 namespace app\api\validate;
 
-use think\Db;
+use think\facade\Db;
 use think\Validate;
 
 class Cart extends Validate
@@ -94,7 +94,7 @@ class Cart extends Validate
 
     protected function checkGoods($value, $rule, $data)
     {
-        $goods = Db::name('goods g')
+        $goods = Db::name('goods')->alias('g')
             ->field('g.status')
             ->join('goods_item i', 'i.goods_id = g.id')
             ->where(['i.id' => $value, 'g.del' => 0])

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,8 @@ use TencentCloud\Common\AbstractModel;
  * @method void setVpcId(string $VpcId) 设置子网所在私有网络`ID`。形如：`vpc-f49l6u0z`。
  * @method array getIpv6SubnetCidrBlocks() 获取分配 `IPv6` 子网段列表。
  * @method void setIpv6SubnetCidrBlocks(array $Ipv6SubnetCidrBlocks) 设置分配 `IPv6` 子网段列表。
+ * @method string getClientToken() 获取用于保证请求幂等性的字符串。该字符串由客户生成，需保证不同请求之间唯一，最大值不超过64个ASCII字符。若不指定该参数，则无法保证请求的幂等性。
+ * @method void setClientToken(string $ClientToken) 设置用于保证请求幂等性的字符串。该字符串由客户生成，需保证不同请求之间唯一，最大值不超过64个ASCII字符。若不指定该参数，则无法保证请求的幂等性。
  */
 class AssignIpv6SubnetCidrBlockRequest extends AbstractModel
 {
@@ -38,8 +40,14 @@ class AssignIpv6SubnetCidrBlockRequest extends AbstractModel
     public $Ipv6SubnetCidrBlocks;
 
     /**
+     * @var string 用于保证请求幂等性的字符串。该字符串由客户生成，需保证不同请求之间唯一，最大值不超过64个ASCII字符。若不指定该参数，则无法保证请求的幂等性。
+     */
+    public $ClientToken;
+
+    /**
      * @param string $VpcId 子网所在私有网络`ID`。形如：`vpc-f49l6u0z`。
      * @param array $Ipv6SubnetCidrBlocks 分配 `IPv6` 子网段列表。
+     * @param string $ClientToken 用于保证请求幂等性的字符串。该字符串由客户生成，需保证不同请求之间唯一，最大值不超过64个ASCII字符。若不指定该参数，则无法保证请求的幂等性。
      */
     function __construct()
     {
@@ -65,6 +73,10 @@ class AssignIpv6SubnetCidrBlockRequest extends AbstractModel
                 $obj->deserialize($value);
                 array_push($this->Ipv6SubnetCidrBlocks, $obj);
             }
+        }
+
+        if (array_key_exists("ClientToken",$param) and $param["ClientToken"] !== null) {
+            $this->ClientToken = $param["ClientToken"];
         }
     }
 }

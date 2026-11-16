@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,74 +20,110 @@ use TencentCloud\Common\AbstractModel;
 /**
  * Webhook 触发器
  *
- * @method string getName() 获取触发器名称
- * @method void setName(string $Name) 设置触发器名称
- * @method array getTargets() 获取触发器目标
- * @method void setTargets(array $Targets) 设置触发器目标
- * @method array getEventTypes() 获取触发动作
- * @method void setEventTypes(array $EventTypes) 设置触发动作
- * @method string getCondition() 获取触发规则
- * @method void setCondition(string $Condition) 设置触发规则
- * @method boolean getEnabled() 获取启用触发器
- * @method void setEnabled(boolean $Enabled) 设置启用触发器
- * @method integer getId() 获取触发器Id
- * @method void setId(integer $Id) 设置触发器Id
- * @method string getDescription() 获取触发器描述
- * @method void setDescription(string $Description) 设置触发器描述
- * @method integer getNamespaceId() 获取触发器所属命名空间 Id
- * @method void setNamespaceId(integer $NamespaceId) 设置触发器所属命名空间 Id
+ * @method string getName() 获取<p>触发器名称</p>
+ * @method void setName(string $Name) 设置<p>触发器名称</p>
+ * @method array getTargets() 获取<p>触发器目标</p>
+ * @method void setTargets(array $Targets) 设置<p>触发器目标</p>
+ * @method array getEventTypes() 获取<p>触发动作</p>
+ * @method void setEventTypes(array $EventTypes) 设置<p>触发动作</p>
+ * @method string getCondition() 获取<p>触发规则</p>
+ * @method void setCondition(string $Condition) 设置<p>触发规则</p>
+ * @method boolean getEnabled() 获取<p>启用触发器</p>
+ * @method void setEnabled(boolean $Enabled) 设置<p>启用触发器</p>
+ * @method integer getId() 获取<p>触发器Id</p>
+ * @method void setId(integer $Id) 设置<p>触发器Id</p>
+ * @method string getDescription() 获取<p>触发器描述</p>
+ * @method void setDescription(string $Description) 设置<p>触发器描述</p>
+ * @method integer getNamespaceId() 获取<p>触发器所属命名空间 Id</p>
+ * @method void setNamespaceId(integer $NamespaceId) 设置<p>触发器所属命名空间 Id</p>
+ * @method string getNamespaceName() 获取<p>触发器所属命名空间名称</p>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setNamespaceName(string $NamespaceName) 设置<p>触发器所属命名空间名称</p>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getProduct() 获取<p>触发器所属产品类型：ags 为镜像预热，apparate 为镜像加速，普通 webhook 为空</p>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setProduct(string $Product) 设置<p>触发器所属产品类型：ags 为镜像预热，apparate 为镜像加速，普通 webhook 为空</p>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getPreheatRegion() 获取<p>预热目标地域，AGS 镜像预热的目标地域，非 AGS 触发器为空</p>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setPreheatRegion(string $PreheatRegion) 设置<p>预热目标地域，AGS 镜像预热的目标地域，非 AGS 触发器为空</p>
+注意：此字段可能返回 null，表示取不到有效值。
  */
 class WebhookTrigger extends AbstractModel
 {
     /**
-     * @var string 触发器名称
+     * @var string <p>触发器名称</p>
      */
     public $Name;
 
     /**
-     * @var array 触发器目标
+     * @var array <p>触发器目标</p>
      */
     public $Targets;
 
     /**
-     * @var array 触发动作
+     * @var array <p>触发动作</p>
      */
     public $EventTypes;
 
     /**
-     * @var string 触发规则
+     * @var string <p>触发规则</p>
      */
     public $Condition;
 
     /**
-     * @var boolean 启用触发器
+     * @var boolean <p>启用触发器</p>
      */
     public $Enabled;
 
     /**
-     * @var integer 触发器Id
+     * @var integer <p>触发器Id</p>
      */
     public $Id;
 
     /**
-     * @var string 触发器描述
+     * @var string <p>触发器描述</p>
      */
     public $Description;
 
     /**
-     * @var integer 触发器所属命名空间 Id
+     * @var integer <p>触发器所属命名空间 Id</p>
      */
     public $NamespaceId;
 
     /**
-     * @param string $Name 触发器名称
-     * @param array $Targets 触发器目标
-     * @param array $EventTypes 触发动作
-     * @param string $Condition 触发规则
-     * @param boolean $Enabled 启用触发器
-     * @param integer $Id 触发器Id
-     * @param string $Description 触发器描述
-     * @param integer $NamespaceId 触发器所属命名空间 Id
+     * @var string <p>触发器所属命名空间名称</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $NamespaceName;
+
+    /**
+     * @var string <p>触发器所属产品类型：ags 为镜像预热，apparate 为镜像加速，普通 webhook 为空</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $Product;
+
+    /**
+     * @var string <p>预热目标地域，AGS 镜像预热的目标地域，非 AGS 触发器为空</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $PreheatRegion;
+
+    /**
+     * @param string $Name <p>触发器名称</p>
+     * @param array $Targets <p>触发器目标</p>
+     * @param array $EventTypes <p>触发动作</p>
+     * @param string $Condition <p>触发规则</p>
+     * @param boolean $Enabled <p>启用触发器</p>
+     * @param integer $Id <p>触发器Id</p>
+     * @param string $Description <p>触发器描述</p>
+     * @param integer $NamespaceId <p>触发器所属命名空间 Id</p>
+     * @param string $NamespaceName <p>触发器所属命名空间名称</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $Product <p>触发器所属产品类型：ags 为镜像预热，apparate 为镜像加速，普通 webhook 为空</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $PreheatRegion <p>预热目标地域，AGS 镜像预热的目标地域，非 AGS 触发器为空</p>
+注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
     {
@@ -137,6 +173,18 @@ class WebhookTrigger extends AbstractModel
 
         if (array_key_exists("NamespaceId",$param) and $param["NamespaceId"] !== null) {
             $this->NamespaceId = $param["NamespaceId"];
+        }
+
+        if (array_key_exists("NamespaceName",$param) and $param["NamespaceName"] !== null) {
+            $this->NamespaceName = $param["NamespaceName"];
+        }
+
+        if (array_key_exists("Product",$param) and $param["Product"] !== null) {
+            $this->Product = $param["Product"];
+        }
+
+        if (array_key_exists("PreheatRegion",$param) and $param["PreheatRegion"] !== null) {
+            $this->PreheatRegion = $param["PreheatRegion"];
         }
     }
 }

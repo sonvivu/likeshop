@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,18 +20,27 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeDBSecurityGroups请求参数结构体
  *
- * @method string getInstanceId() 获取实例组ID
- * @method void setInstanceId(string $InstanceId) 设置实例组ID
+ * @method string getInstanceId() 获取实例ID（InstanceId与InstanceGroupId必须任选一个传入）
+ * @method void setInstanceId(string $InstanceId) 设置实例ID（InstanceId与InstanceGroupId必须任选一个传入）
+ * @method string getInstanceGroupId() 获取实例组 ID，可通过 [DescribeClusterInstanceGroups](https://cloud.tencent.com/document/product/1003/103934) 接口查询。
+ * @method void setInstanceGroupId(string $InstanceGroupId) 设置实例组 ID，可通过 [DescribeClusterInstanceGroups](https://cloud.tencent.com/document/product/1003/103934) 接口查询。
  */
 class DescribeDBSecurityGroupsRequest extends AbstractModel
 {
     /**
-     * @var string 实例组ID
+     * @var string 实例ID（InstanceId与InstanceGroupId必须任选一个传入）
+     * @deprecated
      */
     public $InstanceId;
 
     /**
-     * @param string $InstanceId 实例组ID
+     * @var string 实例组 ID，可通过 [DescribeClusterInstanceGroups](https://cloud.tencent.com/document/product/1003/103934) 接口查询。
+     */
+    public $InstanceGroupId;
+
+    /**
+     * @param string $InstanceId 实例ID（InstanceId与InstanceGroupId必须任选一个传入）
+     * @param string $InstanceGroupId 实例组 ID，可通过 [DescribeClusterInstanceGroups](https://cloud.tencent.com/document/product/1003/103934) 接口查询。
      */
     function __construct()
     {
@@ -48,6 +57,10 @@ class DescribeDBSecurityGroupsRequest extends AbstractModel
         }
         if (array_key_exists("InstanceId",$param) and $param["InstanceId"] !== null) {
             $this->InstanceId = $param["InstanceId"];
+        }
+
+        if (array_key_exists("InstanceGroupId",$param) and $param["InstanceGroupId"] !== null) {
+            $this->InstanceGroupId = $param["InstanceGroupId"];
         }
     }
 }

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -39,7 +39,17 @@ use TencentCloud\Common\AbstractModel;
  * @method AudioTemplateInfoForUpdate getAudioTemplate() 获取音频流配置参数。
  * @method void setAudioTemplate(AudioTemplateInfoForUpdate $AudioTemplate) 设置音频流配置参数。
  * @method TEHDConfigForUpdate getTEHDConfig() 获取极速高清转码参数。
+注意：此字段可能返回 null，表示取不到有效值。
  * @method void setTEHDConfig(TEHDConfigForUpdate $TEHDConfig) 设置极速高清转码参数。
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method SubtitleTemplate getSubtitleTemplate() 获取字幕流配置参数。
+ * @method void setSubtitleTemplate(SubtitleTemplate $SubtitleTemplate) 设置字幕流配置参数。
+ * @method array getAddonAudioStream() 获取外挂音轨参数。
+ * @method void setAddonAudioStream(array $AddonAudioStream) 设置外挂音轨参数。
+ * @method string getStdExtInfo() 获取转码扩展字段。
+ * @method void setStdExtInfo(string $StdExtInfo) 设置转码扩展字段。
+ * @method array getAddOnSubtitles() 获取要插入的字幕文件。
+ * @method void setAddOnSubtitles(array $AddOnSubtitles) 设置要插入的字幕文件。
  */
 class OverrideTranscodeParameter extends AbstractModel
 {
@@ -74,8 +84,29 @@ class OverrideTranscodeParameter extends AbstractModel
 
     /**
      * @var TEHDConfigForUpdate 极速高清转码参数。
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public $TEHDConfig;
+
+    /**
+     * @var SubtitleTemplate 字幕流配置参数。
+     */
+    public $SubtitleTemplate;
+
+    /**
+     * @var array 外挂音轨参数。
+     */
+    public $AddonAudioStream;
+
+    /**
+     * @var string 转码扩展字段。
+     */
+    public $StdExtInfo;
+
+    /**
+     * @var array 要插入的字幕文件。
+     */
+    public $AddOnSubtitles;
 
     /**
      * @param string $Container 封装格式，可选值：mp4、flv、hls、mp3、flac、ogg、m4a。其中，mp3、flac、ogg、m4a 为纯音频文件。
@@ -88,6 +119,11 @@ class OverrideTranscodeParameter extends AbstractModel
      * @param VideoTemplateInfoForUpdate $VideoTemplate 视频流配置参数。
      * @param AudioTemplateInfoForUpdate $AudioTemplate 音频流配置参数。
      * @param TEHDConfigForUpdate $TEHDConfig 极速高清转码参数。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SubtitleTemplate $SubtitleTemplate 字幕流配置参数。
+     * @param array $AddonAudioStream 外挂音轨参数。
+     * @param string $StdExtInfo 转码扩展字段。
+     * @param array $AddOnSubtitles 要插入的字幕文件。
      */
     function __construct()
     {
@@ -127,6 +163,33 @@ class OverrideTranscodeParameter extends AbstractModel
         if (array_key_exists("TEHDConfig",$param) and $param["TEHDConfig"] !== null) {
             $this->TEHDConfig = new TEHDConfigForUpdate();
             $this->TEHDConfig->deserialize($param["TEHDConfig"]);
+        }
+
+        if (array_key_exists("SubtitleTemplate",$param) and $param["SubtitleTemplate"] !== null) {
+            $this->SubtitleTemplate = new SubtitleTemplate();
+            $this->SubtitleTemplate->deserialize($param["SubtitleTemplate"]);
+        }
+
+        if (array_key_exists("AddonAudioStream",$param) and $param["AddonAudioStream"] !== null) {
+            $this->AddonAudioStream = [];
+            foreach ($param["AddonAudioStream"] as $key => $value){
+                $obj = new MediaInputInfo();
+                $obj->deserialize($value);
+                array_push($this->AddonAudioStream, $obj);
+            }
+        }
+
+        if (array_key_exists("StdExtInfo",$param) and $param["StdExtInfo"] !== null) {
+            $this->StdExtInfo = $param["StdExtInfo"];
+        }
+
+        if (array_key_exists("AddOnSubtitles",$param) and $param["AddOnSubtitles"] !== null) {
+            $this->AddOnSubtitles = [];
+            foreach ($param["AddOnSubtitles"] as $key => $value){
+                $obj = new AddOnSubtitle();
+                $obj->deserialize($value);
+                array_push($this->AddOnSubtitles, $obj);
+            }
         }
     }
 }

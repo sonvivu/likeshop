@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,10 +22,18 @@ use TencentCloud\Common\AbstractModel;
  *
  * @method string getCcnId() 获取CCN实例ID。形如：ccn-f49l6u0z。
  * @method void setCcnId(string $CcnId) 设置CCN实例ID。形如：ccn-f49l6u0z。
- * @method string getCcnName() 获取CCN名称，最大长度不能超过60个字节。
- * @method void setCcnName(string $CcnName) 设置CCN名称，最大长度不能超过60个字节。
- * @method string getCcnDescription() 获取CCN描述信息，最大长度不能超过100个字节。
- * @method void setCcnDescription(string $CcnDescription) 设置CCN描述信息，最大长度不能超过100个字节。
+ * @method string getCcnName() 获取CCN名称，最大长度不能超过60个字节，限制：CcnName和CcnDescription必须至少选择一个参数输入，否则报错。
+ * @method void setCcnName(string $CcnName) 设置CCN名称，最大长度不能超过60个字节，限制：CcnName和CcnDescription必须至少选择一个参数输入，否则报错。
+ * @method string getCcnDescription() 获取CCN描述信息，最大长度不能超过100个字节，限制：CcnName和CcnDescription必须至少选择一个参数输入，否则报错。
+ * @method void setCcnDescription(string $CcnDescription) 设置CCN描述信息，最大长度不能超过100个字节，限制：CcnName和CcnDescription必须至少选择一个参数输入，否则报错。
+ * @method boolean getRouteECMPFlag() 获取是否开启等价路由功能。`False` 不开启，`True` 开启。
+ * @method void setRouteECMPFlag(boolean $RouteECMPFlag) 设置是否开启等价路由功能。`False` 不开启，`True` 开启。
+ * @method boolean getRouteOverlapFlag() 获取是否开启路由重叠功能。`False` 不开启，`True` 开启。
+ * @method void setRouteOverlapFlag(boolean $RouteOverlapFlag) 设置是否开启路由重叠功能。`False` 不开启，`True` 开启。
+ * @method boolean getTrafficMarkingPolicyFlag() 获取是否开启qos功能。`False` 不开启，`True` 开启。
+ * @method void setTrafficMarkingPolicyFlag(boolean $TrafficMarkingPolicyFlag) 设置是否开启qos功能。`False` 不开启，`True` 开启。
+ * @method boolean getMixedBillingFlag() 获取是否切换为混合计费
+ * @method void setMixedBillingFlag(boolean $MixedBillingFlag) 设置是否切换为混合计费
  */
 class ModifyCcnAttributeRequest extends AbstractModel
 {
@@ -35,19 +43,43 @@ class ModifyCcnAttributeRequest extends AbstractModel
     public $CcnId;
 
     /**
-     * @var string CCN名称，最大长度不能超过60个字节。
+     * @var string CCN名称，最大长度不能超过60个字节，限制：CcnName和CcnDescription必须至少选择一个参数输入，否则报错。
      */
     public $CcnName;
 
     /**
-     * @var string CCN描述信息，最大长度不能超过100个字节。
+     * @var string CCN描述信息，最大长度不能超过100个字节，限制：CcnName和CcnDescription必须至少选择一个参数输入，否则报错。
      */
     public $CcnDescription;
 
     /**
+     * @var boolean 是否开启等价路由功能。`False` 不开启，`True` 开启。
+     */
+    public $RouteECMPFlag;
+
+    /**
+     * @var boolean 是否开启路由重叠功能。`False` 不开启，`True` 开启。
+     */
+    public $RouteOverlapFlag;
+
+    /**
+     * @var boolean 是否开启qos功能。`False` 不开启，`True` 开启。
+     */
+    public $TrafficMarkingPolicyFlag;
+
+    /**
+     * @var boolean 是否切换为混合计费
+     */
+    public $MixedBillingFlag;
+
+    /**
      * @param string $CcnId CCN实例ID。形如：ccn-f49l6u0z。
-     * @param string $CcnName CCN名称，最大长度不能超过60个字节。
-     * @param string $CcnDescription CCN描述信息，最大长度不能超过100个字节。
+     * @param string $CcnName CCN名称，最大长度不能超过60个字节，限制：CcnName和CcnDescription必须至少选择一个参数输入，否则报错。
+     * @param string $CcnDescription CCN描述信息，最大长度不能超过100个字节，限制：CcnName和CcnDescription必须至少选择一个参数输入，否则报错。
+     * @param boolean $RouteECMPFlag 是否开启等价路由功能。`False` 不开启，`True` 开启。
+     * @param boolean $RouteOverlapFlag 是否开启路由重叠功能。`False` 不开启，`True` 开启。
+     * @param boolean $TrafficMarkingPolicyFlag 是否开启qos功能。`False` 不开启，`True` 开启。
+     * @param boolean $MixedBillingFlag 是否切换为混合计费
      */
     function __construct()
     {
@@ -72,6 +104,22 @@ class ModifyCcnAttributeRequest extends AbstractModel
 
         if (array_key_exists("CcnDescription",$param) and $param["CcnDescription"] !== null) {
             $this->CcnDescription = $param["CcnDescription"];
+        }
+
+        if (array_key_exists("RouteECMPFlag",$param) and $param["RouteECMPFlag"] !== null) {
+            $this->RouteECMPFlag = $param["RouteECMPFlag"];
+        }
+
+        if (array_key_exists("RouteOverlapFlag",$param) and $param["RouteOverlapFlag"] !== null) {
+            $this->RouteOverlapFlag = $param["RouteOverlapFlag"];
+        }
+
+        if (array_key_exists("TrafficMarkingPolicyFlag",$param) and $param["TrafficMarkingPolicyFlag"] !== null) {
+            $this->TrafficMarkingPolicyFlag = $param["TrafficMarkingPolicyFlag"];
+        }
+
+        if (array_key_exists("MixedBillingFlag",$param) and $param["MixedBillingFlag"] !== null) {
+            $this->MixedBillingFlag = $param["MixedBillingFlag"];
         }
     }
 }

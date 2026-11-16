@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,25 +21,33 @@ use TencentCloud\Common\AbstractModel;
  * OCR识别结果详情
  *
  * @method array getItem() 获取识别到的详细信息
+注意：此字段可能返回 null，表示取不到有效值。
  * @method void setItem(array $Item) 设置识别到的详细信息
+注意：此字段可能返回 null，表示取不到有效值。
  * @method string getTextInfo() 获取识别到的文本信息
+注意：此字段可能返回 null，表示取不到有效值。
  * @method void setTextInfo(string $TextInfo) 设置识别到的文本信息
+注意：此字段可能返回 null，表示取不到有效值。
  */
 class OCRDetect extends AbstractModel
 {
     /**
      * @var array 识别到的详细信息
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Item;
 
     /**
      * @var string 识别到的文本信息
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public $TextInfo;
 
     /**
      * @param array $Item 识别到的详细信息
+注意：此字段可能返回 null，表示取不到有效值。
      * @param string $TextInfo 识别到的文本信息
+注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
     {

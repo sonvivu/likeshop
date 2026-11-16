@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,18 +20,18 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DeleteLaunchConfiguration请求参数结构体
  *
- * @method string getLaunchConfigurationId() 获取需要删除的启动配置ID。
- * @method void setLaunchConfigurationId(string $LaunchConfigurationId) 设置需要删除的启动配置ID。
+ * @method string getLaunchConfigurationId() 获取需要删除的启动配置ID。可通过登录 [控制台](https://console.cloud.tencent.com/autoscaling/config) 或调用接口 [DescribeLaunchConfigurations](https://cloud.tencent.com/document/api/377/20445) ，取返回信息中的 LaunchConfigurationId 获取启动配置ID。
+ * @method void setLaunchConfigurationId(string $LaunchConfigurationId) 设置需要删除的启动配置ID。可通过登录 [控制台](https://console.cloud.tencent.com/autoscaling/config) 或调用接口 [DescribeLaunchConfigurations](https://cloud.tencent.com/document/api/377/20445) ，取返回信息中的 LaunchConfigurationId 获取启动配置ID。
  */
 class DeleteLaunchConfigurationRequest extends AbstractModel
 {
     /**
-     * @var string 需要删除的启动配置ID。
+     * @var string 需要删除的启动配置ID。可通过登录 [控制台](https://console.cloud.tencent.com/autoscaling/config) 或调用接口 [DescribeLaunchConfigurations](https://cloud.tencent.com/document/api/377/20445) ，取返回信息中的 LaunchConfigurationId 获取启动配置ID。
      */
     public $LaunchConfigurationId;
 
     /**
-     * @param string $LaunchConfigurationId 需要删除的启动配置ID。
+     * @param string $LaunchConfigurationId 需要删除的启动配置ID。可通过登录 [控制台](https://console.cloud.tencent.com/autoscaling/config) 或调用接口 [DescribeLaunchConfigurations](https://cloud.tencent.com/document/api/377/20445) ，取返回信息中的 LaunchConfigurationId 获取启动配置ID。
      */
     function __construct()
     {

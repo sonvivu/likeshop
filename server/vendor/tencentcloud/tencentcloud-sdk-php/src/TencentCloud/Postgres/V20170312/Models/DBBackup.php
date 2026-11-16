@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -42,6 +42,8 @@ use TencentCloud\Common\AbstractModel;
  * @method void setInternalAddr(string $InternalAddr) 设置内网下载地址
  * @method string getExternalAddr() 获取外网下载地址
  * @method void setExternalAddr(string $ExternalAddr) 设置外网下载地址
+ * @method string getSetId() 获取备份集ID
+ * @method void setSetId(string $SetId) 设置备份集ID
  */
 class DBBackup extends AbstractModel
 {
@@ -101,6 +103,11 @@ class DBBackup extends AbstractModel
     public $ExternalAddr;
 
     /**
+     * @var string 备份集ID
+     */
+    public $SetId;
+
+    /**
      * @param integer $Id 备份文件唯一标识
      * @param string $StartTime 文件生成的开始时间
      * @param string $EndTime 文件生成的结束时间
@@ -112,6 +119,7 @@ class DBBackup extends AbstractModel
      * @param array $DbList DB列表
      * @param string $InternalAddr 内网下载地址
      * @param string $ExternalAddr 外网下载地址
+     * @param string $SetId 备份集ID
      */
     function __construct()
     {
@@ -168,6 +176,10 @@ class DBBackup extends AbstractModel
 
         if (array_key_exists("ExternalAddr",$param) and $param["ExternalAddr"] !== null) {
             $this->ExternalAddr = $param["ExternalAddr"];
+        }
+
+        if (array_key_exists("SetId",$param) and $param["SetId"] !== null) {
+            $this->SetId = $param["SetId"];
         }
     }
 }

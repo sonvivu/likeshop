@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,74 +20,91 @@ use TencentCloud\Common\AbstractModel;
 /**
  * zone信息实体
  *
- * @method string getZoneId() 获取zone的id
- * @method void setZoneId(string $ZoneId) 设置zone的id
- * @method integer getIsInternalApp() 获取是否内部APP
- * @method void setIsInternalApp(integer $IsInternalApp) 设置是否内部APP
- * @method integer getAppId() 获取app id
- * @method void setAppId(integer $AppId) 设置app id
- * @method boolean getFlag() 获取标识
- * @method void setFlag(boolean $Flag) 设置标识
- * @method string getZoneName() 获取zone名称
- * @method void setZoneName(string $ZoneName) 设置zone名称
- * @method integer getZoneStatus() 获取zone状态
- * @method void setZoneStatus(integer $ZoneStatus) 设置zone状态
- * @method string getExflag() 获取额外标识
- * @method void setExflag(string $Exflag) 设置额外标识
- * @method string getSoldOut() 获取json对象，key为机型，value true为售罄，false为未售罄
- * @method void setSoldOut(string $SoldOut) 设置json对象，key为机型，value true为售罄，false为未售罄
+ * @method string getZoneId() 获取<p>可用区</p>
+ * @method void setZoneId(string $ZoneId) 设置<p>可用区</p>
+ * @method integer getIsInternalApp() 获取<p>是否内部APP</p><p>枚举值：</p><ul><li>0： 外部</li><li>1： 内部</li></ul><p>默认值：0</p>
+ * @method void setIsInternalApp(integer $IsInternalApp) 设置<p>是否内部APP</p><p>枚举值：</p><ul><li>0： 外部</li><li>1： 内部</li></ul><p>默认值：0</p>
+ * @method integer getAppId() 获取<p>应用标识</p>
+ * @method void setAppId(integer $AppId) 设置<p>应用标识</p>
+ * @method boolean getFlag() 获取<p>可用区是否售罄标识，true表示已售罄，false表示未售罄。</p>
+ * @method void setFlag(boolean $Flag) 设置<p>可用区是否售罄标识，true表示已售罄，false表示未售罄。</p>
+ * @method string getZoneName() 获取<p>可用区名称</p>
+ * @method void setZoneName(string $ZoneName) 设置<p>可用区名称</p>
+ * @method integer getZoneStatus() 获取<p>可用区状态</p><p>枚举值：</p><ul><li>3： 开启</li><li>4： 关闭</li></ul><p>可用区状态以SoldOut为准</p>
+ * @method void setZoneStatus(integer $ZoneStatus) 设置<p>可用区状态</p><p>枚举值：</p><ul><li>3： 开启</li><li>4： 关闭</li></ul><p>可用区状态以SoldOut为准</p>
+ * @method string getExflag() 获取<p>额外标识</p>
+ * @method void setExflag(string $Exflag) 设置<p>额外标识</p>
+ * @method string getSoldOut() 获取<p>true为售罄，false为未售罄</p>
+ * @method void setSoldOut(string $SoldOut) 设置<p>true为售罄，false为未售罄</p>
+ * @method array getSalesInfo() 获取<p>标准版售罄信息</p>
+ * @method void setSalesInfo(array $SalesInfo) 设置<p>标准版售罄信息</p>
+ * @method string getExtraFlag() 获取<p>额外标识</p>
+ * @method void setExtraFlag(string $ExtraFlag) 设置<p>额外标识</p>
  */
 class ZoneInfo extends AbstractModel
 {
     /**
-     * @var string zone的id
+     * @var string <p>可用区</p>
      */
     public $ZoneId;
 
     /**
-     * @var integer 是否内部APP
+     * @var integer <p>是否内部APP</p><p>枚举值：</p><ul><li>0： 外部</li><li>1： 内部</li></ul><p>默认值：0</p>
      */
     public $IsInternalApp;
 
     /**
-     * @var integer app id
+     * @var integer <p>应用标识</p>
      */
     public $AppId;
 
     /**
-     * @var boolean 标识
+     * @var boolean <p>可用区是否售罄标识，true表示已售罄，false表示未售罄。</p>
      */
     public $Flag;
 
     /**
-     * @var string zone名称
+     * @var string <p>可用区名称</p>
      */
     public $ZoneName;
 
     /**
-     * @var integer zone状态
+     * @var integer <p>可用区状态</p><p>枚举值：</p><ul><li>3： 开启</li><li>4： 关闭</li></ul><p>可用区状态以SoldOut为准</p>
      */
     public $ZoneStatus;
 
     /**
-     * @var string 额外标识
+     * @var string <p>额外标识</p>
+     * @deprecated
      */
     public $Exflag;
 
     /**
-     * @var string json对象，key为机型，value true为售罄，false为未售罄
+     * @var string <p>true为售罄，false为未售罄</p>
      */
     public $SoldOut;
 
     /**
-     * @param string $ZoneId zone的id
-     * @param integer $IsInternalApp 是否内部APP
-     * @param integer $AppId app id
-     * @param boolean $Flag 标识
-     * @param string $ZoneName zone名称
-     * @param integer $ZoneStatus zone状态
-     * @param string $Exflag 额外标识
-     * @param string $SoldOut json对象，key为机型，value true为售罄，false为未售罄
+     * @var array <p>标准版售罄信息</p>
+     */
+    public $SalesInfo;
+
+    /**
+     * @var string <p>额外标识</p>
+     */
+    public $ExtraFlag;
+
+    /**
+     * @param string $ZoneId <p>可用区</p>
+     * @param integer $IsInternalApp <p>是否内部APP</p><p>枚举值：</p><ul><li>0： 外部</li><li>1： 内部</li></ul><p>默认值：0</p>
+     * @param integer $AppId <p>应用标识</p>
+     * @param boolean $Flag <p>可用区是否售罄标识，true表示已售罄，false表示未售罄。</p>
+     * @param string $ZoneName <p>可用区名称</p>
+     * @param integer $ZoneStatus <p>可用区状态</p><p>枚举值：</p><ul><li>3： 开启</li><li>4： 关闭</li></ul><p>可用区状态以SoldOut为准</p>
+     * @param string $Exflag <p>额外标识</p>
+     * @param string $SoldOut <p>true为售罄，false为未售罄</p>
+     * @param array $SalesInfo <p>标准版售罄信息</p>
+     * @param string $ExtraFlag <p>额外标识</p>
      */
     function __construct()
     {
@@ -132,6 +149,19 @@ class ZoneInfo extends AbstractModel
 
         if (array_key_exists("SoldOut",$param) and $param["SoldOut"] !== null) {
             $this->SoldOut = $param["SoldOut"];
+        }
+
+        if (array_key_exists("SalesInfo",$param) and $param["SalesInfo"] !== null) {
+            $this->SalesInfo = [];
+            foreach ($param["SalesInfo"] as $key => $value){
+                $obj = new SaleInfo();
+                $obj->deserialize($value);
+                array_push($this->SalesInfo, $obj);
+            }
+        }
+
+        if (array_key_exists("ExtraFlag",$param) and $param["ExtraFlag"] !== null) {
+            $this->ExtraFlag = $param["ExtraFlag"];
         }
     }
 }
