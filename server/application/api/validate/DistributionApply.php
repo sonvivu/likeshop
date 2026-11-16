@@ -21,7 +21,7 @@
 namespace app\api\validate;
 
 
-use think\Db;
+use think\facade\Db;
 use think\Validate;
 
 class DistributionApply extends Validate

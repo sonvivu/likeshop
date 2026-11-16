@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,9 +31,9 @@ use TencentCloud\Common\AbstractModel;
  * @method string getTagValueMd5() 获取标签值MD5值
  * @method void setTagValueMd5(string $TagValueMd5) 设置标签值MD5值
  * @method string getServiceType() 获取资源类型
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setServiceType(string $ServiceType) 设置资源类型
-注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getCategory() 获取标签类型。取值： Custom：自定义标签。 System：系统标签。
+ * @method void setCategory(string $Category) 设置标签类型。取值： Custom：自定义标签。 System：系统标签。
  */
 class TagResource extends AbstractModel
 {
@@ -64,9 +64,13 @@ class TagResource extends AbstractModel
 
     /**
      * @var string 资源类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $ServiceType;
+
+    /**
+     * @var string 标签类型。取值： Custom：自定义标签。 System：系统标签。
+     */
+    public $Category;
 
     /**
      * @param string $TagKey 标签键
@@ -75,7 +79,7 @@ class TagResource extends AbstractModel
      * @param string $TagKeyMd5 标签键MD5值
      * @param string $TagValueMd5 标签值MD5值
      * @param string $ServiceType 资源类型
-注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $Category 标签类型。取值： Custom：自定义标签。 System：系统标签。
      */
     function __construct()
     {
@@ -112,6 +116,10 @@ class TagResource extends AbstractModel
 
         if (array_key_exists("ServiceType",$param) and $param["ServiceType"] !== null) {
             $this->ServiceType = $param["ServiceType"];
+        }
+
+        if (array_key_exists("Category",$param) and $param["Category"] !== null) {
+            $this->Category = $param["Category"];
         }
     }
 }

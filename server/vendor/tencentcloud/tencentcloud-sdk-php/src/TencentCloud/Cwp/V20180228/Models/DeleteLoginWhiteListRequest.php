@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,18 +20,18 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DeleteLoginWhiteList请求参数结构体
  *
- * @method array getIds() 获取白名单ID
- * @method void setIds(array $Ids) 设置白名单ID
+ * @method array getIds() 获取<p>白名单ID (最大 100 条)</p>
+ * @method void setIds(array $Ids) 设置<p>白名单ID (最大 100 条)</p>
  */
 class DeleteLoginWhiteListRequest extends AbstractModel
 {
     /**
-     * @var array 白名单ID
+     * @var array <p>白名单ID (最大 100 条)</p>
      */
     public $Ids;
 
     /**
-     * @param array $Ids 白名单ID
+     * @param array $Ids <p>白名单ID (最大 100 条)</p>
      */
     function __construct()
     {

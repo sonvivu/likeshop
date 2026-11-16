@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,6 +46,12 @@ use TencentCloud\Common\AbstractModel;
  * @method void setBindStatus(string $BindStatus) 设置触发器和云函数绑定状态
  * @method string getTriggerAttribute() 获取触发器类型，双向表示两侧控制台均可操作，单向表示SCF控制台单向创建
  * @method void setTriggerAttribute(string $TriggerAttribute) 设置触发器类型，双向表示两侧控制台均可操作，单向表示SCF控制台单向创建
+ * @method string getDescription() 获取客户自定义触发器描述
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setDescription(string $Description) 设置客户自定义触发器描述
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getBoundResources() 获取与此触发器关联的资源。目前仅函数URL关联的自定义域名会返回
+ * @method void setBoundResources(string $BoundResources) 设置与此触发器关联的资源。目前仅函数URL关联的自定义域名会返回
  */
 class TriggerInfo extends AbstractModel
 {
@@ -97,18 +103,32 @@ class TriggerInfo extends AbstractModel
 
     /**
      * @var string 触发器最小资源ID
+     * @deprecated
      */
     public $ResourceId;
 
     /**
      * @var string 触发器和云函数绑定状态
+     * @deprecated
      */
     public $BindStatus;
 
     /**
      * @var string 触发器类型，双向表示两侧控制台均可操作，单向表示SCF控制台单向创建
+     * @deprecated
      */
     public $TriggerAttribute;
+
+    /**
+     * @var string 客户自定义触发器描述
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $Description;
+
+    /**
+     * @var string 与此触发器关联的资源。目前仅函数URL关联的自定义域名会返回
+     */
+    public $BoundResources;
 
     /**
      * @param integer $Enable 使能开关
@@ -124,6 +144,9 @@ class TriggerInfo extends AbstractModel
      * @param string $ResourceId 触发器最小资源ID
      * @param string $BindStatus 触发器和云函数绑定状态
      * @param string $TriggerAttribute 触发器类型，双向表示两侧控制台均可操作，单向表示SCF控制台单向创建
+     * @param string $Description 客户自定义触发器描述
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $BoundResources 与此触发器关联的资源。目前仅函数URL关联的自定义域名会返回
      */
     function __construct()
     {
@@ -184,6 +207,14 @@ class TriggerInfo extends AbstractModel
 
         if (array_key_exists("TriggerAttribute",$param) and $param["TriggerAttribute"] !== null) {
             $this->TriggerAttribute = $param["TriggerAttribute"];
+        }
+
+        if (array_key_exists("Description",$param) and $param["Description"] !== null) {
+            $this->Description = $param["Description"];
+        }
+
+        if (array_key_exists("BoundResources",$param) and $param["BoundResources"] !== null) {
+            $this->BoundResources = $param["BoundResources"];
         }
     }
 }

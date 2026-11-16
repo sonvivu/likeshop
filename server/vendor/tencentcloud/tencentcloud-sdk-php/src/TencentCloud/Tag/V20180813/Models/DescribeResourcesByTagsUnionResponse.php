@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,50 +20,50 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeResourcesByTagsUnion返回参数结构体
  *
- * @method integer getTotalCount() 获取结果总数
- * @method void setTotalCount(integer $TotalCount) 设置结果总数
- * @method integer getOffset() 获取数据位移偏量
- * @method void setOffset(integer $Offset) 设置数据位移偏量
- * @method integer getLimit() 获取每页大小
- * @method void setLimit(integer $Limit) 设置每页大小
- * @method array getRows() 获取资源标签
- * @method void setRows(array $Rows) 设置资源标签
- * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
- * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method integer getTotalCount() 获取<p>结果总数</p>
+ * @method void setTotalCount(integer $TotalCount) 设置<p>结果总数</p>
+ * @method integer getOffset() 获取<p>数据位移偏量</p>
+ * @method void setOffset(integer $Offset) 设置<p>数据位移偏量</p>
+ * @method integer getLimit() 获取<p>每页大小</p>
+ * @method void setLimit(integer $Limit) 设置<p>每页大小</p>
+ * @method array getRows() 获取<p>资源标签</p>
+ * @method void setRows(array $Rows) 设置<p>资源标签</p>
+ * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+ * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
 class DescribeResourcesByTagsUnionResponse extends AbstractModel
 {
     /**
-     * @var integer 结果总数
+     * @var integer <p>结果总数</p>
      */
     public $TotalCount;
 
     /**
-     * @var integer 数据位移偏量
+     * @var integer <p>数据位移偏量</p>
      */
     public $Offset;
 
     /**
-     * @var integer 每页大小
+     * @var integer <p>每页大小</p>
      */
     public $Limit;
 
     /**
-     * @var array 资源标签
+     * @var array <p>资源标签</p>
      */
     public $Rows;
 
     /**
-     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public $RequestId;
 
     /**
-     * @param integer $TotalCount 结果总数
-     * @param integer $Offset 数据位移偏量
-     * @param integer $Limit 每页大小
-     * @param array $Rows 资源标签
-     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @param integer $TotalCount <p>结果总数</p>
+     * @param integer $Offset <p>数据位移偏量</p>
+     * @param integer $Limit <p>每页大小</p>
+     * @param array $Rows <p>资源标签</p>
+     * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
     {

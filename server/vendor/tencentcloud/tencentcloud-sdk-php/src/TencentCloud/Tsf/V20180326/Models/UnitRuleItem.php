@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,6 +47,18 @@ use TencentCloud\Common\AbstractModel;
  * @method array getUnitRuleTagList() 获取规则标签列表
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setUnitRuleTagList(array $UnitRuleTagList) 设置规则标签列表
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method integer getItemIndex() 获取规则项索引
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setItemIndex(integer $ItemIndex) 设置规则项索引
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getCreatedTime() 获取创建时间
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setCreatedTime(string $CreatedTime) 设置创建时间
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getUpdatedTime() 获取修改时间
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setUpdatedTime(string $UpdatedTime) 设置修改时间
 注意：此字段可能返回 null，表示取不到有效值。
  */
 class UnitRuleItem extends AbstractModel
@@ -102,6 +114,24 @@ class UnitRuleItem extends AbstractModel
     public $UnitRuleTagList;
 
     /**
+     * @var integer 规则项索引
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $ItemIndex;
+
+    /**
+     * @var string 创建时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $CreatedTime;
+
+    /**
+     * @var string 修改时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $UpdatedTime;
+
+    /**
      * @param string $Relationship 逻辑关系：AND/OR
      * @param string $DestNamespaceId 目的地命名空间ID
      * @param string $DestNamespaceName 目的地命名空间名称
@@ -115,6 +145,12 @@ class UnitRuleItem extends AbstractModel
      * @param string $Description 规则描述
 注意：此字段可能返回 null，表示取不到有效值。
      * @param array $UnitRuleTagList 规则标签列表
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param integer $ItemIndex 规则项索引
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $CreatedTime 创建时间
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $UpdatedTime 修改时间
 注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
@@ -169,6 +205,18 @@ class UnitRuleItem extends AbstractModel
                 $obj->deserialize($value);
                 array_push($this->UnitRuleTagList, $obj);
             }
+        }
+
+        if (array_key_exists("ItemIndex",$param) and $param["ItemIndex"] !== null) {
+            $this->ItemIndex = $param["ItemIndex"];
+        }
+
+        if (array_key_exists("CreatedTime",$param) and $param["CreatedTime"] !== null) {
+            $this->CreatedTime = $param["CreatedTime"];
+        }
+
+        if (array_key_exists("UpdatedTime",$param) and $param["UpdatedTime"] !== null) {
+            $this->UpdatedTime = $param["UpdatedTime"];
         }
     }
 }

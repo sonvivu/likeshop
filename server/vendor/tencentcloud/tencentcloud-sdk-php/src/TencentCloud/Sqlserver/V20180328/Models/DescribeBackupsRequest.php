@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,12 +34,20 @@ use TencentCloud\Common\AbstractModel;
  * @method void setBackupName(string $BackupName) 设置按照备份名称筛选，不填则不筛选此项
  * @method integer getStrategy() 获取按照备份策略筛选，0-实例备份，1-多库备份，不填则不筛选此项
  * @method void setStrategy(integer $Strategy) 设置按照备份策略筛选，0-实例备份，1-多库备份，不填则不筛选此项
- * @method integer getBackupWay() 获取按照备份方式筛选，0-后台自动定时备份，1-用户手动临时备份，不填则不筛选此项
- * @method void setBackupWay(integer $BackupWay) 设置按照备份方式筛选，0-后台自动定时备份，1-用户手动临时备份，不填则不筛选此项
+ * @method integer getBackupWay() 获取按照备份方式筛选，0-后台自动定时备份，1-用户手动临时备份，2-定期备份，不填则不筛选此项
+ * @method void setBackupWay(integer $BackupWay) 设置按照备份方式筛选，0-后台自动定时备份，1-用户手动临时备份，2-定期备份，不填则不筛选此项
  * @method integer getBackupId() 获取按照备份ID筛选，不填则不筛选此项
  * @method void setBackupId(integer $BackupId) 设置按照备份ID筛选，不填则不筛选此项
  * @method string getDatabaseName() 获取按照备份的库名称筛选，不填则不筛选此项
  * @method void setDatabaseName(string $DatabaseName) 设置按照备份的库名称筛选，不填则不筛选此项
+ * @method integer getGroup() 获取是否分组查询，默认是0，单库备份情况下 0-兼容老方式不分组，1-单库备份分组后展示
+ * @method void setGroup(integer $Group) 设置是否分组查询，默认是0，单库备份情况下 0-兼容老方式不分组，1-单库备份分组后展示
+ * @method integer getType() 获取备份类型，1-数据备份，2-日志备份，默认值为1
+ * @method void setType(integer $Type) 设置备份类型，1-数据备份，2-日志备份，默认值为1
+ * @method string getBackupFormat() 获取按照备份文件形式筛选，pkg-打包备份文件，single-单库备份文件
+ * @method void setBackupFormat(string $BackupFormat) 设置按照备份文件形式筛选，pkg-打包备份文件，single-单库备份文件
+ * @method integer getStorageStrategy() 获取备份存储策略 0-跟随自定义备份保留策略 1-跟随实例生命周期直到实例下线，默认取值0
+ * @method void setStorageStrategy(integer $StorageStrategy) 设置备份存储策略 0-跟随自定义备份保留策略 1-跟随实例生命周期直到实例下线，默认取值0
  */
 class DescribeBackupsRequest extends AbstractModel
 {
@@ -79,7 +87,7 @@ class DescribeBackupsRequest extends AbstractModel
     public $Strategy;
 
     /**
-     * @var integer 按照备份方式筛选，0-后台自动定时备份，1-用户手动临时备份，不填则不筛选此项
+     * @var integer 按照备份方式筛选，0-后台自动定时备份，1-用户手动临时备份，2-定期备份，不填则不筛选此项
      */
     public $BackupWay;
 
@@ -94,6 +102,26 @@ class DescribeBackupsRequest extends AbstractModel
     public $DatabaseName;
 
     /**
+     * @var integer 是否分组查询，默认是0，单库备份情况下 0-兼容老方式不分组，1-单库备份分组后展示
+     */
+    public $Group;
+
+    /**
+     * @var integer 备份类型，1-数据备份，2-日志备份，默认值为1
+     */
+    public $Type;
+
+    /**
+     * @var string 按照备份文件形式筛选，pkg-打包备份文件，single-单库备份文件
+     */
+    public $BackupFormat;
+
+    /**
+     * @var integer 备份存储策略 0-跟随自定义备份保留策略 1-跟随实例生命周期直到实例下线，默认取值0
+     */
+    public $StorageStrategy;
+
+    /**
      * @param string $StartTime 开始时间(yyyy-MM-dd HH:mm:ss)
      * @param string $EndTime 结束时间(yyyy-MM-dd HH:mm:ss)
      * @param string $InstanceId 实例ID，形如mssql-njj2mtpl
@@ -101,9 +129,13 @@ class DescribeBackupsRequest extends AbstractModel
      * @param integer $Offset 分页返回，页编号，默认值为第0页
      * @param string $BackupName 按照备份名称筛选，不填则不筛选此项
      * @param integer $Strategy 按照备份策略筛选，0-实例备份，1-多库备份，不填则不筛选此项
-     * @param integer $BackupWay 按照备份方式筛选，0-后台自动定时备份，1-用户手动临时备份，不填则不筛选此项
+     * @param integer $BackupWay 按照备份方式筛选，0-后台自动定时备份，1-用户手动临时备份，2-定期备份，不填则不筛选此项
      * @param integer $BackupId 按照备份ID筛选，不填则不筛选此项
      * @param string $DatabaseName 按照备份的库名称筛选，不填则不筛选此项
+     * @param integer $Group 是否分组查询，默认是0，单库备份情况下 0-兼容老方式不分组，1-单库备份分组后展示
+     * @param integer $Type 备份类型，1-数据备份，2-日志备份，默认值为1
+     * @param string $BackupFormat 按照备份文件形式筛选，pkg-打包备份文件，single-单库备份文件
+     * @param integer $StorageStrategy 备份存储策略 0-跟随自定义备份保留策略 1-跟随实例生命周期直到实例下线，默认取值0
      */
     function __construct()
     {
@@ -156,6 +188,22 @@ class DescribeBackupsRequest extends AbstractModel
 
         if (array_key_exists("DatabaseName",$param) and $param["DatabaseName"] !== null) {
             $this->DatabaseName = $param["DatabaseName"];
+        }
+
+        if (array_key_exists("Group",$param) and $param["Group"] !== null) {
+            $this->Group = $param["Group"];
+        }
+
+        if (array_key_exists("Type",$param) and $param["Type"] !== null) {
+            $this->Type = $param["Type"];
+        }
+
+        if (array_key_exists("BackupFormat",$param) and $param["BackupFormat"] !== null) {
+            $this->BackupFormat = $param["BackupFormat"];
+        }
+
+        if (array_key_exists("StorageStrategy",$param) and $param["StorageStrategy"] !== null) {
+            $this->StorageStrategy = $param["StorageStrategy"];
         }
     }
 }

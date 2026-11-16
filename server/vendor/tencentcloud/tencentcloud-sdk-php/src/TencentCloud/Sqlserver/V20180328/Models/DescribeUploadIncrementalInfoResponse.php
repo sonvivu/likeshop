@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,8 +36,10 @@ use TencentCloud\Common\AbstractModel;
  * @method void setStartTime(string $StartTime) 设置临时密钥开始时间
  * @method string getExpiredTime() 获取临时密钥到期时间
  * @method void setExpiredTime(string $ExpiredTime) 设置临时密钥到期时间
- * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
- * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method string getCosSecurityToken() 获取临时密钥Token
+ * @method void setCosSecurityToken(string $CosSecurityToken) 设置临时密钥Token
+ * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+ * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
 class DescribeUploadIncrementalInfoResponse extends AbstractModel
 {
@@ -68,6 +70,7 @@ class DescribeUploadIncrementalInfoResponse extends AbstractModel
 
     /**
      * @var string 临时密钥Token
+     * @deprecated
      */
     public $XCosSecurityToken;
 
@@ -82,7 +85,12 @@ class DescribeUploadIncrementalInfoResponse extends AbstractModel
     public $ExpiredTime;
 
     /**
-     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @var string 临时密钥Token
+     */
+    public $CosSecurityToken;
+
+    /**
+     * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public $RequestId;
 
@@ -95,7 +103,8 @@ class DescribeUploadIncrementalInfoResponse extends AbstractModel
      * @param string $XCosSecurityToken 临时密钥Token
      * @param string $StartTime 临时密钥开始时间
      * @param string $ExpiredTime 临时密钥到期时间
-     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @param string $CosSecurityToken 临时密钥Token
+     * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
     {
@@ -140,6 +149,10 @@ class DescribeUploadIncrementalInfoResponse extends AbstractModel
 
         if (array_key_exists("ExpiredTime",$param) and $param["ExpiredTime"] !== null) {
             $this->ExpiredTime = $param["ExpiredTime"];
+        }
+
+        if (array_key_exists("CosSecurityToken",$param) and $param["CosSecurityToken"] !== null) {
+            $this->CosSecurityToken = $param["CosSecurityToken"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

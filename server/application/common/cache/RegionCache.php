@@ -21,7 +21,7 @@
 namespace app\common\cache;
 
 
-use think\Db;
+use think\facade\Db;
 
 class RegionCache extends CacheBase
 {

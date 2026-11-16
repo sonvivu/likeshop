@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,10 +22,10 @@ use TencentCloud\Common\AbstractModel;
  *
  * @method string getMaterialId() 获取媒体 Id。
  * @method void setMaterialId(string $MaterialId) 设置媒体 Id。
- * @method string getPreProcessTaskId() 获取媒体文预处理任务 ID，如果未指定发起预处理任务则为空。
- * @method void setPreProcessTaskId(string $PreProcessTaskId) 设置媒体文预处理任务 ID，如果未指定发起预处理任务则为空。
- * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
- * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method string getPreProcessTaskId() 获取媒体文件预处理任务 ID，如果未指定发起预处理任务则为空。
+ * @method void setPreProcessTaskId(string $PreProcessTaskId) 设置媒体文件预处理任务 ID，如果未指定发起预处理任务则为空。
+ * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+ * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
 class ImportMaterialResponse extends AbstractModel
 {
@@ -35,19 +35,19 @@ class ImportMaterialResponse extends AbstractModel
     public $MaterialId;
 
     /**
-     * @var string 媒体文预处理任务 ID，如果未指定发起预处理任务则为空。
+     * @var string 媒体文件预处理任务 ID，如果未指定发起预处理任务则为空。
      */
     public $PreProcessTaskId;
 
     /**
-     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public $RequestId;
 
     /**
      * @param string $MaterialId 媒体 Id。
-     * @param string $PreProcessTaskId 媒体文预处理任务 ID，如果未指定发起预处理任务则为空。
-     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @param string $PreProcessTaskId 媒体文件预处理任务 ID，如果未指定发起预处理任务则为空。
+     * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
     {

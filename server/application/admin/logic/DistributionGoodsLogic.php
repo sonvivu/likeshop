@@ -23,7 +23,7 @@ use app\api\model\Goods;
 use app\common\logic\LogicBase;
 use app\common\model\DistributionGoods;
 use app\common\model\DistributionLevel;
-use think\Db;
+use think\facade\Db;
 
 class DistributionGoodsLogic extends LogicBase
 {

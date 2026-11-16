@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,18 +20,26 @@ use TencentCloud\Common\AbstractModel;
 /**
  * AssignIpv6CidrBlock请求参数结构体
  *
- * @method string getVpcId() 获取`VPC`实例`ID`，形如：`vpc-f49l6u0z`。
- * @method void setVpcId(string $VpcId) 设置`VPC`实例`ID`，形如：`vpc-f49l6u0z`。
+ * @method string getVpcId() 获取<p><code>VPC</code>实例<code>ID</code>，形如：<code>vpc-f49l6u0z</code>。</p>
+ * @method void setVpcId(string $VpcId) 设置<p><code>VPC</code>实例<code>ID</code>，形如：<code>vpc-f49l6u0z</code>。</p>
+ * @method string getAddressType() 获取<p>申请IPv6 Cidr 的类型，<code>GUA</code>(全球单播地址), <code>ULA</code>(唯一本地地址)。</p>
+ * @method void setAddressType(string $AddressType) 设置<p>申请IPv6 Cidr 的类型，<code>GUA</code>(全球单播地址), <code>ULA</code>(唯一本地地址)。</p>
  */
 class AssignIpv6CidrBlockRequest extends AbstractModel
 {
     /**
-     * @var string `VPC`实例`ID`，形如：`vpc-f49l6u0z`。
+     * @var string <p><code>VPC</code>实例<code>ID</code>，形如：<code>vpc-f49l6u0z</code>。</p>
      */
     public $VpcId;
 
     /**
-     * @param string $VpcId `VPC`实例`ID`，形如：`vpc-f49l6u0z`。
+     * @var string <p>申请IPv6 Cidr 的类型，<code>GUA</code>(全球单播地址), <code>ULA</code>(唯一本地地址)。</p>
+     */
+    public $AddressType;
+
+    /**
+     * @param string $VpcId <p><code>VPC</code>实例<code>ID</code>，形如：<code>vpc-f49l6u0z</code>。</p>
+     * @param string $AddressType <p>申请IPv6 Cidr 的类型，<code>GUA</code>(全球单播地址), <code>ULA</code>(唯一本地地址)。</p>
      */
     function __construct()
     {
@@ -48,6 +56,10 @@ class AssignIpv6CidrBlockRequest extends AbstractModel
         }
         if (array_key_exists("VpcId",$param) and $param["VpcId"] !== null) {
             $this->VpcId = $param["VpcId"];
+        }
+
+        if (array_key_exists("AddressType",$param) and $param["AddressType"] !== null) {
+            $this->AddressType = $param["AddressType"];
         }
     }
 }

@@ -5,35 +5,32 @@
 </template>
 
 <script>
+import { useAppStore } from "~/stores/app";
 export default {
-  head() {
-    return {
-      title: this.$store.getters.headTitle,
+  async setup() {
+    setPageLayout('void')
+    const store = useAppStore();
+    const route = useRoute();
+    const { $get } = useNuxtApp();
+    useHead({
+      title: computed(() => store.headTitle),
       link: [
         {
           rel: "icon",
           type: "image/x-icon",
-          href: this.$store.getters.favicon,
+          href: computed(() => store.favicon),
         },
       ],
-    };
-  },
-  layout: "void",
-  async asyncData({ $get, query }) {
+    });
     let content;
-    if (query.type == 1) {
+    if (route.query.type == 1) {
       const { data } = await $get("policy/service");
       content = data;
-    } else if (query.type == 2) {
+    } else if (route.query.type == 2) {
       const { data } = await $get("policy/privacy");
       content = data;
     }
     return { content };
-  },
-  data() {
-    return {
-      content: "",
-    };
   },
 };
 </script>

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,10 +28,14 @@ use TencentCloud\Common\AbstractModel;
  * @method void setVpcSet(array $VpcSet) 设置创建私有域的同时，将其关联至VPC
  * @method string getRemark() 获取备注
  * @method void setRemark(string $Remark) 设置备注
- * @method string getDnsForwardStatus() 获取是否开启子域名递归, ENABLED， DISABLED。默认值为DISABLED
- * @method void setDnsForwardStatus(string $DnsForwardStatus) 设置是否开启子域名递归, ENABLED， DISABLED。默认值为DISABLED
+ * @method string getDnsForwardStatus() 获取是否开启子域名递归, ENABLED， DISABLED。默认值为ENABLED
+ * @method void setDnsForwardStatus(string $DnsForwardStatus) 设置是否开启子域名递归, ENABLED， DISABLED。默认值为ENABLED
  * @method array getVpcs() 获取创建私有域的同时，将其关联至VPC
  * @method void setVpcs(array $Vpcs) 设置创建私有域的同时，将其关联至VPC
+ * @method array getAccountVpcSet() 获取创建私有域同时绑定关联账号的VPC
+ * @method void setAccountVpcSet(array $AccountVpcSet) 设置创建私有域同时绑定关联账号的VPC
+ * @method string getCnameSpeedupStatus() 获取是否CNAME加速：ENABLED，DISABLED，默认值为ENABLED
+ * @method void setCnameSpeedupStatus(string $CnameSpeedupStatus) 设置是否CNAME加速：ENABLED，DISABLED，默认值为ENABLED
  */
 class CreatePrivateZoneRequest extends AbstractModel
 {
@@ -56,22 +60,35 @@ class CreatePrivateZoneRequest extends AbstractModel
     public $Remark;
 
     /**
-     * @var string 是否开启子域名递归, ENABLED， DISABLED。默认值为DISABLED
+     * @var string 是否开启子域名递归, ENABLED， DISABLED。默认值为ENABLED
      */
     public $DnsForwardStatus;
 
     /**
      * @var array 创建私有域的同时，将其关联至VPC
+     * @deprecated
      */
     public $Vpcs;
+
+    /**
+     * @var array 创建私有域同时绑定关联账号的VPC
+     */
+    public $AccountVpcSet;
+
+    /**
+     * @var string 是否CNAME加速：ENABLED，DISABLED，默认值为ENABLED
+     */
+    public $CnameSpeedupStatus;
 
     /**
      * @param string $Domain 域名，格式必须是标准的TLD
      * @param array $TagSet 创建私有域的同时，为其打上标签
      * @param array $VpcSet 创建私有域的同时，将其关联至VPC
      * @param string $Remark 备注
-     * @param string $DnsForwardStatus 是否开启子域名递归, ENABLED， DISABLED。默认值为DISABLED
+     * @param string $DnsForwardStatus 是否开启子域名递归, ENABLED， DISABLED。默认值为ENABLED
      * @param array $Vpcs 创建私有域的同时，将其关联至VPC
+     * @param array $AccountVpcSet 创建私有域同时绑定关联账号的VPC
+     * @param string $CnameSpeedupStatus 是否CNAME加速：ENABLED，DISABLED，默认值为ENABLED
      */
     function __construct()
     {
@@ -123,6 +140,19 @@ class CreatePrivateZoneRequest extends AbstractModel
                 $obj->deserialize($value);
                 array_push($this->Vpcs, $obj);
             }
+        }
+
+        if (array_key_exists("AccountVpcSet",$param) and $param["AccountVpcSet"] !== null) {
+            $this->AccountVpcSet = [];
+            foreach ($param["AccountVpcSet"] as $key => $value){
+                $obj = new AccountVpcInfo();
+                $obj->deserialize($value);
+                array_push($this->AccountVpcSet, $obj);
+            }
+        }
+
+        if (array_key_exists("CnameSpeedupStatus",$param) and $param["CnameSpeedupStatus"] !== null) {
+            $this->CnameSpeedupStatus = $param["CnameSpeedupStatus"];
         }
     }
 }

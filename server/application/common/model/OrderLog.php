@@ -19,7 +19,7 @@
 
 namespace app\common\model;
 
-use think\Db;
+use think\facade\Db;
 use think\Model;
 
 class OrderLog extends Model
@@ -80,6 +80,7 @@ class OrderLog extends Model
         $logs = Db::name('order_log')
             ->where('order_id', $order_id)
             ->select();
+        $logs = $logs->toArray(); // ThinkPHP 6：select() 返回 Collection，TP5 返回数组；直接写 $logs[$k]['x'] 或 foreach(&$item) 改值会丢/报错，先转数组。
 
         foreach ($logs as &$log){
             $log['create_time'] = date('Y-m-d H:i:s', $log['create_time']);

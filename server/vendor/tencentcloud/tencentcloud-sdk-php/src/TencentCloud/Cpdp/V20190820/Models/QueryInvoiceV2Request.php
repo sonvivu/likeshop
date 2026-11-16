@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,7 +21,11 @@ use TencentCloud\Common\AbstractModel;
  * QueryInvoiceV2请求参数结构体
  *
  * @method integer getInvoicePlatformId() 获取开票平台ID
+0 : 高灯
+1 : 票易通
  * @method void setInvoicePlatformId(integer $InvoicePlatformId) 设置开票平台ID
+0 : 高灯
+1 : 票易通
  * @method string getOrderId() 获取订单号
  * @method void setOrderId(string $OrderId) 设置订单号
  * @method integer getIsRed() 获取发票种类：
@@ -41,6 +45,8 @@ class QueryInvoiceV2Request extends AbstractModel
 {
     /**
      * @var integer 开票平台ID
+0 : 高灯
+1 : 票易通
      */
     public $InvoicePlatformId;
 
@@ -73,6 +79,8 @@ class QueryInvoiceV2Request extends AbstractModel
 
     /**
      * @param integer $InvoicePlatformId 开票平台ID
+0 : 高灯
+1 : 票易通
      * @param string $OrderId 订单号
      * @param integer $IsRed 发票种类：
 0：蓝票

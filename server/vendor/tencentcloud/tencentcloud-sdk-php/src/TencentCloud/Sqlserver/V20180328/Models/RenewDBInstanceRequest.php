@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,10 +24,12 @@ use TencentCloud\Common\AbstractModel;
  * @method void setInstanceId(string $InstanceId) 设置实例ID，形如mssql-j8kv137v
  * @method integer getPeriod() 获取续费多少个月，取值范围为1-48，默认为1
  * @method void setPeriod(integer $Period) 设置续费多少个月，取值范围为1-48，默认为1
- * @method integer getAutoVoucher() 获取是否自动使用代金券，0-不使用；1-使用；默认不实用
- * @method void setAutoVoucher(integer $AutoVoucher) 设置是否自动使用代金券，0-不使用；1-使用；默认不实用
+ * @method integer getAutoVoucher() 获取是否自动使用代金券，0-不使用；1-使用；默认不使用
+ * @method void setAutoVoucher(integer $AutoVoucher) 设置是否自动使用代金券，0-不使用；1-使用；默认不使用
  * @method array getVoucherIds() 获取代金券ID数组，目前只支持使用1张代金券
  * @method void setVoucherIds(array $VoucherIds) 设置代金券ID数组，目前只支持使用1张代金券
+ * @method integer getAutoRenewFlag() 获取续费标记 0:正常续费 1:自动续费：只用于按量计费转包年包月时有效。
+ * @method void setAutoRenewFlag(integer $AutoRenewFlag) 设置续费标记 0:正常续费 1:自动续费：只用于按量计费转包年包月时有效。
  */
 class RenewDBInstanceRequest extends AbstractModel
 {
@@ -42,7 +44,7 @@ class RenewDBInstanceRequest extends AbstractModel
     public $Period;
 
     /**
-     * @var integer 是否自动使用代金券，0-不使用；1-使用；默认不实用
+     * @var integer 是否自动使用代金券，0-不使用；1-使用；默认不使用
      */
     public $AutoVoucher;
 
@@ -52,10 +54,16 @@ class RenewDBInstanceRequest extends AbstractModel
     public $VoucherIds;
 
     /**
+     * @var integer 续费标记 0:正常续费 1:自动续费：只用于按量计费转包年包月时有效。
+     */
+    public $AutoRenewFlag;
+
+    /**
      * @param string $InstanceId 实例ID，形如mssql-j8kv137v
      * @param integer $Period 续费多少个月，取值范围为1-48，默认为1
-     * @param integer $AutoVoucher 是否自动使用代金券，0-不使用；1-使用；默认不实用
+     * @param integer $AutoVoucher 是否自动使用代金券，0-不使用；1-使用；默认不使用
      * @param array $VoucherIds 代金券ID数组，目前只支持使用1张代金券
+     * @param integer $AutoRenewFlag 续费标记 0:正常续费 1:自动续费：只用于按量计费转包年包月时有效。
      */
     function __construct()
     {
@@ -84,6 +92,10 @@ class RenewDBInstanceRequest extends AbstractModel
 
         if (array_key_exists("VoucherIds",$param) and $param["VoucherIds"] !== null) {
             $this->VoucherIds = $param["VoucherIds"];
+        }
+
+        if (array_key_exists("AutoRenewFlag",$param) and $param["AutoRenewFlag"] !== null) {
+            $this->AutoRenewFlag = $param["AutoRenewFlag"];
         }
     }
 }

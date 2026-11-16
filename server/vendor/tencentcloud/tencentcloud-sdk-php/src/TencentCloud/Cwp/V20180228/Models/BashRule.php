@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,8 +26,8 @@ use TencentCloud\Common\AbstractModel;
  * @method void setUuid(string $Uuid) 设置客户端ID
  * @method string getName() 获取规则名称
  * @method void setName(string $Name) 设置规则名称
- * @method integer getLevel() 获取危险等级(1: 高危 2:中危 3: 低危)
- * @method void setLevel(integer $Level) 设置危险等级(1: 高危 2:中危 3: 低危)
+ * @method integer getLevel() 获取危险等级(0 ：无 1: 高危 2:中危 3: 低危)
+ * @method void setLevel(integer $Level) 设置危险等级(0 ：无 1: 高危 2:中危 3: 低危)
  * @method string getRule() 获取正则表达式
  * @method void setRule(string $Rule) 设置正则表达式
  * @method string getDecription() 获取规则描述
@@ -44,6 +44,14 @@ use TencentCloud\Common\AbstractModel;
  * @method void setModifyTime(string $ModifyTime) 设置修改时间
  * @method string getHostip() 获取主机IP
  * @method void setHostip(string $Hostip) 设置主机IP
+ * @method array getUuids() 获取生效服务器的uuid数组
+ * @method void setUuids(array $Uuids) 设置生效服务器的uuid数组
+ * @method integer getWhite() 获取0=黑名单 1=白名单
+ * @method void setWhite(integer $White) 设置0=黑名单 1=白名单
+ * @method integer getDealOldEvents() 获取是否处理之前的事件 0: 不处理 1:处理
+ * @method void setDealOldEvents(integer $DealOldEvents) 设置是否处理之前的事件 0: 不处理 1:处理
+ * @method string getDescription() 获取规则描述
+ * @method void setDescription(string $Description) 设置规则描述
  */
 class BashRule extends AbstractModel
 {
@@ -63,7 +71,7 @@ class BashRule extends AbstractModel
     public $Name;
 
     /**
-     * @var integer 危险等级(1: 高危 2:中危 3: 低危)
+     * @var integer 危险等级(0 ：无 1: 高危 2:中危 3: 低危)
      */
     public $Level;
 
@@ -74,6 +82,7 @@ class BashRule extends AbstractModel
 
     /**
      * @var string 规则描述
+     * @deprecated
      */
     public $Decription;
 
@@ -108,10 +117,30 @@ class BashRule extends AbstractModel
     public $Hostip;
 
     /**
+     * @var array 生效服务器的uuid数组
+     */
+    public $Uuids;
+
+    /**
+     * @var integer 0=黑名单 1=白名单
+     */
+    public $White;
+
+    /**
+     * @var integer 是否处理之前的事件 0: 不处理 1:处理
+     */
+    public $DealOldEvents;
+
+    /**
+     * @var string 规则描述
+     */
+    public $Description;
+
+    /**
      * @param integer $Id 规则ID
      * @param string $Uuid 客户端ID
      * @param string $Name 规则名称
-     * @param integer $Level 危险等级(1: 高危 2:中危 3: 低危)
+     * @param integer $Level 危险等级(0 ：无 1: 高危 2:中危 3: 低危)
      * @param string $Rule 正则表达式
      * @param string $Decription 规则描述
      * @param string $Operator 操作人
@@ -120,6 +149,10 @@ class BashRule extends AbstractModel
      * @param string $CreateTime 创建时间
      * @param string $ModifyTime 修改时间
      * @param string $Hostip 主机IP
+     * @param array $Uuids 生效服务器的uuid数组
+     * @param integer $White 0=黑名单 1=白名单
+     * @param integer $DealOldEvents 是否处理之前的事件 0: 不处理 1:处理
+     * @param string $Description 规则描述
      */
     function __construct()
     {
@@ -180,6 +213,22 @@ class BashRule extends AbstractModel
 
         if (array_key_exists("Hostip",$param) and $param["Hostip"] !== null) {
             $this->Hostip = $param["Hostip"];
+        }
+
+        if (array_key_exists("Uuids",$param) and $param["Uuids"] !== null) {
+            $this->Uuids = $param["Uuids"];
+        }
+
+        if (array_key_exists("White",$param) and $param["White"] !== null) {
+            $this->White = $param["White"];
+        }
+
+        if (array_key_exists("DealOldEvents",$param) and $param["DealOldEvents"] !== null) {
+            $this->DealOldEvents = $param["DealOldEvents"];
+        }
+
+        if (array_key_exists("Description",$param) and $param["Description"] !== null) {
+            $this->Description = $param["Description"];
         }
     }
 }

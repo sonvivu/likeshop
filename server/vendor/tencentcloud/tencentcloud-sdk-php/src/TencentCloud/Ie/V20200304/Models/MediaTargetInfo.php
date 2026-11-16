@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,12 +34,8 @@ index：序号；
  * @method void setFormat(string $Format) 设置媒体封装格式，最长5字符，具体格式支持根据子任务确定。
  * @method TargetVideoInfo getTargetVideoInfo() 获取视频流信息。
  * @method void setTargetVideoInfo(TargetVideoInfo $TargetVideoInfo) 设置视频流信息。
- * @method string getResultListSaveType() 获取【不再使用】 对于多输出任务，部分子服务推荐结果信息以列表文件形式，存储到用户存储服务中，可选值：
-UseSaveInfo：默认，结果列表和结果存储同一位置；
-NoListFile：不存储结果列表。
- * @method void setResultListSaveType(string $ResultListSaveType) 设置【不再使用】 对于多输出任务，部分子服务推荐结果信息以列表文件形式，存储到用户存储服务中，可选值：
-UseSaveInfo：默认，结果列表和结果存储同一位置；
-NoListFile：不存储结果列表。
+ * @method string getResultListSaveType() 获取【不再使用】
+ * @method void setResultListSaveType(string $ResultListSaveType) 设置【不再使用】
  */
 class MediaTargetInfo extends AbstractModel
 {
@@ -63,9 +59,7 @@ index：序号；
     public $TargetVideoInfo;
 
     /**
-     * @var string 【不再使用】 对于多输出任务，部分子服务推荐结果信息以列表文件形式，存储到用户存储服务中，可选值：
-UseSaveInfo：默认，结果列表和结果存储同一位置；
-NoListFile：不存储结果列表。
+     * @var string 【不再使用】
      */
     public $ResultListSaveType;
 
@@ -77,9 +71,7 @@ NoListFile：不存储结果列表。
 index：序号；
      * @param string $Format 媒体封装格式，最长5字符，具体格式支持根据子任务确定。
      * @param TargetVideoInfo $TargetVideoInfo 视频流信息。
-     * @param string $ResultListSaveType 【不再使用】 对于多输出任务，部分子服务推荐结果信息以列表文件形式，存储到用户存储服务中，可选值：
-UseSaveInfo：默认，结果列表和结果存储同一位置；
-NoListFile：不存储结果列表。
+     * @param string $ResultListSaveType 【不再使用】
      */
     function __construct()
     {

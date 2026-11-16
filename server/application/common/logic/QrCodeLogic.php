@@ -21,7 +21,8 @@ use app\common\server\ConfigServer;
 use app\common\server\storage\Driver as StorageDriver;
 use app\common\server\UrlServer;
 use app\common\server\WeChatServer;
-use Endroid\QrCode\QrCode;
+use Endroid\QrCode\Builder\Builder;
+use Endroid\QrCode\Writer\PngWriter;
 use think\facade\Cache;
 use think\Exception;
 use EasyWeChat\Factory;
@@ -103,11 +104,12 @@ class QrCodeLogic extends LogicBase{
                     return self::dataError(lang('微信配置错误：').$result);
                 }
             }else{
-                $qrCode = new QrCode();
-                $qrCode->setText($url);
-                $qrCode->setSize(1000);
-                $qrCode->setWriterByName('png');
-                $qrCode->writeFile($poster_url);
+                Builder::create()
+                    ->writer(new PngWriter())
+                    ->data($url)
+                    ->size(1000)
+                    ->build()
+                    ->saveToFile($poster_url);
 
             }
             $user_avatar =  UrlServer::getFileUrl($user['avatar'],'share');
@@ -160,7 +162,7 @@ class QrCodeLogic extends LogicBase{
             $qr_code_logic->writeText($share_background_img, $notice, $poster_config['notice']);
 
             //合成价格
-            $qr_code_logic->writeText($share_background_img, '￥', $poster_config['price_symbol']);
+            $qr_code_logic->writeText($share_background_img, config('currency.symbol'), $poster_config['price_symbol']);
             $qr_code_logic->writeText($share_background_img, floatval($goods['min_price']), $poster_config['price']);
 
             //合成商品标题
@@ -318,11 +320,12 @@ class QrCodeLogic extends LogicBase{
                     return ['status' => 0, 'msg' => lang('微信配置错误：').$result, 'data' => ''];
                 }
             }else{
-                $qrCode = new QrCode();
-                $qrCode->setText($content);
-                $qrCode->setSize(1000);
-                $qrCode->setWriterByName('png');
-                $qrCode->writeFile($poster_url);
+                Builder::create()
+                    ->writer(new PngWriter())
+                    ->data($content)
+                    ->size(1000)
+                    ->build()
+                    ->saveToFile($poster_url);
             }
             $user_avatar =  UrlServer::getFileUrl($user['avatar'],'share');
             //判断头像是否存在
@@ -468,11 +471,12 @@ class QrCodeLogic extends LogicBase{
                     return self::dataError(lang('微信配置错误：').$result);
                 }
             }else{
-                $qrCode = new QrCode();
-                $qrCode->setText($url);
-                $qrCode->setSize(1000);
-                $qrCode->setWriterByName('png');
-                $qrCode->writeFile($poster_url);
+                Builder::create()
+                    ->writer(new PngWriter())
+                    ->data($url)
+                    ->size(1000)
+                    ->build()
+                    ->saveToFile($poster_url);
 
             }
             $user_avatar =  UrlServer::getFileUrl($user['avatar'],'share');

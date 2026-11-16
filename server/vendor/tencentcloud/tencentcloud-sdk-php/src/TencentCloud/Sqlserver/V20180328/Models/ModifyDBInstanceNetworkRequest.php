@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,14 @@ use TencentCloud\Common\AbstractModel;
  * @method void setNewSubnetId(string $NewSubnetId) 设置新子网Id
  * @method integer getOldIpRetainTime() 获取原vip保留时长，单位小时，默认为0，代表立即回收，最大为168小时
  * @method void setOldIpRetainTime(integer $OldIpRetainTime) 设置原vip保留时长，单位小时，默认为0，代表立即回收，最大为168小时
+ * @method string getVip() 获取指定VIP地址
+ * @method void setVip(string $Vip) 设置指定VIP地址
+ * @method integer getDRNetwork() 获取目标节点，0-修改主节点网络，1-修改备节点网络，默认取值0
+
+ * @method void setDRNetwork(integer $DRNetwork) 设置目标节点，0-修改主节点网络，1-修改备节点网络，默认取值0
+
+ * @method string getDrInstanceId() 获取备机资源ID。当DRNetwork = 1时必填
+ * @method void setDrInstanceId(string $DrInstanceId) 设置备机资源ID。当DRNetwork = 1时必填
  */
 class ModifyDBInstanceNetworkRequest extends AbstractModel
 {
@@ -52,10 +60,30 @@ class ModifyDBInstanceNetworkRequest extends AbstractModel
     public $OldIpRetainTime;
 
     /**
+     * @var string 指定VIP地址
+     */
+    public $Vip;
+
+    /**
+     * @var integer 目标节点，0-修改主节点网络，1-修改备节点网络，默认取值0
+
+     */
+    public $DRNetwork;
+
+    /**
+     * @var string 备机资源ID。当DRNetwork = 1时必填
+     */
+    public $DrInstanceId;
+
+    /**
      * @param string $InstanceId 实例id
      * @param string $NewVpcId 新VPC网络Id
      * @param string $NewSubnetId 新子网Id
      * @param integer $OldIpRetainTime 原vip保留时长，单位小时，默认为0，代表立即回收，最大为168小时
+     * @param string $Vip 指定VIP地址
+     * @param integer $DRNetwork 目标节点，0-修改主节点网络，1-修改备节点网络，默认取值0
+
+     * @param string $DrInstanceId 备机资源ID。当DRNetwork = 1时必填
      */
     function __construct()
     {
@@ -84,6 +112,18 @@ class ModifyDBInstanceNetworkRequest extends AbstractModel
 
         if (array_key_exists("OldIpRetainTime",$param) and $param["OldIpRetainTime"] !== null) {
             $this->OldIpRetainTime = $param["OldIpRetainTime"];
+        }
+
+        if (array_key_exists("Vip",$param) and $param["Vip"] !== null) {
+            $this->Vip = $param["Vip"];
+        }
+
+        if (array_key_exists("DRNetwork",$param) and $param["DRNetwork"] !== null) {
+            $this->DRNetwork = $param["DRNetwork"];
+        }
+
+        if (array_key_exists("DrInstanceId",$param) and $param["DrInstanceId"] !== null) {
+            $this->DrInstanceId = $param["DrInstanceId"];
         }
     }
 }

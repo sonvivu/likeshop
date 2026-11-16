@@ -20,7 +20,7 @@
 namespace app\admin\model;
 use app\common\model\Distribution;
 use app\common\server\UrlServer;
-use think\Db;
+use think\facade\Db;
 use think\Model;
 
 class User extends Model
@@ -59,11 +59,11 @@ class User extends Model
     }
 
     public function getUserMoneyAttr($value,$data){
-        return '￥'.$value;
+        return config('currency.symbol').$value;
     }
 
     public function getTotalOrderAmountAttr($value,$data){
-        return '￥'.$value;
+        return config('currency.symbol').$value;
     }
     //最后登录时间
     public function getLoginTimeAttr($value,$data){
@@ -96,7 +96,7 @@ class User extends Model
     //分销订单
     public function getDistributionOrderAttr($value, $data)
     {
-        $info = Db::name('distribution_order_goods d')
+        $info = Db::name('distribution_order_goods')->alias('d')
             ->join('order_goods g', 'g.id = d.order_goods_id')
             ->join('order o', 'o.id = g.order_id')
             ->field('count(d.id) as num, sum(money) as money, sum(order_amount) as amount')

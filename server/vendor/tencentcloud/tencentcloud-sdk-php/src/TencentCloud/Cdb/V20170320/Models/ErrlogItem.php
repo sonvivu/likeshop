@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,34 +20,26 @@ use TencentCloud\Common\AbstractModel;
 /**
  * 结构化的错误日志详情
  *
- * @method integer getTimestamp() 获取错误发生时间。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setTimestamp(integer $Timestamp) 设置错误发生时间。
-注意：此字段可能返回 null，表示取不到有效值。
+ * @method integer getTimestamp() 获取错误发生时间。时间戳，秒级
+ * @method void setTimestamp(integer $Timestamp) 设置错误发生时间。时间戳，秒级
  * @method string getContent() 获取错误详情
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setContent(string $Content) 设置错误详情
-注意：此字段可能返回 null，表示取不到有效值。
  */
 class ErrlogItem extends AbstractModel
 {
     /**
-     * @var integer 错误发生时间。
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var integer 错误发生时间。时间戳，秒级
      */
     public $Timestamp;
 
     /**
      * @var string 错误详情
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Content;
 
     /**
-     * @param integer $Timestamp 错误发生时间。
-注意：此字段可能返回 null，表示取不到有效值。
+     * @param integer $Timestamp 错误发生时间。时间戳，秒级
      * @param string $Content 错误详情
-注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
     {

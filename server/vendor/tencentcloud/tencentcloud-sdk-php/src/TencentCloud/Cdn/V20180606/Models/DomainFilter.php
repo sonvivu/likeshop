@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,10 +24,10 @@ use TencentCloud\Common\AbstractModel;
 - origin：主源站。
 - domain：域名。
 - resourceId：域名id。
-- status：域名状态，online，offline或processing。
-- serviceType：业务类型，web，download或media。
+- status：域名状态，online，offline或processing，deleted。
+- serviceType：业务类型，web，download，media，hybrid或dynamic。
 - projectId：项目ID。
-- domainType：主源站类型，cname表示自有源，cos表示cos接入。
+- domainType：主源站类型，cname表示自有源，cos表示cos接入，third_party表示第三方对象存储，igtm表示IGTM多活源。
 - fullUrlCache：全路径缓存，on或off。
 - https：是否配置https，on，off或processing。
 - originPullProtocol：回源协议类型，支持http，follow或https。
@@ -36,16 +36,16 @@ use TencentCloud\Common\AbstractModel;
 - origin：主源站。
 - domain：域名。
 - resourceId：域名id。
-- status：域名状态，online，offline或processing。
-- serviceType：业务类型，web，download或media。
+- status：域名状态，online，offline或processing，deleted。
+- serviceType：业务类型，web，download，media，hybrid或dynamic。
 - projectId：项目ID。
-- domainType：主源站类型，cname表示自有源，cos表示cos接入。
+- domainType：主源站类型，cname表示自有源，cos表示cos接入，third_party表示第三方对象存储，igtm表示IGTM多活源。
 - fullUrlCache：全路径缓存，on或off。
 - https：是否配置https，on，off或processing。
 - originPullProtocol：回源协议类型，支持http，follow或https。
 - tagKey：标签键。
- * @method array getValue() 获取过滤字段值。
- * @method void setValue(array $Value) 设置过滤字段值。
+ * @method array getValue() 获取过滤字段值，默认最多传 5 个。当 Name 是 origin/domain 且 Fuzzy 传 true，最多传 1 个。
+ * @method void setValue(array $Value) 设置过滤字段值，默认最多传 5 个。当 Name 是 origin/domain 且 Fuzzy 传 true，最多传 1 个。
  * @method boolean getFuzzy() 获取是否启用模糊查询，仅支持过滤字段名为origin，domain。
 模糊查询时，Value长度最大为1，否则Value长度最大为5。
  * @method void setFuzzy(boolean $Fuzzy) 设置是否启用模糊查询，仅支持过滤字段名为origin，domain。
@@ -58,10 +58,10 @@ class DomainFilter extends AbstractModel
 - origin：主源站。
 - domain：域名。
 - resourceId：域名id。
-- status：域名状态，online，offline或processing。
-- serviceType：业务类型，web，download或media。
+- status：域名状态，online，offline或processing，deleted。
+- serviceType：业务类型，web，download，media，hybrid或dynamic。
 - projectId：项目ID。
-- domainType：主源站类型，cname表示自有源，cos表示cos接入。
+- domainType：主源站类型，cname表示自有源，cos表示cos接入，third_party表示第三方对象存储，igtm表示IGTM多活源。
 - fullUrlCache：全路径缓存，on或off。
 - https：是否配置https，on，off或processing。
 - originPullProtocol：回源协议类型，支持http，follow或https。
@@ -70,7 +70,7 @@ class DomainFilter extends AbstractModel
     public $Name;
 
     /**
-     * @var array 过滤字段值。
+     * @var array 过滤字段值，默认最多传 5 个。当 Name 是 origin/domain 且 Fuzzy 传 true，最多传 1 个。
      */
     public $Value;
 
@@ -85,15 +85,15 @@ class DomainFilter extends AbstractModel
 - origin：主源站。
 - domain：域名。
 - resourceId：域名id。
-- status：域名状态，online，offline或processing。
-- serviceType：业务类型，web，download或media。
+- status：域名状态，online，offline或processing，deleted。
+- serviceType：业务类型，web，download，media，hybrid或dynamic。
 - projectId：项目ID。
-- domainType：主源站类型，cname表示自有源，cos表示cos接入。
+- domainType：主源站类型，cname表示自有源，cos表示cos接入，third_party表示第三方对象存储，igtm表示IGTM多活源。
 - fullUrlCache：全路径缓存，on或off。
 - https：是否配置https，on，off或processing。
 - originPullProtocol：回源协议类型，支持http，follow或https。
 - tagKey：标签键。
-     * @param array $Value 过滤字段值。
+     * @param array $Value 过滤字段值，默认最多传 5 个。当 Name 是 origin/domain 且 Fuzzy 传 true，最多传 1 个。
      * @param boolean $Fuzzy 是否启用模糊查询，仅支持过滤字段名为origin，domain。
 模糊查询时，Value长度最大为1，否则Value长度最大为5。
      */

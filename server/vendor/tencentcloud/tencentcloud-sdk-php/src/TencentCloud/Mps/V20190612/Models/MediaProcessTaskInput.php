@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@ namespace TencentCloud\Mps\V20190612\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * 视频处理任务类型
+ * 媒体处理任务类型
  *
  * @method array getTranscodeTaskSet() 获取视频转码任务列表。
  * @method void setTranscodeTaskSet(array $TranscodeTaskSet) 设置视频转码任务列表。

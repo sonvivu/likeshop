@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -74,16 +74,18 @@ min：1 分钟粒度，指定查询区间 24 小时内（含 24 小时），可�
 5min：5 分钟粒度，指定查询区间 31 天内（含 31 天），可返回 5 分钟粒度明细数据
 hour：1 小时粒度，指定查询区间 31 天内（含 31 天），可返回 1 小时粒度明细数据
 day：天粒度，指定查询区间大于 31 天，可返回天粒度明细数据
- * @method boolean getDetail() 获取Domains 传入多个时，默认（false)返回多个域名的汇总数据
-可按需指定为 true，返回每一个 Domain 的明细数据（statusCode 指标暂不支持）
- * @method void setDetail(boolean $Detail) 设置Domains 传入多个时，默认（false)返回多个域名的汇总数据
-可按需指定为 true，返回每一个 Domain 的明细数据（statusCode 指标暂不支持）
+ * @method boolean getDetail() 获取Domains 传入多个时，默认(false)返回多个域名的汇总数据
+可按需指定为 true，返回每一个 Domain 的明细数据（statusCode、2xx、3xx、4xx、5xx 指标暂不支持）
+ * @method void setDetail(boolean $Detail) 设置Domains 传入多个时，默认(false)返回多个域名的汇总数据
+可按需指定为 true，返回每一个 Domain 的明细数据（statusCode、2xx、3xx、4xx、5xx 指标暂不支持）
  * @method string getArea() 获取指定服务地域查询，不填充表示查询中国境内 CDN 数据
 mainland：指定查询中国境内 CDN 数据
 overseas：指定查询中国境外 CDN 数据
  * @method void setArea(string $Area) 设置指定服务地域查询，不填充表示查询中国境内 CDN 数据
 mainland：指定查询中国境内 CDN 数据
 overseas：指定查询中国境外 CDN 数据
+ * @method string getTimeZone() 获取指定查询时间的时区，默认UTC+08:00
+ * @method void setTimeZone(string $TimeZone) 设置指定查询时间的时区，默认UTC+08:00
  */
 class DescribeOriginDataRequest extends AbstractModel
 {
@@ -139,8 +141,8 @@ day：天粒度，指定查询区间大于 31 天，可返回天粒度明细数�
     public $Interval;
 
     /**
-     * @var boolean Domains 传入多个时，默认（false)返回多个域名的汇总数据
-可按需指定为 true，返回每一个 Domain 的明细数据（statusCode 指标暂不支持）
+     * @var boolean Domains 传入多个时，默认(false)返回多个域名的汇总数据
+可按需指定为 true，返回每一个 Domain 的明细数据（statusCode、2xx、3xx、4xx、5xx 指标暂不支持）
      */
     public $Detail;
 
@@ -150,6 +152,11 @@ mainland：指定查询中国境内 CDN 数据
 overseas：指定查询中国境外 CDN 数据
      */
     public $Area;
+
+    /**
+     * @var string 指定查询时间的时区，默认UTC+08:00
+     */
+    public $TimeZone;
 
     /**
      * @param string $StartTime 查询起始时间，如：2018-09-04 10:40:00，返回结果大于等于指定时间
@@ -179,11 +186,12 @@ min：1 分钟粒度，指定查询区间 24 小时内（含 24 小时），可�
 5min：5 分钟粒度，指定查询区间 31 天内（含 31 天），可返回 5 分钟粒度明细数据
 hour：1 小时粒度，指定查询区间 31 天内（含 31 天），可返回 1 小时粒度明细数据
 day：天粒度，指定查询区间大于 31 天，可返回天粒度明细数据
-     * @param boolean $Detail Domains 传入多个时，默认（false)返回多个域名的汇总数据
-可按需指定为 true，返回每一个 Domain 的明细数据（statusCode 指标暂不支持）
+     * @param boolean $Detail Domains 传入多个时，默认(false)返回多个域名的汇总数据
+可按需指定为 true，返回每一个 Domain 的明细数据（statusCode、2xx、3xx、4xx、5xx 指标暂不支持）
      * @param string $Area 指定服务地域查询，不填充表示查询中国境内 CDN 数据
 mainland：指定查询中国境内 CDN 数据
 overseas：指定查询中国境外 CDN 数据
+     * @param string $TimeZone 指定查询时间的时区，默认UTC+08:00
      */
     function __construct()
     {
@@ -228,6 +236,10 @@ overseas：指定查询中国境外 CDN 数据
 
         if (array_key_exists("Area",$param) and $param["Area"] !== null) {
             $this->Area = $param["Area"];
+        }
+
+        if (array_key_exists("TimeZone",$param) and $param["TimeZone"] !== null) {
+            $this->TimeZone = $param["TimeZone"];
         }
     }
 }

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -42,6 +42,40 @@ use TencentCloud\Common\AbstractModel;
  * @method void setDcnFlag(integer $DcnFlag) 设置实例DCN标志，1-主，2-备
  * @method integer getDcnStatus() 获取实例DCN状态，0-无，1-创建中，2-同步中，3-已断开
  * @method void setDcnStatus(integer $DcnStatus) 设置实例DCN状态，0-无，1-创建中，2-同步中，3-已断开
+ * @method integer getCpu() 获取实例CPU核数
+ * @method void setCpu(integer $Cpu) 设置实例CPU核数
+ * @method integer getMemory() 获取实例内存大小，单位 GB
+ * @method void setMemory(integer $Memory) 设置实例内存大小，单位 GB
+ * @method integer getStorage() 获取实例存储大小，单位 GB
+ * @method void setStorage(integer $Storage) 设置实例存储大小，单位 GB
+ * @method integer getPayMode() 获取付费模式
+ * @method void setPayMode(integer $PayMode) 设置付费模式
+ * @method string getCreateTime() 获取实例创建时间，格式为 2006-01-02 15:04:05
+ * @method void setCreateTime(string $CreateTime) 设置实例创建时间，格式为 2006-01-02 15:04:05
+ * @method string getPeriodEndTime() 获取实例到期时间，格式为 2006-01-02 15:04:05
+ * @method void setPeriodEndTime(string $PeriodEndTime) 设置实例到期时间，格式为 2006-01-02 15:04:05
+ * @method integer getInstanceType() 获取1： 主实例（独享型）, 2: 主实例, 3： 灾备实例, 4： 灾备实例（独享型）
+ * @method void setInstanceType(integer $InstanceType) 设置1： 主实例（独享型）, 2: 主实例, 3： 灾备实例, 4： 灾备实例（独享型）
+ * @method integer getEncryptStatus() 获取是否开启了 kms
+ * @method void setEncryptStatus(integer $EncryptStatus) 设置是否开启了 kms
+ * @method string getDcnStatusDesc() 获取实例DCN状态描述信息
+ * @method void setDcnStatusDesc(string $DcnStatusDesc) 设置实例DCN状态描述信息
+ * @method string getPolarisInstanceId() 获取DCN实例绑定的北极星服务所属的北极星实例Id，若未绑定则为空
+ * @method void setPolarisInstanceId(string $PolarisInstanceId) 设置DCN实例绑定的北极星服务所属的北极星实例Id，若未绑定则为空
+ * @method string getPolarisInstanceName() 获取DCN实例绑定的北极星服务所属的北极星实例名，若未绑定则为空
+ * @method void setPolarisInstanceName(string $PolarisInstanceName) 设置DCN实例绑定的北极星服务所属的北极星实例名，若未绑定则为空
+ * @method string getPolarisNamespace() 获取DCN实例绑定的北极星服务所属的北极星命名空间，若未绑定则为空
+ * @method void setPolarisNamespace(string $PolarisNamespace) 设置DCN实例绑定的北极星服务所属的北极星命名空间，若未绑定则为空
+ * @method string getPolarisService() 获取DCN实例绑定的北极星服务，若未绑定则为空
+ * @method void setPolarisService(string $PolarisService) 设置DCN实例绑定的北极星服务，若未绑定则为空
+ * @method integer getPolarisServiceStatus() 获取DCN实例在北极星服务中的状态 0:未开启; 1:已开启; 2:已隔离; 3:切换中
+ * @method void setPolarisServiceStatus(integer $PolarisServiceStatus) 设置DCN实例在北极星服务中的状态 0:未开启; 1:已开启; 2:已隔离; 3:切换中
+ * @method string getPolarisServiceStatusDesc() 获取DCN实例在北极星服务中的状态的描述信息
+ * @method void setPolarisServiceStatusDesc(string $PolarisServiceStatusDesc) 设置DCN实例在北极星服务中的状态的描述信息
+ * @method string getPolarisRegion() 获取北极星管控地域
+ * @method void setPolarisRegion(string $PolarisRegion) 设置北极星管控地域
+ * @method integer getIsDcnSwitchSupported() 获取是否支持DCN切换
+ * @method void setIsDcnSwitchSupported(integer $IsDcnSwitchSupported) 设置是否支持DCN切换
  */
 class DcnDetailItem extends AbstractModel
 {
@@ -101,6 +135,91 @@ class DcnDetailItem extends AbstractModel
     public $DcnStatus;
 
     /**
+     * @var integer 实例CPU核数
+     */
+    public $Cpu;
+
+    /**
+     * @var integer 实例内存大小，单位 GB
+     */
+    public $Memory;
+
+    /**
+     * @var integer 实例存储大小，单位 GB
+     */
+    public $Storage;
+
+    /**
+     * @var integer 付费模式
+     */
+    public $PayMode;
+
+    /**
+     * @var string 实例创建时间，格式为 2006-01-02 15:04:05
+     */
+    public $CreateTime;
+
+    /**
+     * @var string 实例到期时间，格式为 2006-01-02 15:04:05
+     */
+    public $PeriodEndTime;
+
+    /**
+     * @var integer 1： 主实例（独享型）, 2: 主实例, 3： 灾备实例, 4： 灾备实例（独享型）
+     */
+    public $InstanceType;
+
+    /**
+     * @var integer 是否开启了 kms
+     */
+    public $EncryptStatus;
+
+    /**
+     * @var string 实例DCN状态描述信息
+     */
+    public $DcnStatusDesc;
+
+    /**
+     * @var string DCN实例绑定的北极星服务所属的北极星实例Id，若未绑定则为空
+     */
+    public $PolarisInstanceId;
+
+    /**
+     * @var string DCN实例绑定的北极星服务所属的北极星实例名，若未绑定则为空
+     */
+    public $PolarisInstanceName;
+
+    /**
+     * @var string DCN实例绑定的北极星服务所属的北极星命名空间，若未绑定则为空
+     */
+    public $PolarisNamespace;
+
+    /**
+     * @var string DCN实例绑定的北极星服务，若未绑定则为空
+     */
+    public $PolarisService;
+
+    /**
+     * @var integer DCN实例在北极星服务中的状态 0:未开启; 1:已开启; 2:已隔离; 3:切换中
+     */
+    public $PolarisServiceStatus;
+
+    /**
+     * @var string DCN实例在北极星服务中的状态的描述信息
+     */
+    public $PolarisServiceStatusDesc;
+
+    /**
+     * @var string 北极星管控地域
+     */
+    public $PolarisRegion;
+
+    /**
+     * @var integer 是否支持DCN切换
+     */
+    public $IsDcnSwitchSupported;
+
+    /**
      * @param string $InstanceId 实例ID
      * @param string $InstanceName 实例名称
      * @param string $Region 实例地域
@@ -112,6 +231,23 @@ class DcnDetailItem extends AbstractModel
      * @param string $StatusDesc 实例状态描述
      * @param integer $DcnFlag 实例DCN标志，1-主，2-备
      * @param integer $DcnStatus 实例DCN状态，0-无，1-创建中，2-同步中，3-已断开
+     * @param integer $Cpu 实例CPU核数
+     * @param integer $Memory 实例内存大小，单位 GB
+     * @param integer $Storage 实例存储大小，单位 GB
+     * @param integer $PayMode 付费模式
+     * @param string $CreateTime 实例创建时间，格式为 2006-01-02 15:04:05
+     * @param string $PeriodEndTime 实例到期时间，格式为 2006-01-02 15:04:05
+     * @param integer $InstanceType 1： 主实例（独享型）, 2: 主实例, 3： 灾备实例, 4： 灾备实例（独享型）
+     * @param integer $EncryptStatus 是否开启了 kms
+     * @param string $DcnStatusDesc 实例DCN状态描述信息
+     * @param string $PolarisInstanceId DCN实例绑定的北极星服务所属的北极星实例Id，若未绑定则为空
+     * @param string $PolarisInstanceName DCN实例绑定的北极星服务所属的北极星实例名，若未绑定则为空
+     * @param string $PolarisNamespace DCN实例绑定的北极星服务所属的北极星命名空间，若未绑定则为空
+     * @param string $PolarisService DCN实例绑定的北极星服务，若未绑定则为空
+     * @param integer $PolarisServiceStatus DCN实例在北极星服务中的状态 0:未开启; 1:已开启; 2:已隔离; 3:切换中
+     * @param string $PolarisServiceStatusDesc DCN实例在北极星服务中的状态的描述信息
+     * @param string $PolarisRegion 北极星管控地域
+     * @param integer $IsDcnSwitchSupported 是否支持DCN切换
      */
     function __construct()
     {
@@ -168,6 +304,74 @@ class DcnDetailItem extends AbstractModel
 
         if (array_key_exists("DcnStatus",$param) and $param["DcnStatus"] !== null) {
             $this->DcnStatus = $param["DcnStatus"];
+        }
+
+        if (array_key_exists("Cpu",$param) and $param["Cpu"] !== null) {
+            $this->Cpu = $param["Cpu"];
+        }
+
+        if (array_key_exists("Memory",$param) and $param["Memory"] !== null) {
+            $this->Memory = $param["Memory"];
+        }
+
+        if (array_key_exists("Storage",$param) and $param["Storage"] !== null) {
+            $this->Storage = $param["Storage"];
+        }
+
+        if (array_key_exists("PayMode",$param) and $param["PayMode"] !== null) {
+            $this->PayMode = $param["PayMode"];
+        }
+
+        if (array_key_exists("CreateTime",$param) and $param["CreateTime"] !== null) {
+            $this->CreateTime = $param["CreateTime"];
+        }
+
+        if (array_key_exists("PeriodEndTime",$param) and $param["PeriodEndTime"] !== null) {
+            $this->PeriodEndTime = $param["PeriodEndTime"];
+        }
+
+        if (array_key_exists("InstanceType",$param) and $param["InstanceType"] !== null) {
+            $this->InstanceType = $param["InstanceType"];
+        }
+
+        if (array_key_exists("EncryptStatus",$param) and $param["EncryptStatus"] !== null) {
+            $this->EncryptStatus = $param["EncryptStatus"];
+        }
+
+        if (array_key_exists("DcnStatusDesc",$param) and $param["DcnStatusDesc"] !== null) {
+            $this->DcnStatusDesc = $param["DcnStatusDesc"];
+        }
+
+        if (array_key_exists("PolarisInstanceId",$param) and $param["PolarisInstanceId"] !== null) {
+            $this->PolarisInstanceId = $param["PolarisInstanceId"];
+        }
+
+        if (array_key_exists("PolarisInstanceName",$param) and $param["PolarisInstanceName"] !== null) {
+            $this->PolarisInstanceName = $param["PolarisInstanceName"];
+        }
+
+        if (array_key_exists("PolarisNamespace",$param) and $param["PolarisNamespace"] !== null) {
+            $this->PolarisNamespace = $param["PolarisNamespace"];
+        }
+
+        if (array_key_exists("PolarisService",$param) and $param["PolarisService"] !== null) {
+            $this->PolarisService = $param["PolarisService"];
+        }
+
+        if (array_key_exists("PolarisServiceStatus",$param) and $param["PolarisServiceStatus"] !== null) {
+            $this->PolarisServiceStatus = $param["PolarisServiceStatus"];
+        }
+
+        if (array_key_exists("PolarisServiceStatusDesc",$param) and $param["PolarisServiceStatusDesc"] !== null) {
+            $this->PolarisServiceStatusDesc = $param["PolarisServiceStatusDesc"];
+        }
+
+        if (array_key_exists("PolarisRegion",$param) and $param["PolarisRegion"] !== null) {
+            $this->PolarisRegion = $param["PolarisRegion"];
+        }
+
+        if (array_key_exists("IsDcnSwitchSupported",$param) and $param["IsDcnSwitchSupported"] !== null) {
+            $this->IsDcnSwitchSupported = $param["IsDcnSwitchSupported"];
         }
     }
 }

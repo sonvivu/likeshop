@@ -21,8 +21,8 @@
 namespace app\admin\logic;
 
 
-use think\Db;
-use think\helper\Time;
+use think\facade\Db;
+use app\common\helper\Time;
 
 class LogLogic
 {
@@ -63,6 +63,9 @@ class LogLogic
             ->page($page_no, $size)
             ->order(['id' => 'desc'])
             ->select();
+        // ThinkPHP 6：select() 返回 Collection，写 $lists[$k][...] 会报
+        // “间接修改无效”；先转数组。
+        $lists = $lists->toArray();
         foreach ($lists as $k => $v) {
             $lists[$k]['create_time_str'] = date('Y-m-d H:i:s', $v['create_time']);
             $lists[$k]['param'] = str_replace([" ", "　", "\t", "\n", "\r"], '', $v['param']);

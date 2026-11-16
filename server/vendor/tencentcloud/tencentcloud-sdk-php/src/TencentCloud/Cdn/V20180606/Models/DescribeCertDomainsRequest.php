@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,6 +22,10 @@ use TencentCloud\Common\AbstractModel;
  *
  * @method string getCert() 获取PEM格式证书Base64编码后的字符串
  * @method void setCert(string $Cert) 设置PEM格式证书Base64编码后的字符串
+ * @method string getCertId() 获取托管证书ID，Cert和CertId不能均为空，都填写时以CertId为准。
+ * @method void setCertId(string $CertId) 设置托管证书ID，Cert和CertId不能均为空，都填写时以CertId为准。
+ * @method string getProduct() 获取域名所属产品，cdn或ecdn，默认cdn。
+ * @method void setProduct(string $Product) 设置域名所属产品，cdn或ecdn，默认cdn。
  */
 class DescribeCertDomainsRequest extends AbstractModel
 {
@@ -31,7 +35,19 @@ class DescribeCertDomainsRequest extends AbstractModel
     public $Cert;
 
     /**
+     * @var string 托管证书ID，Cert和CertId不能均为空，都填写时以CertId为准。
+     */
+    public $CertId;
+
+    /**
+     * @var string 域名所属产品，cdn或ecdn，默认cdn。
+     */
+    public $Product;
+
+    /**
      * @param string $Cert PEM格式证书Base64编码后的字符串
+     * @param string $CertId 托管证书ID，Cert和CertId不能均为空，都填写时以CertId为准。
+     * @param string $Product 域名所属产品，cdn或ecdn，默认cdn。
      */
     function __construct()
     {
@@ -48,6 +64,14 @@ class DescribeCertDomainsRequest extends AbstractModel
         }
         if (array_key_exists("Cert",$param) and $param["Cert"] !== null) {
             $this->Cert = $param["Cert"];
+        }
+
+        if (array_key_exists("CertId",$param) and $param["CertId"] !== null) {
+            $this->CertId = $param["CertId"];
+        }
+
+        if (array_key_exists("Product",$param) and $param["Product"] !== null) {
+            $this->Product = $param["Product"];
         }
     }
 }

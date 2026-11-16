@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,14 +22,24 @@ use TencentCloud\Common\AbstractModel;
  *
  * @method string getModule() 获取所属模块，固定值，为monitor
  * @method void setModule(string $Module) 设置所属模块，固定值，为monitor
- * @method string getNamespace() 获取命名空间，目前只支持QCE/TKE
- * @method void setNamespace(string $Namespace) 设置命名空间，目前只支持QCE/TKE
- * @method array getMetricNames() 获取指标名列表
- * @method void setMetricNames(array $MetricNames) 设置指标名列表
- * @method array getConditions() 获取维度条件，操作符支持=、in
- * @method void setConditions(array $Conditions) 设置维度条件，操作符支持=、in
- * @method integer getPeriod() 获取统计粒度。默认取值为300，单位为s
- * @method void setPeriod(integer $Period) 设置统计粒度。默认取值为300，单位为s
+ * @method string getNamespace() 获取命名空间，目前支持QCE/TKE2(Conditions必填),QCE/KEEWIDB,QCE/CAMP
+ * @method void setNamespace(string $Namespace) 设置命名空间，目前支持QCE/TKE2(Conditions必填),QCE/KEEWIDB,QCE/CAMP
+ * @method array getMetricNames() 获取指标名列表，相关指标信息可参考对应 [云产品指标文档](https://cloud.tencent.com/document/product/248/62458)
+ * @method void setMetricNames(array $MetricNames) 设置指标名列表，相关指标信息可参考对应 [云产品指标文档](https://cloud.tencent.com/document/product/248/62458)
+ * @method array getConditions() 获取维度条件，操作符支持=、in，详情请参考对应 [指标维度信息](https://cloud.tencent.com/document/product/248/53821)
+ * @method void setConditions(array $Conditions) 设置维度条件，操作符支持=、in，详情请参考对应 [指标维度信息](https://cloud.tencent.com/document/product/248/53821)
+ * @method integer getPeriod() 获取统计粒度。默认取值为300，单位为s；可选的值为60、300、3600、86400
+受存储时长限制，统计粒度与统计的时间范围有关：
+60s：EndTime-StartTime<12小时，且StartTime距当前时间不能超过15天；
+300s：EndTime-StartTime<3天，且StartTime距当前时间不能超过31天；
+3600s：EndTime-StartTime<30天，且StartTime距当前时间不能超过93天；
+86400s：EndTime-StartTime<186天，且StartTime距当前时间不能超过186天。
+ * @method void setPeriod(integer $Period) 设置统计粒度。默认取值为300，单位为s；可选的值为60、300、3600、86400
+受存储时长限制，统计粒度与统计的时间范围有关：
+60s：EndTime-StartTime<12小时，且StartTime距当前时间不能超过15天；
+300s：EndTime-StartTime<3天，且StartTime距当前时间不能超过31天；
+3600s：EndTime-StartTime<30天，且StartTime距当前时间不能超过93天；
+86400s：EndTime-StartTime<186天，且StartTime距当前时间不能超过186天。
  * @method string getStartTime() 获取起始时间，默认为当前时间，如2020-12-08T19:51:23+08:00
  * @method void setStartTime(string $StartTime) 设置起始时间，默认为当前时间，如2020-12-08T19:51:23+08:00
  * @method string getEndTime() 获取结束时间，默认为当前时间，如2020-12-08T19:51:23+08:00
@@ -45,22 +55,27 @@ class DescribeStatisticDataRequest extends AbstractModel
     public $Module;
 
     /**
-     * @var string 命名空间，目前只支持QCE/TKE
+     * @var string 命名空间，目前支持QCE/TKE2(Conditions必填),QCE/KEEWIDB,QCE/CAMP
      */
     public $Namespace;
 
     /**
-     * @var array 指标名列表
+     * @var array 指标名列表，相关指标信息可参考对应 [云产品指标文档](https://cloud.tencent.com/document/product/248/62458)
      */
     public $MetricNames;
 
     /**
-     * @var array 维度条件，操作符支持=、in
+     * @var array 维度条件，操作符支持=、in，详情请参考对应 [指标维度信息](https://cloud.tencent.com/document/product/248/53821)
      */
     public $Conditions;
 
     /**
-     * @var integer 统计粒度。默认取值为300，单位为s
+     * @var integer 统计粒度。默认取值为300，单位为s；可选的值为60、300、3600、86400
+受存储时长限制，统计粒度与统计的时间范围有关：
+60s：EndTime-StartTime<12小时，且StartTime距当前时间不能超过15天；
+300s：EndTime-StartTime<3天，且StartTime距当前时间不能超过31天；
+3600s：EndTime-StartTime<30天，且StartTime距当前时间不能超过93天；
+86400s：EndTime-StartTime<186天，且StartTime距当前时间不能超过186天。
      */
     public $Period;
 
@@ -81,10 +96,15 @@ class DescribeStatisticDataRequest extends AbstractModel
 
     /**
      * @param string $Module 所属模块，固定值，为monitor
-     * @param string $Namespace 命名空间，目前只支持QCE/TKE
-     * @param array $MetricNames 指标名列表
-     * @param array $Conditions 维度条件，操作符支持=、in
-     * @param integer $Period 统计粒度。默认取值为300，单位为s
+     * @param string $Namespace 命名空间，目前支持QCE/TKE2(Conditions必填),QCE/KEEWIDB,QCE/CAMP
+     * @param array $MetricNames 指标名列表，相关指标信息可参考对应 [云产品指标文档](https://cloud.tencent.com/document/product/248/62458)
+     * @param array $Conditions 维度条件，操作符支持=、in，详情请参考对应 [指标维度信息](https://cloud.tencent.com/document/product/248/53821)
+     * @param integer $Period 统计粒度。默认取值为300，单位为s；可选的值为60、300、3600、86400
+受存储时长限制，统计粒度与统计的时间范围有关：
+60s：EndTime-StartTime<12小时，且StartTime距当前时间不能超过15天；
+300s：EndTime-StartTime<3天，且StartTime距当前时间不能超过31天；
+3600s：EndTime-StartTime<30天，且StartTime距当前时间不能超过93天；
+86400s：EndTime-StartTime<186天，且StartTime距当前时间不能超过186天。
      * @param string $StartTime 起始时间，默认为当前时间，如2020-12-08T19:51:23+08:00
      * @param string $EndTime 结束时间，默认为当前时间，如2020-12-08T19:51:23+08:00
      * @param array $GroupBys 按指定维度groupBy

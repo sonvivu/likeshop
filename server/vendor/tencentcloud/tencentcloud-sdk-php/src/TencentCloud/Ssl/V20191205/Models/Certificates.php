@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,370 +20,526 @@ use TencentCloud\Common\AbstractModel;
 /**
  * 获取证书列表（DescribeCertificates）返回参数键为 Certificates 的内容。
  *
- * @method string getOwnerUin() 获取用户 UIN。
+ * @method string getOwnerUin() 获取<p>用户 UIN。</p>
+ * @method void setOwnerUin(string $OwnerUin) 设置<p>用户 UIN。</p>
+ * @method string getProjectId() 获取<p>项目 ID。</p>
+ * @method void setProjectId(string $ProjectId) 设置<p>项目 ID。</p>
+ * @method string getFrom() 获取<p>证书来源：<br>trustasia：亚洲诚信，<br>upload：用户上传。<br>wosign：沃通<br>sheca：上海CA</p>
+ * @method void setFrom(string $From) 设置<p>证书来源：<br>trustasia：亚洲诚信，<br>upload：用户上传。<br>wosign：沃通<br>sheca：上海CA</p>
+ * @method string getPackageType() 获取<p>证书套餐类型：<br>null：用户上传证书（没有套餐类型），<br>2：TrustAsia TLS RSA CA，<br>3：SecureSite 增强型企业版（EV Pro），<br>4：SecureSite 增强型（EV），<br>5：SecureSite 企业型专业版（OV Pro），<br>6：SecureSite 企业型（OV），<br>7：SecureSite 企业型（OV）通配符，<br>8：Geotrust 增强型（EV），<br>9：Geotrust 企业型（OV），<br>10：Geotrust 企业型（OV）通配符，<br>11：TrustAsia 域名型多域名 SSL 证书，<br>12：TrustAsia 域名型（DV）通配符，<br>13：TrustAsia 企业型通配符（OV）SSL 证书（D3），<br>14：TrustAsia 企业型（OV）SSL 证书（D3），<br>15：TrustAsia 企业型多域名 （OV）SSL 证书（D3），<br>16：TrustAsia 增强型 （EV）SSL 证书（D3），<br>17：TrustAsia 增强型多域名（EV）SSL 证书（D3），<br>18：GlobalSign 企业型（OV）SSL 证书，<br>19：GlobalSign 企业型通配符 （OV）SSL 证书，<br>20：GlobalSign 增强型 （EV）SSL 证书，<br>21：TrustAsia 企业型通配符多域名（OV）SSL 证书（D3），<br>22：GlobalSign 企业型多域名（OV）SSL 证书，<br>23：GlobalSign 企业型通配符多域名（OV）SSL 证书，<br>24：GlobalSign 增强型多域名（EV）SSL 证书，<br>25：Wotrus 域名型证书，<br>26：Wotrus 域名型多域名证书，<br>27：Wotrus 域名型通配符证书，<br>28：Wotrus 企业型证书，<br>29：Wotrus 企业型多域名证书，<br>30：Wotrus 企业型通配符证书，<br>31：Wotrus 增强型证书，<br>32：Wotrus 增强型多域名证书，<br>33：WoTrus-国密域名型证书，<br>34：WoTrus-国密域名型证书（多域名），<br>35：WoTrus-国密域名型证书（通配符），<br>37：WoTrus-国密企业型证书，<br>38：WoTrus-国密企业型证书（多域名），<br>39：WoTrus-国密企业型证书（通配符），<br>40：WoTrus-国密增强型证书，<br>41：WoTrus-国密增强型证书（多域名），<br>42：TrustAsia-域名型证书（通配符多域名），<br>43：DNSPod-企业型(OV)SSL证书<br>44：DNSPod-企业型(OV)通配符SSL证书<br>45：DNSPod-企业型(OV)多域名SSL证书<br>46：DNSPod-增强型(EV)SSL证书<br>47：DNSPod-增强型(EV)多域名SSL证书<br>48：DNSPod-域名型(DV)SSL证书<br>49：DNSPod-域名型(DV)通配符SSL证书<br>50：DNSPod-域名型(DV)多域名SSL证书<br>51：DNSPod（国密）-企业型(OV)SSL证书<br>52：DNSPod（国密）-企业型(OV)通配符SSL证书<br>53：DNSPod（国密）-企业型(OV)多域名SSL证书<br>54：DNSPod（国密）-域名型(DV)SSL证书<br>55：DNSPod（国密）-域名型(DV)通配符SSL证书<br>56：DNSPod（国密）-域名型(DV)多域名SSL证书<br>57：SecureSite 企业型专业版多域名(OV Pro)<br>58：SecureSite 企业型多域名(OV)<br>59：SecureSite 增强型专业版多域名(EV Pro)<br>60：SecureSite 增强型多域名(EV)<br>61：Geotrust 增强型多域名(EV)<br>75：SecureSite 企业型(OV)<br>76：SecureSite 企业型(OV)通配符<br>77：SecureSite 增强型(EV)<br>78：Geotrust 企业型(OV)<br>79：Geotrust 企业型(OV)通配符<br>80：Geotrust 增强型(EV)<br>81：GlobalSign 企业型（OV）SSL证书<br>82：GlobalSign 企业型通配符 （OV）SSL证书<br>83：TrustAsia C1 DV Free<br>85：GlobalSign 增强型 （EV）SSL证书<br>88：GlobalSign 企业型通配符多域名 （OV）SSL证书<br>89：GlobalSign 企业型多域名 （OV）SSL证书<br>90：GlobalSign 增强型多域名（EV） SSL证书<br>91：Geotrust 增强型多域名(EV)<br>92：SecureSite 企业型专业版多域名(OV Pro)<br>93：SecureSite 企业型多域名(OV)<br>94：SecureSite 增强型专业版多域名(EV Pro)<br>95：SecureSite 增强型多域名(EV)<br>96：SecureSite 增强型专业版(EV Pro)<br>97：SecureSite 企业型专业版(OV Pro)<br>98：CFCA 企业型(OV)SSL证书<br>99：CFCA 企业型多域名(OV)SSL证书<br>100：CFCA 企业型通配符(OV)SSL证书<br>101：CFCA 增强型(EV)SSL证书</p>
+ * @method void setPackageType(string $PackageType) 设置<p>证书套餐类型：<br>null：用户上传证书（没有套餐类型），<br>2：TrustAsia TLS RSA CA，<br>3：SecureSite 增强型企业版（EV Pro），<br>4：SecureSite 增强型（EV），<br>5：SecureSite 企业型专业版（OV Pro），<br>6：SecureSite 企业型（OV），<br>7：SecureSite 企业型（OV）通配符，<br>8：Geotrust 增强型（EV），<br>9：Geotrust 企业型（OV），<br>10：Geotrust 企业型（OV）通配符，<br>11：TrustAsia 域名型多域名 SSL 证书，<br>12：TrustAsia 域名型（DV）通配符，<br>13：TrustAsia 企业型通配符（OV）SSL 证书（D3），<br>14：TrustAsia 企业型（OV）SSL 证书（D3），<br>15：TrustAsia 企业型多域名 （OV）SSL 证书（D3），<br>16：TrustAsia 增强型 （EV）SSL 证书（D3），<br>17：TrustAsia 增强型多域名（EV）SSL 证书（D3），<br>18：GlobalSign 企业型（OV）SSL 证书，<br>19：GlobalSign 企业型通配符 （OV）SSL 证书，<br>20：GlobalSign 增强型 （EV）SSL 证书，<br>21：TrustAsia 企业型通配符多域名（OV）SSL 证书（D3），<br>22：GlobalSign 企业型多域名（OV）SSL 证书，<br>23：GlobalSign 企业型通配符多域名（OV）SSL 证书，<br>24：GlobalSign 增强型多域名（EV）SSL 证书，<br>25：Wotrus 域名型证书，<br>26：Wotrus 域名型多域名证书，<br>27：Wotrus 域名型通配符证书，<br>28：Wotrus 企业型证书，<br>29：Wotrus 企业型多域名证书，<br>30：Wotrus 企业型通配符证书，<br>31：Wotrus 增强型证书，<br>32：Wotrus 增强型多域名证书，<br>33：WoTrus-国密域名型证书，<br>34：WoTrus-国密域名型证书（多域名），<br>35：WoTrus-国密域名型证书（通配符），<br>37：WoTrus-国密企业型证书，<br>38：WoTrus-国密企业型证书（多域名），<br>39：WoTrus-国密企业型证书（通配符），<br>40：WoTrus-国密增强型证书，<br>41：WoTrus-国密增强型证书（多域名），<br>42：TrustAsia-域名型证书（通配符多域名），<br>43：DNSPod-企业型(OV)SSL证书<br>44：DNSPod-企业型(OV)通配符SSL证书<br>45：DNSPod-企业型(OV)多域名SSL证书<br>46：DNSPod-增强型(EV)SSL证书<br>47：DNSPod-增强型(EV)多域名SSL证书<br>48：DNSPod-域名型(DV)SSL证书<br>49：DNSPod-域名型(DV)通配符SSL证书<br>50：DNSPod-域名型(DV)多域名SSL证书<br>51：DNSPod（国密）-企业型(OV)SSL证书<br>52：DNSPod（国密）-企业型(OV)通配符SSL证书<br>53：DNSPod（国密）-企业型(OV)多域名SSL证书<br>54：DNSPod（国密）-域名型(DV)SSL证书<br>55：DNSPod（国密）-域名型(DV)通配符SSL证书<br>56：DNSPod（国密）-域名型(DV)多域名SSL证书<br>57：SecureSite 企业型专业版多域名(OV Pro)<br>58：SecureSite 企业型多域名(OV)<br>59：SecureSite 增强型专业版多域名(EV Pro)<br>60：SecureSite 增强型多域名(EV)<br>61：Geotrust 增强型多域名(EV)<br>75：SecureSite 企业型(OV)<br>76：SecureSite 企业型(OV)通配符<br>77：SecureSite 增强型(EV)<br>78：Geotrust 企业型(OV)<br>79：Geotrust 企业型(OV)通配符<br>80：Geotrust 增强型(EV)<br>81：GlobalSign 企业型（OV）SSL证书<br>82：GlobalSign 企业型通配符 （OV）SSL证书<br>83：TrustAsia C1 DV Free<br>85：GlobalSign 增强型 （EV）SSL证书<br>88：GlobalSign 企业型通配符多域名 （OV）SSL证书<br>89：GlobalSign 企业型多域名 （OV）SSL证书<br>90：GlobalSign 增强型多域名（EV） SSL证书<br>91：Geotrust 增强型多域名(EV)<br>92：SecureSite 企业型专业版多域名(OV Pro)<br>93：SecureSite 企业型多域名(OV)<br>94：SecureSite 增强型专业版多域名(EV Pro)<br>95：SecureSite 增强型多域名(EV)<br>96：SecureSite 增强型专业版(EV Pro)<br>97：SecureSite 企业型专业版(OV Pro)<br>98：CFCA 企业型(OV)SSL证书<br>99：CFCA 企业型多域名(OV)SSL证书<br>100：CFCA 企业型通配符(OV)SSL证书<br>101：CFCA 增强型(EV)SSL证书</p>
+ * @method string getCertificateType() 获取<p>证书类型：CA = 客户端证书，SVR = 服务器证书。</p>
+ * @method void setCertificateType(string $CertificateType) 设置<p>证书类型：CA = 客户端证书，SVR = 服务器证书。</p>
+ * @method string getProductZhName() 获取<p>证书产品名称</p>
+ * @method void setProductZhName(string $ProductZhName) 设置<p>证书产品名称</p>
+ * @method string getDomain() 获取<p>主域名。</p>
+ * @method void setDomain(string $Domain) 设置<p>主域名。</p>
+ * @method string getAlias() 获取<p>备注名称。</p>
+ * @method void setAlias(string $Alias) 设置<p>备注名称。</p>
+ * @method integer getStatus() 获取<p>证书状态：0 = 审核中，1 = 已通过，2 = 审核失败，3 = 已过期，4 = 自动添加DNS记录，5 = 企业证书，待提交资料，6 = 订单取消中，7 = 已取消，8 = 已提交资料， 待上传确认函，9 = 证书吊销中，10 = 已吊销，11 = 重颁发中，12 = 待上传吊销确认函，13 = 免费证书待提交资料。14 = 证书已退款。 15 = 证书迁移中</p>
+ * @method void setStatus(integer $Status) 设置<p>证书状态：0 = 审核中，1 = 已通过，2 = 审核失败，3 = 已过期，4 = 自动添加DNS记录，5 = 企业证书，待提交资料，6 = 订单取消中，7 = 已取消，8 = 已提交资料， 待上传确认函，9 = 证书吊销中，10 = 已吊销，11 = 重颁发中，12 = 待上传吊销确认函，13 = 免费证书待提交资料。14 = 证书已退款。 15 = 证书迁移中</p>
+ * @method CertificateExtra getCertificateExtra() 获取<p>证书扩展信息。</p>
+ * @method void setCertificateExtra(CertificateExtra $CertificateExtra) 设置<p>证书扩展信息。</p>
+ * @method string getVulnerabilityStatus() 获取<p>漏洞扫描状态：INACTIVE = 未开启，ACTIVE = 已开启</p>
+ * @method void setVulnerabilityStatus(string $VulnerabilityStatus) 设置<p>漏洞扫描状态：INACTIVE = 未开启，ACTIVE = 已开启</p>
+ * @method string getStatusMsg() 获取<p>状态信息。</p>
+ * @method void setStatusMsg(string $StatusMsg) 设置<p>状态信息。</p>
+ * @method string getVerifyType() 获取<p>验证类型：DNS_AUTO = 自动DNS验证，DNS = 手动DNS验证，FILE = 文件验证，DNS_PROXY = DNS代理验证。FILE_PROXY = 文件代理验证</p>
+ * @method void setVerifyType(string $VerifyType) 设置<p>验证类型：DNS_AUTO = 自动DNS验证，DNS = 手动DNS验证，FILE = 文件验证，DNS_PROXY = DNS代理验证。FILE_PROXY = 文件代理验证</p>
+ * @method string getCertBeginTime() 获取<p>证书生效时间。时区为GMT+8:00</p>
+ * @method void setCertBeginTime(string $CertBeginTime) 设置<p>证书生效时间。时区为GMT+8:00</p>
+ * @method string getCertEndTime() 获取<p>证书过期时间。时区为GMT+8:00</p>
+ * @method void setCertEndTime(string $CertEndTime) 设置<p>证书过期时间。时区为GMT+8:00</p>
+ * @method string getValidityPeriod() 获取<p>证书有效期，单位（月）。</p>
+ * @method void setValidityPeriod(string $ValidityPeriod) 设置<p>证书有效期，单位（月）。</p>
+ * @method string getInsertTime() 获取<p>创建时间。时区为GMT+8:00</p>
+ * @method void setInsertTime(string $InsertTime) 设置<p>创建时间。时区为GMT+8:00</p>
+ * @method string getCertificateId() 获取<p>证书 ID。</p>
+ * @method void setCertificateId(string $CertificateId) 设置<p>证书 ID。</p>
+ * @method array getSubjectAltName() 获取<p>证书包含的多个域名（包含主域名）。</p>
+ * @method void setSubjectAltName(array $SubjectAltName) 设置<p>证书包含的多个域名（包含主域名）。</p>
+ * @method string getPackageTypeName() 获取<p>证书类型名称。</p>
+ * @method void setPackageTypeName(string $PackageTypeName) 设置<p>证书类型名称。</p>
+ * @method string getStatusName() 获取<p>状态名称。</p>
+ * @method void setStatusName(string $StatusName) 设置<p>状态名称。</p>
+ * @method boolean getIsVip() 获取<p>是否为 VIP 客户。</p>
+ * @method void setIsVip(boolean $IsVip) 设置<p>是否为 VIP 客户。</p>
+ * @method boolean getIsDv() 获取<p>是否为 DV 版证书。</p>
+ * @method void setIsDv(boolean $IsDv) 设置<p>是否为 DV 版证书。</p>
+ * @method boolean getIsWildcard() 获取<p>是否为泛域名证书。</p>
+ * @method void setIsWildcard(boolean $IsWildcard) 设置<p>是否为泛域名证书。</p>
+ * @method boolean getIsVulnerability() 获取<p>是否启用了漏洞扫描功能。</p>
+ * @method void setIsVulnerability(boolean $IsVulnerability) 设置<p>是否启用了漏洞扫描功能。</p>
+ * @method boolean getRenewAble() 获取<p>是否可续费。</p>
+ * @method void setRenewAble(boolean $RenewAble) 设置<p>是否可续费。</p>
+ * @method ProjectInfo getProjectInfo() 获取<p>项目信息。</p>
+ * @method void setProjectInfo(ProjectInfo $ProjectInfo) 设置<p>项目信息。</p>
+ * @method array getBoundResource() 获取<p>关联的云资源，暂不可用</p>
+ * @method void setBoundResource(array $BoundResource) 设置<p>关联的云资源，暂不可用</p>
+ * @method boolean getDeployable() 获取<p>是否可部署。</p>
+ * @method void setDeployable(boolean $Deployable) 设置<p>是否可部署。</p>
+ * @method array getTags() 获取<p>标签列表</p>
+ * @method void setTags(array $Tags) 设置<p>标签列表</p>
+ * @method boolean getIsIgnore() 获取<p>是否已忽略到期通知</p>
+ * @method void setIsIgnore(boolean $IsIgnore) 设置<p>是否已忽略到期通知</p>
+ * @method boolean getIsSM() 获取<p>是否国密证书</p>
+ * @method void setIsSM(boolean $IsSM) 设置<p>是否国密证书</p>
+ * @method string getEncryptAlgorithm() 获取<p>证书算法</p>
+ * @method void setEncryptAlgorithm(string $EncryptAlgorithm) 设置<p>证书算法</p>
+ * @method array getCAEncryptAlgorithms() 获取<p>上传CA证书的加密算法</p>
+ * @method void setCAEncryptAlgorithms(array $CAEncryptAlgorithms) 设置<p>上传CA证书的加密算法</p>
+ * @method array getCAEndTimes() 获取<p>上传CA证书的过期时间</p>
+ * @method void setCAEndTimes(array $CAEndTimes) 设置<p>上传CA证书的过期时间</p>
+ * @method array getCACommonNames() 获取<p>上传CA证书的通用名称</p>
+ * @method void setCACommonNames(array $CACommonNames) 设置<p>上传CA证书的通用名称</p>
+ * @method PreAuditInfo getPreAuditInfo() 获取<p>证书预审核信息</p>
+ * @method void setPreAuditInfo(PreAuditInfo $PreAuditInfo) 设置<p>证书预审核信息</p>
+ * @method integer getAutoRenewFlag() 获取<p>是否自动续费</p>
+ * @method void setAutoRenewFlag(integer $AutoRenewFlag) 设置<p>是否自动续费</p>
+ * @method integer getHostingStatus() 获取<p>托管状态，0，托管中，5，资源替换中， 10， 托管完成， -1未托管</p>
+ * @method void setHostingStatus(integer $HostingStatus) 设置<p>托管状态，0，托管中，5，资源替换中， 10， 托管完成， -1未托管</p>
+ * @method string getHostingCompleteTime() 获取<p>托管完成时间</p>
+ * @method void setHostingCompleteTime(string $HostingCompleteTime) 设置<p>托管完成时间</p>
+ * @method string getHostingRenewCertId() 获取<p>托管新证书ID</p>
+ * @method void setHostingRenewCertId(string $HostingRenewCertId) 设置<p>托管新证书ID</p>
+ * @method string getHasRenewOrder() 获取<p>存在的续费证书ID</p>
+ * @method void setHasRenewOrder(string $HasRenewOrder) 设置<p>存在的续费证书ID</p>
+ * @method boolean getReplaceOriCertIsDelete() 获取<p>重颁发证书原证书是否删除</p>
+ * @method void setReplaceOriCertIsDelete(boolean $ReplaceOriCertIsDelete) 设置<p>重颁发证书原证书是否删除</p>
+ * @method boolean getIsExpiring() 获取<p>是否即将过期， 证书即将到期的30天内为即将过期</p>
+ * @method void setIsExpiring(boolean $IsExpiring) 设置<p>是否即将过期， 证书即将到期的30天内为即将过期</p>
+ * @method string getDVAuthDeadline() 获取<p>DV证书添加验证截止时间，时区为GMT+8:00</p>
+ * @method void setDVAuthDeadline(string $DVAuthDeadline) 设置<p>DV证书添加验证截止时间，时区为GMT+8:00</p>
+ * @method string getValidationPassedTime() 获取<p>域名验证通过时间，时区为GMT+8:00</p>
+ * @method void setValidationPassedTime(string $ValidationPassedTime) 设置<p>域名验证通过时间，时区为GMT+8:00</p>
+ * @method array getCertSANs() 获取<p>证书关联的多域名</p>
+ * @method void setCertSANs(array $CertSANs) 设置<p>证书关联的多域名</p>
+ * @method string getAwaitingValidationMsg() 获取<p>域名验证驳回信息</p>
+ * @method void setAwaitingValidationMsg(string $AwaitingValidationMsg) 设置<p>域名验证驳回信息</p>
+ * @method boolean getAllowDownload() 获取<p>是否允许下载</p>
+ * @method void setAllowDownload(boolean $AllowDownload) 设置<p>是否允许下载</p>
+ * @method boolean getIsDNSPODResolve() 获取<p>证书域名是否全部在DNSPOD托管解析</p>
+ * @method void setIsDNSPODResolve(boolean $IsDNSPODResolve) 设置<p>证书域名是否全部在DNSPOD托管解析</p>
+ * @method boolean getIsPackage() 获取<p>是否是权益点购买的证书</p>
+ * @method void setIsPackage(boolean $IsPackage) 设置<p>是否是权益点购买的证书</p>
+ * @method boolean getKeyPasswordCustomFlag() 获取<p>是否存在私钥密码</p>
+ * @method void setKeyPasswordCustomFlag(boolean $KeyPasswordCustomFlag) 设置<p>是否存在私钥密码</p>
+ * @method SupportDownloadType getSupportDownloadType() 获取<p>支持下载的WEB服务器类型： nginx、apache、iis、tomcat、jks、root、other</p>
+ * @method void setSupportDownloadType(SupportDownloadType $SupportDownloadType) 设置<p>支持下载的WEB服务器类型： nginx、apache、iis、tomcat、jks、root、other</p>
+ * @method string getCertRevokedTime() 获取<p>证书吊销完成时间，时区为GMT+8:00</p>
+ * @method void setCertRevokedTime(string $CertRevokedTime) 设置<p>证书吊销完成时间，时区为GMT+8:00</p>
+ * @method array getHostingResourceTypes() 获取<p>托管资源类型列表</p>
+ * @method void setHostingResourceTypes(array $HostingResourceTypes) 设置<p>托管资源类型列表</p>
+ * @method HostingConfig getHostingConfig() 获取<p>托管配置信息</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setOwnerUin(string $OwnerUin) 设置用户 UIN。
+ * @method void setHostingConfig(HostingConfig $HostingConfig) 设置<p>托管配置信息</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getProjectId() 获取项目 ID。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setProjectId(string $ProjectId) 设置项目 ID。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method string getFrom() 获取证书来源。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setFrom(string $From) 设置证书来源。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method string getPackageType() 获取证书套餐类型：1 = GeoTrust DV SSL CA - G3， 2 = TrustAsia TLS RSA CA， 3 = SecureSite 增强型企业版（EV Pro）， 4 = SecureSite 增强型（EV）， 5 = SecureSite 企业型专业版（OV Pro）， 6 = SecureSite 企业型（OV）， 7 = SecureSite 企业型（OV）通配符， 8 = Geotrust 增强型（EV）， 9 = Geotrust 企业型（OV）， 10 = Geotrust 企业型（OV）通配符， 11 = TrustAsia 域名型多域名 SSL 证书， 12 = TrustAsia 域名型（DV）通配符， 13 = TrustAsia 企业型通配符（OV）SSL 证书（D3）， 14 = TrustAsia 企业型（OV）SSL 证书（D3）， 15 = TrustAsia 企业型多域名 （OV）SSL 证书（D3）， 16 = TrustAsia 增强型 （EV）SSL 证书（D3）， 17 = TrustAsia 增强型多域名（EV）SSL 证书（D3）， 18 = GlobalSign 企业型（OV）SSL 证书， 19 = GlobalSign 企业型通配符 （OV）SSL 证书， 20 = GlobalSign 增强型 （EV）SSL 证书， 21 = TrustAsia 企业型通配符多域名（OV）SSL 证书（D3）， 22 = GlobalSign 企业型多域名（OV）SSL 证书， 23 = GlobalSign 企业型通配符多域名（OV）SSL 证书， 24 = GlobalSign 增强型多域名（EV）SSL 证书。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setPackageType(string $PackageType) 设置证书套餐类型：1 = GeoTrust DV SSL CA - G3， 2 = TrustAsia TLS RSA CA， 3 = SecureSite 增强型企业版（EV Pro）， 4 = SecureSite 增强型（EV）， 5 = SecureSite 企业型专业版（OV Pro）， 6 = SecureSite 企业型（OV）， 7 = SecureSite 企业型（OV）通配符， 8 = Geotrust 增强型（EV）， 9 = Geotrust 企业型（OV）， 10 = Geotrust 企业型（OV）通配符， 11 = TrustAsia 域名型多域名 SSL 证书， 12 = TrustAsia 域名型（DV）通配符， 13 = TrustAsia 企业型通配符（OV）SSL 证书（D3）， 14 = TrustAsia 企业型（OV）SSL 证书（D3）， 15 = TrustAsia 企业型多域名 （OV）SSL 证书（D3）， 16 = TrustAsia 增强型 （EV）SSL 证书（D3）， 17 = TrustAsia 增强型多域名（EV）SSL 证书（D3）， 18 = GlobalSign 企业型（OV）SSL 证书， 19 = GlobalSign 企业型通配符 （OV）SSL 证书， 20 = GlobalSign 增强型 （EV）SSL 证书， 21 = TrustAsia 企业型通配符多域名（OV）SSL 证书（D3）， 22 = GlobalSign 企业型多域名（OV）SSL 证书， 23 = GlobalSign 企业型通配符多域名（OV）SSL 证书， 24 = GlobalSign 增强型多域名（EV）SSL 证书。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method string getCertificateType() 获取证书类型：CA = 客户端证书，SVR = 服务器证书。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setCertificateType(string $CertificateType) 设置证书类型：CA = 客户端证书，SVR = 服务器证书。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method string getProductZhName() 获取颁发者。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setProductZhName(string $ProductZhName) 设置颁发者。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method string getDomain() 获取主域名。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setDomain(string $Domain) 设置主域名。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method string getAlias() 获取备注名称。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setAlias(string $Alias) 设置备注名称。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method integer getStatus() 获取状态值 0：审核中，1：已通过，2：审核失败，3：已过期，4：已添加 DNS 解析记录，5：OV/EV 证书，待提交资料，6：订单取消中，7：已取消，8：已提交资料， 待上传确认函。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setStatus(integer $Status) 设置状态值 0：审核中，1：已通过，2：审核失败，3：已过期，4：已添加 DNS 解析记录，5：OV/EV 证书，待提交资料，6：订单取消中，7：已取消，8：已提交资料， 待上传确认函。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method CertificateExtra getCertificateExtra() 获取证书扩展信息。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setCertificateExtra(CertificateExtra $CertificateExtra) 设置证书扩展信息。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method string getVulnerabilityStatus() 获取漏洞扫描状态：INACTIVE = 未开启，ACTIVE = 已开启
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setVulnerabilityStatus(string $VulnerabilityStatus) 设置漏洞扫描状态：INACTIVE = 未开启，ACTIVE = 已开启
-注意：此字段可能返回 null，表示取不到有效值。
- * @method string getStatusMsg() 获取状态信息。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setStatusMsg(string $StatusMsg) 设置状态信息。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method string getVerifyType() 获取验证类型：DNS_AUTO = 自动DNS验证，DNS = 手动DNS验证，FILE = 文件验证，EMAIL = 邮件验证。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setVerifyType(string $VerifyType) 设置验证类型：DNS_AUTO = 自动DNS验证，DNS = 手动DNS验证，FILE = 文件验证，EMAIL = 邮件验证。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method string getCertBeginTime() 获取证书生效时间。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setCertBeginTime(string $CertBeginTime) 设置证书生效时间。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method string getCertEndTime() 获取证书过期时间。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setCertEndTime(string $CertEndTime) 设置证书过期时间。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method string getValidityPeriod() 获取证书有效期，单位（月）。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setValidityPeriod(string $ValidityPeriod) 设置证书有效期，单位（月）。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method string getInsertTime() 获取创建时间。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setInsertTime(string $InsertTime) 设置创建时间。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method string getCertificateId() 获取证书 ID。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setCertificateId(string $CertificateId) 设置证书 ID。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method array getSubjectAltName() 获取证书包含的多个域名（包含主域名）。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setSubjectAltName(array $SubjectAltName) 设置证书包含的多个域名（包含主域名）。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method string getPackageTypeName() 获取证书类型名称。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setPackageTypeName(string $PackageTypeName) 设置证书类型名称。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method string getStatusName() 获取状态名称。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setStatusName(string $StatusName) 设置状态名称。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method boolean getIsVip() 获取是否为 VIP 客户。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setIsVip(boolean $IsVip) 设置是否为 VIP 客户。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method boolean getIsDv() 获取是否为 DV 版证书。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setIsDv(boolean $IsDv) 设置是否为 DV 版证书。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method boolean getIsWildcard() 获取是否为泛域名证书。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setIsWildcard(boolean $IsWildcard) 设置是否为泛域名证书。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method boolean getIsVulnerability() 获取是否启用了漏洞扫描功能。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setIsVulnerability(boolean $IsVulnerability) 设置是否启用了漏洞扫描功能。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method boolean getRenewAble() 获取是否可重颁发证书。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setRenewAble(boolean $RenewAble) 设置是否可重颁发证书。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method ProjectInfo getProjectInfo() 获取项目信息。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setProjectInfo(ProjectInfo $ProjectInfo) 设置项目信息。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method array getBoundResource() 获取关联的云资源，暂不可用
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setBoundResource(array $BoundResource) 设置关联的云资源，暂不可用
-注意：此字段可能返回 null，表示取不到有效值。
- * @method boolean getDeployable() 获取是否可部署。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setDeployable(boolean $Deployable) 设置是否可部署。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method array getTags() 获取标签列表
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setTags(array $Tags) 设置标签列表
-注意：此字段可能返回 null，表示取不到有效值。
+ * @method boolean getIsHostingUploadRenewCert() 获取<p>是否是上传托管续费证书</p>
+ * @method void setIsHostingUploadRenewCert(boolean $IsHostingUploadRenewCert) 设置<p>是否是上传托管续费证书</p>
+ * @method string getServiceId() 获取<p>订阅服务ID</p>
+ * @method void setServiceId(string $ServiceId) 设置<p>订阅服务ID</p>
+ * @method string getServiceStatus() 获取<p>订阅服务状态</p><p>枚举值：</p><ul><li>initing： 未激活</li><li>running： 生效中</li><li>expired： 已过期</li><li>refunded： 已退款</li><li>nearExpire： 即将到期</li></ul>
+ * @method void setServiceStatus(string $ServiceStatus) 设置<p>订阅服务状态</p><p>枚举值：</p><ul><li>initing： 未激活</li><li>running： 生效中</li><li>expired： 已过期</li><li>refunded： 已退款</li><li>nearExpire： 即将到期</li></ul>
+ * @method string getCertServiceBeginTime() 获取<p>订阅服务开始时间</p>
+ * @method void setCertServiceBeginTime(string $CertServiceBeginTime) 设置<p>订阅服务开始时间</p>
+ * @method string getCertServiceEndTime() 获取<p>订阅服务结束时间</p>
+ * @method void setCertServiceEndTime(string $CertServiceEndTime) 设置<p>订阅服务结束时间</p>
+ * @method boolean getCertServiceShareEnabled() 获取<p>是否开启订阅服务共享</p>
+ * @method void setCertServiceShareEnabled(boolean $CertServiceShareEnabled) 设置<p>是否开启订阅服务共享</p>
+ * @method integer getCertServiceValidCertificateCount() 获取<p>当前订阅服务下已经签发未过期的证书数量</p>
+ * @method void setCertServiceValidCertificateCount(integer $CertServiceValidCertificateCount) 设置<p>当前订阅服务下已经签发未过期的证书数量</p>
+ * @method boolean getResubmitAble() 获取<p>是否可重新提交。</p><p>默认值：false</p>
+ * @method void setResubmitAble(boolean $ResubmitAble) 设置<p>是否可重新提交。</p><p>默认值：false</p>
  */
 class Certificates extends AbstractModel
 {
     /**
-     * @var string 用户 UIN。
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string <p>用户 UIN。</p>
      */
     public $OwnerUin;
 
     /**
-     * @var string 项目 ID。
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string <p>项目 ID。</p>
      */
     public $ProjectId;
 
     /**
-     * @var string 证书来源。
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string <p>证书来源：<br>trustasia：亚洲诚信，<br>upload：用户上传。<br>wosign：沃通<br>sheca：上海CA</p>
      */
     public $From;
 
     /**
-     * @var string 证书套餐类型：1 = GeoTrust DV SSL CA - G3， 2 = TrustAsia TLS RSA CA， 3 = SecureSite 增强型企业版（EV Pro）， 4 = SecureSite 增强型（EV）， 5 = SecureSite 企业型专业版（OV Pro）， 6 = SecureSite 企业型（OV）， 7 = SecureSite 企业型（OV）通配符， 8 = Geotrust 增强型（EV）， 9 = Geotrust 企业型（OV）， 10 = Geotrust 企业型（OV）通配符， 11 = TrustAsia 域名型多域名 SSL 证书， 12 = TrustAsia 域名型（DV）通配符， 13 = TrustAsia 企业型通配符（OV）SSL 证书（D3）， 14 = TrustAsia 企业型（OV）SSL 证书（D3）， 15 = TrustAsia 企业型多域名 （OV）SSL 证书（D3）， 16 = TrustAsia 增强型 （EV）SSL 证书（D3）， 17 = TrustAsia 增强型多域名（EV）SSL 证书（D3）， 18 = GlobalSign 企业型（OV）SSL 证书， 19 = GlobalSign 企业型通配符 （OV）SSL 证书， 20 = GlobalSign 增强型 （EV）SSL 证书， 21 = TrustAsia 企业型通配符多域名（OV）SSL 证书（D3）， 22 = GlobalSign 企业型多域名（OV）SSL 证书， 23 = GlobalSign 企业型通配符多域名（OV）SSL 证书， 24 = GlobalSign 增强型多域名（EV）SSL 证书。
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string <p>证书套餐类型：<br>null：用户上传证书（没有套餐类型），<br>2：TrustAsia TLS RSA CA，<br>3：SecureSite 增强型企业版（EV Pro），<br>4：SecureSite 增强型（EV），<br>5：SecureSite 企业型专业版（OV Pro），<br>6：SecureSite 企业型（OV），<br>7：SecureSite 企业型（OV）通配符，<br>8：Geotrust 增强型（EV），<br>9：Geotrust 企业型（OV），<br>10：Geotrust 企业型（OV）通配符，<br>11：TrustAsia 域名型多域名 SSL 证书，<br>12：TrustAsia 域名型（DV）通配符，<br>13：TrustAsia 企业型通配符（OV）SSL 证书（D3），<br>14：TrustAsia 企业型（OV）SSL 证书（D3），<br>15：TrustAsia 企业型多域名 （OV）SSL 证书（D3），<br>16：TrustAsia 增强型 （EV）SSL 证书（D3），<br>17：TrustAsia 增强型多域名（EV）SSL 证书（D3），<br>18：GlobalSign 企业型（OV）SSL 证书，<br>19：GlobalSign 企业型通配符 （OV）SSL 证书，<br>20：GlobalSign 增强型 （EV）SSL 证书，<br>21：TrustAsia 企业型通配符多域名（OV）SSL 证书（D3），<br>22：GlobalSign 企业型多域名（OV）SSL 证书，<br>23：GlobalSign 企业型通配符多域名（OV）SSL 证书，<br>24：GlobalSign 增强型多域名（EV）SSL 证书，<br>25：Wotrus 域名型证书，<br>26：Wotrus 域名型多域名证书，<br>27：Wotrus 域名型通配符证书，<br>28：Wotrus 企业型证书，<br>29：Wotrus 企业型多域名证书，<br>30：Wotrus 企业型通配符证书，<br>31：Wotrus 增强型证书，<br>32：Wotrus 增强型多域名证书，<br>33：WoTrus-国密域名型证书，<br>34：WoTrus-国密域名型证书（多域名），<br>35：WoTrus-国密域名型证书（通配符），<br>37：WoTrus-国密企业型证书，<br>38：WoTrus-国密企业型证书（多域名），<br>39：WoTrus-国密企业型证书（通配符），<br>40：WoTrus-国密增强型证书，<br>41：WoTrus-国密增强型证书（多域名），<br>42：TrustAsia-域名型证书（通配符多域名），<br>43：DNSPod-企业型(OV)SSL证书<br>44：DNSPod-企业型(OV)通配符SSL证书<br>45：DNSPod-企业型(OV)多域名SSL证书<br>46：DNSPod-增强型(EV)SSL证书<br>47：DNSPod-增强型(EV)多域名SSL证书<br>48：DNSPod-域名型(DV)SSL证书<br>49：DNSPod-域名型(DV)通配符SSL证书<br>50：DNSPod-域名型(DV)多域名SSL证书<br>51：DNSPod（国密）-企业型(OV)SSL证书<br>52：DNSPod（国密）-企业型(OV)通配符SSL证书<br>53：DNSPod（国密）-企业型(OV)多域名SSL证书<br>54：DNSPod（国密）-域名型(DV)SSL证书<br>55：DNSPod（国密）-域名型(DV)通配符SSL证书<br>56：DNSPod（国密）-域名型(DV)多域名SSL证书<br>57：SecureSite 企业型专业版多域名(OV Pro)<br>58：SecureSite 企业型多域名(OV)<br>59：SecureSite 增强型专业版多域名(EV Pro)<br>60：SecureSite 增强型多域名(EV)<br>61：Geotrust 增强型多域名(EV)<br>75：SecureSite 企业型(OV)<br>76：SecureSite 企业型(OV)通配符<br>77：SecureSite 增强型(EV)<br>78：Geotrust 企业型(OV)<br>79：Geotrust 企业型(OV)通配符<br>80：Geotrust 增强型(EV)<br>81：GlobalSign 企业型（OV）SSL证书<br>82：GlobalSign 企业型通配符 （OV）SSL证书<br>83：TrustAsia C1 DV Free<br>85：GlobalSign 增强型 （EV）SSL证书<br>88：GlobalSign 企业型通配符多域名 （OV）SSL证书<br>89：GlobalSign 企业型多域名 （OV）SSL证书<br>90：GlobalSign 增强型多域名（EV） SSL证书<br>91：Geotrust 增强型多域名(EV)<br>92：SecureSite 企业型专业版多域名(OV Pro)<br>93：SecureSite 企业型多域名(OV)<br>94：SecureSite 增强型专业版多域名(EV Pro)<br>95：SecureSite 增强型多域名(EV)<br>96：SecureSite 增强型专业版(EV Pro)<br>97：SecureSite 企业型专业版(OV Pro)<br>98：CFCA 企业型(OV)SSL证书<br>99：CFCA 企业型多域名(OV)SSL证书<br>100：CFCA 企业型通配符(OV)SSL证书<br>101：CFCA 增强型(EV)SSL证书</p>
      */
     public $PackageType;
 
     /**
-     * @var string 证书类型：CA = 客户端证书，SVR = 服务器证书。
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string <p>证书类型：CA = 客户端证书，SVR = 服务器证书。</p>
      */
     public $CertificateType;
 
     /**
-     * @var string 颁发者。
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string <p>证书产品名称</p>
      */
     public $ProductZhName;
 
     /**
-     * @var string 主域名。
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string <p>主域名。</p>
      */
     public $Domain;
 
     /**
-     * @var string 备注名称。
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string <p>备注名称。</p>
      */
     public $Alias;
 
     /**
-     * @var integer 状态值 0：审核中，1：已通过，2：审核失败，3：已过期，4：已添加 DNS 解析记录，5：OV/EV 证书，待提交资料，6：订单取消中，7：已取消，8：已提交资料， 待上传确认函。
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var integer <p>证书状态：0 = 审核中，1 = 已通过，2 = 审核失败，3 = 已过期，4 = 自动添加DNS记录，5 = 企业证书，待提交资料，6 = 订单取消中，7 = 已取消，8 = 已提交资料， 待上传确认函，9 = 证书吊销中，10 = 已吊销，11 = 重颁发中，12 = 待上传吊销确认函，13 = 免费证书待提交资料。14 = 证书已退款。 15 = 证书迁移中</p>
      */
     public $Status;
 
     /**
-     * @var CertificateExtra 证书扩展信息。
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var CertificateExtra <p>证书扩展信息。</p>
      */
     public $CertificateExtra;
 
     /**
-     * @var string 漏洞扫描状态：INACTIVE = 未开启，ACTIVE = 已开启
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string <p>漏洞扫描状态：INACTIVE = 未开启，ACTIVE = 已开启</p>
      */
     public $VulnerabilityStatus;
 
     /**
-     * @var string 状态信息。
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string <p>状态信息。</p>
      */
     public $StatusMsg;
 
     /**
-     * @var string 验证类型：DNS_AUTO = 自动DNS验证，DNS = 手动DNS验证，FILE = 文件验证，EMAIL = 邮件验证。
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string <p>验证类型：DNS_AUTO = 自动DNS验证，DNS = 手动DNS验证，FILE = 文件验证，DNS_PROXY = DNS代理验证。FILE_PROXY = 文件代理验证</p>
      */
     public $VerifyType;
 
     /**
-     * @var string 证书生效时间。
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string <p>证书生效时间。时区为GMT+8:00</p>
      */
     public $CertBeginTime;
 
     /**
-     * @var string 证书过期时间。
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string <p>证书过期时间。时区为GMT+8:00</p>
      */
     public $CertEndTime;
 
     /**
-     * @var string 证书有效期，单位（月）。
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string <p>证书有效期，单位（月）。</p>
      */
     public $ValidityPeriod;
 
     /**
-     * @var string 创建时间。
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string <p>创建时间。时区为GMT+8:00</p>
      */
     public $InsertTime;
 
     /**
-     * @var string 证书 ID。
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string <p>证书 ID。</p>
      */
     public $CertificateId;
 
     /**
-     * @var array 证书包含的多个域名（包含主域名）。
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var array <p>证书包含的多个域名（包含主域名）。</p>
      */
     public $SubjectAltName;
 
     /**
-     * @var string 证书类型名称。
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string <p>证书类型名称。</p>
      */
     public $PackageTypeName;
 
     /**
-     * @var string 状态名称。
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string <p>状态名称。</p>
      */
     public $StatusName;
 
     /**
-     * @var boolean 是否为 VIP 客户。
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var boolean <p>是否为 VIP 客户。</p>
      */
     public $IsVip;
 
     /**
-     * @var boolean 是否为 DV 版证书。
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var boolean <p>是否为 DV 版证书。</p>
      */
     public $IsDv;
 
     /**
-     * @var boolean 是否为泛域名证书。
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var boolean <p>是否为泛域名证书。</p>
      */
     public $IsWildcard;
 
     /**
-     * @var boolean 是否启用了漏洞扫描功能。
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var boolean <p>是否启用了漏洞扫描功能。</p>
      */
     public $IsVulnerability;
 
     /**
-     * @var boolean 是否可重颁发证书。
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var boolean <p>是否可续费。</p>
      */
     public $RenewAble;
 
     /**
-     * @var ProjectInfo 项目信息。
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var ProjectInfo <p>项目信息。</p>
      */
     public $ProjectInfo;
 
     /**
-     * @var array 关联的云资源，暂不可用
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var array <p>关联的云资源，暂不可用</p>
      */
     public $BoundResource;
 
     /**
-     * @var boolean 是否可部署。
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var boolean <p>是否可部署。</p>
      */
     public $Deployable;
 
     /**
-     * @var array 标签列表
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var array <p>标签列表</p>
      */
     public $Tags;
 
     /**
-     * @param string $OwnerUin 用户 UIN。
+     * @var boolean <p>是否已忽略到期通知</p>
+     */
+    public $IsIgnore;
+
+    /**
+     * @var boolean <p>是否国密证书</p>
+     */
+    public $IsSM;
+
+    /**
+     * @var string <p>证书算法</p>
+     */
+    public $EncryptAlgorithm;
+
+    /**
+     * @var array <p>上传CA证书的加密算法</p>
+     */
+    public $CAEncryptAlgorithms;
+
+    /**
+     * @var array <p>上传CA证书的过期时间</p>
+     */
+    public $CAEndTimes;
+
+    /**
+     * @var array <p>上传CA证书的通用名称</p>
+     */
+    public $CACommonNames;
+
+    /**
+     * @var PreAuditInfo <p>证书预审核信息</p>
+     */
+    public $PreAuditInfo;
+
+    /**
+     * @var integer <p>是否自动续费</p>
+     */
+    public $AutoRenewFlag;
+
+    /**
+     * @var integer <p>托管状态，0，托管中，5，资源替换中， 10， 托管完成， -1未托管</p>
+     */
+    public $HostingStatus;
+
+    /**
+     * @var string <p>托管完成时间</p>
+     */
+    public $HostingCompleteTime;
+
+    /**
+     * @var string <p>托管新证书ID</p>
+     */
+    public $HostingRenewCertId;
+
+    /**
+     * @var string <p>存在的续费证书ID</p>
+     */
+    public $HasRenewOrder;
+
+    /**
+     * @var boolean <p>重颁发证书原证书是否删除</p>
+     */
+    public $ReplaceOriCertIsDelete;
+
+    /**
+     * @var boolean <p>是否即将过期， 证书即将到期的30天内为即将过期</p>
+     */
+    public $IsExpiring;
+
+    /**
+     * @var string <p>DV证书添加验证截止时间，时区为GMT+8:00</p>
+     */
+    public $DVAuthDeadline;
+
+    /**
+     * @var string <p>域名验证通过时间，时区为GMT+8:00</p>
+     */
+    public $ValidationPassedTime;
+
+    /**
+     * @var array <p>证书关联的多域名</p>
+     */
+    public $CertSANs;
+
+    /**
+     * @var string <p>域名验证驳回信息</p>
+     */
+    public $AwaitingValidationMsg;
+
+    /**
+     * @var boolean <p>是否允许下载</p>
+     */
+    public $AllowDownload;
+
+    /**
+     * @var boolean <p>证书域名是否全部在DNSPOD托管解析</p>
+     */
+    public $IsDNSPODResolve;
+
+    /**
+     * @var boolean <p>是否是权益点购买的证书</p>
+     */
+    public $IsPackage;
+
+    /**
+     * @var boolean <p>是否存在私钥密码</p>
+     */
+    public $KeyPasswordCustomFlag;
+
+    /**
+     * @var SupportDownloadType <p>支持下载的WEB服务器类型： nginx、apache、iis、tomcat、jks、root、other</p>
+     */
+    public $SupportDownloadType;
+
+    /**
+     * @var string <p>证书吊销完成时间，时区为GMT+8:00</p>
+     */
+    public $CertRevokedTime;
+
+    /**
+     * @var array <p>托管资源类型列表</p>
+     */
+    public $HostingResourceTypes;
+
+    /**
+     * @var HostingConfig <p>托管配置信息</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $ProjectId 项目 ID。
+     */
+    public $HostingConfig;
+
+    /**
+     * @var boolean <p>是否是上传托管续费证书</p>
+     */
+    public $IsHostingUploadRenewCert;
+
+    /**
+     * @var string <p>订阅服务ID</p>
+     */
+    public $ServiceId;
+
+    /**
+     * @var string <p>订阅服务状态</p><p>枚举值：</p><ul><li>initing： 未激活</li><li>running： 生效中</li><li>expired： 已过期</li><li>refunded： 已退款</li><li>nearExpire： 即将到期</li></ul>
+     */
+    public $ServiceStatus;
+
+    /**
+     * @var string <p>订阅服务开始时间</p>
+     */
+    public $CertServiceBeginTime;
+
+    /**
+     * @var string <p>订阅服务结束时间</p>
+     */
+    public $CertServiceEndTime;
+
+    /**
+     * @var boolean <p>是否开启订阅服务共享</p>
+     */
+    public $CertServiceShareEnabled;
+
+    /**
+     * @var integer <p>当前订阅服务下已经签发未过期的证书数量</p>
+     */
+    public $CertServiceValidCertificateCount;
+
+    /**
+     * @var boolean <p>是否可重新提交。</p><p>默认值：false</p>
+     */
+    public $ResubmitAble;
+
+    /**
+     * @param string $OwnerUin <p>用户 UIN。</p>
+     * @param string $ProjectId <p>项目 ID。</p>
+     * @param string $From <p>证书来源：<br>trustasia：亚洲诚信，<br>upload：用户上传。<br>wosign：沃通<br>sheca：上海CA</p>
+     * @param string $PackageType <p>证书套餐类型：<br>null：用户上传证书（没有套餐类型），<br>2：TrustAsia TLS RSA CA，<br>3：SecureSite 增强型企业版（EV Pro），<br>4：SecureSite 增强型（EV），<br>5：SecureSite 企业型专业版（OV Pro），<br>6：SecureSite 企业型（OV），<br>7：SecureSite 企业型（OV）通配符，<br>8：Geotrust 增强型（EV），<br>9：Geotrust 企业型（OV），<br>10：Geotrust 企业型（OV）通配符，<br>11：TrustAsia 域名型多域名 SSL 证书，<br>12：TrustAsia 域名型（DV）通配符，<br>13：TrustAsia 企业型通配符（OV）SSL 证书（D3），<br>14：TrustAsia 企业型（OV）SSL 证书（D3），<br>15：TrustAsia 企业型多域名 （OV）SSL 证书（D3），<br>16：TrustAsia 增强型 （EV）SSL 证书（D3），<br>17：TrustAsia 增强型多域名（EV）SSL 证书（D3），<br>18：GlobalSign 企业型（OV）SSL 证书，<br>19：GlobalSign 企业型通配符 （OV）SSL 证书，<br>20：GlobalSign 增强型 （EV）SSL 证书，<br>21：TrustAsia 企业型通配符多域名（OV）SSL 证书（D3），<br>22：GlobalSign 企业型多域名（OV）SSL 证书，<br>23：GlobalSign 企业型通配符多域名（OV）SSL 证书，<br>24：GlobalSign 增强型多域名（EV）SSL 证书，<br>25：Wotrus 域名型证书，<br>26：Wotrus 域名型多域名证书，<br>27：Wotrus 域名型通配符证书，<br>28：Wotrus 企业型证书，<br>29：Wotrus 企业型多域名证书，<br>30：Wotrus 企业型通配符证书，<br>31：Wotrus 增强型证书，<br>32：Wotrus 增强型多域名证书，<br>33：WoTrus-国密域名型证书，<br>34：WoTrus-国密域名型证书（多域名），<br>35：WoTrus-国密域名型证书（通配符），<br>37：WoTrus-国密企业型证书，<br>38：WoTrus-国密企业型证书（多域名），<br>39：WoTrus-国密企业型证书（通配符），<br>40：WoTrus-国密增强型证书，<br>41：WoTrus-国密增强型证书（多域名），<br>42：TrustAsia-域名型证书（通配符多域名），<br>43：DNSPod-企业型(OV)SSL证书<br>44：DNSPod-企业型(OV)通配符SSL证书<br>45：DNSPod-企业型(OV)多域名SSL证书<br>46：DNSPod-增强型(EV)SSL证书<br>47：DNSPod-增强型(EV)多域名SSL证书<br>48：DNSPod-域名型(DV)SSL证书<br>49：DNSPod-域名型(DV)通配符SSL证书<br>50：DNSPod-域名型(DV)多域名SSL证书<br>51：DNSPod（国密）-企业型(OV)SSL证书<br>52：DNSPod（国密）-企业型(OV)通配符SSL证书<br>53：DNSPod（国密）-企业型(OV)多域名SSL证书<br>54：DNSPod（国密）-域名型(DV)SSL证书<br>55：DNSPod（国密）-域名型(DV)通配符SSL证书<br>56：DNSPod（国密）-域名型(DV)多域名SSL证书<br>57：SecureSite 企业型专业版多域名(OV Pro)<br>58：SecureSite 企业型多域名(OV)<br>59：SecureSite 增强型专业版多域名(EV Pro)<br>60：SecureSite 增强型多域名(EV)<br>61：Geotrust 增强型多域名(EV)<br>75：SecureSite 企业型(OV)<br>76：SecureSite 企业型(OV)通配符<br>77：SecureSite 增强型(EV)<br>78：Geotrust 企业型(OV)<br>79：Geotrust 企业型(OV)通配符<br>80：Geotrust 增强型(EV)<br>81：GlobalSign 企业型（OV）SSL证书<br>82：GlobalSign 企业型通配符 （OV）SSL证书<br>83：TrustAsia C1 DV Free<br>85：GlobalSign 增强型 （EV）SSL证书<br>88：GlobalSign 企业型通配符多域名 （OV）SSL证书<br>89：GlobalSign 企业型多域名 （OV）SSL证书<br>90：GlobalSign 增强型多域名（EV） SSL证书<br>91：Geotrust 增强型多域名(EV)<br>92：SecureSite 企业型专业版多域名(OV Pro)<br>93：SecureSite 企业型多域名(OV)<br>94：SecureSite 增强型专业版多域名(EV Pro)<br>95：SecureSite 增强型多域名(EV)<br>96：SecureSite 增强型专业版(EV Pro)<br>97：SecureSite 企业型专业版(OV Pro)<br>98：CFCA 企业型(OV)SSL证书<br>99：CFCA 企业型多域名(OV)SSL证书<br>100：CFCA 企业型通配符(OV)SSL证书<br>101：CFCA 增强型(EV)SSL证书</p>
+     * @param string $CertificateType <p>证书类型：CA = 客户端证书，SVR = 服务器证书。</p>
+     * @param string $ProductZhName <p>证书产品名称</p>
+     * @param string $Domain <p>主域名。</p>
+     * @param string $Alias <p>备注名称。</p>
+     * @param integer $Status <p>证书状态：0 = 审核中，1 = 已通过，2 = 审核失败，3 = 已过期，4 = 自动添加DNS记录，5 = 企业证书，待提交资料，6 = 订单取消中，7 = 已取消，8 = 已提交资料， 待上传确认函，9 = 证书吊销中，10 = 已吊销，11 = 重颁发中，12 = 待上传吊销确认函，13 = 免费证书待提交资料。14 = 证书已退款。 15 = 证书迁移中</p>
+     * @param CertificateExtra $CertificateExtra <p>证书扩展信息。</p>
+     * @param string $VulnerabilityStatus <p>漏洞扫描状态：INACTIVE = 未开启，ACTIVE = 已开启</p>
+     * @param string $StatusMsg <p>状态信息。</p>
+     * @param string $VerifyType <p>验证类型：DNS_AUTO = 自动DNS验证，DNS = 手动DNS验证，FILE = 文件验证，DNS_PROXY = DNS代理验证。FILE_PROXY = 文件代理验证</p>
+     * @param string $CertBeginTime <p>证书生效时间。时区为GMT+8:00</p>
+     * @param string $CertEndTime <p>证书过期时间。时区为GMT+8:00</p>
+     * @param string $ValidityPeriod <p>证书有效期，单位（月）。</p>
+     * @param string $InsertTime <p>创建时间。时区为GMT+8:00</p>
+     * @param string $CertificateId <p>证书 ID。</p>
+     * @param array $SubjectAltName <p>证书包含的多个域名（包含主域名）。</p>
+     * @param string $PackageTypeName <p>证书类型名称。</p>
+     * @param string $StatusName <p>状态名称。</p>
+     * @param boolean $IsVip <p>是否为 VIP 客户。</p>
+     * @param boolean $IsDv <p>是否为 DV 版证书。</p>
+     * @param boolean $IsWildcard <p>是否为泛域名证书。</p>
+     * @param boolean $IsVulnerability <p>是否启用了漏洞扫描功能。</p>
+     * @param boolean $RenewAble <p>是否可续费。</p>
+     * @param ProjectInfo $ProjectInfo <p>项目信息。</p>
+     * @param array $BoundResource <p>关联的云资源，暂不可用</p>
+     * @param boolean $Deployable <p>是否可部署。</p>
+     * @param array $Tags <p>标签列表</p>
+     * @param boolean $IsIgnore <p>是否已忽略到期通知</p>
+     * @param boolean $IsSM <p>是否国密证书</p>
+     * @param string $EncryptAlgorithm <p>证书算法</p>
+     * @param array $CAEncryptAlgorithms <p>上传CA证书的加密算法</p>
+     * @param array $CAEndTimes <p>上传CA证书的过期时间</p>
+     * @param array $CACommonNames <p>上传CA证书的通用名称</p>
+     * @param PreAuditInfo $PreAuditInfo <p>证书预审核信息</p>
+     * @param integer $AutoRenewFlag <p>是否自动续费</p>
+     * @param integer $HostingStatus <p>托管状态，0，托管中，5，资源替换中， 10， 托管完成， -1未托管</p>
+     * @param string $HostingCompleteTime <p>托管完成时间</p>
+     * @param string $HostingRenewCertId <p>托管新证书ID</p>
+     * @param string $HasRenewOrder <p>存在的续费证书ID</p>
+     * @param boolean $ReplaceOriCertIsDelete <p>重颁发证书原证书是否删除</p>
+     * @param boolean $IsExpiring <p>是否即将过期， 证书即将到期的30天内为即将过期</p>
+     * @param string $DVAuthDeadline <p>DV证书添加验证截止时间，时区为GMT+8:00</p>
+     * @param string $ValidationPassedTime <p>域名验证通过时间，时区为GMT+8:00</p>
+     * @param array $CertSANs <p>证书关联的多域名</p>
+     * @param string $AwaitingValidationMsg <p>域名验证驳回信息</p>
+     * @param boolean $AllowDownload <p>是否允许下载</p>
+     * @param boolean $IsDNSPODResolve <p>证书域名是否全部在DNSPOD托管解析</p>
+     * @param boolean $IsPackage <p>是否是权益点购买的证书</p>
+     * @param boolean $KeyPasswordCustomFlag <p>是否存在私钥密码</p>
+     * @param SupportDownloadType $SupportDownloadType <p>支持下载的WEB服务器类型： nginx、apache、iis、tomcat、jks、root、other</p>
+     * @param string $CertRevokedTime <p>证书吊销完成时间，时区为GMT+8:00</p>
+     * @param array $HostingResourceTypes <p>托管资源类型列表</p>
+     * @param HostingConfig $HostingConfig <p>托管配置信息</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $From 证书来源。
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $PackageType 证书套餐类型：1 = GeoTrust DV SSL CA - G3， 2 = TrustAsia TLS RSA CA， 3 = SecureSite 增强型企业版（EV Pro）， 4 = SecureSite 增强型（EV）， 5 = SecureSite 企业型专业版（OV Pro）， 6 = SecureSite 企业型（OV）， 7 = SecureSite 企业型（OV）通配符， 8 = Geotrust 增强型（EV）， 9 = Geotrust 企业型（OV）， 10 = Geotrust 企业型（OV）通配符， 11 = TrustAsia 域名型多域名 SSL 证书， 12 = TrustAsia 域名型（DV）通配符， 13 = TrustAsia 企业型通配符（OV）SSL 证书（D3）， 14 = TrustAsia 企业型（OV）SSL 证书（D3）， 15 = TrustAsia 企业型多域名 （OV）SSL 证书（D3）， 16 = TrustAsia 增强型 （EV）SSL 证书（D3）， 17 = TrustAsia 增强型多域名（EV）SSL 证书（D3）， 18 = GlobalSign 企业型（OV）SSL 证书， 19 = GlobalSign 企业型通配符 （OV）SSL 证书， 20 = GlobalSign 增强型 （EV）SSL 证书， 21 = TrustAsia 企业型通配符多域名（OV）SSL 证书（D3）， 22 = GlobalSign 企业型多域名（OV）SSL 证书， 23 = GlobalSign 企业型通配符多域名（OV）SSL 证书， 24 = GlobalSign 增强型多域名（EV）SSL 证书。
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $CertificateType 证书类型：CA = 客户端证书，SVR = 服务器证书。
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $ProductZhName 颁发者。
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $Domain 主域名。
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $Alias 备注名称。
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param integer $Status 状态值 0：审核中，1：已通过，2：审核失败，3：已过期，4：已添加 DNS 解析记录，5：OV/EV 证书，待提交资料，6：订单取消中，7：已取消，8：已提交资料， 待上传确认函。
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param CertificateExtra $CertificateExtra 证书扩展信息。
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $VulnerabilityStatus 漏洞扫描状态：INACTIVE = 未开启，ACTIVE = 已开启
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $StatusMsg 状态信息。
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $VerifyType 验证类型：DNS_AUTO = 自动DNS验证，DNS = 手动DNS验证，FILE = 文件验证，EMAIL = 邮件验证。
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $CertBeginTime 证书生效时间。
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $CertEndTime 证书过期时间。
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $ValidityPeriod 证书有效期，单位（月）。
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $InsertTime 创建时间。
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $CertificateId 证书 ID。
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param array $SubjectAltName 证书包含的多个域名（包含主域名）。
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $PackageTypeName 证书类型名称。
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $StatusName 状态名称。
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param boolean $IsVip 是否为 VIP 客户。
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param boolean $IsDv 是否为 DV 版证书。
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param boolean $IsWildcard 是否为泛域名证书。
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param boolean $IsVulnerability 是否启用了漏洞扫描功能。
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param boolean $RenewAble 是否可重颁发证书。
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param ProjectInfo $ProjectInfo 项目信息。
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param array $BoundResource 关联的云资源，暂不可用
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param boolean $Deployable 是否可部署。
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param array $Tags 标签列表
-注意：此字段可能返回 null，表示取不到有效值。
+     * @param boolean $IsHostingUploadRenewCert <p>是否是上传托管续费证书</p>
+     * @param string $ServiceId <p>订阅服务ID</p>
+     * @param string $ServiceStatus <p>订阅服务状态</p><p>枚举值：</p><ul><li>initing： 未激活</li><li>running： 生效中</li><li>expired： 已过期</li><li>refunded： 已退款</li><li>nearExpire： 即将到期</li></ul>
+     * @param string $CertServiceBeginTime <p>订阅服务开始时间</p>
+     * @param string $CertServiceEndTime <p>订阅服务结束时间</p>
+     * @param boolean $CertServiceShareEnabled <p>是否开启订阅服务共享</p>
+     * @param integer $CertServiceValidCertificateCount <p>当前订阅服务下已经签发未过期的证书数量</p>
+     * @param boolean $ResubmitAble <p>是否可重新提交。</p><p>默认值：false</p>
      */
     function __construct()
     {
@@ -523,6 +679,145 @@ class Certificates extends AbstractModel
                 $obj->deserialize($value);
                 array_push($this->Tags, $obj);
             }
+        }
+
+        if (array_key_exists("IsIgnore",$param) and $param["IsIgnore"] !== null) {
+            $this->IsIgnore = $param["IsIgnore"];
+        }
+
+        if (array_key_exists("IsSM",$param) and $param["IsSM"] !== null) {
+            $this->IsSM = $param["IsSM"];
+        }
+
+        if (array_key_exists("EncryptAlgorithm",$param) and $param["EncryptAlgorithm"] !== null) {
+            $this->EncryptAlgorithm = $param["EncryptAlgorithm"];
+        }
+
+        if (array_key_exists("CAEncryptAlgorithms",$param) and $param["CAEncryptAlgorithms"] !== null) {
+            $this->CAEncryptAlgorithms = $param["CAEncryptAlgorithms"];
+        }
+
+        if (array_key_exists("CAEndTimes",$param) and $param["CAEndTimes"] !== null) {
+            $this->CAEndTimes = $param["CAEndTimes"];
+        }
+
+        if (array_key_exists("CACommonNames",$param) and $param["CACommonNames"] !== null) {
+            $this->CACommonNames = $param["CACommonNames"];
+        }
+
+        if (array_key_exists("PreAuditInfo",$param) and $param["PreAuditInfo"] !== null) {
+            $this->PreAuditInfo = new PreAuditInfo();
+            $this->PreAuditInfo->deserialize($param["PreAuditInfo"]);
+        }
+
+        if (array_key_exists("AutoRenewFlag",$param) and $param["AutoRenewFlag"] !== null) {
+            $this->AutoRenewFlag = $param["AutoRenewFlag"];
+        }
+
+        if (array_key_exists("HostingStatus",$param) and $param["HostingStatus"] !== null) {
+            $this->HostingStatus = $param["HostingStatus"];
+        }
+
+        if (array_key_exists("HostingCompleteTime",$param) and $param["HostingCompleteTime"] !== null) {
+            $this->HostingCompleteTime = $param["HostingCompleteTime"];
+        }
+
+        if (array_key_exists("HostingRenewCertId",$param) and $param["HostingRenewCertId"] !== null) {
+            $this->HostingRenewCertId = $param["HostingRenewCertId"];
+        }
+
+        if (array_key_exists("HasRenewOrder",$param) and $param["HasRenewOrder"] !== null) {
+            $this->HasRenewOrder = $param["HasRenewOrder"];
+        }
+
+        if (array_key_exists("ReplaceOriCertIsDelete",$param) and $param["ReplaceOriCertIsDelete"] !== null) {
+            $this->ReplaceOriCertIsDelete = $param["ReplaceOriCertIsDelete"];
+        }
+
+        if (array_key_exists("IsExpiring",$param) and $param["IsExpiring"] !== null) {
+            $this->IsExpiring = $param["IsExpiring"];
+        }
+
+        if (array_key_exists("DVAuthDeadline",$param) and $param["DVAuthDeadline"] !== null) {
+            $this->DVAuthDeadline = $param["DVAuthDeadline"];
+        }
+
+        if (array_key_exists("ValidationPassedTime",$param) and $param["ValidationPassedTime"] !== null) {
+            $this->ValidationPassedTime = $param["ValidationPassedTime"];
+        }
+
+        if (array_key_exists("CertSANs",$param) and $param["CertSANs"] !== null) {
+            $this->CertSANs = $param["CertSANs"];
+        }
+
+        if (array_key_exists("AwaitingValidationMsg",$param) and $param["AwaitingValidationMsg"] !== null) {
+            $this->AwaitingValidationMsg = $param["AwaitingValidationMsg"];
+        }
+
+        if (array_key_exists("AllowDownload",$param) and $param["AllowDownload"] !== null) {
+            $this->AllowDownload = $param["AllowDownload"];
+        }
+
+        if (array_key_exists("IsDNSPODResolve",$param) and $param["IsDNSPODResolve"] !== null) {
+            $this->IsDNSPODResolve = $param["IsDNSPODResolve"];
+        }
+
+        if (array_key_exists("IsPackage",$param) and $param["IsPackage"] !== null) {
+            $this->IsPackage = $param["IsPackage"];
+        }
+
+        if (array_key_exists("KeyPasswordCustomFlag",$param) and $param["KeyPasswordCustomFlag"] !== null) {
+            $this->KeyPasswordCustomFlag = $param["KeyPasswordCustomFlag"];
+        }
+
+        if (array_key_exists("SupportDownloadType",$param) and $param["SupportDownloadType"] !== null) {
+            $this->SupportDownloadType = new SupportDownloadType();
+            $this->SupportDownloadType->deserialize($param["SupportDownloadType"]);
+        }
+
+        if (array_key_exists("CertRevokedTime",$param) and $param["CertRevokedTime"] !== null) {
+            $this->CertRevokedTime = $param["CertRevokedTime"];
+        }
+
+        if (array_key_exists("HostingResourceTypes",$param) and $param["HostingResourceTypes"] !== null) {
+            $this->HostingResourceTypes = $param["HostingResourceTypes"];
+        }
+
+        if (array_key_exists("HostingConfig",$param) and $param["HostingConfig"] !== null) {
+            $this->HostingConfig = new HostingConfig();
+            $this->HostingConfig->deserialize($param["HostingConfig"]);
+        }
+
+        if (array_key_exists("IsHostingUploadRenewCert",$param) and $param["IsHostingUploadRenewCert"] !== null) {
+            $this->IsHostingUploadRenewCert = $param["IsHostingUploadRenewCert"];
+        }
+
+        if (array_key_exists("ServiceId",$param) and $param["ServiceId"] !== null) {
+            $this->ServiceId = $param["ServiceId"];
+        }
+
+        if (array_key_exists("ServiceStatus",$param) and $param["ServiceStatus"] !== null) {
+            $this->ServiceStatus = $param["ServiceStatus"];
+        }
+
+        if (array_key_exists("CertServiceBeginTime",$param) and $param["CertServiceBeginTime"] !== null) {
+            $this->CertServiceBeginTime = $param["CertServiceBeginTime"];
+        }
+
+        if (array_key_exists("CertServiceEndTime",$param) and $param["CertServiceEndTime"] !== null) {
+            $this->CertServiceEndTime = $param["CertServiceEndTime"];
+        }
+
+        if (array_key_exists("CertServiceShareEnabled",$param) and $param["CertServiceShareEnabled"] !== null) {
+            $this->CertServiceShareEnabled = $param["CertServiceShareEnabled"];
+        }
+
+        if (array_key_exists("CertServiceValidCertificateCount",$param) and $param["CertServiceValidCertificateCount"] !== null) {
+            $this->CertServiceValidCertificateCount = $param["CertServiceValidCertificateCount"];
+        }
+
+        if (array_key_exists("ResubmitAble",$param) and $param["ResubmitAble"] !== null) {
+            $this->ResubmitAble = $param["ResubmitAble"];
         }
     }
 }

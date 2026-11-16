@@ -53,9 +53,9 @@
                     </view>
                 </view>
                 <loading-footer :status="loadingStatus" slotEmpty color="#fff">
-                    <view slot="empty" class="data-null column-center">
+                                        <template #empty><view class="data-null column-center">
                         <view class="white">{{ $t('活动暂未开始') }}</view>
-                    </view>
+                    </view></template>
                 </loading-footer>
             </view>
         </view>

@@ -18,7 +18,7 @@
 // +----------------------------------------------------------------------
 namespace app\admin\logic;
 use app\common\model\WeChat;
-use think\Db;
+use think\facade\Db;
 
 class WechatReplyLogic{
     public static function lists($get){
@@ -33,6 +33,7 @@ class WechatReplyLogic{
                     ->where($where)
                     ->page($get['page'],$get['limit'])
                     ->select();
+        $list = $list->toArray(); // ThinkPHP 6：select() 返回 Collection，TP5 返回数组；直接写 $list[$k]['x'] 或 foreach(&$item) 改值会丢/报错，先转数组。
         foreach ($list as $key =>  $reply) {
             $reply['content_type'] && $list[$key]['content_type'] = lang('文本');
             switch ($reply['matching_type']){

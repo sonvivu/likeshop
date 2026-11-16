@@ -10,8 +10,14 @@
                 src="~/assets/images/header_notice.png"
               />
               <client-only>
-                <swiper ref="headerSwiper" :options="swiperOptions">
-                  <swiper-slide
+                <Swiper
+                  :modules="[Autoplay]"
+                  direction="vertical"
+                  :height="40"
+                  :initial-slide="0"
+                  :autoplay="true"
+                >
+                  <SwiperSlide
                     class="swiper-item"
                     v-for="(item, index) in publicData.article"
                     :key="index"
@@ -23,8 +29,8 @@
                     >
                       <div class="line1">{{ item.title }}</div>
                     </nuxt-link>
-                  </swiper-slide>
-                </swiper>
+                  </SwiperSlide>
+                </Swiper>
               </client-only>
             </template>
           </div>
@@ -47,10 +53,12 @@
                       {{ $t('退出登录') }}
                     </div>
                   </div>
-                  <nuxt-link slot="reference" to="/user/profile">
-                    {{ publicData.nickname }}
-                    <i class="el-icon-arrow-down"></i>
-                  </nuxt-link>
+                  <template #reference>
+                    <nuxt-link to="/user/profile">
+                      {{ publicData.nickname }}
+                      <el-icon><ArrowDown /></el-icon>
+                    </nuxt-link>
+                  </template>
                 </el-popover>
               </li>
               <li v-else>
@@ -70,7 +78,7 @@
               <li id="tel-phone-block" v-if="publicData.mnp_qr_code || publicData.oa_qr_code">
                 <nuxt-link to="/"
                   >{{ $t('手机端') }}
-                  <i class="el-icon-arrow-down"></i>
+                  <el-icon><ArrowDown /></el-icon>
                 </nuxt-link>
                 <div class="float-code row bg-white">
                   <div class="column-center bg-white" v-if="publicData.mnp_qr_code">
@@ -163,31 +171,26 @@
 
 <script>
 import Category from "./category";
-import { directive } from "vue-awesome-swiper";
-import { mapState, mapMutations, mapActions } from "vuex";
+import { Swiper, SwiperSlide } from "swiper/vue";
+import { Autoplay } from "swiper/modules";
+import { ArrowDown } from "@element-plus/icons-vue";
+import { mapState, mapActions } from "pinia";
+import { useAppStore } from "~/stores/app";
 export default {
   components: {
     Category,
-  },
-  directives: {
-    swiper: directive,
+    Swiper,
+    SwiperSlide,
+    ArrowDown,
   },
   data() {
     return {
       name: "",
-      swiperOptions: {
-        direction: "vertical",
-        // autoHeight: true,
-        height: 40,
-        initialSlide: 0,
-        autoplay: true,
-      },
     };
   },
 
   methods: {
-    ...mapMutations(["logout"]),
-    ...mapActions(["getPublicData"]),
+    ...mapActions(useAppStore, ["logout", "getPublicData"]),
     toSearch() {
       if (!this.name) return this.$message.error(this.$t('请输入商品名称'));
       this.$router.push({
@@ -220,7 +223,7 @@ export default {
     },
   },
   computed: {
-    ...mapState(["publicData"]),
+    ...mapState(useAppStore, ["publicData"]),
   },
 };
 </script>
@@ -230,7 +233,7 @@ export default {
   min-width: 1180px;
   position: relative;
   z-index: 1000;
-  ::v-deep .swiper-container {
+  ::v-deep .swiper {
     margin-left: 0;
     margin-right: 0;
     height: 100%;

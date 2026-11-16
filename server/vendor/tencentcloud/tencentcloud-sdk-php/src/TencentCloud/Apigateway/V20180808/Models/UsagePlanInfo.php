@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,10 +32,6 @@ use TencentCloud\Common\AbstractModel;
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setUsagePlanDesc(string $UsagePlanDesc) 设置使用计划描述。
 注意：此字段可能返回 null，表示取不到有效值。
- * @method integer getInitQuota() 获取初始化调用次数。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setInitQuota(integer $InitQuota) 设置初始化调用次数。
-注意：此字段可能返回 null，表示取不到有效值。
  * @method integer getMaxRequestNumPreSec() 获取每秒请求限制数。
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setMaxRequestNumPreSec(integer $MaxRequestNumPreSec) 设置每秒请求限制数。
@@ -43,10 +39,6 @@ use TencentCloud\Common\AbstractModel;
  * @method integer getMaxRequestNum() 获取最大调用次数。
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setMaxRequestNum(integer $MaxRequestNum) 设置最大调用次数。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method integer getIsHide() 获取是否隐藏。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setIsHide(integer $IsHide) 设置是否隐藏。
 注意：此字段可能返回 null，表示取不到有效值。
  * @method string getCreatedTime() 获取创建时间。按照 ISO8601 标准表示，并且使用 UTC 时间。格式为：YYYY-MM-DDThh:mm:ssZ。
 注意：此字段可能返回 null，表示取不到有效值。
@@ -72,6 +64,10 @@ use TencentCloud\Common\AbstractModel;
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setBindEnvironments(array $BindEnvironments) 设置绑定环境详情。
 注意：此字段可能返回 null，表示取不到有效值。
+ * @method array getTags() 获取标签
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setTags(array $Tags) 设置标签
+注意：此字段可能返回 null，表示取不到有效值。
  */
 class UsagePlanInfo extends AbstractModel
 {
@@ -94,12 +90,6 @@ class UsagePlanInfo extends AbstractModel
     public $UsagePlanDesc;
 
     /**
-     * @var integer 初始化调用次数。
-注意：此字段可能返回 null，表示取不到有效值。
-     */
-    public $InitQuota;
-
-    /**
      * @var integer 每秒请求限制数。
 注意：此字段可能返回 null，表示取不到有效值。
      */
@@ -110,12 +100,6 @@ class UsagePlanInfo extends AbstractModel
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $MaxRequestNum;
-
-    /**
-     * @var integer 是否隐藏。
-注意：此字段可能返回 null，表示取不到有效值。
-     */
-    public $IsHide;
 
     /**
      * @var string 创建时间。按照 ISO8601 标准表示，并且使用 UTC 时间。格式为：YYYY-MM-DDThh:mm:ssZ。
@@ -154,19 +138,21 @@ class UsagePlanInfo extends AbstractModel
     public $BindEnvironments;
 
     /**
+     * @var array 标签
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $Tags;
+
+    /**
      * @param string $UsagePlanId 使用计划唯一 ID。
 注意：此字段可能返回 null，表示取不到有效值。
      * @param string $UsagePlanName 使用计划名称。
 注意：此字段可能返回 null，表示取不到有效值。
      * @param string $UsagePlanDesc 使用计划描述。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param integer $InitQuota 初始化调用次数。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param integer $MaxRequestNumPreSec 每秒请求限制数。
 注意：此字段可能返回 null，表示取不到有效值。
      * @param integer $MaxRequestNum 最大调用次数。
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param integer $IsHide 是否隐藏。
 注意：此字段可能返回 null，表示取不到有效值。
      * @param string $CreatedTime 创建时间。按照 ISO8601 标准表示，并且使用 UTC 时间。格式为：YYYY-MM-DDThh:mm:ssZ。
 注意：此字段可能返回 null，表示取不到有效值。
@@ -179,6 +165,8 @@ class UsagePlanInfo extends AbstractModel
      * @param integer $BindEnvironmentTotalCount 绑定环境数量。
 注意：此字段可能返回 null，表示取不到有效值。
      * @param array $BindEnvironments 绑定环境详情。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param array $Tags 标签
 注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
@@ -206,20 +194,12 @@ class UsagePlanInfo extends AbstractModel
             $this->UsagePlanDesc = $param["UsagePlanDesc"];
         }
 
-        if (array_key_exists("InitQuota",$param) and $param["InitQuota"] !== null) {
-            $this->InitQuota = $param["InitQuota"];
-        }
-
         if (array_key_exists("MaxRequestNumPreSec",$param) and $param["MaxRequestNumPreSec"] !== null) {
             $this->MaxRequestNumPreSec = $param["MaxRequestNumPreSec"];
         }
 
         if (array_key_exists("MaxRequestNum",$param) and $param["MaxRequestNum"] !== null) {
             $this->MaxRequestNum = $param["MaxRequestNum"];
-        }
-
-        if (array_key_exists("IsHide",$param) and $param["IsHide"] !== null) {
-            $this->IsHide = $param["IsHide"];
         }
 
         if (array_key_exists("CreatedTime",$param) and $param["CreatedTime"] !== null) {
@@ -248,6 +228,15 @@ class UsagePlanInfo extends AbstractModel
                 $obj = new UsagePlanBindEnvironment();
                 $obj->deserialize($value);
                 array_push($this->BindEnvironments, $obj);
+            }
+        }
+
+        if (array_key_exists("Tags",$param) and $param["Tags"] !== null) {
+            $this->Tags = [];
+            foreach ($param["Tags"] as $key => $value){
+                $obj = new Tag();
+                $obj->deserialize($value);
+                array_push($this->Tags, $obj);
             }
         }
     }

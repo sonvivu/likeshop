@@ -1,0 +1,113 @@
+<?php
+/*
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+namespace TencentCloud\Dbdc\V20201029;
+
+use TencentCloud\Common\AbstractClient;
+use TencentCloud\Common\Profile\ClientProfile;
+use TencentCloud\Common\Credential;
+use TencentCloud\Dbdc\V20201029\Models as Models;
+
+/**
+ * @method Models\AddNodesToDBCustomClusterResponse AddNodesToDBCustomCluster(Models\AddNodesToDBCustomClusterRequest $req) 该接口（AddNodesToDBCustomCluster）用于为 DB Custom 集群添加已存在的节点。
+ * @method Models\CheckRoleAuthorizedResponse CheckRoleAuthorized(Models\CheckRoleAuthorizedRequest $req) 检查服务相关角色是否已创建
+ * @method Models\CreateDBCustomClusterResponse CreateDBCustomCluster(Models\CreateDBCustomClusterRequest $req) 该接口（CreateDBCustomCluster）用于创建 DB Custom 集群。
+ * @method Models\CreateDBCustomDisasterRecoverGroupResponse CreateDBCustomDisasterRecoverGroup(Models\CreateDBCustomDisasterRecoverGroupRequest $req) 该接口（CreateDBCustomDisasterRecoverGroup）用于创建 DB Custom 置放群组。
+ * @method Models\CreateDBCustomNodesResponse CreateDBCustomNodes(Models\CreateDBCustomNodesRequest $req) 该接口（CreateDBCustomNodes）用于创建 DB Custom 节点(需支付)。
+ * @method Models\DeleteDBCustomDisasterRecoverGroupsResponse DeleteDBCustomDisasterRecoverGroups(Models\DeleteDBCustomDisasterRecoverGroupsRequest $req) 该接口（DeleteDBCustomDisasterRecoverGroups）用于删除 DB Custom 置放群组。
+ * @method Models\DeleteDBCustomNodesDisasterRecoverGroupResponse DeleteDBCustomNodesDisasterRecoverGroup(Models\DeleteDBCustomNodesDisasterRecoverGroupRequest $req) 该接口（DeleteDBCustomNodesDisasterRecoverGroup）用于移除 DB Custom 节点的置放群组。
+ * @method Models\DescribeDBCustomClusterDetailResponse DescribeDBCustomClusterDetail(Models\DescribeDBCustomClusterDetailRequest $req) 该接口(DescribeDBCustomClusterDetail) 用于查询 DB Custom 集群的详情信息。
+ * @method Models\DescribeDBCustomClusterKubeconfigResponse DescribeDBCustomClusterKubeconfig(Models\DescribeDBCustomClusterKubeconfigRequest $req) 该接口（DescribeDBCustomClusterKubeconfig）用于查询 DB Custom 集群 Kubeconfig。
+ * @method Models\DescribeDBCustomClusterNodeConfigResponse DescribeDBCustomClusterNodeConfig(Models\DescribeDBCustomClusterNodeConfigRequest $req) 该接口（DescribeDBCustomClusterNodeConfig）用于查询 DB Custom 集群内节点的配置信息。
+ * @method Models\DescribeDBCustomClusterNodeResourcesResponse DescribeDBCustomClusterNodeResources(Models\DescribeDBCustomClusterNodeResourcesRequest $req) 该接口（DescribeDBCustomClusterNodeResources）用于查询 DB Custom 集群内节点的资源信息。
+ * @method Models\DescribeDBCustomClusterNodesResponse DescribeDBCustomClusterNodes(Models\DescribeDBCustomClusterNodesRequest $req) 该接口（DescribeDBCustomClusterNodes）用于查询 DB Custom 集群中的节点列表。
+ * @method Models\DescribeDBCustomClusterResourcesResponse DescribeDBCustomClusterResources(Models\DescribeDBCustomClusterResourcesRequest $req) 该接口（DescribeDBCustomClusterResources）用于查询 DB Custom 集群的资源信息。
+ * @method Models\DescribeDBCustomClustersResponse DescribeDBCustomClusters(Models\DescribeDBCustomClustersRequest $req) 该接口（DescribeDBCustomClusters）为 DB Custom 集群列表查询接口。
+ * @method Models\DescribeDBCustomDisasterRecoverGroupQuotaResponse DescribeDBCustomDisasterRecoverGroupQuota(Models\DescribeDBCustomDisasterRecoverGroupQuotaRequest $req) 该接口（DescribeDBCustomDisasterRecoverGroupQuota）用于查询 DB Custom 置放群组配额。
+ * @method Models\DescribeDBCustomDisasterRecoverGroupsResponse DescribeDBCustomDisasterRecoverGroups(Models\DescribeDBCustomDisasterRecoverGroupsRequest $req) 该接口（DescribeDBCustomDisasterRecoverGroups）用于查询 DB Custom 置放群组列表。
+ * @method Models\DescribeDBCustomImagesResponse DescribeDBCustomImages(Models\DescribeDBCustomImagesRequest $req) 该接口（DescribeDBCustomImages）用于查询 DB Custom 可用的操作系统镜像列表。
+ * @method Models\DescribeDBCustomNodeSecurityGroupsResponse DescribeDBCustomNodeSecurityGroups(Models\DescribeDBCustomNodeSecurityGroupsRequest $req) 该接口（DescribeDBCustomNodeSecurityGroups）用于查询 DB Custom 节点安全组信息。
+ * @method Models\DescribeDBCustomNodeTypesResponse DescribeDBCustomNodeTypes(Models\DescribeDBCustomNodeTypesRequest $req) 该接口(DescribeDBCustomNodeTypes) 用于查询 DB Custom 节点支持的机型信息。
+ * @method Models\DescribeDBCustomNodesResponse DescribeDBCustomNodes(Models\DescribeDBCustomNodesRequest $req) 该接口（DescribeDBCustomNodes）用于查询 DB Custom 节点列表。
+ * @method Models\DescribeDBCustomRegionsResponse DescribeDBCustomRegions(Models\DescribeDBCustomRegionsRequest $req) 该接口(DescribeDBCustomRegions) 用于查询 DB Custom 支持的地域列表。
+ * @method Models\DescribeDBCustomTaskStatusResponse DescribeDBCustomTaskStatus(Models\DescribeDBCustomTaskStatusRequest $req) 该接口（DescribeDBCustomTaskStatus）用于查询 DB Custom 任务的状态。
+ * @method Models\DescribeDBCustomZonesResponse DescribeDBCustomZones(Models\DescribeDBCustomZonesRequest $req) 该接口(DescribeDBCustomZones) 用于查询指定地域的 DB Custom 可用区列表。
+ * @method Models\DescribeDBInstancesResponse DescribeDBInstances(Models\DescribeDBInstancesRequest $req) 本接口用于查询独享集群内的DB实例列表
+ * @method Models\DescribeHostListResponse DescribeHostList(Models\DescribeHostListRequest $req) 本接口用于查询主机列表
+ * @method Models\DescribeInstanceDetailResponse DescribeInstanceDetail(Models\DescribeInstanceDetailRequest $req) 本接口用于查询独享集群详情
+ * @method Models\DescribeInstanceListResponse DescribeInstanceList(Models\DescribeInstanceListRequest $req) 本接口用于查询独享集群实例列表
+ * @method Models\DescribeInstancesResponse DescribeInstances(Models\DescribeInstancesRequest $req) 根据不同地域不同用户，获取集群列表信息
+ * @method Models\DestroyDBCustomClusterResponse DestroyDBCustomCluster(Models\DestroyDBCustomClusterRequest $req) 该接口（DestroyDBCustomCluster）用于销毁 DB Custom 集群。
+ * @method Models\DestroyDBCustomNodeResponse DestroyDBCustomNode(Models\DestroyDBCustomNodeRequest $req) 该接口（DestroyDBCustomNode）用于销毁 DB Custom 节点。
+ * @method Models\IsolateDBCustomNodeResponse IsolateDBCustomNode(Models\IsolateDBCustomNodeRequest $req) 该接口 (IsolateDBCustomNode) 用于隔离 DB Custom 节点。
+ * @method Models\ModifyDBCustomClusterAttributesResponse ModifyDBCustomClusterAttributes(Models\ModifyDBCustomClusterAttributesRequest $req) 该接口（ModifyDBCustomClusterAttributes）用于修改 DB Custom 集群的属性。
+ * @method Models\ModifyDBCustomClusterNodeConfigResponse ModifyDBCustomClusterNodeConfig(Models\ModifyDBCustomClusterNodeConfigRequest $req) 该接口（ModifyDBCustomClusterNodeConfig）用于修改 DB Custom 集群中节点的配置。
+ * @method Models\ModifyDBCustomClusterTagsResponse ModifyDBCustomClusterTags(Models\ModifyDBCustomClusterTagsRequest $req) 该接口（ModifyDBCustomClusterTags）用于修改 DB Custom 集群绑定的标签。
+ * @method Models\ModifyDBCustomDisasterRecoverGroupAttributeResponse ModifyDBCustomDisasterRecoverGroupAttribute(Models\ModifyDBCustomDisasterRecoverGroupAttributeRequest $req) 该接口（ModifyDBCustomDisasterRecoverGroupAttribute）用于修改 DB Custom 置放群组的属性。
+ * @method Models\ModifyDBCustomDisasterRecoverGroupTagsResponse ModifyDBCustomDisasterRecoverGroupTags(Models\ModifyDBCustomDisasterRecoverGroupTagsRequest $req) 该接口（ModifyDBCustomDisasterRecoverGroupTags）用于修改 DB Custom 置放群组绑定的标签。
+ * @method Models\ModifyDBCustomNodeAttributesResponse ModifyDBCustomNodeAttributes(Models\ModifyDBCustomNodeAttributesRequest $req) 该接口（ModifyDBCustomNodeAttributes）用于修改 DB Custom 节点的属性。
+ * @method Models\ModifyDBCustomNodeSecurityGroupsResponse ModifyDBCustomNodeSecurityGroups(Models\ModifyDBCustomNodeSecurityGroupsRequest $req) 该接口（ModifyDBCustomNodeSecurityGroups）用于修改 DB Custom 节点安全组。
+ * @method Models\ModifyDBCustomNodeTagsResponse ModifyDBCustomNodeTags(Models\ModifyDBCustomNodeTagsRequest $req) 该接口（ModifyDBCustomNodeTags）用于修改 DB Custom 节点绑定的标签。
+ * @method Models\ModifyDBCustomNodeTypeResponse ModifyDBCustomNodeType(Models\ModifyDBCustomNodeTypeRequest $req) 该接口（ModifyDBCustomNodeType）用于修改 DB Custom 节点配置。
+修改节点配置过程中会重启节点。
+ * @method Models\ModifyDBCustomNodesDisasterRecoverGroupResponse ModifyDBCustomNodesDisasterRecoverGroup(Models\ModifyDBCustomNodesDisasterRecoverGroupRequest $req) 该接口（ModifyDBCustomNodesDisasterRecoverGroup）用于修改 DB Custom 节点的置放群组。
+ * @method Models\ModifyInstanceNameResponse ModifyInstanceName(Models\ModifyInstanceNameRequest $req) 本接口用于修改集群名称
+ * @method Models\RebootDBCustomNodesResponse RebootDBCustomNodes(Models\RebootDBCustomNodesRequest $req) 该接口（RebootDBCustomNodes）用于重启 DB Custom 节点。
+ * @method Models\RemoveNodesFromDBCustomClusterResponse RemoveNodesFromDBCustomCluster(Models\RemoveNodesFromDBCustomClusterRequest $req) 该接口（RemoveNodesFromDBCustomCluster）用于从 DB Custom 集群移出节点。
+ * @method Models\RenewDBCustomNodeResponse RenewDBCustomNode(Models\RenewDBCustomNodeRequest $req) 该接口（RenewDBCustomNode）用于给 DB Custom 节点续费，或者给已经隔离的实例解除隔离。
+ * @method Models\ResetDBCustomNodeResponse ResetDBCustomNode(Models\ResetDBCustomNodeRequest $req) 该接口（ResetDBCustomNode）用于重装 DB Custom 节点的操作系统。
+ * @method Models\ResizeDBCustomNodeDiskResponse ResizeDBCustomNodeDisk(Models\ResizeDBCustomNodeDiskRequest $req) 该接口（ResizeDBCustomNodeDisk）用于调整 DB Custom 节点磁盘容量。
+ * @method Models\StartDBCustomNodesResponse StartDBCustomNodes(Models\StartDBCustomNodesRequest $req) 该接口（StartDBCustomNodes）用于开机 DB Custom 节点。
+ * @method Models\StopDBCustomNodesResponse StopDBCustomNodes(Models\StopDBCustomNodesRequest $req) 该接口（StopDBCustomNodes）用于关机 DB Custom 节点。
+ */
+
+class DbdcClient extends AbstractClient
+{
+    /**
+     * @var string
+     */
+    protected $endpoint = "dbdc.tencentcloudapi.com";
+
+    /**
+     * @var string
+     */
+    protected $service = "dbdc";
+
+    /**
+     * @var string
+     */
+    protected $version = "2020-10-29";
+
+    /**
+     * @param Credential $credential
+     * @param string $region
+     * @param ClientProfile|null $profile
+     * @throws TencentCloudSDKException
+     */
+    function __construct($credential, $region, $profile=null)
+    {
+        parent::__construct($this->endpoint, $this->version, $credential, $region, $profile);
+    }
+
+    public function returnResponse($action, $response)
+    {
+        $respClass = "TencentCloud"."\\".ucfirst("dbdc")."\\"."V20201029\\Models"."\\".ucfirst($action)."Response";
+        $obj = new $respClass();
+        $obj->deserialize($response);
+        return $obj;
+    }
+}

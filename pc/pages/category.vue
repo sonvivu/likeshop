@@ -68,28 +68,24 @@
                         @click="changeSortType('price')"
                     >
                         {{ $t('价格') }}
-                        <i
-                            v-show="priceSort == 'desc'"
-                            class="el-icon-arrow-down"
-                        ></i>
-                        <i
-                            v-show="priceSort == 'asc'"
-                            class="el-icon-arrow-up"
-                        ></i>
+                        <el-icon v-show="priceSort == 'desc'"
+                          ><ArrowDown
+                        /></el-icon>
+                        <el-icon v-show="priceSort == 'asc'"
+                          ><ArrowUp
+                        /></el-icon>
                     </div>
                     <div
                         :class="['item', { active: sortType == 'sales_sum' }]"
                         @click="changeSortType('sales_sum')"
                     >
                         {{ $t('销量') }}
-                        <i
-                            v-show="saleSort == 'desc'"
-                            class="el-icon-arrow-down"
-                        ></i>
-                        <i
-                            v-show="saleSort == 'asc'"
-                            class="el-icon-arrow-up"
-                        ></i>
+                        <el-icon v-show="saleSort == 'desc'"
+                          ><ArrowDown
+                        /></el-icon>
+                        <el-icon v-show="saleSort == 'asc'"
+                          ><ArrowUp
+                        /></el-icon>
                     </div>
                 </div>
             </div>
@@ -116,7 +112,7 @@
         </div>
         <null-data
             v-else
-            :img="require('~/assets/images/goods_null.png')"
+            :img="goodsNull"
             :text="$t('暂无商品~')"
         ></null-data>
     </div>
@@ -124,27 +120,33 @@
 
 <script>
 import { trottle } from "~/utils/tools";
+import { ArrowDown, ArrowUp } from "@element-plus/icons-vue";
+import { useAppStore } from "~/stores/app";
+import goodsNull from "~/assets/images/goods_null.png";
 export default {
-  head() {
-    return {
-      title: this.$store.getters.headTitle,
+  async setup() {
+    const store = useAppStore();
+    const { $get } = useNuxtApp();
+    useHead({
+      title: computed(() => store.headTitle),
       link: [
         {
           rel: "icon",
           type: "image/x-icon",
-          href: this.$store.getters.favicon,
+          href: computed(() => store.favicon),
         },
       ],
-    };
-  },
-  watchQuery: true,
-  async asyncData({ query, $get }) {
-    let { data } = await $get("goods_category/lists", {
+    });
+    const { data } = await $get("goods_category/lists", {
       params: { client: 2 },
     });
     return {
       categoryList: data,
     };
+  },
+  components: {
+    ArrowDown,
+    ArrowUp,
   },
   data() {
     return {
@@ -288,6 +290,9 @@ export default {
     },
   },
   watch: {
+    '$route.query.id'(id) {
+      this.changeData(Number(id));
+    },
     categoryList: {
       immediate: true,
       handler(value) {

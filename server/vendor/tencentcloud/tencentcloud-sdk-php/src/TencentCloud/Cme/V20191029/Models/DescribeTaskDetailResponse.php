@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -42,14 +42,14 @@ use TencentCloud\Common\AbstractModel;
 <li>VIDEO_EDIT_PROJECT_EXPORT：视频编辑项目导出。</li>
  * @method void setTaskType(string $TaskType) 设置任务类型，取值有：
 <li>VIDEO_EDIT_PROJECT_EXPORT：视频编辑项目导出。</li>
- * @method VideoEditProjectOutput getVideoEditProjectOutput() 获取导出项目输出信息。
+ * @method VideoEditProjectOutput getVideoEditProjectOutput() 获取导出项目输出信息。仅当 TaskType 为 VIDEO_EDIT_PROJECT_EXPORT 时有效。
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setVideoEditProjectOutput(VideoEditProjectOutput $VideoEditProjectOutput) 设置导出项目输出信息。
+ * @method void setVideoEditProjectOutput(VideoEditProjectOutput $VideoEditProjectOutput) 设置导出项目输出信息。仅当 TaskType 为 VIDEO_EDIT_PROJECT_EXPORT 时有效。
 注意：此字段可能返回 null，表示取不到有效值。
  * @method string getCreateTime() 获取创建时间，格式按照 ISO 8601 标准表示。
  * @method void setCreateTime(string $CreateTime) 设置创建时间，格式按照 ISO 8601 标准表示。
- * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
- * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+ * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
 class DescribeTaskDetailResponse extends AbstractModel
 {
@@ -85,7 +85,7 @@ class DescribeTaskDetailResponse extends AbstractModel
     public $TaskType;
 
     /**
-     * @var VideoEditProjectOutput 导出项目输出信息。
+     * @var VideoEditProjectOutput 导出项目输出信息。仅当 TaskType 为 VIDEO_EDIT_PROJECT_EXPORT 时有效。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $VideoEditProjectOutput;
@@ -96,7 +96,7 @@ class DescribeTaskDetailResponse extends AbstractModel
     public $CreateTime;
 
     /**
-     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public $RequestId;
 
@@ -112,10 +112,10 @@ class DescribeTaskDetailResponse extends AbstractModel
      * @param string $ErrMsg 错误信息。
      * @param string $TaskType 任务类型，取值有：
 <li>VIDEO_EDIT_PROJECT_EXPORT：视频编辑项目导出。</li>
-     * @param VideoEditProjectOutput $VideoEditProjectOutput 导出项目输出信息。
+     * @param VideoEditProjectOutput $VideoEditProjectOutput 导出项目输出信息。仅当 TaskType 为 VIDEO_EDIT_PROJECT_EXPORT 时有效。
 注意：此字段可能返回 null，表示取不到有效值。
      * @param string $CreateTime 创建时间，格式按照 ISO 8601 标准表示。
-     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
     {

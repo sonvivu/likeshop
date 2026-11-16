@@ -22,7 +22,7 @@ use app\common\logic\LogicBase;
 use app\common\model\BargainLaunch;
 use app\common\server\ConfigServer;
 use app\common\server\UrlServer;
-use think\Db;
+use think\facade\Db;
 use think\Exception;
 
 class BargainLogic extends LogicBase {
@@ -307,7 +307,7 @@ class BargainLogic extends LogicBase {
             Db::name('bargain_knife')->insert($knife_data);
 
             //更新砍价进度
-            $bargain_launch->help_number     = ['inc', 1];                       //助力次数+1
+            $bargain_launch->inc('help_number', 1);                       //助力次数+1
             $bargain_launch->current_price   = $knife_after_price;               //助力后的价格
             $bargain_launch->status          = $status;                          //砍价状态
 

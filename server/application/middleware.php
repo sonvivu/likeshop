@@ -30,6 +30,12 @@
 // | 中间件配置
 // +----------------------------------------------------------------------
 return [
+    // ThinkPHP 6：Session 不再自动开启，必须由 SessionInit 中间件初始化。
+    // 没有它：登录写 Session 不会发 PHPSESSID Cookie，下个请求就认不出登录态；
+    // 且 Session::save() 不跑，数据也不会落盘。放最前面，让会话先于所有
+    // 需要读 Session 的中间件（admin Login/Auth）就绪。5.1 下 session
+    // auto_start=true 是全局生效的，这里同样全局注册。
+    \think\middleware\SessionInit::class,
     // 默认中间件命名空间
     'base'	=>	app\common\http\middleware\BaseMiddleware::class
 ];

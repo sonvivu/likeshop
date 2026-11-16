@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,26 +20,26 @@ use TencentCloud\Common\AbstractModel;
 /**
  * 实例安全组信息
  *
- * @method string getInstanceId() 获取实例Id
- * @method void setInstanceId(string $InstanceId) 设置实例Id
- * @method array getSecurityGroupDetails() 获取安全组信息
- * @method void setSecurityGroupDetails(array $SecurityGroupDetails) 设置安全组信息
+ * @method string getInstanceId() 获取实例 ID。
+ * @method void setInstanceId(string $InstanceId) 设置实例 ID。
+ * @method array getSecurityGroupDetails() 获取安全组信息，包括：安全组 ID、安全组名称、安全组出入站规则。
+ * @method void setSecurityGroupDetails(array $SecurityGroupDetails) 设置安全组信息，包括：安全组 ID、安全组名称、安全组出入站规则。
  */
 class InstanceSecurityGroupDetail extends AbstractModel
 {
     /**
-     * @var string 实例Id
+     * @var string 实例 ID。
      */
     public $InstanceId;
 
     /**
-     * @var array 安全组信息
+     * @var array 安全组信息，包括：安全组 ID、安全组名称、安全组出入站规则。
      */
     public $SecurityGroupDetails;
 
     /**
-     * @param string $InstanceId 实例Id
-     * @param array $SecurityGroupDetails 安全组信息
+     * @param string $InstanceId 实例 ID。
+     * @param array $SecurityGroupDetails 安全组信息，包括：安全组 ID、安全组名称、安全组出入站规则。
      */
     function __construct()
     {

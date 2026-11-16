@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,50 +20,74 @@ use TencentCloud\Common\AbstractModel;
 /**
  * 代理慢查询详情
  *
- * @method integer getDuration() 获取慢查询耗时
- * @method void setDuration(integer $Duration) 设置慢查询耗时
- * @method string getClient() 获取客户端地址
- * @method void setClient(string $Client) 设置客户端地址
- * @method string getCommand() 获取命令
- * @method void setCommand(string $Command) 设置命令
- * @method string getCommandLine() 获取详细命令行信息
- * @method void setCommandLine(string $CommandLine) 设置详细命令行信息
- * @method string getExecuteTime() 获取执行时间
- * @method void setExecuteTime(string $ExecuteTime) 设置执行时间
+ * @method integer getDuration() 获取<p>慢查询耗时时长。单位：毫秒。</p>
+ * @method void setDuration(integer $Duration) 设置<p>慢查询耗时时长。单位：毫秒。</p>
+ * @method string getClient() 获取<p>客户端地址。</p>
+ * @method void setClient(string $Client) 设置<p>客户端地址。</p>
+ * @method string getCommand() 获取<p>慢查询的命令。</p>
+ * @method void setCommand(string $Command) 设置<p>慢查询的命令。</p>
+ * @method string getCommandLine() 获取<p>慢查询详细命令行信息。</p>
+ * @method void setCommandLine(string $CommandLine) 设置<p>慢查询详细命令行信息。</p>
+ * @method string getExecuteTime() 获取<p>执行时间。</p>
+ * @method void setExecuteTime(string $ExecuteTime) 设置<p>执行时间。</p>
+ * @method integer getRecvClientEnd() 获取<p>收客户端请求时长(ms)</p>
+ * @method void setRecvClientEnd(integer $RecvClientEnd) 设置<p>收客户端请求时长(ms)</p>
+ * @method integer getSendClientEnd() 获取<p>发送客户端请求时长(ms)</p>
+ * @method void setSendClientEnd(integer $SendClientEnd) 设置<p>发送客户端请求时长(ms)</p>
+ * @method string getNode() 获取<p>Proxy节点ID。</p>
+ * @method void setNode(string $Node) 设置<p>Proxy节点ID。</p>
  */
 class InstanceProxySlowlogDetail extends AbstractModel
 {
     /**
-     * @var integer 慢查询耗时
+     * @var integer <p>慢查询耗时时长。单位：毫秒。</p>
      */
     public $Duration;
 
     /**
-     * @var string 客户端地址
+     * @var string <p>客户端地址。</p>
      */
     public $Client;
 
     /**
-     * @var string 命令
+     * @var string <p>慢查询的命令。</p>
      */
     public $Command;
 
     /**
-     * @var string 详细命令行信息
+     * @var string <p>慢查询详细命令行信息。</p>
      */
     public $CommandLine;
 
     /**
-     * @var string 执行时间
+     * @var string <p>执行时间。</p>
      */
     public $ExecuteTime;
 
     /**
-     * @param integer $Duration 慢查询耗时
-     * @param string $Client 客户端地址
-     * @param string $Command 命令
-     * @param string $CommandLine 详细命令行信息
-     * @param string $ExecuteTime 执行时间
+     * @var integer <p>收客户端请求时长(ms)</p>
+     */
+    public $RecvClientEnd;
+
+    /**
+     * @var integer <p>发送客户端请求时长(ms)</p>
+     */
+    public $SendClientEnd;
+
+    /**
+     * @var string <p>Proxy节点ID。</p>
+     */
+    public $Node;
+
+    /**
+     * @param integer $Duration <p>慢查询耗时时长。单位：毫秒。</p>
+     * @param string $Client <p>客户端地址。</p>
+     * @param string $Command <p>慢查询的命令。</p>
+     * @param string $CommandLine <p>慢查询详细命令行信息。</p>
+     * @param string $ExecuteTime <p>执行时间。</p>
+     * @param integer $RecvClientEnd <p>收客户端请求时长(ms)</p>
+     * @param integer $SendClientEnd <p>发送客户端请求时长(ms)</p>
+     * @param string $Node <p>Proxy节点ID。</p>
      */
     function __construct()
     {
@@ -96,6 +120,18 @@ class InstanceProxySlowlogDetail extends AbstractModel
 
         if (array_key_exists("ExecuteTime",$param) and $param["ExecuteTime"] !== null) {
             $this->ExecuteTime = $param["ExecuteTime"];
+        }
+
+        if (array_key_exists("RecvClientEnd",$param) and $param["RecvClientEnd"] !== null) {
+            $this->RecvClientEnd = $param["RecvClientEnd"];
+        }
+
+        if (array_key_exists("SendClientEnd",$param) and $param["SendClientEnd"] !== null) {
+            $this->SendClientEnd = $param["SendClientEnd"];
+        }
+
+        if (array_key_exists("Node",$param) and $param["Node"] !== null) {
+            $this->Node = $param["Node"];
         }
     }
 }

@@ -9,7 +9,7 @@
             v-model="telephone"
             :placeholder="$t('请输入手机号码')"
           >
-            <i class="el-icon-user" style="font-size: 18px" slot="prepend" />
+            <template #prepend><el-icon style="font-size: 18px"><User /></el-icon></template>
           </el-input>
         </div>
         <div class="register-form-item row" v-if="registerSetting">
@@ -40,16 +40,12 @@
             :placeholder="$t('请输入密码 (数字与字母自由组合)')"
             show-password
           >
-            <i
-              class="el-icon-more-outline"
-              style="font-size: 18px"
-              slot="prepend"
-            />
+            <template #prepend><el-icon style="font-size: 18px"><More /></el-icon></template>
           </el-input>
         </div>
         <div class="register-form-item">
           <el-input v-model="againPwd" :placeholder="$t('再次输入密码')" show-password>
-            <i class="el-icon-key" style="font-size: 18px" slot="prepend" />
+            <template #prepend><el-icon style="font-size: 18px"><Key /></el-icon></template>
           </el-input>
         </div>
         <div class="row-between" >
@@ -90,24 +86,23 @@
 <script>
 import { client, SMSType } from "@/utils/type";
 import CountDown from "@/components/public/countDown";
+import { User, More, Key } from "@element-plus/icons-vue";
+import { useAppStore } from "~/stores/app";
 export default {
-  head() {
-    return {
-      title: this.$store.getters.headTitle,
+  async setup() {
+    setPageLayout('default_layout')
+    const store = useAppStore();
+    const { $get } = useNuxtApp();
+    useHead({
+      title: computed(() => store.headTitle),
       link: [
         {
           rel: "icon",
           type: "image/x-icon",
-          href: this.$store.getters.favicon,
+          href: computed(() => store.favicon),
         },
       ],
-    };
-  },
-  layout: "default_layout",
-  components: {
-    CountDown,
-  },
-  async asyncData({ $get }) {
+    });
     let registerSetting = false;
     let res = await $get("index/config");
     if (res.code == 1) {
@@ -116,6 +111,12 @@ export default {
     return {
       registerSetting,
     };
+  },
+  components: {
+    CountDown,
+    User,
+    More,
+    Key,
   },
   data() {
     return {

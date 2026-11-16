@@ -3,11 +3,11 @@
         <view class="input-container bg-white">
             <view class="input-item row">
                 <view class="input-label md normal">{{ $t('手机号') }}</view>
-                <u-input class="flex1" v-model="mobile" />
+                <u-input class="flex1" v-model="mobile" border="none" />
             </view>
             <view class="input-item row">
                 <view class="input-label md normal">{{ $t('图形验证码') }}</view>
-                <u-input class="flex1" v-model="captchaCode" :placeholder="$t('请输入图形验证码')" />
+                <u-input class="flex1" v-model="captchaCode" :placeholder="$t('请输入图形验证码')" border="none" />
                 <image
                     class="captcha-img"
                     :src="captchaImg"
@@ -17,23 +17,12 @@
             </view>
             <view class="input-item row">
                 <view class="input-label md normal">{{ $t('验证码') }}</view>
-                <u-input class="flex1" v-model="code" :placeholder="$t('请输入验证码')" />
+                <u-input class="flex1" v-model="code" :placeholder="$t('请输入验证码')" border="none" />
                 <view class="get-code xs br60 row-center primary" @tap="sendSms">
                     <view v-show="!showCount">{{ $t('获取验证码') }}</view>
-                    <u-count-down
-                        v-show="showCount"
-                        ref="countDown"
-                        :show-days="false"
-                        :timestamp="time"
-                        separator="zh"
-                        color="#FF2C3C"
-                        separatorColor="#FF2C3C"
-                        bg-color="rgba(0, 0, 0, 0)"
-                        :show-hours="false"
-                        :show-minutes="false"
-                        :autoplay="false"
-                        @end="showCount = false"
-                    />
+                                        <u-count-down ref="countDown" :time="time * 1000" :auto-start="false" v-show="showCount" format="ss秒" @finish="showCount = false">
+                        <template #default="{days, hours, minutes, seconds}"><text style="color:#FF2C3C">{{ String(seconds).padStart(2, '0') }}秒</text></template>
+                    </u-count-down>
                 </view>
             </view>
             <view class="input-item row">
@@ -42,8 +31,7 @@
                     class="flex1"
                     type="password"
                     v-model="setPwd"
-                    :placeholder="$t('请输入新的转账密码')"
-                />
+                    :placeholder="$t('请输入新的转账密码')" border="none" />
             </view>
             <view class="input-item row">
                 <view class="input-label md normal">{{ $t('确认密码') }}</view>
@@ -51,8 +39,7 @@
                     class="flex1"
                     type="password"
                     v-model="comfirmPwd"
-                    :placeholder="$t('请再次确认密码')"
-                />
+                    :placeholder="$t('请再次确认密码')" border="none" />
             </view>
             <button
                 size="lg"

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -76,6 +76,16 @@ use TencentCloud\Common\AbstractModel;
  * @method void setAuditPolicyStatus(string $AuditPolicyStatus) 设置实例审计日志开启状态，ALL_AUDIT： 开启全审计；RULE_AUDIT： 开启规则审计；UNBOUND： 未开启审计。
  * @method string getAuditRunningStatus() 获取实例审计日志运行状态：normal： 运行中； paused： 欠费暂停。
  * @method void setAuditRunningStatus(string $AuditRunningStatus) 设置实例审计日志运行状态：normal： 运行中； paused： 欠费暂停。
+ * @method string getInternalVip() 获取内网vip。
+ * @method void setInternalVip(string $InternalVip) 设置内网vip。
+ * @method integer getInternalVport() 获取内网port。
+ * @method void setInternalVport(integer $InternalVport) 设置内网port。
+ * @method string getCreateTime() 获取创建时间。
+ * @method void setCreateTime(string $CreateTime) 设置创建时间。
+ * @method string getClusterId() 获取所属集群ID（仅对集群数据库产品该字段非空，如TDSQL-C）。
+ * @method void setClusterId(string $ClusterId) 设置所属集群ID（仅对集群数据库产品该字段非空，如TDSQL-C）。
+ * @method string getClusterName() 获取所属集群名称（仅对集群数据库产品该字段非空，如TDSQL-C）。
+ * @method void setClusterName(string $ClusterName) 设置所属集群名称（仅对集群数据库产品该字段非空，如TDSQL-C）。
  */
 class InstanceInfo extends AbstractModel
 {
@@ -220,6 +230,31 @@ class InstanceInfo extends AbstractModel
     public $AuditRunningStatus;
 
     /**
+     * @var string 内网vip。
+     */
+    public $InternalVip;
+
+    /**
+     * @var integer 内网port。
+     */
+    public $InternalVport;
+
+    /**
+     * @var string 创建时间。
+     */
+    public $CreateTime;
+
+    /**
+     * @var string 所属集群ID（仅对集群数据库产品该字段非空，如TDSQL-C）。
+     */
+    public $ClusterId;
+
+    /**
+     * @var string 所属集群名称（仅对集群数据库产品该字段非空，如TDSQL-C）。
+     */
+    public $ClusterName;
+
+    /**
      * @param string $InstanceId 实例ID。
      * @param string $InstanceName 实例名称。
      * @param string $Region 实例所属地域。
@@ -248,6 +283,11 @@ class InstanceInfo extends AbstractModel
      * @param string $SecAuditStatus 实例安全审计日志开启状态：ON： 安全审计开启；OFF： 未开启安全审计。
      * @param string $AuditPolicyStatus 实例审计日志开启状态，ALL_AUDIT： 开启全审计；RULE_AUDIT： 开启规则审计；UNBOUND： 未开启审计。
      * @param string $AuditRunningStatus 实例审计日志运行状态：normal： 运行中； paused： 欠费暂停。
+     * @param string $InternalVip 内网vip。
+     * @param integer $InternalVport 内网port。
+     * @param string $CreateTime 创建时间。
+     * @param string $ClusterId 所属集群ID（仅对集群数据库产品该字段非空，如TDSQL-C）。
+     * @param string $ClusterName 所属集群名称（仅对集群数据库产品该字段非空，如TDSQL-C）。
      */
     function __construct()
     {
@@ -373,6 +413,26 @@ class InstanceInfo extends AbstractModel
 
         if (array_key_exists("AuditRunningStatus",$param) and $param["AuditRunningStatus"] !== null) {
             $this->AuditRunningStatus = $param["AuditRunningStatus"];
+        }
+
+        if (array_key_exists("InternalVip",$param) and $param["InternalVip"] !== null) {
+            $this->InternalVip = $param["InternalVip"];
+        }
+
+        if (array_key_exists("InternalVport",$param) and $param["InternalVport"] !== null) {
+            $this->InternalVport = $param["InternalVport"];
+        }
+
+        if (array_key_exists("CreateTime",$param) and $param["CreateTime"] !== null) {
+            $this->CreateTime = $param["CreateTime"];
+        }
+
+        if (array_key_exists("ClusterId",$param) and $param["ClusterId"] !== null) {
+            $this->ClusterId = $param["ClusterId"];
+        }
+
+        if (array_key_exists("ClusterName",$param) and $param["ClusterName"] !== null) {
+            $this->ClusterName = $param["ClusterName"];
         }
     }
 }

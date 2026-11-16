@@ -23,7 +23,7 @@ use app\common\model\Pay;
 use think\console\Command;
 use think\console\Input;
 use think\console\Output;
-use think\Db;
+use think\facade\Db;
 
 class UserDistribution extends Command
 {
@@ -35,7 +35,7 @@ class UserDistribution extends Command
 
     protected function execute(Input $input, Output $output)
     {
-        $users = Db::name('user u')
+        $users = Db::name('user')->alias('u')
             ->field('d.*')
             ->join('user_distribution d', 'd.user_id = u.id')
             ->where(['u.del' => 0])

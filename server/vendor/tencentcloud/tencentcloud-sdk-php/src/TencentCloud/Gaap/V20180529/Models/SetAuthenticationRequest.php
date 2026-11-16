@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -54,10 +54,18 @@ use TencentCloud\Common\AbstractModel;
  * @method void setGaapCertificateId(string $GaapCertificateId) 设置通道SSL证书ID，从证书管理页获取。
  * @method string getRealServerCertificateId() 获取源站CA证书ID，从证书管理页获取。源站认证时，填写该参数或RealServerCertificateId参数
  * @method void setRealServerCertificateId(string $RealServerCertificateId) 设置源站CA证书ID，从证书管理页获取。源站认证时，填写该参数或RealServerCertificateId参数
- * @method string getRealServerCertificateDomain() 获取源站证书域名。
- * @method void setRealServerCertificateDomain(string $RealServerCertificateDomain) 设置源站证书域名。
+ * @method string getRealServerCertificateDomain() 获取该字段已废弃，请使用创建规则和修改规则中的SNI功能。
+ * @method void setRealServerCertificateDomain(string $RealServerCertificateDomain) 设置该字段已废弃，请使用创建规则和修改规则中的SNI功能。
  * @method array getPolyRealServerCertificateIds() 获取多源站CA证书ID，从证书管理页获取。源站认证时，填写该参数或RealServerCertificateId参数
  * @method void setPolyRealServerCertificateIds(array $PolyRealServerCertificateIds) 设置多源站CA证书ID，从证书管理页获取。源站认证时，填写该参数或RealServerCertificateId参数
+ * @method array getTLSSupportVersion() 获取TLS支持的版本
+支持TLSv1，TLSv1.1,TLSv1.2,TLSv1.3
+ * @method void setTLSSupportVersion(array $TLSSupportVersion) 设置TLS支持的版本
+支持TLSv1，TLSv1.1,TLSv1.2,TLSv1.3
+ * @method string getTLSCiphers() 获取支持的TLS密码套件，可选值为：
+[GAAP_TLS_CIPHERS_WIDE,GAAPTLS_CIPHERS_GENERAL,GAAPTLS_CIPHERS_STRICT]
+ * @method void setTLSCiphers(string $TLSCiphers) 设置支持的TLS密码套件，可选值为：
+[GAAP_TLS_CIPHERS_WIDE,GAAPTLS_CIPHERS_GENERAL,GAAPTLS_CIPHERS_STRICT]
  */
 class SetAuthenticationRequest extends AbstractModel
 {
@@ -111,7 +119,7 @@ class SetAuthenticationRequest extends AbstractModel
     public $RealServerCertificateId;
 
     /**
-     * @var string 源站证书域名。
+     * @var string 该字段已废弃，请使用创建规则和修改规则中的SNI功能。
      */
     public $RealServerCertificateDomain;
 
@@ -119,6 +127,18 @@ class SetAuthenticationRequest extends AbstractModel
      * @var array 多源站CA证书ID，从证书管理页获取。源站认证时，填写该参数或RealServerCertificateId参数
      */
     public $PolyRealServerCertificateIds;
+
+    /**
+     * @var array TLS支持的版本
+支持TLSv1，TLSv1.1,TLSv1.2,TLSv1.3
+     */
+    public $TLSSupportVersion;
+
+    /**
+     * @var string 支持的TLS密码套件，可选值为：
+[GAAP_TLS_CIPHERS_WIDE,GAAPTLS_CIPHERS_GENERAL,GAAPTLS_CIPHERS_STRICT]
+     */
+    public $TLSCiphers;
 
     /**
      * @param string $ListenerId 监听器ID。
@@ -138,8 +158,12 @@ class SetAuthenticationRequest extends AbstractModel
      * @param string $BasicAuthConfId 基础认证配置ID，从证书管理页获取。
      * @param string $GaapCertificateId 通道SSL证书ID，从证书管理页获取。
      * @param string $RealServerCertificateId 源站CA证书ID，从证书管理页获取。源站认证时，填写该参数或RealServerCertificateId参数
-     * @param string $RealServerCertificateDomain 源站证书域名。
+     * @param string $RealServerCertificateDomain 该字段已废弃，请使用创建规则和修改规则中的SNI功能。
      * @param array $PolyRealServerCertificateIds 多源站CA证书ID，从证书管理页获取。源站认证时，填写该参数或RealServerCertificateId参数
+     * @param array $TLSSupportVersion TLS支持的版本
+支持TLSv1，TLSv1.1,TLSv1.2,TLSv1.3
+     * @param string $TLSCiphers 支持的TLS密码套件，可选值为：
+[GAAP_TLS_CIPHERS_WIDE,GAAPTLS_CIPHERS_GENERAL,GAAPTLS_CIPHERS_STRICT]
      */
     function __construct()
     {
@@ -192,6 +216,14 @@ class SetAuthenticationRequest extends AbstractModel
 
         if (array_key_exists("PolyRealServerCertificateIds",$param) and $param["PolyRealServerCertificateIds"] !== null) {
             $this->PolyRealServerCertificateIds = $param["PolyRealServerCertificateIds"];
+        }
+
+        if (array_key_exists("TLSSupportVersion",$param) and $param["TLSSupportVersion"] !== null) {
+            $this->TLSSupportVersion = $param["TLSSupportVersion"];
+        }
+
+        if (array_key_exists("TLSCiphers",$param) and $param["TLSCiphers"] !== null) {
+            $this->TLSCiphers = $param["TLSCiphers"];
         }
     }
 }

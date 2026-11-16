@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,17 +33,35 @@ use TencentCloud\Common\AbstractModel;
  * @method integer getRecordCount() 获取记录数
  * @method void setRecordCount(integer $RecordCount) 设置记录数
  * @method string getRemark() 获取备注
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setRemark(string $Remark) 设置备注
-注意：此字段可能返回 null，表示取不到有效值。
  * @method array getVpcSet() 获取绑定的Vpc列表
  * @method void setVpcSet(array $VpcSet) 设置绑定的Vpc列表
- * @method string getStatus() 获取私有域状态：正常解析：ENABLED, 暂停解析：SUSPEND, 锁定：FROZEN
- * @method void setStatus(string $Status) 设置私有域状态：正常解析：ENABLED, 暂停解析：SUSPEND, 锁定：FROZEN
+ * @method string getStatus() 获取私有域绑定VPC状态，未关联vpc：SUSPEND，已关联VPC：ENABLED
+，关联VPC失败：FAILED
+ * @method void setStatus(string $Status) 设置私有域绑定VPC状态，未关联vpc：SUSPEND，已关联VPC：ENABLED
+，关联VPC失败：FAILED
  * @method string getDnsForwardStatus() 获取域名递归解析状态：开通：ENABLED, 关闭，DISABLED
  * @method void setDnsForwardStatus(string $DnsForwardStatus) 设置域名递归解析状态：开通：ENABLED, 关闭，DISABLED
  * @method array getTags() 获取标签键值对集合
  * @method void setTags(array $Tags) 设置标签键值对集合
+ * @method array getAccountVpcSet() 获取绑定的关联账号的vpc列表
+ * @method void setAccountVpcSet(array $AccountVpcSet) 设置绑定的关联账号的vpc列表
+ * @method boolean getIsCustomTld() 获取是否自定义TLD
+ * @method void setIsCustomTld(boolean $IsCustomTld) 设置是否自定义TLD
+ * @method string getCnameSpeedupStatus() 获取CNAME加速状态：开通：ENABLED, 关闭，DISABLED
+ * @method void setCnameSpeedupStatus(string $CnameSpeedupStatus) 设置CNAME加速状态：开通：ENABLED, 关闭，DISABLED
+ * @method string getForwardRuleName() 获取转发规则名称
+ * @method void setForwardRuleName(string $ForwardRuleName) 设置转发规则名称
+ * @method string getForwardRuleType() 获取转发规则类型：云上到云下，DOWN；云下到云上，UP，目前只支持DOWN
+ * @method void setForwardRuleType(string $ForwardRuleType) 设置转发规则类型：云上到云下，DOWN；云下到云上，UP，目前只支持DOWN
+ * @method string getForwardAddress() 获取转发的地址
+ * @method void setForwardAddress(string $ForwardAddress) 设置转发的地址
+ * @method string getEndPointName() 获取终端节点名称
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setEndPointName(string $EndPointName) 设置终端节点名称
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method array getDeletedVpcSet() 获取已删除的vpc
+ * @method void setDeletedVpcSet(array $DeletedVpcSet) 设置已删除的vpc
  */
 class PrivateZone extends AbstractModel
 {
@@ -79,7 +97,6 @@ class PrivateZone extends AbstractModel
 
     /**
      * @var string 备注
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Remark;
 
@@ -89,7 +106,8 @@ class PrivateZone extends AbstractModel
     public $VpcSet;
 
     /**
-     * @var string 私有域状态：正常解析：ENABLED, 暂停解析：SUSPEND, 锁定：FROZEN
+     * @var string 私有域绑定VPC状态，未关联vpc：SUSPEND，已关联VPC：ENABLED
+，关联VPC失败：FAILED
      */
     public $Status;
 
@@ -104,6 +122,47 @@ class PrivateZone extends AbstractModel
     public $Tags;
 
     /**
+     * @var array 绑定的关联账号的vpc列表
+     */
+    public $AccountVpcSet;
+
+    /**
+     * @var boolean 是否自定义TLD
+     */
+    public $IsCustomTld;
+
+    /**
+     * @var string CNAME加速状态：开通：ENABLED, 关闭，DISABLED
+     */
+    public $CnameSpeedupStatus;
+
+    /**
+     * @var string 转发规则名称
+     */
+    public $ForwardRuleName;
+
+    /**
+     * @var string 转发规则类型：云上到云下，DOWN；云下到云上，UP，目前只支持DOWN
+     */
+    public $ForwardRuleType;
+
+    /**
+     * @var string 转发的地址
+     */
+    public $ForwardAddress;
+
+    /**
+     * @var string 终端节点名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $EndPointName;
+
+    /**
+     * @var array 已删除的vpc
+     */
+    public $DeletedVpcSet;
+
+    /**
      * @param string $ZoneId 私有域id: zone-xxxxxxxx
      * @param integer $OwnerUin 域名所有者uin
      * @param string $Domain 私有域名
@@ -111,11 +170,20 @@ class PrivateZone extends AbstractModel
      * @param string $UpdatedOn 修改时间
      * @param integer $RecordCount 记录数
      * @param string $Remark 备注
-注意：此字段可能返回 null，表示取不到有效值。
      * @param array $VpcSet 绑定的Vpc列表
-     * @param string $Status 私有域状态：正常解析：ENABLED, 暂停解析：SUSPEND, 锁定：FROZEN
+     * @param string $Status 私有域绑定VPC状态，未关联vpc：SUSPEND，已关联VPC：ENABLED
+，关联VPC失败：FAILED
      * @param string $DnsForwardStatus 域名递归解析状态：开通：ENABLED, 关闭，DISABLED
      * @param array $Tags 标签键值对集合
+     * @param array $AccountVpcSet 绑定的关联账号的vpc列表
+     * @param boolean $IsCustomTld 是否自定义TLD
+     * @param string $CnameSpeedupStatus CNAME加速状态：开通：ENABLED, 关闭，DISABLED
+     * @param string $ForwardRuleName 转发规则名称
+     * @param string $ForwardRuleType 转发规则类型：云上到云下，DOWN；云下到云上，UP，目前只支持DOWN
+     * @param string $ForwardAddress 转发的地址
+     * @param string $EndPointName 终端节点名称
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param array $DeletedVpcSet 已删除的vpc
      */
     function __construct()
     {
@@ -181,6 +249,48 @@ class PrivateZone extends AbstractModel
                 $obj = new TagInfo();
                 $obj->deserialize($value);
                 array_push($this->Tags, $obj);
+            }
+        }
+
+        if (array_key_exists("AccountVpcSet",$param) and $param["AccountVpcSet"] !== null) {
+            $this->AccountVpcSet = [];
+            foreach ($param["AccountVpcSet"] as $key => $value){
+                $obj = new AccountVpcInfoOutput();
+                $obj->deserialize($value);
+                array_push($this->AccountVpcSet, $obj);
+            }
+        }
+
+        if (array_key_exists("IsCustomTld",$param) and $param["IsCustomTld"] !== null) {
+            $this->IsCustomTld = $param["IsCustomTld"];
+        }
+
+        if (array_key_exists("CnameSpeedupStatus",$param) and $param["CnameSpeedupStatus"] !== null) {
+            $this->CnameSpeedupStatus = $param["CnameSpeedupStatus"];
+        }
+
+        if (array_key_exists("ForwardRuleName",$param) and $param["ForwardRuleName"] !== null) {
+            $this->ForwardRuleName = $param["ForwardRuleName"];
+        }
+
+        if (array_key_exists("ForwardRuleType",$param) and $param["ForwardRuleType"] !== null) {
+            $this->ForwardRuleType = $param["ForwardRuleType"];
+        }
+
+        if (array_key_exists("ForwardAddress",$param) and $param["ForwardAddress"] !== null) {
+            $this->ForwardAddress = $param["ForwardAddress"];
+        }
+
+        if (array_key_exists("EndPointName",$param) and $param["EndPointName"] !== null) {
+            $this->EndPointName = $param["EndPointName"];
+        }
+
+        if (array_key_exists("DeletedVpcSet",$param) and $param["DeletedVpcSet"] !== null) {
+            $this->DeletedVpcSet = [];
+            foreach ($param["DeletedVpcSet"] as $key => $value){
+                $obj = new VpcInfo();
+                $obj->deserialize($value);
+                array_push($this->DeletedVpcSet, $obj);
             }
         }
     }

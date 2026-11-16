@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,19 +20,23 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribePrivilegeEvents请求参数结构体
  *
- * @method integer getLimit() 获取返回数量，默认为10，最大值为100。
- * @method void setLimit(integer $Limit) 设置返回数量，默认为10，最大值为100。
+ * @method integer getLimit() 获取返回数量，最大值为100。
+ * @method void setLimit(integer $Limit) 设置返回数量，最大值为100。
  * @method integer getOffset() 获取偏移量，默认为0。
  * @method void setOffset(integer $Offset) 设置偏移量，默认为0。
  * @method array getFilters() 获取过滤条件。
 <li>Keywords - String - 是否必填：否 - 关键词(主机IP)</li>
  * @method void setFilters(array $Filters) 设置过滤条件。
 <li>Keywords - String - 是否必填：否 - 关键词(主机IP)</li>
+ * @method string getOrder() 获取排序方式：根据请求次数排序：asc-升序/desc-降序
+ * @method void setOrder(string $Order) 设置排序方式：根据请求次数排序：asc-升序/desc-降序
+ * @method string getBy() 获取排序字段：CreateTime-发现时间
+ * @method void setBy(string $By) 设置排序字段：CreateTime-发现时间
  */
 class DescribePrivilegeEventsRequest extends AbstractModel
 {
     /**
-     * @var integer 返回数量，默认为10，最大值为100。
+     * @var integer 返回数量，最大值为100。
      */
     public $Limit;
 
@@ -48,10 +52,22 @@ class DescribePrivilegeEventsRequest extends AbstractModel
     public $Filters;
 
     /**
-     * @param integer $Limit 返回数量，默认为10，最大值为100。
+     * @var string 排序方式：根据请求次数排序：asc-升序/desc-降序
+     */
+    public $Order;
+
+    /**
+     * @var string 排序字段：CreateTime-发现时间
+     */
+    public $By;
+
+    /**
+     * @param integer $Limit 返回数量，最大值为100。
      * @param integer $Offset 偏移量，默认为0。
      * @param array $Filters 过滤条件。
 <li>Keywords - String - 是否必填：否 - 关键词(主机IP)</li>
+     * @param string $Order 排序方式：根据请求次数排序：asc-升序/desc-降序
+     * @param string $By 排序字段：CreateTime-发现时间
      */
     function __construct()
     {
@@ -81,6 +97,14 @@ class DescribePrivilegeEventsRequest extends AbstractModel
                 $obj->deserialize($value);
                 array_push($this->Filters, $obj);
             }
+        }
+
+        if (array_key_exists("Order",$param) and $param["Order"] !== null) {
+            $this->Order = $param["Order"];
+        }
+
+        if (array_key_exists("By",$param) and $param["By"] !== null) {
+            $this->By = $param["By"];
         }
     }
 }

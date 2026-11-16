@@ -27,7 +27,7 @@ use app\admin\logic\WechatMerchantTransferLogic;
 use app\admin\model\WithdrawApply;
 use app\common\server\ConfigServer;
 use app\common\server\WeChatServer;
-use think\Db;
+use think\facade\Db;
 use think\Exception;
 
 /**
@@ -139,6 +139,7 @@ class WithdrawLogic extends LogicBase
             ->where(['user_id' => $user_id])
             ->order('create_time desc')
             ->select();
+        $lists = $lists->toArray(); // ThinkPHP 6：select() 返回 Collection，TP5 返回数组；直接写 $lists[$k]['x'] 或 foreach(&$item) 改值会丢/报错，先转数组。
 
         foreach ($lists as &$item){
             $item['desc']                           = lang('提现至') . Withdraw::getTypeDesc($item['type']);

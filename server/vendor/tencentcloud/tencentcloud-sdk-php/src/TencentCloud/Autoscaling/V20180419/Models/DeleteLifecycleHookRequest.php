@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,18 +20,18 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DeleteLifecycleHook请求参数结构体
  *
- * @method string getLifecycleHookId() 获取生命周期挂钩ID
- * @method void setLifecycleHookId(string $LifecycleHookId) 设置生命周期挂钩ID
+ * @method string getLifecycleHookId() 获取生命周期挂钩ID。可以通过调用接口 [DescribeLifecycleHooks](https://cloud.tencent.com/document/api/377/34452) ，取返回信息中的 LifecycleHookId 获取生命周期挂钩ID。
+ * @method void setLifecycleHookId(string $LifecycleHookId) 设置生命周期挂钩ID。可以通过调用接口 [DescribeLifecycleHooks](https://cloud.tencent.com/document/api/377/34452) ，取返回信息中的 LifecycleHookId 获取生命周期挂钩ID。
  */
 class DeleteLifecycleHookRequest extends AbstractModel
 {
     /**
-     * @var string 生命周期挂钩ID
+     * @var string 生命周期挂钩ID。可以通过调用接口 [DescribeLifecycleHooks](https://cloud.tencent.com/document/api/377/34452) ，取返回信息中的 LifecycleHookId 获取生命周期挂钩ID。
      */
     public $LifecycleHookId;
 
     /**
-     * @param string $LifecycleHookId 生命周期挂钩ID
+     * @param string $LifecycleHookId 生命周期挂钩ID。可以通过调用接口 [DescribeLifecycleHooks](https://cloud.tencent.com/document/api/377/34452) ，取返回信息中的 LifecycleHookId 获取生命周期挂钩ID。
      */
     function __construct()
     {

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,34 +20,42 @@ use TencentCloud\Common\AbstractModel;
 /**
  * AssignIpv6Addresses请求参数结构体
  *
- * @method string getNetworkInterfaceId() 获取弹性网卡实例`ID`，形如：`eni-m6dyj72l`。
- * @method void setNetworkInterfaceId(string $NetworkInterfaceId) 设置弹性网卡实例`ID`，形如：`eni-m6dyj72l`。
- * @method array getIpv6Addresses() 获取指定的`IPv6`地址列表，单次最多指定10个。与入参`Ipv6AddressCount`合并计算配额。与Ipv6AddressCount必填一个。
- * @method void setIpv6Addresses(array $Ipv6Addresses) 设置指定的`IPv6`地址列表，单次最多指定10个。与入参`Ipv6AddressCount`合并计算配额。与Ipv6AddressCount必填一个。
- * @method integer getIpv6AddressCount() 获取自动分配`IPv6`地址个数，内网IP地址个数总和不能超过配数。与入参`Ipv6Addresses`合并计算配额。与Ipv6Addresses必填一个。
- * @method void setIpv6AddressCount(integer $Ipv6AddressCount) 设置自动分配`IPv6`地址个数，内网IP地址个数总和不能超过配数。与入参`Ipv6Addresses`合并计算配额。与Ipv6Addresses必填一个。
+ * @method string getNetworkInterfaceId() 获取<p>弹性网卡实例<code>ID</code>，形如：<code>eni-m6dyj72l</code>。可通过<a href="https://cloud.tencent.com/document/product/215/15817">DescribeNetworkInterfaces</a>接口获取。</p>
+ * @method void setNetworkInterfaceId(string $NetworkInterfaceId) 设置<p>弹性网卡实例<code>ID</code>，形如：<code>eni-m6dyj72l</code>。可通过<a href="https://cloud.tencent.com/document/product/215/15817">DescribeNetworkInterfaces</a>接口获取。</p>
+ * @method array getIpv6Addresses() 获取<p>指定的<code>IPv6</code>地址列表，单次最多指定10个。与入参<code>Ipv6AddressCount</code>合并计算配额。与Ipv6AddressCount必填一个。</p>
+ * @method void setIpv6Addresses(array $Ipv6Addresses) 设置<p>指定的<code>IPv6</code>地址列表，单次最多指定10个。与入参<code>Ipv6AddressCount</code>合并计算配额。与Ipv6AddressCount必填一个。</p>
+ * @method integer getIpv6AddressCount() 获取<p>自动分配<code>IPv6</code>地址个数，内网IP地址个数总和不能超过配额数。与入参<code>Ipv6Addresses</code>合并计算配额。与Ipv6Addresses必填一个。</p>
+ * @method void setIpv6AddressCount(integer $Ipv6AddressCount) 设置<p>自动分配<code>IPv6</code>地址个数，内网IP地址个数总和不能超过配额数。与入参<code>Ipv6Addresses</code>合并计算配额。与Ipv6Addresses必填一个。</p>
+ * @method string getClientToken() 获取<p>用于保证请求幂等性的字符串。该字符串由客户生成，需保证不同请求之间唯一，最大值不超过64个ASCII字符。若不指定该参数，则无法保证请求的幂等性。</p>
+ * @method void setClientToken(string $ClientToken) 设置<p>用于保证请求幂等性的字符串。该字符串由客户生成，需保证不同请求之间唯一，最大值不超过64个ASCII字符。若不指定该参数，则无法保证请求的幂等性。</p>
  */
 class AssignIpv6AddressesRequest extends AbstractModel
 {
     /**
-     * @var string 弹性网卡实例`ID`，形如：`eni-m6dyj72l`。
+     * @var string <p>弹性网卡实例<code>ID</code>，形如：<code>eni-m6dyj72l</code>。可通过<a href="https://cloud.tencent.com/document/product/215/15817">DescribeNetworkInterfaces</a>接口获取。</p>
      */
     public $NetworkInterfaceId;
 
     /**
-     * @var array 指定的`IPv6`地址列表，单次最多指定10个。与入参`Ipv6AddressCount`合并计算配额。与Ipv6AddressCount必填一个。
+     * @var array <p>指定的<code>IPv6</code>地址列表，单次最多指定10个。与入参<code>Ipv6AddressCount</code>合并计算配额。与Ipv6AddressCount必填一个。</p>
      */
     public $Ipv6Addresses;
 
     /**
-     * @var integer 自动分配`IPv6`地址个数，内网IP地址个数总和不能超过配数。与入参`Ipv6Addresses`合并计算配额。与Ipv6Addresses必填一个。
+     * @var integer <p>自动分配<code>IPv6</code>地址个数，内网IP地址个数总和不能超过配额数。与入参<code>Ipv6Addresses</code>合并计算配额。与Ipv6Addresses必填一个。</p>
      */
     public $Ipv6AddressCount;
 
     /**
-     * @param string $NetworkInterfaceId 弹性网卡实例`ID`，形如：`eni-m6dyj72l`。
-     * @param array $Ipv6Addresses 指定的`IPv6`地址列表，单次最多指定10个。与入参`Ipv6AddressCount`合并计算配额。与Ipv6AddressCount必填一个。
-     * @param integer $Ipv6AddressCount 自动分配`IPv6`地址个数，内网IP地址个数总和不能超过配数。与入参`Ipv6Addresses`合并计算配额。与Ipv6Addresses必填一个。
+     * @var string <p>用于保证请求幂等性的字符串。该字符串由客户生成，需保证不同请求之间唯一，最大值不超过64个ASCII字符。若不指定该参数，则无法保证请求的幂等性。</p>
+     */
+    public $ClientToken;
+
+    /**
+     * @param string $NetworkInterfaceId <p>弹性网卡实例<code>ID</code>，形如：<code>eni-m6dyj72l</code>。可通过<a href="https://cloud.tencent.com/document/product/215/15817">DescribeNetworkInterfaces</a>接口获取。</p>
+     * @param array $Ipv6Addresses <p>指定的<code>IPv6</code>地址列表，单次最多指定10个。与入参<code>Ipv6AddressCount</code>合并计算配额。与Ipv6AddressCount必填一个。</p>
+     * @param integer $Ipv6AddressCount <p>自动分配<code>IPv6</code>地址个数，内网IP地址个数总和不能超过配额数。与入参<code>Ipv6Addresses</code>合并计算配额。与Ipv6Addresses必填一个。</p>
+     * @param string $ClientToken <p>用于保证请求幂等性的字符串。该字符串由客户生成，需保证不同请求之间唯一，最大值不超过64个ASCII字符。若不指定该参数，则无法保证请求的幂等性。</p>
      */
     function __construct()
     {
@@ -77,6 +85,10 @@ class AssignIpv6AddressesRequest extends AbstractModel
 
         if (array_key_exists("Ipv6AddressCount",$param) and $param["Ipv6AddressCount"] !== null) {
             $this->Ipv6AddressCount = $param["Ipv6AddressCount"];
+        }
+
+        if (array_key_exists("ClientToken",$param) and $param["ClientToken"] !== null) {
+            $this->ClientToken = $param["ClientToken"];
         }
     }
 }

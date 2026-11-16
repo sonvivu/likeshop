@@ -24,7 +24,7 @@
                     :src="ServiceConfig.qr_code"
                     width="320rpx"
                     height="320rpx"
-                    border-radius="20"
+                    radius="20"
                 ></u-image>
             </view>
             <view
@@ -50,7 +50,7 @@
                         :src="appConfig.shop_login_logo"
                         width="200rpx"
                         height="200rpx"
-                        border-radius="20"
+                        radius="20"
                     ></u-image>
                 </view>
             </template>

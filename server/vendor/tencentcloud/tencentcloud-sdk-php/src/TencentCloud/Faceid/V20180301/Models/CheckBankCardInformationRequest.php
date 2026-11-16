@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,6 +22,10 @@ use TencentCloud\Common\AbstractModel;
  *
  * @method string getBankCard() 获取银行卡号。
  * @method void setBankCard(string $BankCard) 设置银行卡号。
+ * @method Encryption getEncryption() 获取敏感数据加密信息。
+- 对传入信息（银行卡号）有加密需求的用户可使用此参数，详情请点击左侧链接。
+ * @method void setEncryption(Encryption $Encryption) 设置敏感数据加密信息。
+- 对传入信息（银行卡号）有加密需求的用户可使用此参数，详情请点击左侧链接。
  */
 class CheckBankCardInformationRequest extends AbstractModel
 {
@@ -31,7 +35,15 @@ class CheckBankCardInformationRequest extends AbstractModel
     public $BankCard;
 
     /**
+     * @var Encryption 敏感数据加密信息。
+- 对传入信息（银行卡号）有加密需求的用户可使用此参数，详情请点击左侧链接。
+     */
+    public $Encryption;
+
+    /**
      * @param string $BankCard 银行卡号。
+     * @param Encryption $Encryption 敏感数据加密信息。
+- 对传入信息（银行卡号）有加密需求的用户可使用此参数，详情请点击左侧链接。
      */
     function __construct()
     {
@@ -48,6 +60,11 @@ class CheckBankCardInformationRequest extends AbstractModel
         }
         if (array_key_exists("BankCard",$param) and $param["BankCard"] !== null) {
             $this->BankCard = $param["BankCard"];
+        }
+
+        if (array_key_exists("Encryption",$param) and $param["Encryption"] !== null) {
+            $this->Encryption = new Encryption();
+            $this->Encryption->deserialize($param["Encryption"]);
         }
     }
 }

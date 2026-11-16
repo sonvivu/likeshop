@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,25 +21,33 @@ use TencentCloud\Common\AbstractModel;
  * 二维码在图片中的位置，由边界点的坐标表示
  *
  * @method float getFloatX() 获取二维码边界点X轴坐标
+注意：此字段可能返回 null，表示取不到有效值。
  * @method void setFloatX(float $FloatX) 设置二维码边界点X轴坐标
+注意：此字段可能返回 null，表示取不到有效值。
  * @method float getFloatY() 获取二维码边界点Y轴坐标
+注意：此字段可能返回 null，表示取不到有效值。
  * @method void setFloatY(float $FloatY) 设置二维码边界点Y轴坐标
+注意：此字段可能返回 null，表示取不到有效值。
  */
 class CodePosition extends AbstractModel
 {
     /**
      * @var float 二维码边界点X轴坐标
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public $FloatX;
 
     /**
      * @var float 二维码边界点Y轴坐标
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public $FloatY;
 
     /**
      * @param float $FloatX 二维码边界点X轴坐标
+注意：此字段可能返回 null，表示取不到有效值。
      * @param float $FloatY 二维码边界点Y轴坐标
+注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
     {

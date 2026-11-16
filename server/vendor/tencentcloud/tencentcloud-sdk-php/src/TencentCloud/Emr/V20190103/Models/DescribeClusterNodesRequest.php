@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,14 +44,22 @@ use TencentCloud\Common\AbstractModel;
 <li>recyle：表示获取回收站隔离中的节点信息，包括cdb信息。</li>
 <li>renew：表示获取所有待续费的节点信息，包括cdb信息，自动续费节点不会返回。</li>
 注意：现在只支持以上取值，输入其他值会导致错误。
+ * @method boolean getExportDb() 获取导出全部节点信息csv时是否携带cdb信息
+ * @method void setExportDb(boolean $ExportDb) 设置导出全部节点信息csv时是否携带cdb信息
  * @method integer getOffset() 获取页编号，默认值为0，表示第一页。
  * @method void setOffset(integer $Offset) 设置页编号，默认值为0，表示第一页。
  * @method integer getLimit() 获取每页返回数量，默认值为100，最大值为100。
+如果offset和limit都不填，或者都填0，则返回全部数据
  * @method void setLimit(integer $Limit) 设置每页返回数量，默认值为100，最大值为100。
+如果offset和limit都不填，或者都填0，则返回全部数据
  * @method string getHardwareResourceType() 获取资源类型:支持all/host/pod，默认为all
  * @method void setHardwareResourceType(string $HardwareResourceType) 设置资源类型:支持all/host/pod，默认为all
  * @method array getSearchFields() 获取支持搜索的字段
  * @method void setSearchFields(array $SearchFields) 设置支持搜索的字段
+ * @method string getOrderField() 获取排序字段
+ * @method void setOrderField(string $OrderField) 设置排序字段
+ * @method integer getAsc() 获取是否升序，1:升序，0:降序
+ * @method void setAsc(integer $Asc) 设置是否升序，1:升序，0:降序
  */
 class DescribeClusterNodesRequest extends AbstractModel
 {
@@ -76,12 +84,18 @@ class DescribeClusterNodesRequest extends AbstractModel
     public $NodeFlag;
 
     /**
+     * @var boolean 导出全部节点信息csv时是否携带cdb信息
+     */
+    public $ExportDb;
+
+    /**
      * @var integer 页编号，默认值为0，表示第一页。
      */
     public $Offset;
 
     /**
      * @var integer 每页返回数量，默认值为100，最大值为100。
+如果offset和limit都不填，或者都填0，则返回全部数据
      */
     public $Limit;
 
@@ -96,6 +110,16 @@ class DescribeClusterNodesRequest extends AbstractModel
     public $SearchFields;
 
     /**
+     * @var string 排序字段
+     */
+    public $OrderField;
+
+    /**
+     * @var integer 是否升序，1:升序，0:降序
+     */
+    public $Asc;
+
+    /**
      * @param string $InstanceId 集群实例ID,实例ID形如: emr-xxxxxxxx
      * @param string $NodeFlag 节点标识，取值为：
 <li>all：表示获取全部类型节点，cdb信息除外。</li>
@@ -108,10 +132,14 @@ class DescribeClusterNodesRequest extends AbstractModel
 <li>recyle：表示获取回收站隔离中的节点信息，包括cdb信息。</li>
 <li>renew：表示获取所有待续费的节点信息，包括cdb信息，自动续费节点不会返回。</li>
 注意：现在只支持以上取值，输入其他值会导致错误。
+     * @param boolean $ExportDb 导出全部节点信息csv时是否携带cdb信息
      * @param integer $Offset 页编号，默认值为0，表示第一页。
      * @param integer $Limit 每页返回数量，默认值为100，最大值为100。
+如果offset和limit都不填，或者都填0，则返回全部数据
      * @param string $HardwareResourceType 资源类型:支持all/host/pod，默认为all
      * @param array $SearchFields 支持搜索的字段
+     * @param string $OrderField 排序字段
+     * @param integer $Asc 是否升序，1:升序，0:降序
      */
     function __construct()
     {
@@ -134,6 +162,10 @@ class DescribeClusterNodesRequest extends AbstractModel
             $this->NodeFlag = $param["NodeFlag"];
         }
 
+        if (array_key_exists("ExportDb",$param) and $param["ExportDb"] !== null) {
+            $this->ExportDb = $param["ExportDb"];
+        }
+
         if (array_key_exists("Offset",$param) and $param["Offset"] !== null) {
             $this->Offset = $param["Offset"];
         }
@@ -153,6 +185,14 @@ class DescribeClusterNodesRequest extends AbstractModel
                 $obj->deserialize($value);
                 array_push($this->SearchFields, $obj);
             }
+        }
+
+        if (array_key_exists("OrderField",$param) and $param["OrderField"] !== null) {
+            $this->OrderField = $param["OrderField"];
+        }
+
+        if (array_key_exists("Asc",$param) and $param["Asc"] !== null) {
+            $this->Asc = $param["Asc"];
         }
     }
 }

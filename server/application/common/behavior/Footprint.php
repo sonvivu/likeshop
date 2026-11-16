@@ -22,7 +22,7 @@ namespace app\common\behavior;
 use app\common\model\Footprint as FootprintModel;
 use app\common\model\FootprintRecord as FootprintRecordModel;
 use app\common\server\ConfigServer;
-use think\Db;
+use think\facade\Db;
 
 /**
  * 足迹记录
@@ -31,7 +31,7 @@ use think\Db;
  */
 class Footprint
 {
-    public function run($params)
+    public function handle($params)
     {
         try {
             // 全局气泡开关

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,14 +23,34 @@ use TencentCloud\Common\AbstractModel;
  * @method string getName() 获取字幕名字，长度限制：64 个字符。
  * @method void setName(string $Name) 设置字幕名字，长度限制：64 个字符。
  * @method string getLanguage() 获取字幕语言。常见的取值如下：
-<li>cn：中文</li>
-<li>ja：日文</li>
-<li>en-US：英文</li>
+<li>zh：中文；</li>
+<li>en：英文；</li>
+<li>ja：日文；</li>
+<li>ko：韩文；</li>
+<li>vi：越南语；</li>
+<li>ms：马来语；</li>
+<li>th：泰语；</li>
+<li>pt：葡萄牙语；</li>
+<li>tr：土耳其语；</li>
+<li>ar：阿拉伯语；</li>
+<li>es：西班牙语；</li>
+<li>hi：印地语；</li>
+<li>fr：法语。</li>
 其他取值参考 [RFC5646](https://tools.ietf.org/html/rfc5646)
  * @method void setLanguage(string $Language) 设置字幕语言。常见的取值如下：
-<li>cn：中文</li>
-<li>ja：日文</li>
-<li>en-US：英文</li>
+<li>zh：中文；</li>
+<li>en：英文；</li>
+<li>ja：日文；</li>
+<li>ko：韩文；</li>
+<li>vi：越南语；</li>
+<li>ms：马来语；</li>
+<li>th：泰语；</li>
+<li>pt：葡萄牙语；</li>
+<li>tr：土耳其语；</li>
+<li>ar：阿拉伯语；</li>
+<li>es：西班牙语；</li>
+<li>hi：印地语；</li>
+<li>fr：法语。</li>
 其他取值参考 [RFC5646](https://tools.ietf.org/html/rfc5646)
  * @method string getFormat() 获取字幕格式。取值范围如下：
 <li>vtt</li>
@@ -38,8 +58,8 @@ use TencentCloud\Common\AbstractModel;
 <li>vtt</li>
  * @method string getContent() 获取字幕内容，进行 [Base64](https://tools.ietf.org/html/rfc4648) 编码后的字符串。
  * @method void setContent(string $Content) 设置字幕内容，进行 [Base64](https://tools.ietf.org/html/rfc4648) 编码后的字符串。
- * @method string getId() 获取字幕的唯一标识。长度不能超过16个字符，可以使用大小写字母、数字、下划线（_）或横杠（-）。不能与媒资文件中现有字幕的唯一标识重复。
- * @method void setId(string $Id) 设置字幕的唯一标识。长度不能超过16个字符，可以使用大小写字母、数字、下划线（_）或横杠（-）。不能与媒资文件中现有字幕的唯一标识重复。
+ * @method string getId() 获取字幕的唯一标识。长度不能超过16个字符，可以使用大小写字母、数字、下划线（_）或横杠（-）。不能与媒体文件中现有字幕的唯一标识重复。
+ * @method void setId(string $Id) 设置字幕的唯一标识。长度不能超过16个字符，可以使用大小写字母、数字、下划线（_）或横杠（-）。不能与媒体文件中现有字幕的唯一标识重复。
  */
 class MediaSubtitleInput extends AbstractModel
 {
@@ -50,9 +70,19 @@ class MediaSubtitleInput extends AbstractModel
 
     /**
      * @var string 字幕语言。常见的取值如下：
-<li>cn：中文</li>
-<li>ja：日文</li>
-<li>en-US：英文</li>
+<li>zh：中文；</li>
+<li>en：英文；</li>
+<li>ja：日文；</li>
+<li>ko：韩文；</li>
+<li>vi：越南语；</li>
+<li>ms：马来语；</li>
+<li>th：泰语；</li>
+<li>pt：葡萄牙语；</li>
+<li>tr：土耳其语；</li>
+<li>ar：阿拉伯语；</li>
+<li>es：西班牙语；</li>
+<li>hi：印地语；</li>
+<li>fr：法语。</li>
 其他取值参考 [RFC5646](https://tools.ietf.org/html/rfc5646)
      */
     public $Language;
@@ -69,21 +99,31 @@ class MediaSubtitleInput extends AbstractModel
     public $Content;
 
     /**
-     * @var string 字幕的唯一标识。长度不能超过16个字符，可以使用大小写字母、数字、下划线（_）或横杠（-）。不能与媒资文件中现有字幕的唯一标识重复。
+     * @var string 字幕的唯一标识。长度不能超过16个字符，可以使用大小写字母、数字、下划线（_）或横杠（-）。不能与媒体文件中现有字幕的唯一标识重复。
      */
     public $Id;
 
     /**
      * @param string $Name 字幕名字，长度限制：64 个字符。
      * @param string $Language 字幕语言。常见的取值如下：
-<li>cn：中文</li>
-<li>ja：日文</li>
-<li>en-US：英文</li>
+<li>zh：中文；</li>
+<li>en：英文；</li>
+<li>ja：日文；</li>
+<li>ko：韩文；</li>
+<li>vi：越南语；</li>
+<li>ms：马来语；</li>
+<li>th：泰语；</li>
+<li>pt：葡萄牙语；</li>
+<li>tr：土耳其语；</li>
+<li>ar：阿拉伯语；</li>
+<li>es：西班牙语；</li>
+<li>hi：印地语；</li>
+<li>fr：法语。</li>
 其他取值参考 [RFC5646](https://tools.ietf.org/html/rfc5646)
      * @param string $Format 字幕格式。取值范围如下：
 <li>vtt</li>
      * @param string $Content 字幕内容，进行 [Base64](https://tools.ietf.org/html/rfc4648) 编码后的字符串。
-     * @param string $Id 字幕的唯一标识。长度不能超过16个字符，可以使用大小写字母、数字、下划线（_）或横杠（-）。不能与媒资文件中现有字幕的唯一标识重复。
+     * @param string $Id 字幕的唯一标识。长度不能超过16个字符，可以使用大小写字母、数字、下划线（_）或横杠（-）。不能与媒体文件中现有字幕的唯一标识重复。
      */
     function __construct()
     {

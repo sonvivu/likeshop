@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,8 +24,8 @@ use TencentCloud\Common\AbstractModel;
  * @method void setTemplateContent(TemplateContent $TemplateContent) 设置模板内容
  * @method integer getTemplateID() 获取模板ID
  * @method void setTemplateID(integer $TemplateID) 设置模板ID
- * @method string getTemplateName() 获取模版名字
- * @method void setTemplateName(string $TemplateName) 设置模版名字
+ * @method string getTemplateName() 获取模板名字
+ * @method void setTemplateName(string $TemplateName) 设置模板名字
  */
 class UpdateEmailTemplateRequest extends AbstractModel
 {
@@ -40,14 +40,14 @@ class UpdateEmailTemplateRequest extends AbstractModel
     public $TemplateID;
 
     /**
-     * @var string 模版名字
+     * @var string 模板名字
      */
     public $TemplateName;
 
     /**
      * @param TemplateContent $TemplateContent 模板内容
      * @param integer $TemplateID 模板ID
-     * @param string $TemplateName 模版名字
+     * @param string $TemplateName 模板名字
      */
     function __construct()
     {

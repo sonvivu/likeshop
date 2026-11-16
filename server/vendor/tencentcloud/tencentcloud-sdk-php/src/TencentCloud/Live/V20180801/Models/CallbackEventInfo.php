@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,66 +20,98 @@ use TencentCloud\Common\AbstractModel;
 /**
  * 回调事件信息
  *
- * @method string getEventTime() 获取事件时间
- * @method void setEventTime(string $EventTime) 设置事件时间
- * @method integer getEventType() 获取事件类型
- * @method void setEventType(integer $EventType) 设置事件类型
- * @method string getRequest() 获取回调请求
- * @method void setRequest(string $Request) 设置回调请求
- * @method string getResponse() 获取回调响应
- * @method void setResponse(string $Response) 设置回调响应
- * @method string getResponseTime() 获取客户接口响应时间
- * @method void setResponseTime(string $ResponseTime) 设置客户接口响应时间
- * @method integer getResultCode() 获取回调结果
- * @method void setResultCode(integer $ResultCode) 设置回调结果
- * @method string getStreamId() 获取流名称
- * @method void setStreamId(string $StreamId) 设置流名称
+ * @method string getEventTime() 获取事件时间。
+接口返回支持两种时间格式：
+1）YYYY-MM-DDThh:mm:ssZ：UTC时间格式，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)
+2）yyyy-MM-dd HH:mm:ss：使用此格式时，默认代表北京时间。
+接口返回的时间格式和查询请求传入的时间格式一致。
+ * @method void setEventTime(string $EventTime) 设置事件时间。
+接口返回支持两种时间格式：
+1）YYYY-MM-DDThh:mm:ssZ：UTC时间格式，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)
+2）yyyy-MM-dd HH:mm:ss：使用此格式时，默认代表北京时间。
+接口返回的时间格式和查询请求传入的时间格式一致。
+ * @method integer getEventType() 获取事件类型。
+ * @method void setEventType(integer $EventType) 设置事件类型。
+ * @method string getRequest() 获取回调请求。
+ * @method void setRequest(string $Request) 设置回调请求。
+ * @method string getResponse() 获取回调响应。
+ * @method void setResponse(string $Response) 设置回调响应。
+ * @method string getResponseTime() 获取客户接口响应时间。
+接口返回支持两种时间格式：
+1）YYYY-MM-DDThh:mm:ssZ：UTC时间格式，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)
+2）yyyy-MM-dd HH:mm:ss：使用此格式时，默认代表北京时间。
+接口返回的时间格式和查询请求传入的时间格式一致。
+ * @method void setResponseTime(string $ResponseTime) 设置客户接口响应时间。
+接口返回支持两种时间格式：
+1）YYYY-MM-DDThh:mm:ssZ：UTC时间格式，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)
+2）yyyy-MM-dd HH:mm:ss：使用此格式时，默认代表北京时间。
+接口返回的时间格式和查询请求传入的时间格式一致。
+ * @method integer getResultCode() 获取回调结果。
+ * @method void setResultCode(integer $ResultCode) 设置回调结果。
+ * @method string getStreamId() 获取流名称。
+ * @method void setStreamId(string $StreamId) 设置流名称。
  */
 class CallbackEventInfo extends AbstractModel
 {
     /**
-     * @var string 事件时间
+     * @var string 事件时间。
+接口返回支持两种时间格式：
+1）YYYY-MM-DDThh:mm:ssZ：UTC时间格式，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)
+2）yyyy-MM-dd HH:mm:ss：使用此格式时，默认代表北京时间。
+接口返回的时间格式和查询请求传入的时间格式一致。
      */
     public $EventTime;
 
     /**
-     * @var integer 事件类型
+     * @var integer 事件类型。
      */
     public $EventType;
 
     /**
-     * @var string 回调请求
+     * @var string 回调请求。
      */
     public $Request;
 
     /**
-     * @var string 回调响应
+     * @var string 回调响应。
      */
     public $Response;
 
     /**
-     * @var string 客户接口响应时间
+     * @var string 客户接口响应时间。
+接口返回支持两种时间格式：
+1）YYYY-MM-DDThh:mm:ssZ：UTC时间格式，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)
+2）yyyy-MM-dd HH:mm:ss：使用此格式时，默认代表北京时间。
+接口返回的时间格式和查询请求传入的时间格式一致。
      */
     public $ResponseTime;
 
     /**
-     * @var integer 回调结果
+     * @var integer 回调结果。
      */
     public $ResultCode;
 
     /**
-     * @var string 流名称
+     * @var string 流名称。
      */
     public $StreamId;
 
     /**
-     * @param string $EventTime 事件时间
-     * @param integer $EventType 事件类型
-     * @param string $Request 回调请求
-     * @param string $Response 回调响应
-     * @param string $ResponseTime 客户接口响应时间
-     * @param integer $ResultCode 回调结果
-     * @param string $StreamId 流名称
+     * @param string $EventTime 事件时间。
+接口返回支持两种时间格式：
+1）YYYY-MM-DDThh:mm:ssZ：UTC时间格式，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)
+2）yyyy-MM-dd HH:mm:ss：使用此格式时，默认代表北京时间。
+接口返回的时间格式和查询请求传入的时间格式一致。
+     * @param integer $EventType 事件类型。
+     * @param string $Request 回调请求。
+     * @param string $Response 回调响应。
+     * @param string $ResponseTime 客户接口响应时间。
+接口返回支持两种时间格式：
+1）YYYY-MM-DDThh:mm:ssZ：UTC时间格式，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)
+2）yyyy-MM-dd HH:mm:ss：使用此格式时，默认代表北京时间。
+接口返回的时间格式和查询请求传入的时间格式一致。
+     * @param integer $ResultCode 回调结果。
+     * @param string $StreamId 流名称。
      */
     function __construct()
     {

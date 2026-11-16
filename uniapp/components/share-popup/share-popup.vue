@@ -1,7 +1,7 @@
 <template>
 	<view class="">
-		<u-popup class="share-popup" v-model="showshare" mode="bottom" border-radius="14" :closeable="true"
-			:safe-area-inset-bottom="true" :mask-close-able="false">
+		<u-popup class="share-popup" v-model:show="showshare" mode="bottom" round="14" :closeable="true"
+			:safe-area-inset-bottom="true" :close-on-click-overlay="false">
 			<view class="row row-center md bold mt30 mb30">{{ $t('分享至') }}</view>
 			<view class="row row-around share-tab">
 				<view class="column column-center" @tap="getPoster">
@@ -23,7 +23,7 @@
 			</view>
 			<view class="row row-center bg-body cancel xl" @tap="showshare=false">{{ $t('取消') }}</view>
 		</u-popup>
-		<u-popup class="share-poster" v-model="showPoster" mode="center" :closeable="true"
+		<u-popup class="share-poster" v-model:show="showPoster" mode="center" :closeable="true"
 			:safe-area-inset-bottom="true">
 			<!-- #ifndef H5 -->
 			<image style="width: 640rpx;" mode="widthFix" :src="poster"></image>
@@ -41,7 +41,7 @@
 			</button>
 		</u-popup>
 		<!-- #ifdef H5 -->
-		<u-popup :custom-style="{'background': 'none'}"  class="share-tips" v-model="showTips" mode="top">
+		<u-popup bg-color="transparent"  class="share-tips" v-model:show="showTips" mode="top">
 			<view style="overflow: hidden;">
 				<image src="/static/images/share_arrow.png" class="share-arrow" />
 				<view class="white" style="text-align: center;margin-top: 280rpx;">
@@ -76,7 +76,7 @@
 			poster
 		},
 		props: {
-			value: {
+			modelValue: {
 				type: Boolean     // 是否开启此弹窗
 			},
 			shareId: {
@@ -115,10 +115,10 @@
 			},
 			showshare: {
 				get() {
-					return this.value
+					return this.modelValue
 				},
 				set(val) {
-					this.$emit('input', val)
+					this.$emit('update:modelValue', val)
 				}
 			}
 		},

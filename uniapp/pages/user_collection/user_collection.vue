@@ -16,18 +16,17 @@
             </view>
         </view>
         <loading-footer :status="status" slotEmpty>
-            <view class="data-null column-center" slot="empty">
+                        <template #empty><view class="data-null column-center">
                 <image src="/static/images/profit_null.png" class="img-null" />
                 <text class="sm muted">{{ $t('暂无收藏～') }}</text>
-            </view>
+            </view></template>
         </loading-footer>
     </view>
     <u-modal
-        v-model="deleteSure"
+        v-model:show="deleteSure"
         :confirm-text="$t('狠心删除')"
         confirm-color="#FF2C3C"
         :showCancelButton="true"
-        :show-title="false"
         @confirm="cancelCollect" 
         @cancel="deleteCancel"
     >

@@ -1,5 +1,8 @@
 // #ifdef H5
-import weixin from '@/js_sdk/jweixin-module'
+// jweixin-module la UMD bundle goc cua WeChat, khong export gi ca: no chi gan
+// window.wx / window.jWeixin khi load. Import side-effect roi dung global.
+import '@/js_sdk/jweixin-module'
+const weixin = window.wx
 import { isAndroid } from './tools'
 import { getJsconfig, getCodeUrl, wechatLogin } from '@/api/app'
 import store from '../store'
@@ -165,7 +168,7 @@ class Wechath5 {
                                 }
                             )
                         } else {
-                            alert(i18n.t('你的微信版本过低，请更新至最新版本。'))
+                            alert(i18n.global.t('你的微信版本过低，请更新至最新版本。'))
                         }
                     }
                 })

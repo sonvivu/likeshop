@@ -18,7 +18,7 @@
 // +----------------------------------------------------------------------
 namespace app\admin\controller;
 use app\admin\logic\RechargeLogLogic;
-use think\helper\Time;
+use app\common\helper\Time;
 
 class RechargeLog extends AdminBase{
     /**

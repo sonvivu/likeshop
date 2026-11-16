@@ -33,14 +33,26 @@
 
 <script>
 import {AfterSaleType} from '@/utils/type'
+import { useAppStore } from "~/stores/app";
 export default {
-  head() {
+  async setup() {
+    setPageLayout('user_lauout')
+    const store = useAppStore();
+    const { $get } = useNuxtApp();
+    useHead({
+      title: computed(() => store.headTitle),
+      link: [{ rel: "icon", type: "image/x-icon", href: computed(() => store.favicon) }],
+    });
+    let afterList = [];
+    let res = await $get("after_sale/lists", {params: {page_no: 1, page_size: 10}})
+    if(res.code == 1) {
+      const {list, count} = res.data
+      afterList = {list, count};
+    }
     return {
-      title: this.$store.getters.headTitle,
-      link: [{ rel: "icon", type: "image/x-icon", href: this.$store.getters.favicon}],
-    };
+      afterList: afterList
+    }
   },
-  layout: "user_lauout",
   data() {
     return {
       activeName: AfterSaleType.NORMAL,
@@ -69,17 +81,6 @@ export default {
       ],
       showInput: false,
       aid: -1
-    }
-  },
-  async asyncData({ $get, $post }) {
-    let afterList = [];
-    let res = await $get("after_sale/lists", {params: {page_no: 1, page_size: 10}})
-    if(res.code == 1) {
-      const {list, count} = res.data
-      afterList = {list, count};
-    }
-    return {
-      afterList: afterList 
     }
   },
   methods: {

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,8 +18,7 @@ namespace TencentCloud\Cdn\V20180606\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * 缓存过期配置高级版（功能灰度中，尚未全量）
-注意：该版本不支持设置首页缓存规则
+ * 缓存过期配置高级版，注意：此字段已经弃用，请使用RuleCache
  *
  * @method array getCacheRules() 获取缓存过期规则
 注意：此字段可能返回 null，表示取不到有效值。

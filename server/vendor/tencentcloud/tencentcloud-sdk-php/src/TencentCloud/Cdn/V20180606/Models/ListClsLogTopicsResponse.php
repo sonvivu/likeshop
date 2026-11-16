@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,38 +20,50 @@ use TencentCloud\Common\AbstractModel;
 /**
  * ListClsLogTopics返回参数结构体
  *
- * @method LogSetInfo getLogset() 获取日志集信息
- * @method void setLogset(LogSetInfo $Logset) 设置日志集信息
- * @method array getTopics() 获取日志主题信息列表
+ * @method LogSetInfo getLogset() 获取上海区域日志集信息
+ * @method void setLogset(LogSetInfo $Logset) 设置上海区域日志集信息
+ * @method array getTopics() 获取上海区域日志主题信息列表
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setTopics(array $Topics) 设置日志主题信息列表
+ * @method void setTopics(array $Topics) 设置上海区域日志主题信息列表
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
- * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method array getExtraLogset() 获取其他区域日志集信息列表
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setExtraLogset(array $ExtraLogset) 设置其他区域日志集信息列表
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+ * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
 class ListClsLogTopicsResponse extends AbstractModel
 {
     /**
-     * @var LogSetInfo 日志集信息
+     * @var LogSetInfo 上海区域日志集信息
      */
     public $Logset;
 
     /**
-     * @var array 日志主题信息列表
+     * @var array 上海区域日志主题信息列表
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Topics;
 
     /**
-     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @var array 其他区域日志集信息列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $ExtraLogset;
+
+    /**
+     * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public $RequestId;
 
     /**
-     * @param LogSetInfo $Logset 日志集信息
-     * @param array $Topics 日志主题信息列表
+     * @param LogSetInfo $Logset 上海区域日志集信息
+     * @param array $Topics 上海区域日志主题信息列表
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @param array $ExtraLogset 其他区域日志集信息列表
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
     {
@@ -77,6 +89,15 @@ class ListClsLogTopicsResponse extends AbstractModel
                 $obj = new TopicInfo();
                 $obj->deserialize($value);
                 array_push($this->Topics, $obj);
+            }
+        }
+
+        if (array_key_exists("ExtraLogset",$param) and $param["ExtraLogset"] !== null) {
+            $this->ExtraLogset = [];
+            foreach ($param["ExtraLogset"] as $key => $value){
+                $obj = new ExtraLogset();
+                $obj->deserialize($value);
+                array_push($this->ExtraLogset, $obj);
             }
         }
 

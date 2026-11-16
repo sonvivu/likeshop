@@ -58,7 +58,7 @@ class RequestMatcher implements RequestMatcherInterface
      * @param string|string[]|null $ips
      * @param string|string[]|null $schemes
      */
-    public function __construct(string $path = null, string $host = null, $methods = null, $ips = null, array $attributes = [], $schemes = null, int $port = null)
+    public function __construct(?string $path = null, ?string $host = null, $methods = null, $ips = null, array $attributes = [], $schemes = null, ?int $port = null)
     {
         $this->matchPath($path);
         $this->matchHost($host);
@@ -84,16 +84,14 @@ class RequestMatcher implements RequestMatcherInterface
 
     /**
      * Adds a check for the URL host name.
-     *
-     * @param string|null $regexp A Regexp
      */
-    public function matchHost($regexp)
+    public function matchHost(?string $regexp)
     {
         $this->host = $regexp;
     }
 
     /**
-     * Adds a check for the the URL port.
+     * Adds a check for the URL port.
      *
      * @param int|null $port The port number to connect to
      */
@@ -104,10 +102,8 @@ class RequestMatcher implements RequestMatcherInterface
 
     /**
      * Adds a check for the URL path info.
-     *
-     * @param string|null $regexp A Regexp
      */
-    public function matchPath($regexp)
+    public function matchPath(?string $regexp)
     {
         $this->path = $regexp;
     }
@@ -117,7 +113,7 @@ class RequestMatcher implements RequestMatcherInterface
      *
      * @param string $ip A specific IP address or a range specified using IP/netmask like 192.168.1.0/24
      */
-    public function matchIp($ip)
+    public function matchIp(string $ip)
     {
         $this->matchIps($ip);
     }
@@ -129,7 +125,11 @@ class RequestMatcher implements RequestMatcherInterface
      */
     public function matchIps($ips)
     {
-        $this->ips = null !== $ips ? (array) $ips : [];
+        $ips = null !== $ips ? (array) $ips : [];
+
+        $this->ips = array_reduce($ips, static function (array $ips, string $ip) {
+            return array_merge($ips, preg_split('/\s*,\s*/', $ip));
+        }, []);
     }
 
     /**
@@ -140,15 +140,17 @@ class RequestMatcher implements RequestMatcherInterface
     public function matchMethod($method)
     {
         $this->methods = null !== $method ? array_map('strtoupper', (array) $method) : [];
+
+        // HEAD requests are served by the GET handler, as the router does
+        if (\in_array('GET', $this->methods, true) && !\in_array('HEAD', $this->methods, true)) {
+            $this->methods[] = 'HEAD';
+        }
     }
 
     /**
      * Adds a check for request attribute.
-     *
-     * @param string $key    The request attribute name
-     * @param string $regexp A Regexp
      */
-    public function matchAttribute($key, $regexp)
+    public function matchAttribute(string $key, string $regexp)
     {
         $this->attributes[$key] = $regexp;
     }
@@ -167,12 +169,16 @@ class RequestMatcher implements RequestMatcherInterface
         }
 
         foreach ($this->attributes as $key => $pattern) {
-            if (!preg_match('{'.$pattern.'}', $request->attributes->get($key))) {
+            $requestAttribute = $request->attributes->get($key);
+            if (!\is_string($requestAttribute)) {
+                return false;
+            }
+            if (!preg_match('{'.$pattern.'}', $requestAttribute)) {
                 return false;
             }
         }
 
-        if (null !== $this->path && !preg_match('{'.$this->path.'}', rawurldecode($request->getPathInfo()))) {
+        if (null !== $this->path && !preg_match('{'.$this->path.'}s', rawurldecode($request->getPathInfo()))) {
             return false;
         }
 
@@ -184,7 +190,7 @@ class RequestMatcher implements RequestMatcherInterface
             return false;
         }
 
-        if (IpUtils::checkIp($request->getClientIp(), $this->ips)) {
+        if (IpUtils::checkIp($request->getClientIp() ?? '', $this->ips)) {
             return true;
         }
 

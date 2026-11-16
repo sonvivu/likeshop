@@ -22,7 +22,7 @@ namespace app\admin\logic;
 use app\common\model\Ad;
 use app\admin\model\AdPosition;
 use app\common\server\UrlServer;
-use think\Db;
+use think\facade\Db;
 use think\Exception;
 
 class AdLogic
@@ -76,14 +76,14 @@ class AdLogic
                     $url = lang('商城页面：') . $page['name'];
                     break;
                 case 2:
-                    $goods = Db::name('goods g')
+                    $goods = Db::name('goods')->alias('g')
                         ->where(['g.id' => $item['link']])
                         ->field('g.name,min_price,max_price')
                         ->find();
                     if ($goods) {
-                        $price = '￥' . $goods['max_price'];
+                        $price = config('currency.symbol') . $goods['max_price'];
                         if ($goods['max_price'] !== $goods['min_price']) {
-                            $price = '￥' . $goods['min_price'] . '~' . $goods['max_price'];
+                            $price = config('currency.symbol') . $goods['min_price'] . '~' . $goods['max_price'];
                         }
                         $url = lang('商品页面:') . $goods['name'] . lang('价格：') . $price;
                     }
@@ -212,16 +212,16 @@ class AdLogic
     public static function info($id)
     {
         $ad = new Ad();
-        $info = $ad::get(['id' => $id]);
+        $info = $ad::find(['id' => $id]);
         $info['goods'] = '';
         if ($info['link_type'] == 2) {
-            $goods = Db::name('goods g')
+            $goods = Db::name('goods')->alias('g')
                 ->where(['g.id' => $info['link']])
                 ->field('g.id, g.name, g.image, min_price, max_price')
                 ->find();
-            $price = '￥' . $goods['max_price'];
+            $price = config('currency.symbol') . $goods['max_price'];
             if ($goods['max_price'] !== $goods['min_price']) {
-                $price = '￥' . $goods['min_price'] . '~' . $goods['max_price'];
+                $price = config('currency.symbol') . $goods['min_price'] . '~' . $goods['max_price'];
             }
             $goods['price'] = $price;
             $goods['image'] = UrlServer::getFileUrl($goods['image']);

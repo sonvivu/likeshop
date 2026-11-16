@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,10 +20,10 @@ use TencentCloud\Common\AbstractModel;
 /**
  * 反弹Shell数据
  *
- * @method integer getId() 获取ID
- * @method void setId(integer $Id) 设置ID
- * @method string getUuid() 获取云镜UUID
- * @method void setUuid(string $Uuid) 设置云镜UUID
+ * @method integer getId() 获取ID 主键
+ * @method void setId(integer $Id) 设置ID 主键
+ * @method string getUuid() 获取主机安全UUID
+ * @method void setUuid(string $Uuid) 设置主机安全UUID
  * @method string getQuuid() 获取主机ID
  * @method void setQuuid(string $Quuid) 设置主机ID
  * @method string getHostip() 获取主机内网IP
@@ -50,24 +50,34 @@ use TencentCloud\Common\AbstractModel;
  * @method void setParentProcGroup(string $ParentProcGroup) 设置父进程用户组
  * @method string getParentProcPath() 获取父进程路径
  * @method void setParentProcPath(string $ParentProcPath) 设置父进程路径
- * @method integer getStatus() 获取处理状态
- * @method void setStatus(integer $Status) 设置处理状态
+ * @method integer getStatus() 获取处理状态：0-待处理 2-白名单 3-已处理 4-已忽略 6-已拦截
+ * @method void setStatus(integer $Status) 设置处理状态：0-待处理 2-白名单 3-已处理 4-已忽略 6-已拦截
  * @method string getCreateTime() 获取产生时间
  * @method void setCreateTime(string $CreateTime) 设置产生时间
  * @method string getMachineName() 获取主机名
  * @method void setMachineName(string $MachineName) 设置主机名
  * @method string getProcTree() 获取进程树
  * @method void setProcTree(string $ProcTree) 设置进程树
+ * @method integer getDetectBy() 获取检测方法: 0行为分析; 1命令特征检测
+ * @method void setDetectBy(integer $DetectBy) 设置检测方法: 0行为分析; 1命令特征检测
+ * @method MachineExtraInfo getMachineExtraInfo() 获取 主机额外信息
+ * @method void setMachineExtraInfo(MachineExtraInfo $MachineExtraInfo) 设置 主机额外信息
+ * @method integer getPid() 获取进程id
+ * @method void setPid(integer $Pid) 设置进程id
+ * @method integer getRiskLevel() 获取威胁等级：0中危，1高危
+ * @method void setRiskLevel(integer $RiskLevel) 设置威胁等级：0中危，1高危
+ * @method string getCmdLineQuote() 获取命令详情的转义后内容，供正则加白全字符串匹配使用	
+ * @method void setCmdLineQuote(string $CmdLineQuote) 设置命令详情的转义后内容，供正则加白全字符串匹配使用	
  */
 class ReverseShell extends AbstractModel
 {
     /**
-     * @var integer ID
+     * @var integer ID 主键
      */
     public $Id;
 
     /**
-     * @var string 云镜UUID
+     * @var string 主机安全UUID
      */
     public $Uuid;
 
@@ -137,7 +147,7 @@ class ReverseShell extends AbstractModel
     public $ParentProcPath;
 
     /**
-     * @var integer 处理状态
+     * @var integer 处理状态：0-待处理 2-白名单 3-已处理 4-已忽略 6-已拦截
      */
     public $Status;
 
@@ -157,8 +167,33 @@ class ReverseShell extends AbstractModel
     public $ProcTree;
 
     /**
-     * @param integer $Id ID
-     * @param string $Uuid 云镜UUID
+     * @var integer 检测方法: 0行为分析; 1命令特征检测
+     */
+    public $DetectBy;
+
+    /**
+     * @var MachineExtraInfo  主机额外信息
+     */
+    public $MachineExtraInfo;
+
+    /**
+     * @var integer 进程id
+     */
+    public $Pid;
+
+    /**
+     * @var integer 威胁等级：0中危，1高危
+     */
+    public $RiskLevel;
+
+    /**
+     * @var string 命令详情的转义后内容，供正则加白全字符串匹配使用	
+     */
+    public $CmdLineQuote;
+
+    /**
+     * @param integer $Id ID 主键
+     * @param string $Uuid 主机安全UUID
      * @param string $Quuid 主机ID
      * @param string $Hostip 主机内网IP
      * @param string $DstIp 目标IP
@@ -172,10 +207,15 @@ class ReverseShell extends AbstractModel
      * @param string $ParentProcUser 父进程用户
      * @param string $ParentProcGroup 父进程用户组
      * @param string $ParentProcPath 父进程路径
-     * @param integer $Status 处理状态
+     * @param integer $Status 处理状态：0-待处理 2-白名单 3-已处理 4-已忽略 6-已拦截
      * @param string $CreateTime 产生时间
      * @param string $MachineName 主机名
      * @param string $ProcTree 进程树
+     * @param integer $DetectBy 检测方法: 0行为分析; 1命令特征检测
+     * @param MachineExtraInfo $MachineExtraInfo  主机额外信息
+     * @param integer $Pid 进程id
+     * @param integer $RiskLevel 威胁等级：0中危，1高危
+     * @param string $CmdLineQuote 命令详情的转义后内容，供正则加白全字符串匹配使用	
      */
     function __construct()
     {
@@ -264,6 +304,27 @@ class ReverseShell extends AbstractModel
 
         if (array_key_exists("ProcTree",$param) and $param["ProcTree"] !== null) {
             $this->ProcTree = $param["ProcTree"];
+        }
+
+        if (array_key_exists("DetectBy",$param) and $param["DetectBy"] !== null) {
+            $this->DetectBy = $param["DetectBy"];
+        }
+
+        if (array_key_exists("MachineExtraInfo",$param) and $param["MachineExtraInfo"] !== null) {
+            $this->MachineExtraInfo = new MachineExtraInfo();
+            $this->MachineExtraInfo->deserialize($param["MachineExtraInfo"]);
+        }
+
+        if (array_key_exists("Pid",$param) and $param["Pid"] !== null) {
+            $this->Pid = $param["Pid"];
+        }
+
+        if (array_key_exists("RiskLevel",$param) and $param["RiskLevel"] !== null) {
+            $this->RiskLevel = $param["RiskLevel"];
+        }
+
+        if (array_key_exists("CmdLineQuote",$param) and $param["CmdLineQuote"] !== null) {
+            $this->CmdLineQuote = $param["CmdLineQuote"];
         }
     }
 }

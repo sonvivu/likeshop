@@ -20,7 +20,7 @@ namespace app\api\logic;
 use function AlibabaCloud\Client\value;
 use app\common\server\ConfigServer;
 use app\common\server\UrlServer;
-use think\Db;
+use think\facade\Db;
 
 class UserLevelLogic{
     /**

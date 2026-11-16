@@ -72,7 +72,7 @@ class ArticleCategory extends Validate
     }
 
     protected function CheckArticle($value, $rule, $data){
-        if(\app\admin\model\Article::get(['cid'=>$value,'del'=>0])){
+        if(\app\admin\model\Article::find(['cid'=>$value,'del'=>0])){
             return lang('该分类下有文章，不可删除');
         }
         return true;

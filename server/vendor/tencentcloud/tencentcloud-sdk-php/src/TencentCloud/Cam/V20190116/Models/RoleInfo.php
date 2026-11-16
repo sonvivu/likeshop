@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,6 +45,14 @@ use TencentCloud\Common\AbstractModel;
  * @method string getDeletionTaskId() 获取服务相关角色删除TaskId
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setDeletionTaskId(string $DeletionTaskId) 设置服务相关角色删除TaskId
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method array getTags() 获取标签
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setTags(array $Tags) 设置标签
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getRoleArn() 获取角色RoleArn信息
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setRoleArn(string $RoleArn) 设置角色RoleArn信息
 注意：此字段可能返回 null，表示取不到有效值。
  */
 class RoleInfo extends AbstractModel
@@ -103,6 +111,18 @@ class RoleInfo extends AbstractModel
     public $DeletionTaskId;
 
     /**
+     * @var array 标签
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $Tags;
+
+    /**
+     * @var string 角色RoleArn信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $RoleArn;
+
+    /**
      * @param string $RoleId 角色ID
      * @param string $RoleName 角色名称
      * @param string $PolicyDocument 角色的策略文档
@@ -115,6 +135,10 @@ class RoleInfo extends AbstractModel
      * @param integer $SessionDuration 有效时间
 注意：此字段可能返回 null，表示取不到有效值。
      * @param string $DeletionTaskId 服务相关角色删除TaskId
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param array $Tags 标签
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $RoleArn 角色RoleArn信息
 注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
@@ -168,6 +192,19 @@ class RoleInfo extends AbstractModel
 
         if (array_key_exists("DeletionTaskId",$param) and $param["DeletionTaskId"] !== null) {
             $this->DeletionTaskId = $param["DeletionTaskId"];
+        }
+
+        if (array_key_exists("Tags",$param) and $param["Tags"] !== null) {
+            $this->Tags = [];
+            foreach ($param["Tags"] as $key => $value){
+                $obj = new RoleTags();
+                $obj->deserialize($value);
+                array_push($this->Tags, $obj);
+            }
+        }
+
+        if (array_key_exists("RoleArn",$param) and $param["RoleArn"] !== null) {
+            $this->RoleArn = $param["RoleArn"];
         }
     }
 }

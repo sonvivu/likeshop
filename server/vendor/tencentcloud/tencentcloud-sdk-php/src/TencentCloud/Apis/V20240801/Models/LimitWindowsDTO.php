@@ -1,0 +1,106 @@
+<?php
+/*
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+namespace TencentCloud\Apis\V20240801\Models;
+use TencentCloud\Common\AbstractModel;
+
+/**
+ * 限流窗口配置
+ *
+ * @method integer getInterval() 获取<p>时间窗口，分钟</p>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setInterval(integer $Interval) 设置<p>时间窗口，分钟</p>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method integer getLimit() 获取<p>累计上限，k</p>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setLimit(integer $Limit) 设置<p>累计上限，k</p>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getType() 获取<p>限流类型</p><p>枚举值：</p><ul><li>minute： 时间窗口</li><li>day： 自然日</li><li>month： 自然月</li><li>timeRange： 时间范围</li></ul>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setType(string $Type) 设置<p>限流类型</p><p>枚举值：</p><ul><li>minute： 时间窗口</li><li>day： 自然日</li><li>month： 自然月</li><li>timeRange： 时间范围</li></ul>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method TimeRange getTimeRange() 获取<p>时间区间配置</p>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setTimeRange(TimeRange $TimeRange) 设置<p>时间区间配置</p>
+注意：此字段可能返回 null，表示取不到有效值。
+ */
+class LimitWindowsDTO extends AbstractModel
+{
+    /**
+     * @var integer <p>时间窗口，分钟</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $Interval;
+
+    /**
+     * @var integer <p>累计上限，k</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $Limit;
+
+    /**
+     * @var string <p>限流类型</p><p>枚举值：</p><ul><li>minute： 时间窗口</li><li>day： 自然日</li><li>month： 自然月</li><li>timeRange： 时间范围</li></ul>
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $Type;
+
+    /**
+     * @var TimeRange <p>时间区间配置</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $TimeRange;
+
+    /**
+     * @param integer $Interval <p>时间窗口，分钟</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param integer $Limit <p>累计上限，k</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $Type <p>限流类型</p><p>枚举值：</p><ul><li>minute： 时间窗口</li><li>day： 自然日</li><li>month： 自然月</li><li>timeRange： 时间范围</li></ul>
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TimeRange $TimeRange <p>时间区间配置</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    function __construct()
+    {
+
+    }
+
+    /**
+     * For internal only. DO NOT USE IT.
+     */
+    public function deserialize($param)
+    {
+        if ($param === null) {
+            return;
+        }
+        if (array_key_exists("Interval",$param) and $param["Interval"] !== null) {
+            $this->Interval = $param["Interval"];
+        }
+
+        if (array_key_exists("Limit",$param) and $param["Limit"] !== null) {
+            $this->Limit = $param["Limit"];
+        }
+
+        if (array_key_exists("Type",$param) and $param["Type"] !== null) {
+            $this->Type = $param["Type"];
+        }
+
+        if (array_key_exists("TimeRange",$param) and $param["TimeRange"] !== null) {
+            $this->TimeRange = new TimeRange();
+            $this->TimeRange->deserialize($param["TimeRange"]);
+        }
+    }
+}

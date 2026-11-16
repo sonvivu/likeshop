@@ -1,0 +1,101 @@
+<?php
+/*
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+namespace TencentCloud\Ags\V20250920\Models;
+use TencentCloud\Common\AbstractModel;
+
+/**
+ * DescribePreCacheImageTask请求参数结构体
+ *
+ * @method string getImage() 获取<p>镜像地址</p>
+ * @method void setImage(string $Image) 设置<p>镜像地址</p>
+ * @method string getImageRegistryType() 获取<p>镜像仓库类型：<code>enterprise</code>、<code>personal</code>、<code>custom</code> 。</p><p>枚举值：</p><ul><li>enterprise： tcr 企业容器镜像服务</li><li>personal： ccr 个人容器镜像服务</li></ul>
+ * @method void setImageRegistryType(string $ImageRegistryType) 设置<p>镜像仓库类型：<code>enterprise</code>、<code>personal</code>、<code>custom</code> 。</p><p>枚举值：</p><ul><li>enterprise： tcr 企业容器镜像服务</li><li>personal： ccr 个人容器镜像服务</li></ul>
+ * @method string getImageDigest() 获取<p>镜像 Digest</p>
+ * @method void setImageDigest(string $ImageDigest) 设置<p>镜像 Digest</p>
+ * @method string getPreCacheImageId() 获取<p>镜像预热ID，只能ID或三元组（Image、ImageDigest、ImageRegistrytype）二选一查询</p>
+ * @method void setPreCacheImageId(string $PreCacheImageId) 设置<p>镜像预热ID，只能ID或三元组（Image、ImageDigest、ImageRegistrytype）二选一查询</p>
+ * @method string getPreCacheType() 获取<p>镜像预热类型</p><p>枚举值：</p><ul><li>image： 镜像预热</li><li>image_volume： 镜像卷预热</li></ul><p>默认值：image</p>
+ * @method void setPreCacheType(string $PreCacheType) 设置<p>镜像预热类型</p><p>枚举值：</p><ul><li>image： 镜像预热</li><li>image_volume： 镜像卷预热</li></ul><p>默认值：image</p>
+ */
+class DescribePreCacheImageTaskRequest extends AbstractModel
+{
+    /**
+     * @var string <p>镜像地址</p>
+     */
+    public $Image;
+
+    /**
+     * @var string <p>镜像仓库类型：<code>enterprise</code>、<code>personal</code>、<code>custom</code> 。</p><p>枚举值：</p><ul><li>enterprise： tcr 企业容器镜像服务</li><li>personal： ccr 个人容器镜像服务</li></ul>
+     */
+    public $ImageRegistryType;
+
+    /**
+     * @var string <p>镜像 Digest</p>
+     */
+    public $ImageDigest;
+
+    /**
+     * @var string <p>镜像预热ID，只能ID或三元组（Image、ImageDigest、ImageRegistrytype）二选一查询</p>
+     */
+    public $PreCacheImageId;
+
+    /**
+     * @var string <p>镜像预热类型</p><p>枚举值：</p><ul><li>image： 镜像预热</li><li>image_volume： 镜像卷预热</li></ul><p>默认值：image</p>
+     */
+    public $PreCacheType;
+
+    /**
+     * @param string $Image <p>镜像地址</p>
+     * @param string $ImageRegistryType <p>镜像仓库类型：<code>enterprise</code>、<code>personal</code>、<code>custom</code> 。</p><p>枚举值：</p><ul><li>enterprise： tcr 企业容器镜像服务</li><li>personal： ccr 个人容器镜像服务</li></ul>
+     * @param string $ImageDigest <p>镜像 Digest</p>
+     * @param string $PreCacheImageId <p>镜像预热ID，只能ID或三元组（Image、ImageDigest、ImageRegistrytype）二选一查询</p>
+     * @param string $PreCacheType <p>镜像预热类型</p><p>枚举值：</p><ul><li>image： 镜像预热</li><li>image_volume： 镜像卷预热</li></ul><p>默认值：image</p>
+     */
+    function __construct()
+    {
+
+    }
+
+    /**
+     * For internal only. DO NOT USE IT.
+     */
+    public function deserialize($param)
+    {
+        if ($param === null) {
+            return;
+        }
+        if (array_key_exists("Image",$param) and $param["Image"] !== null) {
+            $this->Image = $param["Image"];
+        }
+
+        if (array_key_exists("ImageRegistryType",$param) and $param["ImageRegistryType"] !== null) {
+            $this->ImageRegistryType = $param["ImageRegistryType"];
+        }
+
+        if (array_key_exists("ImageDigest",$param) and $param["ImageDigest"] !== null) {
+            $this->ImageDigest = $param["ImageDigest"];
+        }
+
+        if (array_key_exists("PreCacheImageId",$param) and $param["PreCacheImageId"] !== null) {
+            $this->PreCacheImageId = $param["PreCacheImageId"];
+        }
+
+        if (array_key_exists("PreCacheType",$param) and $param["PreCacheType"] !== null) {
+            $this->PreCacheType = $param["PreCacheType"];
+        }
+    }
+}

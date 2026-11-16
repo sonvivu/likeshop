@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,6 +22,8 @@ use TencentCloud\Common\AbstractModel;
  *
  * @method array getResourceIds() 获取待删除资源ID列表
  * @method void setResourceIds(array $ResourceIds) 设置待删除资源ID列表
+ * @method string getWorkSpaceId() 获取工作空间 SerialId
+ * @method void setWorkSpaceId(string $WorkSpaceId) 设置工作空间 SerialId
  */
 class DeleteResourcesRequest extends AbstractModel
 {
@@ -31,7 +33,13 @@ class DeleteResourcesRequest extends AbstractModel
     public $ResourceIds;
 
     /**
+     * @var string 工作空间 SerialId
+     */
+    public $WorkSpaceId;
+
+    /**
      * @param array $ResourceIds 待删除资源ID列表
+     * @param string $WorkSpaceId 工作空间 SerialId
      */
     function __construct()
     {
@@ -48,6 +56,10 @@ class DeleteResourcesRequest extends AbstractModel
         }
         if (array_key_exists("ResourceIds",$param) and $param["ResourceIds"] !== null) {
             $this->ResourceIds = $param["ResourceIds"];
+        }
+
+        if (array_key_exists("WorkSpaceId",$param) and $param["WorkSpaceId"] !== null) {
+            $this->WorkSpaceId = $param["WorkSpaceId"];
         }
     }
 }

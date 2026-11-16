@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,12 +36,14 @@ use TencentCloud\Common\AbstractModel;
 1005: 内部系统异常
 1006: 触发频率控制，短时间内对同一地址发送过多邮件
 1007: 邮件地址在黑名单中
+1008: 域名被收件人拒收
 1009: 内部系统异常
 1010: 超出了每日发送限制
 1011: 无发送自定义内容权限，必须使用模板
+1013: 域名被收件人取消订阅
 2001: 找不到相关记录
 3007: 模板ID无效或者不可用
-3008: 模板状态异常
+3008: 被收信域名临时封禁
 3009: 无权限使用该模板
 3010: TemplateData字段格式不正确 
 3014: 发件域名没有经过认证，无法发送
@@ -59,12 +61,14 @@ use TencentCloud\Common\AbstractModel;
 1005: 内部系统异常
 1006: 触发频率控制，短时间内对同一地址发送过多邮件
 1007: 邮件地址在黑名单中
+1008: 域名被收件人拒收
 1009: 内部系统异常
 1010: 超出了每日发送限制
 1011: 无发送自定义内容权限，必须使用模板
+1013: 域名被收件人取消订阅
 2001: 找不到相关记录
 3007: 模板ID无效或者不可用
-3008: 模板状态异常
+3008: 被收信域名临时封禁
 3009: 无权限使用该模板
 3010: TemplateData字段格式不正确 
 3014: 发件域名没有经过认证，无法发送
@@ -98,6 +102,8 @@ use TencentCloud\Common\AbstractModel;
  * @method void setUserUnsubscribed(boolean $UserUnsubscribed) 设置用户是否取消该发送者的订阅
  * @method boolean getUserComplainted() 获取用户是否举报该发送者
  * @method void setUserComplainted(boolean $UserComplainted) 设置用户是否举报该发送者
+ * @method boolean getUserComplained() 获取用户是否举报该发送者
+ * @method void setUserComplained(boolean $UserComplained) 设置用户是否举报该发送者
  */
 class SendEmailStatus extends AbstractModel
 {
@@ -127,12 +133,14 @@ class SendEmailStatus extends AbstractModel
 1005: 内部系统异常
 1006: 触发频率控制，短时间内对同一地址发送过多邮件
 1007: 邮件地址在黑名单中
+1008: 域名被收件人拒收
 1009: 内部系统异常
 1010: 超出了每日发送限制
 1011: 无发送自定义内容权限，必须使用模板
+1013: 域名被收件人取消订阅
 2001: 找不到相关记录
 3007: 模板ID无效或者不可用
-3008: 模板状态异常
+3008: 被收信域名临时封禁
 3009: 无权限使用该模板
 3010: TemplateData字段格式不正确 
 3014: 发件域名没有经过认证，无法发送
@@ -185,8 +193,14 @@ class SendEmailStatus extends AbstractModel
 
     /**
      * @var boolean 用户是否举报该发送者
+     * @deprecated
      */
     public $UserComplainted;
+
+    /**
+     * @var boolean 用户是否举报该发送者
+     */
+    public $UserComplained;
 
     /**
      * @param string $MessageId SendEmail返回的MessageId
@@ -202,12 +216,14 @@ class SendEmailStatus extends AbstractModel
 1005: 内部系统异常
 1006: 触发频率控制，短时间内对同一地址发送过多邮件
 1007: 邮件地址在黑名单中
+1008: 域名被收件人拒收
 1009: 内部系统异常
 1010: 超出了每日发送限制
 1011: 无发送自定义内容权限，必须使用模板
+1013: 域名被收件人取消订阅
 2001: 找不到相关记录
 3007: 模板ID无效或者不可用
-3008: 模板状态异常
+3008: 被收信域名临时封禁
 3009: 无权限使用该模板
 3010: TemplateData字段格式不正确 
 3014: 发件域名没有经过认证，无法发送
@@ -228,6 +244,7 @@ class SendEmailStatus extends AbstractModel
      * @param boolean $UserClicked 用户是否点击该邮件中的链接
      * @param boolean $UserUnsubscribed 用户是否取消该发送者的订阅
      * @param boolean $UserComplainted 用户是否举报该发送者
+     * @param boolean $UserComplained 用户是否举报该发送者
      */
     function __construct()
     {
@@ -288,6 +305,10 @@ class SendEmailStatus extends AbstractModel
 
         if (array_key_exists("UserComplainted",$param) and $param["UserComplainted"] !== null) {
             $this->UserComplainted = $param["UserComplainted"];
+        }
+
+        if (array_key_exists("UserComplained",$param) and $param["UserComplained"] !== null) {
+            $this->UserComplained = $param["UserComplained"];
         }
     }
 }

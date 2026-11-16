@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,17 +35,31 @@ use TencentCloud\Common\AbstractModel;
  * @method boolean getCni() 获取网络插件是否启用CNI(默认开启)
  * @method void setCni(boolean $Cni) 设置网络插件是否启用CNI(默认开启)
  * @method string getKubeProxyMode() 获取service的网络模式，当前参数只适用于ipvs+bpf模式
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setKubeProxyMode(string $KubeProxyMode) 设置service的网络模式，当前参数只适用于ipvs+bpf模式
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getServiceCIDR() 获取用于分配service的IP range，不得与 VPC CIDR 冲突，也不得与同 VPC 内其他集群 CIDR 冲突
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setServiceCIDR(string $ServiceCIDR) 设置用于分配service的IP range，不得与 VPC CIDR 冲突，也不得与同 VPC 内其他集群 CIDR 冲突
-注意：此字段可能返回 null，表示取不到有效值。
  * @method array getSubnets() 获取集群关联的容器子网
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setSubnets(array $Subnets) 设置集群关联的容器子网
 注意：此字段可能返回 null，表示取不到有效值。
+ * @method boolean getIgnoreServiceCIDRConflict() 获取是否忽略 ServiceCIDR 冲突错误, 仅在 VPC-CNI 模式生效，默认不忽略
+ * @method void setIgnoreServiceCIDRConflict(boolean $IgnoreServiceCIDRConflict) 设置是否忽略 ServiceCIDR 冲突错误, 仅在 VPC-CNI 模式生效，默认不忽略
+ * @method boolean getIsDualStack() 获取集群VPC-CNI模式是否为非双栈集群，默认false，非双栈。
+ * @method void setIsDualStack(boolean $IsDualStack) 设置集群VPC-CNI模式是否为非双栈集群，默认false，非双栈。
+ * @method string getIpv6ServiceCIDR() 获取用于分配service的IP range，由系统自动分配
+ * @method void setIpv6ServiceCIDR(string $Ipv6ServiceCIDR) 设置用于分配service的IP range，由系统自动分配
+ * @method string getCiliumMode() 获取集群Cilium Mode配置
+- clusterIP
+ * @method void setCiliumMode(string $CiliumMode) 设置集群Cilium Mode配置
+- clusterIP
+ * @method string getSubnetId() 获取控制面子网信息，仅在以下场景返回。
+- 容器网络插件为CiliumOverlay。
+- 支持CDC的托管集群，且网络插件为VPC-CNI。
+ * @method void setSubnetId(string $SubnetId) 设置控制面子网信息，仅在以下场景返回。
+- 容器网络插件为CiliumOverlay。
+- 支持CDC的托管集群，且网络插件为VPC-CNI。
+ * @method boolean getDataPlaneV2() 获取是否启用了 DataPlaneV2（cilium替代kube-proxy）
+ * @method void setDataPlaneV2(boolean $DataPlaneV2) 设置是否启用了 DataPlaneV2（cilium替代kube-proxy）
  */
 class ClusterNetworkSettings extends AbstractModel
 {
@@ -86,13 +100,11 @@ class ClusterNetworkSettings extends AbstractModel
 
     /**
      * @var string service的网络模式，当前参数只适用于ipvs+bpf模式
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $KubeProxyMode;
 
     /**
      * @var string 用于分配service的IP range，不得与 VPC CIDR 冲突，也不得与同 VPC 内其他集群 CIDR 冲突
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $ServiceCIDR;
 
@@ -103,6 +115,39 @@ class ClusterNetworkSettings extends AbstractModel
     public $Subnets;
 
     /**
+     * @var boolean 是否忽略 ServiceCIDR 冲突错误, 仅在 VPC-CNI 模式生效，默认不忽略
+     */
+    public $IgnoreServiceCIDRConflict;
+
+    /**
+     * @var boolean 集群VPC-CNI模式是否为非双栈集群，默认false，非双栈。
+     */
+    public $IsDualStack;
+
+    /**
+     * @var string 用于分配service的IP range，由系统自动分配
+     */
+    public $Ipv6ServiceCIDR;
+
+    /**
+     * @var string 集群Cilium Mode配置
+- clusterIP
+     */
+    public $CiliumMode;
+
+    /**
+     * @var string 控制面子网信息，仅在以下场景返回。
+- 容器网络插件为CiliumOverlay。
+- 支持CDC的托管集群，且网络插件为VPC-CNI。
+     */
+    public $SubnetId;
+
+    /**
+     * @var boolean 是否启用了 DataPlaneV2（cilium替代kube-proxy）
+     */
+    public $DataPlaneV2;
+
+    /**
      * @param string $ClusterCIDR 用于分配集群容器和服务 IP 的 CIDR，不得与 VPC CIDR 冲突，也不得与同 VPC 内其他集群 CIDR 冲突
      * @param boolean $IgnoreClusterCIDRConflict 是否忽略 ClusterCIDR 冲突错误, 默认不忽略
      * @param integer $MaxNodePodNum 集群中每个Node上最大的Pod数量(默认为256)
@@ -111,11 +156,18 @@ class ClusterNetworkSettings extends AbstractModel
      * @param string $VpcId 集群的VPCID（如果创建空集群，为必传值，否则自动设置为和集群的节点保持一致）
      * @param boolean $Cni 网络插件是否启用CNI(默认开启)
      * @param string $KubeProxyMode service的网络模式，当前参数只适用于ipvs+bpf模式
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $ServiceCIDR 用于分配service的IP range，不得与 VPC CIDR 冲突，也不得与同 VPC 内其他集群 CIDR 冲突
-注意：此字段可能返回 null，表示取不到有效值。
      * @param array $Subnets 集群关联的容器子网
 注意：此字段可能返回 null，表示取不到有效值。
+     * @param boolean $IgnoreServiceCIDRConflict 是否忽略 ServiceCIDR 冲突错误, 仅在 VPC-CNI 模式生效，默认不忽略
+     * @param boolean $IsDualStack 集群VPC-CNI模式是否为非双栈集群，默认false，非双栈。
+     * @param string $Ipv6ServiceCIDR 用于分配service的IP range，由系统自动分配
+     * @param string $CiliumMode 集群Cilium Mode配置
+- clusterIP
+     * @param string $SubnetId 控制面子网信息，仅在以下场景返回。
+- 容器网络插件为CiliumOverlay。
+- 支持CDC的托管集群，且网络插件为VPC-CNI。
+     * @param boolean $DataPlaneV2 是否启用了 DataPlaneV2（cilium替代kube-proxy）
      */
     function __construct()
     {
@@ -168,6 +220,30 @@ class ClusterNetworkSettings extends AbstractModel
 
         if (array_key_exists("Subnets",$param) and $param["Subnets"] !== null) {
             $this->Subnets = $param["Subnets"];
+        }
+
+        if (array_key_exists("IgnoreServiceCIDRConflict",$param) and $param["IgnoreServiceCIDRConflict"] !== null) {
+            $this->IgnoreServiceCIDRConflict = $param["IgnoreServiceCIDRConflict"];
+        }
+
+        if (array_key_exists("IsDualStack",$param) and $param["IsDualStack"] !== null) {
+            $this->IsDualStack = $param["IsDualStack"];
+        }
+
+        if (array_key_exists("Ipv6ServiceCIDR",$param) and $param["Ipv6ServiceCIDR"] !== null) {
+            $this->Ipv6ServiceCIDR = $param["Ipv6ServiceCIDR"];
+        }
+
+        if (array_key_exists("CiliumMode",$param) and $param["CiliumMode"] !== null) {
+            $this->CiliumMode = $param["CiliumMode"];
+        }
+
+        if (array_key_exists("SubnetId",$param) and $param["SubnetId"] !== null) {
+            $this->SubnetId = $param["SubnetId"];
+        }
+
+        if (array_key_exists("DataPlaneV2",$param) and $param["DataPlaneV2"] !== null) {
+            $this->DataPlaneV2 = $param["DataPlaneV2"];
         }
     }
 }

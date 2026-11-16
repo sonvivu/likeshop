@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,8 @@ use TencentCloud\Common\AbstractModel;
  * @method void setEnvId(string $EnvId) 设置环境ID
  * @method boolean getEnableUnion() 获取是否启用统一域名
  * @method void setEnableUnion(boolean $EnableUnion) 设置是否启用统一域名
+ * @method ExternalStorage getExternalStorage() 获取外部存储源。
+ * @method void setExternalStorage(ExternalStorage $ExternalStorage) 设置外部存储源。
  */
 class CreateStaticStoreRequest extends AbstractModel
 {
@@ -38,8 +40,14 @@ class CreateStaticStoreRequest extends AbstractModel
     public $EnableUnion;
 
     /**
+     * @var ExternalStorage 外部存储源。
+     */
+    public $ExternalStorage;
+
+    /**
      * @param string $EnvId 环境ID
      * @param boolean $EnableUnion 是否启用统一域名
+     * @param ExternalStorage $ExternalStorage 外部存储源。
      */
     function __construct()
     {
@@ -60,6 +68,11 @@ class CreateStaticStoreRequest extends AbstractModel
 
         if (array_key_exists("EnableUnion",$param) and $param["EnableUnion"] !== null) {
             $this->EnableUnion = $param["EnableUnion"];
+        }
+
+        if (array_key_exists("ExternalStorage",$param) and $param["ExternalStorage"] !== null) {
+            $this->ExternalStorage = new ExternalStorage();
+            $this->ExternalStorage->deserialize($param["ExternalStorage"]);
         }
     }
 }

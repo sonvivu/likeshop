@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,23 +20,29 @@ use TencentCloud\Common\AbstractModel;
 /**
  * 告警对象
  *
- * @method string getTopicId() 获取日志主题ID。
- * @method void setTopicId(string $TopicId) 设置日志主题ID。
+ * @method string getTopicId() 获取日志主题ID。-通过[获取日志主题列表](https://cloud.tencent.com/document/product/614/56454)获取日志主题ID
+ * @method void setTopicId(string $TopicId) 设置日志主题ID。-通过[获取日志主题列表](https://cloud.tencent.com/document/product/614/56454)获取日志主题ID
  * @method string getQuery() 获取查询语句。
  * @method void setQuery(string $Query) 设置查询语句。
  * @method integer getNumber() 获取告警对象序号；从1开始递增。
  * @method void setNumber(integer $Number) 设置告警对象序号；从1开始递增。
- * @method integer getStartTimeOffset() 获取查询范围起始时间相对当前的历史时间，单位非分钟，取值为非正，最大值为0，最小值为-1440。
- * @method void setStartTimeOffset(integer $StartTimeOffset) 设置查询范围起始时间相对当前的历史时间，单位非分钟，取值为非正，最大值为0，最小值为-1440。
- * @method integer getEndTimeOffset() 获取查询范围终止时间相对当前的历史时间，单位非分钟，取值为非正，须大于StartTimeOffset，最大值为0，最小值为-1440。
- * @method void setEndTimeOffset(integer $EndTimeOffset) 设置查询范围终止时间相对当前的历史时间，单位非分钟，取值为非正，须大于StartTimeOffset，最大值为0，最小值为-1440。
- * @method string getLogsetId() 获取日志集ID。
- * @method void setLogsetId(string $LogsetId) 设置日志集ID。
+ * @method integer getStartTimeOffset() 获取查询范围起始时间相对于告警执行时间的偏移，单位为分钟，取值为非正，最大值为0，最小值为-1440。
+ * @method void setStartTimeOffset(integer $StartTimeOffset) 设置查询范围起始时间相对于告警执行时间的偏移，单位为分钟，取值为非正，最大值为0，最小值为-1440。
+ * @method integer getEndTimeOffset() 获取查询范围终止时间相对于告警执行时间的偏移，单位为分钟，取值为非正，须大于StartTimeOffset，最大值为0，最小值为-1440。
+ * @method void setEndTimeOffset(integer $EndTimeOffset) 设置查询范围终止时间相对于告警执行时间的偏移，单位为分钟，取值为非正，须大于StartTimeOffset，最大值为0，最小值为-1440。
+ * @method string getLogsetId() 获取日志集ID。通过[获取日志主题列表](https://cloud.tencent.com/document/product/614/56454)获取日志集ID
+ * @method void setLogsetId(string $LogsetId) 设置日志集ID。通过[获取日志主题列表](https://cloud.tencent.com/document/product/614/56454)获取日志集ID
+ * @method integer getSyntaxRule() 获取检索语法规则，默认值为0。
+0：Lucene语法，1：CQL语法。
+详细说明参见<a href="https://cloud.tencent.com/document/product/614/47044#RetrievesConditionalRules" target="_blank">检索条件语法规则</a>
+ * @method void setSyntaxRule(integer $SyntaxRule) 设置检索语法规则，默认值为0。
+0：Lucene语法，1：CQL语法。
+详细说明参见<a href="https://cloud.tencent.com/document/product/614/47044#RetrievesConditionalRules" target="_blank">检索条件语法规则</a>
  */
 class AlarmTarget extends AbstractModel
 {
     /**
-     * @var string 日志主题ID。
+     * @var string 日志主题ID。-通过[获取日志主题列表](https://cloud.tencent.com/document/product/614/56454)获取日志主题ID
      */
     public $TopicId;
 
@@ -51,27 +57,37 @@ class AlarmTarget extends AbstractModel
     public $Number;
 
     /**
-     * @var integer 查询范围起始时间相对当前的历史时间，单位非分钟，取值为非正，最大值为0，最小值为-1440。
+     * @var integer 查询范围起始时间相对于告警执行时间的偏移，单位为分钟，取值为非正，最大值为0，最小值为-1440。
      */
     public $StartTimeOffset;
 
     /**
-     * @var integer 查询范围终止时间相对当前的历史时间，单位非分钟，取值为非正，须大于StartTimeOffset，最大值为0，最小值为-1440。
+     * @var integer 查询范围终止时间相对于告警执行时间的偏移，单位为分钟，取值为非正，须大于StartTimeOffset，最大值为0，最小值为-1440。
      */
     public $EndTimeOffset;
 
     /**
-     * @var string 日志集ID。
+     * @var string 日志集ID。通过[获取日志主题列表](https://cloud.tencent.com/document/product/614/56454)获取日志集ID
      */
     public $LogsetId;
 
     /**
-     * @param string $TopicId 日志主题ID。
+     * @var integer 检索语法规则，默认值为0。
+0：Lucene语法，1：CQL语法。
+详细说明参见<a href="https://cloud.tencent.com/document/product/614/47044#RetrievesConditionalRules" target="_blank">检索条件语法规则</a>
+     */
+    public $SyntaxRule;
+
+    /**
+     * @param string $TopicId 日志主题ID。-通过[获取日志主题列表](https://cloud.tencent.com/document/product/614/56454)获取日志主题ID
      * @param string $Query 查询语句。
      * @param integer $Number 告警对象序号；从1开始递增。
-     * @param integer $StartTimeOffset 查询范围起始时间相对当前的历史时间，单位非分钟，取值为非正，最大值为0，最小值为-1440。
-     * @param integer $EndTimeOffset 查询范围终止时间相对当前的历史时间，单位非分钟，取值为非正，须大于StartTimeOffset，最大值为0，最小值为-1440。
-     * @param string $LogsetId 日志集ID。
+     * @param integer $StartTimeOffset 查询范围起始时间相对于告警执行时间的偏移，单位为分钟，取值为非正，最大值为0，最小值为-1440。
+     * @param integer $EndTimeOffset 查询范围终止时间相对于告警执行时间的偏移，单位为分钟，取值为非正，须大于StartTimeOffset，最大值为0，最小值为-1440。
+     * @param string $LogsetId 日志集ID。通过[获取日志主题列表](https://cloud.tencent.com/document/product/614/56454)获取日志集ID
+     * @param integer $SyntaxRule 检索语法规则，默认值为0。
+0：Lucene语法，1：CQL语法。
+详细说明参见<a href="https://cloud.tencent.com/document/product/614/47044#RetrievesConditionalRules" target="_blank">检索条件语法规则</a>
      */
     function __construct()
     {
@@ -108,6 +124,10 @@ class AlarmTarget extends AbstractModel
 
         if (array_key_exists("LogsetId",$param) and $param["LogsetId"] !== null) {
             $this->LogsetId = $param["LogsetId"];
+        }
+
+        if (array_key_exists("SyntaxRule",$param) and $param["SyntaxRule"] !== null) {
+            $this->SyntaxRule = $param["SyntaxRule"];
         }
     }
 }

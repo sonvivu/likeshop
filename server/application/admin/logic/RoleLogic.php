@@ -21,7 +21,7 @@
 namespace app\admin\logic;
 
 
-use think\Db;
+use think\facade\Db;
 use think\Exception;
 
 class RoleLogic
@@ -36,7 +36,7 @@ class RoleLogic
      */
     public static function lists()
     {
-        $result = Db::name('role_dev_auth_index r')
+        $result = Db::name('role_dev_auth_index')->alias('r')
             ->join('dev_auth m', 'r.menu_auth_id=m.id')
             ->where(['m.del' => 0])
             ->order(['sort' => 'desc'])
@@ -55,6 +55,7 @@ class RoleLogic
         $lists = Db::name('role')
             ->where(['del' => 0])
             ->select();
+        $lists = $lists->toArray(); // ThinkPHP 6：select() 返回 Collection，TP5 返回数组；直接写 $lists[$k]['x'] 或 foreach(&$item) 改值会丢/报错，先转数组。
 
         foreach ($lists as $k => $v) {
             $lists[$k]['auth_str'] = isset($role_id_menu_auth_names[$v['id']]) ? $role_id_menu_auth_names[$v['id']] : '';
@@ -174,6 +175,7 @@ class RoleLogic
         $lists = Db::name('dev_auth')
             ->where(['disable' => 0, 'del' => 0])
             ->select();
+        $lists = $lists->toArray(); // ThinkPHP 6：select() 返回 Collection，TP5 返回数组；直接写 $lists[$k]['x'] 或 foreach(&$item) 改值会丢/报错，先转数组。
         $pids = Db::name('dev_auth')
             ->where(['disable' => 0, 'type' => 1, 'del' => 0])
             ->column('pid');

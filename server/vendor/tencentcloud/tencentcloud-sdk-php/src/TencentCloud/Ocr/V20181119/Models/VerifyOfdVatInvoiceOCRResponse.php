@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,9 +23,17 @@ use TencentCloud\Common\AbstractModel;
  * @method string getType() 获取发票类型
 026:增值税电子普通发票
 028:增值税电子专用发票
+010:电子发票（普通发票）
+020:电子发票（增值税专用发票）
+030:电子发票（铁路电子客票）
+040:电子发票（航空运输电子客票行程单）
  * @method void setType(string $Type) 设置发票类型
 026:增值税电子普通发票
 028:增值税电子专用发票
+010:电子发票（普通发票）
+020:电子发票（增值税专用发票）
+030:电子发票（铁路电子客票）
+040:电子发票（航空运输电子客票行程单）
  * @method string getInvoiceCode() 获取发票代码
  * @method void setInvoiceCode(string $InvoiceCode) 设置发票代码
  * @method string getInvoiceNumber() 获取发票号码
@@ -58,8 +66,14 @@ use TencentCloud\Common\AbstractModel;
  * @method void setNote(string $Note) 设置备注
  * @method array getGoodsInfos() 获取货物或服务清单
  * @method void setGoodsInfos(array $GoodsInfos) 设置货物或服务清单
- * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
- * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method AirTicketInfo getAirTicketInfo() 获取航空运输电子客票行程单信息
+ * @method void setAirTicketInfo(AirTicketInfo $AirTicketInfo) 设置航空运输电子客票行程单信息
+ * @method RailwayTicketInfo getRailwayTicketInfo() 获取铁路电子客票
+ * @method void setRailwayTicketInfo(RailwayTicketInfo $RailwayTicketInfo) 设置铁路电子客票
+ * @method string getInvoiceTitle() 获取发票标题
+ * @method void setInvoiceTitle(string $InvoiceTitle) 设置发票标题
+ * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+ * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
 class VerifyOfdVatInvoiceOCRResponse extends AbstractModel
 {
@@ -67,6 +81,10 @@ class VerifyOfdVatInvoiceOCRResponse extends AbstractModel
      * @var string 发票类型
 026:增值税电子普通发票
 028:增值税电子专用发票
+010:电子发票（普通发票）
+020:电子发票（增值税专用发票）
+030:电子发票（铁路电子客票）
+040:电子发票（航空运输电子客票行程单）
      */
     public $Type;
 
@@ -151,7 +169,22 @@ class VerifyOfdVatInvoiceOCRResponse extends AbstractModel
     public $GoodsInfos;
 
     /**
-     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @var AirTicketInfo 航空运输电子客票行程单信息
+     */
+    public $AirTicketInfo;
+
+    /**
+     * @var RailwayTicketInfo 铁路电子客票
+     */
+    public $RailwayTicketInfo;
+
+    /**
+     * @var string 发票标题
+     */
+    public $InvoiceTitle;
+
+    /**
+     * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public $RequestId;
 
@@ -159,6 +192,10 @@ class VerifyOfdVatInvoiceOCRResponse extends AbstractModel
      * @param string $Type 发票类型
 026:增值税电子普通发票
 028:增值税电子专用发票
+010:电子发票（普通发票）
+020:电子发票（增值税专用发票）
+030:电子发票（铁路电子客票）
+040:电子发票（航空运输电子客票行程单）
      * @param string $InvoiceCode 发票代码
      * @param string $InvoiceNumber 发票号码
      * @param string $IssueDate 开票日期
@@ -175,7 +212,10 @@ class VerifyOfdVatInvoiceOCRResponse extends AbstractModel
      * @param string $TaxExclusiveTotalAmount 不含税金额
      * @param string $Note 备注
      * @param array $GoodsInfos 货物或服务清单
-     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @param AirTicketInfo $AirTicketInfo 航空运输电子客票行程单信息
+     * @param RailwayTicketInfo $RailwayTicketInfo 铁路电子客票
+     * @param string $InvoiceTitle 发票标题
+     * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
     {
@@ -263,6 +303,20 @@ class VerifyOfdVatInvoiceOCRResponse extends AbstractModel
                 $obj->deserialize($value);
                 array_push($this->GoodsInfos, $obj);
             }
+        }
+
+        if (array_key_exists("AirTicketInfo",$param) and $param["AirTicketInfo"] !== null) {
+            $this->AirTicketInfo = new AirTicketInfo();
+            $this->AirTicketInfo->deserialize($param["AirTicketInfo"]);
+        }
+
+        if (array_key_exists("RailwayTicketInfo",$param) and $param["RailwayTicketInfo"] !== null) {
+            $this->RailwayTicketInfo = new RailwayTicketInfo();
+            $this->RailwayTicketInfo->deserialize($param["RailwayTicketInfo"]);
+        }
+
+        if (array_key_exists("InvoiceTitle",$param) and $param["InvoiceTitle"] !== null) {
+            $this->InvoiceTitle = $param["InvoiceTitle"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

@@ -21,7 +21,7 @@
       </div>
       <div class="user-form-item row">
         <label class="user-form-label nr">{{ $t('昵称') }}</label>
-        <el-input v-model="nickName" class="user-input" suffix-icon="el-icon-edit" />
+        <el-input v-model="nickName" class="user-input" :suffix-icon="Edit" />
       </div>
       <div class="user-form-item row">
         <label class="user-form-label nr">{{ $t('性别') }}</label>
@@ -49,7 +49,7 @@
       </button>
     </div>
 
-    <el-dialog :title="mobile ? $t('更换手机号'): $t('绑定手机')" :visible.sync="showChangeNumber" width="40%">
+    <el-dialog :title="mobile ? $t('更换手机号'): $t('绑定手机')" v-model="showChangeNumber" width="40%">
       <div>
         <el-form style="width: 50%;margin: 0 auto">
           <el-form-item>
@@ -72,12 +72,12 @@
           </el-form-item>
         </el-form>
       </div>
-      <div slot="footer">
+      <template #footer>
         <el-button type="primary" @click="changeUserMobile">{{ $t('确认') }}</el-button>
         <el-button @click="closeChangeNumber">{{ $t('取消') }}</el-button>
-      </div>
+      </template>
     </el-dialog>
-    <el-dialog :title="$t('设置登录密码')" :visible.sync="showPwdPop" width="40%">
+    <el-dialog :title="$t('设置登录密码')" v-model="showPwdPop" width="40%">
       <div>
         <el-form style="width: 50%;margin: 0 auto;">
           <el-form-item>
@@ -106,10 +106,10 @@
           </el-form-item>
         </el-form>
       </div>
-      <div slot="footer">
+      <template #footer>
         <el-button type="primary" @click="setPassWord">{{ $t('确认') }}</el-button>
         <el-button @click="closePwdPop">{{ $t('取消') }}</el-button>
-      </div>
+      </template>
     </el-dialog>
   </div>
 </template>
@@ -118,52 +118,53 @@
 import {SMSType, client, FieldType} from '~/utils/type'
 import CountDown from '~/components/public/countDown';
 import Cookies from 'js-cookie'
-import { mapActions } from "vuex";
+import { mapActions } from "pinia";
+import { useAppStore } from "~/stores/app";
+import { Edit } from "@element-plus/icons-vue";
 import config from '~/config/app'
 export default {
-  head() {
+  async setup() {
+    setPageLayout('user_lauout')
+    const store = useAppStore();
+    const { $get } = useNuxtApp();
+    useHead({
+      title: computed(() => store.headTitle),
+      link: [{ rel: "icon", type: "image/x-icon", href: computed(() => store.favicon) }],
+    });
+    let avatar = "";
+    let nickName = "";
+    let mobile = "";
+    let sex = 0;
+    let radio = 0
+    let createTime = '';
+    let sn = '';
+    let res = await $get("user/info");
+    if(res.code == 1) {
+      avatar = res.data.avatar;
+      nickName = res.data.nickname;
+      mobile = res.data.mobile;
+      sex = res.data.sex;
+      radio = sex;
+      createTime = res.data.create_time;
+      sn = res.data.sn
+    }
     return {
-      title: this.$store.getters.headTitle,
-       link: [{ rel: "icon", type: "image/x-icon", href: this.$store.getters.favicon}],
-    };
+      avatar,
+      nickName,
+      mobile,
+      sex,
+      radio,
+      createTime,
+      sn
+    }
   },
- layout: "user_lauout",
  components: {
-   CountDown
- },
- async asyncData({$get, $post}) {
-   let avatar = "";
-   let nickName = "";
-   let mobile = "";
-   let sex = 0;
-   let radio = 0
-   let createTime = '';
-   let sn = '';
-   let res = await $get("user/info");
-   if(res.code == 1) {
-     avatar = res.data.avatar;
-     nickName = res.data.nickname;
-     mobile = res.data.mobile;
-     sex = res.data.sex;
-     radio = sex;
-     createTime = res.data.create_time;
-     sn = res.data.sn
-   }
-   return {
-     avatar,
-     nickName,
-     mobile,
-     sex,
-     radio,
-     createTime,
-     sn
-   }
+   CountDown,
+   Edit
  },
  data() {
    return {
      action: config.baseUrl + '/api/file/formimage',
-     nickName: '',
-     radio: 1,
      showChangeNumber: false,
      showPwdPop: false,
      telephone: '',
@@ -180,7 +181,7 @@ export default {
    }
  },
  methods: {
-   ...mapActions(['getPublicData']),
+   ...mapActions(useAppStore, ['getPublicData']),
     async getCaptchaImg() {
       try {
         const res = await this.$get('account/captcha')

@@ -21,7 +21,7 @@ namespace app\admin\logic;
 use app\common\server\UrlServer;
 
 use app\common\server\ConfigServer;
-use think\Db;
+use think\facade\Db;
 use think\Exception;
 
 class SignDailyLogic
@@ -40,6 +40,7 @@ class SignDailyLogic
         $where[] = ['del','=',0];
         $count =  Db::name('sign_daily')->where($where)->count();
         $lists = Db::name('sign_daily')->where($where)->select();
+        $lists = $lists->toArray(); // ThinkPHP 6：select() 返回 Collection，TP5 返回数组；直接写 $lists[$k]['x'] 或 foreach(&$item) 改值会丢/报错，先转数组。
         foreach ($lists as $key => $sign){
             $tips = '';
             if(1 == $sign['integral_status'] && $sign['integral'] > 0){
@@ -69,12 +70,12 @@ class SignDailyLogic
         }
 
 
-        $count = Db::name('user_sign us')
+        $count = Db::name('user_sign')->alias('us')
             ->where(['us.del'=>0,'u.del'=>0])
             ->where($where )
             ->join('user u','u.id = us.user_id')
             ->count();
-        $lists = Db::name('user_sign us')
+        $lists = Db::name('user_sign')->alias('us')
             ->where(['us.del'=>0,'u.del'=>0])
             ->where($where )
             ->join('user u','u.id = us.user_id')
@@ -83,6 +84,7 @@ class SignDailyLogic
             ->order('us.id desc')
             ->page($get['page'], $get['limit'])
             ->select();
+        $lists = $lists->toArray(); // ThinkPHP 6：select() 返回 Collection，TP5 返回数组；直接写 $lists[$k]['x'] 或 foreach(&$item) 改值会丢/报错，先转数组。
         foreach ( $lists as &$item){
             switch ($item['sex']){
                 case 1:

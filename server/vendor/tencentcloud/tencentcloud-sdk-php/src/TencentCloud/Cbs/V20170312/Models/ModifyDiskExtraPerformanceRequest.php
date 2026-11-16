@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,26 +20,26 @@ use TencentCloud\Common\AbstractModel;
 /**
  * ModifyDiskExtraPerformance请求参数结构体
  *
- * @method string getDiskId() 获取需要创建快照的云硬盘ID，可通过[DescribeDisks](/document/product/362/16315)接口查询。
- * @method void setDiskId(string $DiskId) 设置需要创建快照的云硬盘ID，可通过[DescribeDisks](/document/product/362/16315)接口查询。
- * @method integer getThroughputPerformance() 获取额外购买的云硬盘性能值，单位MB/s。
- * @method void setThroughputPerformance(integer $ThroughputPerformance) 设置额外购买的云硬盘性能值，单位MB/s。
+ * @method integer getThroughputPerformance() 获取额外购买的云硬盘性能值，单位MiB/s。
+ * @method void setThroughputPerformance(integer $ThroughputPerformance) 设置额外购买的云硬盘性能值，单位MiB/s。
+ * @method string getDiskId() 获取需要购买额外性能值的云硬盘ID，可通过[DescribeDisks](/document/product/362/16315)接口查询。仅大小超过460GiB的增强型SSD（CLOUD_HSSD）和极速型SSD（CLOUD_TSSD）云硬盘才支持购买额外性能。
+ * @method void setDiskId(string $DiskId) 设置需要购买额外性能值的云硬盘ID，可通过[DescribeDisks](/document/product/362/16315)接口查询。仅大小超过460GiB的增强型SSD（CLOUD_HSSD）和极速型SSD（CLOUD_TSSD）云硬盘才支持购买额外性能。
  */
 class ModifyDiskExtraPerformanceRequest extends AbstractModel
 {
     /**
-     * @var string 需要创建快照的云硬盘ID，可通过[DescribeDisks](/document/product/362/16315)接口查询。
-     */
-    public $DiskId;
-
-    /**
-     * @var integer 额外购买的云硬盘性能值，单位MB/s。
+     * @var integer 额外购买的云硬盘性能值，单位MiB/s。
      */
     public $ThroughputPerformance;
 
     /**
-     * @param string $DiskId 需要创建快照的云硬盘ID，可通过[DescribeDisks](/document/product/362/16315)接口查询。
-     * @param integer $ThroughputPerformance 额外购买的云硬盘性能值，单位MB/s。
+     * @var string 需要购买额外性能值的云硬盘ID，可通过[DescribeDisks](/document/product/362/16315)接口查询。仅大小超过460GiB的增强型SSD（CLOUD_HSSD）和极速型SSD（CLOUD_TSSD）云硬盘才支持购买额外性能。
+     */
+    public $DiskId;
+
+    /**
+     * @param integer $ThroughputPerformance 额外购买的云硬盘性能值，单位MiB/s。
+     * @param string $DiskId 需要购买额外性能值的云硬盘ID，可通过[DescribeDisks](/document/product/362/16315)接口查询。仅大小超过460GiB的增强型SSD（CLOUD_HSSD）和极速型SSD（CLOUD_TSSD）云硬盘才支持购买额外性能。
      */
     function __construct()
     {
@@ -54,12 +54,12 @@ class ModifyDiskExtraPerformanceRequest extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("DiskId",$param) and $param["DiskId"] !== null) {
-            $this->DiskId = $param["DiskId"];
-        }
-
         if (array_key_exists("ThroughputPerformance",$param) and $param["ThroughputPerformance"] !== null) {
             $this->ThroughputPerformance = $param["ThroughputPerformance"];
+        }
+
+        if (array_key_exists("DiskId",$param) and $param["DiskId"] !== null) {
+            $this->DiskId = $param["DiskId"];
         }
     }
 }

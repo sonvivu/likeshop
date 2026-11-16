@@ -17,7 +17,7 @@
 // | author: likeshop.cn.team
 // +----------------------------------------------------------------------
 namespace app\admin\model;
-use think\Db;
+use think\facade\Db;
 use think\Model;
 
 class Coupon extends Model{
@@ -56,7 +56,7 @@ class Coupon extends Model{
     //优惠券面额
     public function getMoneyAttr($value,$data){
         if($value){
-            return '￥'.$value;
+            return config('currency.symbol').$value;
         }
         return $value;
     }

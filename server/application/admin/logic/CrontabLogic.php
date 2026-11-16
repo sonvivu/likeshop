@@ -23,7 +23,7 @@ namespace app\admin\logic;
 
 use app\common\model\Crontab_;
 use Cron\CronExpression;
-use think\Db;
+use think\facade\Db;
 use think\Exception;
 
 class CrontabLogic
@@ -42,6 +42,7 @@ class CrontabLogic
         $lists = Db::name('dev_crontab')
             ->order(['system' => 'desc'])
             ->select();
+        $lists = $lists->toArray(); // ThinkPHP 6：select() 返回 Collection，TP5 返回数组；直接写 $lists[$k]['x'] 或 foreach(&$item) 改值会丢/报错，先转数组。
         foreach ($lists as $k => $v) {
             $lists[$k]['type_str'] = lang(Crontab_::$type[$v['type']]);
             $lists[$k]['last_time_str'] = empty($v['last_time']) ? '-' : date('m-d H:i:s', $v['last_time']);

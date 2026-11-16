@@ -23,7 +23,7 @@ use app\common\server\ConfigServer;
 use think\console\Command;
 use think\console\Input;
 use think\console\Output;
-use think\Db;
+use think\facade\Db;
 use think\facade\Config;
 use think\facade\Log;
 

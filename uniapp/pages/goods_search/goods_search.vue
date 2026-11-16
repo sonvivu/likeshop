@@ -2,7 +2,7 @@
 	<view class="goods-search">
 
 		<view class="header-wrap">
-			<u-sticky offset-top="0" h5-nav-height="0">
+			<u-sticky offset-top="0" custom-nav-height="0">
 				<view class="search">
 					 <u-search v-model="keyword" @focus="showHistory = true" :focus="showHistory" @search="onSearch" bg-color="#F4F4F4"></u-search>
 				</view>
@@ -57,10 +57,10 @@
 				</view>
 			</view>
 			<loading-footer :status="status" :slot-empty="true">
-				<view slot="empty" class="column-center" style="padding-top: 200rpx">
+								<template #empty><view class="column-center" style="padding-top: 200rpx">
 					<image class="img-null" src="/static/images/goods_null.png"></image>
 					<text class="lighter">{{ $t('暂无商品') }}</text>
-				</view>
+				</view></template>
 			</loading-footer>
 		</view>
 	</view>

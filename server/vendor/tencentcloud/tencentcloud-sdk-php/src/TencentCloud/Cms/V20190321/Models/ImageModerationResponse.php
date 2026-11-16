@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,34 +20,34 @@ use TencentCloud\Common\AbstractModel;
 /**
  * ImageModeration返回参数结构体
  *
- * @method ImageData getData() 获取识别结果
- * @method void setData(ImageData $Data) 设置识别结果
  * @method integer getBusinessCode() 获取业务返回码
  * @method void setBusinessCode(integer $BusinessCode) 设置业务返回码
- * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
- * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method ImageData getData() 获取识别结果
+ * @method void setData(ImageData $Data) 设置识别结果
+ * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+ * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
 class ImageModerationResponse extends AbstractModel
 {
-    /**
-     * @var ImageData 识别结果
-     */
-    public $Data;
-
     /**
      * @var integer 业务返回码
      */
     public $BusinessCode;
 
     /**
-     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @var ImageData 识别结果
+     */
+    public $Data;
+
+    /**
+     * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public $RequestId;
 
     /**
-     * @param ImageData $Data 识别结果
      * @param integer $BusinessCode 业务返回码
-     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @param ImageData $Data 识别结果
+     * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
     {
@@ -62,13 +62,13 @@ class ImageModerationResponse extends AbstractModel
         if ($param === null) {
             return;
         }
+        if (array_key_exists("BusinessCode",$param) and $param["BusinessCode"] !== null) {
+            $this->BusinessCode = $param["BusinessCode"];
+        }
+
         if (array_key_exists("Data",$param) and $param["Data"] !== null) {
             $this->Data = new ImageData();
             $this->Data->deserialize($param["Data"]);
-        }
-
-        if (array_key_exists("BusinessCode",$param) and $param["BusinessCode"] !== null) {
-            $this->BusinessCode = $param["BusinessCode"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

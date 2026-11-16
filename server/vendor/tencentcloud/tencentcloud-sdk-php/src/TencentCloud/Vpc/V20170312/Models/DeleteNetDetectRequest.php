@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,18 +20,18 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DeleteNetDetect请求参数结构体
  *
- * @method string getNetDetectId() 获取网络探测实例`ID`。形如：`netd-12345678`
- * @method void setNetDetectId(string $NetDetectId) 设置网络探测实例`ID`。形如：`netd-12345678`
+ * @method string getNetDetectId() 获取网络探测实例`ID`。形如：`netd-12345678`。
+ * @method void setNetDetectId(string $NetDetectId) 设置网络探测实例`ID`。形如：`netd-12345678`。
  */
 class DeleteNetDetectRequest extends AbstractModel
 {
     /**
-     * @var string 网络探测实例`ID`。形如：`netd-12345678`
+     * @var string 网络探测实例`ID`。形如：`netd-12345678`。
      */
     public $NetDetectId;
 
     /**
-     * @param string $NetDetectId 网络探测实例`ID`。形如：`netd-12345678`
+     * @param string $NetDetectId 网络探测实例`ID`。形如：`netd-12345678`。
      */
     function __construct()
     {

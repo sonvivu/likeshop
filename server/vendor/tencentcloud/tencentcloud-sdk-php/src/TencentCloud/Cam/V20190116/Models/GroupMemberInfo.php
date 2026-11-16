@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,18 +30,22 @@ use TencentCloud\Common\AbstractModel;
  * @method void setPhoneNum(string $PhoneNum) 设置手机号。
  * @method string getCountryCode() 获取手机区域代码。
  * @method void setCountryCode(string $CountryCode) 设置手机区域代码。
- * @method integer getPhoneFlag() 获取是否已验证手机。
- * @method void setPhoneFlag(integer $PhoneFlag) 设置是否已验证手机。
+ * @method integer getPhoneFlag() 获取是否已验证手机。0-未验证  1-验证
+ * @method void setPhoneFlag(integer $PhoneFlag) 设置是否已验证手机。0-未验证  1-验证
  * @method string getEmail() 获取邮箱地址。
  * @method void setEmail(string $Email) 设置邮箱地址。
- * @method integer getEmailFlag() 获取是否已验证邮箱。
- * @method void setEmailFlag(integer $EmailFlag) 设置是否已验证邮箱。
- * @method integer getUserType() 获取用户类型。
- * @method void setUserType(integer $UserType) 设置用户类型。
+ * @method integer getEmailFlag() 获取是否已验证邮箱。0-未验证  1-验证
+ * @method void setEmailFlag(integer $EmailFlag) 设置是否已验证邮箱。0-未验证  1-验证
+ * @method integer getUserType() 获取用户类型。1-全局协作者 2-项目协作者 3-消息接收者
+ * @method void setUserType(integer $UserType) 设置用户类型。1-全局协作者 2-项目协作者 3-消息接收者
  * @method string getCreateTime() 获取创建时间。
  * @method void setCreateTime(string $CreateTime) 设置创建时间。
- * @method integer getIsReceiverOwner() 获取是否为主消息接收人。
- * @method void setIsReceiverOwner(integer $IsReceiverOwner) 设置是否为主消息接收人。
+ * @method integer getIsReceiverOwner() 获取是否为主消息接收人。0-否 1-是
+ * @method void setIsReceiverOwner(integer $IsReceiverOwner) 设置是否为主消息接收人。0-否 1-是
+ * @method string getRemark() 获取昵称
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setRemark(string $Remark) 设置昵称
+注意：此字段可能返回 null，表示取不到有效值。
  */
 class GroupMemberInfo extends AbstractModel
 {
@@ -71,7 +75,7 @@ class GroupMemberInfo extends AbstractModel
     public $CountryCode;
 
     /**
-     * @var integer 是否已验证手机。
+     * @var integer 是否已验证手机。0-未验证  1-验证
      */
     public $PhoneFlag;
 
@@ -81,12 +85,12 @@ class GroupMemberInfo extends AbstractModel
     public $Email;
 
     /**
-     * @var integer 是否已验证邮箱。
+     * @var integer 是否已验证邮箱。0-未验证  1-验证
      */
     public $EmailFlag;
 
     /**
-     * @var integer 用户类型。
+     * @var integer 用户类型。1-全局协作者 2-项目协作者 3-消息接收者
      */
     public $UserType;
 
@@ -96,9 +100,15 @@ class GroupMemberInfo extends AbstractModel
     public $CreateTime;
 
     /**
-     * @var integer 是否为主消息接收人。
+     * @var integer 是否为主消息接收人。0-否 1-是
      */
     public $IsReceiverOwner;
+
+    /**
+     * @var string 昵称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $Remark;
 
     /**
      * @param integer $Uid 子用户 Uid。
@@ -106,12 +116,14 @@ class GroupMemberInfo extends AbstractModel
      * @param string $Name 子用户名称。
      * @param string $PhoneNum 手机号。
      * @param string $CountryCode 手机区域代码。
-     * @param integer $PhoneFlag 是否已验证手机。
+     * @param integer $PhoneFlag 是否已验证手机。0-未验证  1-验证
      * @param string $Email 邮箱地址。
-     * @param integer $EmailFlag 是否已验证邮箱。
-     * @param integer $UserType 用户类型。
+     * @param integer $EmailFlag 是否已验证邮箱。0-未验证  1-验证
+     * @param integer $UserType 用户类型。1-全局协作者 2-项目协作者 3-消息接收者
      * @param string $CreateTime 创建时间。
-     * @param integer $IsReceiverOwner 是否为主消息接收人。
+     * @param integer $IsReceiverOwner 是否为主消息接收人。0-否 1-是
+     * @param string $Remark 昵称
+注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
     {
@@ -168,6 +180,10 @@ class GroupMemberInfo extends AbstractModel
 
         if (array_key_exists("IsReceiverOwner",$param) and $param["IsReceiverOwner"] !== null) {
             $this->IsReceiverOwner = $param["IsReceiverOwner"];
+        }
+
+        if (array_key_exists("Remark",$param) and $param["Remark"] !== null) {
+            $this->Remark = $param["Remark"];
         }
     }
 }

@@ -6,13 +6,14 @@
                 :label="$t('类型')"
             />
             <el-table-column
-                
                 prop="change_amount"
                 :label="$t('金额')"
             >
-                <div slot-scope="scope" :class="{'primary': scope.row.change_type == 1}">
-                    {{scope.row.change_amount}}
-                </div>
+                <template #default="scope">
+                    <div :class="{'primary': scope.row.change_type == 1}">
+                        {{scope.row.change_amount}}
+                    </div>
+                </template>
             </el-table-column>
             <el-table-column
                 prop="create_time"

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,14 @@ use TencentCloud\Common\AbstractModel;
  * @method void setGameId(string $GameId) 设置游戏ID
  * @method string getGroupId() 获取实例分组ID
  * @method void setGroupId(string $GroupId) 设置实例分组ID
+ * @method string getGameRegion() 获取游戏区域
+ * @method void setGameRegion(string $GameRegion) 设置游戏区域
+ * @method string getGameType() 获取游戏类型。
+MOBILE：手游
+PC：默认值，端游
+ * @method void setGameType(string $GameType) 设置游戏类型。
+MOBILE：手游
+PC：默认值，端游
  */
 class DescribeInstancesCountRequest extends AbstractModel
 {
@@ -38,8 +46,24 @@ class DescribeInstancesCountRequest extends AbstractModel
     public $GroupId;
 
     /**
+     * @var string 游戏区域
+     */
+    public $GameRegion;
+
+    /**
+     * @var string 游戏类型。
+MOBILE：手游
+PC：默认值，端游
+     */
+    public $GameType;
+
+    /**
      * @param string $GameId 游戏ID
      * @param string $GroupId 实例分组ID
+     * @param string $GameRegion 游戏区域
+     * @param string $GameType 游戏类型。
+MOBILE：手游
+PC：默认值，端游
      */
     function __construct()
     {
@@ -60,6 +84,14 @@ class DescribeInstancesCountRequest extends AbstractModel
 
         if (array_key_exists("GroupId",$param) and $param["GroupId"] !== null) {
             $this->GroupId = $param["GroupId"];
+        }
+
+        if (array_key_exists("GameRegion",$param) and $param["GameRegion"] !== null) {
+            $this->GameRegion = $param["GameRegion"];
+        }
+
+        if (array_key_exists("GameType",$param) and $param["GameType"] !== null) {
+            $this->GameType = $param["GameType"];
         }
     }
 }

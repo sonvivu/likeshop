@@ -19,10 +19,10 @@
 					</view>
 				</view>
 				<loading-footer :status="loadingStatus" slotEmpty>
-					<view class="data-null column-center" slot="empty">
+										<template #empty><view class="data-null column-center">
 						<image class="img-null" src="/static/images/order_null.png" />
 						<text class="nr muted">{{ $t('暂无记录～') }}</text>
-					</view>
+					</view></template>
 				</loading-footer>
 			</tab>
 			<tab :title="$t('转出')">
@@ -42,10 +42,10 @@
 				</view>
 			</view>
 				<loading-footer :status="loadingStatus" slotEmpty>
-					<view class="data-null column-center" slot="empty">
+										<template #empty><view class="data-null column-center">
 						<image class="img-null" src="/static/images/order_null.png" />
 						<text class="nr muted">{{ $t('暂无转出记录～') }}</text>
-					</view>
+					</view></template>
 				</loading-footer>
 			</tab>
 			<tab :title="$t('转入')">
@@ -65,10 +65,10 @@
 					</view>
 				</view>
 				<loading-footer :status="loadingStatus" slotEmpty>
-					<view class="data-null column-center" slot="empty">
+										<template #empty><view class="data-null column-center">
 						<image class="img-null" src="/static/images/order_null.png"></image>
 						<text class="nr muted">{{ $t('暂无转入记录～') }}</text>
-					</view>
+					</view></template>
 				</loading-footer>
 			</tab>
 		</tabs>

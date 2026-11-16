@@ -21,17 +21,15 @@
 namespace app\admin\controller;
 
 
+use app\admin\behavior\SystemLog;
 use app\admin\server\AuthServer;
 use app\BaseController;
 use app\common\server\UrlServer;
-use think\Controller;
 use think\exception\HttpResponseException;
 use think\facade\Config;
-use think\facade\Debug;
-use think\facade\Url;
 use think\Response;
 
-class AdminBase extends Controller
+class AdminBase extends BaseController
 {
 
     public $like_not_need_login = [];
@@ -50,6 +48,9 @@ class AdminBase extends Controller
         parent::__construct();
         $this->setValue();
         self::setViewValue();
+        // ThinkPHP 6 已删除 action_begin 行为：原行为改为在基类构造中直接调用
+        // （中间件之后、操作方法之前，与 5.1 的触发时序一致）。
+        (new SystemLog())->run($this->request);
     }
 
     public function setValue()
@@ -70,7 +71,7 @@ class AdminBase extends Controller
      */
     private function setViewValue()
     {
-        $app = Config::get('project.');
+        $app = Config::get('project');
         $this->assign('view_env_name', $app['env_name']);
         $this->assign('view_admin_name', $app['admin_name']);
         $this->assign('view_theme_color', $app['theme_color']);
@@ -79,7 +80,7 @@ class AdminBase extends Controller
         $this->assign('front_version', $app['front_version']);
         $this->assign('storageUrl', UrlServer::getFileUrl('/'));
 
-        $this->assignJs('image_upload_url', Url::build('file/image'));
+        $this->assignJs('image_upload_url', url('file/image'));
     }
 
     /**
@@ -94,7 +95,7 @@ class AdminBase extends Controller
     protected function _success($msg = '', $data = [], $code = 1, $show = 0, $wait = 3, $url = '', array $header = [])
     {
         $type = $this->getResponseType();
-        $time = Debug::getUseTime();
+        $time = number_format(microtime(true) - app()->getBeginTime(), 6);
         $result = [
             'code' => $code,
             'msg' => $msg,
@@ -104,13 +105,13 @@ class AdminBase extends Controller
             'wait' => $wait,
             'url' => $url,
         ];
-        $type = $this->getResponseType();
         // 把跳转模板的渲染下沉，这样在 response_send 行为里通过getData()获得的数据是一致性的格式
         if ('html' == strtolower($type)) {
-            $type = 'jump';
+            $response = $this->jumpResponse($result, Config::get('app.dispatch_success_tmpl'));
+        } else {
+            $response = Response::create($result, $type);
         }
-
-        $response = Response::create($result, $type)->header($header)->options(['jump_template' => $this->app['config']->get('dispatch_success_tmpl')]);
+        $response->header($header);
 
         throw new HttpResponseException($response);
     }
@@ -127,7 +128,7 @@ class AdminBase extends Controller
     protected function _error($msg = '', $data = [], $code = 0, $show = 1, $wait = 3, $url = '', array $header = [])
     {
         $type = $this->getResponseType();
-        $time = Debug::getUseTime();
+        $time = number_format(microtime(true) - app()->getBeginTime(), 6);
         $result = [
             'code' => $code,
             'msg' => $msg,
@@ -139,10 +140,11 @@ class AdminBase extends Controller
 
         ];
         if ('html' == strtolower($type)) {
-            $type = 'jump';
+            $response = $this->jumpResponse($result, Config::get('app.dispatch_error_tmpl'));
+        } else {
+            $response = Response::create($result, $type);
         }
-
-        $response = Response::create($result, $type)->header($header)->options(['jump_template' => $this->app['config']->get('dispatch_error_tmpl')]);
+        $response->header($header);
 
         throw new HttpResponseException($response);
     }

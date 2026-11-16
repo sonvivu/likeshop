@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,42 +20,50 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeMsApiList请求参数结构体
  *
- * @method string getMicroserviceId() 获取微服务ID
- * @method void setMicroserviceId(string $MicroserviceId) 设置微服务ID
- * @method string getSearchWord() 获取搜索关键字
- * @method void setSearchWord(string $SearchWord) 设置搜索关键字
- * @method integer getLimit() 获取每页的数量
- * @method void setLimit(integer $Limit) 设置每页的数量
- * @method integer getOffset() 获取翻页偏移量
- * @method void setOffset(integer $Offset) 设置翻页偏移量
+ * @method string getMicroserviceId() 获取<p>微服务ID。该参数可以通过调用 <a href="https://cloud.tencent.com/document/product/649/36084">DescribeMicroservices</a> 的返回值中的 MicroserviceId 字段来获取或通过登录<a href="https://console.cloud.tencent.com/tse/tsf-consul?tab=service">控制台</a>查看；也可以调用<a href="https://cloud.tencent.com/document/product/649/85860">CreateMicroserviceWithDetailResp</a>创建新的微服务。</p>
+ * @method void setMicroserviceId(string $MicroserviceId) 设置<p>微服务ID。该参数可以通过调用 <a href="https://cloud.tencent.com/document/product/649/36084">DescribeMicroservices</a> 的返回值中的 MicroserviceId 字段来获取或通过登录<a href="https://console.cloud.tencent.com/tse/tsf-consul?tab=service">控制台</a>查看；也可以调用<a href="https://cloud.tencent.com/document/product/649/85860">CreateMicroserviceWithDetailResp</a>创建新的微服务。</p>
+ * @method string getSearchWord() 获取<p>搜索关键字。</p>
+ * @method void setSearchWord(string $SearchWord) 设置<p>搜索关键字。</p>
+ * @method integer getLimit() 获取<p>返回数量，默认为20，最大值为50。</p>
+ * @method void setLimit(integer $Limit) 设置<p>返回数量，默认为20，最大值为50。</p>
+ * @method integer getOffset() 获取<p>偏移量，默认为0。</p>
+ * @method void setOffset(integer $Offset) 设置<p>偏移量，默认为0。</p>
+ * @method array getBatchApiParamList() 获取<p>批量查询API参数</p>
+ * @method void setBatchApiParamList(array $BatchApiParamList) 设置<p>批量查询API参数</p>
  */
 class DescribeMsApiListRequest extends AbstractModel
 {
     /**
-     * @var string 微服务ID
+     * @var string <p>微服务ID。该参数可以通过调用 <a href="https://cloud.tencent.com/document/product/649/36084">DescribeMicroservices</a> 的返回值中的 MicroserviceId 字段来获取或通过登录<a href="https://console.cloud.tencent.com/tse/tsf-consul?tab=service">控制台</a>查看；也可以调用<a href="https://cloud.tencent.com/document/product/649/85860">CreateMicroserviceWithDetailResp</a>创建新的微服务。</p>
      */
     public $MicroserviceId;
 
     /**
-     * @var string 搜索关键字
+     * @var string <p>搜索关键字。</p>
      */
     public $SearchWord;
 
     /**
-     * @var integer 每页的数量
+     * @var integer <p>返回数量，默认为20，最大值为50。</p>
      */
     public $Limit;
 
     /**
-     * @var integer 翻页偏移量
+     * @var integer <p>偏移量，默认为0。</p>
      */
     public $Offset;
 
     /**
-     * @param string $MicroserviceId 微服务ID
-     * @param string $SearchWord 搜索关键字
-     * @param integer $Limit 每页的数量
-     * @param integer $Offset 翻页偏移量
+     * @var array <p>批量查询API参数</p>
+     */
+    public $BatchApiParamList;
+
+    /**
+     * @param string $MicroserviceId <p>微服务ID。该参数可以通过调用 <a href="https://cloud.tencent.com/document/product/649/36084">DescribeMicroservices</a> 的返回值中的 MicroserviceId 字段来获取或通过登录<a href="https://console.cloud.tencent.com/tse/tsf-consul?tab=service">控制台</a>查看；也可以调用<a href="https://cloud.tencent.com/document/product/649/85860">CreateMicroserviceWithDetailResp</a>创建新的微服务。</p>
+     * @param string $SearchWord <p>搜索关键字。</p>
+     * @param integer $Limit <p>返回数量，默认为20，最大值为50。</p>
+     * @param integer $Offset <p>偏移量，默认为0。</p>
+     * @param array $BatchApiParamList <p>批量查询API参数</p>
      */
     function __construct()
     {
@@ -84,6 +92,15 @@ class DescribeMsApiListRequest extends AbstractModel
 
         if (array_key_exists("Offset",$param) and $param["Offset"] !== null) {
             $this->Offset = $param["Offset"];
+        }
+
+        if (array_key_exists("BatchApiParamList",$param) and $param["BatchApiParamList"] !== null) {
+            $this->BatchApiParamList = [];
+            foreach ($param["BatchApiParamList"] as $key => $value){
+                $obj = new ApiParam();
+                $obj->deserialize($value);
+                array_push($this->BatchApiParamList, $obj);
+            }
         }
     }
 }

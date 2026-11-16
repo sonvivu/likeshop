@@ -24,8 +24,7 @@ use app\common\model\NoticeSetting;
 use app\common\model\Pay;
 use app\common\model\User;
 use app\common\server\WeChatServer;
-use think\Db;
-use think\facade\Hook;
+use think\facade\Db;
 
 /**
  * 功能: 商家转账到零钱
@@ -134,7 +133,7 @@ class WechatMerchantTransferLogic
             //批次受理失败
             throw new \Exception($result_arr['message'] ?? $result['fail_reason'] ?? lang('零钱提现请求失败'));
         }
-        $user = User::get($withdrawApply['user_id']);
+        $user = User::find($withdrawApply['user_id']);
         
         //批次受理成功，更新提现申请单为提现中状态
         Db::name('withdraw_apply')
@@ -146,14 +145,14 @@ class WechatMerchantTransferLogic
             ]);
         
         //发送通知
-        Hook::listen('notice', [
+        event('notice', [
             'user_id'           => $user['id'],
             'withdraw_money'    => bcadd($withdrawApply['left_money'], 0, 2),
             'scene'             => NoticeSetting::USER_WITH_WITHDRAW_WAIT_RECEIVE,
             'withdraw_time'     => date('Y-m-d H:i:s', $withdrawApply['create_time']),
         ]);
         //短信通知
-        Hook::listen('sms_send', [
+        event('sms_send', [
             'key'       => NoticeSetting::USER_WITH_WITHDRAW_WAIT_RECEIVE,
             'user_id'   => $user['id'],
             'mobile'                => $user['mobile'],

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,18 +20,18 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DeleteScheduledAction请求参数结构体
  *
- * @method string getScheduledActionId() 获取待删除的定时任务ID。
- * @method void setScheduledActionId(string $ScheduledActionId) 设置待删除的定时任务ID。
+ * @method string getScheduledActionId() 获取待删除的定时任务ID。可以通过调用接口 [DescribeScheduledActions](https://cloud.tencent.com/document/api/377/20450) ，取返回信息中的 ScheduledActionId 获取定时任务ID。
+ * @method void setScheduledActionId(string $ScheduledActionId) 设置待删除的定时任务ID。可以通过调用接口 [DescribeScheduledActions](https://cloud.tencent.com/document/api/377/20450) ，取返回信息中的 ScheduledActionId 获取定时任务ID。
  */
 class DeleteScheduledActionRequest extends AbstractModel
 {
     /**
-     * @var string 待删除的定时任务ID。
+     * @var string 待删除的定时任务ID。可以通过调用接口 [DescribeScheduledActions](https://cloud.tencent.com/document/api/377/20450) ，取返回信息中的 ScheduledActionId 获取定时任务ID。
      */
     public $ScheduledActionId;
 
     /**
-     * @param string $ScheduledActionId 待删除的定时任务ID。
+     * @param string $ScheduledActionId 待删除的定时任务ID。可以通过调用接口 [DescribeScheduledActions](https://cloud.tencent.com/document/api/377/20450) ，取返回信息中的 ScheduledActionId 获取定时任务ID。
      */
     function __construct()
     {

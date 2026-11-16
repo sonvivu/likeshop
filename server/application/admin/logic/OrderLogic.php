@@ -34,11 +34,10 @@ use app\common\server\UrlServer;
 use app\common\server\YlyPrinter;
 use expressage\Kd100;
 use expressage\Kdniao;
-use think\Db;
+use think\facade\Db;
 use think\Exception;
 use think\facade\Cache;
 use think\facade\Env;
-use think\facade\Hook;
 
 class OrderLogic
 {
@@ -319,7 +318,7 @@ class OrderLogic
     {
         Db::startTrans();
         try{
-            $order = Order::get(['id' => $order_id], ['orderGoods']);
+            $order = Order::with(['orderGoods'])->find(['id' => $order_id]);
             //取消订单
             OrderRefundLogic::cancelOrder($order_id, OrderLog::TYPE_SHOP, $admin_id);
             //已支付的订单,取消,退款
@@ -351,7 +350,7 @@ class OrderLogic
      */
     public static function del($order_id, $admin_id)
     {
-        $order = Order::get(['del' => 0, 'id' => $order_id]);
+        $order = Order::find(['del' => 0, 'id' => $order_id]);
         $order->save(['del' => 1, 'update_time' => time()]);
 
         //订单日志
@@ -396,7 +395,7 @@ class OrderLogic
     public static function deliveryHandle($data, $admin_id)
     {
         $order_id = $data['order_id'];
-        $order = Order::get(['del' => 0, 'id' => $order_id], ['order_goods']);
+        $order = Order::with(['order_goods'])->find(['del' => 0, 'id' => $order_id]);
 
         if ($order['shipping_status'] == 1) {
             return true;
@@ -462,16 +461,16 @@ class OrderLogic
                 ],
             ];
         }
-        Hook::listen('sms_send', $send_data);
+        event('sms_send', $send_data);
 
         // 赠送成长值和积分
-        Hook::listen('give_reward', [
+        event('give_reward', [
             'order_id' => $order['id'],
             'scene'    => 2, //2=发货场景
         ]);
 
         // 发货模板消息
-        Hook::listen('notice', [
+        event('notice', [
             'user_id' => $order['user_id'],
             'order_id' => $order['id'],
             'scene' => NoticeSetting::ORDER_DELIVERY_NOTICE,
@@ -492,14 +491,14 @@ class OrderLogic
      */
     public static function confirm($order_id, $admin_id)
     {
-        $order = Order::get(['del' => 0, 'id' => $order_id]);
+        $order = Order::find(['del' => 0, 'id' => $order_id]);
         $order->order_status = Order::STATUS_FINISH;
         $order->update_time = time();
         $order->confirm_take_time = time();
         $order->save();
 
         // 赠送成长值和积分
-        Hook::listen('give_reward', [
+        event('give_reward', [
             'order_id' => $order_id,
             'scene'    => 3, //3=订单完成
         ]);
@@ -648,8 +647,8 @@ class OrderLogic
             }
             if(18 === $e->getCode()){
                 //todo token过期重新拿
-                Cache::rm('yly_access_token');
-                Cache::rm('yly_refresh_token');
+                Cache::delete('yly_access_token');
+                Cache::delete('yly_refresh_token');
             };
             return lang('易联云：').$e->getMessage();
         }

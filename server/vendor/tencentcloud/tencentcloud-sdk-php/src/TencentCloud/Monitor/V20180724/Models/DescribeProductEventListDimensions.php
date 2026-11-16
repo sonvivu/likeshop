@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,26 +20,26 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeProductEventList的入参Dimensions
  *
- * @method string getName() 获取维度名
- * @method void setName(string $Name) 设置维度名
- * @method string getValue() 获取维度值
- * @method void setValue(string $Value) 设置维度值
+ * @method string getName() 获取<p>维度名</p>
+ * @method void setName(string $Name) 设置<p>维度名</p>
+ * @method string getValue() 获取<p>维度值</p>
+ * @method void setValue(string $Value) 设置<p>维度值</p>
  */
 class DescribeProductEventListDimensions extends AbstractModel
 {
     /**
-     * @var string 维度名
+     * @var string <p>维度名</p>
      */
     public $Name;
 
     /**
-     * @var string 维度值
+     * @var string <p>维度值</p>
      */
     public $Value;
 
     /**
-     * @param string $Name 维度名
-     * @param string $Value 维度值
+     * @param string $Name <p>维度名</p>
+     * @param string $Value <p>维度值</p>
      */
     function __construct()
     {

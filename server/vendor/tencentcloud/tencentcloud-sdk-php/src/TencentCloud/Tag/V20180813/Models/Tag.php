@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,8 @@ use TencentCloud\Common\AbstractModel;
  * @method void setTagKey(string $TagKey) 设置标签键
  * @method string getTagValue() 获取标签值
  * @method void setTagValue(string $TagValue) 设置标签值
+ * @method string getCategory() 获取标签类型。取值： Custom：自定义标签。 System：系统标签。 All：全部标签。 默认值：All。
+ * @method void setCategory(string $Category) 设置标签类型。取值： Custom：自定义标签。 System：系统标签。 All：全部标签。 默认值：All。
  */
 class Tag extends AbstractModel
 {
@@ -38,8 +40,14 @@ class Tag extends AbstractModel
     public $TagValue;
 
     /**
+     * @var string 标签类型。取值： Custom：自定义标签。 System：系统标签。 All：全部标签。 默认值：All。
+     */
+    public $Category;
+
+    /**
      * @param string $TagKey 标签键
      * @param string $TagValue 标签值
+     * @param string $Category 标签类型。取值： Custom：自定义标签。 System：系统标签。 All：全部标签。 默认值：All。
      */
     function __construct()
     {
@@ -60,6 +68,10 @@ class Tag extends AbstractModel
 
         if (array_key_exists("TagValue",$param) and $param["TagValue"] !== null) {
             $this->TagValue = $param["TagValue"];
+        }
+
+        if (array_key_exists("Category",$param) and $param["Category"] !== null) {
+            $this->Category = $param["Category"];
         }
     }
 }

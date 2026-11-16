@@ -19,7 +19,7 @@
 
 namespace app\admin\logic;
 use app\common\server\UrlServer;
-use think\Db;
+use think\facade\Db;
 use think\facade\Cache;
 
 class GoodsBrandLogic
@@ -41,6 +41,7 @@ class GoodsBrandLogic
             ->page($get['page'],$get['limit'])
             ->order(['sort' => 'desc', 'id'=>'desc'])
             ->select();
+        $lists = $lists->toArray(); // ThinkPHP 6：select() 返回 Collection，TP5 返回数组；直接写 $lists[$k]['x'] 或 foreach(&$item) 改值会丢/报错，先转数组。
 
         foreach ($lists as &$item) {
             $item['image'] = UrlServer::getFileUrl($item['image']);
@@ -61,8 +62,8 @@ class GoodsBrandLogic
             'del'               => 0,
             'create_time'       => time()
         ];
-        Cache::rm('goods_category_1');
-        Cache::rm('goods_category_2');
+        Cache::delete('goods_category_1');
+        Cache::delete('goods_category_2');
         return Db::name('goods_brand')->insert($data);
     }
 
@@ -88,8 +89,8 @@ class GoodsBrandLogic
             'del'               => 0,
             'update_time'       => time()
         ];
-        Cache::rm('goods_category_1');
-        Cache::rm('goods_category_2');
+        Cache::delete('goods_category_1');
+        Cache::delete('goods_category_2');
         return Db::name('goods_brand')->where(['id' => $id])->update($update_data);
     }
 
@@ -100,8 +101,8 @@ class GoodsBrandLogic
             'del' => 1,
             'update_time' => time(),
         ];
-        Cache::rm('goods_category_1');
-        Cache::rm('goods_category_2');
+        Cache::delete('goods_category_1');
+        Cache::delete('goods_category_2');
         return Db::name('goods_brand')->where(['del' => 0, 'id' => $id])->update($update_data);
     }
     //更新品牌状态
@@ -111,8 +112,8 @@ class GoodsBrandLogic
             'is_show'       => $data['status'],
             'update_time'   => time(),
         ];
-        Cache::rm('goods_category_1');
-        Cache::rm('goods_category_2');
+        Cache::delete('goods_category_1');
+        Cache::delete('goods_category_2');
         return Db::name('goods_brand')->where(['del' =>0,'id' =>$data['id']])->update($update_data);
     }
     //获取品牌列表

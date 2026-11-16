@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,106 +20,171 @@ use TencentCloud\Common\AbstractModel;
 /**
  * CreateVpnConnection请求参数结构体
  *
- * @method string getVpcId() 获取VPC实例ID。可通过[DescribeVpcs](https://cloud.tencent.com/document/product/215/15778)接口返回值中的VpcId获取。
- * @method void setVpcId(string $VpcId) 设置VPC实例ID。可通过[DescribeVpcs](https://cloud.tencent.com/document/product/215/15778)接口返回值中的VpcId获取。
- * @method string getVpnGatewayId() 获取VPN网关实例ID。
- * @method void setVpnGatewayId(string $VpnGatewayId) 设置VPN网关实例ID。
- * @method string getCustomerGatewayId() 获取对端网关ID，例如：cgw-2wqq41m9，可通过DescribeCustomerGateways接口查询对端网关。
- * @method void setCustomerGatewayId(string $CustomerGatewayId) 设置对端网关ID，例如：cgw-2wqq41m9，可通过DescribeCustomerGateways接口查询对端网关。
- * @method string getVpnConnectionName() 获取通道名称，可任意命名，但不得超过60个字符。
- * @method void setVpnConnectionName(string $VpnConnectionName) 设置通道名称，可任意命名，但不得超过60个字符。
- * @method string getPreShareKey() 获取预共享密钥。
- * @method void setPreShareKey(string $PreShareKey) 设置预共享密钥。
- * @method array getSecurityPolicyDatabases() 获取SPD策略组，例如：{"10.0.0.5/24":["172.123.10.5/16"]}，10.0.0.5/24是vpc内网段172.123.10.5/16是IDC网段。用户指定VPC内哪些网段可以和您IDC中哪些网段通信。
- * @method void setSecurityPolicyDatabases(array $SecurityPolicyDatabases) 设置SPD策略组，例如：{"10.0.0.5/24":["172.123.10.5/16"]}，10.0.0.5/24是vpc内网段172.123.10.5/16是IDC网段。用户指定VPC内哪些网段可以和您IDC中哪些网段通信。
- * @method IKEOptionsSpecification getIKEOptionsSpecification() 获取IKE配置（Internet Key Exchange，因特网密钥交换），IKE具有一套自我保护机制，用户配置网络安全协议
- * @method void setIKEOptionsSpecification(IKEOptionsSpecification $IKEOptionsSpecification) 设置IKE配置（Internet Key Exchange，因特网密钥交换），IKE具有一套自我保护机制，用户配置网络安全协议
- * @method IPSECOptionsSpecification getIPSECOptionsSpecification() 获取IPSec配置，腾讯云提供IPSec安全会话设置
- * @method void setIPSECOptionsSpecification(IPSECOptionsSpecification $IPSECOptionsSpecification) 设置IPSec配置，腾讯云提供IPSec安全会话设置
- * @method array getTags() 获取指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]
- * @method void setTags(array $Tags) 设置指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]
- * @method boolean getEnableHealthCheck() 获取是否支持隧道内健康检查
- * @method void setEnableHealthCheck(boolean $EnableHealthCheck) 设置是否支持隧道内健康检查
- * @method string getHealthCheckLocalIp() 获取健康检查本端地址
- * @method void setHealthCheckLocalIp(string $HealthCheckLocalIp) 设置健康检查本端地址
- * @method string getHealthCheckRemoteIp() 获取健康检查对端地址
- * @method void setHealthCheckRemoteIp(string $HealthCheckRemoteIp) 设置健康检查对端地址
+ * @method string getVpnGatewayId() 获取<p>VPN网关实例ID。</p>
+ * @method void setVpnGatewayId(string $VpnGatewayId) 设置<p>VPN网关实例ID。</p>
+ * @method string getCustomerGatewayId() 获取<p>对端网关ID。例如：cgw-2wqq41m9，可通过<a href="https://cloud.tencent.com/document/product/215/17516">DescribeCustomerGateways</a>接口查询对端网关。</p>
+ * @method void setCustomerGatewayId(string $CustomerGatewayId) 设置<p>对端网关ID。例如：cgw-2wqq41m9，可通过<a href="https://cloud.tencent.com/document/product/215/17516">DescribeCustomerGateways</a>接口查询对端网关。</p>
+ * @method string getVpnConnectionName() 获取<p>通道名称，可任意命名，但不得超过60个字符。</p>
+ * @method void setVpnConnectionName(string $VpnConnectionName) 设置<p>通道名称，可任意命名，但不得超过60个字符。</p>
+ * @method string getPreShareKey() 获取<p>预共享密钥。</p>
+ * @method void setPreShareKey(string $PreShareKey) 设置<p>预共享密钥。</p>
+ * @method string getVpcId() 获取<p>VPC实例ID。VPC类型网关可通过<a href="https://cloud.tencent.com/document/product/215/15778">DescribeVpcs</a>接口返回值中的VpcId获取，CCN类型网关传空值即可。</p>
+ * @method void setVpcId(string $VpcId) 设置<p>VPC实例ID。VPC类型网关可通过<a href="https://cloud.tencent.com/document/product/215/15778">DescribeVpcs</a>接口返回值中的VpcId获取，CCN类型网关传空值即可。</p>
+ * @method array getSecurityPolicyDatabases() 获取<p>SPD策略组，例如：{&quot;10.0.0.5/24&quot;:[&quot;172.123.10.5/16&quot;]}，10.0.0.5/24是vpc内网段172.123.10.5/16是IDC网段。用户指定VPC内哪些网段可以和您IDC中哪些网段通信。</p>
+ * @method void setSecurityPolicyDatabases(array $SecurityPolicyDatabases) 设置<p>SPD策略组，例如：{&quot;10.0.0.5/24&quot;:[&quot;172.123.10.5/16&quot;]}，10.0.0.5/24是vpc内网段172.123.10.5/16是IDC网段。用户指定VPC内哪些网段可以和您IDC中哪些网段通信。</p>
+ * @method IKEOptionsSpecification getIKEOptionsSpecification() 获取<p>IKE配置（Internet Key Exchange，因特网密钥交换），IKE具有一套自我保护机制，用户配置网络安全协议</p>
+ * @method void setIKEOptionsSpecification(IKEOptionsSpecification $IKEOptionsSpecification) 设置<p>IKE配置（Internet Key Exchange，因特网密钥交换），IKE具有一套自我保护机制，用户配置网络安全协议</p>
+ * @method IPSECOptionsSpecification getIPSECOptionsSpecification() 获取<p>IPSec配置，腾讯云提供IPSec安全会话设置</p>
+ * @method void setIPSECOptionsSpecification(IPSECOptionsSpecification $IPSECOptionsSpecification) 设置<p>IPSec配置，腾讯云提供IPSec安全会话设置</p>
+ * @method array getTags() 获取<p>指定绑定的标签列表，例如：[{&quot;Key&quot;: &quot;city&quot;, &quot;Value&quot;: &quot;shanghai&quot;}]</p>
+ * @method void setTags(array $Tags) 设置<p>指定绑定的标签列表，例如：[{&quot;Key&quot;: &quot;city&quot;, &quot;Value&quot;: &quot;shanghai&quot;}]</p>
+ * @method boolean getEnableHealthCheck() 获取<p>是否支持隧道内健康检查，默认为False。</p>
+ * @method void setEnableHealthCheck(boolean $EnableHealthCheck) 设置<p>是否支持隧道内健康检查，默认为False。</p>
+ * @method string getHealthCheckLocalIp() 获取<p>健康检查本端地址，默认值为随机在169.254.128.0/17分配一个IP。</p>
+ * @method void setHealthCheckLocalIp(string $HealthCheckLocalIp) 设置<p>健康检查本端地址，默认值为随机在169.254.128.0/17分配一个IP。</p>
+ * @method string getHealthCheckRemoteIp() 获取<p>健康检查对端地址，默认值为随机在169.254.128.0/17分配一个IP。</p>
+ * @method void setHealthCheckRemoteIp(string $HealthCheckRemoteIp) 设置<p>健康检查对端地址，默认值为随机在169.254.128.0/17分配一个IP。</p>
+ * @method string getRouteType() 获取<p>通道类型, 例如:[&quot;STATIC&quot;, &quot;StaticRoute&quot;, &quot;Policy&quot;, &quot;Bgp&quot;]</p><p>枚举值：</p><ul><li>StaticRoute： 目的路由类型</li><li>Policy： SPD策略类型</li><li>Bgp： BGP类型</li></ul><p>默认值：STATIC</p>
+ * @method void setRouteType(string $RouteType) 设置<p>通道类型, 例如:[&quot;STATIC&quot;, &quot;StaticRoute&quot;, &quot;Policy&quot;, &quot;Bgp&quot;]</p><p>枚举值：</p><ul><li>StaticRoute： 目的路由类型</li><li>Policy： SPD策略类型</li><li>Bgp： BGP类型</li></ul><p>默认值：STATIC</p>
+ * @method string getNegotiationType() 获取<p>协商类型，默认为active（主动协商）。可选值：active（主动协商），passive（被动协商），flowTrigger（流量协商）</p>
+ * @method void setNegotiationType(string $NegotiationType) 设置<p>协商类型，默认为active（主动协商）。可选值：active（主动协商），passive（被动协商），flowTrigger（流量协商）</p>
+ * @method integer getDpdEnable() 获取<p>DPD探测开关。默认为0，表示关闭DPD探测。可选值：0（关闭），1（开启）</p>
+ * @method void setDpdEnable(integer $DpdEnable) 设置<p>DPD探测开关。默认为0，表示关闭DPD探测。可选值：0（关闭），1（开启）</p>
+ * @method string getDpdTimeout() 获取<p>DPD超时时间。即探测确认对端不存在需要的时间。dpdEnable为1（开启）时有效。默认30，单位为秒</p>
+ * @method void setDpdTimeout(string $DpdTimeout) 设置<p>DPD超时时间。即探测确认对端不存在需要的时间。dpdEnable为1（开启）时有效。默认30，单位为秒</p>
+ * @method string getDpdAction() 获取<p>DPD超时后的动作。</p><p>入参限制：dpdEnable为1（开启）时有效。</p><p>枚举值：</p><ul><li>clear： 断开</li><li>restart： 重试</li></ul><p>默认值：restart</p>
+ * @method void setDpdAction(string $DpdAction) 设置<p>DPD超时后的动作。</p><p>入参限制：dpdEnable为1（开启）时有效。</p><p>枚举值：</p><ul><li>clear： 断开</li><li>restart： 重试</li></ul><p>默认值：restart</p>
+ * @method CreateVpnConnRoute getRoute() 获取<p>创建通道路由信息。</p>
+ * @method void setRoute(CreateVpnConnRoute $Route) 设置<p>创建通道路由信息。</p>
+ * @method BgpConfig getBgpConfig() 获取<p>BGP配置。</p>
+ * @method void setBgpConfig(BgpConfig $BgpConfig) 设置<p>BGP配置。</p>
+ * @method HealthCheckConfig getHealthCheckConfig() 获取<p>健康检查NQA配置。</p>
+ * @method void setHealthCheckConfig(HealthCheckConfig $HealthCheckConfig) 设置<p>健康检查NQA配置。</p>
  */
 class CreateVpnConnectionRequest extends AbstractModel
 {
     /**
-     * @var string VPC实例ID。可通过[DescribeVpcs](https://cloud.tencent.com/document/product/215/15778)接口返回值中的VpcId获取。
-     */
-    public $VpcId;
-
-    /**
-     * @var string VPN网关实例ID。
+     * @var string <p>VPN网关实例ID。</p>
      */
     public $VpnGatewayId;
 
     /**
-     * @var string 对端网关ID，例如：cgw-2wqq41m9，可通过DescribeCustomerGateways接口查询对端网关。
+     * @var string <p>对端网关ID。例如：cgw-2wqq41m9，可通过<a href="https://cloud.tencent.com/document/product/215/17516">DescribeCustomerGateways</a>接口查询对端网关。</p>
      */
     public $CustomerGatewayId;
 
     /**
-     * @var string 通道名称，可任意命名，但不得超过60个字符。
+     * @var string <p>通道名称，可任意命名，但不得超过60个字符。</p>
      */
     public $VpnConnectionName;
 
     /**
-     * @var string 预共享密钥。
+     * @var string <p>预共享密钥。</p>
      */
     public $PreShareKey;
 
     /**
-     * @var array SPD策略组，例如：{"10.0.0.5/24":["172.123.10.5/16"]}，10.0.0.5/24是vpc内网段172.123.10.5/16是IDC网段。用户指定VPC内哪些网段可以和您IDC中哪些网段通信。
+     * @var string <p>VPC实例ID。VPC类型网关可通过<a href="https://cloud.tencent.com/document/product/215/15778">DescribeVpcs</a>接口返回值中的VpcId获取，CCN类型网关传空值即可。</p>
+     */
+    public $VpcId;
+
+    /**
+     * @var array <p>SPD策略组，例如：{&quot;10.0.0.5/24&quot;:[&quot;172.123.10.5/16&quot;]}，10.0.0.5/24是vpc内网段172.123.10.5/16是IDC网段。用户指定VPC内哪些网段可以和您IDC中哪些网段通信。</p>
      */
     public $SecurityPolicyDatabases;
 
     /**
-     * @var IKEOptionsSpecification IKE配置（Internet Key Exchange，因特网密钥交换），IKE具有一套自我保护机制，用户配置网络安全协议
+     * @var IKEOptionsSpecification <p>IKE配置（Internet Key Exchange，因特网密钥交换），IKE具有一套自我保护机制，用户配置网络安全协议</p>
      */
     public $IKEOptionsSpecification;
 
     /**
-     * @var IPSECOptionsSpecification IPSec配置，腾讯云提供IPSec安全会话设置
+     * @var IPSECOptionsSpecification <p>IPSec配置，腾讯云提供IPSec安全会话设置</p>
      */
     public $IPSECOptionsSpecification;
 
     /**
-     * @var array 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]
+     * @var array <p>指定绑定的标签列表，例如：[{&quot;Key&quot;: &quot;city&quot;, &quot;Value&quot;: &quot;shanghai&quot;}]</p>
      */
     public $Tags;
 
     /**
-     * @var boolean 是否支持隧道内健康检查
+     * @var boolean <p>是否支持隧道内健康检查，默认为False。</p>
      */
     public $EnableHealthCheck;
 
     /**
-     * @var string 健康检查本端地址
+     * @var string <p>健康检查本端地址，默认值为随机在169.254.128.0/17分配一个IP。</p>
      */
     public $HealthCheckLocalIp;
 
     /**
-     * @var string 健康检查对端地址
+     * @var string <p>健康检查对端地址，默认值为随机在169.254.128.0/17分配一个IP。</p>
      */
     public $HealthCheckRemoteIp;
 
     /**
-     * @param string $VpcId VPC实例ID。可通过[DescribeVpcs](https://cloud.tencent.com/document/product/215/15778)接口返回值中的VpcId获取。
-     * @param string $VpnGatewayId VPN网关实例ID。
-     * @param string $CustomerGatewayId 对端网关ID，例如：cgw-2wqq41m9，可通过DescribeCustomerGateways接口查询对端网关。
-     * @param string $VpnConnectionName 通道名称，可任意命名，但不得超过60个字符。
-     * @param string $PreShareKey 预共享密钥。
-     * @param array $SecurityPolicyDatabases SPD策略组，例如：{"10.0.0.5/24":["172.123.10.5/16"]}，10.0.0.5/24是vpc内网段172.123.10.5/16是IDC网段。用户指定VPC内哪些网段可以和您IDC中哪些网段通信。
-     * @param IKEOptionsSpecification $IKEOptionsSpecification IKE配置（Internet Key Exchange，因特网密钥交换），IKE具有一套自我保护机制，用户配置网络安全协议
-     * @param IPSECOptionsSpecification $IPSECOptionsSpecification IPSec配置，腾讯云提供IPSec安全会话设置
-     * @param array $Tags 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]
-     * @param boolean $EnableHealthCheck 是否支持隧道内健康检查
-     * @param string $HealthCheckLocalIp 健康检查本端地址
-     * @param string $HealthCheckRemoteIp 健康检查对端地址
+     * @var string <p>通道类型, 例如:[&quot;STATIC&quot;, &quot;StaticRoute&quot;, &quot;Policy&quot;, &quot;Bgp&quot;]</p><p>枚举值：</p><ul><li>StaticRoute： 目的路由类型</li><li>Policy： SPD策略类型</li><li>Bgp： BGP类型</li></ul><p>默认值：STATIC</p>
+     */
+    public $RouteType;
+
+    /**
+     * @var string <p>协商类型，默认为active（主动协商）。可选值：active（主动协商），passive（被动协商），flowTrigger（流量协商）</p>
+     */
+    public $NegotiationType;
+
+    /**
+     * @var integer <p>DPD探测开关。默认为0，表示关闭DPD探测。可选值：0（关闭），1（开启）</p>
+     */
+    public $DpdEnable;
+
+    /**
+     * @var string <p>DPD超时时间。即探测确认对端不存在需要的时间。dpdEnable为1（开启）时有效。默认30，单位为秒</p>
+     */
+    public $DpdTimeout;
+
+    /**
+     * @var string <p>DPD超时后的动作。</p><p>入参限制：dpdEnable为1（开启）时有效。</p><p>枚举值：</p><ul><li>clear： 断开</li><li>restart： 重试</li></ul><p>默认值：restart</p>
+     */
+    public $DpdAction;
+
+    /**
+     * @var CreateVpnConnRoute <p>创建通道路由信息。</p>
+     * @deprecated
+     */
+    public $Route;
+
+    /**
+     * @var BgpConfig <p>BGP配置。</p>
+     */
+    public $BgpConfig;
+
+    /**
+     * @var HealthCheckConfig <p>健康检查NQA配置。</p>
+     */
+    public $HealthCheckConfig;
+
+    /**
+     * @param string $VpnGatewayId <p>VPN网关实例ID。</p>
+     * @param string $CustomerGatewayId <p>对端网关ID。例如：cgw-2wqq41m9，可通过<a href="https://cloud.tencent.com/document/product/215/17516">DescribeCustomerGateways</a>接口查询对端网关。</p>
+     * @param string $VpnConnectionName <p>通道名称，可任意命名，但不得超过60个字符。</p>
+     * @param string $PreShareKey <p>预共享密钥。</p>
+     * @param string $VpcId <p>VPC实例ID。VPC类型网关可通过<a href="https://cloud.tencent.com/document/product/215/15778">DescribeVpcs</a>接口返回值中的VpcId获取，CCN类型网关传空值即可。</p>
+     * @param array $SecurityPolicyDatabases <p>SPD策略组，例如：{&quot;10.0.0.5/24&quot;:[&quot;172.123.10.5/16&quot;]}，10.0.0.5/24是vpc内网段172.123.10.5/16是IDC网段。用户指定VPC内哪些网段可以和您IDC中哪些网段通信。</p>
+     * @param IKEOptionsSpecification $IKEOptionsSpecification <p>IKE配置（Internet Key Exchange，因特网密钥交换），IKE具有一套自我保护机制，用户配置网络安全协议</p>
+     * @param IPSECOptionsSpecification $IPSECOptionsSpecification <p>IPSec配置，腾讯云提供IPSec安全会话设置</p>
+     * @param array $Tags <p>指定绑定的标签列表，例如：[{&quot;Key&quot;: &quot;city&quot;, &quot;Value&quot;: &quot;shanghai&quot;}]</p>
+     * @param boolean $EnableHealthCheck <p>是否支持隧道内健康检查，默认为False。</p>
+     * @param string $HealthCheckLocalIp <p>健康检查本端地址，默认值为随机在169.254.128.0/17分配一个IP。</p>
+     * @param string $HealthCheckRemoteIp <p>健康检查对端地址，默认值为随机在169.254.128.0/17分配一个IP。</p>
+     * @param string $RouteType <p>通道类型, 例如:[&quot;STATIC&quot;, &quot;StaticRoute&quot;, &quot;Policy&quot;, &quot;Bgp&quot;]</p><p>枚举值：</p><ul><li>StaticRoute： 目的路由类型</li><li>Policy： SPD策略类型</li><li>Bgp： BGP类型</li></ul><p>默认值：STATIC</p>
+     * @param string $NegotiationType <p>协商类型，默认为active（主动协商）。可选值：active（主动协商），passive（被动协商），flowTrigger（流量协商）</p>
+     * @param integer $DpdEnable <p>DPD探测开关。默认为0，表示关闭DPD探测。可选值：0（关闭），1（开启）</p>
+     * @param string $DpdTimeout <p>DPD超时时间。即探测确认对端不存在需要的时间。dpdEnable为1（开启）时有效。默认30，单位为秒</p>
+     * @param string $DpdAction <p>DPD超时后的动作。</p><p>入参限制：dpdEnable为1（开启）时有效。</p><p>枚举值：</p><ul><li>clear： 断开</li><li>restart： 重试</li></ul><p>默认值：restart</p>
+     * @param CreateVpnConnRoute $Route <p>创建通道路由信息。</p>
+     * @param BgpConfig $BgpConfig <p>BGP配置。</p>
+     * @param HealthCheckConfig $HealthCheckConfig <p>健康检查NQA配置。</p>
      */
     function __construct()
     {
@@ -134,10 +199,6 @@ class CreateVpnConnectionRequest extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("VpcId",$param) and $param["VpcId"] !== null) {
-            $this->VpcId = $param["VpcId"];
-        }
-
         if (array_key_exists("VpnGatewayId",$param) and $param["VpnGatewayId"] !== null) {
             $this->VpnGatewayId = $param["VpnGatewayId"];
         }
@@ -152,6 +213,10 @@ class CreateVpnConnectionRequest extends AbstractModel
 
         if (array_key_exists("PreShareKey",$param) and $param["PreShareKey"] !== null) {
             $this->PreShareKey = $param["PreShareKey"];
+        }
+
+        if (array_key_exists("VpcId",$param) and $param["VpcId"] !== null) {
+            $this->VpcId = $param["VpcId"];
         }
 
         if (array_key_exists("SecurityPolicyDatabases",$param) and $param["SecurityPolicyDatabases"] !== null) {
@@ -192,6 +257,41 @@ class CreateVpnConnectionRequest extends AbstractModel
 
         if (array_key_exists("HealthCheckRemoteIp",$param) and $param["HealthCheckRemoteIp"] !== null) {
             $this->HealthCheckRemoteIp = $param["HealthCheckRemoteIp"];
+        }
+
+        if (array_key_exists("RouteType",$param) and $param["RouteType"] !== null) {
+            $this->RouteType = $param["RouteType"];
+        }
+
+        if (array_key_exists("NegotiationType",$param) and $param["NegotiationType"] !== null) {
+            $this->NegotiationType = $param["NegotiationType"];
+        }
+
+        if (array_key_exists("DpdEnable",$param) and $param["DpdEnable"] !== null) {
+            $this->DpdEnable = $param["DpdEnable"];
+        }
+
+        if (array_key_exists("DpdTimeout",$param) and $param["DpdTimeout"] !== null) {
+            $this->DpdTimeout = $param["DpdTimeout"];
+        }
+
+        if (array_key_exists("DpdAction",$param) and $param["DpdAction"] !== null) {
+            $this->DpdAction = $param["DpdAction"];
+        }
+
+        if (array_key_exists("Route",$param) and $param["Route"] !== null) {
+            $this->Route = new CreateVpnConnRoute();
+            $this->Route->deserialize($param["Route"]);
+        }
+
+        if (array_key_exists("BgpConfig",$param) and $param["BgpConfig"] !== null) {
+            $this->BgpConfig = new BgpConfig();
+            $this->BgpConfig->deserialize($param["BgpConfig"]);
+        }
+
+        if (array_key_exists("HealthCheckConfig",$param) and $param["HealthCheckConfig"] !== null) {
+            $this->HealthCheckConfig = new HealthCheckConfig();
+            $this->HealthCheckConfig->deserialize($param["HealthCheckConfig"]);
         }
     }
 }

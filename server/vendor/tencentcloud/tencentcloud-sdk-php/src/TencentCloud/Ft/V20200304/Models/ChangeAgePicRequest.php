@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,8 +38,8 @@ use TencentCloud\Common\AbstractModel;
 图片存储于腾讯云的 Url 可保障更高下载速度和稳定性，建议图片存储于腾讯云。 
 非腾讯云存储的Url速度和稳定性可能受一定影响。 
 支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。
- * @method string getRspImgType() 获取返回图像方式（base64 或 url ) ，二选一。url有效期为1天。
- * @method void setRspImgType(string $RspImgType) 设置返回图像方式（base64 或 url ) ，二选一。url有效期为1天。
+ * @method string getRspImgType() 获取返回图像方式（base64 或 url ) ，二选一。url有效期为1天。默认值为base64。
+ * @method void setRspImgType(string $RspImgType) 设置返回图像方式（base64 或 url ) ，二选一。url有效期为1天。默认值为base64。
  */
 class ChangeAgePicRequest extends AbstractModel
 {
@@ -65,7 +65,7 @@ class ChangeAgePicRequest extends AbstractModel
     public $Url;
 
     /**
-     * @var string 返回图像方式（base64 或 url ) ，二选一。url有效期为1天。
+     * @var string 返回图像方式（base64 或 url ) ，二选一。url有效期为1天。默认值为base64。
      */
     public $RspImgType;
 
@@ -79,7 +79,7 @@ class ChangeAgePicRequest extends AbstractModel
 图片存储于腾讯云的 Url 可保障更高下载速度和稳定性，建议图片存储于腾讯云。 
 非腾讯云存储的Url速度和稳定性可能受一定影响。 
 支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。
-     * @param string $RspImgType 返回图像方式（base64 或 url ) ，二选一。url有效期为1天。
+     * @param string $RspImgType 返回图像方式（base64 或 url ) ，二选一。url有效期为1天。默认值为base64。
      */
     function __construct()
     {

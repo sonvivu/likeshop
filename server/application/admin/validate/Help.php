@@ -57,7 +57,7 @@ class Help extends Validate
     ];
     protected function sceneAdd()
     {
-        $this->remove('id');
+        $this->remove('id', true);
 
     }
 

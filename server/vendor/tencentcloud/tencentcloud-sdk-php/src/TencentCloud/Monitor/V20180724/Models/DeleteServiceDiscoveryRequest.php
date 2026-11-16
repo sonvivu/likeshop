@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,8 +20,8 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DeleteServiceDiscovery请求参数结构体
  *
- * @method string getInstanceId() 获取Prometheus 实例 ID
- * @method void setInstanceId(string $InstanceId) 设置Prometheus 实例 ID
+ * @method string getInstanceId() 获取Prometheus 实例 ID，例如：prom-sdfk2342a
+ * @method void setInstanceId(string $InstanceId) 设置Prometheus 实例 ID，例如：prom-sdfk2342a
  * @method string getKubeClusterId() 获取<li>类型是 TKE，为对应的腾讯云容器服务集群 ID</li>
  * @method void setKubeClusterId(string $KubeClusterId) 设置<li>类型是 TKE，为对应的腾讯云容器服务集群 ID</li>
  * @method integer getKubeType() 获取用户 Kubernetes 集群类型：
@@ -36,13 +36,13 @@ use TencentCloud\Common\AbstractModel;
 <li> 1 = ServiceMonitor</li>
 <li> 2 = PodMonitor</li>
 <li> 3 = PodMonitor</li>
- * @method string getYaml() 获取服务发现配置信息
- * @method void setYaml(string $Yaml) 设置服务发现配置信息
+ * @method string getYaml() 获取服务发现配置信息，YAML 格式，[具体YAML参数内容请参考](https://cloud.tencent.com/document/product/1416/55995#service-monitor)
+ * @method void setYaml(string $Yaml) 设置服务发现配置信息，YAML 格式，[具体YAML参数内容请参考](https://cloud.tencent.com/document/product/1416/55995#service-monitor)
  */
 class DeleteServiceDiscoveryRequest extends AbstractModel
 {
     /**
-     * @var string Prometheus 实例 ID
+     * @var string Prometheus 实例 ID，例如：prom-sdfk2342a
      */
     public $InstanceId;
 
@@ -66,12 +66,12 @@ class DeleteServiceDiscoveryRequest extends AbstractModel
     public $Type;
 
     /**
-     * @var string 服务发现配置信息
+     * @var string 服务发现配置信息，YAML 格式，[具体YAML参数内容请参考](https://cloud.tencent.com/document/product/1416/55995#service-monitor)
      */
     public $Yaml;
 
     /**
-     * @param string $InstanceId Prometheus 实例 ID
+     * @param string $InstanceId Prometheus 实例 ID，例如：prom-sdfk2342a
      * @param string $KubeClusterId <li>类型是 TKE，为对应的腾讯云容器服务集群 ID</li>
      * @param integer $KubeType 用户 Kubernetes 集群类型：
 <li> 1 = 容器服务集群(TKE) </li>
@@ -79,7 +79,7 @@ class DeleteServiceDiscoveryRequest extends AbstractModel
 <li> 1 = ServiceMonitor</li>
 <li> 2 = PodMonitor</li>
 <li> 3 = PodMonitor</li>
-     * @param string $Yaml 服务发现配置信息
+     * @param string $Yaml 服务发现配置信息，YAML 格式，[具体YAML参数内容请参考](https://cloud.tencent.com/document/product/1416/55995#service-monitor)
      */
     function __construct()
     {

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,15 +20,15 @@ use TencentCloud\Common\AbstractModel;
 /**
  * ModifyContainerReplicas请求参数结构体
  *
- * @method string getGroupId() 获取部署组ID，部署组唯一标识
- * @method void setGroupId(string $GroupId) 设置部署组ID，部署组唯一标识
+ * @method string getGroupId() 获取部署组ID，部署组唯一标识，可以通过[DescribeContainerGroups](https://cloud.tencent.com/document/api/649/36068)查询已创建的容器部署组列表；也可以调用[CreateContainGroup](https://cloud.tencent.com/document/api/649/36075)创建新的容器部署组
+ * @method void setGroupId(string $GroupId) 设置部署组ID，部署组唯一标识，可以通过[DescribeContainerGroups](https://cloud.tencent.com/document/api/649/36068)查询已创建的容器部署组列表；也可以调用[CreateContainGroup](https://cloud.tencent.com/document/api/649/36075)创建新的容器部署组
  * @method integer getInstanceNum() 获取实例数量
  * @method void setInstanceNum(integer $InstanceNum) 设置实例数量
  */
 class ModifyContainerReplicasRequest extends AbstractModel
 {
     /**
-     * @var string 部署组ID，部署组唯一标识
+     * @var string 部署组ID，部署组唯一标识，可以通过[DescribeContainerGroups](https://cloud.tencent.com/document/api/649/36068)查询已创建的容器部署组列表；也可以调用[CreateContainGroup](https://cloud.tencent.com/document/api/649/36075)创建新的容器部署组
      */
     public $GroupId;
 
@@ -38,7 +38,7 @@ class ModifyContainerReplicasRequest extends AbstractModel
     public $InstanceNum;
 
     /**
-     * @param string $GroupId 部署组ID，部署组唯一标识
+     * @param string $GroupId 部署组ID，部署组唯一标识，可以通过[DescribeContainerGroups](https://cloud.tencent.com/document/api/649/36068)查询已创建的容器部署组列表；也可以调用[CreateContainGroup](https://cloud.tencent.com/document/api/649/36075)创建新的容器部署组
      * @param integer $InstanceNum 实例数量
      */
     function __construct()

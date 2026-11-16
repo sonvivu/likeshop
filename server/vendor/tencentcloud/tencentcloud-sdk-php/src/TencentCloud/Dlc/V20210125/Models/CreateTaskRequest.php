@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,10 +22,16 @@ use TencentCloud\Common\AbstractModel;
  *
  * @method Task getTask() 获取计算任务，该参数中包含任务类型及其相关配置信息
  * @method void setTask(Task $Task) 设置计算任务，该参数中包含任务类型及其相关配置信息
- * @method string getDatabaseName() 获取数据库名称。任务在执行前均会USE该数据库， 除了首次建库时，其他情况建议均添加上。
- * @method void setDatabaseName(string $DatabaseName) 设置数据库名称。任务在执行前均会USE该数据库， 除了首次建库时，其他情况建议均添加上。
+ * @method string getDatabaseName() 获取数据库名称。如果SQL语句中有数据库名称，优先使用SQL语句中的数据库，否则使用该参数指定的数据库（注：当提交建库sql时，该字段传空字符串）。
+ * @method void setDatabaseName(string $DatabaseName) 设置数据库名称。如果SQL语句中有数据库名称，优先使用SQL语句中的数据库，否则使用该参数指定的数据库（注：当提交建库sql时，该字段传空字符串）。
  * @method string getDatasourceConnectionName() 获取默认数据源名称。
  * @method void setDatasourceConnectionName(string $DatasourceConnectionName) 设置默认数据源名称。
+ * @method string getDataEngineName() 获取数据引擎名称，不填提交到默认集群
+ * @method void setDataEngineName(string $DataEngineName) 设置数据引擎名称，不填提交到默认集群
+ * @method string getResourceGroupName() 获取标准spark执行任务resourceGroupName
+ * @method void setResourceGroupName(string $ResourceGroupName) 设置标准spark执行任务resourceGroupName
+ * @method array getSourceInfo() 获取任务来源信息
+ * @method void setSourceInfo(array $SourceInfo) 设置任务来源信息
  */
 class CreateTaskRequest extends AbstractModel
 {
@@ -35,7 +41,7 @@ class CreateTaskRequest extends AbstractModel
     public $Task;
 
     /**
-     * @var string 数据库名称。任务在执行前均会USE该数据库， 除了首次建库时，其他情况建议均添加上。
+     * @var string 数据库名称。如果SQL语句中有数据库名称，优先使用SQL语句中的数据库，否则使用该参数指定的数据库（注：当提交建库sql时，该字段传空字符串）。
      */
     public $DatabaseName;
 
@@ -45,9 +51,27 @@ class CreateTaskRequest extends AbstractModel
     public $DatasourceConnectionName;
 
     /**
+     * @var string 数据引擎名称，不填提交到默认集群
+     */
+    public $DataEngineName;
+
+    /**
+     * @var string 标准spark执行任务resourceGroupName
+     */
+    public $ResourceGroupName;
+
+    /**
+     * @var array 任务来源信息
+     */
+    public $SourceInfo;
+
+    /**
      * @param Task $Task 计算任务，该参数中包含任务类型及其相关配置信息
-     * @param string $DatabaseName 数据库名称。任务在执行前均会USE该数据库， 除了首次建库时，其他情况建议均添加上。
+     * @param string $DatabaseName 数据库名称。如果SQL语句中有数据库名称，优先使用SQL语句中的数据库，否则使用该参数指定的数据库（注：当提交建库sql时，该字段传空字符串）。
      * @param string $DatasourceConnectionName 默认数据源名称。
+     * @param string $DataEngineName 数据引擎名称，不填提交到默认集群
+     * @param string $ResourceGroupName 标准spark执行任务resourceGroupName
+     * @param array $SourceInfo 任务来源信息
      */
     function __construct()
     {
@@ -73,6 +97,23 @@ class CreateTaskRequest extends AbstractModel
 
         if (array_key_exists("DatasourceConnectionName",$param) and $param["DatasourceConnectionName"] !== null) {
             $this->DatasourceConnectionName = $param["DatasourceConnectionName"];
+        }
+
+        if (array_key_exists("DataEngineName",$param) and $param["DataEngineName"] !== null) {
+            $this->DataEngineName = $param["DataEngineName"];
+        }
+
+        if (array_key_exists("ResourceGroupName",$param) and $param["ResourceGroupName"] !== null) {
+            $this->ResourceGroupName = $param["ResourceGroupName"];
+        }
+
+        if (array_key_exists("SourceInfo",$param) and $param["SourceInfo"] !== null) {
+            $this->SourceInfo = [];
+            foreach ($param["SourceInfo"] as $key => $value){
+                $obj = new KVPair();
+                $obj->deserialize($value);
+                array_push($this->SourceInfo, $obj);
+            }
         }
     }
 }

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,12 +24,20 @@ use TencentCloud\Common\AbstractModel;
  * @method void setExitCode(integer $ExitCode) 设置命令执行ExitCode。
  * @method string getOutput() 获取Base64编码后的命令输出。最大长度24KB。
  * @method void setOutput(string $Output) 设置Base64编码后的命令输出。最大长度24KB。
- * @method string getExecStartTime() 获取命令执行开始时间。
- * @method void setExecStartTime(string $ExecStartTime) 设置命令执行开始时间。
- * @method string getExecEndTime() 获取命令执行结束时间。
- * @method void setExecEndTime(string $ExecEndTime) 设置命令执行结束时间。
+ * @method string getExecStartTime() 获取命令执行开始时间。格式为：YYYY-MM-DDThh:mm:ssZ
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setExecStartTime(string $ExecStartTime) 设置命令执行开始时间。格式为：YYYY-MM-DDThh:mm:ssZ
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getExecEndTime() 获取命令执行结束时间。格式为：YYYY-MM-DDThh:mm:ssZ
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setExecEndTime(string $ExecEndTime) 设置命令执行结束时间。格式为：YYYY-MM-DDThh:mm:ssZ
+注意：此字段可能返回 null，表示取不到有效值。
  * @method integer getDropped() 获取命令最终输出被截断的字节数。
  * @method void setDropped(integer $Dropped) 设置命令最终输出被截断的字节数。
+ * @method string getOutputUrl() 获取日志在cos中的地址
+ * @method void setOutputUrl(string $OutputUrl) 设置日志在cos中的地址
+ * @method string getOutputUploadCOSErrorInfo() 获取日志上传cos的错误信息。
+ * @method void setOutputUploadCOSErrorInfo(string $OutputUploadCOSErrorInfo) 设置日志上传cos的错误信息。
  */
 class TaskResult extends AbstractModel
 {
@@ -44,12 +52,14 @@ class TaskResult extends AbstractModel
     public $Output;
 
     /**
-     * @var string 命令执行开始时间。
+     * @var string 命令执行开始时间。格式为：YYYY-MM-DDThh:mm:ssZ
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public $ExecStartTime;
 
     /**
-     * @var string 命令执行结束时间。
+     * @var string 命令执行结束时间。格式为：YYYY-MM-DDThh:mm:ssZ
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public $ExecEndTime;
 
@@ -59,11 +69,25 @@ class TaskResult extends AbstractModel
     public $Dropped;
 
     /**
+     * @var string 日志在cos中的地址
+     */
+    public $OutputUrl;
+
+    /**
+     * @var string 日志上传cos的错误信息。
+     */
+    public $OutputUploadCOSErrorInfo;
+
+    /**
      * @param integer $ExitCode 命令执行ExitCode。
      * @param string $Output Base64编码后的命令输出。最大长度24KB。
-     * @param string $ExecStartTime 命令执行开始时间。
-     * @param string $ExecEndTime 命令执行结束时间。
+     * @param string $ExecStartTime 命令执行开始时间。格式为：YYYY-MM-DDThh:mm:ssZ
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $ExecEndTime 命令执行结束时间。格式为：YYYY-MM-DDThh:mm:ssZ
+注意：此字段可能返回 null，表示取不到有效值。
      * @param integer $Dropped 命令最终输出被截断的字节数。
+     * @param string $OutputUrl 日志在cos中的地址
+     * @param string $OutputUploadCOSErrorInfo 日志上传cos的错误信息。
      */
     function __construct()
     {
@@ -96,6 +120,14 @@ class TaskResult extends AbstractModel
 
         if (array_key_exists("Dropped",$param) and $param["Dropped"] !== null) {
             $this->Dropped = $param["Dropped"];
+        }
+
+        if (array_key_exists("OutputUrl",$param) and $param["OutputUrl"] !== null) {
+            $this->OutputUrl = $param["OutputUrl"];
+        }
+
+        if (array_key_exists("OutputUploadCOSErrorInfo",$param) and $param["OutputUploadCOSErrorInfo"] !== null) {
+            $this->OutputUploadCOSErrorInfo = $param["OutputUploadCOSErrorInfo"];
         }
     }
 }

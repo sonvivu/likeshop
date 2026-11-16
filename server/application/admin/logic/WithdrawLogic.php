@@ -27,9 +27,9 @@ use app\common\server\UrlServer;
 use app\common\model\AccountLog;
 use app\common\model\User;
 use app\common\model\Withdraw;
-use think\Db;
+use think\facade\Db;
 use think\Exception;
-use think\helper\Time;
+use app\common\helper\Time;
 
 class WithdrawLogic
 {
@@ -76,7 +76,7 @@ class WithdrawLogic
 //            $where[] = ['w.create_time', 'between', Time::today()];
         }
 
-        $lists = Db::name('withdraw_apply w')
+        $lists = Db::name('withdraw_apply')->alias('w')
             ->field('w.*, u.nickname,u.avatar, u.sn as user_sn, u.mobile, ul.name as user_level_name')
             ->leftJoin('user u', 'u.id = w.user_id')
             ->leftJoin('user_level ul', 'ul.id = u.level')
@@ -84,8 +84,9 @@ class WithdrawLogic
             ->page($get['page'], $get['limit'])
             ->order('w.id desc')
             ->select();
+        $lists = $lists->toArray(); // ThinkPHP 6：select() 返回 Collection，TP5 返回数组；直接写 $lists[$k]['x'] 或 foreach(&$item) 改值会丢/报错，先转数组。
 
-        $count = Db::name('withdraw_apply w')
+        $count = Db::name('withdraw_apply')->alias('w')
         ->field('w.*, u.nickname,u.avatar, u.sn as user_sn, u.mobile, ul.name as user_level_name')
         ->leftJoin('user u', 'u.id = w.user_id')
         ->leftJoin('user_level ul', 'ul.id = u.level')
@@ -124,8 +125,8 @@ class WithdrawLogic
 
         //提现到钱包余额
         if ($withdraw['type'] == Withdraw::TYPE_BALANCE){
-            $user = User::get($withdraw['user_id']);
-            $user->user_money = ['inc', $withdraw['left_money']];
+            $user = User::find($withdraw['user_id']);
+            $user->inc('user_money', $withdraw['left_money']);
             $user->save();
             AccountLogLogic::AccountRecord(
                 $withdraw['user_id'],
@@ -188,8 +189,8 @@ class WithdrawLogic
             $withdraw_apply->save();
 
             //拒绝提现,回退佣金
-            $user = User::get($withdraw_apply['user_id']);
-            $user->earnings = ['inc', $withdraw_apply['money']];
+            $user = User::find($withdraw_apply['user_id']);
+            $user->inc('earnings', $withdraw_apply['money']);
             $user->save();
 
             //增加佣金变动记录
@@ -219,8 +220,8 @@ class WithdrawLogic
       $withdraw_apply->save();
 
       //拒绝提现,回退佣金
-      $user = User::get($withdraw_apply['user_id']);
-      $user->earnings = ['inc', $withdraw_apply['money']];
+      $user = User::find($withdraw_apply['user_id']);
+      $user->inc('earnings', $withdraw_apply['money']);
       $user->save();
 
       //增加佣金变动记录
@@ -240,7 +241,7 @@ class WithdrawLogic
      */
     public static function detail($id)
     {
-      $detail = Db::name('withdraw_apply w')
+      $detail = Db::name('withdraw_apply')->alias('w')
         ->field('w.*,u.sn as user_sn, u.nickname, u.mobile')
         ->leftJoin('user u', 'u.id=w.user_id')
         ->where('w.id', $id)
@@ -284,7 +285,7 @@ class WithdrawLogic
                         WithdrawApply::update(['status'=>4],['id'=>$withdraw['id']]);
                         //回退佣金
                         $user = User::find($withdraw['user_id']);
-                        $user->earnings = ['inc', $withdraw['money']];
+                        $user->inc('earnings', $withdraw['money']);
                         $user->save();
 
                         //增加佣金变动记录
@@ -334,8 +335,8 @@ class WithdrawLogic
 
       $withdraw_apply = Db::name('withdraw_apply')->where('id', $post['id'])->find();
       // 退回佣金
-      $user = User::get($withdraw_apply['user_id']);
-      $user->earnings = ['inc', $withdraw_apply['money']];
+      $user = User::find($withdraw_apply['user_id']);
+      $user->inc('earnings', $withdraw_apply['money']);
       $user->save();
 
       //增加佣金变动记录

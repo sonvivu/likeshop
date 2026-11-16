@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,19 +20,26 @@ use TencentCloud\Common\AbstractModel;
 /**
  * ModifyNetworkInterfaceAttribute请求参数结构体
  *
- * @method string getNetworkInterfaceId() 获取弹性网卡实例ID，例如：eni-pxir56ns。
- * @method void setNetworkInterfaceId(string $NetworkInterfaceId) 设置弹性网卡实例ID，例如：eni-pxir56ns。
+ * @method string getNetworkInterfaceId() 获取弹性网卡实例ID，例如：eni-pxir56ns。可通过[DescribeNetworkInterfaces](https://cloud.tencent.com/document/product/215/15817)接口获取。
+
+ * @method void setNetworkInterfaceId(string $NetworkInterfaceId) 设置弹性网卡实例ID，例如：eni-pxir56ns。可通过[DescribeNetworkInterfaces](https://cloud.tencent.com/document/product/215/15817)接口获取。
+
  * @method string getNetworkInterfaceName() 获取弹性网卡名称，最大长度不能超过60个字节。
  * @method void setNetworkInterfaceName(string $NetworkInterfaceName) 设置弹性网卡名称，最大长度不能超过60个字节。
  * @method string getNetworkInterfaceDescription() 获取弹性网卡描述，可任意命名，但不得超过60个字符。
  * @method void setNetworkInterfaceDescription(string $NetworkInterfaceDescription) 设置弹性网卡描述，可任意命名，但不得超过60个字符。
- * @method array getSecurityGroupIds() 获取指定绑定的安全组，例如:['sg-1dd51d']。
- * @method void setSecurityGroupIds(array $SecurityGroupIds) 设置指定绑定的安全组，例如:['sg-1dd51d']。
+ * @method array getSecurityGroupIds() 获取指定绑定的安全组，例如:['sg-1dd51d']。可通过[DescribeSecurityGroups](https://cloud.tencent.com/document/product/215/15808)接口获取。
+
+ * @method void setSecurityGroupIds(array $SecurityGroupIds) 设置指定绑定的安全组，例如:['sg-1dd51d']。可通过[DescribeSecurityGroups](https://cloud.tencent.com/document/product/215/15808)接口获取。
+
+ * @method string getTrunkingFlag() 获取网卡trunking模式设置，Enable-开启，Disable--关闭，默认关闭。
+ * @method void setTrunkingFlag(string $TrunkingFlag) 设置网卡trunking模式设置，Enable-开启，Disable--关闭，默认关闭。
  */
 class ModifyNetworkInterfaceAttributeRequest extends AbstractModel
 {
     /**
-     * @var string 弹性网卡实例ID，例如：eni-pxir56ns。
+     * @var string 弹性网卡实例ID，例如：eni-pxir56ns。可通过[DescribeNetworkInterfaces](https://cloud.tencent.com/document/product/215/15817)接口获取。
+
      */
     public $NetworkInterfaceId;
 
@@ -47,15 +54,24 @@ class ModifyNetworkInterfaceAttributeRequest extends AbstractModel
     public $NetworkInterfaceDescription;
 
     /**
-     * @var array 指定绑定的安全组，例如:['sg-1dd51d']。
+     * @var array 指定绑定的安全组，例如:['sg-1dd51d']。可通过[DescribeSecurityGroups](https://cloud.tencent.com/document/product/215/15808)接口获取。
+
      */
     public $SecurityGroupIds;
 
     /**
-     * @param string $NetworkInterfaceId 弹性网卡实例ID，例如：eni-pxir56ns。
+     * @var string 网卡trunking模式设置，Enable-开启，Disable--关闭，默认关闭。
+     */
+    public $TrunkingFlag;
+
+    /**
+     * @param string $NetworkInterfaceId 弹性网卡实例ID，例如：eni-pxir56ns。可通过[DescribeNetworkInterfaces](https://cloud.tencent.com/document/product/215/15817)接口获取。
+
      * @param string $NetworkInterfaceName 弹性网卡名称，最大长度不能超过60个字节。
      * @param string $NetworkInterfaceDescription 弹性网卡描述，可任意命名，但不得超过60个字符。
-     * @param array $SecurityGroupIds 指定绑定的安全组，例如:['sg-1dd51d']。
+     * @param array $SecurityGroupIds 指定绑定的安全组，例如:['sg-1dd51d']。可通过[DescribeSecurityGroups](https://cloud.tencent.com/document/product/215/15808)接口获取。
+
+     * @param string $TrunkingFlag 网卡trunking模式设置，Enable-开启，Disable--关闭，默认关闭。
      */
     function __construct()
     {
@@ -84,6 +100,10 @@ class ModifyNetworkInterfaceAttributeRequest extends AbstractModel
 
         if (array_key_exists("SecurityGroupIds",$param) and $param["SecurityGroupIds"] !== null) {
             $this->SecurityGroupIds = $param["SecurityGroupIds"];
+        }
+
+        if (array_key_exists("TrunkingFlag",$param) and $param["TrunkingFlag"] !== null) {
+            $this->TrunkingFlag = $param["TrunkingFlag"];
         }
     }
 }

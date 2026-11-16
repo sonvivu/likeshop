@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,6 +30,8 @@ use TencentCloud\Common\AbstractModel;
  * @method void setAverageProcessDelay(integer $AverageProcessDelay) 设置请求包时延
  * @method integer getSlowProcessSpeed() 获取慢处理包速度
  * @method void setSlowProcessSpeed(integer $SlowProcessSpeed) 设置慢处理包速度
+ * @method string getVersion() 获取版本
+ * @method void setVersion(string $Version) 设置版本
  */
 class ProxyDetailInfo extends AbstractModel
 {
@@ -59,11 +61,17 @@ class ProxyDetailInfo extends AbstractModel
     public $SlowProcessSpeed;
 
     /**
+     * @var string 版本
+     */
+    public $Version;
+
+    /**
      * @param string $ProxyUid proxy的唯一id
      * @param string $MachineType 机器类型
      * @param integer $ProcessSpeed 请求包速度
      * @param integer $AverageProcessDelay 请求包时延
      * @param integer $SlowProcessSpeed 慢处理包速度
+     * @param string $Version 版本
      */
     function __construct()
     {
@@ -96,6 +104,10 @@ class ProxyDetailInfo extends AbstractModel
 
         if (array_key_exists("SlowProcessSpeed",$param) and $param["SlowProcessSpeed"] !== null) {
             $this->SlowProcessSpeed = $param["SlowProcessSpeed"];
+        }
+
+        if (array_key_exists("Version",$param) and $param["Version"] !== null) {
+            $this->Version = $param["Version"];
         }
     }
 }

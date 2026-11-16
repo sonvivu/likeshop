@@ -22,7 +22,7 @@ use app\api\model\User;
 use app\common\model\AccountLog;
 use app\common\model\OrderGoods;
 use app\common\server\ConfigServer;
-use think\Db;
+use think\facade\Db;
 
 class IntegralLogic
 {
@@ -63,23 +63,23 @@ class IntegralLogic
      */
     public static function handleIntegral($user_id, $use_integral, $channel, $source_id)
     {
-        $user = User::get($user_id);
+        $user = User::find($user_id);
         switch ($channel) {
             //下单积分抵扣
             case AccountLog::order_deduction_integral:
-                $user->user_integral = ['dec', $use_integral];
+                $user->dec('user_integral', $use_integral);
                 $change_type = 2;
                 break;
 
             //取消订单退回积分
             case AccountLog::cancel_order_refund_integral:
-                $user->user_integral = ['inc', $use_integral];
+                $user->inc('user_integral', $use_integral);
                 $change_type = 1;
                 break;
 
             //下单奖励积分(每天一单)
             case AccountLog::order_add_integral:
-                $user->user_integral = ['inc', $use_integral];
+                $user->inc('user_integral', $use_integral);
                 $change_type = 1;
                 break;
 
@@ -89,14 +89,14 @@ class IntegralLogic
                 if ($diff < 0) {
                     $user->user_integral = 0;
                 } else {
-                    $user->user_integral = ['dec', $use_integral];
+                    $user->dec('user_integral', $use_integral);
                 }
                 $change_type = 2;
                 break;
 
             //购买商品赠送积分
             case AccountLog::order_goods_give_integral:
-                $user->user_integral = ['inc', $use_integral];
+                $user->inc('user_integral', $use_integral);
                 $change_type = 1;
                 break;
 

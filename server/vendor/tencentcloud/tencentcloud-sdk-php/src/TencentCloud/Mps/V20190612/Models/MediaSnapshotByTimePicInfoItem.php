@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,8 +20,8 @@ use TencentCloud\Common\AbstractModel;
 /**
  * 指定时间点截图信息
  *
- * @method float getTimeOffset() 获取该张截图对应视频文件中的时间偏移，单位为<font color=red>毫秒</font>。
- * @method void setTimeOffset(float $TimeOffset) 设置该张截图对应视频文件中的时间偏移，单位为<font color=red>毫秒</font>。
+ * @method float getTimeOffset() 获取该张截图对应视频文件中的时间偏移，单位为秒。
+ * @method void setTimeOffset(float $TimeOffset) 设置该张截图对应视频文件中的时间偏移，单位为秒。
  * @method string getPath() 获取该张截图的路径。
  * @method void setPath(string $Path) 设置该张截图的路径。
  * @method array getWaterMarkDefinition() 获取截图如果被打上了水印，被打水印的模板 ID 列表。
@@ -30,7 +30,7 @@ use TencentCloud\Common\AbstractModel;
 class MediaSnapshotByTimePicInfoItem extends AbstractModel
 {
     /**
-     * @var float 该张截图对应视频文件中的时间偏移，单位为<font color=red>毫秒</font>。
+     * @var float 该张截图对应视频文件中的时间偏移，单位为秒。
      */
     public $TimeOffset;
 
@@ -45,7 +45,7 @@ class MediaSnapshotByTimePicInfoItem extends AbstractModel
     public $WaterMarkDefinition;
 
     /**
-     * @param float $TimeOffset 该张截图对应视频文件中的时间偏移，单位为<font color=red>毫秒</font>。
+     * @param float $TimeOffset 该张截图对应视频文件中的时间偏移，单位为秒。
      * @param string $Path 该张截图的路径。
      * @param array $WaterMarkDefinition 截图如果被打上了水印，被打水印的模板 ID 列表。
      */

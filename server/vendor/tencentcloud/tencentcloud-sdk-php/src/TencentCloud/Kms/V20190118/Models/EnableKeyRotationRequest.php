@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,6 +22,10 @@ use TencentCloud\Common\AbstractModel;
  *
  * @method string getKeyId() 获取CMK唯一标识符
  * @method void setKeyId(string $KeyId) 设置CMK唯一标识符
+ * @method integer getRotateDays() 获取密钥轮转周期，单位天，允许范围 7 ~ 365，默认值 365。
+ * @method void setRotateDays(integer $RotateDays) 设置密钥轮转周期，单位天，允许范围 7 ~ 365，默认值 365。
+ * @method MemberAccount getMemberAccount() 获取可信服务成员账号信息,当前账号时管理员或者委派管理员时有效。
+ * @method void setMemberAccount(MemberAccount $MemberAccount) 设置可信服务成员账号信息,当前账号时管理员或者委派管理员时有效。
  */
 class EnableKeyRotationRequest extends AbstractModel
 {
@@ -31,7 +35,19 @@ class EnableKeyRotationRequest extends AbstractModel
     public $KeyId;
 
     /**
+     * @var integer 密钥轮转周期，单位天，允许范围 7 ~ 365，默认值 365。
+     */
+    public $RotateDays;
+
+    /**
+     * @var MemberAccount 可信服务成员账号信息,当前账号时管理员或者委派管理员时有效。
+     */
+    public $MemberAccount;
+
+    /**
      * @param string $KeyId CMK唯一标识符
+     * @param integer $RotateDays 密钥轮转周期，单位天，允许范围 7 ~ 365，默认值 365。
+     * @param MemberAccount $MemberAccount 可信服务成员账号信息,当前账号时管理员或者委派管理员时有效。
      */
     function __construct()
     {
@@ -48,6 +64,15 @@ class EnableKeyRotationRequest extends AbstractModel
         }
         if (array_key_exists("KeyId",$param) and $param["KeyId"] !== null) {
             $this->KeyId = $param["KeyId"];
+        }
+
+        if (array_key_exists("RotateDays",$param) and $param["RotateDays"] !== null) {
+            $this->RotateDays = $param["RotateDays"];
+        }
+
+        if (array_key_exists("MemberAccount",$param) and $param["MemberAccount"] !== null) {
+            $this->MemberAccount = new MemberAccount();
+            $this->MemberAccount->deserialize($param["MemberAccount"]);
         }
     }
 }

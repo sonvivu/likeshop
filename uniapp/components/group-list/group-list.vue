@@ -7,8 +7,9 @@
 					<view v-else>
 						<view class="row" v-if="getTeamCountTime(item) >= 0">
 							<view class="sm mr10">{{ $t('距离结束') }}</view>
-							<u-count-down :timestamp="getTeamCountTime(item)" color="#fff" bg-color="#FF2C3C" separator-color="#FF2C3C" font-size="24"
-							 height="36" separator-size="26" @end="reflesh"></u-count-down>
+														<u-count-down :time="getTeamCountTime(item) * 1000" format="HH:mm:ss" @finish="reflesh">
+							    <template #default="{days, hours, minutes, seconds}"><text style="background:{bg};color:#fff;font-size:24rpx;line-height:36rpx;padding:0 8rpx;border-radius:6rpx">{{ String(hours).padStart(2, '0') }}</text><text style="color:#FF2C3C">:</text><text style="background:{bg};color:#fff;font-size:24rpx;line-height:36rpx;padding:0 8rpx;border-radius:6rpx">{{ String(minutes).padStart(2, '0') }}</text><text style="color:#FF2C3C">:</text><text style="background:{bg};color:#fff;font-size:24rpx;line-height:36rpx;padding:0 8rpx;border-radius:6rpx">{{ String(seconds).padStart(2, '0') }}</text></template>
+							</u-count-down>
 						</view>
 					</view>
 				</view>
@@ -36,10 +37,10 @@
 			</view>
 		</navigator>
 		<loading-footer :status="status" :slot-empty="true" @refresh="reload">
-			<view slot="empty" class="column-center" style="padding-top: 200rpx">
+						<template #empty><view class="column-center" style="padding-top: 200rpx">
 				<image class="img-null" src="/static/images/goods_null.png"></image>
 				<text class="lighter">{{ $t('暂无拼团') }}</text>
-			</view>
+			</view></template>
 		</loading-footer>
 	</view>
 </template>

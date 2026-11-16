@@ -38,7 +38,7 @@ class AccountLogLogic{
      * @throws \think\exception\DbException
      */
     public static function AccountRecord($user_id,$amount,$change_type,$source_type,$remark ='',$source_id ='',$source_sn='',$extra=''){
-        $user = User::get($user_id);
+        $user = User::find($user_id);
         if(empty($user)){
             return false;
         }

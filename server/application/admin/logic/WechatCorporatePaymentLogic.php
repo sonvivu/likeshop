@@ -30,7 +30,7 @@ use EasyWeChat\Factory;
 use app\common\model\Pay;
 use app\common\server\ConfigServer;
 use app\common\server\WeChatServer;
-use think\Db;
+use think\facade\Db;
 use app\common\model\User;
 
 class WechatCorporatePaymentLogic
@@ -156,8 +156,8 @@ class WechatCorporatePaymentLogic
             'update_time' => time()
           ]);
       //回退佣金
-      $user = User::get($withdraw['user_id']);
-      $user->earnings = ['inc', $withdraw['money']];
+      $user = User::find($withdraw['user_id']);
+      $user->inc('earnings', $withdraw['money']);
       $user->save();
 
       //增加佣金变动记录
@@ -229,8 +229,8 @@ class WechatCorporatePaymentLogic
             'update_time' => time()
           ]);
           //回退佣金
-          $user = User::get($withdraw['user_id']);
-          $user->earnings = ['inc', $withdraw['money']];
+          $user = User::find($withdraw['user_id']);
+          $user->inc('earnings', $withdraw['money']);
           $user->save();
 
           //增加佣金变动记录

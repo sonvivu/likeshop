@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -58,8 +58,28 @@ use TencentCloud\Common\AbstractModel;
  * @method void setThumbnailResolution(string $ThumbnailResolution) 设置动态转码缩略图生成分辨率
  * @method string getCompressFileUrl() 获取转码压缩文件下载的URL，如果发起文档转码请求参数中`CompressFileType`为空或者不是支持的压缩格式，该参数为空字符串
  * @method void setCompressFileUrl(string $CompressFileUrl) 设置转码压缩文件下载的URL，如果发起文档转码请求参数中`CompressFileType`为空或者不是支持的压缩格式，该参数为空字符串
- * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
- * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method string getResourceListUrl() 获取资源清单文件下载URL(内测体验)
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setResourceListUrl(string $ResourceListUrl) 设置资源清单文件下载URL(内测体验)
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getExt() 获取文档制作方式(内测体验)
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setExt(string $Ext) 设置文档制作方式(内测体验)
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method integer getCreateTime() 获取文档转码任务创建时间，单位s
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setCreateTime(integer $CreateTime) 设置文档转码任务创建时间，单位s
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method integer getAssignTime() 获取文档转码任务分配时间，单位s
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setAssignTime(integer $AssignTime) 设置文档转码任务分配时间，单位s
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method integer getFinishedTime() 获取文档转码任务完成时间，单位s
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setFinishedTime(integer $FinishedTime) 设置文档转码任务完成时间，单位s
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+ * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
 class DescribeTranscodeResponse extends AbstractModel
 {
@@ -123,7 +143,37 @@ class DescribeTranscodeResponse extends AbstractModel
     public $CompressFileUrl;
 
     /**
-     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @var string 资源清单文件下载URL(内测体验)
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $ResourceListUrl;
+
+    /**
+     * @var string 文档制作方式(内测体验)
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $Ext;
+
+    /**
+     * @var integer 文档转码任务创建时间，单位s
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $CreateTime;
+
+    /**
+     * @var integer 文档转码任务分配时间，单位s
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $AssignTime;
+
+    /**
+     * @var integer 文档转码任务完成时间，单位s
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $FinishedTime;
+
+    /**
+     * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public $RequestId;
 
@@ -147,7 +197,17 @@ class DescribeTranscodeResponse extends AbstractModel
 如果发起文档转码请求参数中带了ThumbnailResolution参数，并且转码类型为动态转码，该参数不为空，其余情况该参数为空字符串
      * @param string $ThumbnailResolution 动态转码缩略图生成分辨率
      * @param string $CompressFileUrl 转码压缩文件下载的URL，如果发起文档转码请求参数中`CompressFileType`为空或者不是支持的压缩格式，该参数为空字符串
-     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @param string $ResourceListUrl 资源清单文件下载URL(内测体验)
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $Ext 文档制作方式(内测体验)
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param integer $CreateTime 文档转码任务创建时间，单位s
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param integer $AssignTime 文档转码任务分配时间，单位s
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param integer $FinishedTime 文档转码任务完成时间，单位s
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
     {
@@ -200,6 +260,26 @@ class DescribeTranscodeResponse extends AbstractModel
 
         if (array_key_exists("CompressFileUrl",$param) and $param["CompressFileUrl"] !== null) {
             $this->CompressFileUrl = $param["CompressFileUrl"];
+        }
+
+        if (array_key_exists("ResourceListUrl",$param) and $param["ResourceListUrl"] !== null) {
+            $this->ResourceListUrl = $param["ResourceListUrl"];
+        }
+
+        if (array_key_exists("Ext",$param) and $param["Ext"] !== null) {
+            $this->Ext = $param["Ext"];
+        }
+
+        if (array_key_exists("CreateTime",$param) and $param["CreateTime"] !== null) {
+            $this->CreateTime = $param["CreateTime"];
+        }
+
+        if (array_key_exists("AssignTime",$param) and $param["AssignTime"] !== null) {
+            $this->AssignTime = $param["AssignTime"];
+        }
+
+        if (array_key_exists("FinishedTime",$param) and $param["FinishedTime"] !== null) {
+            $this->FinishedTime = $param["FinishedTime"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

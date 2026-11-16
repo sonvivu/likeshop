@@ -93,7 +93,15 @@ class Login
         }
 
         //登录失败
-        action('dispatch/dispatch_error', ['msg' => $token_validate->getError(), 'code' => -1]);
+        // ThinkPHP 6 已删除 action() 助手：dispatch_error 只是包一层 _error，
+        // 这里直接返回同等结构的 JSON（code -1，show 1）。
+        return json([
+            'code' => -1,
+            'msg'  => $token_validate->getError(),
+            'data' => [],
+            'show' => 1,
+            'time' => number_format(microtime(true) - app()->getBeginTime(), 6),
+        ]);
 
     }
 
@@ -116,15 +124,41 @@ class Login
      */
     private function isNotNeedLogin($request)
     {
-        $data = app()->controller($request->controller())->like_not_need_login;
+        [$controller, $action] = $this->parseControllerAction($request);
+        $class = app()->parseClass('controller', $controller);
+        if (!class_exists($class)) {
+            return false;
+        }
+        // 直接读类默认属性，不实例化控制器（实例化会跑 ApiBase 构造，导致访问统计重复计数）。
+        $props = (new \ReflectionClass($class))->getDefaultProperties();
+        $data = $props['like_not_need_login'] ?? [];
         if (empty($data)) {
             return false;
         }
-        $action = strtolower($request->action());
         $data = array_map('strtolower', $data);
-        if (!in_array($action, $data)) {
+        if (!in_array(strtolower($action), $data)) {
             return false;
         }
         return true;
+    }
+
+    /**
+     * 从 pathinfo 解析当前控制器/操作。
+     * ThinkPHP 6：中间件运行时路由尚未分发，$request->controller()/$request->action()
+     * 为空；改为从 pathinfo 解析（MultiApp 已去掉模块段，如 index/lists）。
+     * @return array [控制器名（StudlyCase）, 操作名]
+     */
+    private function parseControllerAction($request)
+    {
+        $segments = explode('/', trim($request->pathinfo(), '/'));
+        $controller = $segments[0] ?? '';
+        $action = $segments[1] ?? '';
+        $suffix = config('app.url_html_suffix');
+        if ($suffix && str_ends_with($action, '.' . $suffix)) {
+            $action = substr($action, 0, -strlen($suffix) - 1);
+        }
+        $controller = \think\helper\Str::studly($controller ?: config('app.default_controller'));
+        $action = $action ?: config('app.default_action');
+        return [$controller, $action];
     }
 }

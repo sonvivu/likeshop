@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,22 +20,24 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeCcnRoutes请求参数结构体
  *
- * @method string getCcnId() 获取CCN实例ID，形如：ccn-gree226l。
- * @method void setCcnId(string $CcnId) 设置CCN实例ID，形如：ccn-gree226l。
- * @method array getRouteIds() 获取CCN路由策略唯一ID。形如：ccnr-f49l6u0z。
- * @method void setRouteIds(array $RouteIds) 设置CCN路由策略唯一ID。形如：ccnr-f49l6u0z。
+ * @method string getCcnId() 获取CCN实例ID，形如：`ccn-gree226l`。
+ * @method void setCcnId(string $CcnId) 设置CCN实例ID，形如：`ccn-gree226l`。
+ * @method array getRouteIds() 获取CCN路由策略唯一ID，形如：`ccnr-f49l6u0z`。
+ * @method void setRouteIds(array $RouteIds) 设置CCN路由策略唯一ID，形如：`ccnr-f49l6u0z`。
  * @method array getFilters() 获取过滤条件，参数不支持同时指定RouteIds和Filters。
 <li>route-id - String -（过滤条件）路由策略ID。</li>
 <li>cidr-block - String -（过滤条件）目的端。</li>
 <li>instance-type - String -（过滤条件）下一跳类型。</li>
 <li>instance-region - String -（过滤条件）下一跳所属地域。</li>
 <li>instance-id - String -（过滤条件）下一跳实例ID。</li>
+<li>route-table-id - String -（过滤条件）路由表ID列表，形如ccntr-1234edfr，可以根据路由表ID 过滤。</li>
  * @method void setFilters(array $Filters) 设置过滤条件，参数不支持同时指定RouteIds和Filters。
 <li>route-id - String -（过滤条件）路由策略ID。</li>
 <li>cidr-block - String -（过滤条件）目的端。</li>
 <li>instance-type - String -（过滤条件）下一跳类型。</li>
 <li>instance-region - String -（过滤条件）下一跳所属地域。</li>
 <li>instance-id - String -（过滤条件）下一跳实例ID。</li>
+<li>route-table-id - String -（过滤条件）路由表ID列表，形如ccntr-1234edfr，可以根据路由表ID 过滤。</li>
  * @method integer getOffset() 获取偏移量
  * @method void setOffset(integer $Offset) 设置偏移量
  * @method integer getLimit() 获取返回数量
@@ -44,12 +46,12 @@ use TencentCloud\Common\AbstractModel;
 class DescribeCcnRoutesRequest extends AbstractModel
 {
     /**
-     * @var string CCN实例ID，形如：ccn-gree226l。
+     * @var string CCN实例ID，形如：`ccn-gree226l`。
      */
     public $CcnId;
 
     /**
-     * @var array CCN路由策略唯一ID。形如：ccnr-f49l6u0z。
+     * @var array CCN路由策略唯一ID，形如：`ccnr-f49l6u0z`。
      */
     public $RouteIds;
 
@@ -60,6 +62,7 @@ class DescribeCcnRoutesRequest extends AbstractModel
 <li>instance-type - String -（过滤条件）下一跳类型。</li>
 <li>instance-region - String -（过滤条件）下一跳所属地域。</li>
 <li>instance-id - String -（过滤条件）下一跳实例ID。</li>
+<li>route-table-id - String -（过滤条件）路由表ID列表，形如ccntr-1234edfr，可以根据路由表ID 过滤。</li>
      */
     public $Filters;
 
@@ -74,14 +77,15 @@ class DescribeCcnRoutesRequest extends AbstractModel
     public $Limit;
 
     /**
-     * @param string $CcnId CCN实例ID，形如：ccn-gree226l。
-     * @param array $RouteIds CCN路由策略唯一ID。形如：ccnr-f49l6u0z。
+     * @param string $CcnId CCN实例ID，形如：`ccn-gree226l`。
+     * @param array $RouteIds CCN路由策略唯一ID，形如：`ccnr-f49l6u0z`。
      * @param array $Filters 过滤条件，参数不支持同时指定RouteIds和Filters。
 <li>route-id - String -（过滤条件）路由策略ID。</li>
 <li>cidr-block - String -（过滤条件）目的端。</li>
 <li>instance-type - String -（过滤条件）下一跳类型。</li>
 <li>instance-region - String -（过滤条件）下一跳所属地域。</li>
 <li>instance-id - String -（过滤条件）下一跳实例ID。</li>
+<li>route-table-id - String -（过滤条件）路由表ID列表，形如ccntr-1234edfr，可以根据路由表ID 过滤。</li>
      * @param integer $Offset 偏移量
      * @param integer $Limit 返回数量
      */

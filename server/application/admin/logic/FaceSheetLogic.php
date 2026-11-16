@@ -22,7 +22,7 @@ namespace app\admin\logic;
 
 use app\common\model\FaceSheetTemplate;
 use Exception;
-use think\Db;
+use think\facade\Db;
 
 class FaceSheetLogic
 {

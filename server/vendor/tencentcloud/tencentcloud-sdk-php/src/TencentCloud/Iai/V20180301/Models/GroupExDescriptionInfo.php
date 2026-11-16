@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,9 +21,7 @@ use TencentCloud\Common\AbstractModel;
  * 需要修改的人员库自定义描述字段key-value
  *
  * @method integer getGroupExDescriptionIndex() 获取人员库自定义描述字段Index，从0开始
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setGroupExDescriptionIndex(integer $GroupExDescriptionIndex) 设置人员库自定义描述字段Index，从0开始
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getGroupExDescription() 获取需要更新的人员库自定义描述字段内容
  * @method void setGroupExDescription(string $GroupExDescription) 设置需要更新的人员库自定义描述字段内容
  */
@@ -31,7 +29,6 @@ class GroupExDescriptionInfo extends AbstractModel
 {
     /**
      * @var integer 人员库自定义描述字段Index，从0开始
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $GroupExDescriptionIndex;
 
@@ -42,7 +39,6 @@ class GroupExDescriptionInfo extends AbstractModel
 
     /**
      * @param integer $GroupExDescriptionIndex 人员库自定义描述字段Index，从0开始
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $GroupExDescription 需要更新的人员库自定义描述字段内容
      */
     function __construct()

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,16 +50,16 @@ PREPAID：表示预付费，即包年包月。
  * @method void setInternetAccessible(InternetAccessible $InternetAccessible) 设置实例带宽信息。
  * @method string getRenewFlag() 获取自动续费标识。取值范围： 
 NOTIFY_AND_MANUAL_RENEW：表示通知即将过期，但不自动续费  
-NOTIFY_AND_AUTO_RENEW：表示通知即将过期，而且自动续费 。
+NOTIFY_AND_AUTO_RENEW：表示通知即将过期，而且自动续费 DISABLE_NOTIFY_AND_MANUAL_RENEW：不自动续费，且不通知。
  * @method void setRenewFlag(string $RenewFlag) 设置自动续费标识。取值范围： 
 NOTIFY_AND_MANUAL_RENEW：表示通知即将过期，但不自动续费  
-NOTIFY_AND_AUTO_RENEW：表示通知即将过期，而且自动续费 。
+NOTIFY_AND_AUTO_RENEW：表示通知即将过期，而且自动续费 DISABLE_NOTIFY_AND_MANUAL_RENEW：不自动续费，且不通知。
  * @method LoginSettings getLoginSettings() 获取实例登录设置。
  * @method void setLoginSettings(LoginSettings $LoginSettings) 设置实例登录设置。
  * @method string getInstanceState() 获取实例状态。取值范围： 
-<li>PENDING：表示创建中</li><li>LAUNCH_FAILED：表示创建失败</li><li>RUNNING：表示运行中</li><li>STOPPED：表示关机</li><li>STARTING：表示开机中</li><li>STOPPING：表示关机中</li><li>REBOOTING：表示重启中</li><li>SHUTDOWN：表示停止待销毁</li><li>TERMINATING：表示销毁中</li>
+<li>PENDING：表示创建中</li><li>LAUNCH_FAILED：表示创建失败</li><li>RUNNING：表示运行中</li><li>STOPPED：表示关机</li><li>STARTING：表示开机中</li><li>STOPPING：表示关机中</li><li>REBOOTING：表示重启中</li><li>SHUTDOWN：表示停止待销毁</li><li>TERMINATING：表示销毁中</li><li>DELETING：表示删除中</li><li>FREEZING：表示冻结中</li><li>ENTER_RESCUE_MODE：表示进入救援模式中</li><li>RESCUE_MODE：表示救援模式</li><li>EXIT_RESCUE_MODE：表示退出救援模式中</li>
  * @method void setInstanceState(string $InstanceState) 设置实例状态。取值范围： 
-<li>PENDING：表示创建中</li><li>LAUNCH_FAILED：表示创建失败</li><li>RUNNING：表示运行中</li><li>STOPPED：表示关机</li><li>STARTING：表示开机中</li><li>STOPPING：表示关机中</li><li>REBOOTING：表示重启中</li><li>SHUTDOWN：表示停止待销毁</li><li>TERMINATING：表示销毁中</li>
+<li>PENDING：表示创建中</li><li>LAUNCH_FAILED：表示创建失败</li><li>RUNNING：表示运行中</li><li>STOPPED：表示关机</li><li>STARTING：表示开机中</li><li>STOPPING：表示关机中</li><li>REBOOTING：表示重启中</li><li>SHUTDOWN：表示停止待销毁</li><li>TERMINATING：表示销毁中</li><li>DELETING：表示删除中</li><li>FREEZING：表示冻结中</li><li>ENTER_RESCUE_MODE：表示进入救援模式中</li><li>RESCUE_MODE：表示救援模式</li><li>EXIT_RESCUE_MODE：表示退出救援模式中</li>
  * @method string getUuid() 获取实例全局唯一 ID。
  * @method void setUuid(string $Uuid) 设置实例全局唯一 ID。
  * @method string getLatestOperation() 获取实例的最新操作。例：StopInstances、ResetInstance。注意：此字段可能返回 空值，表示取不到有效值。
@@ -78,6 +78,10 @@ FAILED：表示操作失败
 注意：此字段可能返回 空值，表示取不到有效值。
  * @method void setLatestOperationRequestId(string $LatestOperationRequestId) 设置实例最新操作的唯一请求 ID。 
 注意：此字段可能返回 空值，表示取不到有效值。
+ * @method string getLatestOperationStartedTime() 获取实例最新操作的开始时间。
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setLatestOperationStartedTime(string $LatestOperationStartedTime) 设置实例最新操作的开始时间。
+注意：此字段可能返回 null，表示取不到有效值。
  * @method string getIsolatedTime() 获取隔离时间。按照 ISO8601 标准表示，并且使用 UTC 时间。 
 格式为： YYYY-MM-DDThh:mm:ssZ。
 注意：此字段可能返回 null，表示取不到有效值。
@@ -102,6 +106,22 @@ FAILED：表示操作失败
  * @method void setPlatform(string $Platform) 设置操作系统平台。
  * @method string getOsName() 获取操作系统名称。
  * @method void setOsName(string $OsName) 设置操作系统名称。
+ * @method string getZone() 获取可用区。
+ * @method void setZone(string $Zone) 设置可用区。
+ * @method array getTags() 获取实例绑定的标签列表。
+ * @method void setTags(array $Tags) 设置实例绑定的标签列表。
+ * @method string getInstanceRestrictState() 获取实例封禁状态。取值范围：
+<li>NORMAL实例正常。</li><li>NETWORK_RESTRICT：网络封禁。</li>
+ * @method void setInstanceRestrictState(string $InstanceRestrictState) 设置实例封禁状态。取值范围：
+<li>NORMAL实例正常。</li><li>NETWORK_RESTRICT：网络封禁。</li>
+ * @method SupportIpv6Detail getSupportIpv6Detail() 获取描述实例是否支持IPv6。
+ * @method void setSupportIpv6Detail(SupportIpv6Detail $SupportIpv6Detail) 设置描述实例是否支持IPv6。
+ * @method array getPublicIpv6Addresses() 获取公网IPv6地址列表。
+ * @method void setPublicIpv6Addresses(array $PublicIpv6Addresses) 设置公网IPv6地址列表。
+ * @method string getInitInvocationId() 获取创建实例后自动执行TAT命令的调用ID。
+ * @method void setInitInvocationId(string $InitInvocationId) 设置创建实例后自动执行TAT命令的调用ID。
+ * @method InstanceViolationDetail getInstanceViolationDetail() 获取实例违规详情。
+ * @method void setInstanceViolationDetail(InstanceViolationDetail $InstanceViolationDetail) 设置实例违规详情。
  */
 class Instance extends AbstractModel
 {
@@ -166,7 +186,7 @@ PREPAID：表示预付费，即包年包月。
     /**
      * @var string 自动续费标识。取值范围： 
 NOTIFY_AND_MANUAL_RENEW：表示通知即将过期，但不自动续费  
-NOTIFY_AND_AUTO_RENEW：表示通知即将过期，而且自动续费 。
+NOTIFY_AND_AUTO_RENEW：表示通知即将过期，而且自动续费 DISABLE_NOTIFY_AND_MANUAL_RENEW：不自动续费，且不通知。
      */
     public $RenewFlag;
 
@@ -177,7 +197,7 @@ NOTIFY_AND_AUTO_RENEW：表示通知即将过期，而且自动续费 。
 
     /**
      * @var string 实例状态。取值范围： 
-<li>PENDING：表示创建中</li><li>LAUNCH_FAILED：表示创建失败</li><li>RUNNING：表示运行中</li><li>STOPPED：表示关机</li><li>STARTING：表示开机中</li><li>STOPPING：表示关机中</li><li>REBOOTING：表示重启中</li><li>SHUTDOWN：表示停止待销毁</li><li>TERMINATING：表示销毁中</li>
+<li>PENDING：表示创建中</li><li>LAUNCH_FAILED：表示创建失败</li><li>RUNNING：表示运行中</li><li>STOPPED：表示关机</li><li>STARTING：表示开机中</li><li>STOPPING：表示关机中</li><li>REBOOTING：表示重启中</li><li>SHUTDOWN：表示停止待销毁</li><li>TERMINATING：表示销毁中</li><li>DELETING：表示删除中</li><li>FREEZING：表示冻结中</li><li>ENTER_RESCUE_MODE：表示进入救援模式中</li><li>RESCUE_MODE：表示救援模式</li><li>EXIT_RESCUE_MODE：表示退出救援模式中</li>
      */
     public $InstanceState;
 
@@ -205,6 +225,12 @@ FAILED：表示操作失败
 注意：此字段可能返回 空值，表示取不到有效值。
      */
     public $LatestOperationRequestId;
+
+    /**
+     * @var string 实例最新操作的开始时间。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $LatestOperationStartedTime;
 
     /**
      * @var string 隔离时间。按照 ISO8601 标准表示，并且使用 UTC 时间。 
@@ -243,6 +269,42 @@ FAILED：表示操作失败
     public $OsName;
 
     /**
+     * @var string 可用区。
+     */
+    public $Zone;
+
+    /**
+     * @var array 实例绑定的标签列表。
+     */
+    public $Tags;
+
+    /**
+     * @var string 实例封禁状态。取值范围：
+<li>NORMAL实例正常。</li><li>NETWORK_RESTRICT：网络封禁。</li>
+     */
+    public $InstanceRestrictState;
+
+    /**
+     * @var SupportIpv6Detail 描述实例是否支持IPv6。
+     */
+    public $SupportIpv6Detail;
+
+    /**
+     * @var array 公网IPv6地址列表。
+     */
+    public $PublicIpv6Addresses;
+
+    /**
+     * @var string 创建实例后自动执行TAT命令的调用ID。
+     */
+    public $InitInvocationId;
+
+    /**
+     * @var InstanceViolationDetail 实例违规详情。
+     */
+    public $InstanceViolationDetail;
+
+    /**
      * @param string $InstanceId 实例 ID。
      * @param string $BundleId 套餐 ID。
      * @param string $BlueprintId 镜像 ID。
@@ -259,10 +321,10 @@ PREPAID：表示预付费，即包年包月。
      * @param InternetAccessible $InternetAccessible 实例带宽信息。
      * @param string $RenewFlag 自动续费标识。取值范围： 
 NOTIFY_AND_MANUAL_RENEW：表示通知即将过期，但不自动续费  
-NOTIFY_AND_AUTO_RENEW：表示通知即将过期，而且自动续费 。
+NOTIFY_AND_AUTO_RENEW：表示通知即将过期，而且自动续费 DISABLE_NOTIFY_AND_MANUAL_RENEW：不自动续费，且不通知。
      * @param LoginSettings $LoginSettings 实例登录设置。
      * @param string $InstanceState 实例状态。取值范围： 
-<li>PENDING：表示创建中</li><li>LAUNCH_FAILED：表示创建失败</li><li>RUNNING：表示运行中</li><li>STOPPED：表示关机</li><li>STARTING：表示开机中</li><li>STOPPING：表示关机中</li><li>REBOOTING：表示重启中</li><li>SHUTDOWN：表示停止待销毁</li><li>TERMINATING：表示销毁中</li>
+<li>PENDING：表示创建中</li><li>LAUNCH_FAILED：表示创建失败</li><li>RUNNING：表示运行中</li><li>STOPPED：表示关机</li><li>STARTING：表示开机中</li><li>STOPPING：表示关机中</li><li>REBOOTING：表示重启中</li><li>SHUTDOWN：表示停止待销毁</li><li>TERMINATING：表示销毁中</li><li>DELETING：表示删除中</li><li>FREEZING：表示冻结中</li><li>ENTER_RESCUE_MODE：表示进入救援模式中</li><li>RESCUE_MODE：表示救援模式</li><li>EXIT_RESCUE_MODE：表示退出救援模式中</li>
      * @param string $Uuid 实例全局唯一 ID。
      * @param string $LatestOperation 实例的最新操作。例：StopInstances、ResetInstance。注意：此字段可能返回 空值，表示取不到有效值。
      * @param string $LatestOperationState 实例的最新操作状态。取值范围： 
@@ -272,6 +334,8 @@ FAILED：表示操作失败
 注意：此字段可能返回 空值，表示取不到有效值。
      * @param string $LatestOperationRequestId 实例最新操作的唯一请求 ID。 
 注意：此字段可能返回 空值，表示取不到有效值。
+     * @param string $LatestOperationStartedTime 实例最新操作的开始时间。
+注意：此字段可能返回 null，表示取不到有效值。
      * @param string $IsolatedTime 隔离时间。按照 ISO8601 标准表示，并且使用 UTC 时间。 
 格式为： YYYY-MM-DDThh:mm:ssZ。
 注意：此字段可能返回 null，表示取不到有效值。
@@ -284,6 +348,14 @@ FAILED：表示操作失败
      * @param string $PlatformType 操作系统平台类型，如 LINUX_UNIX、WINDOWS。
      * @param string $Platform 操作系统平台。
      * @param string $OsName 操作系统名称。
+     * @param string $Zone 可用区。
+     * @param array $Tags 实例绑定的标签列表。
+     * @param string $InstanceRestrictState 实例封禁状态。取值范围：
+<li>NORMAL实例正常。</li><li>NETWORK_RESTRICT：网络封禁。</li>
+     * @param SupportIpv6Detail $SupportIpv6Detail 描述实例是否支持IPv6。
+     * @param array $PublicIpv6Addresses 公网IPv6地址列表。
+     * @param string $InitInvocationId 创建实例后自动执行TAT命令的调用ID。
+     * @param InstanceViolationDetail $InstanceViolationDetail 实例违规详情。
      */
     function __construct()
     {
@@ -373,6 +445,10 @@ FAILED：表示操作失败
             $this->LatestOperationRequestId = $param["LatestOperationRequestId"];
         }
 
+        if (array_key_exists("LatestOperationStartedTime",$param) and $param["LatestOperationStartedTime"] !== null) {
+            $this->LatestOperationStartedTime = $param["LatestOperationStartedTime"];
+        }
+
         if (array_key_exists("IsolatedTime",$param) and $param["IsolatedTime"] !== null) {
             $this->IsolatedTime = $param["IsolatedTime"];
         }
@@ -395,6 +471,41 @@ FAILED：表示操作失败
 
         if (array_key_exists("OsName",$param) and $param["OsName"] !== null) {
             $this->OsName = $param["OsName"];
+        }
+
+        if (array_key_exists("Zone",$param) and $param["Zone"] !== null) {
+            $this->Zone = $param["Zone"];
+        }
+
+        if (array_key_exists("Tags",$param) and $param["Tags"] !== null) {
+            $this->Tags = [];
+            foreach ($param["Tags"] as $key => $value){
+                $obj = new Tag();
+                $obj->deserialize($value);
+                array_push($this->Tags, $obj);
+            }
+        }
+
+        if (array_key_exists("InstanceRestrictState",$param) and $param["InstanceRestrictState"] !== null) {
+            $this->InstanceRestrictState = $param["InstanceRestrictState"];
+        }
+
+        if (array_key_exists("SupportIpv6Detail",$param) and $param["SupportIpv6Detail"] !== null) {
+            $this->SupportIpv6Detail = new SupportIpv6Detail();
+            $this->SupportIpv6Detail->deserialize($param["SupportIpv6Detail"]);
+        }
+
+        if (array_key_exists("PublicIpv6Addresses",$param) and $param["PublicIpv6Addresses"] !== null) {
+            $this->PublicIpv6Addresses = $param["PublicIpv6Addresses"];
+        }
+
+        if (array_key_exists("InitInvocationId",$param) and $param["InitInvocationId"] !== null) {
+            $this->InitInvocationId = $param["InitInvocationId"];
+        }
+
+        if (array_key_exists("InstanceViolationDetail",$param) and $param["InstanceViolationDetail"] !== null) {
+            $this->InstanceViolationDetail = new InstanceViolationDetail();
+            $this->InstanceViolationDetail->deserialize($param["InstanceViolationDetail"]);
         }
     }
 }

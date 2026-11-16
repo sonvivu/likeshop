@@ -11,10 +11,10 @@
     </view>
   </view>
   <loading-footer :status="loadingStatus" slotEmpty>
-    <view class="data-null column-center" slot="empty">
+        <template #empty><view class="data-null column-center">
 			<image class="img-null" src="/static/images/news_null.png" />
 			<text class="nr muted">{{ $t('暂无消息通知～') }}</text>
-		</view>
+		</view></template>
   </loading-footer>
 </view>
 </template>

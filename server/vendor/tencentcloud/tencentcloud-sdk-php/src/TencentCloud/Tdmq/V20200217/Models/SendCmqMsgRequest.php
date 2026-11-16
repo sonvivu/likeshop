@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,8 +24,8 @@ use TencentCloud\Common\AbstractModel;
  * @method void setQueueName(string $QueueName) 设置队列名
  * @method string getMsgContent() 获取消息内容
  * @method void setMsgContent(string $MsgContent) 设置消息内容
- * @method integer getDelaySeconds() 获取延迟时间
- * @method void setDelaySeconds(integer $DelaySeconds) 设置延迟时间
+ * @method integer getDelaySeconds() 获取延迟时间。单位为秒，默认值为0秒，最大不能超过队列配置的消息最长未确认时间。
+ * @method void setDelaySeconds(integer $DelaySeconds) 设置延迟时间。单位为秒，默认值为0秒，最大不能超过队列配置的消息最长未确认时间。
  */
 class SendCmqMsgRequest extends AbstractModel
 {
@@ -40,14 +40,14 @@ class SendCmqMsgRequest extends AbstractModel
     public $MsgContent;
 
     /**
-     * @var integer 延迟时间
+     * @var integer 延迟时间。单位为秒，默认值为0秒，最大不能超过队列配置的消息最长未确认时间。
      */
     public $DelaySeconds;
 
     /**
      * @param string $QueueName 队列名
      * @param string $MsgContent 消息内容
-     * @param integer $DelaySeconds 延迟时间
+     * @param integer $DelaySeconds 延迟时间。单位为秒，默认值为0秒，最大不能超过队列配置的消息最长未确认时间。
      */
     function __construct()
     {

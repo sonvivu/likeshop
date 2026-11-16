@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -56,8 +56,34 @@ Block 建议屏蔽；
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setMoanResults(array $MoanResults) 设置音频中低俗内容审核结果；
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
- * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method string getSubLabel() 获取该字段用于返回当前标签（Lable）下的二级标签。
+注意：此字段可能返回null，表示取不到有效值。
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setSubLabel(string $SubLabel) 设置该字段用于返回当前标签（Lable）下的二级标签。
+注意：此字段可能返回null，表示取不到有效值。
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method array getLanguageResults() 获取该字段用于返回音频小语种检测的详细审核结果。具体结果内容请参见AudioResultDetailLanguageResult数据结构的细节描述。
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setLanguageResults(array $LanguageResults) 设置该字段用于返回音频小语种检测的详细审核结果。具体结果内容请参见AudioResultDetailLanguageResult数据结构的细节描述。
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method array getSpeakerResults() 获取音频中说话人识别返回结果；
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setSpeakerResults(array $SpeakerResults) 设置音频中说话人识别返回结果；
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method array getRecognitionResults() 获取识别类标签结果信息列表
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setRecognitionResults(array $RecognitionResults) 设置识别类标签结果信息列表
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getDuration() 获取识别音频时长，单位为毫秒；
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setDuration(string $Duration) 设置识别音频时长，单位为毫秒；
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method integer getHitFlag() 获取是否命中(0:否, 1: 是)
+ * @method void setHitFlag(integer $HitFlag) 设置是否命中(0:否, 1: 是)
+ * @method integer getScore() 获取得分
+ * @method void setScore(integer $Score) 设置得分
+ * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+ * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
 class CreateAudioModerationSyncTaskResponse extends AbstractModel
 {
@@ -112,7 +138,48 @@ Block 建议屏蔽；
     public $MoanResults;
 
     /**
-     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @var string 该字段用于返回当前标签（Lable）下的二级标签。
+注意：此字段可能返回null，表示取不到有效值。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $SubLabel;
+
+    /**
+     * @var array 该字段用于返回音频小语种检测的详细审核结果。具体结果内容请参见AudioResultDetailLanguageResult数据结构的细节描述。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $LanguageResults;
+
+    /**
+     * @var array 音频中说话人识别返回结果；
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $SpeakerResults;
+
+    /**
+     * @var array 识别类标签结果信息列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $RecognitionResults;
+
+    /**
+     * @var string 识别音频时长，单位为毫秒；
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $Duration;
+
+    /**
+     * @var integer 是否命中(0:否, 1: 是)
+     */
+    public $HitFlag;
+
+    /**
+     * @var integer 得分
+     */
+    public $Score;
+
+    /**
+     * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public $RequestId;
 
@@ -135,7 +202,20 @@ Block 建议屏蔽；
 注意：此字段可能返回 null，表示取不到有效值。
      * @param array $MoanResults 音频中低俗内容审核结果；
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @param string $SubLabel 该字段用于返回当前标签（Lable）下的二级标签。
+注意：此字段可能返回null，表示取不到有效值。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param array $LanguageResults 该字段用于返回音频小语种检测的详细审核结果。具体结果内容请参见AudioResultDetailLanguageResult数据结构的细节描述。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param array $SpeakerResults 音频中说话人识别返回结果；
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param array $RecognitionResults 识别类标签结果信息列表
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $Duration 识别音频时长，单位为毫秒；
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param integer $HitFlag 是否命中(0:否, 1: 是)
+     * @param integer $Score 得分
+     * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
     {
@@ -190,6 +270,49 @@ Block 建议屏蔽；
                 $obj->deserialize($value);
                 array_push($this->MoanResults, $obj);
             }
+        }
+
+        if (array_key_exists("SubLabel",$param) and $param["SubLabel"] !== null) {
+            $this->SubLabel = $param["SubLabel"];
+        }
+
+        if (array_key_exists("LanguageResults",$param) and $param["LanguageResults"] !== null) {
+            $this->LanguageResults = [];
+            foreach ($param["LanguageResults"] as $key => $value){
+                $obj = new AudioResultDetailLanguageResult();
+                $obj->deserialize($value);
+                array_push($this->LanguageResults, $obj);
+            }
+        }
+
+        if (array_key_exists("SpeakerResults",$param) and $param["SpeakerResults"] !== null) {
+            $this->SpeakerResults = [];
+            foreach ($param["SpeakerResults"] as $key => $value){
+                $obj = new AudioResultDetailSpeakerResult();
+                $obj->deserialize($value);
+                array_push($this->SpeakerResults, $obj);
+            }
+        }
+
+        if (array_key_exists("RecognitionResults",$param) and $param["RecognitionResults"] !== null) {
+            $this->RecognitionResults = [];
+            foreach ($param["RecognitionResults"] as $key => $value){
+                $obj = new RecognitionResult();
+                $obj->deserialize($value);
+                array_push($this->RecognitionResults, $obj);
+            }
+        }
+
+        if (array_key_exists("Duration",$param) and $param["Duration"] !== null) {
+            $this->Duration = $param["Duration"];
+        }
+
+        if (array_key_exists("HitFlag",$param) and $param["HitFlag"] !== null) {
+            $this->HitFlag = $param["HitFlag"];
+        }
+
+        if (array_key_exists("Score",$param) and $param["Score"] !== null) {
+            $this->Score = $param["Score"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

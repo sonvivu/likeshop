@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,12 +30,12 @@ use TencentCloud\Common\AbstractModel;
  * @method void setWeight(integer $Weight) 设置RO实例在RO组内的权重
  * @method string getRegion() 获取RO实例所在区域名称，如ap-shanghai
  * @method void setRegion(string $Region) 设置RO实例所在区域名称，如ap-shanghai
- * @method string getZone() 获取RO可用区的正式名称，如ap-shanghai-1
- * @method void setZone(string $Zone) 设置RO可用区的正式名称，如ap-shanghai-1
+ * @method string getZone() 获取RO可用区的正式名称，如 ap-shanghai-2
+ * @method void setZone(string $Zone) 设置RO可用区的正式名称，如 ap-shanghai-2
  * @method string getInstanceId() 获取RO实例ID，格式如：cdbro-c1nl9rpv
  * @method void setInstanceId(string $InstanceId) 设置RO实例ID，格式如：cdbro-c1nl9rpv
- * @method integer getStatus() 获取RO实例状态，可能返回值：0-创建中，1-运行中，4-删除中
- * @method void setStatus(integer $Status) 设置RO实例状态，可能返回值：0-创建中，1-运行中，4-删除中
+ * @method integer getStatus() 获取RO实例状态，可能返回值：0-创建中，1-运行中，3-异地RO（仅在使用DescribeDBInstances查询主实例信息时，返回值中异地RO的状态恒等于3，其他场景下无此值），4-删除中
+ * @method void setStatus(integer $Status) 设置RO实例状态，可能返回值：0-创建中，1-运行中，3-异地RO（仅在使用DescribeDBInstances查询主实例信息时，返回值中异地RO的状态恒等于3，其他场景下无此值），4-删除中
  * @method integer getInstanceType() 获取实例类型，可能返回值：1-主实例，2-灾备实例，3-只读实例
  * @method void setInstanceType(integer $InstanceType) 设置实例类型，可能返回值：1-主实例，2-灾备实例，3-只读实例
  * @method string getInstanceName() 获取RO实例名称
@@ -66,6 +66,8 @@ use TencentCloud\Common\AbstractModel;
  * @method void setDeadlineTime(string $DeadlineTime) 设置RO实例到期时间，时间格式：yyyy-mm-dd hh:mm:ss，如实例为按量计费模式，则此字段值为0000-00-00 00:00:00
  * @method integer getPayType() 获取RO实例计费类型，可能返回值：0-包年包月，1-按量计费，2-后付费月结
  * @method void setPayType(integer $PayType) 设置RO实例计费类型，可能返回值：0-包年包月，1-按量计费，2-后付费月结
+ * @method string getReplicationStatus() 获取RO延迟复制状态。
+ * @method void setReplicationStatus(string $ReplicationStatus) 设置RO延迟复制状态。
  */
 class RoInstanceInfo extends AbstractModel
 {
@@ -95,7 +97,7 @@ class RoInstanceInfo extends AbstractModel
     public $Region;
 
     /**
-     * @var string RO可用区的正式名称，如ap-shanghai-1
+     * @var string RO可用区的正式名称，如 ap-shanghai-2
      */
     public $Zone;
 
@@ -105,7 +107,7 @@ class RoInstanceInfo extends AbstractModel
     public $InstanceId;
 
     /**
-     * @var integer RO实例状态，可能返回值：0-创建中，1-运行中，4-删除中
+     * @var integer RO实例状态，可能返回值：0-创建中，1-运行中，3-异地RO（仅在使用DescribeDBInstances查询主实例信息时，返回值中异地RO的状态恒等于3，其他场景下无此值），4-删除中
      */
     public $Status;
 
@@ -185,14 +187,19 @@ class RoInstanceInfo extends AbstractModel
     public $PayType;
 
     /**
+     * @var string RO延迟复制状态。
+     */
+    public $ReplicationStatus;
+
+    /**
      * @param string $MasterInstanceId RO组对应的主实例的ID
      * @param string $RoStatus RO实例在RO组内的状态，可能的值：online-在线，offline-下线
      * @param string $OfflineTime RO实例在RO组内上一次下线的时间
      * @param integer $Weight RO实例在RO组内的权重
      * @param string $Region RO实例所在区域名称，如ap-shanghai
-     * @param string $Zone RO可用区的正式名称，如ap-shanghai-1
+     * @param string $Zone RO可用区的正式名称，如 ap-shanghai-2
      * @param string $InstanceId RO实例ID，格式如：cdbro-c1nl9rpv
-     * @param integer $Status RO实例状态，可能返回值：0-创建中，1-运行中，4-删除中
+     * @param integer $Status RO实例状态，可能返回值：0-创建中，1-运行中，3-异地RO（仅在使用DescribeDBInstances查询主实例信息时，返回值中异地RO的状态恒等于3，其他场景下无此值），4-删除中
      * @param integer $InstanceType 实例类型，可能返回值：1-主实例，2-灾备实例，3-只读实例
      * @param string $InstanceName RO实例名称
      * @param integer $HourFeeStatus 按量计费状态，可能的取值：1-正常，2-欠费
@@ -208,6 +215,7 @@ class RoInstanceInfo extends AbstractModel
      * @param string $EngineVersion RO实例数据库引擎版本，可能返回值：5.1、5.5、5.6、5.7、8.0
      * @param string $DeadlineTime RO实例到期时间，时间格式：yyyy-mm-dd hh:mm:ss，如实例为按量计费模式，则此字段值为0000-00-00 00:00:00
      * @param integer $PayType RO实例计费类型，可能返回值：0-包年包月，1-按量计费，2-后付费月结
+     * @param string $ReplicationStatus RO延迟复制状态。
      */
     function __construct()
     {
@@ -312,6 +320,10 @@ class RoInstanceInfo extends AbstractModel
 
         if (array_key_exists("PayType",$param) and $param["PayType"] !== null) {
             $this->PayType = $param["PayType"];
+        }
+
+        if (array_key_exists("ReplicationStatus",$param) and $param["ReplicationStatus"] !== null) {
+            $this->ReplicationStatus = $param["ReplicationStatus"];
         }
     }
 }

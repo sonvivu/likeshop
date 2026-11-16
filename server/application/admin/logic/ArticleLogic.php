@@ -21,7 +21,7 @@ namespace app\admin\logic;
 
 use app\admin\model\Article;
 use app\common\server\UrlServer;
-use think\Db;
+use think\facade\Db;
 
 class ArticleLogic
 {
@@ -47,6 +47,7 @@ class ArticleLogic
 
         $count = $article->where($where)->count();
         $list = $article->where($where)->page($get['page'], $get['limit'])->order('id desc')->select();
+        $list = $list->toArray(); // ThinkPHP 6：select() 返回 Collection，TP5 返回数组；直接写 $list[$k]['x'] 或 foreach(&$item) 改值会丢/报错，先转数组。
         foreach ($list as &$item) {
             $item['image'] = UrlServer::getFileUrl($item['image']);
             $item['create_time'] = date('Y-m-d H:i:s', $item['create_time']);
@@ -109,7 +110,7 @@ class ArticleLogic
     public static function getArticle($id)
     {
         $article = new Article();
-        $detail = $article::get(['id' => $id, 'del' => 0]);
+        $detail = $article::find(['id' => $id, 'del' => 0]);
         $detail['abs_image'] = UrlServer::getFileUrl($detail['image']);
         return $detail;
     }

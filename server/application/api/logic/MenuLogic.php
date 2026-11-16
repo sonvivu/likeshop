@@ -22,7 +22,7 @@ use app\common\model\Menu_;
 use app\common\model\SelffetchVerifier;
 use app\common\server\ConfigServer;
 use app\common\server\UrlServer;
-use think\Db;
+use think\facade\Db;
 
 class MenuLogic
 {

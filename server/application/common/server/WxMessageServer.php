@@ -24,7 +24,7 @@ use app\common\logic\NoticeLogic;
 use app\common\model\Client_;
 use app\common\model\NoticeSetting;
 use EasyWeChat\Factory;
-use think\Db;
+use think\facade\Db;
 
 class WxMessageServer
 {

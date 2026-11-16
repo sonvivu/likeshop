@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,9 +26,9 @@ use TencentCloud\Common\AbstractModel;
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setSimpleCache(SimpleCache $SimpleCache) 设置基础缓存过期时间配置
 注意：此字段可能返回 null，表示取不到有效值。
- * @method AdvancedCache getAdvancedCache() 获取高级缓存过期时间配置（功能灰度中，尚未全量）
+ * @method AdvancedCache getAdvancedCache() 获取高级缓存过期时间配置（已弃用）
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setAdvancedCache(AdvancedCache $AdvancedCache) 设置高级缓存过期时间配置（功能灰度中，尚未全量）
+ * @method void setAdvancedCache(AdvancedCache $AdvancedCache) 设置高级缓存过期时间配置（已弃用）
 注意：此字段可能返回 null，表示取不到有效值。
  * @method array getRuleCache() 获取高级路径缓存配置
 注意：此字段可能返回 null，表示取不到有效值。
@@ -44,7 +44,7 @@ class Cache extends AbstractModel
     public $SimpleCache;
 
     /**
-     * @var AdvancedCache 高级缓存过期时间配置（功能灰度中，尚未全量）
+     * @var AdvancedCache 高级缓存过期时间配置（已弃用）
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $AdvancedCache;
@@ -58,7 +58,7 @@ class Cache extends AbstractModel
     /**
      * @param SimpleCache $SimpleCache 基础缓存过期时间配置
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param AdvancedCache $AdvancedCache 高级缓存过期时间配置（功能灰度中，尚未全量）
+     * @param AdvancedCache $AdvancedCache 高级缓存过期时间配置（已弃用）
 注意：此字段可能返回 null，表示取不到有效值。
      * @param array $RuleCache 高级路径缓存配置
 注意：此字段可能返回 null，表示取不到有效值。

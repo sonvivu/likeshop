@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,30 +20,34 @@ use TencentCloud\Common\AbstractModel;
 /**
  * 备机信息
  *
- * @method SlaveInstanceInfo getFirst() 获取第一备机信息
- * @method void setFirst(SlaveInstanceInfo $First) 设置第一备机信息
- * @method SlaveInstanceInfo getSecond() 获取第二备机信息
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setSecond(SlaveInstanceInfo $Second) 设置第二备机信息
-注意：此字段可能返回 null，表示取不到有效值。
+ * @method SlaveInstanceInfo getFirst() 获取<p>第一备机信息</p>
+ * @method void setFirst(SlaveInstanceInfo $First) 设置<p>第一备机信息</p>
+ * @method SlaveInstanceInfo getSecond() 获取<p>第二备机信息</p>
+ * @method void setSecond(SlaveInstanceInfo $Second) 设置<p>第二备机信息</p>
+ * @method SlaveInstanceInfo getThird() 获取<p>第三备机信息</p>
+ * @method void setThird(SlaveInstanceInfo $Third) 设置<p>第三备机信息</p>
  */
 class SlaveInfo extends AbstractModel
 {
     /**
-     * @var SlaveInstanceInfo 第一备机信息
+     * @var SlaveInstanceInfo <p>第一备机信息</p>
      */
     public $First;
 
     /**
-     * @var SlaveInstanceInfo 第二备机信息
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var SlaveInstanceInfo <p>第二备机信息</p>
      */
     public $Second;
 
     /**
-     * @param SlaveInstanceInfo $First 第一备机信息
-     * @param SlaveInstanceInfo $Second 第二备机信息
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var SlaveInstanceInfo <p>第三备机信息</p>
+     */
+    public $Third;
+
+    /**
+     * @param SlaveInstanceInfo $First <p>第一备机信息</p>
+     * @param SlaveInstanceInfo $Second <p>第二备机信息</p>
+     * @param SlaveInstanceInfo $Third <p>第三备机信息</p>
      */
     function __construct()
     {
@@ -66,6 +70,11 @@ class SlaveInfo extends AbstractModel
         if (array_key_exists("Second",$param) and $param["Second"] !== null) {
             $this->Second = new SlaveInstanceInfo();
             $this->Second->deserialize($param["Second"]);
+        }
+
+        if (array_key_exists("Third",$param) and $param["Third"] !== null) {
+            $this->Third = new SlaveInstanceInfo();
+            $this->Third->deserialize($param["Third"]);
         }
     }
 }

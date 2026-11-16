@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -87,6 +87,16 @@ use TencentCloud\Common\AbstractModel;
  * @method boolean getRollbackFlag() 获取回滚标识
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setRollbackFlag(boolean $RollbackFlag) 设置回滚标识
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getReleasedConfigCenter() 获取发布成功的配置中心
+ ALL/EXCLUSIVE/SHARE/NONE
+
+全部发布成功，独占发布成功，共享发布成功，全部发布失败
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setReleasedConfigCenter(string $ReleasedConfigCenter) 设置发布成功的配置中心
+ ALL/EXCLUSIVE/SHARE/NONE
+
+全部发布成功，独占发布成功，共享发布成功，全部发布失败
 注意：此字段可能返回 null，表示取不到有效值。
  */
 class ConfigReleaseLog extends AbstractModel
@@ -194,6 +204,15 @@ class ConfigReleaseLog extends AbstractModel
     public $RollbackFlag;
 
     /**
+     * @var string 发布成功的配置中心
+ ALL/EXCLUSIVE/SHARE/NONE
+
+全部发布成功，独占发布成功，共享发布成功，全部发布失败
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $ReleasedConfigCenter;
+
+    /**
      * @param string $ConfigReleaseLogId 配置项发布日志ID
 注意：此字段可能返回 null，表示取不到有效值。
      * @param string $ConfigId 配置项ID
@@ -227,6 +246,11 @@ class ConfigReleaseLog extends AbstractModel
      * @param string $LastConfigVersion 上次发布的配置项版本
 注意：此字段可能返回 null，表示取不到有效值。
      * @param boolean $RollbackFlag 回滚标识
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $ReleasedConfigCenter 发布成功的配置中心
+ ALL/EXCLUSIVE/SHARE/NONE
+
+全部发布成功，独占发布成功，共享发布成功，全部发布失败
 注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
@@ -308,6 +332,10 @@ class ConfigReleaseLog extends AbstractModel
 
         if (array_key_exists("RollbackFlag",$param) and $param["RollbackFlag"] !== null) {
             $this->RollbackFlag = $param["RollbackFlag"];
+        }
+
+        if (array_key_exists("ReleasedConfigCenter",$param) and $param["ReleasedConfigCenter"] !== null) {
+            $this->ReleasedConfigCenter = $param["ReleasedConfigCenter"];
         }
     }
 }

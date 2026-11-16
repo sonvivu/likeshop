@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,12 +28,12 @@ use TencentCloud\Common\AbstractModel;
  * @method void setRoleName(string $RoleName) 设置角色名
  * @method integer getRoleID() 获取角色ID
  * @method void setRoleID(integer $RoleID) 设置角色ID
- * @method integer getQueueType() 获取消息队列类型
- * @method void setQueueType(integer $QueueType) 设置消息队列类型
+ * @method integer getQueueType() 获取消息队列类型  0.CMQ 1.CKafka
+ * @method void setQueueType(integer $QueueType) 设置消息队列类型  0.CMQ 1.CKafka
  * @method string getErrMsg() 获取错误消息
  * @method void setErrMsg(string $ErrMsg) 设置错误消息
- * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
- * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+ * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
 class SetForwardAuthResponse extends AbstractModel
 {
@@ -58,7 +58,7 @@ class SetForwardAuthResponse extends AbstractModel
     public $RoleID;
 
     /**
-     * @var integer 消息队列类型
+     * @var integer 消息队列类型  0.CMQ 1.CKafka
      */
     public $QueueType;
 
@@ -68,7 +68,7 @@ class SetForwardAuthResponse extends AbstractModel
     public $ErrMsg;
 
     /**
-     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public $RequestId;
 
@@ -77,9 +77,9 @@ class SetForwardAuthResponse extends AbstractModel
      * @param integer $Result 结果
      * @param string $RoleName 角色名
      * @param integer $RoleID 角色ID
-     * @param integer $QueueType 消息队列类型
+     * @param integer $QueueType 消息队列类型  0.CMQ 1.CKafka
      * @param string $ErrMsg 错误消息
-     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
     {

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,18 +20,18 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeSnapshotsDeniedActions请求参数结构体
  *
- * @method array getSnapshotIds() 获取快照 ID 列表, 可通过 DescribeSnapshots 查询。
- * @method void setSnapshotIds(array $SnapshotIds) 设置快照 ID 列表, 可通过 DescribeSnapshots 查询。
+ * @method array getSnapshotIds() 获取快照 ID 列表,每次请求批量快照的上限是100个。 可通过 <a href="https://cloud.tencent.com/document/product/1207/54388" target="_blank">DescribeSnapshots</a> 查询。
+ * @method void setSnapshotIds(array $SnapshotIds) 设置快照 ID 列表,每次请求批量快照的上限是100个。 可通过 <a href="https://cloud.tencent.com/document/product/1207/54388" target="_blank">DescribeSnapshots</a> 查询。
  */
 class DescribeSnapshotsDeniedActionsRequest extends AbstractModel
 {
     /**
-     * @var array 快照 ID 列表, 可通过 DescribeSnapshots 查询。
+     * @var array 快照 ID 列表,每次请求批量快照的上限是100个。 可通过 <a href="https://cloud.tencent.com/document/product/1207/54388" target="_blank">DescribeSnapshots</a> 查询。
      */
     public $SnapshotIds;
 
     /**
-     * @param array $SnapshotIds 快照 ID 列表, 可通过 DescribeSnapshots 查询。
+     * @param array $SnapshotIds 快照 ID 列表,每次请求批量快照的上限是100个。 可通过 <a href="https://cloud.tencent.com/document/product/1207/54388" target="_blank">DescribeSnapshots</a> 查询。
      */
     function __construct()
     {

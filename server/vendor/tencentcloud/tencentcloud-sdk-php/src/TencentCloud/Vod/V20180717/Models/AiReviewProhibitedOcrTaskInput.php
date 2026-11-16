@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@ namespace TencentCloud\Vod\V20180717\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * 内容审核 Ocr 文字鉴违禁任务输入参数类型
+ * 音视频审核 Ocr 文字鉴违禁任务输入参数类型
  *
  * @method integer getDefinition() 获取鉴违禁模板 ID。
  * @method void setDefinition(integer $Definition) 设置鉴违禁模板 ID。

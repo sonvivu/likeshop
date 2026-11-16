@@ -24,8 +24,6 @@ return [
     'app_debug' => Env::get('app.app_debug', true),
     // 应用Trace
     'app_trace' => Env::get('app.app_trace', false),
-    // 是否支持多模块
-    'app_multi_module' => true,
     // 入口自动绑定模块
     'auto_bind_module' => false,
     // 注册的根命名空间
@@ -55,10 +53,10 @@ return [
     // | 模块设置
     // +----------------------------------------------------------------------
 
-    // 默认模块名
-    'default_module' => 'index',
-    // 禁止访问模块
-    'deny_module_list' => ['common'],
+    // 默认应用名（ThinkPHP 6：default_module 改为 default_app）
+    'default_app' => 'index',
+    // 禁止访问应用（ThinkPHP 6：deny_module_list 改为 deny_app_list）
+    'deny_app_list' => ['common'],
     // 默认控制器名
     'default_controller' => 'Index',
     // 默认操作名
@@ -131,12 +129,14 @@ return [
     // 路由缓存类型及参数
     'route_cache_option' => [],
 
-    // 默认跳转页面对应的模板文件
-    'dispatch_success_tmpl' => Env::get('think_path') . 'tpl/dispatch_jump.tpl',
-    'dispatch_error_tmpl' => Env::get('think_path') . 'tpl/dispatch_jump.tpl',
+    // 默认跳转页面对应的模板文件（绝对路径：6.x 下相对路径按进程工作目录解析，不可靠；
+    // Env::get('think_path') 在 6.x 已不存在）
+    'dispatch_success_tmpl' => __DIR__ . '/../application/admin/view/dispatch/success.html',
+    'dispatch_error_tmpl' => __DIR__ . '/../application/admin/view/dispatch/error.html',
 
-    // 异常页面的模板文件
-    'exception_tmpl' => Env::get('think_path') . 'tpl/think_exception.tpl',
+    // 异常页面的模板文件：留空使用框架内置模板
+    // （6.x 的 Handle 在 exception_tmpl 为空时回退到内置 tpl/think_exception.tpl；
+    // 旧值 Env::get('think_path') 在 6.x 为 null，会拼出相对路径导致 include 失败）
 
     // 错误显示信息,非调试模式有效
     'error_message' => '页面错误！请稍后再试～',

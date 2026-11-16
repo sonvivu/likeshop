@@ -67,7 +67,7 @@ class WechatMerchantTransfer extends Command
                     WithdrawApply::update(['status'=>4],['id'=>$list['id']]);
                     //回退佣金
                     $user = User::find($list['user_id']);
-                    $user->earnings = ['inc', $list['money']];
+                    $user->inc('earnings', $list['money']);
                     $user->save();
 
                     //增加佣金变动记录

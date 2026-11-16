@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -76,13 +76,25 @@ use TencentCloud\Common\AbstractModel;
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setSecurityOn(boolean $SecurityOn) 设置是否支持安全模式
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getSecurityGroup() 获取安全组名称
+ * @method string getSecurityGroup() 获取集群初始安全组id
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setSecurityGroup(string $SecurityGroup) 设置安全组名称
+ * @method void setSecurityGroup(string $SecurityGroup) 设置集群初始安全组id
 注意：此字段可能返回 null，表示取不到有效值。
  * @method integer getCbsEncrypt() 获取是否开启Cbs加密
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setCbsEncrypt(integer $CbsEncrypt) 设置是否开启Cbs加密
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getApplicationRole() 获取自定义应用角色。
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setApplicationRole(string $ApplicationRole) 设置自定义应用角色。
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method array getSecurityGroups() 获取安全组id
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setSecurityGroups(array $SecurityGroups) 设置安全组id
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getPublicKeyId() 获取SSH密钥Id
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setPublicKeyId(string $PublicKeyId) 设置SSH密钥Id
 注意：此字段可能返回 null，表示取不到有效值。
  */
 class EmrProductConfigOutter extends AbstractModel
@@ -172,7 +184,7 @@ class EmrProductConfigOutter extends AbstractModel
     public $SecurityOn;
 
     /**
-     * @var string 安全组名称
+     * @var string 集群初始安全组id
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $SecurityGroup;
@@ -182,6 +194,24 @@ class EmrProductConfigOutter extends AbstractModel
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $CbsEncrypt;
+
+    /**
+     * @var string 自定义应用角色。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $ApplicationRole;
+
+    /**
+     * @var array 安全组id
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $SecurityGroups;
+
+    /**
+     * @var string SSH密钥Id
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $PublicKeyId;
 
     /**
      * @param array $SoftInfo 软件信息
@@ -212,9 +242,15 @@ class EmrProductConfigOutter extends AbstractModel
 注意：此字段可能返回 null，表示取不到有效值。
      * @param boolean $SecurityOn 是否支持安全模式
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $SecurityGroup 安全组名称
+     * @param string $SecurityGroup 集群初始安全组id
 注意：此字段可能返回 null，表示取不到有效值。
      * @param integer $CbsEncrypt 是否开启Cbs加密
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $ApplicationRole 自定义应用角色。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param array $SecurityGroups 安全组id
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $PublicKeyId SSH密钥Id
 注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
@@ -296,6 +332,18 @@ class EmrProductConfigOutter extends AbstractModel
 
         if (array_key_exists("CbsEncrypt",$param) and $param["CbsEncrypt"] !== null) {
             $this->CbsEncrypt = $param["CbsEncrypt"];
+        }
+
+        if (array_key_exists("ApplicationRole",$param) and $param["ApplicationRole"] !== null) {
+            $this->ApplicationRole = $param["ApplicationRole"];
+        }
+
+        if (array_key_exists("SecurityGroups",$param) and $param["SecurityGroups"] !== null) {
+            $this->SecurityGroups = $param["SecurityGroups"];
+        }
+
+        if (array_key_exists("PublicKeyId",$param) and $param["PublicKeyId"] !== null) {
+            $this->PublicKeyId = $param["PublicKeyId"];
         }
     }
 }

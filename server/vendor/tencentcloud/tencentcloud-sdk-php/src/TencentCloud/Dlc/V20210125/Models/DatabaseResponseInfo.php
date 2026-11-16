@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,12 +23,10 @@ use TencentCloud\Common\AbstractModel;
  * @method string getDatabaseName() 获取数据库名称。
  * @method void setDatabaseName(string $DatabaseName) 设置数据库名称。
  * @method string getComment() 获取数据库描述信息，长度 0~256。
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setComment(string $Comment) 设置数据库描述信息，长度 0~256。
+ * @method array getProperties() 获取允许针对数据库的属性元数据信息进行指定。
 注意：此字段可能返回 null，表示取不到有效值。
- * @method array getProperties() 获取数据库属性列表。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setProperties(array $Properties) 设置数据库属性列表。
+ * @method void setProperties(array $Properties) 设置允许针对数据库的属性元数据信息进行指定。
 注意：此字段可能返回 null，表示取不到有效值。
  * @method string getCreateTime() 获取数据库创建时间戳，单位：s。
 注意：此字段可能返回 null，表示取不到有效值。
@@ -37,6 +35,30 @@ use TencentCloud\Common\AbstractModel;
  * @method string getModifiedTime() 获取数据库更新时间戳，单位：s。
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setModifiedTime(string $ModifiedTime) 设置数据库更新时间戳，单位：s。
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getLocation() 获取cos存储路径
+ * @method void setLocation(string $Location) 设置cos存储路径
+ * @method string getUserAlias() 获取建库用户昵称
+ * @method void setUserAlias(string $UserAlias) 设置建库用户昵称
+ * @method string getUserSubUin() 获取建库用户ID
+ * @method void setUserSubUin(string $UserSubUin) 设置建库用户ID
+ * @method DataGovernPolicy getGovernPolicy() 获取数据治理配置项
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setGovernPolicy(DataGovernPolicy $GovernPolicy) 设置数据治理配置项
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getDatabaseId() 获取数据库ID（无效字段）
+ * @method void setDatabaseId(string $DatabaseId) 设置数据库ID（无效字段）
+ * @method string getCatalogName() 获取所属catalog名称
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setCatalogName(string $CatalogName) 设置所属catalog名称
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getCatalogType() 获取所属catalog 类型
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setCatalogType(string $CatalogType) 设置所属catalog 类型
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method boolean getIsInformationSchema() 获取是否InformationSchema
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setIsInformationSchema(boolean $IsInformationSchema) 设置是否InformationSchema
 注意：此字段可能返回 null，表示取不到有效值。
  */
 class DatabaseResponseInfo extends AbstractModel
@@ -48,12 +70,11 @@ class DatabaseResponseInfo extends AbstractModel
 
     /**
      * @var string 数据库描述信息，长度 0~256。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Comment;
 
     /**
-     * @var array 数据库属性列表。
+     * @var array 允许针对数据库的属性元数据信息进行指定。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Properties;
@@ -71,14 +92,69 @@ class DatabaseResponseInfo extends AbstractModel
     public $ModifiedTime;
 
     /**
+     * @var string cos存储路径
+     */
+    public $Location;
+
+    /**
+     * @var string 建库用户昵称
+     */
+    public $UserAlias;
+
+    /**
+     * @var string 建库用户ID
+     */
+    public $UserSubUin;
+
+    /**
+     * @var DataGovernPolicy 数据治理配置项
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $GovernPolicy;
+
+    /**
+     * @var string 数据库ID（无效字段）
+     */
+    public $DatabaseId;
+
+    /**
+     * @var string 所属catalog名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $CatalogName;
+
+    /**
+     * @var string 所属catalog 类型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $CatalogType;
+
+    /**
+     * @var boolean 是否InformationSchema
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $IsInformationSchema;
+
+    /**
      * @param string $DatabaseName 数据库名称。
      * @param string $Comment 数据库描述信息，长度 0~256。
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param array $Properties 数据库属性列表。
+     * @param array $Properties 允许针对数据库的属性元数据信息进行指定。
 注意：此字段可能返回 null，表示取不到有效值。
      * @param string $CreateTime 数据库创建时间戳，单位：s。
 注意：此字段可能返回 null，表示取不到有效值。
      * @param string $ModifiedTime 数据库更新时间戳，单位：s。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $Location cos存储路径
+     * @param string $UserAlias 建库用户昵称
+     * @param string $UserSubUin 建库用户ID
+     * @param DataGovernPolicy $GovernPolicy 数据治理配置项
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $DatabaseId 数据库ID（无效字段）
+     * @param string $CatalogName 所属catalog名称
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $CatalogType 所属catalog 类型
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param boolean $IsInformationSchema 是否InformationSchema
 注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
@@ -117,6 +193,39 @@ class DatabaseResponseInfo extends AbstractModel
 
         if (array_key_exists("ModifiedTime",$param) and $param["ModifiedTime"] !== null) {
             $this->ModifiedTime = $param["ModifiedTime"];
+        }
+
+        if (array_key_exists("Location",$param) and $param["Location"] !== null) {
+            $this->Location = $param["Location"];
+        }
+
+        if (array_key_exists("UserAlias",$param) and $param["UserAlias"] !== null) {
+            $this->UserAlias = $param["UserAlias"];
+        }
+
+        if (array_key_exists("UserSubUin",$param) and $param["UserSubUin"] !== null) {
+            $this->UserSubUin = $param["UserSubUin"];
+        }
+
+        if (array_key_exists("GovernPolicy",$param) and $param["GovernPolicy"] !== null) {
+            $this->GovernPolicy = new DataGovernPolicy();
+            $this->GovernPolicy->deserialize($param["GovernPolicy"]);
+        }
+
+        if (array_key_exists("DatabaseId",$param) and $param["DatabaseId"] !== null) {
+            $this->DatabaseId = $param["DatabaseId"];
+        }
+
+        if (array_key_exists("CatalogName",$param) and $param["CatalogName"] !== null) {
+            $this->CatalogName = $param["CatalogName"];
+        }
+
+        if (array_key_exists("CatalogType",$param) and $param["CatalogType"] !== null) {
+            $this->CatalogType = $param["CatalogType"];
+        }
+
+        if (array_key_exists("IsInformationSchema",$param) and $param["IsInformationSchema"] !== null) {
+            $this->IsInformationSchema = $param["IsInformationSchema"];
         }
     }
 }

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,8 +26,8 @@ use TencentCloud\Common\AbstractModel;
  * @method void setName(string $Name) 设置域名的原始格式
  * @method string getStatus() 获取域名的状态，正常：ENABLE，暂停：PAUSE，封禁：SPAM
  * @method void setStatus(string $Status) 设置域名的状态，正常：ENABLE，暂停：PAUSE，封禁：SPAM
- * @method integer getTTL() 获取域名默认的解析记录默认TTL值
- * @method void setTTL(integer $TTL) 设置域名默认的解析记录默认TTL值
+ * @method integer getTTL() 获取域名默认的解析记录默认TTL值，单位：秒
+ * @method void setTTL(integer $TTL) 设置域名默认的解析记录默认TTL值，单位：秒
  * @method string getCNAMESpeedup() 获取是否开启CNAME加速，开启：ENABLE，未开启：DISABLE
  * @method void setCNAMESpeedup(string $CNAMESpeedup) 设置是否开启CNAME加速，开启：ENABLE，未开启：DISABLE
  * @method string getDNSStatus() 获取DNS 设置状态，错误：DNSERROR，正常：空字符串
@@ -64,6 +64,10 @@ use TencentCloud\Common\AbstractModel;
  * @method void setUpdatedOn(string $UpdatedOn) 设置域名更新时间
  * @method string getOwner() 获取域名所属账号
  * @method void setOwner(string $Owner) 设置域名所属账号
+ * @method array getTagList() 获取域名关联的标签列表
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setTagList(array $TagList) 设置域名关联的标签列表
+注意：此字段可能返回 null，表示取不到有效值。
  */
 class DomainListItem extends AbstractModel
 {
@@ -83,7 +87,7 @@ class DomainListItem extends AbstractModel
     public $Status;
 
     /**
-     * @var integer 域名默认的解析记录默认TTL值
+     * @var integer 域名默认的解析记录默认TTL值，单位：秒
      */
     public $TTL;
 
@@ -178,10 +182,16 @@ class DomainListItem extends AbstractModel
     public $Owner;
 
     /**
+     * @var array 域名关联的标签列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $TagList;
+
+    /**
      * @param integer $DomainId 系统分配给域名的唯一标识
      * @param string $Name 域名的原始格式
      * @param string $Status 域名的状态，正常：ENABLE，暂停：PAUSE，封禁：SPAM
-     * @param integer $TTL 域名默认的解析记录默认TTL值
+     * @param integer $TTL 域名默认的解析记录默认TTL值，单位：秒
      * @param string $CNAMESpeedup 是否开启CNAME加速，开启：ENABLE，未开启：DISABLE
      * @param string $DNSStatus DNS 设置状态，错误：DNSERROR，正常：空字符串
      * @param string $Grade 域名的套餐等级代码
@@ -200,6 +210,8 @@ class DomainListItem extends AbstractModel
      * @param string $CreatedOn 域名添加时间
      * @param string $UpdatedOn 域名更新时间
      * @param string $Owner 域名所属账号
+     * @param array $TagList 域名关联的标签列表
+注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
     {
@@ -300,6 +312,15 @@ class DomainListItem extends AbstractModel
 
         if (array_key_exists("Owner",$param) and $param["Owner"] !== null) {
             $this->Owner = $param["Owner"];
+        }
+
+        if (array_key_exists("TagList",$param) and $param["TagList"] !== null) {
+            $this->TagList = [];
+            foreach ($param["TagList"] as $key => $value){
+                $obj = new TagItem();
+                $obj->deserialize($value);
+                array_push($this->TagList, $obj);
+            }
         }
     }
 }

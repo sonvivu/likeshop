@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,8 +20,8 @@ use TencentCloud\Common\AbstractModel;
 /**
  * CreateRole请求参数结构体
  *
- * @method string getRoleName() 获取角色名称
- * @method void setRoleName(string $RoleName) 设置角色名称
+ * @method string getRoleName() 获取角色名称。长度为1~128个字符，可包含英文字母、数字和+=,.@-_。
+ * @method void setRoleName(string $RoleName) 设置角色名称。长度为1~128个字符，可包含英文字母、数字和+=,.@-_。
  * @method string getPolicyDocument() 获取策略文档，示例：{"version":"2.0","statement":[{"action":"name/sts:AssumeRole","effect":"allow","principal":{"service":["cloudaudit.cloud.tencent.com","cls.cloud.tencent.com"]}}]}，principal用于指定角色的授权对象。获取该参数可参阅 获取角色详情（https://cloud.tencent.com/document/product/598/36221） 输出参数RoleInfo
  * @method void setPolicyDocument(string $PolicyDocument) 设置策略文档，示例：{"version":"2.0","statement":[{"action":"name/sts:AssumeRole","effect":"allow","principal":{"service":["cloudaudit.cloud.tencent.com","cls.cloud.tencent.com"]}}]}，principal用于指定角色的授权对象。获取该参数可参阅 获取角色详情（https://cloud.tencent.com/document/product/598/36221） 输出参数RoleInfo
  * @method string getDescription() 获取角色描述
@@ -30,11 +30,13 @@ use TencentCloud\Common\AbstractModel;
  * @method void setConsoleLogin(integer $ConsoleLogin) 设置是否允许登录 1 为允许 0 为不允许
  * @method integer getSessionDuration() 获取申请角色临时密钥的最长有效期限制(范围：0~43200)
  * @method void setSessionDuration(integer $SessionDuration) 设置申请角色临时密钥的最长有效期限制(范围：0~43200)
+ * @method array getTags() 获取角色绑定标签
+ * @method void setTags(array $Tags) 设置角色绑定标签
  */
 class CreateRoleRequest extends AbstractModel
 {
     /**
-     * @var string 角色名称
+     * @var string 角色名称。长度为1~128个字符，可包含英文字母、数字和+=,.@-_。
      */
     public $RoleName;
 
@@ -59,11 +61,17 @@ class CreateRoleRequest extends AbstractModel
     public $SessionDuration;
 
     /**
-     * @param string $RoleName 角色名称
+     * @var array 角色绑定标签
+     */
+    public $Tags;
+
+    /**
+     * @param string $RoleName 角色名称。长度为1~128个字符，可包含英文字母、数字和+=,.@-_。
      * @param string $PolicyDocument 策略文档，示例：{"version":"2.0","statement":[{"action":"name/sts:AssumeRole","effect":"allow","principal":{"service":["cloudaudit.cloud.tencent.com","cls.cloud.tencent.com"]}}]}，principal用于指定角色的授权对象。获取该参数可参阅 获取角色详情（https://cloud.tencent.com/document/product/598/36221） 输出参数RoleInfo
      * @param string $Description 角色描述
      * @param integer $ConsoleLogin 是否允许登录 1 为允许 0 为不允许
      * @param integer $SessionDuration 申请角色临时密钥的最长有效期限制(范围：0~43200)
+     * @param array $Tags 角色绑定标签
      */
     function __construct()
     {
@@ -96,6 +104,15 @@ class CreateRoleRequest extends AbstractModel
 
         if (array_key_exists("SessionDuration",$param) and $param["SessionDuration"] !== null) {
             $this->SessionDuration = $param["SessionDuration"];
+        }
+
+        if (array_key_exists("Tags",$param) and $param["Tags"] !== null) {
+            $this->Tags = [];
+            foreach ($param["Tags"] as $key => $value){
+                $obj = new RoleTags();
+                $obj->deserialize($value);
+                array_push($this->Tags, $obj);
+            }
         }
     }
 }

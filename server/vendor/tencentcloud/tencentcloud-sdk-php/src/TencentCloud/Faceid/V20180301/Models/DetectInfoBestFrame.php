@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,35 +18,35 @@ namespace TencentCloud\Faceid\V20180301\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * 核身最佳帧信息
+ * 核身最佳帧信息。
  *
- * @method string getBestFrame() 获取活体比对最佳帧。
+ * @method string getBestFrame() 获取活体比对最佳帧Base64编码。
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setBestFrame(string $BestFrame) 设置活体比对最佳帧。
+ * @method void setBestFrame(string $BestFrame) 设置活体比对最佳帧Base64编码。
 注意：此字段可能返回 null，表示取不到有效值。
- * @method array getBestFrames() 获取自截帧。
+ * @method array getBestFrames() 获取自截帧Base64编码数组。
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setBestFrames(array $BestFrames) 设置自截帧。
+ * @method void setBestFrames(array $BestFrames) 设置自截帧Base64编码数组。
 注意：此字段可能返回 null，表示取不到有效值。
  */
 class DetectInfoBestFrame extends AbstractModel
 {
     /**
-     * @var string 活体比对最佳帧。
+     * @var string 活体比对最佳帧Base64编码。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $BestFrame;
 
     /**
-     * @var array 自截帧。
+     * @var array 自截帧Base64编码数组。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $BestFrames;
 
     /**
-     * @param string $BestFrame 活体比对最佳帧。
+     * @param string $BestFrame 活体比对最佳帧Base64编码。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param array $BestFrames 自截帧。
+     * @param array $BestFrames 自截帧Base64编码数组。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()

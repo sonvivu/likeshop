@@ -22,15 +22,14 @@ namespace app\api\logic;
 use app\api\model\Cart;
 use app\common\model\Footprint;
 use app\common\server\UrlServer;
-use think\Db;
-use think\facade\Hook;
+use think\facade\Db;
 
 class CartLogic
 {
     //添加购物车
     public static function add($item_id, $goods_num, $user_id)
     {
-        $goods = Db::name('goods g')
+        $goods = Db::name('goods')->alias('g')
             ->field('i.goods_id')
             ->join('goods_item i', 'i.goods_id = g.id')
             ->where('i.id', $item_id)
@@ -75,7 +74,7 @@ class CartLogic
         }
 
         // 钩子-记录足迹(添加购物车)
-        Hook::listen('footprint', [
+        event('footprint', [
             'type'     => Footprint::add_cart,
             'user_id'  => $user_id,
             'foreign_id' => $goods['goods_id'] //商品ID
@@ -139,7 +138,7 @@ class CartLogic
         $field = 'g.name,g.image,g.id as goods_id,g.status as g_status,g.del as g_del,
         i.spec_value_str,i.price,i.image as item_image,c.goods_num,c.selected,c.id as cart_id,c.item_id,i.stock as item_stock';
 
-        $carts = Db::name('cart c')
+        $carts = Db::name('cart')->alias('c')
             ->field($field)
             ->join('goods g', 'g.id = c.goods_id')
             ->join('goods_item i', 'i.id = c.item_id')

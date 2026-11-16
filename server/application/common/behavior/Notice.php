@@ -23,7 +23,7 @@ use app\common\logic\NoticeLogic;
 use app\common\model\Client_;
 use app\common\model\NoticeSetting;
 use app\common\server\WxMessageServer;
-use think\Db;
+use think\facade\Db;
 use think\Exception;
 
 /**
@@ -33,7 +33,7 @@ use think\Exception;
  */
 class Notice
 {
-    public function run($params)
+    public function handle($params)
     {
         try {
             if (empty($params['scene'])) {

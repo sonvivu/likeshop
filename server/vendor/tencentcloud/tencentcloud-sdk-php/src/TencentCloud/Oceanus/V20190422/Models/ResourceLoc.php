@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,15 +20,15 @@ use TencentCloud\Common\AbstractModel;
 /**
  * 资源位置描述
  *
- * @method integer getStorageType() 获取资源位置的存储类型，目前只支持COS
- * @method void setStorageType(integer $StorageType) 设置资源位置的存储类型，目前只支持COS
+ * @method integer getStorageType() 获取资源位置的存储类型，目前只支持1:COS
+ * @method void setStorageType(integer $StorageType) 设置资源位置的存储类型，目前只支持1:COS
  * @method ResourceLocParam getParam() 获取描述资源位置的json
  * @method void setParam(ResourceLocParam $Param) 设置描述资源位置的json
  */
 class ResourceLoc extends AbstractModel
 {
     /**
-     * @var integer 资源位置的存储类型，目前只支持COS
+     * @var integer 资源位置的存储类型，目前只支持1:COS
      */
     public $StorageType;
 
@@ -38,7 +38,7 @@ class ResourceLoc extends AbstractModel
     public $Param;
 
     /**
-     * @param integer $StorageType 资源位置的存储类型，目前只支持COS
+     * @param integer $StorageType 资源位置的存储类型，目前只支持1:COS
      * @param ResourceLocParam $Param 描述资源位置的json
      */
     function __construct()

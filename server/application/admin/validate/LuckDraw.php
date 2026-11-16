@@ -67,7 +67,7 @@ class LuckDraw extends Validate
      */
     public function sceneAdd()
     {
-        $this->remove('id');
+        $this->remove('id', true);
     }
 
 

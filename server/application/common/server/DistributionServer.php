@@ -21,7 +21,7 @@
 namespace app\common\server;
 
 
-use think\Db;
+use think\facade\Db;
 
 class DistributionServer
 {
@@ -39,7 +39,7 @@ class DistributionServer
             'u.second_leader' => 'second_leader',
             'u.third_leader' => 'third_leader',
         ];
-        $goods_lists = Db::name('order_goods og')
+        $goods_lists = Db::name('order_goods')->alias('og')
             ->join('goods g', 'og.goods_id=g.id')
             ->join('order o', 'og.order_id=o.id')
             ->join('user u', 'o.user_id=u.id')

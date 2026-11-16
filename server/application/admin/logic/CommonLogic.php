@@ -18,7 +18,7 @@
 // +----------------------------------------------------------------------
 namespace app\admin\logic;
 use app\common\server\UrlServer;
-use think\Db;
+use think\facade\Db;
 class CommonLogic{
     /**
      * note 修改制定表的某个字段
@@ -91,9 +91,9 @@ class CommonLogic{
 
         foreach ($goods_list as &$item) {
             $item['goods_item'] = [];
-            $item['price'] = '￥'.$item['min_price'];
+            $item['price'] = config('currency.symbol').$item['min_price'];
             if($item['max_price'] != $item['min_price']){
-                $item['price'] = '￥'.$item['max_price'].'~'.'￥'.$item['min_price'];
+                $item['price'] = config('currency.symbol').$item['max_price'].'~'.config('currency.symbol').$item['min_price'];
             }
             $item['create_time_desc'] = date('Y-m-d H:i:s',$item['create_time']);
             $item['image'] = UrlServer::getFileUrl($item['image']);

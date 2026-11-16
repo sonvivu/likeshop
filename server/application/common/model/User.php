@@ -33,7 +33,8 @@ class User extends Model
      */
     function getNicknameAttr($nickname)
     {
-        if (request()->module() == 'admin' && request()->isAjax()) {
+        // ThinkPHP 6 已删除 Request::module()，应用名改由 Http::getName() 提供。
+        if (app('http')->getName() == 'admin' && request()->isAjax()) {
             $nickname = htmlspecialchars($nickname);
         }
         

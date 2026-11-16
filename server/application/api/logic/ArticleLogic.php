@@ -21,7 +21,7 @@
 namespace app\api\logic;
 
 use app\common\server\UrlServer;
-use think\Db;
+use think\facade\Db;
 
 class ArticleLogic
 {
@@ -46,6 +46,7 @@ class ArticleLogic
 
         $count = $res->count();
         $article = $res->page($page, $size)->select();
+        $article = $article->toArray(); // ThinkPHP 6：select() 返回 Collection，TP5 返回数组；直接写 $article[$k]['x'] 或 foreach(&$item) 改值会丢/报错，先转数组。
 
         foreach ($article as &$item) {
             $item['create_time'] = date('Y-m-d ', $item['create_time']);
@@ -97,6 +98,7 @@ class ArticleLogic
                             ->order('visit desc')
                             ->limit(5)
                             ->select();
+            $recommend_list = $recommend_list->toArray(); // ThinkPHP 6：select() 返回 Collection，TP5 返回数组；直接写 $recommend_list[$k]['x'] 或 foreach(&$item) 改值会丢/报错，先转数组。
 
 
             foreach ($recommend_list as $key => $recommend){

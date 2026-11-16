@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -39,7 +39,9 @@ use TencentCloud\Common\AbstractModel;
  * @method integer getMemorySize() 获取函数的最大可用内存
  * @method void setMemorySize(integer $MemorySize) 设置函数的最大可用内存
  * @method string getRuntime() 获取函数的运行环境
+注意：此字段可能返回 null，表示取不到有效值。
  * @method void setRuntime(string $Runtime) 设置函数的运行环境
+注意：此字段可能返回 null，表示取不到有效值。
  * @method string getFunctionName() 获取函数的名称
  * @method void setFunctionName(string $FunctionName) 设置函数的名称
  * @method VpcConfig getVpcConfig() 获取函数的私有网络
@@ -60,8 +62,8 @@ use TencentCloud\Common\AbstractModel;
  * @method void setRole(string $Role) 设置函数绑定的角色
  * @method string getInstallDependency() 获取是否自动安装依赖
  * @method void setInstallDependency(string $InstallDependency) 设置是否自动安装依赖
- * @method string getStatus() 获取函数状态，状态值及流转[参考说明](https://cloud.tencent.com/document/product/583/47175)
- * @method void setStatus(string $Status) 设置函数状态，状态值及流转[参考说明](https://cloud.tencent.com/document/product/583/47175)
+ * @method string getStatus() 获取函数状态，状态值及流转[参考说明](https://cloud.tencent.com/document/product/583/115197)
+ * @method void setStatus(string $Status) 设置函数状态，状态值及流转[参考说明](https://cloud.tencent.com/document/product/583/115197)
  * @method string getStatusDesc() 获取状态描述
  * @method void setStatusDesc(string $StatusDesc) 设置状态描述
  * @method string getClsLogsetId() 获取日志投递到的Cls日志集
@@ -95,25 +97,43 @@ use TencentCloud\Common\AbstractModel;
  * @method void setOnsEnable(string $OnsEnable) 设置是否启用Ons
 注意：此字段可能返回 null，表示取不到有效值。
  * @method CfsConfig getCfsConfig() 获取文件系统配置参数，用于云函数挂载文件系统
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setCfsConfig(CfsConfig $CfsConfig) 设置文件系统配置参数，用于云函数挂载文件系统
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getAvailableStatus() 获取函数的计费状态，状态值[参考此处](https://cloud.tencent.com/document/product/583/47175#.E5.87.BD.E6.95.B0.E8.AE.A1.E8.B4.B9.E7.8A.B6.E6.80.81)
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setAvailableStatus(string $AvailableStatus) 设置函数的计费状态，状态值[参考此处](https://cloud.tencent.com/document/product/583/47175#.E5.87.BD.E6.95.B0.E8.AE.A1.E8.B4.B9.E7.8A.B6.E6.80.81)
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getQualifier() 获取函数版本
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setQualifier(string $Qualifier) 设置函数版本
-注意：此字段可能返回 null，表示取不到有效值。
  * @method integer getInitTimeout() 获取函数初始化超时时间
  * @method void setInitTimeout(integer $InitTimeout) 设置函数初始化超时时间
  * @method array getStatusReasons() 获取函数状态失败原因
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setStatusReasons(array $StatusReasons) 设置函数状态失败原因
+ * @method string getAsyncRunEnable() 获取是否开启异步属性
+ * @method void setAsyncRunEnable(string $AsyncRunEnable) 设置是否开启异步属性
+ * @method string getTraceEnable() 获取是否开启事件追踪
+ * @method void setTraceEnable(string $TraceEnable) 设置是否开启事件追踪
+ * @method ImageConfig getImageConfig() 获取镜像配置
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
- * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method void setImageConfig(ImageConfig $ImageConfig) 设置镜像配置
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getProtocolType() 获取HTTP函数支持的访问协议。当前支持WebSockets协议。
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setProtocolType(string $ProtocolType) 设置HTTP函数支持的访问协议。当前支持WebSockets协议。
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method ProtocolParams getProtocolParams() 获取HTTP函数配置ProtocolType访问协议，当前协议配置的参数
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setProtocolParams(ProtocolParams $ProtocolParams) 设置HTTP函数配置ProtocolType访问协议，当前协议配置的参数
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method InstanceConcurrencyConfig getInstanceConcurrencyConfig() 获取单实例多并发配置。只支持Web函数。
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setInstanceConcurrencyConfig(InstanceConcurrencyConfig $InstanceConcurrencyConfig) 设置单实例多并发配置。只支持Web函数。
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getDnsCache() 获取是否开启DNS缓存
+ * @method void setDnsCache(string $DnsCache) 设置是否开启DNS缓存
+ * @method IntranetConfigOut getIntranetConfig() 获取内网访问配置
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setIntranetConfig(IntranetConfigOut $IntranetConfig) 设置内网访问配置
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+ * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
 class GetFunctionResponse extends AbstractModel
 {
@@ -164,6 +184,7 @@ class GetFunctionResponse extends AbstractModel
 
     /**
      * @var string 函数的运行环境
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Runtime;
 
@@ -218,7 +239,7 @@ class GetFunctionResponse extends AbstractModel
     public $InstallDependency;
 
     /**
-     * @var string 函数状态，状态值及流转[参考说明](https://cloud.tencent.com/document/product/583/47175)
+     * @var string 函数状态，状态值及流转[参考说明](https://cloud.tencent.com/document/product/583/115197)
      */
     public $Status;
 
@@ -296,19 +317,16 @@ class GetFunctionResponse extends AbstractModel
 
     /**
      * @var CfsConfig 文件系统配置参数，用于云函数挂载文件系统
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $CfsConfig;
 
     /**
      * @var string 函数的计费状态，状态值[参考此处](https://cloud.tencent.com/document/product/583/47175#.E5.87.BD.E6.95.B0.E8.AE.A1.E8.B4.B9.E7.8A.B6.E6.80.81)
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $AvailableStatus;
 
     /**
      * @var string 函数版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Qualifier;
 
@@ -319,12 +337,56 @@ class GetFunctionResponse extends AbstractModel
 
     /**
      * @var array 函数状态失败原因
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $StatusReasons;
 
     /**
-     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @var string 是否开启异步属性
+     */
+    public $AsyncRunEnable;
+
+    /**
+     * @var string 是否开启事件追踪
+     */
+    public $TraceEnable;
+
+    /**
+     * @var ImageConfig 镜像配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $ImageConfig;
+
+    /**
+     * @var string HTTP函数支持的访问协议。当前支持WebSockets协议。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $ProtocolType;
+
+    /**
+     * @var ProtocolParams HTTP函数配置ProtocolType访问协议，当前协议配置的参数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $ProtocolParams;
+
+    /**
+     * @var InstanceConcurrencyConfig 单实例多并发配置。只支持Web函数。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $InstanceConcurrencyConfig;
+
+    /**
+     * @var string 是否开启DNS缓存
+     */
+    public $DnsCache;
+
+    /**
+     * @var IntranetConfigOut 内网访问配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $IntranetConfig;
+
+    /**
+     * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public $RequestId;
 
@@ -339,6 +401,7 @@ class GetFunctionResponse extends AbstractModel
      * @param string $FunctionVersion 函数的版本
      * @param integer $MemorySize 函数的最大可用内存
      * @param string $Runtime 函数的运行环境
+注意：此字段可能返回 null，表示取不到有效值。
      * @param string $FunctionName 函数的名称
      * @param VpcConfig $VpcConfig 函数的私有网络
      * @param string $UseGpu 是否使用GPU
@@ -349,7 +412,7 @@ class GetFunctionResponse extends AbstractModel
      * @param string $Namespace 函数的命名空间
      * @param string $Role 函数绑定的角色
      * @param string $InstallDependency 是否自动安装依赖
-     * @param string $Status 函数状态，状态值及流转[参考说明](https://cloud.tencent.com/document/product/583/47175)
+     * @param string $Status 函数状态，状态值及流转[参考说明](https://cloud.tencent.com/document/product/583/115197)
      * @param string $StatusDesc 状态描述
      * @param string $ClsLogsetId 日志投递到的Cls日志集
      * @param string $ClsTopicId 日志投递到的Cls Topic
@@ -367,15 +430,24 @@ class GetFunctionResponse extends AbstractModel
      * @param string $OnsEnable 是否启用Ons
 注意：此字段可能返回 null，表示取不到有效值。
      * @param CfsConfig $CfsConfig 文件系统配置参数，用于云函数挂载文件系统
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $AvailableStatus 函数的计费状态，状态值[参考此处](https://cloud.tencent.com/document/product/583/47175#.E5.87.BD.E6.95.B0.E8.AE.A1.E8.B4.B9.E7.8A.B6.E6.80.81)
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $Qualifier 函数版本
-注意：此字段可能返回 null，表示取不到有效值。
      * @param integer $InitTimeout 函数初始化超时时间
      * @param array $StatusReasons 函数状态失败原因
+     * @param string $AsyncRunEnable 是否开启异步属性
+     * @param string $TraceEnable 是否开启事件追踪
+     * @param ImageConfig $ImageConfig 镜像配置
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @param string $ProtocolType HTTP函数支持的访问协议。当前支持WebSockets协议。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ProtocolParams $ProtocolParams HTTP函数配置ProtocolType访问协议，当前协议配置的参数
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param InstanceConcurrencyConfig $InstanceConcurrencyConfig 单实例多并发配置。只支持Web函数。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $DnsCache 是否开启DNS缓存
+     * @param IntranetConfigOut $IntranetConfig 内网访问配置
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
     {
@@ -575,6 +647,42 @@ class GetFunctionResponse extends AbstractModel
                 $obj->deserialize($value);
                 array_push($this->StatusReasons, $obj);
             }
+        }
+
+        if (array_key_exists("AsyncRunEnable",$param) and $param["AsyncRunEnable"] !== null) {
+            $this->AsyncRunEnable = $param["AsyncRunEnable"];
+        }
+
+        if (array_key_exists("TraceEnable",$param) and $param["TraceEnable"] !== null) {
+            $this->TraceEnable = $param["TraceEnable"];
+        }
+
+        if (array_key_exists("ImageConfig",$param) and $param["ImageConfig"] !== null) {
+            $this->ImageConfig = new ImageConfig();
+            $this->ImageConfig->deserialize($param["ImageConfig"]);
+        }
+
+        if (array_key_exists("ProtocolType",$param) and $param["ProtocolType"] !== null) {
+            $this->ProtocolType = $param["ProtocolType"];
+        }
+
+        if (array_key_exists("ProtocolParams",$param) and $param["ProtocolParams"] !== null) {
+            $this->ProtocolParams = new ProtocolParams();
+            $this->ProtocolParams->deserialize($param["ProtocolParams"]);
+        }
+
+        if (array_key_exists("InstanceConcurrencyConfig",$param) and $param["InstanceConcurrencyConfig"] !== null) {
+            $this->InstanceConcurrencyConfig = new InstanceConcurrencyConfig();
+            $this->InstanceConcurrencyConfig->deserialize($param["InstanceConcurrencyConfig"]);
+        }
+
+        if (array_key_exists("DnsCache",$param) and $param["DnsCache"] !== null) {
+            $this->DnsCache = $param["DnsCache"];
+        }
+
+        if (array_key_exists("IntranetConfig",$param) and $param["IntranetConfig"] !== null) {
+            $this->IntranetConfig = new IntranetConfigOut();
+            $this->IntranetConfig->deserialize($param["IntranetConfig"]);
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

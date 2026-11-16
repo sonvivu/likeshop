@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,33 +21,37 @@ use TencentCloud\Common\AbstractModel;
  * 基于签名的 Key 防盗链信息
  *
  * @method string getStatus() 获取[Key 防盗链](https://cloud.tencent.com/document/product/266/14047)设置状态，可选值：
-<li>Enabled: 启用；</li>
+<li>Enabled: 启用。</li>
 <li>Disabled: 禁用。</li>
  * @method void setStatus(string $Status) 设置[Key 防盗链](https://cloud.tencent.com/document/product/266/14047)设置状态，可选值：
-<li>Enabled: 启用；</li>
+<li>Enabled: 启用。</li>
 <li>Disabled: 禁用。</li>
  * @method string getEncryptedKey() 获取[Key 防盗链](https://cloud.tencent.com/document/product/266/14047)中用于生成签名的密钥。
+EncryptedKey 字符串的长度为8~40个字节，不能包含不可见字符。
  * @method void setEncryptedKey(string $EncryptedKey) 设置[Key 防盗链](https://cloud.tencent.com/document/product/266/14047)中用于生成签名的密钥。
+EncryptedKey 字符串的长度为8~40个字节，不能包含不可见字符。
  */
 class UrlSignatureAuthPolicy extends AbstractModel
 {
     /**
      * @var string [Key 防盗链](https://cloud.tencent.com/document/product/266/14047)设置状态，可选值：
-<li>Enabled: 启用；</li>
+<li>Enabled: 启用。</li>
 <li>Disabled: 禁用。</li>
      */
     public $Status;
 
     /**
      * @var string [Key 防盗链](https://cloud.tencent.com/document/product/266/14047)中用于生成签名的密钥。
+EncryptedKey 字符串的长度为8~40个字节，不能包含不可见字符。
      */
     public $EncryptedKey;
 
     /**
      * @param string $Status [Key 防盗链](https://cloud.tencent.com/document/product/266/14047)设置状态，可选值：
-<li>Enabled: 启用；</li>
+<li>Enabled: 启用。</li>
 <li>Disabled: 禁用。</li>
      * @param string $EncryptedKey [Key 防盗链](https://cloud.tencent.com/document/product/266/14047)中用于生成签名的密钥。
+EncryptedKey 字符串的长度为8~40个字节，不能包含不可见字符。
      */
     function __construct()
     {

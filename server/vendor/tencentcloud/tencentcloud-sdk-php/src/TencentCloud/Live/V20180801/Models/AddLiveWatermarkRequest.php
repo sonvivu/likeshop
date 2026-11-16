@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,70 +20,74 @@ use TencentCloud\Common\AbstractModel;
 /**
  * AddLiveWatermark请求参数结构体
  *
- * @method string getPictureUrl() 获取水印图片 URL。
-URL中禁止包含的字符：
- ;(){}$>`#"\'|
- * @method void setPictureUrl(string $PictureUrl) 设置水印图片 URL。
-URL中禁止包含的字符：
- ;(){}$>`#"\'|
- * @method string getWatermarkName() 获取水印名称。
-最长16字节。
- * @method void setWatermarkName(string $WatermarkName) 设置水印名称。
-最长16字节。
- * @method integer getXPosition() 获取显示位置，X轴偏移，单位是百分比，默认 0。
- * @method void setXPosition(integer $XPosition) 设置显示位置，X轴偏移，单位是百分比，默认 0。
- * @method integer getYPosition() 获取显示位置，Y轴偏移，单位是百分比，默认 0。
- * @method void setYPosition(integer $YPosition) 设置显示位置，Y轴偏移，单位是百分比，默认 0。
- * @method integer getWidth() 获取水印宽度，占直播原始画面宽度百分比，建议高宽只设置一项，另外一项会自适应缩放，避免变形。默认原始宽度。
- * @method void setWidth(integer $Width) 设置水印宽度，占直播原始画面宽度百分比，建议高宽只设置一项，另外一项会自适应缩放，避免变形。默认原始宽度。
- * @method integer getHeight() 获取水印高度，占直播原始画面高度百分比，建议高宽只设置一项，另外一项会自适应缩放，避免变形。默认原始高度。
- * @method void setHeight(integer $Height) 设置水印高度，占直播原始画面高度百分比，建议高宽只设置一项，另外一项会自适应缩放，避免变形。默认原始高度。
+ * @method string getPictureUrl() 获取<p>水印图片 URL。<br>URL中禁止包含的字符：<br> ;(){}$&gt;`#&quot;'|</p>
+ * @method void setPictureUrl(string $PictureUrl) 设置<p>水印图片 URL。<br>URL中禁止包含的字符：<br> ;(){}$&gt;`#&quot;'|</p>
+ * @method string getWatermarkName() 获取<p>水印名称。<br>最长30字节。</p>
+ * @method void setWatermarkName(string $WatermarkName) 设置<p>水印名称。<br>最长30字节。</p>
+ * @method integer getXPosition() 获取<p>显示位置，X轴偏移，单位是百分比，默认 0。</p>
+ * @method void setXPosition(integer $XPosition) 设置<p>显示位置，X轴偏移，单位是百分比，默认 0。</p>
+ * @method integer getYPosition() 获取<p>显示位置，Y轴偏移，单位是百分比，默认 0。</p>
+ * @method void setYPosition(integer $YPosition) 设置<p>显示位置，Y轴偏移，单位是百分比，默认 0。</p>
+ * @method integer getWidth() 获取<p>水印宽度，占直播原始画面宽度百分比，建议高宽只设置一项，另外一项会自适应缩放，避免变形。默认原始宽度。</p>
+ * @method void setWidth(integer $Width) 设置<p>水印宽度，占直播原始画面宽度百分比，建议高宽只设置一项，另外一项会自适应缩放，避免变形。默认原始宽度。</p>
+ * @method integer getHeight() 获取<p>水印高度，占直播原始画面高度百分比，建议高宽只设置一项，另外一项会自适应缩放，避免变形。默认原始高度。</p>
+ * @method void setHeight(integer $Height) 设置<p>水印高度，占直播原始画面高度百分比，建议高宽只设置一项，另外一项会自适应缩放，避免变形。默认原始高度。</p>
+ * @method integer getBackgroundWidth() 获取<p>背景水印宽度。默认宽度1920。</p><p>取值范围：[360, 4096]</p><p>单位：px</p>
+ * @method void setBackgroundWidth(integer $BackgroundWidth) 设置<p>背景水印宽度。默认宽度1920。</p><p>取值范围：[360, 4096]</p><p>单位：px</p>
+ * @method integer getBackgroundHeight() 获取<p>背景水印高度。默认高度1080。</p><p>取值范围：[360, 4096]</p><p>单位：px</p>
+ * @method void setBackgroundHeight(integer $BackgroundHeight) 设置<p>背景水印高度。默认高度1080。</p><p>取值范围：[360, 4096]</p><p>单位：px</p>
  */
 class AddLiveWatermarkRequest extends AbstractModel
 {
     /**
-     * @var string 水印图片 URL。
-URL中禁止包含的字符：
- ;(){}$>`#"\'|
+     * @var string <p>水印图片 URL。<br>URL中禁止包含的字符：<br> ;(){}$&gt;`#&quot;'|</p>
      */
     public $PictureUrl;
 
     /**
-     * @var string 水印名称。
-最长16字节。
+     * @var string <p>水印名称。<br>最长30字节。</p>
      */
     public $WatermarkName;
 
     /**
-     * @var integer 显示位置，X轴偏移，单位是百分比，默认 0。
+     * @var integer <p>显示位置，X轴偏移，单位是百分比，默认 0。</p>
      */
     public $XPosition;
 
     /**
-     * @var integer 显示位置，Y轴偏移，单位是百分比，默认 0。
+     * @var integer <p>显示位置，Y轴偏移，单位是百分比，默认 0。</p>
      */
     public $YPosition;
 
     /**
-     * @var integer 水印宽度，占直播原始画面宽度百分比，建议高宽只设置一项，另外一项会自适应缩放，避免变形。默认原始宽度。
+     * @var integer <p>水印宽度，占直播原始画面宽度百分比，建议高宽只设置一项，另外一项会自适应缩放，避免变形。默认原始宽度。</p>
      */
     public $Width;
 
     /**
-     * @var integer 水印高度，占直播原始画面高度百分比，建议高宽只设置一项，另外一项会自适应缩放，避免变形。默认原始高度。
+     * @var integer <p>水印高度，占直播原始画面高度百分比，建议高宽只设置一项，另外一项会自适应缩放，避免变形。默认原始高度。</p>
      */
     public $Height;
 
     /**
-     * @param string $PictureUrl 水印图片 URL。
-URL中禁止包含的字符：
- ;(){}$>`#"\'|
-     * @param string $WatermarkName 水印名称。
-最长16字节。
-     * @param integer $XPosition 显示位置，X轴偏移，单位是百分比，默认 0。
-     * @param integer $YPosition 显示位置，Y轴偏移，单位是百分比，默认 0。
-     * @param integer $Width 水印宽度，占直播原始画面宽度百分比，建议高宽只设置一项，另外一项会自适应缩放，避免变形。默认原始宽度。
-     * @param integer $Height 水印高度，占直播原始画面高度百分比，建议高宽只设置一项，另外一项会自适应缩放，避免变形。默认原始高度。
+     * @var integer <p>背景水印宽度。默认宽度1920。</p><p>取值范围：[360, 4096]</p><p>单位：px</p>
+     */
+    public $BackgroundWidth;
+
+    /**
+     * @var integer <p>背景水印高度。默认高度1080。</p><p>取值范围：[360, 4096]</p><p>单位：px</p>
+     */
+    public $BackgroundHeight;
+
+    /**
+     * @param string $PictureUrl <p>水印图片 URL。<br>URL中禁止包含的字符：<br> ;(){}$&gt;`#&quot;'|</p>
+     * @param string $WatermarkName <p>水印名称。<br>最长30字节。</p>
+     * @param integer $XPosition <p>显示位置，X轴偏移，单位是百分比，默认 0。</p>
+     * @param integer $YPosition <p>显示位置，Y轴偏移，单位是百分比，默认 0。</p>
+     * @param integer $Width <p>水印宽度，占直播原始画面宽度百分比，建议高宽只设置一项，另外一项会自适应缩放，避免变形。默认原始宽度。</p>
+     * @param integer $Height <p>水印高度，占直播原始画面高度百分比，建议高宽只设置一项，另外一项会自适应缩放，避免变形。默认原始高度。</p>
+     * @param integer $BackgroundWidth <p>背景水印宽度。默认宽度1920。</p><p>取值范围：[360, 4096]</p><p>单位：px</p>
+     * @param integer $BackgroundHeight <p>背景水印高度。默认高度1080。</p><p>取值范围：[360, 4096]</p><p>单位：px</p>
      */
     function __construct()
     {
@@ -120,6 +124,14 @@ URL中禁止包含的字符：
 
         if (array_key_exists("Height",$param) and $param["Height"] !== null) {
             $this->Height = $param["Height"];
+        }
+
+        if (array_key_exists("BackgroundWidth",$param) and $param["BackgroundWidth"] !== null) {
+            $this->BackgroundWidth = $param["BackgroundWidth"];
+        }
+
+        if (array_key_exists("BackgroundHeight",$param) and $param["BackgroundHeight"] !== null) {
+            $this->BackgroundHeight = $param["BackgroundHeight"];
         }
     }
 }

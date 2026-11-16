@@ -22,7 +22,6 @@ namespace app\admin\controller;
 
 use app\admin\logic\AdminLogic;
 use app\admin\logic\RoleLogic;
-use think\facade\Hook;
 
 class Role extends AdminBase
 {
@@ -76,7 +75,7 @@ class Role extends AdminBase
             if ($result !== true) {
                 $this->_error($result);
             }
-            Hook::listen('menu_auth');
+            event('menu_auth');
             $this->_success(lang('修改成功'));
         }
         $auth_tree = RoleLogic::authTree($role_id);
@@ -97,7 +96,7 @@ class Role extends AdminBase
             $result = $this->validate(['id' => $role_id], 'app\admin\validate\Role.del');
             if ($result === true) {
                 RoleLogic::delRole($role_id);
-                Hook::listen('menu_auth');
+                event('menu_auth');
                 $this->_success(lang('删除成功'));
             }
             $this->_error($result);

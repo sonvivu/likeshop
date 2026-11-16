@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,58 +20,62 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeProxySlowLog请求参数结构体
  *
- * @method string getInstanceId() 获取实例Id
- * @method void setInstanceId(string $InstanceId) 设置实例Id
- * @method string getBeginTime() 获取开始时间
- * @method void setBeginTime(string $BeginTime) 设置开始时间
- * @method string getEndTime() 获取结束时间
- * @method void setEndTime(string $EndTime) 设置结束时间
- * @method integer getMinQueryTime() 获取慢查询阈值（单位：毫秒）
- * @method void setMinQueryTime(integer $MinQueryTime) 设置慢查询阈值（单位：毫秒）
- * @method integer getLimit() 获取页面大小
- * @method void setLimit(integer $Limit) 设置页面大小
- * @method integer getOffset() 获取偏移量，取Limit整数倍
- * @method void setOffset(integer $Offset) 设置偏移量，取Limit整数倍
+ * @method string getInstanceId() 获取指定实例 ID。例如：crs-xjhsdj****。请登录[Redis控制台](https://console.cloud.tencent.com/redis)在实例列表复制实例 ID。
+
+ * @method void setInstanceId(string $InstanceId) 设置指定实例 ID。例如：crs-xjhsdj****。请登录[Redis控制台](https://console.cloud.tencent.com/redis)在实例列表复制实例 ID。
+
+ * @method string getBeginTime() 获取慢查询的开始时间，查询时间最大跨度30天。
+ * @method void setBeginTime(string $BeginTime) 设置慢查询的开始时间，查询时间最大跨度30天。
+ * @method string getEndTime() 获取慢查询的结束时间，查询时间最大跨度30天。
+ * @method void setEndTime(string $EndTime) 设置慢查询的结束时间，查询时间最大跨度30天。
+ * @method integer getMinQueryTime() 获取慢查询阈值。取值为大于0 的正整数。单位：毫秒。
+ * @method void setMinQueryTime(integer $MinQueryTime) 设置慢查询阈值。取值为大于0 的正整数。单位：毫秒。
+ * @method integer getLimit() 获取每页输出的任务列表大小。默认值为20，最小值为1，最大值为100。
+ * @method void setLimit(integer $Limit) 设置每页输出的任务列表大小。默认值为20，最小值为1，最大值为100。
+ * @method integer getOffset() 获取分页偏移量。默认为0。取值为 Limit 整数倍。计算公式：offset=limit*(页码-1)。
+ * @method void setOffset(integer $Offset) 设置分页偏移量。默认为0。取值为 Limit 整数倍。计算公式：offset=limit*(页码-1)。
  */
 class DescribeProxySlowLogRequest extends AbstractModel
 {
     /**
-     * @var string 实例Id
+     * @var string 指定实例 ID。例如：crs-xjhsdj****。请登录[Redis控制台](https://console.cloud.tencent.com/redis)在实例列表复制实例 ID。
+
      */
     public $InstanceId;
 
     /**
-     * @var string 开始时间
+     * @var string 慢查询的开始时间，查询时间最大跨度30天。
      */
     public $BeginTime;
 
     /**
-     * @var string 结束时间
+     * @var string 慢查询的结束时间，查询时间最大跨度30天。
      */
     public $EndTime;
 
     /**
-     * @var integer 慢查询阈值（单位：毫秒）
+     * @var integer 慢查询阈值。取值为大于0 的正整数。单位：毫秒。
      */
     public $MinQueryTime;
 
     /**
-     * @var integer 页面大小
+     * @var integer 每页输出的任务列表大小。默认值为20，最小值为1，最大值为100。
      */
     public $Limit;
 
     /**
-     * @var integer 偏移量，取Limit整数倍
+     * @var integer 分页偏移量。默认为0。取值为 Limit 整数倍。计算公式：offset=limit*(页码-1)。
      */
     public $Offset;
 
     /**
-     * @param string $InstanceId 实例Id
-     * @param string $BeginTime 开始时间
-     * @param string $EndTime 结束时间
-     * @param integer $MinQueryTime 慢查询阈值（单位：毫秒）
-     * @param integer $Limit 页面大小
-     * @param integer $Offset 偏移量，取Limit整数倍
+     * @param string $InstanceId 指定实例 ID。例如：crs-xjhsdj****。请登录[Redis控制台](https://console.cloud.tencent.com/redis)在实例列表复制实例 ID。
+
+     * @param string $BeginTime 慢查询的开始时间，查询时间最大跨度30天。
+     * @param string $EndTime 慢查询的结束时间，查询时间最大跨度30天。
+     * @param integer $MinQueryTime 慢查询阈值。取值为大于0 的正整数。单位：毫秒。
+     * @param integer $Limit 每页输出的任务列表大小。默认值为20，最小值为1，最大值为100。
+     * @param integer $Offset 分页偏移量。默认为0。取值为 Limit 整数倍。计算公式：offset=limit*(页码-1)。
      */
     function __construct()
     {

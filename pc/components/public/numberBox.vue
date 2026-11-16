@@ -46,7 +46,7 @@ export default {
   components: {},
   props: {
     // 预显示的数字
-    value: {
+    modelValue: {
       type: Number,
       default: 1
     },
@@ -118,7 +118,7 @@ export default {
     }
   },
   watch: {
-    value(v1, v2) {
+    modelValue(v1, v2) {
       if (!this.changeFromInner) {
         this.inputVal = v1;
         this.$nextTick(function() {
@@ -156,7 +156,7 @@ export default {
     };
   },
   created() {
-    this.inputVal = Number(this.value);
+    this.inputVal = Number(this.modelValue);
   },
   computed: {},
   methods: {
@@ -257,7 +257,7 @@ export default {
       this.innerChangeTimer = setTimeout(() => {
         this.changeFromInner = false;
       }, 150);
-      this.$emit("input", Number(value));
+      this.$emit("update:modelValue", Number(value));
       this.$emit(type, {
         value: Number(value),
         index: this.index

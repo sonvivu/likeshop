@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,13 +31,9 @@ use TencentCloud\Common\AbstractModel;
  * @method boolean getLive() 获取是否为流
  * @method void setLive(boolean $Live) 设置是否为流
  * @method string getMsg() 获取业务返回描述
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setMsg(string $Msg) 设置业务返回描述
-注意：此字段可能返回 null，表示取不到有效值。
  * @method array getScanPiece() 获取检测结果，Code 为 0 时返回
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setScanPiece(array $ScanPiece) 设置检测结果，Code 为 0 时返回
-注意：此字段可能返回 null，表示取不到有效值。
  * @method integer getScanStartTime() 获取提交检测的时间戳
  * @method void setScanStartTime(integer $ScanStartTime) 设置提交检测的时间戳
  * @method array getScenes() 获取语音检测场景，对应请求时的 Scene
@@ -54,6 +50,8 @@ use TencentCloud\Common\AbstractModel;
 <li>Start: 任务开始</li>
 <li>Success: 成功结束</li>
 <li>Error: 异常</li>
+ * @method integer getBizId() 获取提交检测的应用 ID
+ * @method void setBizId(integer $BizId) 设置提交检测的应用 ID
  */
 class DescribeScanResult extends AbstractModel
 {
@@ -84,13 +82,11 @@ class DescribeScanResult extends AbstractModel
 
     /**
      * @var string 业务返回描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Msg;
 
     /**
      * @var array 检测结果，Code 为 0 时返回
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $ScanPiece;
 
@@ -123,15 +119,18 @@ class DescribeScanResult extends AbstractModel
     public $Status;
 
     /**
+     * @var integer 提交检测的应用 ID
+     */
+    public $BizId;
+
+    /**
      * @param integer $Code 业务返回码
      * @param string $DataId 数据唯一 ID
      * @param integer $ScanFinishTime 检测完成的时间戳
      * @param boolean $HitFlag 是否违规
      * @param boolean $Live 是否为流
      * @param string $Msg 业务返回描述
-注意：此字段可能返回 null，表示取不到有效值。
      * @param array $ScanPiece 检测结果，Code 为 0 时返回
-注意：此字段可能返回 null，表示取不到有效值。
      * @param integer $ScanStartTime 提交检测的时间戳
      * @param array $Scenes 语音检测场景，对应请求时的 Scene
      * @param string $TaskId 语音检测任务 ID，由后台分配
@@ -140,6 +139,7 @@ class DescribeScanResult extends AbstractModel
 <li>Start: 任务开始</li>
 <li>Success: 成功结束</li>
 <li>Error: 异常</li>
+     * @param integer $BizId 提交检测的应用 ID
      */
     function __construct()
     {
@@ -205,6 +205,10 @@ class DescribeScanResult extends AbstractModel
 
         if (array_key_exists("Status",$param) and $param["Status"] !== null) {
             $this->Status = $param["Status"];
+        }
+
+        if (array_key_exists("BizId",$param) and $param["BizId"] !== null) {
+            $this->BizId = $param["BizId"];
         }
     }
 }

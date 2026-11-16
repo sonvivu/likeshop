@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,11 +31,19 @@ use TencentCloud\Common\AbstractModel;
 <li>转码时长的数据，单位是秒。</li>
 <li>流量数据，单位是字节。</li>
 <li>带宽数据，单位是比特每秒。</li>
+<li>直播剪辑数据，单位是秒。</li>
+<li>轮播数据，单位是秒。</li>
+<li>子应用数量数据，单位是个。</li>
+<li>日志服务用量数据，单位是条。</li>
  * @method void setValue(integer $Value) 设置数据大小。
 <li>存储空间的数据，单位是字节。</li>
 <li>转码时长的数据，单位是秒。</li>
 <li>流量数据，单位是字节。</li>
 <li>带宽数据，单位是比特每秒。</li>
+<li>直播剪辑数据，单位是秒。</li>
+<li>轮播数据，单位是秒。</li>
+<li>子应用数量数据，单位是个。</li>
+<li>日志服务用量数据，单位是条。</li>
  */
 class StatDataItem extends AbstractModel
 {
@@ -52,6 +60,10 @@ class StatDataItem extends AbstractModel
 <li>转码时长的数据，单位是秒。</li>
 <li>流量数据，单位是字节。</li>
 <li>带宽数据，单位是比特每秒。</li>
+<li>直播剪辑数据，单位是秒。</li>
+<li>轮播数据，单位是秒。</li>
+<li>子应用数量数据，单位是个。</li>
+<li>日志服务用量数据，单位是条。</li>
      */
     public $Value;
 
@@ -64,6 +76,10 @@ class StatDataItem extends AbstractModel
 <li>转码时长的数据，单位是秒。</li>
 <li>流量数据，单位是字节。</li>
 <li>带宽数据，单位是比特每秒。</li>
+<li>直播剪辑数据，单位是秒。</li>
+<li>轮播数据，单位是秒。</li>
+<li>子应用数量数据，单位是个。</li>
+<li>日志服务用量数据，单位是条。</li>
      */
     function __construct()
     {

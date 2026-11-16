@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,8 +22,8 @@ use TencentCloud\Common\AbstractModel;
  *
  * @method integer getDays() 获取触发时间（单位天）
  * @method void setDays(integer $Days) 设置触发时间（单位天）
- * @method integer getType() 获取转换类型（1：归档；2：删除）
- * @method void setType(integer $Type) 设置转换类型（1：归档；2：删除）
+ * @method integer getType() 获取转换类型（1：归档；2：删除；3：低频；4：深度归档；5：智能分层）
+ * @method void setType(integer $Type) 设置转换类型（1：归档；2：删除；3：低频；4：深度归档；5：智能分层）
  */
 class Transition extends AbstractModel
 {
@@ -33,13 +33,13 @@ class Transition extends AbstractModel
     public $Days;
 
     /**
-     * @var integer 转换类型（1：归档；2：删除）
+     * @var integer 转换类型（1：归档；2：删除；3：低频；4：深度归档；5：智能分层）
      */
     public $Type;
 
     /**
      * @param integer $Days 触发时间（单位天）
-     * @param integer $Type 转换类型（1：归档；2：删除）
+     * @param integer $Type 转换类型（1：归档；2：删除；3：低频；4：深度归档；5：智能分层）
      */
     function __construct()
     {

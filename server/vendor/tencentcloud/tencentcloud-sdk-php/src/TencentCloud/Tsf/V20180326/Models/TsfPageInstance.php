@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,33 +21,25 @@ use TencentCloud\Common\AbstractModel;
  * TSF机器实例分页对象
  *
  * @method integer getTotalCount() 获取机器实例总数目
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setTotalCount(integer $TotalCount) 设置机器实例总数目
-注意：此字段可能返回 null，表示取不到有效值。
  * @method array getContent() 获取机器实例列表
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setContent(array $Content) 设置机器实例列表
-注意：此字段可能返回 null，表示取不到有效值。
  */
 class TsfPageInstance extends AbstractModel
 {
     /**
      * @var integer 机器实例总数目
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $TotalCount;
 
     /**
      * @var array 机器实例列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Content;
 
     /**
      * @param integer $TotalCount 机器实例总数目
-注意：此字段可能返回 null，表示取不到有效值。
      * @param array $Content 机器实例列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
     {

@@ -12,7 +12,7 @@
         </view>
     </view>
     <view class="main">
-        <u-parse :html="article_content" :tag-style="tagStyle" />
+        <u-parse :content="article_content" :tag-style="tagStyle" />
     </view>
 </view>
 <loading-view v-if="showLoading"></loading-view>

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,9 +29,9 @@ use TencentCloud\Common\AbstractModel;
  * @method integer getDeviceStatus() 获取设备状态ID，取值：<li>1：申领设备中</li><li>2：初始化中</li><li>4：运营中</li><li>7：隔离中</li><li>8：已隔离</li><li>10：解隔离中</li><li>16：故障中</li>
  * @method void setDeviceStatus(integer $DeviceStatus) 设置设备状态ID，取值：<li>1：申领设备中</li><li>2：初始化中</li><li>4：运营中</li><li>7：隔离中</li><li>8：已隔离</li><li>10：解隔离中</li><li>16：故障中</li>
  * @method integer getOperateStatus() 获取设备操作状态ID，取值：
-<li>1：运行中</li><li>2：正在关机</li><li>3：已关机</li><li>5：正在开机</li><li>7：重启中</li><li>9：重装中</li><li>12：绑定EIP</li><li>13：解绑EIP</li><li>14：绑定LB</li><li>15：解绑LB</li><li>19：更换IP中</li><li>20：制作镜像中</li><li>21：制作镜像失败</li><li>23：故障待重装</li>
+<li>1：运行中</li><li>2：正在关机</li><li>3：已关机</li><li>5：正在开机</li><li>7：重启中</li><li>9：重装中</li><li>12：绑定EIP</li><li>13：解绑EIP</li><li>14：绑定LB</li><li>15：解绑LB</li><li>19：更换IP中</li><li>20：制作镜像中</li><li>21：制作镜像失败</li><li>23：故障待重装</li><li>24：无备件待退回</li>
  * @method void setOperateStatus(integer $OperateStatus) 设置设备操作状态ID，取值：
-<li>1：运行中</li><li>2：正在关机</li><li>3：已关机</li><li>5：正在开机</li><li>7：重启中</li><li>9：重装中</li><li>12：绑定EIP</li><li>13：解绑EIP</li><li>14：绑定LB</li><li>15：解绑LB</li><li>19：更换IP中</li><li>20：制作镜像中</li><li>21：制作镜像失败</li><li>23：故障待重装</li>
+<li>1：运行中</li><li>2：正在关机</li><li>3：已关机</li><li>5：正在开机</li><li>7：重启中</li><li>9：重装中</li><li>12：绑定EIP</li><li>13：解绑EIP</li><li>14：绑定LB</li><li>15：解绑LB</li><li>19：更换IP中</li><li>20：制作镜像中</li><li>21：制作镜像失败</li><li>23：故障待重装</li><li>24：无备件待退回</li>
  * @method integer getOsTypeId() 获取操作系统ID，参考接口[查询操作系统信息(DescribeOsInfo)](https://cloud.tencent.com/document/product/386/32902)
  * @method void setOsTypeId(integer $OsTypeId) 设置操作系统ID，参考接口[查询操作系统信息(DescribeOsInfo)](https://cloud.tencent.com/document/product/386/32902)
  * @method integer getRaidId() 获取RAID类型ID，参考接口[查询机型RAID方式以及系统盘大小(DescribeDeviceClassPartition)](https://cloud.tencent.com/document/product/386/32910)
@@ -70,6 +70,14 @@ use TencentCloud\Common\AbstractModel;
  * @method void setSubnetCidrBlock(string $SubnetCidrBlock) 设置所在子网CIDR
  * @method integer getIsLuckyDevice() 获取标识是否是竞价实例。0: 普通设备; 1: 竞价实例设备
  * @method void setIsLuckyDevice(integer $IsLuckyDevice) 设置标识是否是竞价实例。0: 普通设备; 1: 竞价实例设备
+ * @method string getMaintainStatus() 获取标识机器维保状态。Maintain: 在保;  WillExpire: 即将过保; Expire: 已过保
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setMaintainStatus(string $MaintainStatus) 设置标识机器维保状态。Maintain: 在保;  WillExpire: 即将过保; Expire: 已过保
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getMaintainMessage() 获取维保信息描述
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setMaintainMessage(string $MaintainMessage) 设置维保信息描述
+注意：此字段可能返回 null，表示取不到有效值。
  */
 class DeviceInfo extends AbstractModel
 {
@@ -95,7 +103,7 @@ class DeviceInfo extends AbstractModel
 
     /**
      * @var integer 设备操作状态ID，取值：
-<li>1：运行中</li><li>2：正在关机</li><li>3：已关机</li><li>5：正在开机</li><li>7：重启中</li><li>9：重装中</li><li>12：绑定EIP</li><li>13：解绑EIP</li><li>14：绑定LB</li><li>15：解绑LB</li><li>19：更换IP中</li><li>20：制作镜像中</li><li>21：制作镜像失败</li><li>23：故障待重装</li>
+<li>1：运行中</li><li>2：正在关机</li><li>3：已关机</li><li>5：正在开机</li><li>7：重启中</li><li>9：重装中</li><li>12：绑定EIP</li><li>13：解绑EIP</li><li>14：绑定LB</li><li>15：解绑LB</li><li>19：更换IP中</li><li>20：制作镜像中</li><li>21：制作镜像失败</li><li>23：故障待重装</li><li>24：无备件待退回</li>
      */
     public $OperateStatus;
 
@@ -195,12 +203,24 @@ class DeviceInfo extends AbstractModel
     public $IsLuckyDevice;
 
     /**
+     * @var string 标识机器维保状态。Maintain: 在保;  WillExpire: 即将过保; Expire: 已过保
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $MaintainStatus;
+
+    /**
+     * @var string 维保信息描述
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $MaintainMessage;
+
+    /**
      * @param string $InstanceId 设备唯一ID
      * @param string $VpcId 私有网络ID
      * @param string $SubnetId 子网ID
      * @param integer $DeviceStatus 设备状态ID，取值：<li>1：申领设备中</li><li>2：初始化中</li><li>4：运营中</li><li>7：隔离中</li><li>8：已隔离</li><li>10：解隔离中</li><li>16：故障中</li>
      * @param integer $OperateStatus 设备操作状态ID，取值：
-<li>1：运行中</li><li>2：正在关机</li><li>3：已关机</li><li>5：正在开机</li><li>7：重启中</li><li>9：重装中</li><li>12：绑定EIP</li><li>13：解绑EIP</li><li>14：绑定LB</li><li>15：解绑LB</li><li>19：更换IP中</li><li>20：制作镜像中</li><li>21：制作镜像失败</li><li>23：故障待重装</li>
+<li>1：运行中</li><li>2：正在关机</li><li>3：已关机</li><li>5：正在开机</li><li>7：重启中</li><li>9：重装中</li><li>12：绑定EIP</li><li>13：解绑EIP</li><li>14：绑定LB</li><li>15：解绑LB</li><li>19：更换IP中</li><li>20：制作镜像中</li><li>21：制作镜像失败</li><li>23：故障待重装</li><li>24：无备件待退回</li>
      * @param integer $OsTypeId 操作系统ID，参考接口[查询操作系统信息(DescribeOsInfo)](https://cloud.tencent.com/document/product/386/32902)
      * @param integer $RaidId RAID类型ID，参考接口[查询机型RAID方式以及系统盘大小(DescribeDeviceClassPartition)](https://cloud.tencent.com/document/product/386/32910)
      * @param string $Alias 设备别名
@@ -220,6 +240,10 @@ class DeviceInfo extends AbstractModel
      * @param string $VpcCidrBlock 所在私有网络CIDR
      * @param string $SubnetCidrBlock 所在子网CIDR
      * @param integer $IsLuckyDevice 标识是否是竞价实例。0: 普通设备; 1: 竞价实例设备
+     * @param string $MaintainStatus 标识机器维保状态。Maintain: 在保;  WillExpire: 即将过保; Expire: 已过保
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $MaintainMessage 维保信息描述
+注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
     {
@@ -333,6 +357,14 @@ class DeviceInfo extends AbstractModel
 
         if (array_key_exists("IsLuckyDevice",$param) and $param["IsLuckyDevice"] !== null) {
             $this->IsLuckyDevice = $param["IsLuckyDevice"];
+        }
+
+        if (array_key_exists("MaintainStatus",$param) and $param["MaintainStatus"] !== null) {
+            $this->MaintainStatus = $param["MaintainStatus"];
+        }
+
+        if (array_key_exists("MaintainMessage",$param) and $param["MaintainMessage"] !== null) {
+            $this->MaintainMessage = $param["MaintainMessage"];
         }
     }
 }

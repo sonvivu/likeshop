@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,8 +22,8 @@ use TencentCloud\Common\AbstractModel;
  *
  * @method string getSkey() 获取控制台Skey
  * @method void setSkey(string $Skey) 设置控制台Skey
- * @method integer getQueueType() 获取队列类型
- * @method void setQueueType(integer $QueueType) 设置队列类型
+ * @method integer getQueueType() 获取队列类型 0.CMQ  1.Ckafka
+ * @method void setQueueType(integer $QueueType) 设置队列类型 0.CMQ  1.Ckafka
  */
 class CheckForwardAuthRequest extends AbstractModel
 {
@@ -33,13 +33,13 @@ class CheckForwardAuthRequest extends AbstractModel
     public $Skey;
 
     /**
-     * @var integer 队列类型
+     * @var integer 队列类型 0.CMQ  1.Ckafka
      */
     public $QueueType;
 
     /**
      * @param string $Skey 控制台Skey
-     * @param integer $QueueType 队列类型
+     * @param integer $QueueType 队列类型 0.CMQ  1.Ckafka
      */
     function __construct()
     {

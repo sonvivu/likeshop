@@ -38,11 +38,12 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState } from "pinia";
+import { useAppStore } from "~/stores/app";
 export default {
   created() {},
   computed: {
-    ...mapState(["publicData"]),
+    ...mapState(useAppStore, ["publicData"]),
   },
 };
 </script>

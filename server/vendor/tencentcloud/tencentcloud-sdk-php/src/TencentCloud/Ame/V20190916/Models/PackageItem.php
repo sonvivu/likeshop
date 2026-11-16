@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,6 +34,8 @@ use TencentCloud\Common\AbstractModel;
  * @method void setDuration(string $Duration) 设置歌曲时长
  * @method string getAuthorizedArea() 获取授权区域，global: 全球 CN: 中国
  * @method void setAuthorizedArea(string $AuthorizedArea) 设置授权区域，global: 全球 CN: 中国
+ * @method array getTags() 获取标签数组
+ * @method void setTags(array $Tags) 设置标签数组
  */
 class PackageItem extends AbstractModel
 {
@@ -73,6 +75,11 @@ class PackageItem extends AbstractModel
     public $AuthorizedArea;
 
     /**
+     * @var array 标签数组
+     */
+    public $Tags;
+
+    /**
      * @param string $OrderId 订单id
      * @param string $TrackName 歌曲名
      * @param string $ItemID 歌曲ID
@@ -80,6 +87,7 @@ class PackageItem extends AbstractModel
      * @param string $ArtistName 歌手名
      * @param string $Duration 歌曲时长
      * @param string $AuthorizedArea 授权区域，global: 全球 CN: 中国
+     * @param array $Tags 标签数组
      */
     function __construct()
     {
@@ -120,6 +128,10 @@ class PackageItem extends AbstractModel
 
         if (array_key_exists("AuthorizedArea",$param) and $param["AuthorizedArea"] !== null) {
             $this->AuthorizedArea = $param["AuthorizedArea"];
+        }
+
+        if (array_key_exists("Tags",$param) and $param["Tags"] !== null) {
+            $this->Tags = $param["Tags"];
         }
     }
 }

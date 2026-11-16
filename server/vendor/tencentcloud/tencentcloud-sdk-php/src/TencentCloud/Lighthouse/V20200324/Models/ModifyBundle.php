@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,6 +32,8 @@ use TencentCloud\Common\AbstractModel;
 <li>UNAVAILABLE：暂不支持套餐变更</li>
  * @method Bundle getBundle() 获取套餐信息。
  * @method void setBundle(Bundle $Bundle) 设置套餐信息。
+ * @method string getNotSupportModifyMessage() 获取不支持套餐变更原因信息。变更套餐状态为"AVAILABLE"时, 该信息为空
+ * @method void setNotSupportModifyMessage(string $NotSupportModifyMessage) 设置不支持套餐变更原因信息。变更套餐状态为"AVAILABLE"时, 该信息为空
  */
 class ModifyBundle extends AbstractModel
 {
@@ -54,12 +56,18 @@ class ModifyBundle extends AbstractModel
     public $Bundle;
 
     /**
+     * @var string 不支持套餐变更原因信息。变更套餐状态为"AVAILABLE"时, 该信息为空
+     */
+    public $NotSupportModifyMessage;
+
+    /**
      * @param Price $ModifyPrice 更改实例套餐后需要补的差价。
      * @param string $ModifyBundleState 变更套餐状态。取值：
 <li>SOLD_OUT：套餐售罄</li>
 <li>AVAILABLE：支持套餐变更</li>
 <li>UNAVAILABLE：暂不支持套餐变更</li>
      * @param Bundle $Bundle 套餐信息。
+     * @param string $NotSupportModifyMessage 不支持套餐变更原因信息。变更套餐状态为"AVAILABLE"时, 该信息为空
      */
     function __construct()
     {
@@ -86,6 +94,10 @@ class ModifyBundle extends AbstractModel
         if (array_key_exists("Bundle",$param) and $param["Bundle"] !== null) {
             $this->Bundle = new Bundle();
             $this->Bundle->deserialize($param["Bundle"]);
+        }
+
+        if (array_key_exists("NotSupportModifyMessage",$param) and $param["NotSupportModifyMessage"] !== null) {
+            $this->NotSupportModifyMessage = $param["NotSupportModifyMessage"];
         }
     }
 }

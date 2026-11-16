@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,17 +27,23 @@ use TencentCloud\Common\AbstractModel;
  * @method integer getUid() 获取子用户 UID
  * @method void setUid(integer $Uid) 设置子用户 UID
  * @method string getRemark() 获取子用户备注
+注意：此字段可能返回 null，表示取不到有效值。
  * @method void setRemark(string $Remark) 设置子用户备注
- * @method integer getConsoleLogin() 获取子用户能否登录控制台
- * @method void setConsoleLogin(integer $ConsoleLogin) 设置子用户能否登录控制台
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method integer getConsoleLogin() 获取子用户能否登录控制台 0-无法登录控制台，1-可以登录控制台
+ * @method void setConsoleLogin(integer $ConsoleLogin) 设置子用户能否登录控制台 0-无法登录控制台，1-可以登录控制台
  * @method string getPhoneNum() 获取手机号
  * @method void setPhoneNum(string $PhoneNum) 设置手机号
  * @method string getCountryCode() 获取区号
  * @method void setCountryCode(string $CountryCode) 设置区号
  * @method string getEmail() 获取邮箱
  * @method void setEmail(string $Email) 设置邮箱
- * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
- * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method string getRecentlyLoginIP() 获取最近一次登录ip
+ * @method void setRecentlyLoginIP(string $RecentlyLoginIP) 设置最近一次登录ip
+ * @method string getRecentlyLoginTime() 获取最近一次登录时间
+ * @method void setRecentlyLoginTime(string $RecentlyLoginTime) 设置最近一次登录时间
+ * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+ * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
 class GetUserResponse extends AbstractModel
 {
@@ -58,11 +64,12 @@ class GetUserResponse extends AbstractModel
 
     /**
      * @var string 子用户备注
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Remark;
 
     /**
-     * @var integer 子用户能否登录控制台
+     * @var integer 子用户能否登录控制台 0-无法登录控制台，1-可以登录控制台
      */
     public $ConsoleLogin;
 
@@ -82,7 +89,17 @@ class GetUserResponse extends AbstractModel
     public $Email;
 
     /**
-     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @var string 最近一次登录ip
+     */
+    public $RecentlyLoginIP;
+
+    /**
+     * @var string 最近一次登录时间
+     */
+    public $RecentlyLoginTime;
+
+    /**
+     * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public $RequestId;
 
@@ -91,11 +108,14 @@ class GetUserResponse extends AbstractModel
      * @param string $Name 子用户用户名
      * @param integer $Uid 子用户 UID
      * @param string $Remark 子用户备注
-     * @param integer $ConsoleLogin 子用户能否登录控制台
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param integer $ConsoleLogin 子用户能否登录控制台 0-无法登录控制台，1-可以登录控制台
      * @param string $PhoneNum 手机号
      * @param string $CountryCode 区号
      * @param string $Email 邮箱
-     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @param string $RecentlyLoginIP 最近一次登录ip
+     * @param string $RecentlyLoginTime 最近一次登录时间
+     * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
     {
@@ -140,6 +160,14 @@ class GetUserResponse extends AbstractModel
 
         if (array_key_exists("Email",$param) and $param["Email"] !== null) {
             $this->Email = $param["Email"];
+        }
+
+        if (array_key_exists("RecentlyLoginIP",$param) and $param["RecentlyLoginIP"] !== null) {
+            $this->RecentlyLoginIP = $param["RecentlyLoginIP"];
+        }
+
+        if (array_key_exists("RecentlyLoginTime",$param) and $param["RecentlyLoginTime"] !== null) {
+            $this->RecentlyLoginTime = $param["RecentlyLoginTime"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

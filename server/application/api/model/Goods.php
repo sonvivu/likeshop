@@ -20,7 +20,7 @@ namespace app\api\model;
 use app\common\model\DistributionGoods;
 use app\common\server\ConfigServer;
 use app\common\server\UrlServer;
-use think\Db;
+use think\facade\Db;
 use think\Model;
 
 class Goods extends Model{
@@ -113,7 +113,7 @@ class Goods extends Model{
 
     public function getCommentAttr($value,$data){
         $comment = [];
-        $goods_comment = Db::name('goods_comment g')
+        $goods_comment = Db::name('goods_comment')->alias('g')
                 ->leftjoin('user u','g.user_id = u.id')
                 ->where(['goods_id'=>$data['id'],'g.del'=>0,'g.status'=>1])
                 ->order('g.id desc')

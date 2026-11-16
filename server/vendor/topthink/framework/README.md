@@ -1,98 +1,84 @@
-![](https://box.kancloud.cn/5a0aaa69a5ff42657b5c4715f3d49221) 
+![](https://www.thinkphp.cn/uploads/images/20230630/300c856765af4d8ae758c503185f8739.png)
 
-ThinkPHP 5.1（LTS） —— 12载初心，你值得信赖的PHP框架
-===============
+# ThinkPHP 8
 
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/top-think/framework/badges/quality-score.png?b=5.1)](https://scrutinizer-ci.com/g/top-think/framework/?branch=5.1)
-[![Build Status](https://travis-ci.org/top-think/framework.svg?branch=master)](https://travis-ci.org/top-think/framework)
+[![build](https://github.com/top-think/framework/actions/workflows/build.yml/badge.svg?branch=8.0)](https://github.com/top-think/framework/actions)
 [![Total Downloads](https://poser.pugx.org/topthink/framework/downloads)](https://packagist.org/packages/topthink/framework)
 [![Latest Stable Version](https://poser.pugx.org/topthink/framework/v/stable)](https://packagist.org/packages/topthink/framework)
-[![PHP Version](https://img.shields.io/badge/php-%3E%3D5.6-8892BF.svg)](http://www.php.net/)
+[![PHP Version](https://img.shields.io/badge/php-%3E%3D8.0-8892BF.svg)](http://www.php.net/)
 [![License](https://poser.pugx.org/topthink/framework/license)](https://packagist.org/packages/topthink/framework)
 
-ThinkPHP5.1对底层架构做了进一步的改进，减少依赖，其主要特性包括：
+## 主要特性
 
- + 采用容器统一管理对象
- + 支持Facade
- + 更易用的路由
- + 注解路由支持
- + 路由跨域请求支持
- + 验证类增强
- + 配置和路由目录独立
- + 取消系统常量
- + 类库别名机制
- + 模型和数据库增强
- + 依赖注入完善
- + 支持PSR-3日志规范
- + 中间件支持（`V5.1.6+`）
- + 支持`Swoole`/`Workerman`运行（`V5.1.18+`）
+- 基于 PHP`8.0+`重构
+- 升级`PSR`依赖
+- 依赖`think-orm`3.0+ 版本
+- 全新的`think-dumper`支持远程调试
+- `6.0`/`6.1`无缝升级
 
-官方已经正式宣布`5.1.27`版本为LTS版本。
+> ThinkPHP8 的运行环境要求 PHP8.0+
 
-### 废除的功能：
+现在开始，你可以使用官方提供的[ThinkChat](https://chat.topthink.com/)，让你在学习 ThinkPHP 的旅途中享受私人 AI 助理服务！
 
- + 聚合模型
- + 内置控制器扩展类
- + 模型自动验证
+[![](https://www.topthink.com/uploads/assistant/20230630/4d1a3f0ad2958b49bb8189b7ef824cb0.png)](https://chat.topthink.com/)
 
-> ThinkPHP5.1的运行环境要求PHP5.6+ 兼容PHP8.0。
+ThinkPHP 生态服务由[顶想云](https://www.topthink.com)（TOPThink Cloud）提供，为生态提供专业的开发者服务和价值之选。
 
+## 文档
+
+[完全开发手册](https://doc.thinkphp.cn)
+
+基于官方手册的数据训练和提供精准解答服务
+[官方专家智能体](https://chat.topthink.com/chat/eorole)
+
+## 赞助商
+
+全新的[赞助计划](https://www.thinkphp.cn/sponsor)可以让你通过我们的网站、手册、欢迎页及 GIT 仓库获得巨大曝光，同时提升企业的品牌声誉，也更好保障 ThinkPHP 的可持续发展。
+
+[![](https://www.thinkphp.cn/sponsor/special.svg)](https://www.thinkphp.cn/sponsor/special)
+
+[![](https://www.thinkphp.cn/sponsor.svg)](https://www.thinkphp.cn/sponsor)
 
 ## 安装
 
-使用composer安装
-
-~~~
+```
 composer create-project topthink/think tp
-~~~
+```
 
 启动服务
 
-~~~
+```
 cd tp
 php think run
-~~~
+```
 
 然后就可以在浏览器中访问
 
-~~~
+```
 http://localhost:8000
-~~~
+```
 
-更新框架
-~~~
+如果需要更新框架使用
+
+```
 composer update topthink/framework
-~~~
-
-
-## 在线手册
-
-+ [完全开发手册](https://www.kancloud.cn/manual/thinkphp5_1/content)
-+ [升级指导](https://www.kancloud.cn/manual/thinkphp5_1/354155) 
-
-
-## 官方服务
-
-+ [应用服务市场](https://market.topthink.com/)
-+ [ThinkAPI——统一API服务](https://docs.topthink.com/think-api) 
+```
 
 ## 命名规范
 
-`ThinkPHP5.1`遵循PSR-2命名规范和PSR-4自动加载规范。
+`ThinkPHP`遵循 PSR-2 命名规范和 PSR-4 自动加载规范。
 
 ## 参与开发
 
-请参阅 [ThinkPHP5 核心框架包](https://github.com/top-think/framework)。
+直接提交 PR 或者 Issue 即可
 
 ## 版权信息
 
-ThinkPHP遵循Apache2开源协议发布，并提供免费使用。
+ThinkPHP 遵循 Apache2 开源协议发布，并提供免费使用。
 
 本项目包含的第三方源码和二进制文件之版权信息另行标注。
 
-版权所有Copyright © 2006-2018 by ThinkPHP (http://thinkphp.cn)
-
-All rights reserved。
+版权所有 Copyright © 2006-2025 by ThinkPHP (http://thinkphp.cn) All rights reserved。
 
 ThinkPHP® 商标和著作权所有者为上海顶想信息科技有限公司。
 

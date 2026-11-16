@@ -24,10 +24,10 @@
 			</view>
 		</view>
 		<loading-footer :status="status" slot-empty>
-			<view class="data-null column-center" slot="empty">
+						<template #empty><view class="data-null column-center">
 				<image class="img-null" src="/static/images/order_null.png"></image>
 				<text class="nr muted">{{ $t('暂无直播~') }}</text>
-			</view>
+			</view></template>
 		</loading-footer>
 		<!-- #endif -->
 		<!-- #ifndef MP-WEIXIN -->

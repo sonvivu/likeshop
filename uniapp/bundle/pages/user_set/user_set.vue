@@ -71,7 +71,7 @@
                 </view>
             </view>
         </view>
-        <u-popup type="center" closeable v-model="showMobile" mode="center" border-radius="14">
+        <u-popup type="center" closeable v-model:show="showMobile" mode="center" round="14">
             <view class="modify-container column-center bg-white" v-show="showMobile">
                 <view class="title xl">{{ userInfo.mobile ? $t('更换手机号') : $t('绑定手机号') }}</view>
                 <view class="modify-row row" v-if="userInfo.mobile">
@@ -90,13 +90,13 @@
                         :placeholder="$t('请输入验证码')"
                     />
                     <view class="send-code-btn nr row-center" @click="$sendSms">
-                        <u-verification-code
+                        <u-code
                             :keep-running="true"
                             ref="uCode"
                             @change="codeChange"
                             unique-key="page-b"
                         >
-                        </u-verification-code>
+                        </u-code>
                         <view class="xs">{{ tips }}</view>
                     </view>
                 </view>
@@ -115,11 +115,11 @@
 
         <!-- 昵称修改组件 -->
         <u-popup
-            v-model="showNickName"
+            v-model:show="showNickName"
             :closeable="true"
-            :maskCloseAble="false"
+            :close-on-click-overlay="false"
             mode="center"
-            border-radius="14"
+            round="14"
         >
             <view
                 class="modify-container column-center bg-white"
@@ -141,7 +141,7 @@
                 </form>
             </view>
         </u-popup>
-        <u-popup v-model="showPwd" closeable mode="center" border-radius="14">
+        <u-popup v-model:show="showPwd" closeable mode="center" round="14">
             <view class="modify-container column-center bg-white" v-show="showPwd">
                 <view class="title xl">{{ $t('设置密码') }}</view>
                 <view class="modify-row row">
@@ -170,13 +170,13 @@
                         :placeholder="$t('请输入验证码')"
                     />
                     <view class="send-code-btn nr row-center" @click="$sendSms">
-                        <u-verification-code
+                        <u-code
                             :keep-running="true"
                             ref="uCode"
                             @change="codeChange"
                             unique-key="page-a"
                         >
-                        </u-verification-code>
+                        </u-code>
                         <view class="xs">{{ tips }}</view>
                     </view>
                 </view>
@@ -192,10 +192,9 @@
             </view>
         </u-popup>
         <u-picker
-            mode="selector"
-            v-model="showPicker"
-            :default-selector="[0]"
-            :range="sexList"
+            v-model:show="showPicker"
+            :columns="[sexList]"
+            :default-index="[0]"
             @confirm="onConfirm"
         />
     </view>
@@ -268,7 +267,7 @@ export default {
             // 此为uView的跳转方法，详见"文档-JS"部分，也可以用uni的uni.navigateTo
             uni.$u.route({
                 // 关于此路径，请见下方"注意事项"
-                url: '/components/uview-ui/components/u-avatar-cropper/u-avatar-cropper',
+                url: '/pages/avatar_cropper/avatar_cropper',
                 // 内部已设置以下默认参数值，可不传这些参数
                 params: {
                     // 输出图片宽度，高等于宽，单位px
@@ -435,8 +434,8 @@ export default {
         timeChange(timestamp) {
             console.log(timestamp, 'timestamp')
         },
-        onConfirm(value) {
-            this.$setUserInfo(value[0] + 1)
+        onConfirm(e) {
+            this.$setUserInfo(e.indexs[0] + 1)
             this.showPicker = false
         },
         changeSex(e) {

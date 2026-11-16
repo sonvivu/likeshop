@@ -25,15 +25,9 @@ likeshop.cn.team // +-----------------------------------------------------------
                         <view class="white lg mb10">{{ $t('等待买家付款') }}</view>
                         <view class="white sm row" style="line-height: 26rpx" v-if="cancelTime > 0"
                             >{$t('支付剩余')}
-                            <u-count-down
-                                separator="zh"
-                                :timestamp="cancelTime"
-                                separator-color="#fff"
-                                color="#fff"
-                                :separator-size="26"
-                                :font-size="26"
-                                bg-color="transparent"
-                            ></u-count-down>
+                                                        <u-count-down :time="cancelTime * 1000" format="HH时mm分ss秒">
+                                <template #default="{days, hours, minutes, seconds}"><text style="color:#fff">{{ String(hours).padStart(2, '0') }}时{{ String(minutes).padStart(2, '0') }}分{{ String(seconds).padStart(2, '0') }}秒</text></template>
+                            </u-count-down>
                             {$t('自动关闭')}</view
                         >
                     </view>
@@ -312,7 +306,7 @@ likeshop.cn.team // +-----------------------------------------------------------
         <loading-view v-if="showLoading" background-color="transparent" :size="50"></loading-view>
 
         <!-- 提货码QR -->
-        <u-popup v-model="showQR" mode="bottom" safe-area-inset-bottom border-radius="20">
+        <u-popup v-model:show="showQR" mode="bottom" safe-area-inset-bottom round="20">
             <view class="contain receive">
                 <view class="receive-qr column-center p30">
                     <view class="mt30">{{ $t('核销码') }}</view>

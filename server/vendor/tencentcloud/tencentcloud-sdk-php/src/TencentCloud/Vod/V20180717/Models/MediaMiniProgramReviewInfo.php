@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,20 +18,20 @@ namespace TencentCloud\Vod\V20180717\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * 小程序审核信息
+ * 小程序音视频审核信息
  *
- * @method array getMiniProgramReviewList() 获取审核信息列表。
- * @method void setMiniProgramReviewList(array $MiniProgramReviewList) 设置审核信息列表。
+ * @method array getMiniProgramReviewList() 获取音视频审核信息列表。
+ * @method void setMiniProgramReviewList(array $MiniProgramReviewList) 设置音视频审核信息列表。
  */
 class MediaMiniProgramReviewInfo extends AbstractModel
 {
     /**
-     * @var array 审核信息列表。
+     * @var array 音视频审核信息列表。
      */
     public $MiniProgramReviewList;
 
     /**
-     * @param array $MiniProgramReviewList 审核信息列表。
+     * @param array $MiniProgramReviewList 音视频审核信息列表。
      */
     function __construct()
     {

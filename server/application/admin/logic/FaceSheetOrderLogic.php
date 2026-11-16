@@ -34,8 +34,7 @@ use app\common\server\AreaServer;
 use app\common\server\printing\Kuaidi100;
 use app\common\server\UrlServer;
 use Exception;
-use think\Db;
-use think\facade\Hook;
+use think\facade\Db;
 
 class FaceSheetOrderLogic
 {
@@ -281,17 +280,17 @@ class FaceSheetOrderLogic
                         'goods_name'    => omit_str($order['order_goods'][0]['goods_name'] ?? lang('商品'), 8)
                     ],
                 ];
-                Hook::listen('sms_send', $send_data);
+                event('sms_send', $send_data);
             }
 
             // 赠送成长值和积分
-            Hook::listen('give_reward', [
+            event('give_reward', [
                 'order_id' => $order['id'],
                 'scene'    => 2, //2=发货场景
             ]);
 
             // 发货模板消息
-            Hook::listen('notice', [
+            event('notice', [
                 'user_id'       => $order['user_id'],
                 'order_id'      => $order['id'],
                 'scene'         => NoticeSetting::ORDER_DELIVERY_NOTICE,

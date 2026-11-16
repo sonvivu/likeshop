@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,10 +22,14 @@ use TencentCloud\Common\AbstractModel;
  *
  * @method string getFileId() 获取媒体文件 ID。
  * @method void setFileId(string $FileId) 设置媒体文件 ID。
- * @method integer getSourceDefinition() 获取发布视频所对应的转码模板 ID，为0代表原始视频。
- * @method void setSourceDefinition(integer $SourceDefinition) 设置发布视频所对应的转码模板 ID，为0代表原始视频。
- * @method integer getSubAppId() 获取点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
- * @method void setSubAppId(integer $SubAppId) 设置点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
+ * @method integer getSubAppId() 获取<b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
+ * @method void setSubAppId(integer $SubAppId) 设置<b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
+ * @method integer getSourceDefinition() 获取发布视频所对应的转码模板 ID，为 0 代表原始视频。支持的视频格式：
+<li>当 SourceDefinition 为 0 时，视频格式支持 MP4、3GP 格式；</li>
+<li>当 SourceDefinition 大于 0 时，视频格式支持 MP4、3GP 及 M3U8 格式。</li>不填默认值为 0。
+ * @method void setSourceDefinition(integer $SourceDefinition) 设置发布视频所对应的转码模板 ID，为 0 代表原始视频。支持的视频格式：
+<li>当 SourceDefinition 为 0 时，视频格式支持 MP4、3GP 格式；</li>
+<li>当 SourceDefinition 大于 0 时，视频格式支持 MP4、3GP 及 M3U8 格式。</li>不填默认值为 0。
  */
 class WeChatMiniProgramPublishRequest extends AbstractModel
 {
@@ -35,19 +39,23 @@ class WeChatMiniProgramPublishRequest extends AbstractModel
     public $FileId;
 
     /**
-     * @var integer 发布视频所对应的转码模板 ID，为0代表原始视频。
-     */
-    public $SourceDefinition;
-
-    /**
-     * @var integer 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
+     * @var integer <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
      */
     public $SubAppId;
 
     /**
+     * @var integer 发布视频所对应的转码模板 ID，为 0 代表原始视频。支持的视频格式：
+<li>当 SourceDefinition 为 0 时，视频格式支持 MP4、3GP 格式；</li>
+<li>当 SourceDefinition 大于 0 时，视频格式支持 MP4、3GP 及 M3U8 格式。</li>不填默认值为 0。
+     */
+    public $SourceDefinition;
+
+    /**
      * @param string $FileId 媒体文件 ID。
-     * @param integer $SourceDefinition 发布视频所对应的转码模板 ID，为0代表原始视频。
-     * @param integer $SubAppId 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
+     * @param integer $SubAppId <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
+     * @param integer $SourceDefinition 发布视频所对应的转码模板 ID，为 0 代表原始视频。支持的视频格式：
+<li>当 SourceDefinition 为 0 时，视频格式支持 MP4、3GP 格式；</li>
+<li>当 SourceDefinition 大于 0 时，视频格式支持 MP4、3GP 及 M3U8 格式。</li>不填默认值为 0。
      */
     function __construct()
     {
@@ -66,12 +74,12 @@ class WeChatMiniProgramPublishRequest extends AbstractModel
             $this->FileId = $param["FileId"];
         }
 
-        if (array_key_exists("SourceDefinition",$param) and $param["SourceDefinition"] !== null) {
-            $this->SourceDefinition = $param["SourceDefinition"];
-        }
-
         if (array_key_exists("SubAppId",$param) and $param["SubAppId"] !== null) {
             $this->SubAppId = $param["SubAppId"];
+        }
+
+        if (array_key_exists("SourceDefinition",$param) and $param["SourceDefinition"] !== null) {
+            $this->SourceDefinition = $param["SourceDefinition"];
         }
     }
 }

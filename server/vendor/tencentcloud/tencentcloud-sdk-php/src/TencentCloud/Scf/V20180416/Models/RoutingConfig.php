@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,6 +19,7 @@ use TencentCloud\Common\AbstractModel;
 
 /**
  * 别名的版本路由配置
+其中：随机权重路由附加版本和规则路由附加版本不可以同时配置
  *
  * @method array getAdditionalVersionWeights() 获取随机权重路由附加版本
  * @method void setAdditionalVersionWeights(array $AdditionalVersionWeights) 设置随机权重路由附加版本

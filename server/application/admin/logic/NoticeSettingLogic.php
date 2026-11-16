@@ -20,7 +20,7 @@ namespace app\admin\logic;
 
 
 use app\common\model\NoticeSetting;
-use think\Db;
+use think\facade\Db;
 
 /**
  * 逻辑
@@ -165,6 +165,7 @@ class NoticeSettingLogic
                 ->page($get['page'], $get['limit'])
                 ->order('create_time', 'desc')
                 ->select();
+        $lists = $lists->toArray(); // ThinkPHP 6：select() 返回 Collection，TP5 返回数组；直接写 $lists[$k]['x'] 或 foreach(&$item) 改值会丢/报错，先转数组。
         $count = Db::name('notice')->where($where)->count();
         foreach($lists as &$item) {
             $item['sceneDesc'] = NoticeSetting::getSceneDesc($item['scene']);

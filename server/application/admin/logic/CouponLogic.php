@@ -19,7 +19,7 @@
 namespace app\admin\Logic;
 use app\admin\model\Coupon;
 use app\common\server\UrlServer;
-use think\Db;
+use think\facade\Db;
 
 
 class CouponLogic{
@@ -174,22 +174,23 @@ class CouponLogic{
     }
 
     public static function getCoupon($id,$get_data = false){
-        $coupon = Coupon::get($id);
+        $coupon = Coupon::find($id);
         $coupon['goods_coupon'] = [];
         if($get_data) {
             $coupon = $coupon->getData();
             $coupon['send_time_start'] = date('Y-m-d H:i:s',$coupon['send_time_start']);
             $coupon['send_time_end'] = date('Y-m-d H:i:s',$coupon['send_time_end']);
             if($coupon['use_goods_type'] != 1){
-                $goods_coupon= Db::name('coupon_goods cg')
+                $goods_coupon= Db::name('coupon_goods')->alias('cg')
                     ->join('goods g','cg.goods_id = g.id')
                     ->where(['coupon_id'=>$id])
                     ->field('g.id,name,max_price,min_price,stock')
                     ->select();
+                $goods_coupon = $goods_coupon->toArray(); // ThinkPHP 6：select() 返回 Collection，TP5 返回数组；直接写 $goods_coupon[$k]['x'] 或 foreach(&$item) 改值会丢/报错，先转数组。
                 foreach ($goods_coupon as &$item){
-                    $item['price'] = '￥'.$item['min_price'].'~'.'￥'.$item['max_price'];
+                    $item['price'] = config('currency.symbol').$item['min_price'].'~'.config('currency.symbol').$item['max_price'];
                     if($item['max_price'] == $item['min_price']){
-                        $item['price'] = '￥'.$item['min_price'];
+                        $item['price'] = config('currency.symbol').$item['min_price'];
                     }
                 }
                 $coupon['goods_coupon'] = $goods_coupon;
@@ -242,17 +243,18 @@ class CouponLogic{
             $where[] = ['nickname|mobile','like','%'.$get['keyword'].'%'];
         }
 
-        $log_count = Db::name('coupon_list cl')
+        $log_count = Db::name('coupon_list')->alias('cl')
             ->join('user u','cl.user_id = u.id')
             ->where($where)
             ->count();
 
-        $log_list =  Db::name('coupon_list cl')
+        $log_list =  Db::name('coupon_list')->alias('cl')
             ->join('user u','cl.user_id = u.id')
             ->where($where)
             ->field('coupon_id,status,coupon_code,cl.create_time as create_time,cl.use_time,u.nickname,u.avatar,u.mobile,u.sex,u.sn,u.level,u.create_time as u_create_time')
             ->page($get['page'], $get['limit'])
             ->select();
+        $log_list = $log_list->toArray(); // ThinkPHP 6：select() 返回 Collection，TP5 返回数组；直接写 $log_list[$k]['x'] 或 foreach(&$item) 改值会丢/报错，先转数组。
         $coupon_list = Db::name('coupon')->where(['del'=>0])->column('name','id');
         $level_name = Db::name('user_level')->where(['del'=>0])->column('name','id');
         foreach ($log_list as &$item)

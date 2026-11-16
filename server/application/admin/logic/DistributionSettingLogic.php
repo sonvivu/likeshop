@@ -7,7 +7,7 @@ use app\common\logic\DistributionLogic;
 use app\common\logic\LogicBase;
 use app\common\model\Distribution;
 use app\common\server\ConfigServer;
-use think\Db;
+use think\facade\Db;
 
 class DistributionSettingLogic extends LogicBase
 {

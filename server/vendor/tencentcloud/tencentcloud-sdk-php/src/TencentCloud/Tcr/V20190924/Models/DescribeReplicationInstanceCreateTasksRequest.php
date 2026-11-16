@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,26 +20,26 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeReplicationInstanceCreateTasks请求参数结构体
  *
- * @method string getReplicationRegistryId() 获取同步实例Id
- * @method void setReplicationRegistryId(string $ReplicationRegistryId) 设置同步实例Id
- * @method integer getReplicationRegionId() 获取同步实例的地域ID
- * @method void setReplicationRegionId(integer $ReplicationRegionId) 设置同步实例的地域ID
+ * @method string getReplicationRegistryId() 获取同步实例Id，见实例返回列表中的同步实例ID
+ * @method void setReplicationRegistryId(string $ReplicationRegistryId) 设置同步实例Id，见实例返回列表中的同步实例ID
+ * @method integer getReplicationRegionId() 获取同步实例的地域ID，见实例返回列表中地域ID
+ * @method void setReplicationRegionId(integer $ReplicationRegionId) 设置同步实例的地域ID，见实例返回列表中地域ID
  */
 class DescribeReplicationInstanceCreateTasksRequest extends AbstractModel
 {
     /**
-     * @var string 同步实例Id
+     * @var string 同步实例Id，见实例返回列表中的同步实例ID
      */
     public $ReplicationRegistryId;
 
     /**
-     * @var integer 同步实例的地域ID
+     * @var integer 同步实例的地域ID，见实例返回列表中地域ID
      */
     public $ReplicationRegionId;
 
     /**
-     * @param string $ReplicationRegistryId 同步实例Id
-     * @param integer $ReplicationRegionId 同步实例的地域ID
+     * @param string $ReplicationRegistryId 同步实例Id，见实例返回列表中的同步实例ID
+     * @param integer $ReplicationRegionId 同步实例的地域ID，见实例返回列表中地域ID
      */
     function __construct()
     {

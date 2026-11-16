@@ -18,7 +18,7 @@
 // +----------------------------------------------------------------------
 namespace app\admin\controller;
 use app\admin\logic\AccountLogLogic;
-use think\helper\Time;
+use app\common\helper\Time;
 
 class AccountLog extends AdminBase{
     /**

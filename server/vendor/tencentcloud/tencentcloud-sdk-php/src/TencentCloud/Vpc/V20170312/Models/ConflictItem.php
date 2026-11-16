@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,15 +20,18 @@ use TencentCloud\Common\AbstractModel;
 /**
  * 冲突资源条目信息。
  *
- * @method string getConfilctId() 获取冲突资源的ID
- * @method void setConfilctId(string $ConfilctId) 设置冲突资源的ID
+ * @method string getConfilctId() 获取冲突资源的ID。已废弃
+ * @method void setConfilctId(string $ConfilctId) 设置冲突资源的ID。已废弃
  * @method string getDestinationItem() 获取冲突目的资源
  * @method void setDestinationItem(string $DestinationItem) 设置冲突目的资源
+ * @method string getConflictId() 获取冲突资源的ID
+ * @method void setConflictId(string $ConflictId) 设置冲突资源的ID
  */
 class ConflictItem extends AbstractModel
 {
     /**
-     * @var string 冲突资源的ID
+     * @var string 冲突资源的ID。已废弃
+     * @deprecated
      */
     public $ConfilctId;
 
@@ -38,8 +41,14 @@ class ConflictItem extends AbstractModel
     public $DestinationItem;
 
     /**
-     * @param string $ConfilctId 冲突资源的ID
+     * @var string 冲突资源的ID
+     */
+    public $ConflictId;
+
+    /**
+     * @param string $ConfilctId 冲突资源的ID。已废弃
      * @param string $DestinationItem 冲突目的资源
+     * @param string $ConflictId 冲突资源的ID
      */
     function __construct()
     {
@@ -60,6 +69,10 @@ class ConflictItem extends AbstractModel
 
         if (array_key_exists("DestinationItem",$param) and $param["DestinationItem"] !== null) {
             $this->DestinationItem = $param["DestinationItem"];
+        }
+
+        if (array_key_exists("ConflictId",$param) and $param["ConflictId"] !== null) {
+            $this->ConflictId = $param["ConflictId"];
         }
     }
 }

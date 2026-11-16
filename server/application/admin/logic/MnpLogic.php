@@ -38,7 +38,9 @@ class MnpLogic{
             'udp_domain'            => 'udp://'.$domain_name,
             'tcp_domain'            => 'tcp://'.$domain_name,
             'business_domain'       => $domain_name,
-            'url'                   => url('api/weChat/index','','',true),
+            // ThinkPHP 6 的 url() 返回 UrlBuild 对象：json_encode 会变成 {}，
+            // 必须转字符串（5.1 返回字符串）。
+            'url'                   => (string) url('api/weChat/index','','',true),
             'token'                 => ConfigServer::get('mnp', 'token', 'LikeShop'),
             'encoding_ses_key'      => ConfigServer::get('mnp', 'encoding_ses_key', ''),
             'encryption_type'       => ConfigServer::get('mnp', 'encryption_type', ''),

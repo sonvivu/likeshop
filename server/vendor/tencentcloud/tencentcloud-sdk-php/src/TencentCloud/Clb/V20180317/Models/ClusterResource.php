@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,11 +29,15 @@ use TencentCloud\Common\AbstractModel;
  * @method void setLoadBalancerId(string $LoadBalancerId) 设置负载均衡唯一ID，如lb-12345678。
 注意：此字段可能返回 null，表示取不到有效值。
  * @method string getIdle() 获取资源是否闲置。
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setIdle(string $Idle) 设置资源是否闲置。
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getClusterName() 获取集群名称。
  * @method void setClusterName(string $ClusterName) 设置集群名称。
+ * @method string getIsp() 获取集群的Isp属性，如："BGP","CMCC","CUCC","CTCC","INTERNAL"。
+ * @method void setIsp(string $Isp) 设置集群的Isp属性，如："BGP","CMCC","CUCC","CTCC","INTERNAL"。
+ * @method ClustersZone getClustersZone() 获取集群所在的可用区
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setClustersZone(ClustersZone $ClustersZone) 设置集群所在的可用区
+注意：此字段可能返回 null，表示取不到有效值。
  */
 class ClusterResource extends AbstractModel
 {
@@ -55,7 +59,6 @@ class ClusterResource extends AbstractModel
 
     /**
      * @var string 资源是否闲置。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Idle;
 
@@ -65,13 +68,26 @@ class ClusterResource extends AbstractModel
     public $ClusterName;
 
     /**
+     * @var string 集群的Isp属性，如："BGP","CMCC","CUCC","CTCC","INTERNAL"。
+     */
+    public $Isp;
+
+    /**
+     * @var ClustersZone 集群所在的可用区
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $ClustersZone;
+
+    /**
      * @param string $ClusterId 集群唯一ID，如tgw-12345678。
      * @param string $Vip ip地址。
      * @param string $LoadBalancerId 负载均衡唯一ID，如lb-12345678。
 注意：此字段可能返回 null，表示取不到有效值。
      * @param string $Idle 资源是否闲置。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $ClusterName 集群名称。
+     * @param string $Isp 集群的Isp属性，如："BGP","CMCC","CUCC","CTCC","INTERNAL"。
+     * @param ClustersZone $ClustersZone 集群所在的可用区
+注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
     {
@@ -104,6 +120,15 @@ class ClusterResource extends AbstractModel
 
         if (array_key_exists("ClusterName",$param) and $param["ClusterName"] !== null) {
             $this->ClusterName = $param["ClusterName"];
+        }
+
+        if (array_key_exists("Isp",$param) and $param["Isp"] !== null) {
+            $this->Isp = $param["Isp"];
+        }
+
+        if (array_key_exists("ClustersZone",$param) and $param["ClustersZone"] !== null) {
+            $this->ClustersZone = new ClustersZone();
+            $this->ClustersZone->deserialize($param["ClustersZone"]);
         }
     }
 }

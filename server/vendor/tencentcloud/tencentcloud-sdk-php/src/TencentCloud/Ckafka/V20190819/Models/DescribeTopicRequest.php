@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,42 +20,50 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeTopic请求参数结构体
  *
- * @method string getInstanceId() 获取实例 ID
- * @method void setInstanceId(string $InstanceId) 设置实例 ID
- * @method string getSearchWord() 获取过滤条件，按照 topicName 过滤，支持模糊查询
- * @method void setSearchWord(string $SearchWord) 设置过滤条件，按照 topicName 过滤，支持模糊查询
- * @method integer getOffset() 获取偏移量，不填默认为0
- * @method void setOffset(integer $Offset) 设置偏移量，不填默认为0
- * @method integer getLimit() 获取返回数量，不填则默认为10，最大值为50
- * @method void setLimit(integer $Limit) 设置返回数量，不填则默认为10，最大值为50
+ * @method string getInstanceId() 获取<p>ckafka集群实例Id</p><p>取值参考：<a href="https://cloud.tencent.com/document/api/597/40835">DescribeInstances</a></p>
+ * @method void setInstanceId(string $InstanceId) 设置<p>ckafka集群实例Id</p><p>取值参考：<a href="https://cloud.tencent.com/document/api/597/40835">DescribeInstances</a></p>
+ * @method string getSearchWord() 获取<p>过滤条件，按照 topicName 过滤，支持模糊查询</p>
+ * @method void setSearchWord(string $SearchWord) 设置<p>过滤条件，按照 topicName 过滤，支持模糊查询</p>
+ * @method integer getOffset() 获取<p>偏移量，不填默认为0</p>
+ * @method void setOffset(integer $Offset) 设置<p>偏移量，不填默认为0</p>
+ * @method integer getLimit() 获取<p>返回数量，不填则默认为20，最大值为50</p>
+ * @method void setLimit(integer $Limit) 设置<p>返回数量，不填则默认为20，最大值为50</p>
+ * @method string getAclRuleName() 获取<p>Acl预设策略名称</p>
+ * @method void setAclRuleName(string $AclRuleName) 设置<p>Acl预设策略名称</p>
  */
 class DescribeTopicRequest extends AbstractModel
 {
     /**
-     * @var string 实例 ID
+     * @var string <p>ckafka集群实例Id</p><p>取值参考：<a href="https://cloud.tencent.com/document/api/597/40835">DescribeInstances</a></p>
      */
     public $InstanceId;
 
     /**
-     * @var string 过滤条件，按照 topicName 过滤，支持模糊查询
+     * @var string <p>过滤条件，按照 topicName 过滤，支持模糊查询</p>
      */
     public $SearchWord;
 
     /**
-     * @var integer 偏移量，不填默认为0
+     * @var integer <p>偏移量，不填默认为0</p>
      */
     public $Offset;
 
     /**
-     * @var integer 返回数量，不填则默认为10，最大值为50
+     * @var integer <p>返回数量，不填则默认为20，最大值为50</p>
      */
     public $Limit;
 
     /**
-     * @param string $InstanceId 实例 ID
-     * @param string $SearchWord 过滤条件，按照 topicName 过滤，支持模糊查询
-     * @param integer $Offset 偏移量，不填默认为0
-     * @param integer $Limit 返回数量，不填则默认为10，最大值为50
+     * @var string <p>Acl预设策略名称</p>
+     */
+    public $AclRuleName;
+
+    /**
+     * @param string $InstanceId <p>ckafka集群实例Id</p><p>取值参考：<a href="https://cloud.tencent.com/document/api/597/40835">DescribeInstances</a></p>
+     * @param string $SearchWord <p>过滤条件，按照 topicName 过滤，支持模糊查询</p>
+     * @param integer $Offset <p>偏移量，不填默认为0</p>
+     * @param integer $Limit <p>返回数量，不填则默认为20，最大值为50</p>
+     * @param string $AclRuleName <p>Acl预设策略名称</p>
      */
     function __construct()
     {
@@ -84,6 +92,10 @@ class DescribeTopicRequest extends AbstractModel
 
         if (array_key_exists("Limit",$param) and $param["Limit"] !== null) {
             $this->Limit = $param["Limit"];
+        }
+
+        if (array_key_exists("AclRuleName",$param) and $param["AclRuleName"] !== null) {
+            $this->AclRuleName = $param["AclRuleName"];
         }
     }
 }

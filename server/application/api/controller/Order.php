@@ -23,7 +23,7 @@ use app\api\logic\OrderLogic;
 use app\common\model\Client_;
 use app\common\server\ConfigServer;
 use app\common\server\WechatMiniExpressSendSyncServer;
-use think\Db;
+use think\facade\Db;
 
 /**
  * 订单
@@ -64,7 +64,13 @@ class Order extends ApiBase
         }
         
         $order = OrderLogic::add($this->user_id, $info['data'], $post);
-        return $order;
+        if ($order['code'] == 0) {
+            $this->_error($order['msg']);
+        }
+        // ThinkPHP 6 不再按 default_return_type 自动转数组为 JSON（按请求
+        // Content-Type 判定），直接 return 数组在非 JSON 请求下会 500，
+        // 且订单已落库。统一走 _success/_error 以保证响应结构。
+        $this->_success('', $order['data']);
     }
 
 

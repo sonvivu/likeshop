@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,6 @@ use TencentCloud\Market\V20191010\Models as Models;
 
 /**
  * @method Models\FlowProductRemindResponse FlowProductRemind(Models\FlowProductRemindRequest $req) 计量商品用量提醒，用于服务商调用云服务，云服务向客户发送提醒信息
- * @method Models\GetCateTreeResponse GetCateTree(Models\GetCateTreeRequest $req) 获取分类名称
  * @method Models\GetUsagePlanUsageAmountResponse GetUsagePlanUsageAmount(Models\GetUsagePlanUsageAmountRequest $req) 该接口可以根据InstanceId查询实例的api的使用情况。
  */
 

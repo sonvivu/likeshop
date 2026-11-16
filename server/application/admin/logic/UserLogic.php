@@ -28,7 +28,7 @@ use app\common\model\Pay;
 use app\common\model\User;
 use app\common\model\UserLevel;
 use app\common\server\UrlServer;
-use think\Db;
+use think\facade\Db;
 use think\Exception;
 
 class UserLogic extends LogicBase
@@ -82,7 +82,7 @@ class UserLogic extends LogicBase
 
         $user_list = $user
                     ->where($where)
-                    ->field('password,pay_password,salt',true)
+                    ->withoutField('password,pay_password,salt')
                     ->page($get['page'],$get['limit'])
                     ->order('id desc')
                     ->select()->toArray();
@@ -222,7 +222,7 @@ class UserLogic extends LogicBase
      * @return User|mixed
      */
     public static function getUser($id,$getdata = false,$expenditure = false){
-        $user =  User::get($id);
+        $user =  User::find($id);
         $user->append(['level_name','group_name']);
         if($getdata){
             $user = $user->getData();
@@ -251,10 +251,10 @@ class UserLogic extends LogicBase
                         ->where('order_status','not in',[Order::STATUS_CLOSE,Order::STATUS_WAIT_PAY])
                         ->where(['user_id'=>$id,'pay_status'=>Pay::ISPAID])
                         ->avg('order_amount');
-            $user['month_amount'] = '￥'.round($month_amount,2);
+            $user['month_amount'] = config('currency.symbol').round($month_amount,2);
             $user['month_num'] = round($month_num,2);
             $user['total_num'] = round($total_num,2);
-            $user['avg_amount'] = '￥'.round($avg_amount,2);
+            $user['avg_amount'] = config('currency.symbol').round($avg_amount,2);
             //分销会员
             $user['distribution_tips'] = lang('否');
             $user['superior_referrer'] = '-';
@@ -447,7 +447,7 @@ class UserLogic extends LogicBase
      * 编辑会员
      */
     public static function edit($post){
-        $user = User::get($post['id']);
+        $user = User::find($post['id']);
         if (!empty($post['password'])) {
             //生成密码
             $post['password'] = create_password($post['password'], $user->salt);
@@ -561,6 +561,7 @@ class UserLogic extends LogicBase
                             ->where(['user_id'=>$get['user_id'],'del'=>0])
                             ->order('id desc')
                             ->select();
+                $list = $list->toArray(); // ThinkPHP 6：select() 返回 Collection，TP5 返回数组；直接写 $list[$k]['x'] 或 foreach(&$item) 改值会丢/报错，先转数组。
                 foreach ($list as &$item){
                     $item['default'] = lang('否');
                     $region = Db::name('dev_region')
@@ -597,6 +598,7 @@ class UserLogic extends LogicBase
       ->page($get['page'], $get['limit'])
       ->order('create_time', 'desc')
       ->select();
+    $list = $list->toArray(); // ThinkPHP 6：select() 返回 Collection，TP5 返回数组；直接写 $list[$k]['x'] 或 foreach(&$item) 改值会丢/报错，先转数组。
 
     $count = Db::name('user_transfer')->count();
 

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,15 +20,15 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeGroup返回实体
  *
- * @method string getGroup() 获取groupId
- * @method void setGroup(string $Group) 设置groupId
+ * @method string getGroup() 获取消费分组名称
+ * @method void setGroup(string $Group) 设置消费分组名称
  * @method string getProtocol() 获取该 group 使用的协议。
  * @method void setProtocol(string $Protocol) 设置该 group 使用的协议。
  */
 class DescribeGroup extends AbstractModel
 {
     /**
-     * @var string groupId
+     * @var string 消费分组名称
      */
     public $Group;
 
@@ -38,7 +38,7 @@ class DescribeGroup extends AbstractModel
     public $Protocol;
 
     /**
-     * @param string $Group groupId
+     * @param string $Group 消费分组名称
      * @param string $Protocol 该 group 使用的协议。
      */
     function __construct()

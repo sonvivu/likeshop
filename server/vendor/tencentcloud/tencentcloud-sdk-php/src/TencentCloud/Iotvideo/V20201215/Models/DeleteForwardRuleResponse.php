@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,12 +26,12 @@ use TencentCloud\Common\AbstractModel;
  * @method void setQueueName(string $QueueName) 设置队列名称
  * @method string getProductID() 获取产品ID
  * @method void setProductID(string $ProductID) 设置产品ID
- * @method integer getResult() 获取删除结果
- * @method void setResult(integer $Result) 设置删除结果
+ * @method integer getResult() 获取删除结果 0成功 其他不成功
+ * @method void setResult(integer $Result) 设置删除结果 0成功 其他不成功
  * @method string getErrMsg() 获取错误消息
  * @method void setErrMsg(string $ErrMsg) 设置错误消息
- * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
- * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+ * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
 class DeleteForwardRuleResponse extends AbstractModel
 {
@@ -51,7 +51,7 @@ class DeleteForwardRuleResponse extends AbstractModel
     public $ProductID;
 
     /**
-     * @var integer 删除结果
+     * @var integer 删除结果 0成功 其他不成功
      */
     public $Result;
 
@@ -61,7 +61,7 @@ class DeleteForwardRuleResponse extends AbstractModel
     public $ErrMsg;
 
     /**
-     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public $RequestId;
 
@@ -69,9 +69,9 @@ class DeleteForwardRuleResponse extends AbstractModel
      * @param string $Endpoint 腾讯云账号
      * @param string $QueueName 队列名称
      * @param string $ProductID 产品ID
-     * @param integer $Result 删除结果
+     * @param integer $Result 删除结果 0成功 其他不成功
      * @param string $ErrMsg 错误消息
-     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
     {

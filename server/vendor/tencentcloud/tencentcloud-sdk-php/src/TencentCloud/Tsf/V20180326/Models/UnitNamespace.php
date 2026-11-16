@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,9 +25,13 @@ use TencentCloud\Common\AbstractModel;
  * @method string getNamespaceName() 获取命名空间Name
  * @method void setNamespaceName(string $NamespaceName) 设置命名空间Name
  * @method string getId() 获取单元化命名空间ID
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setId(string $Id) 设置单元化命名空间ID
-注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getGatewayInstanceId() 获取网关实体ID
+ * @method void setGatewayInstanceId(string $GatewayInstanceId) 设置网关实体ID
+ * @method string getCreatedTime() 获取创建时间
+ * @method void setCreatedTime(string $CreatedTime) 设置创建时间
+ * @method string getUpdatedTime() 获取更新时间
+ * @method void setUpdatedTime(string $UpdatedTime) 设置更新时间
  */
 class UnitNamespace extends AbstractModel
 {
@@ -43,15 +47,31 @@ class UnitNamespace extends AbstractModel
 
     /**
      * @var string 单元化命名空间ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Id;
+
+    /**
+     * @var string 网关实体ID
+     */
+    public $GatewayInstanceId;
+
+    /**
+     * @var string 创建时间
+     */
+    public $CreatedTime;
+
+    /**
+     * @var string 更新时间
+     */
+    public $UpdatedTime;
 
     /**
      * @param string $NamespaceId 命名空间ID
      * @param string $NamespaceName 命名空间Name
      * @param string $Id 单元化命名空间ID
-注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $GatewayInstanceId 网关实体ID
+     * @param string $CreatedTime 创建时间
+     * @param string $UpdatedTime 更新时间
      */
     function __construct()
     {
@@ -76,6 +96,18 @@ class UnitNamespace extends AbstractModel
 
         if (array_key_exists("Id",$param) and $param["Id"] !== null) {
             $this->Id = $param["Id"];
+        }
+
+        if (array_key_exists("GatewayInstanceId",$param) and $param["GatewayInstanceId"] !== null) {
+            $this->GatewayInstanceId = $param["GatewayInstanceId"];
+        }
+
+        if (array_key_exists("CreatedTime",$param) and $param["CreatedTime"] !== null) {
+            $this->CreatedTime = $param["CreatedTime"];
+        }
+
+        if (array_key_exists("UpdatedTime",$param) and $param["UpdatedTime"] !== null) {
+            $this->UpdatedTime = $param["UpdatedTime"];
         }
     }
 }

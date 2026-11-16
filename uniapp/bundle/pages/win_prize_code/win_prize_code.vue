@@ -15,10 +15,10 @@
 			</view>
 		</view>
 		<loading-footer slotEmpty :status="loadingStatus">
-			<view style="padding-top: 200rpx;" class="data-null column-center" slot="empty">
+						<template #empty><view style="padding-top: 200rpx;" class="data-null column-center">
 				<image src="../../../static/images/order_null.png" class="img-null"></image>
 				<text class="xs muted">{{ $t('暂无中奖名单') }}</text>
-			</view>
+			</view></template>
 		</loading-footer>
 	</view>
 </template>

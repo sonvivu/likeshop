@@ -115,7 +115,7 @@ abstract class CacheBase
 
     protected function cacheRm($name)
     {
-        return Cache::rm($name);
+        return Cache::delete($name);
     }
 
     protected function cacheGet($name, $default = false)

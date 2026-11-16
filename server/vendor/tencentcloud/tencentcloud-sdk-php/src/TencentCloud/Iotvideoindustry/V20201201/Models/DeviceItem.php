@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,21 +21,25 @@ use TencentCloud\Common\AbstractModel;
  * 用于描述唯一一个设备
  *
  * @method string getDeviceId() 获取设备唯一标识
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setDeviceId(string $DeviceId) 设置设备唯一标识
-注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getChannelId() 获取通道唯一标识
+ * @method void setChannelId(string $ChannelId) 设置通道唯一标识
  */
 class DeviceItem extends AbstractModel
 {
     /**
      * @var string 设备唯一标识
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $DeviceId;
 
     /**
+     * @var string 通道唯一标识
+     */
+    public $ChannelId;
+
+    /**
      * @param string $DeviceId 设备唯一标识
-注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $ChannelId 通道唯一标识
      */
     function __construct()
     {
@@ -52,6 +56,10 @@ class DeviceItem extends AbstractModel
         }
         if (array_key_exists("DeviceId",$param) and $param["DeviceId"] !== null) {
             $this->DeviceId = $param["DeviceId"];
+        }
+
+        if (array_key_exists("ChannelId",$param) and $param["ChannelId"] !== null) {
+            $this->ChannelId = $param["ChannelId"];
         }
     }
 }

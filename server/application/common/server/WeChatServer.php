@@ -25,7 +25,7 @@ namespace app\common\server;
 
 use app\common\model\Client_;
 use app\common\model\Pay;
-use think\Db;
+use think\facade\Db;
 use think\Exception;
 
 class WeChatServer

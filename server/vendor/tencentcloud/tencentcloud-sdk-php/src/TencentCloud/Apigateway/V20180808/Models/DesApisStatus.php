@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -60,9 +60,9 @@ use TencentCloud\Common\AbstractModel;
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setIsDebugAfterCharge(boolean $IsDebugAfterCharge) 设置是否买后调试。（云市场预留字段）
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getAuthType() 获取API 鉴权类型。取值为SECRET（密钥对鉴权）、NONE（免鉴权）、OAUTH。
+ * @method string getAuthType() 获取API 鉴权类型。取值为SECRET（密钥对鉴权）、NONE（免鉴权）、OAUTH、EIAM。
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setAuthType(string $AuthType) 设置API 鉴权类型。取值为SECRET（密钥对鉴权）、NONE（免鉴权）、OAUTH。
+ * @method void setAuthType(string $AuthType) 设置API 鉴权类型。取值为SECRET（密钥对鉴权）、NONE（免鉴权）、OAUTH、EIAM。
 注意：此字段可能返回 null，表示取不到有效值。
  * @method string getApiBusinessType() 获取OAUTH API的类型。当AuthType 为 OAUTH时该字段有效， 取值为NORMAL（业务API）和 OAUTH（授权API）。
 注意：此字段可能返回 null，表示取不到有效值。
@@ -160,7 +160,7 @@ class DesApisStatus extends AbstractModel
     public $IsDebugAfterCharge;
 
     /**
-     * @var string API 鉴权类型。取值为SECRET（密钥对鉴权）、NONE（免鉴权）、OAUTH。
+     * @var string API 鉴权类型。取值为SECRET（密钥对鉴权）、NONE（免鉴权）、OAUTH、EIAM。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $AuthType;
@@ -186,6 +186,7 @@ class DesApisStatus extends AbstractModel
     /**
      * @var array 授权API关联的业务API列表。
 注意：此字段可能返回 null，表示取不到有效值。
+     * @deprecated
      */
     public $RelationBuniessApiIds;
 
@@ -228,7 +229,7 @@ class DesApisStatus extends AbstractModel
 注意：此字段可能返回 null，表示取不到有效值。
      * @param boolean $IsDebugAfterCharge 是否买后调试。（云市场预留字段）
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $AuthType API 鉴权类型。取值为SECRET（密钥对鉴权）、NONE（免鉴权）、OAUTH。
+     * @param string $AuthType API 鉴权类型。取值为SECRET（密钥对鉴权）、NONE（免鉴权）、OAUTH、EIAM。
 注意：此字段可能返回 null，表示取不到有效值。
      * @param string $ApiBusinessType OAUTH API的类型。当AuthType 为 OAUTH时该字段有效， 取值为NORMAL（业务API）和 OAUTH（授权API）。
 注意：此字段可能返回 null，表示取不到有效值。

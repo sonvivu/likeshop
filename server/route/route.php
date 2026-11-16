@@ -1,6 +1,7 @@
 <?php
 
 use think\facade\Config;
+use think\facade\Console;
 use think\facade\Route;
 
 //手机h5页面路由
@@ -9,7 +10,7 @@ Route::rule('mobile/:any', function () {
     if (!$isOpen) {
         return '';
     }
-    Config::set('app_trace', false);
+    Config::set('app.app_trace', false);
     return view(app()->getRootPath() . 'public/mobile/index.html');
 })->pattern(['any' => '\w+']);
 
@@ -19,11 +20,11 @@ Route::rule('pc/:any', function () {
     if (!$isOpen) {
         return '';
     }
-    Config::set('app_trace', false);
+    Config::set('app.app_trace', false);
     return view(app()->getRootPath() . 'public/pc/index.html');
 })->pattern(['any' => '\w+']);
 
 //定时任务
 Route::rule('crontab', function () {
-    think\Console::call('crontab');
+    Console::call('crontab');
 });

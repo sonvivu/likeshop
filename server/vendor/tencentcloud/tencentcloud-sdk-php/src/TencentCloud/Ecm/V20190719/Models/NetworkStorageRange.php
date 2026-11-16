@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,6 +50,10 @@ use TencentCloud\Common\AbstractModel;
  * @method void setPerDataDisk(integer $PerDataDisk) 设置数据盘步长
  * @method integer getMaxModuleNum() 获取总模块数量
  * @method void setMaxModuleNum(integer $MaxModuleNum) 设置总模块数量
+ * @method boolean getCBSSupported() 获取是否支持cbs
+ * @method void setCBSSupported(boolean $CBSSupported) 设置是否支持cbs
+ * @method integer getDiskNumLimit() 获取磁盘数量限制
+ * @method void setDiskNumLimit(integer $DiskNumLimit) 设置磁盘数量限制
  */
 class NetworkStorageRange extends AbstractModel
 {
@@ -129,6 +133,16 @@ class NetworkStorageRange extends AbstractModel
     public $MaxModuleNum;
 
     /**
+     * @var boolean 是否支持cbs
+     */
+    public $CBSSupported;
+
+    /**
+     * @var integer 磁盘数量限制
+     */
+    public $DiskNumLimit;
+
+    /**
      * @param integer $MaxBandwidth 网络带宽上限
      * @param integer $MaxSystemDiskSize 数据盘上限
      * @param integer $MinBandwidth 网络带宽下限
@@ -144,6 +158,8 @@ class NetworkStorageRange extends AbstractModel
      * @param integer $PerBandwidth 带宽步长
      * @param integer $PerDataDisk 数据盘步长
      * @param integer $MaxModuleNum 总模块数量
+     * @param boolean $CBSSupported 是否支持cbs
+     * @param integer $DiskNumLimit 磁盘数量限制
      */
     function __construct()
     {
@@ -216,6 +232,14 @@ class NetworkStorageRange extends AbstractModel
 
         if (array_key_exists("MaxModuleNum",$param) and $param["MaxModuleNum"] !== null) {
             $this->MaxModuleNum = $param["MaxModuleNum"];
+        }
+
+        if (array_key_exists("CBSSupported",$param) and $param["CBSSupported"] !== null) {
+            $this->CBSSupported = $param["CBSSupported"];
+        }
+
+        if (array_key_exists("DiskNumLimit",$param) and $param["DiskNumLimit"] !== null) {
+            $this->DiskNumLimit = $param["DiskNumLimit"];
         }
     }
 }

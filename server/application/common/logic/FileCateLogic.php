@@ -21,7 +21,7 @@
 namespace app\common\logic;
 
 
-use think\Db;
+use think\facade\Db;
 
 class FileCateLogic
 {

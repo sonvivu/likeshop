@@ -1,6 +1,6 @@
 <template>
   <div class="address-list">
-    <el-dialog :title="$t('更换地址')" :visible.sync="showDialog" width="900px">
+    <el-dialog :title="$t('更换地址')" v-model="showDialog" width="900px">
       <div class="list black infinite-list" v-infinite-scroll="loadShopList" style="overflow:auto">
         <div
           :class="['item mb16', { active: item.id == selectId }, { disabled:  !item.business_status }]"
@@ -11,7 +11,7 @@
           <div>
             <span class="bold">{{ item.name }}</span>
             <span class="muted ml10">
-              <i class="el-icon-position"></i>
+              <el-icon><Position /></el-icon>
               {{ item.distance }}
             </span>
           </div>
@@ -19,27 +19,34 @@
           <div class="lighter mt8">{{ item.shop_address }}</div>
 
           <div class="muted mt8">
-            <i class="el-icon-time"></i>
+            <el-icon><Timer /></el-icon>
             <span>{{ item.business_start_time + '-' + item.business_end_time }}</span>
           </div>
         </div>
       </div>
       
-      <div slot="footer" class="dialog-footer">
-        <el-button type="primary" @click="onConfirm">{{ $t('确认') }}</el-button>
-        <el-button @click="showDialog = false">{{ $t('取消') }}</el-button>
-      </div>
+      <template #footer>
+        <div class="dialog-footer">
+          <el-button type="primary" @click="onConfirm">{{ $t('确认') }}</el-button>
+          <el-button @click="showDialog = false">{{ $t('取消') }}</el-button>
+        </div>
+      </template>
     </el-dialog>
     <!-- <address-add v-model="showAddressAdd" :aid="editId" @success="getAddress" /> -->
   </div>
 </template>
 
 <script>
+import { Position, Timer } from "@element-plus/icons-vue";
 
 export default {
+  components: {
+    Position,
+    Timer,
+  },
 
   props: {
-    value: {
+    modelValue: {
       type: Boolean,
       default: false,
     },
@@ -78,12 +85,12 @@ export default {
   },
 
   watch: {
-    value(val) {
+    modelValue(val) {
       this.showDialog = val;
     },
 
     showDialog(val) {
-      this.$emit("input", val);
+      this.$emit("update:modelValue", val);
     },
 
     list(data) {

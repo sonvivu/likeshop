@@ -19,13 +19,14 @@
 namespace app\admin\logic;
 use app\common\model\NoticeSetting;
 use app\common\model\SmsLog;
-use think\Db;
+use think\facade\Db;
 class SmsLogic{
 
     public static function configLists(){
         $list = Db::name('sms_config')->where(['del'=>0])
             ->field('id,name,status,describe')
             ->select();
+        $list = $list->toArray(); // ThinkPHP 6：select() 返回 Collection，TP5 返回数组；直接写 $list[$k]['x'] 或 foreach(&$item) 改值会丢/报错，先转数组。
         foreach ($list as &$item){
             $item['status_desc'] = lang('关闭');
             if($item['status']){

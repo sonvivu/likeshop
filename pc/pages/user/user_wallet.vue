@@ -25,24 +25,42 @@
                 </el-tab-pane>
             </el-tabs>
         </div>
-    <!-- <null-data
-      style="padding: 150px"
-      img-style="width: 94px;height:118px"
-      :img="require('~/assets/images/img_null.png')"
-      :text="$t('请前往移动端进行查看')"
-    ></null-data> -->
   </div>
 </template>
 
 <script>
+import { useAppStore } from "~/stores/app";
 export default {
-  head() {
+  async setup() {
+    setPageLayout('user_lauout')
+    const store = useAppStore();
+    const { $get } = useNuxtApp();
+    useHead({
+      title: computed(() => store.headTitle),
+      link: [{ rel: "icon", type: "image/x-icon", href: computed(() => store.favicon) }],
+    });
+    let wallet = {};
+    let recodeList = [];
+    let walletRes = await $get("user/myWallet");
+    let recodeRes = await $get("user/accountLog", {
+      params: {
+        page_no: 1,
+        page_size: 10,
+        source: 1,
+        type: 0
+      }
+    })
+    if(walletRes.code == 1) {
+      wallet = walletRes.data;
+    }
+    if(recodeRes.code == 1) {
+      recodeList = recodeRes.data.list
+    }
     return {
-      title: this.$store.getters.headTitle,
-       link: [{ rel: "icon", type: "image/x-icon", href: this.$store.getters.favicon}],
-    };
+      wallet,
+      recodeList,
+    }
   },
-  layout: "user_lauout",
   data() {
     return {
       activeName: "all",
@@ -71,30 +89,8 @@ export default {
       ],
     };
   },
-  async asyncData({$get, query}) {
-    let wallet = {};
-    let recodeList = [];
-    let walletRes = await $get("user/myWallet");
-    let recodeRes = await $get("user/accountLog", {
-      params: {
-        page_no: 1,
-        page_size: 10,
-        source: 1, 
-        type: 0
-      }
-    })
-    if(walletRes.code == 1) {
-      wallet = walletRes.data;
-    }
-    if(recodeRes.code == 1) {
-      recodeList = recodeRes.data.list
-    }
-    return {
-      wallet,
-      recodeList,
-    }
-  },
-  fetch() {
+  mounted() {
+    // Thay hook fetch cua Nuxt 2 — nap lai danh sach sau khi mount.
     this.handleClick();
   },
   methods: {

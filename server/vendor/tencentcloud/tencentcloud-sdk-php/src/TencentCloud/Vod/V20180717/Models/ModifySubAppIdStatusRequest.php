@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,14 +20,14 @@ use TencentCloud\Common\AbstractModel;
 /**
  * ModifySubAppIdStatus请求参数结构体
  *
- * @method integer getSubAppId() 获取子应用 ID。
- * @method void setSubAppId(integer $SubAppId) 设置子应用 ID。
- * @method string getStatus() 获取子应用状态，取值范围：
+ * @method integer getSubAppId() 获取<b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
+ * @method void setSubAppId(integer $SubAppId) 设置<b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
+ * @method string getStatus() 获取应用状态，取值范围：
 <li>On：启用。</li>
 <li>Off：停用。</li>
 <li>Destroyed：销毁。</li>
 当前状态如果是 Destoying ，不能进行启用操作，需要等待销毁完成后才能重新启用。
- * @method void setStatus(string $Status) 设置子应用状态，取值范围：
+ * @method void setStatus(string $Status) 设置应用状态，取值范围：
 <li>On：启用。</li>
 <li>Off：停用。</li>
 <li>Destroyed：销毁。</li>
@@ -36,12 +36,12 @@ use TencentCloud\Common\AbstractModel;
 class ModifySubAppIdStatusRequest extends AbstractModel
 {
     /**
-     * @var integer 子应用 ID。
+     * @var integer <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
      */
     public $SubAppId;
 
     /**
-     * @var string 子应用状态，取值范围：
+     * @var string 应用状态，取值范围：
 <li>On：启用。</li>
 <li>Off：停用。</li>
 <li>Destroyed：销毁。</li>
@@ -50,8 +50,8 @@ class ModifySubAppIdStatusRequest extends AbstractModel
     public $Status;
 
     /**
-     * @param integer $SubAppId 子应用 ID。
-     * @param string $Status 子应用状态，取值范围：
+     * @param integer $SubAppId <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
+     * @param string $Status 应用状态，取值范围：
 <li>On：启用。</li>
 <li>Off：停用。</li>
 <li>Destroyed：销毁。</li>

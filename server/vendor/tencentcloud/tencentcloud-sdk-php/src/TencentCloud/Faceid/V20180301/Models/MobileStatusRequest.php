@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,26 +20,26 @@ use TencentCloud\Common\AbstractModel;
 /**
  * MobileStatus请求参数结构体
  *
- * @method string getMobile() 获取手机号码
- * @method void setMobile(string $Mobile) 设置手机号码
- * @method Encryption getEncryption() 获取敏感数据加密信息。对传入信息（手机号）有加密需求的用户可使用此参数，详情请点击左侧链接。
- * @method void setEncryption(Encryption $Encryption) 设置敏感数据加密信息。对传入信息（手机号）有加密需求的用户可使用此参数，详情请点击左侧链接。
+ * @method string getMobile() 获取<p>手机号码。</p>
+ * @method void setMobile(string $Mobile) 设置<p>手机号码。</p>
+ * @method Encryption getEncryption() 获取<p>敏感数据加密信息。</p><ul><li>对传入信息（手机号）有加密需求的用户可使用此参数，详情请点击左侧链接。</li></ul>
+ * @method void setEncryption(Encryption $Encryption) 设置<p>敏感数据加密信息。</p><ul><li>对传入信息（手机号）有加密需求的用户可使用此参数，详情请点击左侧链接。</li></ul>
  */
 class MobileStatusRequest extends AbstractModel
 {
     /**
-     * @var string 手机号码
+     * @var string <p>手机号码。</p>
      */
     public $Mobile;
 
     /**
-     * @var Encryption 敏感数据加密信息。对传入信息（手机号）有加密需求的用户可使用此参数，详情请点击左侧链接。
+     * @var Encryption <p>敏感数据加密信息。</p><ul><li>对传入信息（手机号）有加密需求的用户可使用此参数，详情请点击左侧链接。</li></ul>
      */
     public $Encryption;
 
     /**
-     * @param string $Mobile 手机号码
-     * @param Encryption $Encryption 敏感数据加密信息。对传入信息（手机号）有加密需求的用户可使用此参数，详情请点击左侧链接。
+     * @param string $Mobile <p>手机号码。</p>
+     * @param Encryption $Encryption <p>敏感数据加密信息。</p><ul><li>对传入信息（手机号）有加密需求的用户可使用此参数，详情请点击左侧链接。</li></ul>
      */
     function __construct()
     {

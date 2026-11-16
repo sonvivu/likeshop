@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,6 +44,8 @@ AccidentInsurance：意外险
 CriticalDiseaseInsurance:重疾险
 LifeInsurance：寿险
 AccidentInsurance：意外险
+ * @method string getCallbackUrl() 获取回调地址，接收Post请求传送结果
+ * @method void setCallbackUrl(string $CallbackUrl) 设置回调地址，接收Post请求传送结果
  */
 class CreateStructureTaskRequest extends AbstractModel
 {
@@ -80,6 +82,11 @@ AccidentInsurance：意外险
     public $InsuranceTypes;
 
     /**
+     * @var string 回调地址，接收Post请求传送结果
+     */
+    public $CallbackUrl;
+
+    /**
      * @param string $ServiceType 服务类型
 Structured 仅结构化
 Underwrite 结构化+核保
@@ -92,6 +99,7 @@ Manual 手动
 CriticalDiseaseInsurance:重疾险
 LifeInsurance：寿险
 AccidentInsurance：意外险
+     * @param string $CallbackUrl 回调地址，接收Post请求传送结果
      */
     function __construct()
     {
@@ -129,6 +137,10 @@ AccidentInsurance：意外险
 
         if (array_key_exists("InsuranceTypes",$param) and $param["InsuranceTypes"] !== null) {
             $this->InsuranceTypes = $param["InsuranceTypes"];
+        }
+
+        if (array_key_exists("CallbackUrl",$param) and $param["CallbackUrl"] !== null) {
+            $this->CallbackUrl = $param["CallbackUrl"];
         }
     }
 }

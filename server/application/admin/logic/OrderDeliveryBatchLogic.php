@@ -7,7 +7,7 @@ use app\api\model\Order;
 use app\common\model\DeliveryBatch;
 use app\common\model\DeliveryBatchInfo;
 use app\common\model\Express;
-use think\Db;
+use think\facade\Db;
 
 class OrderDeliveryBatchLogic
 {

@@ -22,8 +22,6 @@ namespace app\admin\controller;
 
 
 use app\admin\logic\AuthLogic;
-use think\facade\Hook;
-use think\facade\Url;
 
 class Auth extends AdminBase
 {
@@ -107,7 +105,7 @@ class Auth extends AdminBase
         if ($this->request->isAjax()) {
             $post = $this->request->post();
             AuthLogic::setStatus($post);
-            Hook::listen('menu_auth');
+            event('menu_auth');
             $this->_success(lang('修改成功'));
         }
     }
@@ -126,7 +124,7 @@ class Auth extends AdminBase
                 $this->_error(lang('删除失败'));
             }
             AuthLogic::delMenu($post['ids']);
-            Hook::listen('menu_auth');
+            event('menu_auth');
             $this->_success(lang('删除成功'));
         }
     }

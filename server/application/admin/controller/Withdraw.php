@@ -21,7 +21,7 @@ namespace app\admin\controller;
 
 use app\admin\logic\WithdrawLogic;
 use app\common\model\Withdraw as WithdrawModel;
-use think\helper\Time;
+use app\common\helper\Time;
 use app\admin\logic\WechatCorporatePaymentLogic;
 
 class Withdraw extends AdminBase

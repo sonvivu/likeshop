@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,9 +21,9 @@ use TencentCloud\Common\AbstractModel;
  * 素材标签信息
  *
  * @method string getType() 获取标签类型，取值为：
-<li>PRESET：预置标签；</li>
+<li>PRESET：预置标签。</li>
  * @method void setType(string $Type) 设置标签类型，取值为：
-<li>PRESET：预置标签；</li>
+<li>PRESET：预置标签。</li>
  * @method string getId() 获取标签 Id 。当标签类型为 PRESET 时，标签 Id 为预置标签 Id 。
  * @method void setId(string $Id) 设置标签 Id 。当标签类型为 PRESET 时，标签 Id 为预置标签 Id 。
  * @method string getName() 获取标签名称。
@@ -33,7 +33,7 @@ class MaterialTagInfo extends AbstractModel
 {
     /**
      * @var string 标签类型，取值为：
-<li>PRESET：预置标签；</li>
+<li>PRESET：预置标签。</li>
      */
     public $Type;
 
@@ -49,7 +49,7 @@ class MaterialTagInfo extends AbstractModel
 
     /**
      * @param string $Type 标签类型，取值为：
-<li>PRESET：预置标签；</li>
+<li>PRESET：预置标签。</li>
      * @param string $Id 标签 Id 。当标签类型为 PRESET 时，标签 Id 为预置标签 Id 。
      * @param string $Name 标签名称。
      */

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,6 +22,8 @@ use TencentCloud\Common\AbstractModel;
  *
  * @method string getFileSystemId() 获取文件系统ID
  * @method void setFileSystemId(string $FileSystemId) 设置文件系统ID
+ * @method integer getRestoreTaskIdMarker() 获取起始回热任务ID标记
+ * @method void setRestoreTaskIdMarker(integer $RestoreTaskIdMarker) 设置起始回热任务ID标记
  */
 class DescribeRestoreTasksRequest extends AbstractModel
 {
@@ -31,7 +33,13 @@ class DescribeRestoreTasksRequest extends AbstractModel
     public $FileSystemId;
 
     /**
+     * @var integer 起始回热任务ID标记
+     */
+    public $RestoreTaskIdMarker;
+
+    /**
      * @param string $FileSystemId 文件系统ID
+     * @param integer $RestoreTaskIdMarker 起始回热任务ID标记
      */
     function __construct()
     {
@@ -48,6 +56,10 @@ class DescribeRestoreTasksRequest extends AbstractModel
         }
         if (array_key_exists("FileSystemId",$param) and $param["FileSystemId"] !== null) {
             $this->FileSystemId = $param["FileSystemId"];
+        }
+
+        if (array_key_exists("RestoreTaskIdMarker",$param) and $param["RestoreTaskIdMarker"] !== null) {
+            $this->RestoreTaskIdMarker = $param["RestoreTaskIdMarker"];
         }
     }
 }

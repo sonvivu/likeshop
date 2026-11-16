@@ -44,14 +44,24 @@ class Auth
         }
 
         //权限控制判断
-        $controller_action = $request->controller() . '/' . $request->action();////当前访问
-        $controller_action = strtolower($controller_action);
+        // ThinkPHP 6：中间件运行时路由尚未分发，$request->controller()/$request->action()
+        // 为空；改为从 pathinfo 解析（MultiApp 已去掉模块段，如 goods/lists）。
+        // 控制器名须先转 StudlyCase 再小写，与 dev_auth.uri 的格式一致（如 goodsCategory）。
+        $segments = explode('/', trim($request->pathinfo(), '/'));
+        $controller = \think\helper\Str::studly($segments[0] ?? config('app.default_controller'));
+        $action = $segments[1] ?? config('app.default_action');
+        $suffix = config('app.url_html_suffix');
+        if ($suffix && str_ends_with($action, '.' . $suffix)) {
+            $action = substr($action, 0, -strlen($suffix) - 1);
+        }
+        $controller_action = strtolower($controller . '/' . $action);////当前访问
         $auth_cache = new RoleNoneAuthCacheUris(session('admin_info.role_id'), ['role_id' => session('admin_info.role_id')]);
         $none_auth = $auth_cache->set(3600);
         if (empty($none_auth) || !in_array($controller_action, $none_auth)) {
             //通过权限控制
             return $next($request);
         }
-        return redirect('dispatch/dispatch_error',['msg' => lang('权限不足，无法访问')]);
+        // ThinkPHP 6 的 redirect() 助手只有 ($url, $code)，参数须先用 url() 拼进地址。
+        return redirect((string) url('dispatch/dispatch_error', ['msg' => lang('权限不足，无法访问')]));
     }
 }

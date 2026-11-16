@@ -2,7 +2,7 @@
     <div class="input-express">
         <el-dialog
             :title="$t('填写快递单号')"
-            :visible.sync="showDialog"
+            v-model="showDialog"
             width="926px"
         >
             <el-form
@@ -32,25 +32,29 @@
                     <div class="xs muted">{{ $t('请上传快递单号凭证，选填') }}</div>
                     <upload isSlot :file-list="fileList" @success="uploadSuccess" :limit="3">
                         <div class="column-center" style="height: 100%">
-                            <i class="el-icon-camera xs" style="font-size: 24px"/>
+                            <el-icon class="xs" style="font-size: 24px"><Camera /></el-icon>
                             <div class="muted xs mt10" style="line-height: 0">{{ $t('上传凭证') }}</div>
                         </div>
                     </upload>
                 </el-form-item>
             </el-form>
-            <div slot="footer" class="dialog-footer">
-                <el-button type="primary" @click="submitForm">{{ $t('确定') }}</el-button>
-                <el-button @click="showDialog = false">{{ $t('取消') }}</el-button>
-            </div>
+            <template #footer>
+                <div class="dialog-footer">
+                    <el-button type="primary" @click="submitForm">{{ $t('确定') }}</el-button>
+                    <el-button @click="showDialog = false">{{ $t('取消') }}</el-button>
+                </div>
+            </template>
         </el-dialog>
     </div>
 </template>
 
 <script>
+import { Camera } from "@element-plus/icons-vue";
 import upload from '@/components/public/upload'
 export default {
     components: {
-        upload
+        upload,
+        Camera
     },
     data() {
         return {
@@ -71,7 +75,7 @@ export default {
         }
     },
     props: {
-        value: {
+        modelValue: {
             type: Boolean,
             default: false,
         },
@@ -118,11 +122,11 @@ export default {
         }
     },
     watch: {
-        value(val) {
+        modelValue(val) {
             this.showDialog = val;
         },
         showDialog(val) {
-            this.$emit("input", val);
+            this.$emit("update:modelValue", val);
         },
     }
 }

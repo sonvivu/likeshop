@@ -26,7 +26,7 @@ use app\common\logic\OrderGoodsLogic;
 use app\common\logic\OrderLogLogic;
 use app\common\model\AccountLog;
 use app\common\model\OrderLog;
-use think\Db;
+use think\facade\Db;
 
 
 /**
@@ -36,14 +36,14 @@ use think\Db;
  */
 class CancelOrder
 {
-    public function run($params)
+    public function handle($params)
     {
 
         $order_id = $params['order_id'];
         $handle_id = $params['handle_id'] ?? 0;
         $handle_type = $params['handle_type'] ?? 0;
 
-        $order = Order::get(['id' => $order_id], ['orderGoods']);
+        $order = Order::with(['orderGoods'])->find(['id' => $order_id]);
         if (empty($order)){
             return false;
         }

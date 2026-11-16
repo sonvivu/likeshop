@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,6 +30,8 @@ use TencentCloud\Common\AbstractModel;
  * @method void setVip(string $Vip) 设置负载均衡的vip
  * @method float getOutBandwidth() 获取最大出带宽，单位：Mbps
  * @method void setOutBandwidth(float $OutBandwidth) 设置最大出带宽，单位：Mbps
+ * @method string getDomain() 获取CLB域名
+ * @method void setDomain(string $Domain) 设置CLB域名
  */
 class LoadBalancerTraffic extends AbstractModel
 {
@@ -59,11 +61,17 @@ class LoadBalancerTraffic extends AbstractModel
     public $OutBandwidth;
 
     /**
+     * @var string CLB域名
+     */
+    public $Domain;
+
+    /**
      * @param string $LoadBalancerId 负载均衡ID
      * @param string $LoadBalancerName 负载均衡名字
      * @param string $Region 负载均衡所在地域
      * @param string $Vip 负载均衡的vip
      * @param float $OutBandwidth 最大出带宽，单位：Mbps
+     * @param string $Domain CLB域名
      */
     function __construct()
     {
@@ -96,6 +104,10 @@ class LoadBalancerTraffic extends AbstractModel
 
         if (array_key_exists("OutBandwidth",$param) and $param["OutBandwidth"] !== null) {
             $this->OutBandwidth = $param["OutBandwidth"];
+        }
+
+        if (array_key_exists("Domain",$param) and $param["Domain"] !== null) {
+            $this->Domain = $param["Domain"];
         }
     }
 }

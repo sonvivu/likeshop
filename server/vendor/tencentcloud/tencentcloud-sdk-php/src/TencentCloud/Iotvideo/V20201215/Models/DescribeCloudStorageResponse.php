@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,8 +28,12 @@ use TencentCloud\Common\AbstractModel;
  * @method void setExpireTime(integer $ExpireTime) 设置云存套餐过期时间
  * @method integer getShiftDuration() 获取云存回看时长
  * @method void setShiftDuration(integer $ShiftDuration) 设置云存回看时长
- * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
- * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method string getUserId() 获取云存用户ID
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setUserId(string $UserId) 设置云存用户ID
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+ * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
 class DescribeCloudStorageResponse extends AbstractModel
 {
@@ -54,7 +58,13 @@ class DescribeCloudStorageResponse extends AbstractModel
     public $ShiftDuration;
 
     /**
-     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @var string 云存用户ID
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $UserId;
+
+    /**
+     * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public $RequestId;
 
@@ -63,7 +73,9 @@ class DescribeCloudStorageResponse extends AbstractModel
      * @param integer $Type 云存类型，1为全时云存，2为事件云存
      * @param integer $ExpireTime 云存套餐过期时间
      * @param integer $ShiftDuration 云存回看时长
-     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @param string $UserId 云存用户ID
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
     {
@@ -92,6 +104,10 @@ class DescribeCloudStorageResponse extends AbstractModel
 
         if (array_key_exists("ShiftDuration",$param) and $param["ShiftDuration"] !== null) {
             $this->ShiftDuration = $param["ShiftDuration"];
+        }
+
+        if (array_key_exists("UserId",$param) and $param["UserId"] !== null) {
+            $this->UserId = $param["UserId"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

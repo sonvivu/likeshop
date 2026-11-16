@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,33 +20,41 @@ use TencentCloud\Common\AbstractModel;
 /**
  * UserAgent黑白名单配置
  *
- * @method string getSwitch() 获取开关，on或off
+ * @method string getSwitch() 获取UserAgent黑白名单配置开关，取值有：
+on：开启
+off：关闭
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setSwitch(string $Switch) 设置开关，on或off
+ * @method void setSwitch(string $Switch) 设置UserAgent黑白名单配置开关，取值有：
+on：开启
+off：关闭
 注意：此字段可能返回 null，表示取不到有效值。
- * @method array getFilterRules() 获取UA黑白名单生效规则列表
+ * @method array getFilterRules() 获取UA黑白名单生效规则列表，不能超过10条规则
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setFilterRules(array $FilterRules) 设置UA黑白名单生效规则列表
+ * @method void setFilterRules(array $FilterRules) 设置UA黑白名单生效规则列表，不能超过10条规则
 注意：此字段可能返回 null，表示取不到有效值。
  */
 class UserAgentFilter extends AbstractModel
 {
     /**
-     * @var string 开关，on或off
+     * @var string UserAgent黑白名单配置开关，取值有：
+on：开启
+off：关闭
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Switch;
 
     /**
-     * @var array UA黑白名单生效规则列表
+     * @var array UA黑白名单生效规则列表，不能超过10条规则
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $FilterRules;
 
     /**
-     * @param string $Switch 开关，on或off
+     * @param string $Switch UserAgent黑白名单配置开关，取值有：
+on：开启
+off：关闭
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param array $FilterRules UA黑白名单生效规则列表
+     * @param array $FilterRules UA黑白名单生效规则列表，不能超过10条规则
 注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()

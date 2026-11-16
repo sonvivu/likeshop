@@ -21,7 +21,7 @@ namespace app\api\validate;
 
 use app\common\logic\SmsLogic;
 use app\common\model\Client_;
-use think\Db;
+use think\facade\Db;
 use think\Validate;
 
 class ChangeMobile extends Validate

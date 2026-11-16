@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,6 +26,10 @@ use TencentCloud\Common\AbstractModel;
  * @method void setLimit(integer $Limit) 设置翻页单页查询限制数量[0,1000], 默认值0
  * @method integer getOffset() 获取翻页单页偏移量，默认值0
  * @method void setOffset(integer $Offset) 设置翻页单页偏移量，默认值0
+ * @method string getQueryType() 获取查询类型
+ * @method void setQueryType(string $QueryType) 设置查询类型
+ * @method string getQuerySource() 获取调用方来源
+ * @method void setQuerySource(string $QuerySource) 设置调用方来源
  */
 class DescribeSREInstancesRequest extends AbstractModel
 {
@@ -45,9 +49,21 @@ class DescribeSREInstancesRequest extends AbstractModel
     public $Offset;
 
     /**
+     * @var string 查询类型
+     */
+    public $QueryType;
+
+    /**
+     * @var string 调用方来源
+     */
+    public $QuerySource;
+
+    /**
      * @param array $Filters 请求过滤参数
      * @param integer $Limit 翻页单页查询限制数量[0,1000], 默认值0
      * @param integer $Offset 翻页单页偏移量，默认值0
+     * @param string $QueryType 查询类型
+     * @param string $QuerySource 调用方来源
      */
     function __construct()
     {
@@ -77,6 +93,14 @@ class DescribeSREInstancesRequest extends AbstractModel
 
         if (array_key_exists("Offset",$param) and $param["Offset"] !== null) {
             $this->Offset = $param["Offset"];
+        }
+
+        if (array_key_exists("QueryType",$param) and $param["QueryType"] !== null) {
+            $this->QueryType = $param["QueryType"];
+        }
+
+        if (array_key_exists("QuerySource",$param) and $param["QuerySource"] !== null) {
+            $this->QuerySource = $param["QuerySource"];
         }
     }
 }

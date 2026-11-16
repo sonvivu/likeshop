@@ -19,7 +19,6 @@
 namespace app\api\logic;
 
 use app\common\model\NoticeSetting;
-use think\facade\Hook;
 
 class SmsLogic{
     public static function send($mobile,$key, $user_id = 0){
@@ -35,7 +34,7 @@ class SmsLogic{
                 $send_data['user_id'] = $user_id;
             }
 
-            Hook::listen('sms_send',$send_data);
+            event('sms_send',$send_data);
             return true;
         } catch (\Exception $e) {
             return $e->getMessage();

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,18 +20,18 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DeleteBandwidthPackage请求参数结构体
  *
- * @method string getBandwidthPackageId() 获取待删除带宽包唯一ID
- * @method void setBandwidthPackageId(string $BandwidthPackageId) 设置待删除带宽包唯一ID
+ * @method string getBandwidthPackageId() 获取待删除带宽包唯一ID，可以使用[DescribeBandwidthPackages](https://cloud.tencent.com/document/product/215/19209)接口查询BandwidthPackageId。
+ * @method void setBandwidthPackageId(string $BandwidthPackageId) 设置待删除带宽包唯一ID，可以使用[DescribeBandwidthPackages](https://cloud.tencent.com/document/product/215/19209)接口查询BandwidthPackageId。
  */
 class DeleteBandwidthPackageRequest extends AbstractModel
 {
     /**
-     * @var string 待删除带宽包唯一ID
+     * @var string 待删除带宽包唯一ID，可以使用[DescribeBandwidthPackages](https://cloud.tencent.com/document/product/215/19209)接口查询BandwidthPackageId。
      */
     public $BandwidthPackageId;
 
     /**
-     * @param string $BandwidthPackageId 待删除带宽包唯一ID
+     * @param string $BandwidthPackageId 待删除带宽包唯一ID，可以使用[DescribeBandwidthPackages](https://cloud.tencent.com/document/product/215/19209)接口查询BandwidthPackageId。
      */
     function __construct()
     {

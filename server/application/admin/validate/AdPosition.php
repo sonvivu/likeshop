@@ -19,7 +19,7 @@
 
 namespace app\admin\validate;
 
-use think\Db;
+use think\facade\Db;
 use think\Validate;
 
 class AdPosition extends Validate
@@ -71,7 +71,7 @@ class AdPosition extends Validate
 
     protected function sceneAdd()
     {
-        $this->remove(['id']);
+        $this->remove('id', true);
     }
 
     protected function sceneEdit()

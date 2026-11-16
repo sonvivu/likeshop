@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,6 +26,8 @@ use TencentCloud\Common\AbstractModel;
  * @method void setTagValue(string $TagValue) 设置标签值
  * @method integer getCanDelete() 获取是否可以删除
  * @method void setCanDelete(integer $CanDelete) 设置是否可以删除
+ * @method string getCategory() 获取标签类型。取值： Custom：自定义标签。 System：系统标签。 All：全部标签。 默认值：All。
+ * @method void setCategory(string $Category) 设置标签类型。取值： Custom：自定义标签。 System：系统标签。 All：全部标签。 默认值：All。
  */
 class TagWithDelete extends AbstractModel
 {
@@ -45,9 +47,15 @@ class TagWithDelete extends AbstractModel
     public $CanDelete;
 
     /**
+     * @var string 标签类型。取值： Custom：自定义标签。 System：系统标签。 All：全部标签。 默认值：All。
+     */
+    public $Category;
+
+    /**
      * @param string $TagKey 标签键
      * @param string $TagValue 标签值
      * @param integer $CanDelete 是否可以删除
+     * @param string $Category 标签类型。取值： Custom：自定义标签。 System：系统标签。 All：全部标签。 默认值：All。
      */
     function __construct()
     {
@@ -72,6 +80,10 @@ class TagWithDelete extends AbstractModel
 
         if (array_key_exists("CanDelete",$param) and $param["CanDelete"] !== null) {
             $this->CanDelete = $param["CanDelete"];
+        }
+
+        if (array_key_exists("Category",$param) and $param["Category"] !== null) {
+            $this->Category = $param["Category"];
         }
     }
 }

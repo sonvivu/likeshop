@@ -71,10 +71,10 @@
             </view>
         </view>
         <loading-footer :status="status" slotEmpty>
-            <view slot="empty" class="column-center" style="padding-top: 200rpx">
+                        <template #empty><view class="column-center" style="padding-top: 200rpx">
                 <image class="img-null" src="/static/images/goods_null.png"></image>
                 <text class="lighter">{{ $t('暂无评价') }}</text>
-            </view>
+            </view></template>
         </loading-footer>
     </view>
 </template>

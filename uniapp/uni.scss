@@ -69,3 +69,9 @@ $u-bg-color: #f3f4f6;
 $u-form-item-border-color: #dcdfe6;
 $u-form-item-height: 70rpx;
 
+// uview-plus: theme.scss cung cap cac mixin dung trong component cua thu vien
+// (flex, ...) va bien $u-* dang !default (khong de len gia tri tren).
+// Uni-app tron noi dung uni.scss vao moi file scss (ke ca component trong
+// node_modules) nen import o day la cach de mixin co mat khi bien dich uview-plus.
+@import 'uview-plus/theme.scss';
+

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,6 +32,10 @@ false: 使用vpc域名
  * @method void setUsePublicDomain(boolean $UsePublicDomain) 设置true：为默认域名，公网域名一致
 false: 使用vpc域名
 默认为vpc域名
+ * @method string getRegionName() 获取解析地域，需要保证和vpc处于同一地域，如果不填则默认为主实例地域
+ * @method void setRegionName(string $RegionName) 设置解析地域，需要保证和vpc处于同一地域，如果不填则默认为主实例地域
+ * @method integer getRegionId() 获取请求的地域ID，用于实例复制地域
+ * @method void setRegionId(integer $RegionId) 设置请求的地域ID，用于实例复制地域
  */
 class CreateInternalEndpointDnsRequest extends AbstractModel
 {
@@ -58,12 +62,24 @@ false: 使用vpc域名
     public $UsePublicDomain;
 
     /**
+     * @var string 解析地域，需要保证和vpc处于同一地域，如果不填则默认为主实例地域
+     */
+    public $RegionName;
+
+    /**
+     * @var integer 请求的地域ID，用于实例复制地域
+     */
+    public $RegionId;
+
+    /**
      * @param string $InstanceId tcr实例id
      * @param string $VpcId 私有网络id
      * @param string $EniLBIp tcr内网访问链路ip
      * @param boolean $UsePublicDomain true：为默认域名，公网域名一致
 false: 使用vpc域名
 默认为vpc域名
+     * @param string $RegionName 解析地域，需要保证和vpc处于同一地域，如果不填则默认为主实例地域
+     * @param integer $RegionId 请求的地域ID，用于实例复制地域
      */
     function __construct()
     {
@@ -92,6 +108,14 @@ false: 使用vpc域名
 
         if (array_key_exists("UsePublicDomain",$param) and $param["UsePublicDomain"] !== null) {
             $this->UsePublicDomain = $param["UsePublicDomain"];
+        }
+
+        if (array_key_exists("RegionName",$param) and $param["RegionName"] !== null) {
+            $this->RegionName = $param["RegionName"];
+        }
+
+        if (array_key_exists("RegionId",$param) and $param["RegionId"] !== null) {
+            $this->RegionId = $param["RegionId"];
         }
     }
 }

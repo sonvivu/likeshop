@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,8 +22,8 @@ use TencentCloud\Common\AbstractModel;
  *
  * @method ItemPrice getInstancePrice() 获取实例价格。
  * @method void setInstancePrice(ItemPrice $InstancePrice) 设置实例价格。
- * @method ItemPrice getBandwidthPrice() 获取网络价格。
- * @method void setBandwidthPrice(ItemPrice $BandwidthPrice) 设置网络价格。
+ * @method ItemPrice getBandwidthPrice() 获取带宽价格。
+ * @method void setBandwidthPrice(ItemPrice $BandwidthPrice) 设置带宽价格。
  */
 class Price extends AbstractModel
 {
@@ -33,13 +33,13 @@ class Price extends AbstractModel
     public $InstancePrice;
 
     /**
-     * @var ItemPrice 网络价格。
+     * @var ItemPrice 带宽价格。
      */
     public $BandwidthPrice;
 
     /**
      * @param ItemPrice $InstancePrice 实例价格。
-     * @param ItemPrice $BandwidthPrice 网络价格。
+     * @param ItemPrice $BandwidthPrice 带宽价格。
      */
     function __construct()
     {

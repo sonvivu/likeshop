@@ -33,10 +33,10 @@
                 </view>
             </view>
             <loading-footer :status="status" slotEmpty>
-                <view slot="empty" class="column-center" style="padding-top: 100rpx">
+                                <template #empty><view class="column-center" style="padding-top: 100rpx">
                     <image class="img-null" src="/static/images/news_null.png"></image>
                     <text class="nr muted">{{ $t('暂无数据～') }}</text>
-                </view>
+                </view></template>
             </loading-footer>
         </view>
     </view>

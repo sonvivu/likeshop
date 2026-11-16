@@ -30,7 +30,7 @@ use app\common\server\ConfigServer;
 use think\console\Command;
 use think\console\Input;
 use think\console\Output;
-use think\Db;
+use think\facade\Db;
 use think\Exception;
 use think\facade\Log;
 
@@ -55,7 +55,7 @@ class TeamEnd extends Command
         //更新商品is_team
         $team_ids = array_column($activity, 'team_id');
 
-        Db::name('goods g')
+        Db::name('goods')->alias('g')
             ->join('team_goods_item i', 'i.goods_id = g.id')
             ->where('i.team_id', 'in', $team_ids)
             ->update(['is_team' => 0]);
@@ -92,7 +92,7 @@ class TeamEnd extends Command
 
         //更新拼团状态
         foreach ($lists as $item) {
-            $found = TeamFound::get($item['id']);
+            $found = TeamFound::find($item['id']);
             if ($found['join'] == $found['need'] || $setting == 1) {
                 //人数凑齐,拼团成功 或者 系统自动成团
                 $team_status = Team::STATUS_SUCCESS;

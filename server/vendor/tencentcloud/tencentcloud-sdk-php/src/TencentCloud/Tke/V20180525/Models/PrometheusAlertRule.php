@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,6 +33,14 @@ use TencentCloud\Common\AbstractModel;
  * @method string getDescribe() 获取该条规则的描述信息
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setDescribe(string $Describe) 设置该条规则的描述信息
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method array getAnnotations() 获取参考prometheus rule中的annotations
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setAnnotations(array $Annotations) 设置参考prometheus rule中的annotations
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method integer getRuleState() 获取告警规则状态
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setRuleState(integer $RuleState) 设置告警规则状态
 注意：此字段可能返回 null，表示取不到有效值。
  */
 class PrometheusAlertRule extends AbstractModel
@@ -69,12 +77,28 @@ class PrometheusAlertRule extends AbstractModel
     public $Describe;
 
     /**
+     * @var array 参考prometheus rule中的annotations
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $Annotations;
+
+    /**
+     * @var integer 告警规则状态
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $RuleState;
+
+    /**
      * @param string $Name 规则名称
      * @param string $Rule prometheus语句
      * @param array $Labels 额外标签
      * @param string $Template 告警发送模板
      * @param string $For 持续时间
      * @param string $Describe 该条规则的描述信息
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param array $Annotations 参考prometheus rule中的annotations
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param integer $RuleState 告警规则状态
 注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
@@ -117,6 +141,19 @@ class PrometheusAlertRule extends AbstractModel
 
         if (array_key_exists("Describe",$param) and $param["Describe"] !== null) {
             $this->Describe = $param["Describe"];
+        }
+
+        if (array_key_exists("Annotations",$param) and $param["Annotations"] !== null) {
+            $this->Annotations = [];
+            foreach ($param["Annotations"] as $key => $value){
+                $obj = new Label();
+                $obj->deserialize($value);
+                array_push($this->Annotations, $obj);
+            }
+        }
+
+        if (array_key_exists("RuleState",$param) and $param["RuleState"] !== null) {
+            $this->RuleState = $param["RuleState"];
         }
     }
 }

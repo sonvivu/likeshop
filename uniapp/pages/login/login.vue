@@ -8,14 +8,13 @@
         "
     >
         <!-- #ifndef  H5 -->
-        <u-sticky offset-top="0" h5-nav-height="0" bg-color="transparent">
+        <u-sticky offset-top="0" custom-nav-height="0" bg-color="transparent">
             <u-navbar
-                :is-back="true"
+                :auto-back="true"
                 :title="$t('登录')"
-                :title-bold="true"
-                :is-fixed="false"
-                :border-bottom="false"
-                :background="{ background: 'rgba(256,256, 256,0)' }"
+                :title-style="{fontWeight:'bold'}"
+                :fixed="false"
+                bg-color="transparent"
             ></u-navbar>
         </u-sticky>
         <!-- #endif -->
@@ -31,7 +30,7 @@
                     <text>{{ $t('手机号登录') }}</text>
                 </button>
                 <view class="mt20" style="width: 100%">
-                    <u-checkbox v-model="isAgree" shape="circle">
+                    <u-checkbox v-model:checked="isAgree" shape="circle">
                         <view class="sm row">
                             {$t('已阅读并同意')}
                             <navigator
@@ -61,7 +60,7 @@
                                 v-model="account"
                                 style="width: 100%"
                                 :placeholder="$t('请输入账户')"
-                                :input-border="false"
+                                border="none"
                             />
                         </view>
                         <view class="input row" style="padding: 15rpx">
@@ -69,9 +68,9 @@
                                 v-model="password"
                                 type="password"
                                 style="flex: 1"
-                                :password-icon="false"
+                                :password-visibility-toggle="false"
                                 :placeholder="$t('请输入密码')"
-                                :input-border="false"
+                                border="none"
                             />
                             <navigator
                                 style="
@@ -89,7 +88,7 @@
                                 v-model="captchaCode"
                                 style="flex: 1"
                                 :placeholder="$t('请输入图形验证码')"
-                                :input-border="false"
+                                border="none"
                             />
                             <image
                                 class="captcha-img"
@@ -106,7 +105,7 @@
                                 v-model="telephone"
                                 style="width: 100%"
                                 :placeholder="$t('请输入手机号')"
-                                :input-border="false"
+                                border="none"
                             />
                         </view>
                         <view class="input row" style="padding: 15rpx">
@@ -114,7 +113,7 @@
                                 v-model="captchaCode"
                                 style="flex: 1"
                                 :placeholder="$t('请输入图形验证码')"
-                                :input-border="false"
+                                border="none"
                             />
                             <image
                                 class="captcha-img"
@@ -128,31 +127,20 @@
                                 v-model="smsCode"
                                 style="flex: 1"
                                 :placeholder="$t('请输入验证码')"
-                                :input-border="false"
+                                border="none"
                             />
                             <view class="row">
                                 <view class="sms-btn primary sm row-center br60" @click="$sendSms">
                                     <view v-show="canSendSms">{{ $t('获取验证码') }}</view>
-                                    <u-count-down
-                                        ref="countDown"
-                                        :show-days="false"
-                                        :timestamp="time"
-                                        :showColon="false"
-                                        separator="zh"
-                                        color="#FF2C3C"
-                                        separator-color="#FF2C3C"
-                                        :show-hours="false"
-                                        :show-minutes="false"
-                                        :autoplay="false"
-                                        v-show="!canSendSms"
-                                        @end="countDownFinish()"
-                                    />
+                                                                        <u-count-down ref="countDown" :time="time * 1000" :auto-start="false" v-show="!canSendSms" format="ss秒" @finish="countDownFinish()">
+                                        <template #default="{days, hours, minutes, seconds}"><text style="color:#FF2C3C">{{ String(seconds).padStart(2, '0') }}秒</text></template>
+                                    </u-count-down>
                                 </view>
                             </view>
                         </view>
                     </view>
                     <view class="row-start mb20 mt20" style="width: 100%">
-                        <u-checkbox v-model="isAgree" shape="circle">
+                        <u-checkbox v-model:checked="isAgree" shape="circle">
                             <view class="sm row-start">
                                 {$t('已阅读并同意')}
                                 <navigator
@@ -226,7 +214,7 @@
                 </button>
 
                 <view class="row-start mb20 mt20" style="width: 100%">
-                    <u-checkbox v-model="isAgree" shape="circle">
+                    <u-checkbox v-model:checked="isAgree" shape="circle">
                         <view class="sm row-start">
                             {$t('已阅读并同意')}
                             <navigator
@@ -256,7 +244,7 @@
                                 v-model="account"
                                 style="width: 100%"
                                 :placeholder="$t('请输入账户')"
-                                :input-border="false"
+                                border="none"
                             />
                         </view>
                         <view class="input row" style="padding: 15rpx">
@@ -264,9 +252,9 @@
                                 v-model="password"
                                 type="password"
                                 style="flex: 1"
-                                :password-icon="false"
+                                :password-visibility-toggle="false"
                                 :placeholder="$t('请输入密码')"
-                                :input-border="false"
+                                border="none"
                             />
                             <navigator
                                 style="
@@ -284,7 +272,7 @@
                                 v-model="captchaCode"
                                 style="flex: 1"
                                 :placeholder="$t('请输入图形验证码')"
-                                :input-border="false"
+                                border="none"
                             />
                             <image
                                 class="captcha-img"
@@ -301,7 +289,7 @@
                                 v-model="telephone"
                                 style="width: 100%"
                                 :placeholder="$t('请输入手机号')"
-                                :input-border="false"
+                                border="none"
                             />
                         </view>
                         <view class="input row" style="padding: 15rpx">
@@ -309,7 +297,7 @@
                                 v-model="captchaCode"
                                 style="flex: 1"
                                 :placeholder="$t('请输入图形验证码')"
-                                :input-border="false"
+                                border="none"
                             />
                             <image
                                 class="captcha-img"
@@ -323,31 +311,20 @@
                                 v-model="smsCode"
                                 style="flex: 1"
                                 :placeholder="$t('请输入验证码')"
-                                :input-border="false"
+                                border="none"
                             />
                             <view class="row">
                                 <view class="sms-btn primary sm row-center br60" @click="$sendSms">
                                     <view v-show="canSendSms">{{ $t('获取验证码') }}</view>
-                                    <u-count-down
-                                        ref="countDown"
-                                        :show-days="false"
-                                        :timestamp="time"
-                                        :showColon="false"
-                                        separator="zh"
-                                        color="#FF2C3C"
-                                        separator-color="#FF2C3C"
-                                        :show-hours="false"
-                                        :show-minutes="false"
-                                        :autoplay="false"
-                                        v-show="!canSendSms"
-                                        @end="countDownFinish()"
-                                    />
+                                                                        <u-count-down ref="countDown" :time="time * 1000" :auto-start="false" v-show="!canSendSms" format="ss秒" @finish="countDownFinish()">
+                                        <template #default="{days, hours, minutes, seconds}"><text style="color:#FF2C3C">{{ String(seconds).padStart(2, '0') }}秒</text></template>
+                                    </u-count-down>
                                 </view>
                             </view>
                         </view>
                     </view>
                     <view class="row-start mb20 mt20" style="width: 100%">
-                        <u-checkbox v-model="isAgree" shape="circle">
+                        <u-checkbox v-model:checked="isAgree" shape="circle">
                             <view class="sm row-start">
                                 {$t('已阅读并同意')}
                                 <navigator
@@ -402,9 +379,8 @@
         <!--  #endif -->
         <!-- 阅读协议弹框 -->
         <u-modal
-            :value="showModel"
+            :show="showModel"
             show-cancel-button
-            :show-title="false"
             @confirm=";(isAgree = true), (showModel = false)"
             @cancel="showModel = false"
             confirm-color="#FF2C3C"
@@ -437,9 +413,7 @@
 import { mapMutations, mapActions, mapGetters } from 'vuex'
 import {
     accountLogin,
-    codeLogin,
     sendSms,
-    wxpLogin,
     smsCodeLogin,
     opLogin,
     authLogin,

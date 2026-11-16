@@ -25,7 +25,7 @@
         </template>
         <null-data
           v-else
-          :img="require('~/assets/images/order_null.png')"
+          :img="orderNull"
           :text="$t('暂无订单~')"
         ></null-data>
       </el-tab-pane>
@@ -34,15 +34,17 @@
 </template>
 
 <script>
+import orderNull from '~/assets/images/order_null.png'
+import { useAppStore } from "~/stores/app";
 export default {
-  head() {
-    return {
-      title: this.$store.getters.headTitle,
-       link: [{ rel: "icon", type: "image/x-icon", href: this.$store.getters.favicon}],
-    };
-  },
-  layout: "user_lauout",
-  async asyncData({ $get, $post }) {
+  async setup() {
+    setPageLayout('user_lauout')
+    const store = useAppStore();
+    const { $get } = useNuxtApp();
+    useHead({
+      title: computed(() => store.headTitle),
+      link: [{ rel: "icon", type: "image/x-icon", href: computed(() => store.favicon) }],
+    });
     const {
       data: { list, count },
       code,
@@ -51,11 +53,10 @@ export default {
         page_size: 10,
       },
     });
-    if (code == 1) {
-      return {
-        orderList: { list, count },
-      };
-    }
+    return {
+      orderList: code == 1 ? { list, count } : { list: [], count: 0 },
+      orderNull,
+    };
   },
   components: {},
   data() {

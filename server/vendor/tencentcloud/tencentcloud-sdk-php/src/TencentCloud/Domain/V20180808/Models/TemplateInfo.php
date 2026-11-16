@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,12 +22,26 @@ use TencentCloud\Common\AbstractModel;
  *
  * @method string getTemplateId() 获取模板ID
  * @method void setTemplateId(string $TemplateId) 设置模板ID
- * @method string getAuditStatus() 获取认证状态：未实名认证:NotUpload, 实名审核中:InAudit，已实名认证:Approved，实名审核失败:Reject
- * @method void setAuditStatus(string $AuditStatus) 设置认证状态：未实名认证:NotUpload, 实名审核中:InAudit，已实名认证:Approved，实名审核失败:Reject
- * @method string getCreatedOn() 获取创建时间
- * @method void setCreatedOn(string $CreatedOn) 设置创建时间
- * @method string getUpdatedOn() 获取更新时间
- * @method void setUpdatedOn(string $UpdatedOn) 设置更新时间
+ * @method string getAuditStatus() 获取认证状态:
+NotUpload: 未实名认证
+InAudit: 实名审核中
+Approved: 已实名认证
+Reject: 实名审核失败
+NotVerified: 实名信息待修改
+ * @method void setAuditStatus(string $AuditStatus) 设置认证状态:
+NotUpload: 未实名认证
+InAudit: 实名审核中
+Approved: 已实名认证
+Reject: 实名审核失败
+NotVerified: 实名信息待修改
+ * @method string getCreatedOn() 获取创建时间 
+格式:YYYY-MM-DD HH:mm:ss
+ * @method void setCreatedOn(string $CreatedOn) 设置创建时间 
+格式:YYYY-MM-DD HH:mm:ss
+ * @method string getUpdatedOn() 获取更新时间 
+格式:YYYY-MM-DD HH:mm:ss
+ * @method void setUpdatedOn(string $UpdatedOn) 设置更新时间 
+格式:YYYY-MM-DD HH:mm:ss
  * @method string getUserUin() 获取用户UIN
  * @method void setUserUin(string $UserUin) 设置用户UIN
  * @method string getIsDefault() 获取是否是默认模板: 是:yes，否:no
@@ -42,6 +56,8 @@ use TencentCloud\Common\AbstractModel;
  * @method void setIsValidTemplate(integer $IsValidTemplate) 设置模板是否符合规范， 1是 0 否
  * @method string getInvalidReason() 获取不符合规范原因
  * @method void setInvalidReason(string $InvalidReason) 设置不符合规范原因
+ * @method boolean getIsBlack() 获取是包含黑名单手机或邮箱
+ * @method void setIsBlack(boolean $IsBlack) 设置是包含黑名单手机或邮箱
  */
 class TemplateInfo extends AbstractModel
 {
@@ -51,17 +67,24 @@ class TemplateInfo extends AbstractModel
     public $TemplateId;
 
     /**
-     * @var string 认证状态：未实名认证:NotUpload, 实名审核中:InAudit，已实名认证:Approved，实名审核失败:Reject
+     * @var string 认证状态:
+NotUpload: 未实名认证
+InAudit: 实名审核中
+Approved: 已实名认证
+Reject: 实名审核失败
+NotVerified: 实名信息待修改
      */
     public $AuditStatus;
 
     /**
-     * @var string 创建时间
+     * @var string 创建时间 
+格式:YYYY-MM-DD HH:mm:ss
      */
     public $CreatedOn;
 
     /**
-     * @var string 更新时间
+     * @var string 更新时间 
+格式:YYYY-MM-DD HH:mm:ss
      */
     public $UpdatedOn;
 
@@ -101,10 +124,22 @@ class TemplateInfo extends AbstractModel
     public $InvalidReason;
 
     /**
+     * @var boolean 是包含黑名单手机或邮箱
+     */
+    public $IsBlack;
+
+    /**
      * @param string $TemplateId 模板ID
-     * @param string $AuditStatus 认证状态：未实名认证:NotUpload, 实名审核中:InAudit，已实名认证:Approved，实名审核失败:Reject
-     * @param string $CreatedOn 创建时间
-     * @param string $UpdatedOn 更新时间
+     * @param string $AuditStatus 认证状态:
+NotUpload: 未实名认证
+InAudit: 实名审核中
+Approved: 已实名认证
+Reject: 实名审核失败
+NotVerified: 实名信息待修改
+     * @param string $CreatedOn 创建时间 
+格式:YYYY-MM-DD HH:mm:ss
+     * @param string $UpdatedOn 更新时间 
+格式:YYYY-MM-DD HH:mm:ss
      * @param string $UserUin 用户UIN
      * @param string $IsDefault 是否是默认模板: 是:yes，否:no
      * @param string $AuditReason 认证失败原因
@@ -112,6 +147,7 @@ class TemplateInfo extends AbstractModel
      * @param ContactInfo $ContactInfo 联系人信息
      * @param integer $IsValidTemplate 模板是否符合规范， 1是 0 否
      * @param string $InvalidReason 不符合规范原因
+     * @param boolean $IsBlack 是包含黑名单手机或邮箱
      */
     function __construct()
     {
@@ -170,6 +206,10 @@ class TemplateInfo extends AbstractModel
 
         if (array_key_exists("InvalidReason",$param) and $param["InvalidReason"] !== null) {
             $this->InvalidReason = $param["InvalidReason"];
+        }
+
+        if (array_key_exists("IsBlack",$param) and $param["IsBlack"] !== null) {
+            $this->IsBlack = $param["IsBlack"];
         }
     }
 }

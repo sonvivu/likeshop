@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,18 +20,18 @@ use TencentCloud\Common\AbstractModel;
 /**
  * IsolateDBInstances请求参数结构体
  *
- * @method array getDBInstanceIdSet() 获取实例ID集合
- * @method void setDBInstanceIdSet(array $DBInstanceIdSet) 设置实例ID集合
+ * @method array getDBInstanceIdSet() 获取<p>实例ID集合。可通过<a href="https://cloud.tencent.com/document/api/409/16773">DescribeDBInstances</a>接口获取。注意：不推荐同时隔离多个实例。建议每次操作仅传入单个实例ID。</p>
+ * @method void setDBInstanceIdSet(array $DBInstanceIdSet) 设置<p>实例ID集合。可通过<a href="https://cloud.tencent.com/document/api/409/16773">DescribeDBInstances</a>接口获取。注意：不推荐同时隔离多个实例。建议每次操作仅传入单个实例ID。</p>
  */
 class IsolateDBInstancesRequest extends AbstractModel
 {
     /**
-     * @var array 实例ID集合
+     * @var array <p>实例ID集合。可通过<a href="https://cloud.tencent.com/document/api/409/16773">DescribeDBInstances</a>接口获取。注意：不推荐同时隔离多个实例。建议每次操作仅传入单个实例ID。</p>
      */
     public $DBInstanceIdSet;
 
     /**
-     * @param array $DBInstanceIdSet 实例ID集合
+     * @param array $DBInstanceIdSet <p>实例ID集合。可通过<a href="https://cloud.tencent.com/document/api/409/16773">DescribeDBInstances</a>接口获取。注意：不推荐同时隔离多个实例。建议每次操作仅传入单个实例ID。</p>
      */
     function __construct()
     {

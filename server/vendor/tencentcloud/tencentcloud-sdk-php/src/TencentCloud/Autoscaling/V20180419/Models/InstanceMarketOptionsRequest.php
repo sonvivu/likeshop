@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,9 +23,7 @@ use TencentCloud\Common\AbstractModel;
  * @method SpotMarketOptions getSpotOptions() 获取竞价相关选项
  * @method void setSpotOptions(SpotMarketOptions $SpotOptions) 设置竞价相关选项
  * @method string getMarketType() 获取市场选项类型，当前只支持取值：spot
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setMarketType(string $MarketType) 设置市场选项类型，当前只支持取值：spot
-注意：此字段可能返回 null，表示取不到有效值。
  */
 class InstanceMarketOptionsRequest extends AbstractModel
 {
@@ -36,14 +34,12 @@ class InstanceMarketOptionsRequest extends AbstractModel
 
     /**
      * @var string 市场选项类型，当前只支持取值：spot
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $MarketType;
 
     /**
      * @param SpotMarketOptions $SpotOptions 竞价相关选项
      * @param string $MarketType 市场选项类型，当前只支持取值：spot
-注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
     {

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,18 +20,18 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeInstancesDiskNum请求参数结构体
  *
- * @method array getInstanceIds() 获取云服务器实例ID，通过[DescribeInstances](/document/product/213/15728)接口查询。
- * @method void setInstanceIds(array $InstanceIds) 设置云服务器实例ID，通过[DescribeInstances](/document/product/213/15728)接口查询。
+ * @method array getInstanceIds() 获取<p>云服务器实例ID，通过<a href="/document/product/213/15728">DescribeInstances</a>接口查询。</p>
+ * @method void setInstanceIds(array $InstanceIds) 设置<p>云服务器实例ID，通过<a href="/document/product/213/15728">DescribeInstances</a>接口查询。</p>
  */
 class DescribeInstancesDiskNumRequest extends AbstractModel
 {
     /**
-     * @var array 云服务器实例ID，通过[DescribeInstances](/document/product/213/15728)接口查询。
+     * @var array <p>云服务器实例ID，通过<a href="/document/product/213/15728">DescribeInstances</a>接口查询。</p>
      */
     public $InstanceIds;
 
     /**
-     * @param array $InstanceIds 云服务器实例ID，通过[DescribeInstances](/document/product/213/15728)接口查询。
+     * @param array $InstanceIds <p>云服务器实例ID，通过<a href="/document/product/213/15728">DescribeInstances</a>接口查询。</p>
      */
     function __construct()
     {

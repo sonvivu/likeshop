@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@ namespace TencentCloud\Cls\V20201016\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * 日志告警监控对线
+ * 告警对象
  *
  * @method string getLogsetId() 获取日志集ID。
  * @method void setLogsetId(string $LogsetId) 设置日志集ID。
@@ -32,10 +32,20 @@ use TencentCloud\Common\AbstractModel;
  * @method void setQuery(string $Query) 设置查询语句。
  * @method integer getNumber() 获取告警对象序号。
  * @method void setNumber(integer $Number) 设置告警对象序号。
- * @method integer getStartTimeOffset() 获取查询范围起始时间相对当前的历史时间，取值为非正，最大值为0，最小值为-1440。
- * @method void setStartTimeOffset(integer $StartTimeOffset) 设置查询范围起始时间相对当前的历史时间，取值为非正，最大值为0，最小值为-1440。
- * @method integer getEndTimeOffset() 获取查询范围终止时间相对当前的历史时间，取值为非正，须大于StartTimeOffset，最大值为0，最小值为-1440。
- * @method void setEndTimeOffset(integer $EndTimeOffset) 设置查询范围终止时间相对当前的历史时间，取值为非正，须大于StartTimeOffset，最大值为0，最小值为-1440。
+ * @method integer getStartTimeOffset() 获取查询范围起始时间相对于告警执行时间的偏移，单位为分钟，取值为非正，最大值为0，最小值为-1440。
+ * @method void setStartTimeOffset(integer $StartTimeOffset) 设置查询范围起始时间相对于告警执行时间的偏移，单位为分钟，取值为非正，最大值为0，最小值为-1440。
+ * @method integer getEndTimeOffset() 获取查询范围终止时间相对于告警执行时间的偏移，单位为分钟，取值为非正，须大于StartTimeOffset，最大值为0，最小值为-1440。
+ * @method void setEndTimeOffset(integer $EndTimeOffset) 设置查询范围终止时间相对于告警执行时间的偏移，单位为分钟，取值为非正，须大于StartTimeOffset，最大值为0，最小值为-1440。
+ * @method integer getSyntaxRule() 获取检索语法规则，默认值为0。
+0：Lucene语法，1：CQL语法。
+详细说明参见<a href="https://cloud.tencent.com/document/product/614/47044#RetrievesConditionalRules" target="_blank">检索条件语法规则</a>
+ * @method void setSyntaxRule(integer $SyntaxRule) 设置检索语法规则，默认值为0。
+0：Lucene语法，1：CQL语法。
+详细说明参见<a href="https://cloud.tencent.com/document/product/614/47044#RetrievesConditionalRules" target="_blank">检索条件语法规则</a>
+ * @method integer getBizType() 获取主题类型。
+0: 日志主题，1: 指标主题
+ * @method void setBizType(integer $BizType) 设置主题类型。
+0: 日志主题，1: 指标主题
  */
 class AlarmTargetInfo extends AbstractModel
 {
@@ -70,14 +80,27 @@ class AlarmTargetInfo extends AbstractModel
     public $Number;
 
     /**
-     * @var integer 查询范围起始时间相对当前的历史时间，取值为非正，最大值为0，最小值为-1440。
+     * @var integer 查询范围起始时间相对于告警执行时间的偏移，单位为分钟，取值为非正，最大值为0，最小值为-1440。
      */
     public $StartTimeOffset;
 
     /**
-     * @var integer 查询范围终止时间相对当前的历史时间，取值为非正，须大于StartTimeOffset，最大值为0，最小值为-1440。
+     * @var integer 查询范围终止时间相对于告警执行时间的偏移，单位为分钟，取值为非正，须大于StartTimeOffset，最大值为0，最小值为-1440。
      */
     public $EndTimeOffset;
+
+    /**
+     * @var integer 检索语法规则，默认值为0。
+0：Lucene语法，1：CQL语法。
+详细说明参见<a href="https://cloud.tencent.com/document/product/614/47044#RetrievesConditionalRules" target="_blank">检索条件语法规则</a>
+     */
+    public $SyntaxRule;
+
+    /**
+     * @var integer 主题类型。
+0: 日志主题，1: 指标主题
+     */
+    public $BizType;
 
     /**
      * @param string $LogsetId 日志集ID。
@@ -86,8 +109,13 @@ class AlarmTargetInfo extends AbstractModel
      * @param string $TopicName 日志主题名称。
      * @param string $Query 查询语句。
      * @param integer $Number 告警对象序号。
-     * @param integer $StartTimeOffset 查询范围起始时间相对当前的历史时间，取值为非正，最大值为0，最小值为-1440。
-     * @param integer $EndTimeOffset 查询范围终止时间相对当前的历史时间，取值为非正，须大于StartTimeOffset，最大值为0，最小值为-1440。
+     * @param integer $StartTimeOffset 查询范围起始时间相对于告警执行时间的偏移，单位为分钟，取值为非正，最大值为0，最小值为-1440。
+     * @param integer $EndTimeOffset 查询范围终止时间相对于告警执行时间的偏移，单位为分钟，取值为非正，须大于StartTimeOffset，最大值为0，最小值为-1440。
+     * @param integer $SyntaxRule 检索语法规则，默认值为0。
+0：Lucene语法，1：CQL语法。
+详细说明参见<a href="https://cloud.tencent.com/document/product/614/47044#RetrievesConditionalRules" target="_blank">检索条件语法规则</a>
+     * @param integer $BizType 主题类型。
+0: 日志主题，1: 指标主题
      */
     function __construct()
     {
@@ -132,6 +160,14 @@ class AlarmTargetInfo extends AbstractModel
 
         if (array_key_exists("EndTimeOffset",$param) and $param["EndTimeOffset"] !== null) {
             $this->EndTimeOffset = $param["EndTimeOffset"];
+        }
+
+        if (array_key_exists("SyntaxRule",$param) and $param["SyntaxRule"] !== null) {
+            $this->SyntaxRule = $param["SyntaxRule"];
+        }
+
+        if (array_key_exists("BizType",$param) and $param["BizType"] !== null) {
+            $this->BizType = $param["BizType"];
         }
     }
 }

@@ -1,6 +1,6 @@
 <template>
 	<view class="writeoff-order">
-		<u-tabs :list="order" :active-color="primaryColor" inactive-color="#333" :is-scroll="false" :current="current"
+		<u-tabs :list="order" :active-style="{color: primaryColor}" :inactive-style="{color: '#333'}" :scrollable="false" :current="current"
 			@change="changeCurrent"></u-tabs>
 		<view class="list">
 			<view class="item bg-white" v-for="(item, index) in orderList" :key="index">
@@ -12,19 +12,19 @@
 			</view>
 		</view>
 		<loading-footer :status="status" :slot-empty="true" @refresh="reflesh">
-			<view slot="empty" class="column-center" style="padding-top: 200rpx">
+						<template #empty><view class="column-center" style="padding-top: 200rpx">
 				<image class="img-null" src="/static/images/order_null.png"></image>
 				<text class="lighter">{{ $t('暂无订单') }}</text>
-			</view>
+			</view></template>
 		</loading-footer>
 		<view class="btns row-between">
 			<button class="bg-primary br60 white btn" size="lg" @tap="onScanCode">{{ $t('扫码核销') }}</button>
 			<button class="bg-primary br60 white btn ml20" size="lg" @tap="showModal=true">{{ $t('手动核销') }}</button>
 		</view>
-		<u-modal ref="uModalInput" v-model="showModal" show-cancel-button :confirm-color="primaryColor"
+		<u-modal ref="uModalInput" v-model:show="showModal" show-cancel-button :confirm-color="primaryColor"
 			:confirm-text="$t('确定')" @confirm="onConfirm" :title="$t('手动核销')">
 			<view class="slot-content row-center" style="padding: 40rpx;">
-				<u-input type="number" v-model="code" :border="true" :placeholder="$t('请输入核销码')" style="width: 100%" />
+				<u-input type="number" v-model="code" border="surround" :placeholder="$t('请输入核销码')" style="width: 100%" />
 			</view>
 		</u-modal>
 	</view>

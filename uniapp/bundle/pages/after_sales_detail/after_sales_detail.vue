@@ -94,7 +94,7 @@
 				<view class="btn br60" v-show="false">{{ $t('平台退款') }}</view>
 			</view>
 		</view>
-		<u-modal v-model="confirmDialog" :confirm-text="$t('确定')" :showCancelButton="true" :show-title="false"
+		<u-modal v-model:show="confirmDialog" :confirm-text="$t('确定')" :showCancelButton="true"
 			confirm-color="#FF2C3C" @confirm="cancelApplyFun" @cancel="hideDialog">
 			<view class="column-center tips-dialog" style="padding: 20rpx 0;">
 				<image class="icon-lg" src="/static/images/icon_warning.png"></image>

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,18 +20,18 @@ use TencentCloud\Common\AbstractModel;
 /**
  * AddUserToGroup请求参数结构体
  *
- * @method array getInfo() 获取添加的子用户 UID 和用户组 ID 关联关系
- * @method void setInfo(array $Info) 设置添加的子用户 UID 和用户组 ID 关联关系
+ * @method array getInfo() 获取添加的子用户 UIN/UID 和用户组 ID 关联关系
+ * @method void setInfo(array $Info) 设置添加的子用户 UIN/UID 和用户组 ID 关联关系
  */
 class AddUserToGroupRequest extends AbstractModel
 {
     /**
-     * @var array 添加的子用户 UID 和用户组 ID 关联关系
+     * @var array 添加的子用户 UIN/UID 和用户组 ID 关联关系
      */
     public $Info;
 
     /**
-     * @param array $Info 添加的子用户 UID 和用户组 ID 关联关系
+     * @param array $Info 添加的子用户 UIN/UID 和用户组 ID 关联关系
      */
     function __construct()
     {

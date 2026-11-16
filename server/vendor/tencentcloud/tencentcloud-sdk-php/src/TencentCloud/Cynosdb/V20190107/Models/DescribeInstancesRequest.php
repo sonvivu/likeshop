@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,8 +20,8 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeInstances请求参数结构体
  *
- * @method integer getLimit() 获取返回数量，默认为 20，最大值为 100
- * @method void setLimit(integer $Limit) 设置返回数量，默认为 20，最大值为 100
+ * @method integer getLimit() 获取返回数量，默认为 20，取值范围为(0,100]
+ * @method void setLimit(integer $Limit) 设置返回数量，默认为 20，取值范围为(0,100]
  * @method integer getOffset() 获取记录偏移量，默认值为0
  * @method void setOffset(integer $Offset) 设置记录偏移量，默认值为0
  * @method string getOrderBy() 获取排序字段，取值范围：
@@ -38,17 +38,33 @@ use TencentCloud\Common\AbstractModel;
 <li> DESC：降序排序 </li>
  * @method array getFilters() 获取搜索条件，若存在多个Filter时，Filter间的关系为逻辑与（AND）关系。
  * @method void setFilters(array $Filters) 设置搜索条件，若存在多个Filter时，Filter间的关系为逻辑与（AND）关系。
- * @method string getDbType() 获取引擎类型：目前支持“MYSQL”， “POSTGRESQL”
- * @method void setDbType(string $DbType) 设置引擎类型：目前支持“MYSQL”， “POSTGRESQL”
- * @method string getStatus() 获取实例状态
- * @method void setStatus(string $Status) 设置实例状态
+ * @method string getDbType() 获取引擎类型：目前支持“MYSQL”
+ * @method void setDbType(string $DbType) 设置引擎类型：目前支持“MYSQL”
+ * @method string getStatus() 获取实例状态, 可选值:
+creating 创建中
+running 运行中
+isolating 隔离中
+isolated 已隔离
+activating 恢复中
+offlining 下线中
+offlined 已下线
+ * @method void setStatus(string $Status) 设置实例状态, 可选值:
+creating 创建中
+running 运行中
+isolating 隔离中
+isolated 已隔离
+activating 恢复中
+offlining 下线中
+offlined 已下线
  * @method array getInstanceIds() 获取实例id列表
  * @method void setInstanceIds(array $InstanceIds) 设置实例id列表
+ * @method string getClusterType() 获取集群类型，取值范围<li> CYNOSDB：事务集群 </li><li> LIBRADB：分析集群 </li><li> ALL：全部 </li>，缺省为 ALL
+ * @method void setClusterType(string $ClusterType) 设置集群类型，取值范围<li> CYNOSDB：事务集群 </li><li> LIBRADB：分析集群 </li><li> ALL：全部 </li>，缺省为 ALL
  */
 class DescribeInstancesRequest extends AbstractModel
 {
     /**
-     * @var integer 返回数量，默认为 20，最大值为 100
+     * @var integer 返回数量，默认为 20，取值范围为(0,100]
      */
     public $Limit;
 
@@ -77,12 +93,19 @@ class DescribeInstancesRequest extends AbstractModel
     public $Filters;
 
     /**
-     * @var string 引擎类型：目前支持“MYSQL”， “POSTGRESQL”
+     * @var string 引擎类型：目前支持“MYSQL”
      */
     public $DbType;
 
     /**
-     * @var string 实例状态
+     * @var string 实例状态, 可选值:
+creating 创建中
+running 运行中
+isolating 隔离中
+isolated 已隔离
+activating 恢复中
+offlining 下线中
+offlined 已下线
      */
     public $Status;
 
@@ -92,7 +115,12 @@ class DescribeInstancesRequest extends AbstractModel
     public $InstanceIds;
 
     /**
-     * @param integer $Limit 返回数量，默认为 20，最大值为 100
+     * @var string 集群类型，取值范围<li> CYNOSDB：事务集群 </li><li> LIBRADB：分析集群 </li><li> ALL：全部 </li>，缺省为 ALL
+     */
+    public $ClusterType;
+
+    /**
+     * @param integer $Limit 返回数量，默认为 20，取值范围为(0,100]
      * @param integer $Offset 记录偏移量，默认值为0
      * @param string $OrderBy 排序字段，取值范围：
 <li> CREATETIME：创建时间</li>
@@ -101,9 +129,17 @@ class DescribeInstancesRequest extends AbstractModel
 <li> ASC：升序排序 </li>
 <li> DESC：降序排序 </li>
      * @param array $Filters 搜索条件，若存在多个Filter时，Filter间的关系为逻辑与（AND）关系。
-     * @param string $DbType 引擎类型：目前支持“MYSQL”， “POSTGRESQL”
-     * @param string $Status 实例状态
+     * @param string $DbType 引擎类型：目前支持“MYSQL”
+     * @param string $Status 实例状态, 可选值:
+creating 创建中
+running 运行中
+isolating 隔离中
+isolated 已隔离
+activating 恢复中
+offlining 下线中
+offlined 已下线
      * @param array $InstanceIds 实例id列表
+     * @param string $ClusterType 集群类型，取值范围<li> CYNOSDB：事务集群 </li><li> LIBRADB：分析集群 </li><li> ALL：全部 </li>，缺省为 ALL
      */
     function __construct()
     {
@@ -153,6 +189,10 @@ class DescribeInstancesRequest extends AbstractModel
 
         if (array_key_exists("InstanceIds",$param) and $param["InstanceIds"] !== null) {
             $this->InstanceIds = $param["InstanceIds"];
+        }
+
+        if (array_key_exists("ClusterType",$param) and $param["ClusterType"] !== null) {
+            $this->ClusterType = $param["ClusterType"];
         }
     }
 }

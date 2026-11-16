@@ -23,10 +23,9 @@ namespace app\api\logic;
 use app\common\logic\AccountLogLogic;
 use app\common\model\{AccountLog, AfterSale, DistributionOrder, NoticeSetting, Order, User};
 use app\common\server\{AreaServer, ConfigServer, UrlServer};
-use think\Db;
+use think\facade\Db;
 use think\Exception;
 use think\facade\Cache;
-use think\facade\Hook;
 
 class DistributionLogic
 {
@@ -103,7 +102,7 @@ class DistributionLogic
             }
 
             //消息通知
-            Hook::listen('notice', [
+            event('notice', [
                 'user_id' => $my_leader_id,
                 'lower_id' => $my_id,
                 'scene' => NoticeSetting::INVITE_SUCCESS_NOTICE,
@@ -266,7 +265,7 @@ class DistributionLogic
         $time = time() - ($after_sale_time * 24 * 60 * 60);
 
         //可提现佣金
-        $orders = Db::name('order o')
+        $orders = Db::name('order')->alias('o')
             ->field('o.id, d.money')
             ->join('order_goods g', 'o.id = g.order_id')
             ->join('distribution_order_goods d', 'd.order_goods_id = g.id')
@@ -317,14 +316,14 @@ class DistributionLogic
 
         $field = 'o.order_sn, og.total_pay_price as pay_price, d.create_time, d.money, og.item_id, og.goods_num, d.status';
 
-        $count = Db::name('distribution_order_goods d')
+        $count = Db::name('distribution_order_goods')->alias('d')
             ->field($field)
             ->join('order_goods og', 'og.id = d.order_goods_id')
             ->join('order o', 'o.id = og.order_id')
             ->where($where)
             ->count();
 
-        $lists = Db::name('distribution_order_goods d')
+        $lists = Db::name('distribution_order_goods')->alias('d')
             ->field($field)
             ->join('order_goods og', 'og.id = d.order_goods_id')
             ->join('order o', 'o.id = og.order_id')
@@ -332,9 +331,10 @@ class DistributionLogic
             ->order('o.id desc')
             ->page($page, $size)
             ->select();
+        $lists = $lists->toArray(); // ThinkPHP 6：select() 返回 Collection，TP5 返回数组；直接写 $lists[$k]['x'] 或 foreach(&$item) 改值会丢/报错，先转数组。
 
         $item_ids = array_column($lists, 'item_id');
-        $goods = Db::name('goods_item i')
+        $goods = Db::name('goods_item')->alias('i')
             ->join('goods g', 'i.goods_id = g.id')
             ->where('i.id', 'in', $item_ids)
             ->column('g.name, g.image, i.image as spec_image, i.spec_value_str', 'i.id');
@@ -383,7 +383,7 @@ class DistributionLogic
             'sum(d.money) as total_money',
             'count(o.id) as order_num'
         ];
-        $count = Db::name('distribution_order_goods d')
+        $count = Db::name('distribution_order_goods')->alias('d')
             ->field($field)
             ->join('order_goods g', 'g.id = d.order_goods_id')
             ->join('order o', 'o.id = g.order_id')
@@ -392,7 +392,7 @@ class DistributionLogic
             ->group('date')
             ->count();
 
-        $lists = Db::name('distribution_order_goods d')
+        $lists = Db::name('distribution_order_goods')->alias('d')
             ->field($field)
             ->join('order_goods g', 'g.id = d.order_goods_id')
             ->join('order o', 'o.id = g.order_id')
@@ -444,10 +444,11 @@ class DistributionLogic
             ->where('d.create_time', 'between time', $time_range)
             ->page($page, $size)
             ->select();
+        $lists = $lists->toArray(); // ThinkPHP 6：select() 返回 Collection，TP5 返回数组；直接写 $lists[$k]['x'] 或 foreach(&$item) 改值会丢/报错，先转数组。
 
 
         $item_ids = array_column($lists, 'item_id');
-        $goods = Db::name('goods_item i')
+        $goods = Db::name('goods_item')->alias('i')
             ->join('goods g', 'i.goods_id = g.id')
             ->where('i.id', 'in', $item_ids)
             ->column('g.name, g.image, i.image as spec_image, i.spec_value_str', 'i.id');
@@ -525,7 +526,7 @@ class DistributionLogic
     public static function setDistributionOrderFail($order_id)
     {
         //订单取消后更新分销订单为已失效状态
-        return Db::name('distribution_order_goods d')
+        return Db::name('distribution_order_goods')->alias('d')
             ->join('order_goods og', 'og.id = d.order_goods_id')
             ->join('order o', 'o.id = og.order_id')
             ->where('o.id', $order_id)
@@ -601,14 +602,14 @@ class DistributionLogic
             (new User())->saveAll($updateData);
 
             Db::commit();
-            Cache::rm($lock_key);
+            Cache::delete($lock_key);
             return [
                 "flag" => true,
                 "msg" => lang('修复成功')
             ];
         } catch (\Exception $e) {
             Db::rollback();
-            Cache::rm($lock_key);
+            Cache::delete($lock_key);
             return [
                 "flag" => false,
                 "msg" => $e->getMessage()

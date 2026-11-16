@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,18 +20,18 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeProxyAndStatisticsListeners请求参数结构体
  *
- * @method integer getProjectId() 获取项目ID
- * @method void setProjectId(integer $ProjectId) 设置项目ID
+ * @method integer getProjectId() 获取<p>项目ID</p>
+ * @method void setProjectId(integer $ProjectId) 设置<p>项目ID</p>
  */
 class DescribeProxyAndStatisticsListenersRequest extends AbstractModel
 {
     /**
-     * @var integer 项目ID
+     * @var integer <p>项目ID</p>
      */
     public $ProjectId;
 
     /**
-     * @param integer $ProjectId 项目ID
+     * @param integer $ProjectId <p>项目ID</p>
      */
     function __construct()
     {

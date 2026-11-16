@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,26 +24,34 @@ use TencentCloud\Common\AbstractModel;
 <ul>
 <li>VOD ：媒体来源于云点播文件 。</li>
 <li>CME ：视频来源制作云媒体文件。</li>
-<li>EXTERNAL ：视频来源于媒资绑定。</li>
+<li>EXTERNAL ：视频来源于媒资绑定，如果媒体不是存储在腾讯云点播中或者云创中，都需要使用媒资绑定。</li>
 </ul>
  * @method void setSourceType(string $SourceType) 设置视频媒体来源类型，取值有：
 <ul>
 <li>VOD ：媒体来源于云点播文件 。</li>
 <li>CME ：视频来源制作云媒体文件。</li>
-<li>EXTERNAL ：视频来源于媒资绑定。</li>
+<li>EXTERNAL ：视频来源于媒资绑定，如果媒体不是存储在腾讯云点播中或者云创中，都需要使用媒资绑定。</li>
 </ul>
- * @method string getSourceMedia() 获取视频片段的媒体文件来源，取值为：
+ * @method string getSourceMedia() 获取视频媒体，可取值为：
 <ul>
-<li>当 SourceType 为 VOD 时，为云点播的媒体文件 FileId ，会默认将该 FileId 导入到项目中；</li>
-<li>当 SourceType 为 CME 时，为制作云的媒体 ID，项目归属者必须对该云媒资有访问权限；</li>
-<li>当 SourceType 为 EXTERNAL 时，为媒资绑定的 Definition 与 MediaKey 中间用冒号分隔合并后的字符串，格式为 Definition:MediaKey 。</li>
+<li>当 SourceType 为 VOD 时，参数填云点播 FileId ；</li>
+<li>当 SourceType 为 CME 时，参数填多媒体创作引擎媒体 Id；</li>
+<li>当 SourceType 为 EXTERNAL 时，目前仅支持外部媒体 URL(如`https://www.example.com/a.mp4`)，参数填写规则请参见注意事项。</li>
 </ul>
- * @method void setSourceMedia(string $SourceMedia) 设置视频片段的媒体文件来源，取值为：
+
+注意：
+<li>当 SourceType 为 EXTERNAL 并且媒体 URL Scheme 为 `https` 时(如：`https://www.example.com/a.mp4`)，参数为：`1000000:www.example.com/a.mp4`。</li>
+<li>当 SourceType 为 EXTERNAL 并且媒体 URL Scheme 为 `http` 时(如：`http://www.example.com/b.mp4`)，参数为：`1000001:www.example.com/b.mp4`。</li>
+ * @method void setSourceMedia(string $SourceMedia) 设置视频媒体，可取值为：
 <ul>
-<li>当 SourceType 为 VOD 时，为云点播的媒体文件 FileId ，会默认将该 FileId 导入到项目中；</li>
-<li>当 SourceType 为 CME 时，为制作云的媒体 ID，项目归属者必须对该云媒资有访问权限；</li>
-<li>当 SourceType 为 EXTERNAL 时，为媒资绑定的 Definition 与 MediaKey 中间用冒号分隔合并后的字符串，格式为 Definition:MediaKey 。</li>
+<li>当 SourceType 为 VOD 时，参数填云点播 FileId ；</li>
+<li>当 SourceType 为 CME 时，参数填多媒体创作引擎媒体 Id；</li>
+<li>当 SourceType 为 EXTERNAL 时，目前仅支持外部媒体 URL(如`https://www.example.com/a.mp4`)，参数填写规则请参见注意事项。</li>
 </ul>
+
+注意：
+<li>当 SourceType 为 EXTERNAL 并且媒体 URL Scheme 为 `https` 时(如：`https://www.example.com/a.mp4`)，参数为：`1000000:www.example.com/a.mp4`。</li>
+<li>当 SourceType 为 EXTERNAL 并且媒体 URL Scheme 为 `http` 时(如：`http://www.example.com/b.mp4`)，参数为：`1000001:www.example.com/b.mp4`。</li>
  * @method float getSourceMediaStartTime() 获取视频片段取自媒体文件的起始时间，单位为秒。默认为0。
  * @method void setSourceMediaStartTime(float $SourceMediaStartTime) 设置视频片段取自媒体文件的起始时间，单位为秒。默认为0。
  * @method float getDuration() 获取视频片段时长，单位为秒。默认取视频媒体文件本身长度，表示截取全部媒体文件。如果源文件是图片，Duration需要大于0。
@@ -102,18 +110,22 @@ class VideoTrackItem extends AbstractModel
 <ul>
 <li>VOD ：媒体来源于云点播文件 。</li>
 <li>CME ：视频来源制作云媒体文件。</li>
-<li>EXTERNAL ：视频来源于媒资绑定。</li>
+<li>EXTERNAL ：视频来源于媒资绑定，如果媒体不是存储在腾讯云点播中或者云创中，都需要使用媒资绑定。</li>
 </ul>
      */
     public $SourceType;
 
     /**
-     * @var string 视频片段的媒体文件来源，取值为：
+     * @var string 视频媒体，可取值为：
 <ul>
-<li>当 SourceType 为 VOD 时，为云点播的媒体文件 FileId ，会默认将该 FileId 导入到项目中；</li>
-<li>当 SourceType 为 CME 时，为制作云的媒体 ID，项目归属者必须对该云媒资有访问权限；</li>
-<li>当 SourceType 为 EXTERNAL 时，为媒资绑定的 Definition 与 MediaKey 中间用冒号分隔合并后的字符串，格式为 Definition:MediaKey 。</li>
+<li>当 SourceType 为 VOD 时，参数填云点播 FileId ；</li>
+<li>当 SourceType 为 CME 时，参数填多媒体创作引擎媒体 Id；</li>
+<li>当 SourceType 为 EXTERNAL 时，目前仅支持外部媒体 URL(如`https://www.example.com/a.mp4`)，参数填写规则请参见注意事项。</li>
 </ul>
+
+注意：
+<li>当 SourceType 为 EXTERNAL 并且媒体 URL Scheme 为 `https` 时(如：`https://www.example.com/a.mp4`)，参数为：`1000000:www.example.com/a.mp4`。</li>
+<li>当 SourceType 为 EXTERNAL 并且媒体 URL Scheme 为 `http` 时(如：`http://www.example.com/b.mp4`)，参数为：`1000001:www.example.com/b.mp4`。</li>
      */
     public $SourceMedia;
 
@@ -175,14 +187,18 @@ class VideoTrackItem extends AbstractModel
 <ul>
 <li>VOD ：媒体来源于云点播文件 。</li>
 <li>CME ：视频来源制作云媒体文件。</li>
-<li>EXTERNAL ：视频来源于媒资绑定。</li>
+<li>EXTERNAL ：视频来源于媒资绑定，如果媒体不是存储在腾讯云点播中或者云创中，都需要使用媒资绑定。</li>
 </ul>
-     * @param string $SourceMedia 视频片段的媒体文件来源，取值为：
+     * @param string $SourceMedia 视频媒体，可取值为：
 <ul>
-<li>当 SourceType 为 VOD 时，为云点播的媒体文件 FileId ，会默认将该 FileId 导入到项目中；</li>
-<li>当 SourceType 为 CME 时，为制作云的媒体 ID，项目归属者必须对该云媒资有访问权限；</li>
-<li>当 SourceType 为 EXTERNAL 时，为媒资绑定的 Definition 与 MediaKey 中间用冒号分隔合并后的字符串，格式为 Definition:MediaKey 。</li>
+<li>当 SourceType 为 VOD 时，参数填云点播 FileId ；</li>
+<li>当 SourceType 为 CME 时，参数填多媒体创作引擎媒体 Id；</li>
+<li>当 SourceType 为 EXTERNAL 时，目前仅支持外部媒体 URL(如`https://www.example.com/a.mp4`)，参数填写规则请参见注意事项。</li>
 </ul>
+
+注意：
+<li>当 SourceType 为 EXTERNAL 并且媒体 URL Scheme 为 `https` 时(如：`https://www.example.com/a.mp4`)，参数为：`1000000:www.example.com/a.mp4`。</li>
+<li>当 SourceType 为 EXTERNAL 并且媒体 URL Scheme 为 `http` 时(如：`http://www.example.com/b.mp4`)，参数为：`1000001:www.example.com/b.mp4`。</li>
      * @param float $SourceMediaStartTime 视频片段取自媒体文件的起始时间，单位为秒。默认为0。
      * @param float $Duration 视频片段时长，单位为秒。默认取视频媒体文件本身长度，表示截取全部媒体文件。如果源文件是图片，Duration需要大于0。
      * @param string $XPos 视频片段原点距离画布原点的水平位置。支持 %、px 两种格式：

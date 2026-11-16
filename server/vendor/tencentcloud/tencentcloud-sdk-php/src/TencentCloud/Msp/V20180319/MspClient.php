@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,7 +23,9 @@ use TencentCloud\Common\Credential;
 use TencentCloud\Msp\V20180319\Models as Models;
 
 /**
- * @method Models\DeregisterMigrationTaskResponse DeregisterMigrationTask(Models\DeregisterMigrationTaskRequest $req) 取消注册迁移任务
+ * @method Models\DeregisterMigrationTaskResponse DeregisterMigrationTask(Models\DeregisterMigrationTaskRequest $req) 接口已经废弃不再使用
+
+取消注册迁移任务
  * @method Models\DescribeMigrationTaskResponse DescribeMigrationTask(Models\DescribeMigrationTaskRequest $req) 获取指定迁移任务详情
  * @method Models\ListMigrationProjectResponse ListMigrationProject(Models\ListMigrationProjectRequest $req) 获取迁移项目名称列表
  * @method Models\ListMigrationTaskResponse ListMigrationTask(Models\ListMigrationTaskRequest $req) 获取迁移任务列表

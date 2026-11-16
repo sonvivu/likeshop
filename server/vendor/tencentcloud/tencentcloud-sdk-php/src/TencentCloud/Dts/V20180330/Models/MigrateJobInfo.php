@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,12 +46,18 @@ use TencentCloud\Common\AbstractModel;
  * @method void setStartTime(string $StartTime) 设置任务开始执行时间
  * @method string getEndTime() 获取任务执行结束时间
  * @method void setEndTime(string $EndTime) 设置任务执行结束时间
- * @method integer getStatus() 获取任务状态,取值为：1-创建中(Creating),3-校验中(Checking)4-校验通过(CheckPass),5-校验不通过（CheckNotPass）,7-任务运行(Running),8-准备完成（ReadyComplete）,9-任务成功（Success）,10-任务失败（Failed）,11-撤销中（Stopping）,12-完成中（Completing）
- * @method void setStatus(integer $Status) 设置任务状态,取值为：1-创建中(Creating),3-校验中(Checking)4-校验通过(CheckPass),5-校验不通过（CheckNotPass）,7-任务运行(Running),8-准备完成（ReadyComplete）,9-任务成功（Success）,10-任务失败（Failed）,11-撤销中（Stopping）,12-完成中（Completing）
+ * @method integer getStatus() 获取任务状态,取值为：1-创建中(Creating),3-校验中(Checking)4-校验通过(CheckPass),5-校验不通过（CheckNotPass）,7-任务运行(Running),8-准备完成（ReadyComplete）,9-任务成功（Success）,10-任务失败（Failed）,11-撤销中（Stopping）,12-完成中（Completing）,23-未知状态（Unknown）
+ * @method void setStatus(integer $Status) 设置任务状态,取值为：1-创建中(Creating),3-校验中(Checking)4-校验通过(CheckPass),5-校验不通过（CheckNotPass）,7-任务运行(Running),8-准备完成（ReadyComplete）,9-任务成功（Success）,10-任务失败（Failed）,11-撤销中（Stopping）,12-完成中（Completing）,23-未知状态（Unknown）
  * @method MigrateDetailInfo getDetail() 获取任务详情
  * @method void setDetail(MigrateDetailInfo $Detail) 设置任务详情
  * @method array getErrorInfo() 获取任务错误信息提示，当任务发生错误时，不为null或者空值
  * @method void setErrorInfo(array $ErrorInfo) 设置任务错误信息提示，当任务发生错误时，不为null或者空值
+ * @method array getTags() 获取标签
+ * @method void setTags(array $Tags) 设置标签
+ * @method array getSrcInfoMulti() 获取源实例为集群时且接入为非cdb时源实例信息
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setSrcInfoMulti(array $SrcInfoMulti) 设置源实例为集群时且接入为非cdb时源实例信息
+注意：此字段可能返回 null，表示取不到有效值。
  */
 class MigrateJobInfo extends AbstractModel
 {
@@ -121,7 +127,7 @@ class MigrateJobInfo extends AbstractModel
     public $EndTime;
 
     /**
-     * @var integer 任务状态,取值为：1-创建中(Creating),3-校验中(Checking)4-校验通过(CheckPass),5-校验不通过（CheckNotPass）,7-任务运行(Running),8-准备完成（ReadyComplete）,9-任务成功（Success）,10-任务失败（Failed）,11-撤销中（Stopping）,12-完成中（Completing）
+     * @var integer 任务状态,取值为：1-创建中(Creating),3-校验中(Checking)4-校验通过(CheckPass),5-校验不通过（CheckNotPass）,7-任务运行(Running),8-准备完成（ReadyComplete）,9-任务成功（Success）,10-任务失败（Failed）,11-撤销中（Stopping）,12-完成中（Completing）,23-未知状态（Unknown）
      */
     public $Status;
 
@@ -134,6 +140,17 @@ class MigrateJobInfo extends AbstractModel
      * @var array 任务错误信息提示，当任务发生错误时，不为null或者空值
      */
     public $ErrorInfo;
+
+    /**
+     * @var array 标签
+     */
+    public $Tags;
+
+    /**
+     * @var array 源实例为集群时且接入为非cdb时源实例信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $SrcInfoMulti;
 
     /**
      * @param string $JobId 数据迁移任务ID
@@ -149,9 +166,12 @@ class MigrateJobInfo extends AbstractModel
      * @param string $CreateTime 任务创建(提交)时间
      * @param string $StartTime 任务开始执行时间
      * @param string $EndTime 任务执行结束时间
-     * @param integer $Status 任务状态,取值为：1-创建中(Creating),3-校验中(Checking)4-校验通过(CheckPass),5-校验不通过（CheckNotPass）,7-任务运行(Running),8-准备完成（ReadyComplete）,9-任务成功（Success）,10-任务失败（Failed）,11-撤销中（Stopping）,12-完成中（Completing）
+     * @param integer $Status 任务状态,取值为：1-创建中(Creating),3-校验中(Checking)4-校验通过(CheckPass),5-校验不通过（CheckNotPass）,7-任务运行(Running),8-准备完成（ReadyComplete）,9-任务成功（Success）,10-任务失败（Failed）,11-撤销中（Stopping）,12-完成中（Completing）,23-未知状态（Unknown）
      * @param MigrateDetailInfo $Detail 任务详情
      * @param array $ErrorInfo 任务错误信息提示，当任务发生错误时，不为null或者空值
+     * @param array $Tags 标签
+     * @param array $SrcInfoMulti 源实例为集群时且接入为非cdb时源实例信息
+注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
     {
@@ -236,6 +256,24 @@ class MigrateJobInfo extends AbstractModel
                 $obj = new ErrorInfo();
                 $obj->deserialize($value);
                 array_push($this->ErrorInfo, $obj);
+            }
+        }
+
+        if (array_key_exists("Tags",$param) and $param["Tags"] !== null) {
+            $this->Tags = [];
+            foreach ($param["Tags"] as $key => $value){
+                $obj = new TagItem();
+                $obj->deserialize($value);
+                array_push($this->Tags, $obj);
+            }
+        }
+
+        if (array_key_exists("SrcInfoMulti",$param) and $param["SrcInfoMulti"] !== null) {
+            $this->SrcInfoMulti = [];
+            foreach ($param["SrcInfoMulti"] as $key => $value){
+                $obj = new SrcInfo();
+                $obj->deserialize($value);
+                array_push($this->SrcInfoMulti, $obj);
             }
         }
     }

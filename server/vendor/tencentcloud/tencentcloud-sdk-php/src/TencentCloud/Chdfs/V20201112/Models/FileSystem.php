@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -42,6 +42,10 @@ use TencentCloud\Common\AbstractModel;
  * @method void setSuperUsers(array $SuperUsers) 设置超级用户名列表
  * @method boolean getPosixAcl() 获取POSIX权限控制
  * @method void setPosixAcl(boolean $PosixAcl) 设置POSIX权限控制
+ * @method boolean getEnableRanger() 获取是否打开Ranger地址校验
+ * @method void setEnableRanger(boolean $EnableRanger) 设置是否打开Ranger地址校验
+ * @method array getRangerServiceAddresses() 获取Ranger地址列表
+ * @method void setRangerServiceAddresses(array $RangerServiceAddresses) 设置Ranger地址列表
  */
 class FileSystem extends AbstractModel
 {
@@ -101,6 +105,16 @@ class FileSystem extends AbstractModel
     public $PosixAcl;
 
     /**
+     * @var boolean 是否打开Ranger地址校验
+     */
+    public $EnableRanger;
+
+    /**
+     * @var array Ranger地址列表
+     */
+    public $RangerServiceAddresses;
+
+    /**
      * @param integer $AppId 资源所属用户AppId
      * @param string $FileSystemName 文件系统名称
      * @param string $Description 文件系统描述
@@ -112,6 +126,8 @@ class FileSystem extends AbstractModel
      * @param integer $Status 文件系统状态（1：创建中；2：创建成功；3：创建失败）
      * @param array $SuperUsers 超级用户名列表
      * @param boolean $PosixAcl POSIX权限控制
+     * @param boolean $EnableRanger 是否打开Ranger地址校验
+     * @param array $RangerServiceAddresses Ranger地址列表
      */
     function __construct()
     {
@@ -168,6 +184,14 @@ class FileSystem extends AbstractModel
 
         if (array_key_exists("PosixAcl",$param) and $param["PosixAcl"] !== null) {
             $this->PosixAcl = $param["PosixAcl"];
+        }
+
+        if (array_key_exists("EnableRanger",$param) and $param["EnableRanger"] !== null) {
+            $this->EnableRanger = $param["EnableRanger"];
+        }
+
+        if (array_key_exists("RangerServiceAddresses",$param) and $param["RangerServiceAddresses"] !== null) {
+            $this->RangerServiceAddresses = $param["RangerServiceAddresses"];
         }
     }
 }

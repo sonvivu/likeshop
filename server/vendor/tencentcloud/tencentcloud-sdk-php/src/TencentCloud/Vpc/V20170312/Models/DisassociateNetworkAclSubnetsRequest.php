@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,8 +22,8 @@ use TencentCloud\Common\AbstractModel;
  *
  * @method string getNetworkAclId() 获取网络ACL实例ID。例如：acl-12345678。
  * @method void setNetworkAclId(string $NetworkAclId) 设置网络ACL实例ID。例如：acl-12345678。
- * @method array getSubnetIds() 获取子网实例ID数组。例如：[subnet-12345678]
- * @method void setSubnetIds(array $SubnetIds) 设置子网实例ID数组。例如：[subnet-12345678]
+ * @method array getSubnetIds() 获取子网实例ID数组。例如：[subnet-12345678]。
+ * @method void setSubnetIds(array $SubnetIds) 设置子网实例ID数组。例如：[subnet-12345678]。
  */
 class DisassociateNetworkAclSubnetsRequest extends AbstractModel
 {
@@ -33,13 +33,13 @@ class DisassociateNetworkAclSubnetsRequest extends AbstractModel
     public $NetworkAclId;
 
     /**
-     * @var array 子网实例ID数组。例如：[subnet-12345678]
+     * @var array 子网实例ID数组。例如：[subnet-12345678]。
      */
     public $SubnetIds;
 
     /**
      * @param string $NetworkAclId 网络ACL实例ID。例如：acl-12345678。
-     * @param array $SubnetIds 子网实例ID数组。例如：[subnet-12345678]
+     * @param array $SubnetIds 子网实例ID数组。例如：[subnet-12345678]。
      */
     function __construct()
     {

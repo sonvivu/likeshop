@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,34 +20,46 @@ use TencentCloud\Common\AbstractModel;
 /**
  * EnableVpcEndPointConnect请求参数结构体
  *
- * @method string getEndPointServiceId() 获取终端节点服务ID。
- * @method void setEndPointServiceId(string $EndPointServiceId) 设置终端节点服务ID。
- * @method array getEndPointId() 获取终端节点ID。
- * @method void setEndPointId(array $EndPointId) 设置终端节点ID。
+ * @method string getEndPointServiceId() 获取终端节点服务ID。可通过[DescribeVpcEndPointService](https://cloud.tencent.com/document/product/215/54678)接口获取。
+ * @method void setEndPointServiceId(string $EndPointServiceId) 设置终端节点服务ID。可通过[DescribeVpcEndPointService](https://cloud.tencent.com/document/product/215/54678)接口获取。
+ * @method array getEndPointId() 获取终端节点ID。可通过[DescribeVpcEndPoint](https://cloud.tencent.com/document/product/215/54679) 获取。
+ * @method void setEndPointId(array $EndPointId) 设置终端节点ID。可通过[DescribeVpcEndPoint](https://cloud.tencent.com/document/product/215/54679) 获取。
  * @method boolean getAcceptFlag() 获取是否接受终端节点连接请求。
+<li> true：自动接受。</li> <li> false：不自动接受。</li>
  * @method void setAcceptFlag(boolean $AcceptFlag) 设置是否接受终端节点连接请求。
+<li> true：自动接受。</li> <li> false：不自动接受。</li>
+ * @method string getIpAddressType() 获取协议类型，支持 Ipv4，Ipv6，默认 Ipv4。
+ * @method void setIpAddressType(string $IpAddressType) 设置协议类型，支持 Ipv4，Ipv6，默认 Ipv4。
  */
 class EnableVpcEndPointConnectRequest extends AbstractModel
 {
     /**
-     * @var string 终端节点服务ID。
+     * @var string 终端节点服务ID。可通过[DescribeVpcEndPointService](https://cloud.tencent.com/document/product/215/54678)接口获取。
      */
     public $EndPointServiceId;
 
     /**
-     * @var array 终端节点ID。
+     * @var array 终端节点ID。可通过[DescribeVpcEndPoint](https://cloud.tencent.com/document/product/215/54679) 获取。
      */
     public $EndPointId;
 
     /**
      * @var boolean 是否接受终端节点连接请求。
+<li> true：自动接受。</li> <li> false：不自动接受。</li>
      */
     public $AcceptFlag;
 
     /**
-     * @param string $EndPointServiceId 终端节点服务ID。
-     * @param array $EndPointId 终端节点ID。
+     * @var string 协议类型，支持 Ipv4，Ipv6，默认 Ipv4。
+     */
+    public $IpAddressType;
+
+    /**
+     * @param string $EndPointServiceId 终端节点服务ID。可通过[DescribeVpcEndPointService](https://cloud.tencent.com/document/product/215/54678)接口获取。
+     * @param array $EndPointId 终端节点ID。可通过[DescribeVpcEndPoint](https://cloud.tencent.com/document/product/215/54679) 获取。
      * @param boolean $AcceptFlag 是否接受终端节点连接请求。
+<li> true：自动接受。</li> <li> false：不自动接受。</li>
+     * @param string $IpAddressType 协议类型，支持 Ipv4，Ipv6，默认 Ipv4。
      */
     function __construct()
     {
@@ -72,6 +84,10 @@ class EnableVpcEndPointConnectRequest extends AbstractModel
 
         if (array_key_exists("AcceptFlag",$param) and $param["AcceptFlag"] !== null) {
             $this->AcceptFlag = $param["AcceptFlag"];
+        }
+
+        if (array_key_exists("IpAddressType",$param) and $param["IpAddressType"] !== null) {
+            $this->IpAddressType = $param["IpAddressType"];
         }
     }
 }

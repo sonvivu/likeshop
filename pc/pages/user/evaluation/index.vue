@@ -25,7 +25,7 @@
         </template>
         <null-data
           v-else
-          :img="require('~/assets/images/news_null.png')"
+          :img="newsNull"
           :text="$t('暂无评价~')"
         ></null-data>
       </el-tab-pane>
@@ -34,31 +34,34 @@
 </template>
 
 <script>
+import newsNull from '~/assets/images/news_null.png'
+import { useAppStore } from "~/stores/app";
 export default {
-  head() {
-    return {
-      title: this.$store.getters.headTitle,
+  async setup() {
+    setPageLayout('user_lauout')
+    const route = useRoute();
+    const store = useAppStore();
+    const { $get } = useNuxtApp();
+    useHead({
+      title: computed(() => store.headTitle),
       link: [
         {
           rel: "icon",
           type: "image/x-icon",
-          href: this.$store.getters.favicon,
+          href: computed(() => store.favicon),
         },
       ],
-    };
-  },
-  watchQuery: true,
-  async asyncData({ $get, query }) {
-    const type = query.type || "1";
+    });
+    const type = route.query.type || "1";
     let { data:{list, count }} = await $get("goods_comment/getOrderGoods", {
       params: { type: type,  page_size: 10 },
     });
     return {
       commentList: { list, count },
       type,
+      newsNull,
     };
   },
-  layout: "user_lauout",
   components: {},
   data() {
     return {
@@ -111,6 +114,19 @@ export default {
     },
   },
   watch: {
+    // Thay co che tu nap lai cua Nuxt 2 — nap lai danh sach khi query.type doi
+    // tren cung route (setup() cua Nuxt 3 khong tu chay lai khi query doi).
+    $route(to, from) {
+      if (to.query.type && to.query.type !== from.query.type) {
+        this.type = to.query.type;
+        this.evaluate.some((item) => {
+          if (item.type == this.type) {
+            item.page = 1;
+          }
+        });
+        this.getEvaluateList();
+      }
+    },
     commentList: {
       immediate: true,
       handler(val) {

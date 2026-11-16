@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,82 +20,74 @@ use TencentCloud\Common\AbstractModel;
 /**
  * 子账号信息
  *
- * @method string getInstanceId() 获取实例ID
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setInstanceId(string $InstanceId) 设置实例ID
-注意：此字段可能返回 null，表示取不到有效值。
- * @method string getAccountName() 获取账号名称（如果是主账号，名称为root）
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setAccountName(string $AccountName) 设置账号名称（如果是主账号，名称为root）
-注意：此字段可能返回 null，表示取不到有效值。
- * @method string getRemark() 获取账号描述信息
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setRemark(string $Remark) 设置账号描述信息
-注意：此字段可能返回 null，表示取不到有效值。
- * @method string getPrivilege() 获取读写策略：r-只读，w-只写，rw-读写
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setPrivilege(string $Privilege) 设置读写策略：r-只读，w-只写，rw-读写
-注意：此字段可能返回 null，表示取不到有效值。
- * @method array getReadonlyPolicy() 获取路由策略：master-主节点，replication-从节点
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setReadonlyPolicy(array $ReadonlyPolicy) 设置路由策略：master-主节点，replication-从节点
-注意：此字段可能返回 null，表示取不到有效值。
- * @method integer getStatus() 获取子账号状态：1-账号变更中，2-账号有效，-4-账号已删除
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setStatus(integer $Status) 设置子账号状态：1-账号变更中，2-账号有效，-4-账号已删除
-注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getInstanceId() 获取<p>实例 ID。</p>
+ * @method void setInstanceId(string $InstanceId) 设置<p>实例 ID。</p>
+ * @method string getAccountName() 获取<p>账号名称。</p>
+ * @method void setAccountName(string $AccountName) 设置<p>账号名称。</p>
+ * @method string getRemark() 获取<p>账号描述信息。</p>
+ * @method void setRemark(string $Remark) 设置<p>账号描述信息。</p>
+ * @method string getPrivilege() 获取<p>读写权限策略。- r：只读。- w：只写。- rw：读写。</p>
+ * @method void setPrivilege(string $Privilege) 设置<p>读写权限策略。- r：只读。- w：只写。- rw：读写。</p>
+ * @method array getReadonlyPolicy() 获取<p>只读路由策略。- master：主节点。- replication：从节点。</p>
+ * @method void setReadonlyPolicy(array $ReadonlyPolicy) 设置<p>只读路由策略。- master：主节点。- replication：从节点。</p>
+ * @method integer getStatus() 获取<p>子账号状态.- 1：账号变更中。- 2：账号有效。- 4：账号已删除。</p>
+ * @method void setStatus(integer $Status) 设置<p>子账号状态.- 1：账号变更中。- 2：账号有效。- 4：账号已删除。</p>
+ * @method string getCreateTime() 获取<p>账号创建时间。</p><p>若该参数为空字符串，说明该账号创建于早期版本，未支持创建时间记录功能。</p>
+ * @method void setCreateTime(string $CreateTime) 设置<p>账号创建时间。</p><p>若该参数为空字符串，说明该账号创建于早期版本，未支持创建时间记录功能。</p>
+ * @method string getPasswordLastModifiedTime() 获取<p>账号最后修改密码的时间。</p><p>若该参数为空字符串，说明该账号创建于早期版本，未支持密码修改时间记录功能。</p>
+ * @method void setPasswordLastModifiedTime(string $PasswordLastModifiedTime) 设置<p>账号最后修改密码的时间。</p><p>若该参数为空字符串，说明该账号创建于早期版本，未支持密码修改时间记录功能。</p>
  */
 class Account extends AbstractModel
 {
     /**
-     * @var string 实例ID
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string <p>实例 ID。</p>
      */
     public $InstanceId;
 
     /**
-     * @var string 账号名称（如果是主账号，名称为root）
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string <p>账号名称。</p>
      */
     public $AccountName;
 
     /**
-     * @var string 账号描述信息
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string <p>账号描述信息。</p>
      */
     public $Remark;
 
     /**
-     * @var string 读写策略：r-只读，w-只写，rw-读写
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string <p>读写权限策略。- r：只读。- w：只写。- rw：读写。</p>
      */
     public $Privilege;
 
     /**
-     * @var array 路由策略：master-主节点，replication-从节点
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var array <p>只读路由策略。- master：主节点。- replication：从节点。</p>
      */
     public $ReadonlyPolicy;
 
     /**
-     * @var integer 子账号状态：1-账号变更中，2-账号有效，-4-账号已删除
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var integer <p>子账号状态.- 1：账号变更中。- 2：账号有效。- 4：账号已删除。</p>
      */
     public $Status;
 
     /**
-     * @param string $InstanceId 实例ID
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $AccountName 账号名称（如果是主账号，名称为root）
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $Remark 账号描述信息
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $Privilege 读写策略：r-只读，w-只写，rw-读写
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param array $ReadonlyPolicy 路由策略：master-主节点，replication-从节点
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param integer $Status 子账号状态：1-账号变更中，2-账号有效，-4-账号已删除
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string <p>账号创建时间。</p><p>若该参数为空字符串，说明该账号创建于早期版本，未支持创建时间记录功能。</p>
+     */
+    public $CreateTime;
+
+    /**
+     * @var string <p>账号最后修改密码的时间。</p><p>若该参数为空字符串，说明该账号创建于早期版本，未支持密码修改时间记录功能。</p>
+     */
+    public $PasswordLastModifiedTime;
+
+    /**
+     * @param string $InstanceId <p>实例 ID。</p>
+     * @param string $AccountName <p>账号名称。</p>
+     * @param string $Remark <p>账号描述信息。</p>
+     * @param string $Privilege <p>读写权限策略。- r：只读。- w：只写。- rw：读写。</p>
+     * @param array $ReadonlyPolicy <p>只读路由策略。- master：主节点。- replication：从节点。</p>
+     * @param integer $Status <p>子账号状态.- 1：账号变更中。- 2：账号有效。- 4：账号已删除。</p>
+     * @param string $CreateTime <p>账号创建时间。</p><p>若该参数为空字符串，说明该账号创建于早期版本，未支持创建时间记录功能。</p>
+     * @param string $PasswordLastModifiedTime <p>账号最后修改密码的时间。</p><p>若该参数为空字符串，说明该账号创建于早期版本，未支持密码修改时间记录功能。</p>
      */
     function __construct()
     {
@@ -132,6 +124,14 @@ class Account extends AbstractModel
 
         if (array_key_exists("Status",$param) and $param["Status"] !== null) {
             $this->Status = $param["Status"];
+        }
+
+        if (array_key_exists("CreateTime",$param) and $param["CreateTime"] !== null) {
+            $this->CreateTime = $param["CreateTime"];
+        }
+
+        if (array_key_exists("PasswordLastModifiedTime",$param) and $param["PasswordLastModifiedTime"] !== null) {
+            $this->PasswordLastModifiedTime = $param["PasswordLastModifiedTime"];
         }
     }
 }

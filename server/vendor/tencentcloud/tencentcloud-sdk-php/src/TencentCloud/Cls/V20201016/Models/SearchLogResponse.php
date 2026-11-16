@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,78 +20,122 @@ use TencentCloud\Common\AbstractModel;
 /**
  * SearchLog返回参数结构体
  *
- * @method string getContext() 获取加载后续内容的Context
- * @method void setContext(string $Context) 设置加载后续内容的Context
- * @method boolean getListOver() 获取日志查询结果是否全部返回
- * @method void setListOver(boolean $ListOver) 设置日志查询结果是否全部返回
- * @method boolean getAnalysis() 获取返回的是否为分析结果
- * @method void setAnalysis(boolean $Analysis) 设置返回的是否为分析结果
- * @method array getColNames() 获取如果Analysis为True，则返回分析结果的列名，否则为空
+ * @method string getContext() 获取<p>透传本次接口返回的Context值，可获取后续更多日志，过期时间1小时。<br>注意：</p><ul><li>仅适用于单日志主题检索，检索多个日志主题时，请使用Topics中的Context</li></ul>
+ * @method void setContext(string $Context) 设置<p>透传本次接口返回的Context值，可获取后续更多日志，过期时间1小时。<br>注意：</p><ul><li>仅适用于单日志主题检索，检索多个日志主题时，请使用Topics中的Context</li></ul>
+ * @method boolean getListOver() 获取<p>符合检索条件的日志是否已全部返回，如未全部返回可使用Context参数获取后续更多日志<br>注意：仅当检索分析语句(Query)不包含SQL时有效</p>
+ * @method void setListOver(boolean $ListOver) 设置<p>符合检索条件的日志是否已全部返回，如未全部返回可使用Context参数获取后续更多日志<br>注意：仅当检索分析语句(Query)不包含SQL时有效</p>
+ * @method boolean getAnalysis() 获取<p>返回的是否为统计分析（即SQL）结果</p>
+ * @method void setAnalysis(boolean $Analysis) 设置<p>返回的是否为统计分析（即SQL）结果</p>
+ * @method array getResults() 获取<p>匹配检索条件的原始日志</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setColNames(array $ColNames) 设置如果Analysis为True，则返回分析结果的列名，否则为空
+ * @method void setResults(array $Results) 设置<p>匹配检索条件的原始日志</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method array getResults() 获取日志查询结果；当Analysis为True时，可能返回为null
+ * @method array getColNames() 获取<p>日志统计分析结果的列名<br>当UseNewAnalysis为false时生效</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setResults(array $Results) 设置日志查询结果；当Analysis为True时，可能返回为null
+ * @method void setColNames(array $ColNames) 设置<p>日志统计分析结果的列名<br>当UseNewAnalysis为false时生效</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method array getAnalysisResults() 获取日志分析结果；当Analysis为False时，可能返回为null
+ * @method array getAnalysisResults() 获取<p>日志统计分析结果<br>当UseNewAnalysis为false时生效</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setAnalysisResults(array $AnalysisResults) 设置日志分析结果；当Analysis为False时，可能返回为null
+ * @method void setAnalysisResults(array $AnalysisResults) 设置<p>日志统计分析结果<br>当UseNewAnalysis为false时生效</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
- * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method array getAnalysisRecords() 获取<p>日志统计分析结果<br>当UseNewAnalysis为true时生效</p>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setAnalysisRecords(array $AnalysisRecords) 设置<p>日志统计分析结果<br>当UseNewAnalysis为true时生效</p>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method array getColumns() 获取<p>日志统计分析结果的列属性<br>当UseNewAnalysis为true时生效</p>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setColumns(array $Columns) 设置<p>日志统计分析结果的列属性<br>当UseNewAnalysis为true时生效</p>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method float getSamplingRate() 获取<p>本次统计分析使用的采样率</p>
+ * @method void setSamplingRate(float $SamplingRate) 设置<p>本次统计分析使用的采样率</p>
+ * @method SearchLogTopics getTopics() 获取<p>使用多日志主题检索时，各个日志主题的基本信息，例如报错信息。</p>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setTopics(SearchLogTopics $Topics) 设置<p>使用多日志主题检索时，各个日志主题的基本信息，例如报错信息。</p>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+ * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
 class SearchLogResponse extends AbstractModel
 {
     /**
-     * @var string 加载后续内容的Context
+     * @var string <p>透传本次接口返回的Context值，可获取后续更多日志，过期时间1小时。<br>注意：</p><ul><li>仅适用于单日志主题检索，检索多个日志主题时，请使用Topics中的Context</li></ul>
      */
     public $Context;
 
     /**
-     * @var boolean 日志查询结果是否全部返回
+     * @var boolean <p>符合检索条件的日志是否已全部返回，如未全部返回可使用Context参数获取后续更多日志<br>注意：仅当检索分析语句(Query)不包含SQL时有效</p>
      */
     public $ListOver;
 
     /**
-     * @var boolean 返回的是否为分析结果
+     * @var boolean <p>返回的是否为统计分析（即SQL）结果</p>
      */
     public $Analysis;
 
     /**
-     * @var array 如果Analysis为True，则返回分析结果的列名，否则为空
-注意：此字段可能返回 null，表示取不到有效值。
-     */
-    public $ColNames;
-
-    /**
-     * @var array 日志查询结果；当Analysis为True时，可能返回为null
+     * @var array <p>匹配检索条件的原始日志</p>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Results;
 
     /**
-     * @var array 日志分析结果；当Analysis为False时，可能返回为null
+     * @var array <p>日志统计分析结果的列名<br>当UseNewAnalysis为false时生效</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $ColNames;
+
+    /**
+     * @var array <p>日志统计分析结果<br>当UseNewAnalysis为false时生效</p>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $AnalysisResults;
 
     /**
-     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @var array <p>日志统计分析结果<br>当UseNewAnalysis为true时生效</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $AnalysisRecords;
+
+    /**
+     * @var array <p>日志统计分析结果的列属性<br>当UseNewAnalysis为true时生效</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $Columns;
+
+    /**
+     * @var float <p>本次统计分析使用的采样率</p>
+     */
+    public $SamplingRate;
+
+    /**
+     * @var SearchLogTopics <p>使用多日志主题检索时，各个日志主题的基本信息，例如报错信息。</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $Topics;
+
+    /**
+     * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public $RequestId;
 
     /**
-     * @param string $Context 加载后续内容的Context
-     * @param boolean $ListOver 日志查询结果是否全部返回
-     * @param boolean $Analysis 返回的是否为分析结果
-     * @param array $ColNames 如果Analysis为True，则返回分析结果的列名，否则为空
+     * @param string $Context <p>透传本次接口返回的Context值，可获取后续更多日志，过期时间1小时。<br>注意：</p><ul><li>仅适用于单日志主题检索，检索多个日志主题时，请使用Topics中的Context</li></ul>
+     * @param boolean $ListOver <p>符合检索条件的日志是否已全部返回，如未全部返回可使用Context参数获取后续更多日志<br>注意：仅当检索分析语句(Query)不包含SQL时有效</p>
+     * @param boolean $Analysis <p>返回的是否为统计分析（即SQL）结果</p>
+     * @param array $Results <p>匹配检索条件的原始日志</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param array $Results 日志查询结果；当Analysis为True时，可能返回为null
+     * @param array $ColNames <p>日志统计分析结果的列名<br>当UseNewAnalysis为false时生效</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param array $AnalysisResults 日志分析结果；当Analysis为False时，可能返回为null
+     * @param array $AnalysisResults <p>日志统计分析结果<br>当UseNewAnalysis为false时生效</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @param array $AnalysisRecords <p>日志统计分析结果<br>当UseNewAnalysis为true时生效</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param array $Columns <p>日志统计分析结果的列属性<br>当UseNewAnalysis为true时生效</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param float $SamplingRate <p>本次统计分析使用的采样率</p>
+     * @param SearchLogTopics $Topics <p>使用多日志主题检索时，各个日志主题的基本信息，例如报错信息。</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
     {
@@ -118,10 +162,6 @@ class SearchLogResponse extends AbstractModel
             $this->Analysis = $param["Analysis"];
         }
 
-        if (array_key_exists("ColNames",$param) and $param["ColNames"] !== null) {
-            $this->ColNames = $param["ColNames"];
-        }
-
         if (array_key_exists("Results",$param) and $param["Results"] !== null) {
             $this->Results = [];
             foreach ($param["Results"] as $key => $value){
@@ -131,6 +171,10 @@ class SearchLogResponse extends AbstractModel
             }
         }
 
+        if (array_key_exists("ColNames",$param) and $param["ColNames"] !== null) {
+            $this->ColNames = $param["ColNames"];
+        }
+
         if (array_key_exists("AnalysisResults",$param) and $param["AnalysisResults"] !== null) {
             $this->AnalysisResults = [];
             foreach ($param["AnalysisResults"] as $key => $value){
@@ -138,6 +182,28 @@ class SearchLogResponse extends AbstractModel
                 $obj->deserialize($value);
                 array_push($this->AnalysisResults, $obj);
             }
+        }
+
+        if (array_key_exists("AnalysisRecords",$param) and $param["AnalysisRecords"] !== null) {
+            $this->AnalysisRecords = $param["AnalysisRecords"];
+        }
+
+        if (array_key_exists("Columns",$param) and $param["Columns"] !== null) {
+            $this->Columns = [];
+            foreach ($param["Columns"] as $key => $value){
+                $obj = new Column();
+                $obj->deserialize($value);
+                array_push($this->Columns, $obj);
+            }
+        }
+
+        if (array_key_exists("SamplingRate",$param) and $param["SamplingRate"] !== null) {
+            $this->SamplingRate = $param["SamplingRate"];
+        }
+
+        if (array_key_exists("Topics",$param) and $param["Topics"] !== null) {
+            $this->Topics = new SearchLogTopics();
+            $this->Topics->deserialize($param["Topics"]);
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

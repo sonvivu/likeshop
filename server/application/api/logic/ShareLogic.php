@@ -25,7 +25,7 @@ use app\common\model\BargainLaunch;
 use app\common\model\Client_;
 use app\common\server\QrCodeServer;
 use app\common\server\UrlServer;
-use think\Db;
+use think\facade\Db;
 
 class ShareLogic extends LogicBase
 {

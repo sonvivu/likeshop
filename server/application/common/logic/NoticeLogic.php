@@ -23,7 +23,7 @@ namespace app\common\logic;
 use app\common\model\NoticeSetting;
 use app\common\server\ConfigServer;
 use app\common\server\UrlServer;
-use think\Db;
+use think\facade\Db;
 
 class NoticeLogic
 {
@@ -160,6 +160,7 @@ class NoticeLogic
             ->order('id desc')
             ->page($page, $size)
             ->select();
+        $lists = $lists->toArray(); // ThinkPHP 6：select() 返回 Collection，TP5 返回数组；直接写 $lists[$k]['x'] 或 foreach(&$item) 改值会丢/报错，先转数组。
 
         foreach ($lists as $k => $item) {
             $lists[$k]['create_time'] = date('Y-m-d H:i:s', $item['create_time']);

@@ -19,7 +19,7 @@
                             {{ $t('发布时间：') }}{{detailsObj.create_time}}
                         </div>
                         <div class="row" style="margin-left: 40px">
-                            <i class="el-icon-view muted"></i>
+                            <el-icon class="muted"><View /></el-icon>
                             <div class="muted" style="margin-left: 3px;">{{detailsObj.visit}} {{ $t('人浏览') }}</div>
                         </div>
                     </div>
@@ -40,7 +40,7 @@
                             <div class="goods-info">
                                 <div class="line2 goods-name">{{item.title}}</div>
                                 <div class="row" style="margin-top: 10px">
-                                    <i class="el-icon-view muted"></i>
+                                    <el-icon class="muted"><View /></el-icon>
                                     <div class="muted xs" style="margin-left: 4px;">{{item.visit}} {{ $t('人浏览') }}</div>
                                 </div>
                             </div>
@@ -53,32 +53,37 @@
 </template>
 
 <script>
+import { View } from "@element-plus/icons-vue";
+import { useAppStore } from "~/stores/app";
 export default {
-    head() {
+  async setup() {
+    const store = useAppStore();
+    const route = useRoute();
+    const { $get } = useNuxtApp();
+    useHead({
+      title: computed(() => store.headTitle),
+      link: [{ rel: "icon", type: "image/x-icon", href: computed(() => store.favicon) }],
+    });
+    let detailsObj = {};
+    let recommend_list = [];
+    let res = await $get("help/detail", {params: {id: route.query.id, client: 2}});
+    if(res.code == 1) {
+        detailsObj = res.data;
+        recommend_list = res.data.recommend_list
+    }
     return {
-      title: this.$store.getters.headTitle,
-       link: [{ rel: "icon", type: "image/x-icon", href: this.$store.getters.favicon}],
+        detailsObj,
+        recommend_list
     };
   },
-    async asyncData({$get, query}) {
-        let detailsObj = {};
-        let recommend_list = [];
-        let res = await $get("help/detail", {params: {id: query.id, client: 2}});
-        if(res.code == 1) {
-            detailsObj = res.data;
-            recommend_list = res.data.recommend_list
-        }
-        return {
-            detailsObj,
-            recommend_list
-        };
+  components: {
+    View
+  },
+    watch: {
+      '$route.query.id'(id) {
+        this.getNewsDetails(id);
+      },
     },
-    data() {
-        return {
-            recommend_list: []
-        }
-    },
-    watchQuery: ['id'],
     mounted() {
         this.getNewsDetails(this.$route.query.id);
     },

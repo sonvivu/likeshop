@@ -27,7 +27,7 @@ use app\common\model\TeamFollow as TeamFollowModel;
 use app\common\model\TeamFound as TeamFoundModel;
 use app\common\model\TeamGoodsItem as TeamGoodsItemModel;
 use app\common\server\UrlServer;
-use think\Db;
+use think\facade\Db;
 
 /**
  * 拼团商品逻辑层

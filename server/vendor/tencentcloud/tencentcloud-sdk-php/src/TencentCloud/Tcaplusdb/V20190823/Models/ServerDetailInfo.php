@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,6 +32,8 @@ use TencentCloud\Common\AbstractModel;
  * @method void setReadNum(integer $ReadNum) 设置读次数
  * @method integer getWriteNum() 获取写次数
  * @method void setWriteNum(integer $WriteNum) 设置写次数
+ * @method string getVersion() 获取版本
+ * @method void setVersion(string $Version) 设置版本
  */
 class ServerDetailInfo extends AbstractModel
 {
@@ -66,12 +68,18 @@ class ServerDetailInfo extends AbstractModel
     public $WriteNum;
 
     /**
+     * @var string 版本
+     */
+    public $Version;
+
+    /**
      * @param string $ServerUid svr唯一id
      * @param string $MachineType 机器类型
      * @param integer $MemoryRate 内存占用量
      * @param integer $DiskRate 磁盘占用量
      * @param integer $ReadNum 读次数
      * @param integer $WriteNum 写次数
+     * @param string $Version 版本
      */
     function __construct()
     {
@@ -108,6 +116,10 @@ class ServerDetailInfo extends AbstractModel
 
         if (array_key_exists("WriteNum",$param) and $param["WriteNum"] !== null) {
             $this->WriteNum = $param["WriteNum"];
+        }
+
+        if (array_key_exists("Version",$param) and $param["Version"] !== null) {
+            $this->Version = $param["Version"];
         }
     }
 }

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,8 +32,8 @@ use TencentCloud\Common\AbstractModel;
  * @method void setClientRemark(string $ClientRemark) 设置代客备注
  * @method string getClientName() 获取代客名称（首选实名认证名称）
  * @method void setClientName(string $ClientName) 设置代客名称（首选实名认证名称）
- * @method string getAuthType() 获取认证类型, 0：个人，1：企业；其他：未认证
- * @method void setAuthType(string $AuthType) 设置认证类型, 0：个人，1：企业；其他：未认证
+ * @method string getAuthType() 获取认证类型, 0：个人，1：企业；其他：未认证或无效值
+ * @method void setAuthType(string $AuthType) 设置认证类型, 0：个人，1：企业；其他：未认证或无效值
  * @method string getAppId() 获取代客APPID
  * @method void setAppId(string $AppId) 设置代客APPID
  * @method integer getLastMonthAmt() 获取上月消费金额
@@ -42,22 +42,18 @@ use TencentCloud\Common\AbstractModel;
  * @method void setThisMonthAmt(integer $ThisMonthAmt) 设置本月消费金额
  * @method integer getHasOverdueBill() 获取是否欠费,0：不欠费；1：欠费
  * @method void setHasOverdueBill(integer $HasOverdueBill) 设置是否欠费,0：不欠费；1：欠费
- * @method string getClientType() 获取客户类型：可以为new(新拓)/assign(指定)/old(存量已关联)/old_newchecking(存量-新关联考核中)/old_newnotpass(存量-新关联未达标)/direct(直销)/direct_newopp(直销(新商机))/空
- * @method void setClientType(string $ClientType) 设置客户类型：可以为new(新拓)/assign(指定)/old(存量已关联)/old_newchecking(存量-新关联考核中)/old_newnotpass(存量-新关联未达标)/direct(直销)/direct_newopp(直销(新商机))/空
+ * @method string getClientType() 获取客户类型：可以为new(自拓)/assign(指派)/old(官网)/direct(直销)/direct_newopp(直销(新商机))/空
+ * @method void setClientType(string $ClientType) 设置客户类型：可以为new(自拓)/assign(指派)/old(官网)/direct(直销)/direct_newopp(直销(新商机))/空
  * @method string getProjectType() 获取项目类型：可以为self(自拓项目)/platform(合作项目)/repeat(复算项目  )/空
  * @method void setProjectType(string $ProjectType) 设置项目类型：可以为self(自拓项目)/platform(合作项目)/repeat(复算项目  )/空
  * @method string getSalesUin() 获取业务员ID
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setSalesUin(string $SalesUin) 设置业务员ID
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getSalesName() 获取业务员姓名
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setSalesName(string $SalesName) 设置业务员姓名
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getMail() 获取代客邮箱
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setMail(string $Mail) 设置代客邮箱
-注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getTransactionType() 获取交易类型:交易类型 1-原类型 2-代理型  3-代采型
+ * @method void setTransactionType(string $TransactionType) 设置交易类型:交易类型 1-原类型 2-代理型  3-代采型
  */
 class AgentAuditedClient extends AbstractModel
 {
@@ -92,7 +88,7 @@ class AgentAuditedClient extends AbstractModel
     public $ClientName;
 
     /**
-     * @var string 认证类型, 0：个人，1：企业；其他：未认证
+     * @var string 认证类型, 0：个人，1：企业；其他：未认证或无效值
      */
     public $AuthType;
 
@@ -117,7 +113,7 @@ class AgentAuditedClient extends AbstractModel
     public $HasOverdueBill;
 
     /**
-     * @var string 客户类型：可以为new(新拓)/assign(指定)/old(存量已关联)/old_newchecking(存量-新关联考核中)/old_newnotpass(存量-新关联未达标)/direct(直销)/direct_newopp(直销(新商机))/空
+     * @var string 客户类型：可以为new(自拓)/assign(指派)/old(官网)/direct(直销)/direct_newopp(直销(新商机))/空
      */
     public $ClientType;
 
@@ -128,21 +124,23 @@ class AgentAuditedClient extends AbstractModel
 
     /**
      * @var string 业务员ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $SalesUin;
 
     /**
      * @var string 业务员姓名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $SalesName;
 
     /**
      * @var string 代客邮箱
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Mail;
+
+    /**
+     * @var string 交易类型:交易类型 1-原类型 2-代理型  3-代采型
+     */
+    public $TransactionType;
 
     /**
      * @param string $Uin 代理商账号ID
@@ -151,19 +149,17 @@ class AgentAuditedClient extends AbstractModel
      * @param string $ClientFlag 代客类型，可能值为a/b/c
      * @param string $ClientRemark 代客备注
      * @param string $ClientName 代客名称（首选实名认证名称）
-     * @param string $AuthType 认证类型, 0：个人，1：企业；其他：未认证
+     * @param string $AuthType 认证类型, 0：个人，1：企业；其他：未认证或无效值
      * @param string $AppId 代客APPID
      * @param integer $LastMonthAmt 上月消费金额
      * @param integer $ThisMonthAmt 本月消费金额
      * @param integer $HasOverdueBill 是否欠费,0：不欠费；1：欠费
-     * @param string $ClientType 客户类型：可以为new(新拓)/assign(指定)/old(存量已关联)/old_newchecking(存量-新关联考核中)/old_newnotpass(存量-新关联未达标)/direct(直销)/direct_newopp(直销(新商机))/空
+     * @param string $ClientType 客户类型：可以为new(自拓)/assign(指派)/old(官网)/direct(直销)/direct_newopp(直销(新商机))/空
      * @param string $ProjectType 项目类型：可以为self(自拓项目)/platform(合作项目)/repeat(复算项目  )/空
      * @param string $SalesUin 业务员ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $SalesName 业务员姓名
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $Mail 代客邮箱
-注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $TransactionType 交易类型:交易类型 1-原类型 2-代理型  3-代采型
      */
     function __construct()
     {
@@ -240,6 +236,10 @@ class AgentAuditedClient extends AbstractModel
 
         if (array_key_exists("Mail",$param) and $param["Mail"] !== null) {
             $this->Mail = $param["Mail"];
+        }
+
+        if (array_key_exists("TransactionType",$param) and $param["TransactionType"] !== null) {
+            $this->TransactionType = $param["TransactionType"];
         }
     }
 }

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,26 +20,35 @@ use TencentCloud\Common\AbstractModel;
 /**
  * 媒资绑定资源信息，包含媒资绑定模板 ID 和文件信息。
  *
- * @method integer getDefinition() 获取媒资绑定模板 ID。
- * @method void setDefinition(integer $Definition) 设置媒资绑定模板 ID。
- * @method string getMediaKey() 获取媒资绑定媒体路径或文件 ID。
- * @method void setMediaKey(string $MediaKey) 设置媒资绑定媒体路径或文件 ID。
+ * @method string getMediaKey() 获取目前仅支持绑定 COS 桶的媒体，请填写存储对象 Key 值，例如：`example-folder/example.mp4`。
+ * @method void setMediaKey(string $MediaKey) 设置目前仅支持绑定 COS 桶的媒体，请填写存储对象 Key 值，例如：`example-folder/example.mp4`。
+ * @method integer getDefinition() 获取该字段废弃，请勿使用。
+ * @method void setDefinition(integer $Definition) 设置该字段废弃，请勿使用。
+ * @method string getStorageId() 获取媒资挂载的存储 Id。
+ * @method void setStorageId(string $StorageId) 设置媒资挂载的存储 Id。
  */
 class ExternalMediaInfo extends AbstractModel
 {
     /**
-     * @var integer 媒资绑定模板 ID。
-     */
-    public $Definition;
-
-    /**
-     * @var string 媒资绑定媒体路径或文件 ID。
+     * @var string 目前仅支持绑定 COS 桶的媒体，请填写存储对象 Key 值，例如：`example-folder/example.mp4`。
      */
     public $MediaKey;
 
     /**
-     * @param integer $Definition 媒资绑定模板 ID。
-     * @param string $MediaKey 媒资绑定媒体路径或文件 ID。
+     * @var integer 该字段废弃，请勿使用。
+     * @deprecated
+     */
+    public $Definition;
+
+    /**
+     * @var string 媒资挂载的存储 Id。
+     */
+    public $StorageId;
+
+    /**
+     * @param string $MediaKey 目前仅支持绑定 COS 桶的媒体，请填写存储对象 Key 值，例如：`example-folder/example.mp4`。
+     * @param integer $Definition 该字段废弃，请勿使用。
+     * @param string $StorageId 媒资挂载的存储 Id。
      */
     function __construct()
     {
@@ -54,12 +63,16 @@ class ExternalMediaInfo extends AbstractModel
         if ($param === null) {
             return;
         }
+        if (array_key_exists("MediaKey",$param) and $param["MediaKey"] !== null) {
+            $this->MediaKey = $param["MediaKey"];
+        }
+
         if (array_key_exists("Definition",$param) and $param["Definition"] !== null) {
             $this->Definition = $param["Definition"];
         }
 
-        if (array_key_exists("MediaKey",$param) and $param["MediaKey"] !== null) {
-            $this->MediaKey = $param["MediaKey"];
+        if (array_key_exists("StorageId",$param) and $param["StorageId"] !== null) {
+            $this->StorageId = $param["StorageId"];
         }
     }
 }

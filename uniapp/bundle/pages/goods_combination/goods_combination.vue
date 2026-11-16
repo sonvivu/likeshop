@@ -81,9 +81,9 @@ likeshop.cn.team // +-----------------------------------------------------------
                 color="#fff"
                 @refresh="getGroupListFun"
             >
-                <view slot="empty" class="column-center" style="padding-top: 200rpx">
+                                <template #empty><view class="column-center" style="padding-top: 200rpx">
                     <text class="lg" style="color: #ffd4d8">{{ $t('暂无拼团商品') }}</text>
-                </view>
+                </view></template>
             </loading-footer>
         </view>
     </view>

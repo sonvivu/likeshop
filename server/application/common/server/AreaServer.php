@@ -22,7 +22,7 @@ namespace app\common\server;
 
 
 use app\common\cache\RegionCache;
-use think\Db;
+use think\facade\Db;
 use think\facade\Cache;
 
 class AreaServer

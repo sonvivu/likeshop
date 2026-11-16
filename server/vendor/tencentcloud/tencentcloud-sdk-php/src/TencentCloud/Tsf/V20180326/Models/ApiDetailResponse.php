@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,13 +33,9 @@ use TencentCloud\Common\AbstractModel;
  * @method void setRequestContentType(string $RequestContentType) 设置API 的 content type
 注意：此字段可能返回 null，表示取不到有效值。
  * @method boolean getCanRun() 获取API  能否调试
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setCanRun(boolean $CanRun) 设置API  能否调试
-注意：此字段可能返回 null，表示取不到有效值。
  * @method integer getStatus() 获取API 状态 0:离线 1:在线，默认0
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setStatus(integer $Status) 设置API 状态 0:离线 1:在线，默认0
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getDescription() 获取API 描述
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setDescription(string $Description) 设置API 描述
@@ -71,13 +67,11 @@ class ApiDetailResponse extends AbstractModel
 
     /**
      * @var boolean API  能否调试
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $CanRun;
 
     /**
      * @var integer API 状态 0:离线 1:在线，默认0
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Status;
 
@@ -95,9 +89,7 @@ class ApiDetailResponse extends AbstractModel
      * @param string $RequestContentType API 的 content type
 注意：此字段可能返回 null，表示取不到有效值。
      * @param boolean $CanRun API  能否调试
-注意：此字段可能返回 null，表示取不到有效值。
      * @param integer $Status API 状态 0:离线 1:在线，默认0
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $Description API 描述
 注意：此字段可能返回 null，表示取不到有效值。
      */

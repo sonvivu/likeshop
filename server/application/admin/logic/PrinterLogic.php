@@ -20,10 +20,9 @@ namespace app\admin\logic;
 use app\common\server\ConfigServer;
 use app\common\server\UrlServer;
 use app\common\server\YlyPrinter;
-use think\Db;
+use think\facade\Db;
 use think\Exception;
 use think\facade\Cache;
-use think\facade\Hook;
 
 class PrinterLogic{
 
@@ -41,6 +40,7 @@ class PrinterLogic{
                     ->where(['del'=>0])
                     ->order('id desc')
                     ->select();
+                $list = $list->toArray(); // ThinkPHP 6：select() 返回 Collection，TP5 返回数组；直接写 $list[$k]['x'] 或 foreach(&$item) 改值会丢/报错，先转数组。
                 foreach ($list as $key => $value){
                     $list[$key]['type_name'] = Db::name('printer_config')->where(['id'=>$value['type']])->value('name');
                     $list[$key]['status'] = $value['status'] ? lang('开启') : lang('关闭');
@@ -119,8 +119,8 @@ class PrinterLogic{
             }
             if(18 === $e->getCode()){
                 //todo token过期重新拿
-                Cache::rm('yly_access_token');
-                Cache::rm('yly_refresh_token');
+                Cache::delete('yly_access_token');
+                Cache::delete('yly_refresh_token');
             };
             Db::rollback();
             return lang('易联云：').$e->getMessage();
@@ -173,8 +173,8 @@ class PrinterLogic{
             }
             if(18 === $e->getCode()){
                 //todo token过期重新拿
-                Cache::rm('yly_access_token');
-                Cache::rm('yly_refresh_token');
+                Cache::delete('yly_access_token');
+                Cache::delete('yly_refresh_token');
             };
             Db::rollback();
             return lang('易联云：').$e->getMessage();
@@ -322,8 +322,8 @@ class PrinterLogic{
             }
             if(18 === $e->getCode()){
                 //todo token过期重新拿
-                Cache::rm('yly_access_token');
-                Cache::rm('yly_refresh_token');
+                Cache::delete('yly_access_token');
+                Cache::delete('yly_refresh_token');
             };
             return lang('易联云：').$e->getMessage();
         }
@@ -405,8 +405,8 @@ class PrinterLogic{
             }
             if(18 === $e->getCode()){
                 //todo token过期重新拿
-                Cache::rm('yly_access_token');
-                Cache::rm('yly_refresh_token');
+                Cache::delete('yly_access_token');
+                Cache::delete('yly_refresh_token');
             };
             Db::rollback();
             return lang('易联云：').$e->getMessage();

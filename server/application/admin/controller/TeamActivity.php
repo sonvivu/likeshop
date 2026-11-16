@@ -21,7 +21,7 @@ namespace app\admin\controller;
 
 use app\admin\logic\TeamActivityLogic;
 use app\common\model\Team;
-use think\helper\Time;
+use app\common\helper\Time;
 
 /**
  * 拼团商品管理 - 控制器

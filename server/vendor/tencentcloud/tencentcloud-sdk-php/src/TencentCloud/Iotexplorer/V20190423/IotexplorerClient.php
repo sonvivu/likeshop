@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,52 +23,319 @@ use TencentCloud\Common\Credential;
 use TencentCloud\Iotexplorer\V20190423\Models as Models;
 
 /**
+ * @method Models\ActivateTWeCallLicenseResponse ActivateTWeCallLicense(Models\ActivateTWeCallLicenseRequest $req) 激活
+ * @method Models\ActivateTWeTalkResponse ActivateTWeTalk(Models\ActivateTWeTalkRequest $req) TWeTalk设备激活接口。
+ * @method Models\BatchCreateTWeSeeRecognitionTaskResponse BatchCreateTWeSeeRecognitionTask(Models\BatchCreateTWeSeeRecognitionTaskRequest $req) 批量同步执行 TWeSee 语义理解任务
+ * @method Models\BatchCreateTWeSeeSubscriptionResponse BatchCreateTWeSeeSubscription(Models\BatchCreateTWeSeeSubscriptionRequest $req) 批量开通 TWeSee 预付费订阅
+ * @method Models\BatchDescribeTWeSeeOrdersResponse BatchDescribeTWeSeeOrders(Models\BatchDescribeTWeSeeOrdersRequest $req) 批量查询 TWeSee 订单状态
+ * @method Models\BatchInvokeTWeSeeRecognitionTaskResponse BatchInvokeTWeSeeRecognitionTask(Models\BatchInvokeTWeSeeRecognitionTaskRequest $req) 批量同步执行 TWeSee 语义理解任务
+ * @method Models\BatchPublishMessageResponse BatchPublishMessage(Models\BatchPublishMessageRequest $req) 批量设备透传指令控制
+ * @method Models\BatchRenewTWeSeeSubscriptionResponse BatchRenewTWeSeeSubscription(Models\BatchRenewTWeSeeSubscriptionRequest $req) 批量续费 TWeSee 预付费订阅
+ * @method Models\BatchUpdateFirmwareResponse BatchUpdateFirmware(Models\BatchUpdateFirmwareRequest $req) 本接口（BatchUpdateFirmware）用于批量更新设备固件
+ * @method Models\BindCloudStorageUserResponse BindCloudStorageUser(Models\BindCloudStorageUserRequest $req) 绑定云存用户
+ * @method Models\BindDevicesResponse BindDevices(Models\BindDevicesRequest $req) 批量绑定子设备
+ * @method Models\BindProductsResponse BindProducts(Models\BindProductsRequest $req) 批量绑定子产品。
+ * @method Models\BindTWeTalkAgentResponse BindTWeTalkAgent(Models\BindTWeTalkAgentRequest $req) 绑定智能体到产品或设备
+- `BindingScope=product` 时，`DeviceName` 必须为空。
+- `BindingScope=device` 时，`DeviceName` 必填。
+ * @method Models\BindUserDeviceResponse BindUserDevice(Models\BindUserDeviceRequest $req) 1. 按 `(IotAppID, OpenID)` 兜底创建 / 复用 app 端用户；
+2. 按 `(用户, FamilyName)` 兜底创建 / 复用默认家庭；
+3. 将设备直接绑定到该家庭（已绑同家庭视为成功，并继续异步下发 `bind_device` 消息）。
  * @method Models\CallDeviceActionAsyncResponse CallDeviceActionAsync(Models\CallDeviceActionAsyncRequest $req) 提供给用户异步调用设备行为的能力
  * @method Models\CallDeviceActionSyncResponse CallDeviceActionSync(Models\CallDeviceActionSyncRequest $req) 为用户提供同步调用设备行为的能力。
+ * @method Models\CallDeviceRRPCSyncResponse CallDeviceRRPCSync(Models\CallDeviceRRPCSyncRequest $req) 平台向设备发起一次同步 RRPC（Reverse RPC）调用——下行下发请求，同步阻塞等待设备回包，超时未回则返回 Timeout。
+
+适用场景：
+
+默认模式：使用平台保留 topic $iotrrpc/down 和 $iotrrpc/up。
+自定义模式：业务自带下行 topic；Reply topic 可选 —— 不传时平台仅依赖 clientToken 关联上行 ack。
+
+
+
+## 设备侧实现指引
+
+### 默认模式
+
+1. 订阅 `$iotrrpc/down/{ProductId}/{DeviceName}/+`；
+2. 收到下行后，从 topic 末段解析 `{mid}`；
+3. 向 `$iotrrpc/up/{ProductId}/{DeviceName}/{mid}` 发送回包，**payload 任意字节**（推荐 JSON）。
+
+### 自定义模式
+
+1. 订阅业务 `Topic`；
+2. 解析 payload JSON，**保留 `clientToken` 字段**；
+3. 处理业务后，构造 envelope JSON：
+
+   ```json
+   {
+     "method": "rrpc_sync_reply",
+     "clientToken": "<原样回填>",
+     "payload": "<base64 of 业务字节>"
+   }
+   ```
+
+4. publish 到与平台 `ReplyTopic` 通配符匹配的具体 topic（推荐使用与下行同 topic）。
+
+> ⚠️ `clientToken` **必填且必须原样回填**，否则平台无法关联，调用方将收到 `Status=Timeout`。
+> ⚠️ `method` 必须为 `rrpc_sync_reply`，否则会直接 skip。
+ * @method Models\ChangeP2PRouteResponse ChangeP2PRoute(Models\ChangeP2PRouteRequest $req) p2p路线切换（此接口目前处于内测接口，可以联系申请加白 ）
+ * @method Models\CheckFirmwareUpdateResponse CheckFirmwareUpdate(Models\CheckFirmwareUpdateRequest $req) 本接口（CheckFirmwareUpdate）用于查询设备可升级固件版本
  * @method Models\ControlDeviceDataResponse ControlDeviceData(Models\ControlDeviceDataRequest $req) 根据设备产品ID、设备名称，设置控制设备的属性数据。
+ * @method Models\CreateAISearchTaskAsyncResponse CreateAISearchTaskAsync(Models\CreateAISearchTaskAsyncRequest $req) 创建视频语义异步搜索任务
+ * @method Models\CreateBatchProductionResponse CreateBatchProduction(Models\CreateBatchProductionRequest $req) 用于新建批量生产设备
+ * @method Models\CreateCloudStorageAIServiceResponse CreateCloudStorageAIService(Models\CreateCloudStorageAIServiceRequest $req) 开通设备云存AI分析服务
+ * @method Models\CreateCloudStorageAIServiceTaskResponse CreateCloudStorageAIServiceTask(Models\CreateCloudStorageAIServiceTaskRequest $req) 创建设备云存 AI 分析任务
  * @method Models\CreateDeviceResponse CreateDevice(Models\CreateDeviceRequest $req) 创建设备
+ * @method Models\CreateDeviceChannelResponse CreateDeviceChannel(Models\CreateDeviceChannelRequest $req) 创建设备通道
+ * @method Models\CreateDevicePublishSDPAnswerResponse CreateDevicePublishSDPAnswer(Models\CreateDevicePublishSDPAnswerRequest $req) 创建设备推流SDP应答，此接口调用前需要先调用CreateDeviceSDPAnswer接口以保证设备处于拉流状态，接口返回是另外一路webrtc推流SDP信息，可以用来进行标准的WHIP推流
+ * @method Models\CreateDeviceSDPAnswerResponse CreateDeviceSDPAnswer(Models\CreateDeviceSDPAnswerRequest $req) 创建设备SDP应答，调用此接口后，后台会对传入参数的设备进行拉流，并返回webrtc answer SDP返回，可以进行WHEP协议拉流。
+ * @method Models\CreateExternalSourceAIServiceTaskResponse CreateExternalSourceAIServiceTask(Models\CreateExternalSourceAIServiceTaskRequest $req) 创建外部视频 AI 分析任务
+ * @method Models\CreateFenceBindResponse CreateFenceBind(Models\CreateFenceBindRequest $req) > 创建围栏绑定信息。
+ * @method Models\CreateFreeCloudStorageResponse CreateFreeCloudStorage(Models\CreateFreeCloudStorageRequest $req) 开通云存卡服务
+ * @method Models\CreateIotVideoCloudStorageResponse CreateIotVideoCloudStorage(Models\CreateIotVideoCloudStorageRequest $req) 开通云存服务
  * @method Models\CreateLoRaFrequencyResponse CreateLoRaFrequency(Models\CreateLoRaFrequencyRequest $req) 创建 LoRa 自定义频点
  * @method Models\CreateLoRaGatewayResponse CreateLoRaGateway(Models\CreateLoRaGatewayRequest $req) 创建新 LoRa 网关设备接口
+ * @method Models\CreateOtaModuleResponse CreateOtaModule(Models\CreateOtaModuleRequest $req) 本接口（CreateOtaModule）用于新建OTA模块
+ * @method Models\CreatePositionFenceResponse CreatePositionFence(Models\CreatePositionFenceRequest $req) 创建围栏。
+ * @method Models\CreatePositionSpaceResponse CreatePositionSpace(Models\CreatePositionSpaceRequest $req) 创建位置空间。
+ * @method Models\CreatePrivateCAResponse CreatePrivateCA(Models\CreatePrivateCARequest $req) 创建私有CA证书
  * @method Models\CreateProjectResponse CreateProject(Models\CreateProjectRequest $req) 为用户提供新建项目的能力，用于集中管理产品和应用。
  * @method Models\CreateStudioProductResponse CreateStudioProduct(Models\CreateStudioProductRequest $req) 为用户提供新建产品的能力，用于管理用户的设备
+ * @method Models\CreateTRTCSignaturesWithRoomIdResponse CreateTRTCSignaturesWithRoomId(Models\CreateTRTCSignaturesWithRoomIdRequest $req) 创建TRTC通话参数
+ * @method Models\CreateTWeSeeCallbackResponse CreateTWeSeeCallback(Models\CreateTWeSeeCallbackRequest $req) 创建 TWeSee 回调目标
+ * @method Models\CreateTWeSeeDirectUploadCredentialResponse CreateTWeSeeDirectUploadCredential(Models\CreateTWeSeeDirectUploadCredentialRequest $req) 创建 TWeSee COS 直传凭据。调用方获取临时密钥后，可将视频 / 图片上传到返回的 StoragePath 前缀下；对象上传成功后由 COS 事件触发 TWeSee 任务创建。
+ * @method Models\CreateTWeSeePersonResponse CreateTWeSeePerson(Models\CreateTWeSeePersonRequest $req) 创建一个 TWeSee 人员，可关联已导入的人脸。
+ * @method Models\CreateTWeSeePostPaidServiceResponse CreateTWeSeePostPaidService(Models\CreateTWeSeePostPaidServiceRequest $req) 开通 TWeSee 后付费服务
+ * @method Models\CreateTWeSeeRecognitionTaskResponse CreateTWeSeeRecognitionTask(Models\CreateTWeSeeRecognitionTaskRequest $req) 创建 TWeSee 语义理解任务
+ * @method Models\CreateTWeSeeRecognitionTaskWithFileResponse CreateTWeSeeRecognitionTaskWithFile(Models\CreateTWeSeeRecognitionTaskWithFileRequest $req) 同步执行 TWeSee 语义理解任务
+ * @method Models\CreateTWeSeeServiceResponse CreateTWeSeeService(Models\CreateTWeSeeServiceRequest $req) 开通 TWeSee 后付费服务
+ * @method Models\CreateTWeSeeSubscriptionResponse CreateTWeSeeSubscription(Models\CreateTWeSeeSubscriptionRequest $req) 开通 TWeSee 预付费订阅
+ * @method Models\CreateTWeTalkAgentResponse CreateTWeTalkAgent(Models\CreateTWeTalkAgentRequest $req) 新增TWeTalk智能体。
+ * @method Models\CreateTopicPolicyResponse CreateTopicPolicy(Models\CreateTopicPolicyRequest $req) 本接口（CreateTopicPolicy）用于创建一个Topic
  * @method Models\CreateTopicRuleResponse CreateTopicRule(Models\CreateTopicRuleRequest $req) 创建规则
+ * @method Models\DeleteCloudStorageEventResponse DeleteCloudStorageEvent(Models\DeleteCloudStorageEventRequest $req) 删除云存事件
  * @method Models\DeleteDeviceResponse DeleteDevice(Models\DeleteDeviceRequest $req) 删除设备
+ * @method Models\DeleteDeviceSDPResponse DeleteDeviceSDP(Models\DeleteDeviceSDPRequest $req) 删除设备SDP应答，此接口调用是手动结束设备后台推拉流信息，快速响应挂断需求。
+ * @method Models\DeleteDevicesResponse DeleteDevices(Models\DeleteDevicesRequest $req) 批量删除设备
+ * @method Models\DeleteFenceBindResponse DeleteFenceBind(Models\DeleteFenceBindRequest $req) 删除围栏绑定信息。
  * @method Models\DeleteLoRaFrequencyResponse DeleteLoRaFrequency(Models\DeleteLoRaFrequencyRequest $req) 提供删除LoRa自定义频点的能力
  * @method Models\DeleteLoRaGatewayResponse DeleteLoRaGateway(Models\DeleteLoRaGatewayRequest $req) 删除  LoRa 网关的接口
- * @method Models\DeleteProjectResponse DeleteProject(Models\DeleteProjectRequest $req) 提供删除某个项目的能力
+ * @method Models\DeleteOtaModuleResponse DeleteOtaModule(Models\DeleteOtaModuleRequest $req) 本接口（DeleteOtaModule）用于删除OTA模块
+ * @method Models\DeletePositionFenceResponse DeletePositionFence(Models\DeletePositionFenceRequest $req) 删除围栏。
+ * @method Models\DeletePositionSpaceResponse DeletePositionSpace(Models\DeletePositionSpaceRequest $req) 删除位置空间。
+ * @method Models\DeletePrivateCAResponse DeletePrivateCA(Models\DeletePrivateCARequest $req) 删除私有CA证书
+ * @method Models\DeleteProductPrivateCAResponse DeleteProductPrivateCA(Models\DeleteProductPrivateCARequest $req) 删除产品绑定的CA证书
+ * @method Models\DeleteProjectResponse DeleteProject(Models\DeleteProjectRequest $req) 提供删除某个项目的能力。
  * @method Models\DeleteStudioProductResponse DeleteStudioProduct(Models\DeleteStudioProductRequest $req) 提供删除某个项目下产品的能力
- * @method Models\DeleteTopicRuleResponse DeleteTopicRule(Models\DeleteTopicRuleRequest $req) 删除规则
+ * @method Models\DeleteTWeSeeCallbackResponse DeleteTWeSeeCallback(Models\DeleteTWeSeeCallbackRequest $req) 删除 TWeSee 回调目标
+ * @method Models\DeleteTWeSeeFaceResponse DeleteTWeSeeFace(Models\DeleteTWeSeeFaceRequest $req) 删除指定 TWeSee 人脸。
+ * @method Models\DeleteTWeSeePersonResponse DeleteTWeSeePerson(Models\DeleteTWeSeePersonRequest $req) 删除指定 TWeSee 人员，可选择同时删除其关联人脸。
+ * @method Models\DeleteTWeSeeTasksByConditionResponse DeleteTWeSeeTasksByCondition(Models\DeleteTWeSeeTasksByConditionRequest $req) 按条件删除指定设备和算法类目下的 TWeSee 任务及其关联数据。
+ * @method Models\DeleteTWeTalkAgentResponse DeleteTWeTalkAgent(Models\DeleteTWeTalkAgentRequest $req) 用于删除TWeTalk智能体
+ * @method Models\DeleteTopicPolicyResponse DeleteTopicPolicy(Models\DeleteTopicPolicyRequest $req) 本接口（DeleteTopicPolicy）用于删除Topic
+ * @method Models\DeleteTopicRuleResponse DeleteTopicRule(Models\DeleteTopicRuleRequest $req) 删除规则。
+ * @method Models\DescribeAISearchTaskAsyncResponse DescribeAISearchTaskAsync(Models\DescribeAISearchTaskAsyncRequest $req) 获取视频语义异步搜索任务详情
+ * @method Models\DescribeActivateDeviceResponse DescribeActivateDevice(Models\DescribeActivateDeviceRequest $req) 获取设备激活详情
+ * @method Models\DescribeActivateLicenseServiceResponse DescribeActivateLicenseService(Models\DescribeActivateLicenseServiceRequest $req) 获取增值服务激活码详情
+ * @method Models\DescribeBatchProductionResponse DescribeBatchProduction(Models\DescribeBatchProductionRequest $req) 获取量产详情信息。
+ * @method Models\DescribeBindedProductsResponse DescribeBindedProducts(Models\DescribeBindedProductsRequest $req) 获取网关产品已经绑定的子产品
+ * @method Models\DescribeCloudStorageResponse DescribeCloudStorage(Models\DescribeCloudStorageRequest $req) 获取设备云存服务详情
+ * @method Models\DescribeCloudStorageAIServiceResponse DescribeCloudStorageAIService(Models\DescribeCloudStorageAIServiceRequest $req) 查询指定设备的云存 AI 服务开通状态与参数配置
+ * @method Models\DescribeCloudStorageAIServiceCallbackResponse DescribeCloudStorageAIServiceCallback(Models\DescribeCloudStorageAIServiceCallbackRequest $req) 查询云存AI分析回调配置
+ * @method Models\DescribeCloudStorageAIServiceTaskResponse DescribeCloudStorageAIServiceTask(Models\DescribeCloudStorageAIServiceTaskRequest $req) 查询指定的云存 AI 分析任务
+ * @method Models\DescribeCloudStorageAIServiceTasksResponse DescribeCloudStorageAIServiceTasks(Models\DescribeCloudStorageAIServiceTasksRequest $req) 查询指定设备的云存 AI 分析任务列表
+ * @method Models\DescribeCloudStorageDateResponse DescribeCloudStorageDate(Models\DescribeCloudStorageDateRequest $req) 获取具有云存的日期
+ * @method Models\DescribeCloudStorageEventsResponse DescribeCloudStorageEvents(Models\DescribeCloudStorageEventsRequest $req) 拉取云存事件列表
+ * @method Models\DescribeCloudStorageEventsByTWeSeePersonResponse DescribeCloudStorageEventsByTWeSeePerson(Models\DescribeCloudStorageEventsByTWeSeePersonRequest $req) 查询 TWeSee 人员关联的云存事件及 AI 任务
+ * @method Models\DescribeCloudStorageEventsWithAITasksResponse DescribeCloudStorageEventsWithAITasks(Models\DescribeCloudStorageEventsWithAITasksRequest $req) 拉取云存事件列表
+ * @method Models\DescribeCloudStorageMultiThumbnailResponse DescribeCloudStorageMultiThumbnail(Models\DescribeCloudStorageMultiThumbnailRequest $req) 拉取多个云存事件缩略图
+ * @method Models\DescribeCloudStorageOrderResponse DescribeCloudStorageOrder(Models\DescribeCloudStorageOrderRequest $req) 查询云存服务详情
+ * @method Models\DescribeCloudStoragePackageConsumeDetailsResponse DescribeCloudStoragePackageConsumeDetails(Models\DescribeCloudStoragePackageConsumeDetailsRequest $req) 获取云存套餐包消耗详细记录
+ * @method Models\DescribeCloudStoragePackageConsumeStatsResponse DescribeCloudStoragePackageConsumeStats(Models\DescribeCloudStoragePackageConsumeStatsRequest $req) 获取云存套餐包消耗统计
+ * @method Models\DescribeCloudStorageStreamDataResponse DescribeCloudStorageStreamData(Models\DescribeCloudStorageStreamDataRequest $req) 获取设备图片流数据
+ * @method Models\DescribeCloudStorageThumbnailResponse DescribeCloudStorageThumbnail(Models\DescribeCloudStorageThumbnailRequest $req) 拉取云存事件缩略图
+ * @method Models\DescribeCloudStorageThumbnailListResponse DescribeCloudStorageThumbnailList(Models\DescribeCloudStorageThumbnailListRequest $req) 批量拉取云存事件缩略图
+ * @method Models\DescribeCloudStorageTimeResponse DescribeCloudStorageTime(Models\DescribeCloudStorageTimeRequest $req) 获取某一天云存时间轴
+ * @method Models\DescribeCloudStorageUsersResponse DescribeCloudStorageUsers(Models\DescribeCloudStorageUsersRequest $req) 拉取云存用户列表
+ * @method Models\DescribeCsReportCountDataInfoResponse DescribeCsReportCountDataInfo(Models\DescribeCsReportCountDataInfoRequest $req) 获取云存上报统计信息
  * @method Models\DescribeDeviceResponse DescribeDevice(Models\DescribeDeviceRequest $req) 用于查看某个设备的详细信息
+ * @method Models\DescribeDeviceBindGatewayResponse DescribeDeviceBindGateway(Models\DescribeDeviceBindGatewayRequest $req) 查询设备绑定的网关设备
  * @method Models\DescribeDeviceDataResponse DescribeDeviceData(Models\DescribeDeviceDataRequest $req) 根据设备产品ID、设备名称，获取设备上报的属性数据。
  * @method Models\DescribeDeviceDataHistoryResponse DescribeDeviceDataHistory(Models\DescribeDeviceDataHistoryRequest $req) 获取设备在指定时间范围内上报的历史数据。
+ * @method Models\DescribeDeviceFirmWareResponse DescribeDeviceFirmWare(Models\DescribeDeviceFirmWareRequest $req) 获取设备固件信息
+ * @method Models\DescribeDeviceFirmwaresResponse DescribeDeviceFirmwares(Models\DescribeDeviceFirmwaresRequest $req) 获取设备当前固件信息
+ * @method Models\DescribeDevicePackagesResponse DescribeDevicePackages(Models\DescribeDevicePackagesRequest $req) 根据设备信息拉取有效套餐列表
+ * @method Models\DescribeDevicePositionListResponse DescribeDevicePositionList(Models\DescribeDevicePositionListRequest $req) 获取设备位置列表
+ * @method Models\DescribeFenceBindListResponse DescribeFenceBindList(Models\DescribeFenceBindListRequest $req) 获取围栏绑定信息列表。
+ * @method Models\DescribeFenceEventListResponse DescribeFenceEventList(Models\DescribeFenceEventListRequest $req) 获取围栏告警事件列表。
+ * @method Models\DescribeFirmwareResponse DescribeFirmware(Models\DescribeFirmwareRequest $req) 查询固件信息
  * @method Models\DescribeFirmwareTaskResponse DescribeFirmwareTask(Models\DescribeFirmwareTaskRequest $req) 查询固件升级任务列表
+ * @method Models\DescribeFirmwareTaskDevicesResponse DescribeFirmwareTaskDevices(Models\DescribeFirmwareTaskDevicesRequest $req) 查询固件升级任务的设备列表
+ * @method Models\DescribeFirmwareTasksResponse DescribeFirmwareTasks(Models\DescribeFirmwareTasksRequest $req) 搜索固件升级任务列表
+ * @method Models\DescribeFirmwareUpdateStatusResponse DescribeFirmwareUpdateStatus(Models\DescribeFirmwareUpdateStatusRequest $req) 本接口（DescribeFirmwareUpdateStatus）用于查询设备固件升级状态及进度。
+ * @method Models\DescribeFreeCloudStorageNumResponse DescribeFreeCloudStorageNum(Models\DescribeFreeCloudStorageNumRequest $req) 查询云存卡套餐信息
+ * @method Models\DescribeGatewayBindDevicesResponse DescribeGatewayBindDevices(Models\DescribeGatewayBindDevicesRequest $req) 获取网关绑定的子设备列表
+ * @method Models\DescribeGatewaySubDeviceListResponse DescribeGatewaySubDeviceList(Models\DescribeGatewaySubDeviceListRequest $req) 查询绑定到家庭的网关设备的子设备列表
+ * @method Models\DescribeGatewaySubProductsResponse DescribeGatewaySubProducts(Models\DescribeGatewaySubProductsRequest $req) 用于获取网关可绑定或解绑的子产品。
+ * @method Models\DescribeInstanceResponse DescribeInstance(Models\DescribeInstanceRequest $req) 公共实例过期时间 0001-01-01T00:00:00Z，公共实例是永久有效
+ * @method Models\DescribeLicenseOverviewResponse DescribeLicenseOverview(Models\DescribeLicenseOverviewRequest $req) 查询实例概览详情。
  * @method Models\DescribeLoRaFrequencyResponse DescribeLoRaFrequency(Models\DescribeLoRaFrequencyRequest $req) 提供查询LoRa自定义频点详情的能力
  * @method Models\DescribeModelDefinitionResponse DescribeModelDefinition(Models\DescribeModelDefinitionRequest $req) 查询产品配置的数据模板信息
+ * @method Models\DescribeP2PRouteResponse DescribeP2PRoute(Models\DescribeP2PRouteRequest $req) 当前p2p线路
+ * @method Models\DescribePackageConsumeTaskResponse DescribePackageConsumeTask(Models\DescribePackageConsumeTaskRequest $req) 查询套餐消耗记录详情
+ * @method Models\DescribePackageConsumeTasksResponse DescribePackageConsumeTasks(Models\DescribePackageConsumeTasksRequest $req) 查询套餐消耗记录列表
+ * @method Models\DescribePositionFenceListResponse DescribePositionFenceList(Models\DescribePositionFenceListRequest $req) 获取围栏列表
+ * @method Models\DescribePrivateCAResponse DescribePrivateCA(Models\DescribePrivateCARequest $req) 查询私有化CA信息
+ * @method Models\DescribePrivateCABindedProductsResponse DescribePrivateCABindedProducts(Models\DescribePrivateCABindedProductsRequest $req) 查询私有CA绑定的产品列表
+ * @method Models\DescribePrivateCAsResponse DescribePrivateCAs(Models\DescribePrivateCAsRequest $req) 查询私有CA证书列表
+ * @method Models\DescribeProductCAResponse DescribeProductCA(Models\DescribeProductCARequest $req) 查询产品绑定的CA证书
+ * @method Models\DescribeProductCloudStorageAIServiceResponse DescribeProductCloudStorageAIService(Models\DescribeProductCloudStorageAIServiceRequest $req) 查询指定产品的云存 AI 服务开通状态
+ * @method Models\DescribeProductDynamicRegisterResponse DescribeProductDynamicRegister(Models\DescribeProductDynamicRegisterRequest $req) 获取产品动态注册详情
  * @method Models\DescribeProjectResponse DescribeProject(Models\DescribeProjectRequest $req) 查询项目详情
+ * @method Models\DescribeSpaceFenceEventListResponse DescribeSpaceFenceEventList(Models\DescribeSpaceFenceEventListRequest $req) 获取位置空间中围栏告警事件列表。
  * @method Models\DescribeStudioProductResponse DescribeStudioProduct(Models\DescribeStudioProductRequest $req) 提供查看产品详细信息的能力，包括产品的ID、数据协议、认证类型等重要参数
+ * @method Models\DescribeSubscribedTopicPolicyResponse DescribeSubscribedTopicPolicy(Models\DescribeSubscribedTopicPolicyRequest $req) 本接口（DescribeSubscribedTopicPolicy）用于获取设备已订阅Topic列表
+ * @method Models\DescribeTWeSeeCallbackResponse DescribeTWeSeeCallback(Models\DescribeTWeSeeCallbackRequest $req) 查询 TWeSee 回调目标详情
+ * @method Models\DescribeTWeSeeConfigResponse DescribeTWeSeeConfig(Models\DescribeTWeSeeConfigRequest $req) 拉取 TWeSee 配置
+ * @method Models\DescribeTWeSeeDirectUploadInfoResponse DescribeTWeSeeDirectUploadInfo(Models\DescribeTWeSeeDirectUploadInfoRequest $req) 查询 TWeSee 直传信息
+ * @method Models\DescribeTWeSeeFaceResponse DescribeTWeSeeFace(Models\DescribeTWeSeeFaceRequest $req) 查询指定 TWeSee 人脸详情。
+ * @method Models\DescribeTWeSeePersonResponse DescribeTWeSeePerson(Models\DescribeTWeSeePersonRequest $req) 查询指定 TWeSee 人员详情及其代表人脸。
+ * @method Models\DescribeTWeSeePostPaidServiceResponse DescribeTWeSeePostPaidService(Models\DescribeTWeSeePostPaidServiceRequest $req) 查询 TWeSee 后付费服务
+ * @method Models\DescribeTWeSeeRecognitionTaskResponse DescribeTWeSeeRecognitionTask(Models\DescribeTWeSeeRecognitionTaskRequest $req) 查询 TWeSee 语义理解任务
+ * @method Models\DescribeTWeSeeSubscriptionResponse DescribeTWeSeeSubscription(Models\DescribeTWeSeeSubscriptionRequest $req) 查询 TWeSee 预付费订阅
+ * @method Models\DescribeTWeSeeTaskResponse DescribeTWeSeeTask(Models\DescribeTWeSeeTaskRequest $req) 查询 TWeSee 任务详情
+ * @method Models\DescribeTWeSeeTaskStatisticsResponse DescribeTWeSeeTaskStatistics(Models\DescribeTWeSeeTaskStatisticsRequest $req) 获取 TWeSee 任务统计数据
+ * @method Models\DescribeTWeTalkAgentResponse DescribeTWeTalkAgent(Models\DescribeTWeTalkAgentRequest $req) 用户查询TWeTalk智能体详情
+ * @method Models\DescribeTWeTalkAgentBindingResponse DescribeTWeTalkAgentBinding(Models\DescribeTWeTalkAgentBindingRequest $req) 查询智能体绑定关系
+ * @method Models\DescribeTWeTalkAgentListResponse DescribeTWeTalkAgentList(Models\DescribeTWeTalkAgentListRequest $req) 分页查询智能体列表
+ * @method Models\DescribeTopicPolicyResponse DescribeTopicPolicy(Models\DescribeTopicPolicyRequest $req) 本接口（DescribeTopicPolicy）用于查看Topic详细信息
  * @method Models\DescribeTopicRuleResponse DescribeTopicRule(Models\DescribeTopicRuleRequest $req) 获取规则信息
+ * @method Models\DescribeUnbindedDevicesResponse DescribeUnbindedDevices(Models\DescribeUnbindedDevicesRequest $req) 获取未绑定的设备列表
+ * @method Models\DescribeVideoLicenseResponse DescribeVideoLicense(Models\DescribeVideoLicenseRequest $req) DescribeLicenseOverView代替
+
+用于查询视频激活码统计概览
+ * @method Models\DescribeVodCloudStorageDateResponse DescribeVodCloudStorageDate(Models\DescribeVodCloudStorageDateRequest $req) 拉取云存日期
+ * @method Models\DestroyTWeSeeSubscriptionResponse DestroyTWeSeeSubscription(Models\DestroyTWeSeeSubscriptionRequest $req) 销毁 TWeSee 预付费订阅
+ * @method Models\DirectBindDeviceInFamilyResponse DirectBindDeviceInFamily(Models\DirectBindDeviceInFamilyRequest $req) 直接绑定设备和家庭
  * @method Models\DisableTopicRuleResponse DisableTopicRule(Models\DisableTopicRuleRequest $req) 禁用规则
+ * @method Models\DismissRoomByStrRoomIdFromTRTCResponse DismissRoomByStrRoomIdFromTRTC(Models\DismissRoomByStrRoomIdFromTRTCRequest $req) 解散TRTC房间
  * @method Models\EnableTopicRuleResponse EnableTopicRule(Models\EnableTopicRuleRequest $req) 启用规则
- * @method Models\GetCOSURLResponse GetCOSURL(Models\GetCOSURLRequest $req) 本接口（GetCOSURL）用于获取固件存储在COS的URL 
+ * @method Models\GenSingleDeviceSignatureOfPublicResponse GenSingleDeviceSignatureOfPublic(Models\GenSingleDeviceSignatureOfPublicRequest $req) 无
+ * @method Models\GenerateCloudStorageAIServiceTaskFileURLResponse GenerateCloudStorageAIServiceTaskFileURL(Models\GenerateCloudStorageAIServiceTaskFileURLRequest $req) 获取云存 AI 分析任务输出文件的下载地址
+ * @method Models\GenerateSignedVideoURLResponse GenerateSignedVideoURL(Models\GenerateSignedVideoURLRequest $req) 获取视频防盗链播放URL
+ * @method Models\GetAuthMiniProgramAppListResponse GetAuthMiniProgramAppList(Models\GetAuthMiniProgramAppListRequest $req) 查询小程序列表
+ * @method Models\GetBatchProductionsListResponse GetBatchProductionsList(Models\GetBatchProductionsListRequest $req) 列出量产数据列表信息。
+ * @method Models\GetCOSURLResponse GetCOSURL(Models\GetCOSURLRequest $req) 本接口（GetCOSURL）用于获取固件COS存储的上传请求URL地址
  * @method Models\GetDeviceListResponse GetDeviceList(Models\GetDeviceListRequest $req) 用于查询某个产品下的设备列表
+ * @method Models\GetDeviceLocationHistoryResponse GetDeviceLocationHistory(Models\GetDeviceLocationHistoryRequest $req) 获取设备历史位置
+ * @method Models\GetDeviceSumStatisticsResponse GetDeviceSumStatistics(Models\GetDeviceSumStatisticsRequest $req) 拉取设备统计汇总数据
+ * @method Models\GetFamilyDeviceUserListResponse GetFamilyDeviceUserList(Models\GetFamilyDeviceUserListRequest $req) 用于获取设备绑定的用户列表
+ * @method Models\GetGatewaySubDeviceListResponse GetGatewaySubDeviceList(Models\GetGatewaySubDeviceListRequest $req) 获取指定网关设备的子设备列表
  * @method Models\GetLoRaGatewayListResponse GetLoRaGatewayList(Models\GetLoRaGatewayListRequest $req) 获取 LoRa 网关列表接口
+ * @method Models\GetPositionSpaceListResponse GetPositionSpaceList(Models\GetPositionSpaceListRequest $req) 获取位置空间列表
  * @method Models\GetProjectListResponse GetProjectList(Models\GetProjectListRequest $req) 提供查询用户所创建的项目列表查询功能。
  * @method Models\GetStudioProductListResponse GetStudioProductList(Models\GetStudioProductListRequest $req) 提供查询某个项目下所有产品信息的能力。
+ * @method Models\GetTWeCallActiveStatusResponse GetTWeCallActiveStatus(Models\GetTWeCallActiveStatusRequest $req) 查询激活状态
+ * @method Models\GetTWeTalkActiveRecordListResponse GetTWeTalkActiveRecordList(Models\GetTWeTalkActiveRecordListRequest $req) TWeTalk消耗账单明细。
+ * @method Models\GetTWeTalkActiveStatusResponse GetTWeTalkActiveStatus(Models\GetTWeTalkActiveStatusRequest $req) 查询TWeTalk设备激活状态。
  * @method Models\GetTopicRuleListResponse GetTopicRuleList(Models\GetTopicRuleListRequest $req) 获取规则列表
+ * @method Models\GetVodCloudStorageEventListResponse GetVodCloudStorageEventList(Models\GetVodCloudStorageEventListRequest $req) 获取云存事件列表
+ * @method Models\GetVodCloudStorageVideoListResponse GetVodCloudStorageVideoList(Models\GetVodCloudStorageVideoListRequest $req) 获取云存时间轴视频列表
+ * @method Models\GetWechatDeviceTicketResponse GetWechatDeviceTicket(Models\GetWechatDeviceTicketRequest $req) 查询微信设备授权票据
+ * @method Models\ImportTWeSeeFacesResponse ImportTWeSeeFaces(Models\ImportTWeSeeFacesRequest $req) 检测图片中的人脸，并返回可用于人员管理的人脸元数据。
+ * @method Models\InheritCloudStorageUserResponse InheritCloudStorageUser(Models\InheritCloudStorageUserRequest $req) 继承云存用户
+ * @method Models\InquireTWeSeeSubscriptionCreatePriceResponse InquireTWeSeeSubscriptionCreatePrice(Models\InquireTWeSeeSubscriptionCreatePriceRequest $req) 查询 TWeSee 预付费新购价格
+ * @method Models\InquireTWeSeeSubscriptionRenewPriceResponse InquireTWeSeeSubscriptionRenewPrice(Models\InquireTWeSeeSubscriptionRenewPriceRequest $req) 查询 TWeSee 预付费续费价格
+ * @method Models\InvokeAISearchServiceResponse InvokeAISearchService(Models\InvokeAISearchServiceRequest $req) 视频语义搜索
+ * @method Models\InvokeCloudStorageAIServiceTaskResponse InvokeCloudStorageAIServiceTask(Models\InvokeCloudStorageAIServiceTaskRequest $req) 同步执行设备云存 AI 分析任务
+ * @method Models\InvokeExternalSourceAIServiceTaskResponse InvokeExternalSourceAIServiceTask(Models\InvokeExternalSourceAIServiceTaskRequest $req) 创建外部视频 AI 分析任务
+ * @method Models\InvokeTWeSeeComprehensionResponse InvokeTWeSeeComprehension(Models\InvokeTWeSeeComprehensionRequest $req) 调用 TWeSee 视觉理解算法
+ * @method Models\InvokeTWeSeeRecognitionTaskResponse InvokeTWeSeeRecognitionTask(Models\InvokeTWeSeeRecognitionTaskRequest $req) 同步执行 TWeSee 语义理解任务
+ * @method Models\InvokeTWeSeeRecognitionTaskWithFileResponse InvokeTWeSeeRecognitionTaskWithFile(Models\InvokeTWeSeeRecognitionTaskWithFileRequest $req) 上传文件并同步执行 TWeSee 语义理解任务
+ * @method Models\InvokeVideosKeywordsAnalyzerResponse InvokeVideosKeywordsAnalyzer(Models\InvokeVideosKeywordsAnalyzerRequest $req) 获取某个时间段的视频内容关键字
  * @method Models\ListEventHistoryResponse ListEventHistory(Models\ListEventHistoryRequest $req) 获取设备的历史事件
- * @method Models\ListFirmwaresResponse ListFirmwares(Models\ListFirmwaresRequest $req) 本接口（ListFirmwares）用于获取固件列表 
+ * @method Models\ListFirmwaresResponse ListFirmwares(Models\ListFirmwaresRequest $req) 本接口（ListFirmwares）用于获取固件列表
+ * @method Models\ListOtaModulesResponse ListOtaModules(Models\ListOtaModulesRequest $req) 本接口（ListOtaModules）用于获取OTA模块列表
+ * @method Models\ListProductOtaModulesResponse ListProductOtaModules(Models\ListProductOtaModulesRequest $req) 本接口（ListProductOtaModules）用于获取产品OTA模块列表
+ * @method Models\ListTWeSeeCallbackResponse ListTWeSeeCallback(Models\ListTWeSeeCallbackRequest $req) 查询 TWeSee 回调目标列表
+ * @method Models\ListTWeSeePersonsResponse ListTWeSeePersons(Models\ListTWeSeePersonsRequest $req) 查询指定设备的 TWeSee 人员列表。
+ * @method Models\ListTWeSeeTasksResponse ListTWeSeeTasks(Models\ListTWeSeeTasksRequest $req) 短摘要列表查询
+ * @method Models\ListTopicPolicyResponse ListTopicPolicy(Models\ListTopicPolicyRequest $req) 本接口（ListTopicPolicy）用于获取Topic列表
+ * @method Models\ModifyApplicationResponse ModifyApplication(Models\ModifyApplicationRequest $req) 更新应用信息
+ * @method Models\ModifyCloudStorageAIServiceResponse ModifyCloudStorageAIService(Models\ModifyCloudStorageAIServiceRequest $req) 修改指定设备的云存 AI 服务参数配置
+ * @method Models\ModifyCloudStorageAIServiceCallbackResponse ModifyCloudStorageAIServiceCallback(Models\ModifyCloudStorageAIServiceCallbackRequest $req) 修改云存AI分析回调配置
+ * @method Models\ModifyFenceBindResponse ModifyFenceBind(Models\ModifyFenceBindRequest $req) 更新围栏绑定信息。
  * @method Models\ModifyLoRaFrequencyResponse ModifyLoRaFrequency(Models\ModifyLoRaFrequencyRequest $req) 修改LoRa自定义频点
  * @method Models\ModifyLoRaGatewayResponse ModifyLoRaGateway(Models\ModifyLoRaGatewayRequest $req) 修改 LoRa 网关信息
  * @method Models\ModifyModelDefinitionResponse ModifyModelDefinition(Models\ModifyModelDefinitionRequest $req) 提供修改产品的数据模板的能力
- * @method Models\ModifyProjectResponse ModifyProject(Models\ModifyProjectRequest $req) 修改项目
+ * @method Models\ModifyPositionFenceResponse ModifyPositionFence(Models\ModifyPositionFenceRequest $req) 更新围栏。
+ * @method Models\ModifyPositionSpaceResponse ModifyPositionSpace(Models\ModifyPositionSpaceRequest $req) 更新位置空间。
+ * @method Models\ModifyProductCloudStorageAIServiceResponse ModifyProductCloudStorageAIService(Models\ModifyProductCloudStorageAIServiceRequest $req) 修改指定产品的云存 AI 服务开通状态
+ * @method Models\ModifyProductDynamicRegisterResponse ModifyProductDynamicRegister(Models\ModifyProductDynamicRegisterRequest $req) 修改产品动态注册
+ * @method Models\ModifyProjectResponse ModifyProject(Models\ModifyProjectRequest $req) 修改项目。
+ * @method Models\ModifySpacePropertyResponse ModifySpaceProperty(Models\ModifySpacePropertyRequest $req) 更新位置空间产品属性
  * @method Models\ModifyStudioProductResponse ModifyStudioProduct(Models\ModifyStudioProductRequest $req) 提供修改产品的名称和描述等信息的能力，对于已发布产品不允许进行修改。
+ * @method Models\ModifyTWeSeeCallbackResponse ModifyTWeSeeCallback(Models\ModifyTWeSeeCallbackRequest $req) 修改 TWeSee 回调目标
+ * @method Models\ModifyTWeSeeConfigResponse ModifyTWeSeeConfig(Models\ModifyTWeSeeConfigRequest $req) 修改 TWeSee 配置
+ * @method Models\ModifyTWeSeeFaceResponse ModifyTWeSeeFace(Models\ModifyTWeSeeFaceRequest $req) 将 TWeSee 人脸关联到指定人员，或修改其代表人脸状态。
+ * @method Models\ModifyTWeSeePersonResponse ModifyTWeSeePerson(Models\ModifyTWeSeePersonRequest $req) 修改指定 TWeSee 人员的名称或记忆状态。Name、IsRemembered 至少传入一项，不支持取消持久记忆。
+ * @method Models\ModifyTWeSeeSubscriptionResponse ModifyTWeSeeSubscription(Models\ModifyTWeSeeSubscriptionRequest $req) 修改 TWeSee 预付费订阅
+ * @method Models\ModifyTWeSeeSubscriptionRenewFlagResponse ModifyTWeSeeSubscriptionRenewFlag(Models\ModifyTWeSeeSubscriptionRenewFlagRequest $req) 修改 TWeSee 预付费订阅续费标识
+ * @method Models\ModifyTWeTalkAgentResponse ModifyTWeTalkAgent(Models\ModifyTWeTalkAgentRequest $req) 修改TWeTalk智能体
+ * @method Models\ModifyTopicPolicyResponse ModifyTopicPolicy(Models\ModifyTopicPolicyRequest $req) 本接口（UpdateTopicPolicy）用于更新Topic信息
  * @method Models\ModifyTopicRuleResponse ModifyTopicRule(Models\ModifyTopicRuleRequest $req) 修改规则
+ * @method Models\OperateTWeSeeDirectUploadObjectResponse OperateTWeSeeDirectUploadObject(Models\OperateTWeSeeDirectUploadObjectRequest $req) 查询、删除或列举 TWeSee 直传对象
+ * @method Models\PauseTWeCallDeviceResponse PauseTWeCallDevice(Models\PauseTWeCallDeviceRequest $req) 暂停设备
+ * @method Models\PublishBroadcastMessageResponse PublishBroadcastMessage(Models\PublishBroadcastMessageRequest $req) 发布广播消息、发布RRPC消息属于早期服务，目前已停止维护，需要从官网下线。
+
+发布广播消息
+ * @method Models\PublishFirmwareUpdateMessageResponse PublishFirmwareUpdateMessage(Models\PublishFirmwareUpdateMessageRequest $req) 本接口（PublishFirmwareUpdateMessage）用于用户确认升级后，云端向设备发起固件升级请求。
  * @method Models\PublishMessageResponse PublishMessage(Models\PublishMessageRequest $req) 本接口（PublishMessage）用于使用自定义透传协议进行设备远控
+ * @method Models\PublishRRPCMessageResponse PublishRRPCMessage(Models\PublishRRPCMessageRequest $req) 发布广播消息、发布RRPC消息属于早期服务，目前已停止维护，需要从官网下线。
+
+下发RRPC消息
+ * @method Models\PurchaseImagePackageResponse PurchaseImagePackage(Models\PurchaseImagePackageRequest $req) 新购图片云存资源包
+ * @method Models\PurchaseVideoPackageResponse PurchaseVideoPackage(Models\PurchaseVideoPackageRequest $req) 新购视频云存资源包
  * @method Models\ReleaseStudioProductResponse ReleaseStudioProduct(Models\ReleaseStudioProductRequest $req) 产品开发完成并测试通过后，通过发布产品将产品设置为发布状态
+ * @method Models\RemoveUserByRoomIdFromTRTCResponse RemoveUserByRoomIdFromTRTC(Models\RemoveUserByRoomIdFromTRTCRequest $req) TRTC操作，将用户从房间移出
+ * @method Models\RenewTWeSeeSubscriptionResponse RenewTWeSeeSubscription(Models\RenewTWeSeeSubscriptionRequest $req) 续费 TWeSee 预付费订阅
+ * @method Models\ResetCloudStorageResponse ResetCloudStorage(Models\ResetCloudStorageRequest $req) 重置云存服务
+ * @method Models\ResetCloudStorageAIServiceResponse ResetCloudStorageAIService(Models\ResetCloudStorageAIServiceRequest $req) 重置指定设备的云存 AI 服务
+ * @method Models\ResetCloudStorageEventResponse ResetCloudStorageEvent(Models\ResetCloudStorageEventRequest $req) 重置云存事件
+ * @method Models\ResetTWeCallDeviceResponse ResetTWeCallDevice(Models\ResetTWeCallDeviceRequest $req) 重置设备
+ * @method Models\ResumeWeCallDeviceResponse ResumeWeCallDevice(Models\ResumeWeCallDeviceRequest $req) 恢复设备
+ * @method Models\RevokeBindUserDeviceResponse RevokeBindUserDevice(Models\RevokeBindUserDeviceRequest $req) 1. 按 `(IotAppID, OpenID)` 只读定位用户（不存在视为已解绑，幂等成功）；
+2. 按 `(用户, FamilyName)` 只读定位家庭（不存在视为已解绑，幂等成功）；
+3. 解除设备与该家庭的绑定关系，异步下发 `delete_device` 消息；解绑路径不校验设备存在性，允许设备已删除时清理残留绑定关系。
+ * @method Models\RevokeShareDeviceFromUserResponse RevokeShareDeviceFromUser(Models\RevokeShareDeviceFromUserRequest $req) Owner 取消对指定用户的设备分享：
+1. 校验产品 ACL / 子产品禁止 / 设备真实存在；
+2. 只读定位 Owner（必须已存在），并校验 Owner 持有该设备；
+3. 只读定位被取消分享用户（不存在视为已取消，幂等成功）；
+4. 删除分享关系记录（不存在视为已取消，幂等成功）。
+ * @method Models\SearchPositionSpaceResponse SearchPositionSpace(Models\SearchPositionSpaceRequest $req) 搜索位置空间
  * @method Models\SearchStudioProductResponse SearchStudioProduct(Models\SearchStudioProductRequest $req) 提供根据产品名称查找产品的能力
  * @method Models\SearchTopicRuleResponse SearchTopicRule(Models\SearchTopicRuleRequest $req) 搜索规则
- * @method Models\UpdateFirmwareResponse UpdateFirmware(Models\UpdateFirmwareRequest $req) 本接口（UpdateFirmware）用于对指定设备发起固件升级请求 
- * @method Models\UploadFirmwareResponse UploadFirmware(Models\UploadFirmwareRequest $req) 本接口（UploadFirmware）用于上传设备固件至平台
+ * @method Models\ShareDeviceToUserResponse ShareDeviceToUser(Models\ShareDeviceToUserRequest $req) Owner 将其名下的设备分享给指定 App 用户：
+1. 校验产品 ACL / 子产品禁止 / 设备真实存在；
+2. 只读定位 Owner（必须已存在），并校验 Owner 确实持有该设备；
+3. 兜底创建被分享用户（已存在则复用，昵称不覆盖）；
+4. 写入分享关系（重复分享幂等成功，不修改原 CreateTime）。
+ * @method Models\StartPackageUsageReportResponse StartPackageUsageReport(Models\StartPackageUsageReportRequest $req) 启用套餐用量上报
+ * @method Models\StopPackageUsageReportResponse StopPackageUsageReport(Models\StopPackageUsageReportRequest $req) 停用套餐用量上报
+ * @method Models\TerminateTWeSeeSubscriptionResponse TerminateTWeSeeSubscription(Models\TerminateTWeSeeSubscriptionRequest $req) 退订 TWeSee 预付费订阅
+ * @method Models\TransferCloudStorageResponse TransferCloudStorage(Models\TransferCloudStorageRequest $req) 转移云存服务
+ * @method Models\TransferTWeCallDeviceResponse TransferTWeCallDevice(Models\TransferTWeCallDeviceRequest $req) 转移设备
+ * @method Models\UnbindDevicesResponse UnbindDevices(Models\UnbindDevicesRequest $req) 批量解绑子设备
+ * @method Models\UnbindProductsResponse UnbindProducts(Models\UnbindProductsRequest $req) 批量解绑子产品。
+ * @method Models\UnbindTWeTalkAgentResponse UnbindTWeTalkAgent(Models\UnbindTWeTalkAgentRequest $req) 解绑产品或设备上的智能体
+ * @method Models\UpdateDeviceTWeCallAuthorizeStatusResponse UpdateDeviceTWeCallAuthorizeStatus(Models\UpdateDeviceTWeCallAuthorizeStatusRequest $req) 更新用户对设备的TweCall授权状态
+ * @method Models\UpdateDevicesEnableStateResponse UpdateDevicesEnableState(Models\UpdateDevicesEnableStateRequest $req) 批量禁用启用设备
+ * @method Models\UpdateFirmwareResponse UpdateFirmware(Models\UpdateFirmwareRequest $req) 本接口（UpdateFirmware）用于对指定设备发起固件升级请求
+ * @method Models\UpdateOtaModuleResponse UpdateOtaModule(Models\UpdateOtaModuleRequest $req) 本接口（UpdateOtaModule）用于修改OTA模块
+ * @method Models\UpdateOtaTaskStatusResponse UpdateOtaTaskStatus(Models\UpdateOtaTaskStatusRequest $req) 本接口（UpdateOtaTask）当固件升级大任务处于没有在全部成功的状态时，可修改为取消状态，取消部分或全部设备的升级;或其它允许的可修改的状态。
+ * @method Models\UpdatePrivateCAResponse UpdatePrivateCA(Models\UpdatePrivateCARequest $req) 更新私有CA证书
+ * @method Models\UpdateProductPrivateCAResponse UpdateProductPrivateCA(Models\UpdateProductPrivateCARequest $req) 更新产品的私有CA
+ * @method Models\UploadFirmwareResponse UploadFirmware(Models\UploadFirmwareRequest $req) 本接口（UploadFirmware）用于创建设备固件版本信息，在平台用于固件版本升级、固件资源下发等。
  */
 
 class IotexplorerClient extends AbstractClient

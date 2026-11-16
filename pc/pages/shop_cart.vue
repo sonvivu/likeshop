@@ -55,13 +55,15 @@
               :title="$t('确定删除该商品吗？')"
               :confirm-button-text="$t('确定')"
               :cancel-button-text="$t('取消')"
-              icon="el-icon-info"
+              :icon="InfoFilled"
               icon-color="red"
               @confirm="goodsDelete(item.cart_id)"
             >
-              <div class="operate row-center delete-btn" slot="reference">
-                <img src="~/assets/images/icon_cart_del.png" />
-              </div>
+              <template #reference>
+                <div class="operate row-center delete-btn">
+                  <img src="~/assets/images/icon_cart_del.png" />
+                </div>
+              </template>
             </el-popconfirm>
           </div>
         </div>
@@ -80,11 +82,13 @@
               :title="$t('确定删除选中商品吗？')"
               :confirm-button-text="$t('确定')"
               :cancel-button-text="$t('取消')"
-              icon="el-icon-info"
+              :icon="InfoFilled"
               icon-color="red"
               @confirm="deleteSelectedGoods"
             >
-              <div style="cursor: pointer" slot="reference">{{ $t('删除选中商品') }}</div>
+              <template #reference>
+                <div style="cursor: pointer">{{ $t('删除选中商品') }}</div>
+              </template>
             </el-popconfirm>
           </div>
           <div class="total column">
@@ -118,20 +122,19 @@
 
 <script>
 import NumberBox from "~/components/public/numberBox";
-import { mapActions } from "vuex";
+import { mapActions } from "pinia";
+import { InfoFilled } from "@element-plus/icons-vue";
+import { useAppStore } from "~/stores/app";
 export default {
-  head() {
-    return {
-      title: this.$store.getters.headTitle,
+  async setup() {
+    const store = useAppStore();
+    const { $get } = useNuxtApp();
+    useHead({
+      title: computed(() => store.headTitle),
       link: [
-        { rel: "icon", type: "image/x-icon", href: this.$store.getters.favicon }
+        { rel: "icon", type: "image/x-icon", href: computed(() => store.favicon) }
       ]
-    };
-  },
-  components: {
-    NumberBox
-  },
-  async asyncData({ $get, $post }) {
+    });
     let shopCartList = [];
     let totalAmount = 0;
     let totalNum = 0;
@@ -171,14 +174,14 @@ export default {
       isDataNull
     };
   },
+  components: {
+    NumberBox
+  },
   data() {
     return {
       checkAll: false,
-      isIndeterminate: false,
-      checkoutCount: 0
     };
   },
-  mounted() {},
   computed: {
     isSelectedAll: {
       get() {
@@ -201,7 +204,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions(["getPublicData"]),
+    ...mapActions(useAppStore, ["getPublicData"]),
     async getCartList() {
       let res = await this.$get("cart/lists");
       if (res.code == 1) {

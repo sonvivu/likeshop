@@ -1,0 +1,102 @@
+<?php
+/*
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+namespace TencentCloud\Csip\V20221121\Models;
+use TencentCloud\Common\AbstractModel;
+
+/**
+ * DescribeDspmAssetTableList请求参数结构体
+ *
+ * @method string getAssetId() 获取<p>资产实例id</p>
+ * @method void setAssetId(string $AssetId) 设置<p>资产实例id</p>
+ * @method string getDbName() 获取<p>数据库名称</p>
+ * @method void setDbName(string $DbName) 设置<p>数据库名称</p>
+ * @method string getSchemaName() 获取<p>Schema名称</p>
+ * @method void setSchemaName(string $SchemaName) 设置<p>Schema名称</p>
+ * @method array getMemberId() 获取<p>集团账号的成员id</p>
+ * @method void setMemberId(array $MemberId) 设置<p>集团账号的成员id</p>
+ * @method Filter getFilter() 获取<p>筛选项</p>
+ * @method void setFilter(Filter $Filter) 设置<p>筛选项</p>
+ */
+class DescribeDspmAssetTableListRequest extends AbstractModel
+{
+    /**
+     * @var string <p>资产实例id</p>
+     */
+    public $AssetId;
+
+    /**
+     * @var string <p>数据库名称</p>
+     */
+    public $DbName;
+
+    /**
+     * @var string <p>Schema名称</p>
+     */
+    public $SchemaName;
+
+    /**
+     * @var array <p>集团账号的成员id</p>
+     */
+    public $MemberId;
+
+    /**
+     * @var Filter <p>筛选项</p>
+     */
+    public $Filter;
+
+    /**
+     * @param string $AssetId <p>资产实例id</p>
+     * @param string $DbName <p>数据库名称</p>
+     * @param string $SchemaName <p>Schema名称</p>
+     * @param array $MemberId <p>集团账号的成员id</p>
+     * @param Filter $Filter <p>筛选项</p>
+     */
+    function __construct()
+    {
+
+    }
+
+    /**
+     * For internal only. DO NOT USE IT.
+     */
+    public function deserialize($param)
+    {
+        if ($param === null) {
+            return;
+        }
+        if (array_key_exists("AssetId",$param) and $param["AssetId"] !== null) {
+            $this->AssetId = $param["AssetId"];
+        }
+
+        if (array_key_exists("DbName",$param) and $param["DbName"] !== null) {
+            $this->DbName = $param["DbName"];
+        }
+
+        if (array_key_exists("SchemaName",$param) and $param["SchemaName"] !== null) {
+            $this->SchemaName = $param["SchemaName"];
+        }
+
+        if (array_key_exists("MemberId",$param) and $param["MemberId"] !== null) {
+            $this->MemberId = $param["MemberId"];
+        }
+
+        if (array_key_exists("Filter",$param) and $param["Filter"] !== null) {
+            $this->Filter = new Filter();
+            $this->Filter->deserialize($param["Filter"]);
+        }
+    }
+}

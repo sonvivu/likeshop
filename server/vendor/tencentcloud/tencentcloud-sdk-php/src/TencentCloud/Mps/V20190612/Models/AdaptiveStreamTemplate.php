@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,10 +20,10 @@ use TencentCloud\Common\AbstractModel;
 /**
  * 自适应转码流参数模板
  *
- * @method VideoTemplateInfo getVideo() 获取视频参数信息。
- * @method void setVideo(VideoTemplateInfo $Video) 设置视频参数信息。
  * @method AudioTemplateInfo getAudio() 获取音频参数信息。
  * @method void setAudio(AudioTemplateInfo $Audio) 设置音频参数信息。
+ * @method VideoTemplateInfo getVideo() 获取视频参数信息。
+ * @method void setVideo(VideoTemplateInfo $Video) 设置视频参数信息。
  * @method integer getRemoveAudio() 获取是否移除音频流，取值范围：
 <li>0：否，</li>
 <li>1：是。</li>
@@ -36,18 +36,24 @@ use TencentCloud\Common\AbstractModel;
  * @method void setRemoveVideo(integer $RemoveVideo) 设置是否移除视频流，取值范围：
 <li>0：否，</li>
 <li>1：是。</li>
+ * @method array getAudioList() 获取音频参数信息列表。
+注意：参数只在自适应转码使用音轨合并多音轨时使用, 参数数组长度最大为64。
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setAudioList(array $AudioList) 设置音频参数信息列表。
+注意：参数只在自适应转码使用音轨合并多音轨时使用, 参数数组长度最大为64。
+注意：此字段可能返回 null，表示取不到有效值。
  */
 class AdaptiveStreamTemplate extends AbstractModel
 {
     /**
-     * @var VideoTemplateInfo 视频参数信息。
-     */
-    public $Video;
-
-    /**
      * @var AudioTemplateInfo 音频参数信息。
      */
     public $Audio;
+
+    /**
+     * @var VideoTemplateInfo 视频参数信息。
+     */
+    public $Video;
 
     /**
      * @var integer 是否移除音频流，取值范围：
@@ -64,14 +70,24 @@ class AdaptiveStreamTemplate extends AbstractModel
     public $RemoveVideo;
 
     /**
-     * @param VideoTemplateInfo $Video 视频参数信息。
+     * @var array 音频参数信息列表。
+注意：参数只在自适应转码使用音轨合并多音轨时使用, 参数数组长度最大为64。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $AudioList;
+
+    /**
      * @param AudioTemplateInfo $Audio 音频参数信息。
+     * @param VideoTemplateInfo $Video 视频参数信息。
      * @param integer $RemoveAudio 是否移除音频流，取值范围：
 <li>0：否，</li>
 <li>1：是。</li>
      * @param integer $RemoveVideo 是否移除视频流，取值范围：
 <li>0：否，</li>
 <li>1：是。</li>
+     * @param array $AudioList 音频参数信息列表。
+注意：参数只在自适应转码使用音轨合并多音轨时使用, 参数数组长度最大为64。
+注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
     {
@@ -86,14 +102,14 @@ class AdaptiveStreamTemplate extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Video",$param) and $param["Video"] !== null) {
-            $this->Video = new VideoTemplateInfo();
-            $this->Video->deserialize($param["Video"]);
-        }
-
         if (array_key_exists("Audio",$param) and $param["Audio"] !== null) {
             $this->Audio = new AudioTemplateInfo();
             $this->Audio->deserialize($param["Audio"]);
+        }
+
+        if (array_key_exists("Video",$param) and $param["Video"] !== null) {
+            $this->Video = new VideoTemplateInfo();
+            $this->Video->deserialize($param["Video"]);
         }
 
         if (array_key_exists("RemoveAudio",$param) and $param["RemoveAudio"] !== null) {
@@ -102,6 +118,15 @@ class AdaptiveStreamTemplate extends AbstractModel
 
         if (array_key_exists("RemoveVideo",$param) and $param["RemoveVideo"] !== null) {
             $this->RemoveVideo = $param["RemoveVideo"];
+        }
+
+        if (array_key_exists("AudioList",$param) and $param["AudioList"] !== null) {
+            $this->AudioList = [];
+            foreach ($param["AudioList"] as $key => $value){
+                $obj = new AudioTemplateInfo();
+                $obj->deserialize($value);
+                array_push($this->AudioList, $obj);
+            }
         }
     }
 }

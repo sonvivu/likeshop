@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,18 +20,18 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeDirectConnectTunnelExtra请求参数结构体
  *
- * @method string getDirectConnectTunnelId() 获取专用通道ID
- * @method void setDirectConnectTunnelId(string $DirectConnectTunnelId) 设置专用通道ID
+ * @method string getDirectConnectTunnelId() 获取专用通道ID。
+ * @method void setDirectConnectTunnelId(string $DirectConnectTunnelId) 设置专用通道ID。
  */
 class DescribeDirectConnectTunnelExtraRequest extends AbstractModel
 {
     /**
-     * @var string 专用通道ID
+     * @var string 专用通道ID。
      */
     public $DirectConnectTunnelId;
 
     /**
-     * @param string $DirectConnectTunnelId 专用通道ID
+     * @param string $DirectConnectTunnelId 专用通道ID。
      */
     function __construct()
     {

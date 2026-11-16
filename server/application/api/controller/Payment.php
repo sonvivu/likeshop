@@ -29,7 +29,7 @@ use app\common\server\WeChatPayServer;
 use app\common\server\WeChatServer;
 use app\common\logic\PaymentLogic;
 use app\common\model\Pay;
-use think\Db;
+use think\facade\Db;
 
 /**
  * 支付逻辑
@@ -57,7 +57,7 @@ class Payment extends ApiBase
         }
         switch ($post['from']) {
             case 'order':
-                $order = Order::get($post['order_id']);
+                $order = Order::find($post['order_id']);
                 if ($order['order_status'] == CommonOrder::STATUS_CLOSE || $order['del'] == 1) {
                     $this->_error(lang('订单已关闭'));
                 }
@@ -101,7 +101,7 @@ class Payment extends ApiBase
     public function pcPrepay()
     {
         $post = $this->request->post();
-        $order = Order::get($post['order_id']);
+        $order = Order::find($post['order_id']);
         $order['pay_way'] = $post['pay_way'];
 
         $return_msg = ['order_id' => $order['id'], 'order_amount' => $order['order_amount']];

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,52 +18,76 @@ namespace TencentCloud\Cam\V20190116\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * 登录和敏感操作flag
+ * 登录和敏感操作flag（校验方式是单选）
  *
- * @method integer getPhone() 获取手机
- * @method void setPhone(integer $Phone) 设置手机
- * @method integer getToken() 获取硬token
- * @method void setToken(integer $Token) 设置硬token
- * @method integer getStoken() 获取软token
- * @method void setStoken(integer $Stoken) 设置软token
- * @method integer getWechat() 获取微信
- * @method void setWechat(integer $Wechat) 设置微信
- * @method integer getCustom() 获取自定义
- * @method void setCustom(integer $Custom) 设置自定义
+ * @method integer getPhone() 获取<p>0: 非安全手机校验 1: 安全手机校验。</p>
+ * @method void setPhone(integer $Phone) 设置<p>0: 非安全手机校验 1: 安全手机校验。</p>
+ * @method integer getToken() 获取<p>0: 非硬token校验 1: 硬token校验。</p>
+ * @method void setToken(integer $Token) 设置<p>0: 非硬token校验 1: 硬token校验。</p>
+ * @method integer getStoken() 获取<p>0: 非软token校验 1: 软token校验</p>
+ * @method void setStoken(integer $Stoken) 设置<p>0: 非软token校验 1: 软token校验</p>
+ * @method integer getWechat() 获取<p>0: 非微信校验 1: 微信校验</p>
+ * @method void setWechat(integer $Wechat) 设置<p>0: 非微信校验 1: 微信校验</p>
+ * @method integer getCustom() 获取<p>0: 非自定义校验 1: 自定义校验</p>
+ * @method void setCustom(integer $Custom) 设置<p>0: 非自定义校验 1: 自定义校验</p>
+ * @method integer getMail() 获取<p>0: 非邮箱校验 1: 邮箱校验</p>
+ * @method void setMail(integer $Mail) 设置<p>0: 非邮箱校验 1: 邮箱校验</p>
+ * @method integer getU2FToken() 获取<p>0: 非u2f硬件token 1: u2f硬件token</p>
+ * @method void setU2FToken(integer $U2FToken) 设置<p>0: 非u2f硬件token 1: u2f硬件token</p>
+ * @method integer getPasskey() 获取<p>0: 非passkey 校验 1: passkey校验</p>
+ * @method void setPasskey(integer $Passkey) 设置<p>0: 非passkey 校验 1: passkey校验</p>
  */
 class LoginActionFlag extends AbstractModel
 {
     /**
-     * @var integer 手机
+     * @var integer <p>0: 非安全手机校验 1: 安全手机校验。</p>
      */
     public $Phone;
 
     /**
-     * @var integer 硬token
+     * @var integer <p>0: 非硬token校验 1: 硬token校验。</p>
      */
     public $Token;
 
     /**
-     * @var integer 软token
+     * @var integer <p>0: 非软token校验 1: 软token校验</p>
      */
     public $Stoken;
 
     /**
-     * @var integer 微信
+     * @var integer <p>0: 非微信校验 1: 微信校验</p>
      */
     public $Wechat;
 
     /**
-     * @var integer 自定义
+     * @var integer <p>0: 非自定义校验 1: 自定义校验</p>
      */
     public $Custom;
 
     /**
-     * @param integer $Phone 手机
-     * @param integer $Token 硬token
-     * @param integer $Stoken 软token
-     * @param integer $Wechat 微信
-     * @param integer $Custom 自定义
+     * @var integer <p>0: 非邮箱校验 1: 邮箱校验</p>
+     */
+    public $Mail;
+
+    /**
+     * @var integer <p>0: 非u2f硬件token 1: u2f硬件token</p>
+     */
+    public $U2FToken;
+
+    /**
+     * @var integer <p>0: 非passkey 校验 1: passkey校验</p>
+     */
+    public $Passkey;
+
+    /**
+     * @param integer $Phone <p>0: 非安全手机校验 1: 安全手机校验。</p>
+     * @param integer $Token <p>0: 非硬token校验 1: 硬token校验。</p>
+     * @param integer $Stoken <p>0: 非软token校验 1: 软token校验</p>
+     * @param integer $Wechat <p>0: 非微信校验 1: 微信校验</p>
+     * @param integer $Custom <p>0: 非自定义校验 1: 自定义校验</p>
+     * @param integer $Mail <p>0: 非邮箱校验 1: 邮箱校验</p>
+     * @param integer $U2FToken <p>0: 非u2f硬件token 1: u2f硬件token</p>
+     * @param integer $Passkey <p>0: 非passkey 校验 1: passkey校验</p>
      */
     function __construct()
     {
@@ -96,6 +120,18 @@ class LoginActionFlag extends AbstractModel
 
         if (array_key_exists("Custom",$param) and $param["Custom"] !== null) {
             $this->Custom = $param["Custom"];
+        }
+
+        if (array_key_exists("Mail",$param) and $param["Mail"] !== null) {
+            $this->Mail = $param["Mail"];
+        }
+
+        if (array_key_exists("U2FToken",$param) and $param["U2FToken"] !== null) {
+            $this->U2FToken = $param["U2FToken"];
+        }
+
+        if (array_key_exists("Passkey",$param) and $param["Passkey"] !== null) {
+            $this->Passkey = $param["Passkey"];
         }
     }
 }

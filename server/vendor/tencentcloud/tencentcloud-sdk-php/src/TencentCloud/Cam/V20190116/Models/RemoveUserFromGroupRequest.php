@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,18 +20,18 @@ use TencentCloud\Common\AbstractModel;
 /**
  * RemoveUserFromGroup请求参数结构体
  *
- * @method array getInfo() 获取要删除的用户 UID和用户组 ID对应数组
- * @method void setInfo(array $Info) 设置要删除的用户 UID和用户组 ID对应数组
+ * @method array getInfo() 获取要删除的用户 UIN/UID和用户组 ID对应数组
+ * @method void setInfo(array $Info) 设置要删除的用户 UIN/UID和用户组 ID对应数组
  */
 class RemoveUserFromGroupRequest extends AbstractModel
 {
     /**
-     * @var array 要删除的用户 UID和用户组 ID对应数组
+     * @var array 要删除的用户 UIN/UID和用户组 ID对应数组
      */
     public $Info;
 
     /**
-     * @param array $Info 要删除的用户 UID和用户组 ID对应数组
+     * @param array $Info 要删除的用户 UIN/UID和用户组 ID对应数组
      */
     function __construct()
     {

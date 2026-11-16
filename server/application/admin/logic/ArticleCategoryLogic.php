@@ -20,7 +20,7 @@
 namespace app\admin\logic;
 
 use app\admin\model\ArticleCategory;
-use think\Db;
+use think\facade\Db;
 
 class ArticleCategoryLogic
 {

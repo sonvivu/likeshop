@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,8 +24,8 @@ use TencentCloud\Common\AbstractModel;
  * @method void setName(string $Name) 设置标签名
  * @method integer getId() 获取标签ID
  * @method void setId(integer $Id) 设置标签ID
- * @method array getQuuids() 获取CVM主机ID
- * @method void setQuuids(array $Quuids) 设置CVM主机ID
+ * @method array getQuuids() 获取Quuid
+ * @method void setQuuids(array $Quuids) 设置Quuid
  */
 class EditTagsRequest extends AbstractModel
 {
@@ -40,14 +40,14 @@ class EditTagsRequest extends AbstractModel
     public $Id;
 
     /**
-     * @var array CVM主机ID
+     * @var array Quuid
      */
     public $Quuids;
 
     /**
      * @param string $Name 标签名
      * @param integer $Id 标签ID
-     * @param array $Quuids CVM主机ID
+     * @param array $Quuids Quuid
      */
     function __construct()
     {

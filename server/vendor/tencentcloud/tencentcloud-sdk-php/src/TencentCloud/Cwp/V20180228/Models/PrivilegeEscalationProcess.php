@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,8 +22,8 @@ use TencentCloud\Common\AbstractModel;
  *
  * @method integer getId() 获取数据ID
  * @method void setId(integer $Id) 设置数据ID
- * @method string getUuid() 获取云镜ID
- * @method void setUuid(string $Uuid) 设置云镜ID
+ * @method string getUuid() 获取主机安全ID
+ * @method void setUuid(string $Uuid) 设置主机安全ID
  * @method string getQuuid() 获取主机ID
  * @method void setQuuid(string $Quuid) 设置主机ID
  * @method string getHostip() 获取主机内网IP
@@ -50,12 +50,18 @@ use TencentCloud\Common\AbstractModel;
  * @method void setParentProcPath(string $ParentProcPath) 设置父进程路径
  * @method string getProcTree() 获取进程树
  * @method void setProcTree(string $ProcTree) 设置进程树
- * @method integer getStatus() 获取处理状态
- * @method void setStatus(integer $Status) 设置处理状态
+ * @method integer getStatus() 获取处理状态：0-待处理 2-白名单 3-已处理 4-已忽略
+ * @method void setStatus(integer $Status) 设置处理状态：0-待处理 2-白名单 3-已处理 4-已忽略
  * @method string getCreateTime() 获取发生时间
  * @method void setCreateTime(string $CreateTime) 设置发生时间
  * @method string getMachineName() 获取机器名
  * @method void setMachineName(string $MachineName) 设置机器名
+ * @method MachineExtraInfo getMachineExtraInfo() 获取附加信息
+ * @method void setMachineExtraInfo(MachineExtraInfo $MachineExtraInfo) 设置附加信息
+ * @method integer getPid() 获取进程id
+ * @method void setPid(integer $Pid) 设置进程id
+ * @method integer getCount() 获取告警数量
+ * @method void setCount(integer $Count) 设置告警数量
  */
 class PrivilegeEscalationProcess extends AbstractModel
 {
@@ -65,7 +71,7 @@ class PrivilegeEscalationProcess extends AbstractModel
     public $Id;
 
     /**
-     * @var string 云镜ID
+     * @var string 主机安全ID
      */
     public $Uuid;
 
@@ -135,7 +141,7 @@ class PrivilegeEscalationProcess extends AbstractModel
     public $ProcTree;
 
     /**
-     * @var integer 处理状态
+     * @var integer 处理状态：0-待处理 2-白名单 3-已处理 4-已忽略
      */
     public $Status;
 
@@ -150,8 +156,23 @@ class PrivilegeEscalationProcess extends AbstractModel
     public $MachineName;
 
     /**
+     * @var MachineExtraInfo 附加信息
+     */
+    public $MachineExtraInfo;
+
+    /**
+     * @var integer 进程id
+     */
+    public $Pid;
+
+    /**
+     * @var integer 告警数量
+     */
+    public $Count;
+
+    /**
      * @param integer $Id 数据ID
-     * @param string $Uuid 云镜ID
+     * @param string $Uuid 主机安全ID
      * @param string $Quuid 主机ID
      * @param string $Hostip 主机内网IP
      * @param string $ProcessName 进程名
@@ -165,9 +186,12 @@ class PrivilegeEscalationProcess extends AbstractModel
      * @param string $ParentProcGroup 父进程用户组
      * @param string $ParentProcPath 父进程路径
      * @param string $ProcTree 进程树
-     * @param integer $Status 处理状态
+     * @param integer $Status 处理状态：0-待处理 2-白名单 3-已处理 4-已忽略
      * @param string $CreateTime 发生时间
      * @param string $MachineName 机器名
+     * @param MachineExtraInfo $MachineExtraInfo 附加信息
+     * @param integer $Pid 进程id
+     * @param integer $Count 告警数量
      */
     function __construct()
     {
@@ -252,6 +276,19 @@ class PrivilegeEscalationProcess extends AbstractModel
 
         if (array_key_exists("MachineName",$param) and $param["MachineName"] !== null) {
             $this->MachineName = $param["MachineName"];
+        }
+
+        if (array_key_exists("MachineExtraInfo",$param) and $param["MachineExtraInfo"] !== null) {
+            $this->MachineExtraInfo = new MachineExtraInfo();
+            $this->MachineExtraInfo->deserialize($param["MachineExtraInfo"]);
+        }
+
+        if (array_key_exists("Pid",$param) and $param["Pid"] !== null) {
+            $this->Pid = $param["Pid"];
+        }
+
+        if (array_key_exists("Count",$param) and $param["Count"] !== null) {
+            $this->Count = $param["Count"];
         }
     }
 }

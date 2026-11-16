@@ -22,13 +22,13 @@ namespace app\api\logic;
 
 use app\common\model\Ad;
 use app\common\server\UrlServer;
-use think\Db;
+use think\facade\Db;
 
 class AdLogic
 {
     public static function lists($pid, $client)
     {
-        $ad_list = Db::name('ad a')
+        $ad_list = Db::name('ad')->alias('a')
             ->join('ad_position ap', 'a.pid = ap.id')
             ->where(['pid' => $pid, 'ap.client' => $client, 'a.status' => 1, 'a.del' => 0, 'ap.status' => 1, 'ap.del' => 0])
             ->field('a.*')

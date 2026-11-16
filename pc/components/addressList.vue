@@ -1,6 +1,6 @@
 <template>
   <div class="address-list">
-    <el-dialog :title="$t('更换地址')" :visible.sync="showDialog" width="900px">
+    <el-dialog :title="$t('更换地址')" v-model="showDialog" width="900px">
       <div class="list black">
         <div
           :class="['item mb16', { active: item.id == selectId }]"
@@ -37,10 +37,12 @@
           </div>
         </div>
       </div>
-      <div slot="footer" class="dialog-footer">
-        <el-button type="primary" @click="onConfirm">{{ $t('确认') }}</el-button>
-        <el-button @click="showDialog = false">{{ $t('取消') }}</el-button>
-      </div>
+      <template #footer>
+        <div class="dialog-footer">
+          <el-button type="primary" @click="onConfirm">{{ $t('确认') }}</el-button>
+          <el-button @click="showDialog = false">{{ $t('取消') }}</el-button>
+        </div>
+      </template>
     </el-dialog>
     <address-add v-model="showAddressAdd" :aid="editId" @success="getAddress" />
   </div>
@@ -50,7 +52,7 @@
 export default {
   components: {},
   props: {
-    value: {
+    modelValue: {
       type: Boolean,
       default: false,
     },
@@ -90,14 +92,14 @@ export default {
     },
   },
   watch: {
-    value(val) {
+    modelValue(val) {
       this.showDialog = val;
       if (val == true) {
         this.getAddress();
       }
     },
     showDialog(val) {
-      this.$emit("input", val);
+      this.$emit("update:modelValue", val);
     },
   },
 };

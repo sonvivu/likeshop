@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,8 +36,6 @@ use TencentCloud\Common\AbstractModel;
  * @method void setCreatedTime(string $CreatedTime) 设置服务创建时间。
  * @method string getModifiedTime() 获取服务修改时间。
  * @method void setModifiedTime(string $ModifiedTime) 设置服务修改时间。
- * @method string getExclusiveSetName() 获取独立集群名称。
- * @method void setExclusiveSetName(string $ExclusiveSetName) 设置独立集群名称。
  * @method array getNetTypes() 获取网络类型列表，INNER为内网访问，OUTER为外网访问。
  * @method void setNetTypes(array $NetTypes) 设置网络类型列表，INNER为内网访问，OUTER为外网访问。
  * @method string getInternalSubDomain() 获取内网访问子域名。
@@ -88,8 +86,20 @@ use TencentCloud\Common\AbstractModel;
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setSetType(string $SetType) 设置集群类型
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
- * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method string getDeploymentType() 获取服务部署的集群类型
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setDeploymentType(string $DeploymentType) 设置服务部署的集群类型
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getSpecialUse() 获取特殊用途, NULL和DEFAULT表示无特殊用途，其他用途如HTTP_DNS等
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setSpecialUse(string $SpecialUse) 设置特殊用途, NULL和DEFAULT表示无特殊用途，其他用途如HTTP_DNS等
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getUniqVpcId() 获取vpc属性，存量可能为空字符串
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setUniqVpcId(string $UniqVpcId) 设置vpc属性，存量可能为空字符串
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+ * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
 class DescribeServiceResponse extends AbstractModel
 {
@@ -128,11 +138,6 @@ class DescribeServiceResponse extends AbstractModel
      * @var string 服务修改时间。
      */
     public $ModifiedTime;
-
-    /**
-     * @var string 独立集群名称。
-     */
-    public $ExclusiveSetName;
 
     /**
      * @var array 网络类型列表，INNER为内网访问，OUTER为外网访问。
@@ -224,7 +229,25 @@ class DescribeServiceResponse extends AbstractModel
     public $SetType;
 
     /**
-     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @var string 服务部署的集群类型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $DeploymentType;
+
+    /**
+     * @var string 特殊用途, NULL和DEFAULT表示无特殊用途，其他用途如HTTP_DNS等
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $SpecialUse;
+
+    /**
+     * @var string vpc属性，存量可能为空字符串
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $UniqVpcId;
+
+    /**
+     * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public $RequestId;
 
@@ -237,7 +260,6 @@ class DescribeServiceResponse extends AbstractModel
      * @param string $Protocol 服务支持协议，可选值为http、https、http&https。
      * @param string $CreatedTime 服务创建时间。
      * @param string $ModifiedTime 服务修改时间。
-     * @param string $ExclusiveSetName 独立集群名称。
      * @param array $NetTypes 网络类型列表，INNER为内网访问，OUTER为外网访问。
      * @param string $InternalSubDomain 内网访问子域名。
      * @param string $OuterSubDomain 外网访问子域名。
@@ -263,7 +285,13 @@ class DescribeServiceResponse extends AbstractModel
 注意：此字段可能返回 null，表示取不到有效值。
      * @param string $SetType 集群类型
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @param string $DeploymentType 服务部署的集群类型
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $SpecialUse 特殊用途, NULL和DEFAULT表示无特殊用途，其他用途如HTTP_DNS等
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $UniqVpcId vpc属性，存量可能为空字符串
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
     {
@@ -304,10 +332,6 @@ class DescribeServiceResponse extends AbstractModel
 
         if (array_key_exists("ModifiedTime",$param) and $param["ModifiedTime"] !== null) {
             $this->ModifiedTime = $param["ModifiedTime"];
-        }
-
-        if (array_key_exists("ExclusiveSetName",$param) and $param["ExclusiveSetName"] !== null) {
-            $this->ExclusiveSetName = $param["ExclusiveSetName"];
         }
 
         if (array_key_exists("NetTypes",$param) and $param["NetTypes"] !== null) {
@@ -387,6 +411,18 @@ class DescribeServiceResponse extends AbstractModel
 
         if (array_key_exists("SetType",$param) and $param["SetType"] !== null) {
             $this->SetType = $param["SetType"];
+        }
+
+        if (array_key_exists("DeploymentType",$param) and $param["DeploymentType"] !== null) {
+            $this->DeploymentType = $param["DeploymentType"];
+        }
+
+        if (array_key_exists("SpecialUse",$param) and $param["SpecialUse"] !== null) {
+            $this->SpecialUse = $param["SpecialUse"];
+        }
+
+        if (array_key_exists("UniqVpcId",$param) and $param["UniqVpcId"] !== null) {
+            $this->UniqVpcId = $param["UniqVpcId"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

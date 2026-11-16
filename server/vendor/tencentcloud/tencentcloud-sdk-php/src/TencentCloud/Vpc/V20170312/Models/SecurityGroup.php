@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,6 +34,8 @@ use TencentCloud\Common\AbstractModel;
  * @method void setCreatedTime(string $CreatedTime) 设置安全组创建时间。
  * @method array getTagSet() 获取标签键值对。
  * @method void setTagSet(array $TagSet) 设置标签键值对。
+ * @method string getUpdateTime() 获取安全组更新时间。
+ * @method void setUpdateTime(string $UpdateTime) 设置安全组更新时间。
  */
 class SecurityGroup extends AbstractModel
 {
@@ -73,6 +75,11 @@ class SecurityGroup extends AbstractModel
     public $TagSet;
 
     /**
+     * @var string 安全组更新时间。
+     */
+    public $UpdateTime;
+
+    /**
      * @param string $SecurityGroupId 安全组实例ID，例如：sg-ohuuioma。
      * @param string $SecurityGroupName 安全组名称，可任意命名，但不得超过60个字符。
      * @param string $SecurityGroupDesc 安全组备注，最多100个字符。
@@ -80,6 +87,7 @@ class SecurityGroup extends AbstractModel
      * @param boolean $IsDefault 是否是默认安全组，默认安全组不支持删除。
      * @param string $CreatedTime 安全组创建时间。
      * @param array $TagSet 标签键值对。
+     * @param string $UpdateTime 安全组更新时间。
      */
     function __construct()
     {
@@ -125,6 +133,10 @@ class SecurityGroup extends AbstractModel
                 $obj->deserialize($value);
                 array_push($this->TagSet, $obj);
             }
+        }
+
+        if (array_key_exists("UpdateTime",$param) and $param["UpdateTime"] !== null) {
+            $this->UpdateTime = $param["UpdateTime"];
         }
     }
 }

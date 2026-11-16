@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,6 +19,7 @@ use TencentCloud\Common\AbstractModel;
 
 /**
  * 五官定位（人脸关键点）具体信息。
+![image](https://iai-face-demo-default-1254418846.cos.ap-guangzhou.myqcloud.com/130pts.jpg)
  *
  * @method array getFaceProfile() 获取描述脸型轮廓的 21 点。
  * @method void setFaceProfile(array $FaceProfile) 设置描述脸型轮廓的 21 点。

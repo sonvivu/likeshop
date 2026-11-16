@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,26 +20,34 @@ use TencentCloud\Common\AbstractModel;
 /**
  * 图片二维码详情
  *
- * @method array getModerationDetail() 获取从图片中检测到的二维码，可能为多个
- * @method void setModerationDetail(array $ModerationDetail) 设置从图片中检测到的二维码，可能为多个
  * @method integer getModerationCode() 获取检测是否成功，0：成功，-1：出错
+注意：此字段可能返回 null，表示取不到有效值。
  * @method void setModerationCode(integer $ModerationCode) 设置检测是否成功，0：成功，-1：出错
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method array getModerationDetail() 获取从图片中检测到的二维码，可能为多个
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setModerationDetail(array $ModerationDetail) 设置从图片中检测到的二维码，可能为多个
+注意：此字段可能返回 null，表示取不到有效值。
  */
 class CodeDetect extends AbstractModel
 {
     /**
-     * @var array 从图片中检测到的二维码，可能为多个
-     */
-    public $ModerationDetail;
-
-    /**
      * @var integer 检测是否成功，0：成功，-1：出错
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public $ModerationCode;
 
     /**
-     * @param array $ModerationDetail 从图片中检测到的二维码，可能为多个
+     * @var array 从图片中检测到的二维码，可能为多个
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $ModerationDetail;
+
+    /**
      * @param integer $ModerationCode 检测是否成功，0：成功，-1：出错
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param array $ModerationDetail 从图片中检测到的二维码，可能为多个
+注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
     {
@@ -54,6 +62,10 @@ class CodeDetect extends AbstractModel
         if ($param === null) {
             return;
         }
+        if (array_key_exists("ModerationCode",$param) and $param["ModerationCode"] !== null) {
+            $this->ModerationCode = $param["ModerationCode"];
+        }
+
         if (array_key_exists("ModerationDetail",$param) and $param["ModerationDetail"] !== null) {
             $this->ModerationDetail = [];
             foreach ($param["ModerationDetail"] as $key => $value){
@@ -61,10 +73,6 @@ class CodeDetect extends AbstractModel
                 $obj->deserialize($value);
                 array_push($this->ModerationDetail, $obj);
             }
-        }
-
-        if (array_key_exists("ModerationCode",$param) and $param["ModerationCode"] !== null) {
-            $this->ModerationCode = $param["ModerationCode"];
         }
     }
 }

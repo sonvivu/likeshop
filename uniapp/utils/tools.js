@@ -297,7 +297,7 @@ export function copy(str) {
     document.execCommand('copy')
     document.body.removeChild(aux)
     uni.showToast({
-        title: i18n.t('复制成功')
+        title: i18n.global.t('复制成功')
     })
     // #endif
 

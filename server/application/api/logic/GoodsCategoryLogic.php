@@ -18,7 +18,7 @@
 // +----------------------------------------------------------------------
 namespace app\api\logic;
 use app\common\server\UrlServer;
-use think\Db;
+use think\facade\Db;
 use think\facade\Cache;
 
 class GoodsCategoryLogic{
@@ -84,6 +84,7 @@ class GoodsCategoryLogic{
                 ->field('id,name,image')
                 ->order('sort desc,id desc')
                 ->select();
+            $goods_brand = $goods_brand->toArray(); // ThinkPHP 6：select() 返回 Collection，TP5 返回数组；直接写 $goods_brand[$k]['x'] 或 foreach(&$item) 改值会丢/报错，先转数组。
             if($goods_brand){
                 foreach ($goods_brand as &$brand_item){
                     $brand_item['type'] = 0;

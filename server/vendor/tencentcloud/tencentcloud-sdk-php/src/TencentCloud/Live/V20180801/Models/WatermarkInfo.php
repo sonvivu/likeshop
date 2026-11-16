@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,11 +33,17 @@ use TencentCloud\Common\AbstractModel;
  * @method integer getStatus() 获取当前状态。0：未使用，1:使用中。
  * @method void setStatus(integer $Status) 设置当前状态。0：未使用，1:使用中。
  * @method string getCreateTime() 获取添加时间。
+注：此字段为北京时间（UTC+8时区）。
  * @method void setCreateTime(string $CreateTime) 设置添加时间。
+注：此字段为北京时间（UTC+8时区）。
  * @method integer getWidth() 获取水印宽。
  * @method void setWidth(integer $Width) 设置水印宽。
  * @method integer getHeight() 获取水印高。
  * @method void setHeight(integer $Height) 设置水印高。
+ * @method integer getBackgroundWidth() 获取背景水印宽。
+ * @method void setBackgroundWidth(integer $BackgroundWidth) 设置背景水印宽。
+ * @method integer getBackgroundHeight() 获取背景水印高。
+ * @method void setBackgroundHeight(integer $BackgroundHeight) 设置背景水印高。
  */
 class WatermarkInfo extends AbstractModel
 {
@@ -73,6 +79,7 @@ class WatermarkInfo extends AbstractModel
 
     /**
      * @var string 添加时间。
+注：此字段为北京时间（UTC+8时区）。
      */
     public $CreateTime;
 
@@ -87,6 +94,16 @@ class WatermarkInfo extends AbstractModel
     public $Height;
 
     /**
+     * @var integer 背景水印宽。
+     */
+    public $BackgroundWidth;
+
+    /**
+     * @var integer 背景水印高。
+     */
+    public $BackgroundHeight;
+
+    /**
      * @param integer $WatermarkId 水印 ID。
      * @param string $PictureUrl 水印图片 URL。
      * @param integer $XPosition 显示位置，X 轴偏移。
@@ -94,8 +111,11 @@ class WatermarkInfo extends AbstractModel
      * @param string $WatermarkName 水印名称。
      * @param integer $Status 当前状态。0：未使用，1:使用中。
      * @param string $CreateTime 添加时间。
+注：此字段为北京时间（UTC+8时区）。
      * @param integer $Width 水印宽。
      * @param integer $Height 水印高。
+     * @param integer $BackgroundWidth 背景水印宽。
+     * @param integer $BackgroundHeight 背景水印高。
      */
     function __construct()
     {
@@ -144,6 +164,14 @@ class WatermarkInfo extends AbstractModel
 
         if (array_key_exists("Height",$param) and $param["Height"] !== null) {
             $this->Height = $param["Height"];
+        }
+
+        if (array_key_exists("BackgroundWidth",$param) and $param["BackgroundWidth"] !== null) {
+            $this->BackgroundWidth = $param["BackgroundWidth"];
+        }
+
+        if (array_key_exists("BackgroundHeight",$param) and $param["BackgroundHeight"] !== null) {
+            $this->BackgroundHeight = $param["BackgroundHeight"];
         }
     }
 }

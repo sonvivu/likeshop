@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,50 +20,50 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeAccountPrivileges返回参数结构体
  *
- * @method array getGlobalPrivileges() 获取全局权限数组。
- * @method void setGlobalPrivileges(array $GlobalPrivileges) 设置全局权限数组。
- * @method array getDatabasePrivileges() 获取数据库权限数组。
- * @method void setDatabasePrivileges(array $DatabasePrivileges) 设置数据库权限数组。
- * @method array getTablePrivileges() 获取数据库中的表权限数组。
- * @method void setTablePrivileges(array $TablePrivileges) 设置数据库中的表权限数组。
- * @method array getColumnPrivileges() 获取数据库表中的列权限数组。
- * @method void setColumnPrivileges(array $ColumnPrivileges) 设置数据库表中的列权限数组。
- * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
- * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method array getGlobalPrivileges() 获取<p>全局权限数组。</p>
+ * @method void setGlobalPrivileges(array $GlobalPrivileges) 设置<p>全局权限数组。</p>
+ * @method array getDatabasePrivileges() 获取<p>数据库权限数组。</p>
+ * @method void setDatabasePrivileges(array $DatabasePrivileges) 设置<p>数据库权限数组。</p>
+ * @method array getTablePrivileges() 获取<p>数据库中的表权限数组。</p>
+ * @method void setTablePrivileges(array $TablePrivileges) 设置<p>数据库中的表权限数组。</p>
+ * @method array getColumnPrivileges() 获取<p>数据库表中的列权限数组。</p>
+ * @method void setColumnPrivileges(array $ColumnPrivileges) 设置<p>数据库表中的列权限数组。</p>
+ * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+ * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
 class DescribeAccountPrivilegesResponse extends AbstractModel
 {
     /**
-     * @var array 全局权限数组。
+     * @var array <p>全局权限数组。</p>
      */
     public $GlobalPrivileges;
 
     /**
-     * @var array 数据库权限数组。
+     * @var array <p>数据库权限数组。</p>
      */
     public $DatabasePrivileges;
 
     /**
-     * @var array 数据库中的表权限数组。
+     * @var array <p>数据库中的表权限数组。</p>
      */
     public $TablePrivileges;
 
     /**
-     * @var array 数据库表中的列权限数组。
+     * @var array <p>数据库表中的列权限数组。</p>
      */
     public $ColumnPrivileges;
 
     /**
-     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public $RequestId;
 
     /**
-     * @param array $GlobalPrivileges 全局权限数组。
-     * @param array $DatabasePrivileges 数据库权限数组。
-     * @param array $TablePrivileges 数据库中的表权限数组。
-     * @param array $ColumnPrivileges 数据库表中的列权限数组。
-     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @param array $GlobalPrivileges <p>全局权限数组。</p>
+     * @param array $DatabasePrivileges <p>数据库权限数组。</p>
+     * @param array $TablePrivileges <p>数据库中的表权限数组。</p>
+     * @param array $ColumnPrivileges <p>数据库表中的列权限数组。</p>
+     * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
     {

@@ -57,7 +57,7 @@ class Article extends Validate
 
     protected function sceneAdd()
     {
-        $this->remove('id');
+        $this->remove('id', true);
 
     }
 
@@ -73,7 +73,7 @@ class Article extends Validate
 
     protected function checkCid($value, $rule, $data)
     {
-        if (\app\admin\model\ArticleCategory::get(['id' => $value, 'del' => 0])) {
+        if (\app\admin\model\ArticleCategory::find(['id' => $value, 'del' => 0])) {
             return true;
         }
         return lang('请选择文章分类');

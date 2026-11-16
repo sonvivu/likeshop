@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,31 +23,25 @@ use TencentCloud\Common\AbstractModel;
  * @method string getLocationId() 获取转发规则的 ID
  * @method void setLocationId(string $LocationId) 设置转发规则的 ID
  * @method string getDomain() 获取转发规则的域名。
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setDomain(string $Domain) 设置转发规则的域名。
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getUrl() 获取转发规则的路径。
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setUrl(string $Url) 设置转发规则的路径。
-注意：此字段可能返回 null，表示取不到有效值。
  * @method integer getSessionExpireTime() 获取会话保持时间
  * @method void setSessionExpireTime(integer $SessionExpireTime) 设置会话保持时间
  * @method HealthCheck getHealthCheck() 获取健康检查信息
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setHealthCheck(HealthCheck $HealthCheck) 设置健康检查信息
-注意：此字段可能返回 null，表示取不到有效值。
  * @method CertificateOutput getCertificate() 获取证书信息
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setCertificate(CertificateOutput $Certificate) 设置证书信息
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getScheduler() 获取规则的请求转发方式
- * @method void setScheduler(string $Scheduler) 设置规则的请求转发方式
+ * @method string getScheduler() 获取规则的请求转发方式。
+WRR、LEAST_CONN、IP_HASH分别表示按权重轮询、最小连接数、IP Hash。
+ * @method void setScheduler(string $Scheduler) 设置规则的请求转发方式。
+WRR、LEAST_CONN、IP_HASH分别表示按权重轮询、最小连接数、IP Hash。
  * @method string getListenerId() 获取转发规则所属的监听器 ID
  * @method void setListenerId(string $ListenerId) 设置转发规则所属的监听器 ID
  * @method RewriteTarget getRewriteTarget() 获取转发规则的重定向目标信息
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setRewriteTarget(RewriteTarget $RewriteTarget) 设置转发规则的重定向目标信息
-注意：此字段可能返回 null，表示取不到有效值。
  * @method boolean getHttpGzip() 获取是否开启gzip
  * @method void setHttpGzip(boolean $HttpGzip) 设置是否开启gzip
  * @method boolean getBeAutoCreated() 获取转发规则是否为自动创建
@@ -60,28 +54,30 @@ use TencentCloud\Common\AbstractModel;
  * @method void setForwardType(string $ForwardType) 设置负载均衡与后端服务之间的转发协议
  * @method string getCreateTime() 获取转发规则的创建时间
  * @method void setCreateTime(string $CreateTime) 设置转发规则的创建时间
- * @method string getTargetType() 获取后端服务器类型
- * @method void setTargetType(string $TargetType) 设置后端服务器类型
+ * @method string getTargetType() 获取后端服务器类型。NODE表示绑定普通节点，TARGETGROUP表示绑定目标组。
+ * @method void setTargetType(string $TargetType) 设置后端服务器类型。NODE表示绑定普通节点，TARGETGROUP表示绑定目标组。
  * @method BasicTargetGroupInfo getTargetGroup() 获取绑定的目标组基本信息；当规则绑定目标组时，会返回该字段
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setTargetGroup(BasicTargetGroupInfo $TargetGroup) 设置绑定的目标组基本信息；当规则绑定目标组时，会返回该字段
 注意：此字段可能返回 null，表示取不到有效值。
  * @method string getWafDomainId() 获取WAF实例ID
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setWafDomainId(string $WafDomainId) 设置WAF实例ID
+ * @method string getTrpcCallee() 获取TRPC被调服务器路由，ForwardType为TRPC时有效。目前暂未对外开放。
+ * @method void setTrpcCallee(string $TrpcCallee) 设置TRPC被调服务器路由，ForwardType为TRPC时有效。目前暂未对外开放。
+ * @method string getTrpcFunc() 获取TRPC调用服务接口，ForwardType为TRPC时有效。目前暂未对外开放。
+ * @method void setTrpcFunc(string $TrpcFunc) 设置TRPC调用服务接口，ForwardType为TRPC时有效。目前暂未对外开放。
+ * @method string getQuicStatus() 获取QUIC状态。QUIC_ACTIVE表示开启，QUIC_INACTIVE表示未开启。注意，只有HTTPS域名才能开启QUIC。
+ * @method void setQuicStatus(string $QuicStatus) 设置QUIC状态。QUIC_ACTIVE表示开启，QUIC_INACTIVE表示未开启。注意，只有HTTPS域名才能开启QUIC。
+ * @method array getDomains() 获取转发规则的域名列表。
+ * @method void setDomains(array $Domains) 设置转发规则的域名列表。
+ * @method array getTargetGroupList() 获取绑定的目标组列表
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getTrpcCallee() 获取TRPC被调服务器路由，ForwardType为TRPC时有效
+ * @method void setTargetGroupList(array $TargetGroupList) 设置绑定的目标组列表
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setTrpcCallee(string $TrpcCallee) 设置TRPC被调服务器路由，ForwardType为TRPC时有效
-注意：此字段可能返回 null，表示取不到有效值。
- * @method string getTrpcFunc() 获取TRPC调用服务接口，ForwardType为TRPC时有效
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setTrpcFunc(string $TrpcFunc) 设置TRPC调用服务接口，ForwardType为TRPC时有效
-注意：此字段可能返回 null，表示取不到有效值。
- * @method string getQuicStatus() 获取QUIC状态
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setQuicStatus(string $QuicStatus) 设置QUIC状态
-注意：此字段可能返回 null，表示取不到有效值。
+ * @method OAuth getOAuth() 获取OAuth配置状态信息。
+ * @method void setOAuth(OAuth $OAuth) 设置OAuth配置状态信息。
+ * @method string getCookieName() 获取自定义cookie名。
+ * @method void setCookieName(string $CookieName) 设置自定义cookie名。
  */
 class RuleOutput extends AbstractModel
 {
@@ -92,13 +88,11 @@ class RuleOutput extends AbstractModel
 
     /**
      * @var string 转发规则的域名。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Domain;
 
     /**
      * @var string 转发规则的路径。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Url;
 
@@ -109,7 +103,6 @@ class RuleOutput extends AbstractModel
 
     /**
      * @var HealthCheck 健康检查信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $HealthCheck;
 
@@ -120,7 +113,8 @@ class RuleOutput extends AbstractModel
     public $Certificate;
 
     /**
-     * @var string 规则的请求转发方式
+     * @var string 规则的请求转发方式。
+WRR、LEAST_CONN、IP_HASH分别表示按权重轮询、最小连接数、IP Hash。
      */
     public $Scheduler;
 
@@ -131,7 +125,6 @@ class RuleOutput extends AbstractModel
 
     /**
      * @var RewriteTarget 转发规则的重定向目标信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $RewriteTarget;
 
@@ -166,7 +159,7 @@ class RuleOutput extends AbstractModel
     public $CreateTime;
 
     /**
-     * @var string 后端服务器类型
+     * @var string 后端服务器类型。NODE表示绑定普通节点，TARGETGROUP表示绑定目标组。
      */
     public $TargetType;
 
@@ -178,60 +171,75 @@ class RuleOutput extends AbstractModel
 
     /**
      * @var string WAF实例ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $WafDomainId;
 
     /**
-     * @var string TRPC被调服务器路由，ForwardType为TRPC时有效
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string TRPC被调服务器路由，ForwardType为TRPC时有效。目前暂未对外开放。
      */
     public $TrpcCallee;
 
     /**
-     * @var string TRPC调用服务接口，ForwardType为TRPC时有效
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string TRPC调用服务接口，ForwardType为TRPC时有效。目前暂未对外开放。
      */
     public $TrpcFunc;
 
     /**
-     * @var string QUIC状态
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string QUIC状态。QUIC_ACTIVE表示开启，QUIC_INACTIVE表示未开启。注意，只有HTTPS域名才能开启QUIC。
      */
     public $QuicStatus;
 
     /**
+     * @var array 转发规则的域名列表。
+     */
+    public $Domains;
+
+    /**
+     * @var array 绑定的目标组列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $TargetGroupList;
+
+    /**
+     * @var OAuth OAuth配置状态信息。
+     */
+    public $OAuth;
+
+    /**
+     * @var string 自定义cookie名。
+     */
+    public $CookieName;
+
+    /**
      * @param string $LocationId 转发规则的 ID
      * @param string $Domain 转发规则的域名。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $Url 转发规则的路径。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param integer $SessionExpireTime 会话保持时间
      * @param HealthCheck $HealthCheck 健康检查信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CertificateOutput $Certificate 证书信息
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $Scheduler 规则的请求转发方式
+     * @param string $Scheduler 规则的请求转发方式。
+WRR、LEAST_CONN、IP_HASH分别表示按权重轮询、最小连接数、IP Hash。
      * @param string $ListenerId 转发规则所属的监听器 ID
      * @param RewriteTarget $RewriteTarget 转发规则的重定向目标信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param boolean $HttpGzip 是否开启gzip
      * @param boolean $BeAutoCreated 转发规则是否为自动创建
      * @param boolean $DefaultServer 是否作为默认域名
      * @param boolean $Http2 是否开启Http2
      * @param string $ForwardType 负载均衡与后端服务之间的转发协议
      * @param string $CreateTime 转发规则的创建时间
-     * @param string $TargetType 后端服务器类型
+     * @param string $TargetType 后端服务器类型。NODE表示绑定普通节点，TARGETGROUP表示绑定目标组。
      * @param BasicTargetGroupInfo $TargetGroup 绑定的目标组基本信息；当规则绑定目标组时，会返回该字段
 注意：此字段可能返回 null，表示取不到有效值。
      * @param string $WafDomainId WAF实例ID
+     * @param string $TrpcCallee TRPC被调服务器路由，ForwardType为TRPC时有效。目前暂未对外开放。
+     * @param string $TrpcFunc TRPC调用服务接口，ForwardType为TRPC时有效。目前暂未对外开放。
+     * @param string $QuicStatus QUIC状态。QUIC_ACTIVE表示开启，QUIC_INACTIVE表示未开启。注意，只有HTTPS域名才能开启QUIC。
+     * @param array $Domains 转发规则的域名列表。
+     * @param array $TargetGroupList 绑定的目标组列表
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $TrpcCallee TRPC被调服务器路由，ForwardType为TRPC时有效
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $TrpcFunc TRPC调用服务接口，ForwardType为TRPC时有效
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $QuicStatus QUIC状态
-注意：此字段可能返回 null，表示取不到有效值。
+     * @param OAuth $OAuth OAuth配置状态信息。
+     * @param string $CookieName 自定义cookie名。
      */
     function __construct()
     {
@@ -332,6 +340,28 @@ class RuleOutput extends AbstractModel
 
         if (array_key_exists("QuicStatus",$param) and $param["QuicStatus"] !== null) {
             $this->QuicStatus = $param["QuicStatus"];
+        }
+
+        if (array_key_exists("Domains",$param) and $param["Domains"] !== null) {
+            $this->Domains = $param["Domains"];
+        }
+
+        if (array_key_exists("TargetGroupList",$param) and $param["TargetGroupList"] !== null) {
+            $this->TargetGroupList = [];
+            foreach ($param["TargetGroupList"] as $key => $value){
+                $obj = new BasicTargetGroupInfo();
+                $obj->deserialize($value);
+                array_push($this->TargetGroupList, $obj);
+            }
+        }
+
+        if (array_key_exists("OAuth",$param) and $param["OAuth"] !== null) {
+            $this->OAuth = new OAuth();
+            $this->OAuth->deserialize($param["OAuth"]);
+        }
+
+        if (array_key_exists("CookieName",$param) and $param["CookieName"] !== null) {
+            $this->CookieName = $param["CookieName"];
         }
     }
 }

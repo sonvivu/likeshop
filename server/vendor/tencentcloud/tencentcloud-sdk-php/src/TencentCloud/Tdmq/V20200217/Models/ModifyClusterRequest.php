@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,8 +24,10 @@ use TencentCloud\Common\AbstractModel;
  * @method void setClusterId(string $ClusterId) 设置Pulsar 集群的ID，需要更新的集群Id。
  * @method string getClusterName() 获取更新后的集群名称。
  * @method void setClusterName(string $ClusterName) 设置更新后的集群名称。
- * @method string getRemark() 获取说明信息。
- * @method void setRemark(string $Remark) 设置说明信息。
+ * @method string getRemark() 获取说明信息。长度限制为 128 字节
+ * @method void setRemark(string $Remark) 设置说明信息。长度限制为 128 字节
+ * @method boolean getPublicAccessEnabled() 获取开启公网访问，只能为true
+ * @method void setPublicAccessEnabled(boolean $PublicAccessEnabled) 设置开启公网访问，只能为true
  */
 class ModifyClusterRequest extends AbstractModel
 {
@@ -40,14 +42,20 @@ class ModifyClusterRequest extends AbstractModel
     public $ClusterName;
 
     /**
-     * @var string 说明信息。
+     * @var string 说明信息。长度限制为 128 字节
      */
     public $Remark;
 
     /**
+     * @var boolean 开启公网访问，只能为true
+     */
+    public $PublicAccessEnabled;
+
+    /**
      * @param string $ClusterId Pulsar 集群的ID，需要更新的集群Id。
      * @param string $ClusterName 更新后的集群名称。
-     * @param string $Remark 说明信息。
+     * @param string $Remark 说明信息。长度限制为 128 字节
+     * @param boolean $PublicAccessEnabled 开启公网访问，只能为true
      */
     function __construct()
     {
@@ -72,6 +80,10 @@ class ModifyClusterRequest extends AbstractModel
 
         if (array_key_exists("Remark",$param) and $param["Remark"] !== null) {
             $this->Remark = $param["Remark"];
+        }
+
+        if (array_key_exists("PublicAccessEnabled",$param) and $param["PublicAccessEnabled"] !== null) {
+            $this->PublicAccessEnabled = $param["PublicAccessEnabled"];
         }
     }
 }

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,18 +20,18 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DestroyDBInstance请求参数结构体
  *
- * @method string getDBInstanceId() 获取待下线实例ID
- * @method void setDBInstanceId(string $DBInstanceId) 设置待下线实例ID
+ * @method string getDBInstanceId() 获取<p>待下线实例ID</p>
+ * @method void setDBInstanceId(string $DBInstanceId) 设置<p>待下线实例ID</p>
  */
 class DestroyDBInstanceRequest extends AbstractModel
 {
     /**
-     * @var string 待下线实例ID
+     * @var string <p>待下线实例ID</p>
      */
     public $DBInstanceId;
 
     /**
-     * @param string $DBInstanceId 待下线实例ID
+     * @param string $DBInstanceId <p>待下线实例ID</p>
      */
     function __construct()
     {

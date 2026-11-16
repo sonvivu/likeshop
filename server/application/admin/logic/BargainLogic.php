@@ -30,7 +30,7 @@ use app\common\model\Order;
 use app\common\model\TeamActivity as TeamActivityModel;
 use app\common\model\User;
 use app\common\server\UrlServer;
-use think\Db;
+use think\facade\Db;
 
 class BargainLogic
 {
@@ -529,8 +529,8 @@ class BargainLogic
 
         foreach ($lists as &$item) {
             $item['help_time'] = date('Y-m-d H:i:s', $item['help_time']);
-            $item['help_price'] = '￥'.$item['help_price'];
-            $item['surplus_price'] = '￥'.$item['surplus_price'];
+            $item['help_price'] = config('currency.symbol').$item['help_price'];
+            $item['surplus_price'] = config('currency.symbol').$item['surplus_price'];
         }
 
         return ['count'=>$count, 'lists'=>$lists];

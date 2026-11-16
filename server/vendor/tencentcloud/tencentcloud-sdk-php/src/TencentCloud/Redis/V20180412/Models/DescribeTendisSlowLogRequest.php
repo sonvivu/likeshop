@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,58 +20,58 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeTendisSlowLog请求参数结构体
  *
- * @method string getInstanceId() 获取实例Id：crs-ngvou0i1
- * @method void setInstanceId(string $InstanceId) 设置实例Id：crs-ngvou0i1
- * @method string getBeginTime() 获取开始时间：2019-09-08 12:12:41
- * @method void setBeginTime(string $BeginTime) 设置开始时间：2019-09-08 12:12:41
- * @method string getEndTime() 获取结束时间：2019-09-09 12:12:41
- * @method void setEndTime(string $EndTime) 设置结束时间：2019-09-09 12:12:41
- * @method integer getMinQueryTime() 获取慢查询阈值（毫秒）
- * @method void setMinQueryTime(integer $MinQueryTime) 设置慢查询阈值（毫秒）
- * @method integer getLimit() 获取页面大小：20
- * @method void setLimit(integer $Limit) 设置页面大小：20
- * @method integer getOffset() 获取偏移量，取Limit整数倍
- * @method void setOffset(integer $Offset) 设置偏移量，取Limit整数倍
+ * @method string getInstanceId() 获取实例 ID，请登录[Tendis控制台](https://console.cloud.tencent.com/tendis)在实例列表复制实例 ID。
+ * @method void setInstanceId(string $InstanceId) 设置实例 ID，请登录[Tendis控制台](https://console.cloud.tencent.com/tendis)在实例列表复制实例 ID。
+ * @method string getBeginTime() 获取开始时间：2019-09-08 12:12:41，查询时间最大跨度30天。
+ * @method void setBeginTime(string $BeginTime) 设置开始时间：2019-09-08 12:12:41，查询时间最大跨度30天。
+ * @method string getEndTime() 获取结束时间：2019-09-09 12:12:41，查询时间最大跨度30天。
+ * @method void setEndTime(string $EndTime) 设置结束时间：2019-09-09 12:12:41，查询时间最大跨度30天。
+ * @method integer getMinQueryTime() 获取慢查询阈值，取值为大于0的正整数，单位：毫秒。
+ * @method void setMinQueryTime(integer $MinQueryTime) 设置慢查询阈值，取值为大于0的正整数，单位：毫秒。
+ * @method integer getLimit() 获取页面大小。默认为20，最小为1，最大为100。
+ * @method void setLimit(integer $Limit) 设置页面大小。默认为20，最小为1，最大为100。
+ * @method integer getOffset() 获取分页偏移量。默认为0，取值为 Limit 整数倍，计算公式：offset=limit*(页码-1)。
+ * @method void setOffset(integer $Offset) 设置分页偏移量。默认为0，取值为 Limit 整数倍，计算公式：offset=limit*(页码-1)。
  */
 class DescribeTendisSlowLogRequest extends AbstractModel
 {
     /**
-     * @var string 实例Id：crs-ngvou0i1
+     * @var string 实例 ID，请登录[Tendis控制台](https://console.cloud.tencent.com/tendis)在实例列表复制实例 ID。
      */
     public $InstanceId;
 
     /**
-     * @var string 开始时间：2019-09-08 12:12:41
+     * @var string 开始时间：2019-09-08 12:12:41，查询时间最大跨度30天。
      */
     public $BeginTime;
 
     /**
-     * @var string 结束时间：2019-09-09 12:12:41
+     * @var string 结束时间：2019-09-09 12:12:41，查询时间最大跨度30天。
      */
     public $EndTime;
 
     /**
-     * @var integer 慢查询阈值（毫秒）
+     * @var integer 慢查询阈值，取值为大于0的正整数，单位：毫秒。
      */
     public $MinQueryTime;
 
     /**
-     * @var integer 页面大小：20
+     * @var integer 页面大小。默认为20，最小为1，最大为100。
      */
     public $Limit;
 
     /**
-     * @var integer 偏移量，取Limit整数倍
+     * @var integer 分页偏移量。默认为0，取值为 Limit 整数倍，计算公式：offset=limit*(页码-1)。
      */
     public $Offset;
 
     /**
-     * @param string $InstanceId 实例Id：crs-ngvou0i1
-     * @param string $BeginTime 开始时间：2019-09-08 12:12:41
-     * @param string $EndTime 结束时间：2019-09-09 12:12:41
-     * @param integer $MinQueryTime 慢查询阈值（毫秒）
-     * @param integer $Limit 页面大小：20
-     * @param integer $Offset 偏移量，取Limit整数倍
+     * @param string $InstanceId 实例 ID，请登录[Tendis控制台](https://console.cloud.tencent.com/tendis)在实例列表复制实例 ID。
+     * @param string $BeginTime 开始时间：2019-09-08 12:12:41，查询时间最大跨度30天。
+     * @param string $EndTime 结束时间：2019-09-09 12:12:41，查询时间最大跨度30天。
+     * @param integer $MinQueryTime 慢查询阈值，取值为大于0的正整数，单位：毫秒。
+     * @param integer $Limit 页面大小。默认为20，最小为1，最大为100。
+     * @param integer $Offset 分页偏移量。默认为0，取值为 Limit 整数倍，计算公式：offset=limit*(页码-1)。
      */
     function __construct()
     {

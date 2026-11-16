@@ -21,7 +21,7 @@ namespace app\api\validate;
 
 
 use app\common\model\Order as CommonOrder;
-use think\Db;
+use think\facade\Db;
 use think\Validate;
 
 class Team extends Validate

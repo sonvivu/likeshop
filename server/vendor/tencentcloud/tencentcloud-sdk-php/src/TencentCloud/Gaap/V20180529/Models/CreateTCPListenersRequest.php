@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,12 +24,12 @@ use TencentCloud\Common\AbstractModel;
  * @method void setListenerName(string $ListenerName) 设置监听器名称。
  * @method array getPorts() 获取监听器端口列表。
  * @method void setPorts(array $Ports) 设置监听器端口列表。
- * @method string getScheduler() 获取监听器源站调度策略，支持轮询（rr），加权轮询（wrr），最小连接数（lc）。
- * @method void setScheduler(string $Scheduler) 设置监听器源站调度策略，支持轮询（rr），加权轮询（wrr），最小连接数（lc）。
+ * @method string getScheduler() 获取监听器源站访问策略，其中：rr表示轮询；wrr表示加权轮询；lc表示最小连接数；lrtt表示最小时延。
+ * @method void setScheduler(string $Scheduler) 设置监听器源站访问策略，其中：rr表示轮询；wrr表示加权轮询；lc表示最小连接数；lrtt表示最小时延。
  * @method integer getHealthCheck() 获取源站是否开启健康检查：1开启，0关闭，UDP监听器不支持健康检查
  * @method void setHealthCheck(integer $HealthCheck) 设置源站是否开启健康检查：1开启，0关闭，UDP监听器不支持健康检查
- * @method string getRealServerType() 获取监听器对应源站类型，支持IP或者DOMAIN类型。DOMAIN源站类型不支持wrr的源站调度策略。
- * @method void setRealServerType(string $RealServerType) 设置监听器对应源站类型，支持IP或者DOMAIN类型。DOMAIN源站类型不支持wrr的源站调度策略。
+ * @method string getRealServerType() 获取监听器绑定源站类型。IP表示IP地址，DOMAIN表示域名。
+ * @method void setRealServerType(string $RealServerType) 设置监听器绑定源站类型。IP表示IP地址，DOMAIN表示域名。
  * @method string getProxyId() 获取通道ID，ProxyId和GroupId必须设置一个，但不能同时设置。
  * @method void setProxyId(string $ProxyId) 设置通道ID，ProxyId和GroupId必须设置一个，但不能同时设置。
  * @method string getGroupId() 获取通道组ID，ProxyId和GroupId必须设置一个，但不能同时设置。
@@ -44,6 +44,10 @@ use TencentCloud\Common\AbstractModel;
  * @method void setClientIPMethod(integer $ClientIPMethod) 设置监听器获取客户端 IP 的方式，0表示 TOA, 1表示Proxy Protocol
  * @method integer getFailoverSwitch() 获取源站是否开启主备模式：1开启，0关闭，DOMAIN类型源站不支持开启
  * @method void setFailoverSwitch(integer $FailoverSwitch) 设置源站是否开启主备模式：1开启，0关闭，DOMAIN类型源站不支持开启
+ * @method integer getHealthyThreshold() 获取健康阈值，表示连续检查成功多少次后认定源站健康。范围为1到10
+ * @method void setHealthyThreshold(integer $HealthyThreshold) 设置健康阈值，表示连续检查成功多少次后认定源站健康。范围为1到10
+ * @method integer getUnhealthyThreshold() 获取不健康阈值，表示连续检查失败多少次数后认为源站不健康。范围为1到10
+ * @method void setUnhealthyThreshold(integer $UnhealthyThreshold) 设置不健康阈值，表示连续检查失败多少次数后认为源站不健康。范围为1到10
  */
 class CreateTCPListenersRequest extends AbstractModel
 {
@@ -58,7 +62,7 @@ class CreateTCPListenersRequest extends AbstractModel
     public $Ports;
 
     /**
-     * @var string 监听器源站调度策略，支持轮询（rr），加权轮询（wrr），最小连接数（lc）。
+     * @var string 监听器源站访问策略，其中：rr表示轮询；wrr表示加权轮询；lc表示最小连接数；lrtt表示最小时延。
      */
     public $Scheduler;
 
@@ -68,7 +72,7 @@ class CreateTCPListenersRequest extends AbstractModel
     public $HealthCheck;
 
     /**
-     * @var string 监听器对应源站类型，支持IP或者DOMAIN类型。DOMAIN源站类型不支持wrr的源站调度策略。
+     * @var string 监听器绑定源站类型。IP表示IP地址，DOMAIN表示域名。
      */
     public $RealServerType;
 
@@ -108,11 +112,21 @@ class CreateTCPListenersRequest extends AbstractModel
     public $FailoverSwitch;
 
     /**
+     * @var integer 健康阈值，表示连续检查成功多少次后认定源站健康。范围为1到10
+     */
+    public $HealthyThreshold;
+
+    /**
+     * @var integer 不健康阈值，表示连续检查失败多少次数后认为源站不健康。范围为1到10
+     */
+    public $UnhealthyThreshold;
+
+    /**
      * @param string $ListenerName 监听器名称。
      * @param array $Ports 监听器端口列表。
-     * @param string $Scheduler 监听器源站调度策略，支持轮询（rr），加权轮询（wrr），最小连接数（lc）。
+     * @param string $Scheduler 监听器源站访问策略，其中：rr表示轮询；wrr表示加权轮询；lc表示最小连接数；lrtt表示最小时延。
      * @param integer $HealthCheck 源站是否开启健康检查：1开启，0关闭，UDP监听器不支持健康检查
-     * @param string $RealServerType 监听器对应源站类型，支持IP或者DOMAIN类型。DOMAIN源站类型不支持wrr的源站调度策略。
+     * @param string $RealServerType 监听器绑定源站类型。IP表示IP地址，DOMAIN表示域名。
      * @param string $ProxyId 通道ID，ProxyId和GroupId必须设置一个，但不能同时设置。
      * @param string $GroupId 通道组ID，ProxyId和GroupId必须设置一个，但不能同时设置。
      * @param integer $DelayLoop 源站健康检查时间间隔，单位：秒。时间间隔取值在[5，300]之间。
@@ -120,6 +134,8 @@ class CreateTCPListenersRequest extends AbstractModel
      * @param array $RealServerPorts 源站端口列表，该参数仅支持v1版本监听器和通道组监听器。
      * @param integer $ClientIPMethod 监听器获取客户端 IP 的方式，0表示 TOA, 1表示Proxy Protocol
      * @param integer $FailoverSwitch 源站是否开启主备模式：1开启，0关闭，DOMAIN类型源站不支持开启
+     * @param integer $HealthyThreshold 健康阈值，表示连续检查成功多少次后认定源站健康。范围为1到10
+     * @param integer $UnhealthyThreshold 不健康阈值，表示连续检查失败多少次数后认为源站不健康。范围为1到10
      */
     function __construct()
     {
@@ -180,6 +196,14 @@ class CreateTCPListenersRequest extends AbstractModel
 
         if (array_key_exists("FailoverSwitch",$param) and $param["FailoverSwitch"] !== null) {
             $this->FailoverSwitch = $param["FailoverSwitch"];
+        }
+
+        if (array_key_exists("HealthyThreshold",$param) and $param["HealthyThreshold"] !== null) {
+            $this->HealthyThreshold = $param["HealthyThreshold"];
+        }
+
+        if (array_key_exists("UnhealthyThreshold",$param) and $param["UnhealthyThreshold"] !== null) {
+            $this->UnhealthyThreshold = $param["UnhealthyThreshold"];
         }
     }
 }

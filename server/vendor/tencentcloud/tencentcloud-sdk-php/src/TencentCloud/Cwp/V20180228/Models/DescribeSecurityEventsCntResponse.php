@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,8 +34,8 @@ use TencentCloud\Common\AbstractModel;
  * @method void setPrivilegeRules(SecurityEventInfo $PrivilegeRules) 设置本地提权相关风险事件
  * @method SecurityEventInfo getReverseShell() 获取反弹Shell相关风险事件
  * @method void setReverseShell(SecurityEventInfo $ReverseShell) 设置反弹Shell相关风险事件
- * @method SecurityEventInfo getSysVul() 获取系统组件相关风险事件
- * @method void setSysVul(SecurityEventInfo $SysVul) 设置系统组件相关风险事件
+ * @method SecurityEventInfo getSysVul() 获取应用漏洞风险事件
+ * @method void setSysVul(SecurityEventInfo $SysVul) 设置应用漏洞风险事件
  * @method SecurityEventInfo getWebVul() 获取Web应用漏洞相关风险事件
  * @method void setWebVul(SecurityEventInfo $WebVul) 设置Web应用漏洞相关风险事件
  * @method SecurityEventInfo getEmergencyVul() 获取应急漏洞相关风险事件
@@ -44,8 +44,16 @@ use TencentCloud\Common\AbstractModel;
  * @method void setBaseLine(SecurityEventInfo $BaseLine) 设置安全基线相关风险事件
  * @method SecurityEventInfo getAttackLogs() 获取攻击检测相关风险事件
  * @method void setAttackLogs(SecurityEventInfo $AttackLogs) 设置攻击检测相关风险事件
- * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
- * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method integer getEffectMachineCount() 获取受影响机器数
+ * @method void setEffectMachineCount(integer $EffectMachineCount) 设置受影响机器数
+ * @method integer getEventsCount() 获取所有事件总数
+ * @method void setEventsCount(integer $EventsCount) 设置所有事件总数
+ * @method SecurityEventInfo getWindowVul() 获取window 系统漏洞事件总数
+ * @method void setWindowVul(SecurityEventInfo $WindowVul) 设置window 系统漏洞事件总数
+ * @method SecurityEventInfo getLinuxVul() 获取linux系统漏洞事件总数
+ * @method void setLinuxVul(SecurityEventInfo $LinuxVul) 设置linux系统漏洞事件总数
+ * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+ * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
 class DescribeSecurityEventsCntResponse extends AbstractModel
 {
@@ -85,7 +93,7 @@ class DescribeSecurityEventsCntResponse extends AbstractModel
     public $ReverseShell;
 
     /**
-     * @var SecurityEventInfo 系统组件相关风险事件
+     * @var SecurityEventInfo 应用漏洞风险事件
      */
     public $SysVul;
 
@@ -110,7 +118,27 @@ class DescribeSecurityEventsCntResponse extends AbstractModel
     public $AttackLogs;
 
     /**
-     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @var integer 受影响机器数
+     */
+    public $EffectMachineCount;
+
+    /**
+     * @var integer 所有事件总数
+     */
+    public $EventsCount;
+
+    /**
+     * @var SecurityEventInfo window 系统漏洞事件总数
+     */
+    public $WindowVul;
+
+    /**
+     * @var SecurityEventInfo linux系统漏洞事件总数
+     */
+    public $LinuxVul;
+
+    /**
+     * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public $RequestId;
 
@@ -122,12 +150,16 @@ class DescribeSecurityEventsCntResponse extends AbstractModel
      * @param SecurityEventInfo $Bash 高危命令相关风险事件
      * @param SecurityEventInfo $PrivilegeRules 本地提权相关风险事件
      * @param SecurityEventInfo $ReverseShell 反弹Shell相关风险事件
-     * @param SecurityEventInfo $SysVul 系统组件相关风险事件
+     * @param SecurityEventInfo $SysVul 应用漏洞风险事件
      * @param SecurityEventInfo $WebVul Web应用漏洞相关风险事件
      * @param SecurityEventInfo $EmergencyVul 应急漏洞相关风险事件
      * @param SecurityEventInfo $BaseLine 安全基线相关风险事件
      * @param SecurityEventInfo $AttackLogs 攻击检测相关风险事件
-     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @param integer $EffectMachineCount 受影响机器数
+     * @param integer $EventsCount 所有事件总数
+     * @param SecurityEventInfo $WindowVul window 系统漏洞事件总数
+     * @param SecurityEventInfo $LinuxVul linux系统漏洞事件总数
+     * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
     {
@@ -200,6 +232,24 @@ class DescribeSecurityEventsCntResponse extends AbstractModel
         if (array_key_exists("AttackLogs",$param) and $param["AttackLogs"] !== null) {
             $this->AttackLogs = new SecurityEventInfo();
             $this->AttackLogs->deserialize($param["AttackLogs"]);
+        }
+
+        if (array_key_exists("EffectMachineCount",$param) and $param["EffectMachineCount"] !== null) {
+            $this->EffectMachineCount = $param["EffectMachineCount"];
+        }
+
+        if (array_key_exists("EventsCount",$param) and $param["EventsCount"] !== null) {
+            $this->EventsCount = $param["EventsCount"];
+        }
+
+        if (array_key_exists("WindowVul",$param) and $param["WindowVul"] !== null) {
+            $this->WindowVul = new SecurityEventInfo();
+            $this->WindowVul->deserialize($param["WindowVul"]);
+        }
+
+        if (array_key_exists("LinuxVul",$param) and $param["LinuxVul"] !== null) {
+            $this->LinuxVul = new SecurityEventInfo();
+            $this->LinuxVul->deserialize($param["LinuxVul"]);
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,15 +20,15 @@ use TencentCloud\Common\AbstractModel;
 /**
  * 数据库地址
  *
- * @method string getIP() 获取IP
- * @method void setIP(string $IP) 设置IP
+ * @method string getIP() 获取IP地址
+ * @method void setIP(string $IP) 设置IP地址
  * @method integer getPort() 获取端口
  * @method void setPort(integer $Port) 设置端口
  */
 class Addr extends AbstractModel
 {
     /**
-     * @var string IP
+     * @var string IP地址
      */
     public $IP;
 
@@ -38,7 +38,7 @@ class Addr extends AbstractModel
     public $Port;
 
     /**
-     * @param string $IP IP
+     * @param string $IP IP地址
      * @param integer $Port 端口
      */
     function __construct()

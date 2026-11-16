@@ -20,7 +20,7 @@
 namespace app\api\logic;
 
 use app\common\model\Freight;
-use think\Db;
+use think\facade\Db;
 
 /**
  * 运费逻辑

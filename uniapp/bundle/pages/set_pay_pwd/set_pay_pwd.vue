@@ -7,8 +7,7 @@
                     class="flex1"
                     type="password"
                     v-model="originPwd"
-                    :placeholder="$t('请输入原来的转账密码')"
-                />
+                    :placeholder="$t('请输入原来的转账密码')" border="none" />
             </view>
             <view class="input-item row">
                 <view class="input-label md normal">{{ $t('转账密码') }}</view>
@@ -16,8 +15,7 @@
                     class="flex1"
                     type="password"
                     v-model="setPwd"
-                    :placeholder="hasPayPwd ? $t('请输入新的转账密码') : $t('请输入转账密码')"
-                />
+                    :placeholder="hasPayPwd ? $t('请输入新的转账密码') : $t('请输入转账密码')" border="none" />
             </view>
             <view class="input-item row">
                 <view class="input-label md normal">{{ $t('确认密码') }}</view>
@@ -25,8 +23,7 @@
                     class="flex1"
                     type="password"
                     v-model="comfirmPwd"
-                    :placeholder="$t('请再次确认密码')"
-                />
+                    :placeholder="$t('请再次确认密码')" border="none" />
             </view>
             <navigator
                 hover-class="none"

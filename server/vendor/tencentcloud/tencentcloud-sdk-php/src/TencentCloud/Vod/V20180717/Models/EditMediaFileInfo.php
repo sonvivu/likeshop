@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,10 +22,10 @@ use TencentCloud\Common\AbstractModel;
  *
  * @method string getFileId() 获取视频的 ID。
  * @method void setFileId(string $FileId) 设置视频的 ID。
- * @method float getStartTimeOffset() 获取视频剪辑的起始偏移时间偏移，单位：秒。
- * @method void setStartTimeOffset(float $StartTimeOffset) 设置视频剪辑的起始偏移时间偏移，单位：秒。
- * @method float getEndTimeOffset() 获取视频剪辑的起始结束时间偏移，单位：秒。
- * @method void setEndTimeOffset(float $EndTimeOffset) 设置视频剪辑的起始结束时间偏移，单位：秒。
+ * @method float getStartTimeOffset() 获取视频剪辑起始的偏移时间，单位：秒。
+ * @method void setStartTimeOffset(float $StartTimeOffset) 设置视频剪辑起始的偏移时间，单位：秒。
+ * @method float getEndTimeOffset() 获取视频剪辑结束的偏移时间，单位：秒。
+ * @method void setEndTimeOffset(float $EndTimeOffset) 设置视频剪辑结束的偏移时间，单位：秒。
  */
 class EditMediaFileInfo extends AbstractModel
 {
@@ -35,19 +35,19 @@ class EditMediaFileInfo extends AbstractModel
     public $FileId;
 
     /**
-     * @var float 视频剪辑的起始偏移时间偏移，单位：秒。
+     * @var float 视频剪辑起始的偏移时间，单位：秒。
      */
     public $StartTimeOffset;
 
     /**
-     * @var float 视频剪辑的起始结束时间偏移，单位：秒。
+     * @var float 视频剪辑结束的偏移时间，单位：秒。
      */
     public $EndTimeOffset;
 
     /**
      * @param string $FileId 视频的 ID。
-     * @param float $StartTimeOffset 视频剪辑的起始偏移时间偏移，单位：秒。
-     * @param float $EndTimeOffset 视频剪辑的起始结束时间偏移，单位：秒。
+     * @param float $StartTimeOffset 视频剪辑起始的偏移时间，单位：秒。
+     * @param float $EndTimeOffset 视频剪辑结束的偏移时间，单位：秒。
      */
     function __construct()
     {

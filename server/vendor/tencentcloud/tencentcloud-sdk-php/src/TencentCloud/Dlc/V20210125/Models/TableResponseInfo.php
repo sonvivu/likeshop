@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,25 +31,27 @@ use TencentCloud\Common\AbstractModel;
  * @method void setPartitions(array $Partitions) 设置数据表分块信息。
 注意：此字段可能返回 null，表示取不到有效值。
  * @method string getLocation() 获取数据存储路径。
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setLocation(string $Location) 设置数据存储路径。
-注意：此字段可能返回 null，表示取不到有效值。
  * @method array getProperties() 获取数据表属性信息。
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setProperties(array $Properties) 设置数据表属性信息。
 注意：此字段可能返回 null，表示取不到有效值。
  * @method string getModifiedTime() 获取数据表更新时间, 单位: ms。
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setModifiedTime(string $ModifiedTime) 设置数据表更新时间, 单位: ms。
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getCreateTime() 获取数据表创建时间,单位: ms。
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setCreateTime(string $CreateTime) 设置数据表创建时间,单位: ms。
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getInputFormat() 获取数据格式。
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setInputFormat(string $InputFormat) 设置数据格式。
-注意：此字段可能返回 null，表示取不到有效值。
+ * @method integer getStorageSize() 获取数据表存储大小（单位：Byte）
+ * @method void setStorageSize(integer $StorageSize) 设置数据表存储大小（单位：Byte）
+ * @method integer getRecordCount() 获取数据表行数
+ * @method void setRecordCount(integer $RecordCount) 设置数据表行数
+ * @method string getMapMaterializedViewName() 获取xxxx
+ * @method void setMapMaterializedViewName(string $MapMaterializedViewName) 设置xxxx
+ * @method integer getHeatValue() 获取访问热点
+ * @method void setHeatValue(integer $HeatValue) 设置访问热点
+ * @method string getInputFormatShort() 获取InputFormat的缩写
+ * @method void setInputFormatShort(string $InputFormatShort) 设置InputFormat的缩写
  */
 class TableResponseInfo extends AbstractModel
 {
@@ -72,7 +74,6 @@ class TableResponseInfo extends AbstractModel
 
     /**
      * @var string 数据存储路径。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Location;
 
@@ -84,21 +85,43 @@ class TableResponseInfo extends AbstractModel
 
     /**
      * @var string 数据表更新时间, 单位: ms。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $ModifiedTime;
 
     /**
      * @var string 数据表创建时间,单位: ms。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $CreateTime;
 
     /**
      * @var string 数据格式。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $InputFormat;
+
+    /**
+     * @var integer 数据表存储大小（单位：Byte）
+     */
+    public $StorageSize;
+
+    /**
+     * @var integer 数据表行数
+     */
+    public $RecordCount;
+
+    /**
+     * @var string xxxx
+     */
+    public $MapMaterializedViewName;
+
+    /**
+     * @var integer 访问热点
+     */
+    public $HeatValue;
+
+    /**
+     * @var string InputFormat的缩写
+     */
+    public $InputFormatShort;
 
     /**
      * @param TableBaseInfo $TableBaseInfo 数据表基本信息。
@@ -107,15 +130,16 @@ class TableResponseInfo extends AbstractModel
      * @param array $Partitions 数据表分块信息。
 注意：此字段可能返回 null，表示取不到有效值。
      * @param string $Location 数据存储路径。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param array $Properties 数据表属性信息。
 注意：此字段可能返回 null，表示取不到有效值。
      * @param string $ModifiedTime 数据表更新时间, 单位: ms。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $CreateTime 数据表创建时间,单位: ms。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $InputFormat 数据格式。
-注意：此字段可能返回 null，表示取不到有效值。
+     * @param integer $StorageSize 数据表存储大小（单位：Byte）
+     * @param integer $RecordCount 数据表行数
+     * @param string $MapMaterializedViewName xxxx
+     * @param integer $HeatValue 访问热点
+     * @param string $InputFormatShort InputFormat的缩写
      */
     function __construct()
     {
@@ -176,6 +200,26 @@ class TableResponseInfo extends AbstractModel
 
         if (array_key_exists("InputFormat",$param) and $param["InputFormat"] !== null) {
             $this->InputFormat = $param["InputFormat"];
+        }
+
+        if (array_key_exists("StorageSize",$param) and $param["StorageSize"] !== null) {
+            $this->StorageSize = $param["StorageSize"];
+        }
+
+        if (array_key_exists("RecordCount",$param) and $param["RecordCount"] !== null) {
+            $this->RecordCount = $param["RecordCount"];
+        }
+
+        if (array_key_exists("MapMaterializedViewName",$param) and $param["MapMaterializedViewName"] !== null) {
+            $this->MapMaterializedViewName = $param["MapMaterializedViewName"];
+        }
+
+        if (array_key_exists("HeatValue",$param) and $param["HeatValue"] !== null) {
+            $this->HeatValue = $param["HeatValue"];
+        }
+
+        if (array_key_exists("InputFormatShort",$param) and $param["InputFormatShort"] !== null) {
+            $this->InputFormatShort = $param["InputFormatShort"];
         }
     }
 }

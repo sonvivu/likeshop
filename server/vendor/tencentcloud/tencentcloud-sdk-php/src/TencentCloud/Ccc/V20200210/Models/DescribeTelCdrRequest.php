@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,74 +20,93 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeTelCdr请求参数结构体
  *
- * @method integer getStartTimeStamp() 获取起始时间戳，Unix 时间戳
- * @method void setStartTimeStamp(integer $StartTimeStamp) 设置起始时间戳，Unix 时间戳
- * @method integer getEndTimeStamp() 获取结束时间戳，Unix 时间戳
- * @method void setEndTimeStamp(integer $EndTimeStamp) 设置结束时间戳，Unix 时间戳
- * @method integer getLimit() 获取返回数据条数，上限（deprecated）
- * @method void setLimit(integer $Limit) 设置返回数据条数，上限（deprecated）
- * @method integer getOffset() 获取偏移（deprecated）
- * @method void setOffset(integer $Offset) 设置偏移（deprecated）
- * @method integer getInstanceId() 获取实例 ID（deprecated）
- * @method void setInstanceId(integer $InstanceId) 设置实例 ID（deprecated）
- * @method integer getSdkAppId() 获取应用 ID
- * @method void setSdkAppId(integer $SdkAppId) 设置应用 ID
- * @method integer getPageSize() 获取分页尺寸，上限 100
- * @method void setPageSize(integer $PageSize) 设置分页尺寸，上限 100
- * @method integer getPageNumber() 获取分页页码，从 0 开始
- * @method void setPageNumber(integer $PageNumber) 设置分页页码，从 0 开始
+ * @method integer getStartTimeStamp() 获取<p>起始时间戳，Unix 秒级时间戳，最大支持近180天。</p>
+ * @method void setStartTimeStamp(integer $StartTimeStamp) 设置<p>起始时间戳，Unix 秒级时间戳，最大支持近180天。</p>
+ * @method integer getEndTimeStamp() 获取<p>结束时间戳，Unix 秒级时间戳，结束时间与开始时间的区间范围小于90天。</p>
+ * @method void setEndTimeStamp(integer $EndTimeStamp) 设置<p>结束时间戳，Unix 秒级时间戳，结束时间与开始时间的区间范围小于90天。</p>
+ * @method integer getSdkAppId() 获取<p>应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc</p>
+ * @method void setSdkAppId(integer $SdkAppId) 设置<p>应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc</p>
+ * @method integer getPageSize() 获取<p>分页尺寸（必填），上限 100</p>
+ * @method void setPageSize(integer $PageSize) 设置<p>分页尺寸（必填），上限 100</p>
+ * @method integer getPageNumber() 获取<p>分页页码（必填），从 0 开始</p>
+ * @method void setPageNumber(integer $PageNumber) 设置<p>分页页码（必填），从 0 开始</p>
+ * @method integer getInstanceId() 获取<p>实例 ID（废弃）</p>
+ * @method void setInstanceId(integer $InstanceId) 设置<p>实例 ID（废弃）</p>
+ * @method integer getLimit() 获取<p>返回数据条数，上限（废弃）</p>
+ * @method void setLimit(integer $Limit) 设置<p>返回数据条数，上限（废弃）</p>
+ * @method integer getOffset() 获取<p>偏移（废弃）</p>
+ * @method void setOffset(integer $Offset) 设置<p>偏移（废弃）</p>
+ * @method array getPhones() 获取<p>按手机号筛选</p>
+ * @method void setPhones(array $Phones) 设置<p>按手机号筛选</p>
+ * @method array getSessionIds() 获取<p>按SessionId筛选</p>
+ * @method void setSessionIds(array $SessionIds) 设置<p>按SessionId筛选</p>
  */
 class DescribeTelCdrRequest extends AbstractModel
 {
     /**
-     * @var integer 起始时间戳，Unix 时间戳
+     * @var integer <p>起始时间戳，Unix 秒级时间戳，最大支持近180天。</p>
      */
     public $StartTimeStamp;
 
     /**
-     * @var integer 结束时间戳，Unix 时间戳
+     * @var integer <p>结束时间戳，Unix 秒级时间戳，结束时间与开始时间的区间范围小于90天。</p>
      */
     public $EndTimeStamp;
 
     /**
-     * @var integer 返回数据条数，上限（deprecated）
-     */
-    public $Limit;
-
-    /**
-     * @var integer 偏移（deprecated）
-     */
-    public $Offset;
-
-    /**
-     * @var integer 实例 ID（deprecated）
-     */
-    public $InstanceId;
-
-    /**
-     * @var integer 应用 ID
+     * @var integer <p>应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc</p>
      */
     public $SdkAppId;
 
     /**
-     * @var integer 分页尺寸，上限 100
+     * @var integer <p>分页尺寸（必填），上限 100</p>
      */
     public $PageSize;
 
     /**
-     * @var integer 分页页码，从 0 开始
+     * @var integer <p>分页页码（必填），从 0 开始</p>
      */
     public $PageNumber;
 
     /**
-     * @param integer $StartTimeStamp 起始时间戳，Unix 时间戳
-     * @param integer $EndTimeStamp 结束时间戳，Unix 时间戳
-     * @param integer $Limit 返回数据条数，上限（deprecated）
-     * @param integer $Offset 偏移（deprecated）
-     * @param integer $InstanceId 实例 ID（deprecated）
-     * @param integer $SdkAppId 应用 ID
-     * @param integer $PageSize 分页尺寸，上限 100
-     * @param integer $PageNumber 分页页码，从 0 开始
+     * @var integer <p>实例 ID（废弃）</p>
+     * @deprecated
+     */
+    public $InstanceId;
+
+    /**
+     * @var integer <p>返回数据条数，上限（废弃）</p>
+     * @deprecated
+     */
+    public $Limit;
+
+    /**
+     * @var integer <p>偏移（废弃）</p>
+     * @deprecated
+     */
+    public $Offset;
+
+    /**
+     * @var array <p>按手机号筛选</p>
+     */
+    public $Phones;
+
+    /**
+     * @var array <p>按SessionId筛选</p>
+     */
+    public $SessionIds;
+
+    /**
+     * @param integer $StartTimeStamp <p>起始时间戳，Unix 秒级时间戳，最大支持近180天。</p>
+     * @param integer $EndTimeStamp <p>结束时间戳，Unix 秒级时间戳，结束时间与开始时间的区间范围小于90天。</p>
+     * @param integer $SdkAppId <p>应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc</p>
+     * @param integer $PageSize <p>分页尺寸（必填），上限 100</p>
+     * @param integer $PageNumber <p>分页页码（必填），从 0 开始</p>
+     * @param integer $InstanceId <p>实例 ID（废弃）</p>
+     * @param integer $Limit <p>返回数据条数，上限（废弃）</p>
+     * @param integer $Offset <p>偏移（废弃）</p>
+     * @param array $Phones <p>按手机号筛选</p>
+     * @param array $SessionIds <p>按SessionId筛选</p>
      */
     function __construct()
     {
@@ -110,18 +129,6 @@ class DescribeTelCdrRequest extends AbstractModel
             $this->EndTimeStamp = $param["EndTimeStamp"];
         }
 
-        if (array_key_exists("Limit",$param) and $param["Limit"] !== null) {
-            $this->Limit = $param["Limit"];
-        }
-
-        if (array_key_exists("Offset",$param) and $param["Offset"] !== null) {
-            $this->Offset = $param["Offset"];
-        }
-
-        if (array_key_exists("InstanceId",$param) and $param["InstanceId"] !== null) {
-            $this->InstanceId = $param["InstanceId"];
-        }
-
         if (array_key_exists("SdkAppId",$param) and $param["SdkAppId"] !== null) {
             $this->SdkAppId = $param["SdkAppId"];
         }
@@ -132,6 +139,26 @@ class DescribeTelCdrRequest extends AbstractModel
 
         if (array_key_exists("PageNumber",$param) and $param["PageNumber"] !== null) {
             $this->PageNumber = $param["PageNumber"];
+        }
+
+        if (array_key_exists("InstanceId",$param) and $param["InstanceId"] !== null) {
+            $this->InstanceId = $param["InstanceId"];
+        }
+
+        if (array_key_exists("Limit",$param) and $param["Limit"] !== null) {
+            $this->Limit = $param["Limit"];
+        }
+
+        if (array_key_exists("Offset",$param) and $param["Offset"] !== null) {
+            $this->Offset = $param["Offset"];
+        }
+
+        if (array_key_exists("Phones",$param) and $param["Phones"] !== null) {
+            $this->Phones = $param["Phones"];
+        }
+
+        if (array_key_exists("SessionIds",$param) and $param["SessionIds"] !== null) {
+            $this->SessionIds = $param["SessionIds"];
         }
     }
 }

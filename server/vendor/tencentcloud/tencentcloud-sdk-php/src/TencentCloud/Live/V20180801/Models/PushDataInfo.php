@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -52,10 +52,10 @@ use TencentCloud\Common\AbstractModel;
  * @method void setResolution(string $Resolution) 设置分辨率。
  * @method integer getAsampleRate() 获取采样率。
  * @method void setAsampleRate(integer $AsampleRate) 设置采样率。
- * @method integer getMetaAudioSpeed() 获取metadata 中的音频码率，单位: Kbps。
- * @method void setMetaAudioSpeed(integer $MetaAudioSpeed) 设置metadata 中的音频码率，单位: Kbps。
- * @method integer getMetaVideoSpeed() 获取metadata 中的视频码率，单位: Kbps。
- * @method void setMetaVideoSpeed(integer $MetaVideoSpeed) 设置metadata 中的视频码率，单位: Kbps。
+ * @method integer getMetaAudioSpeed() 获取metadata 中的音频码率，单位: bps。
+ * @method void setMetaAudioSpeed(integer $MetaAudioSpeed) 设置metadata 中的音频码率，单位: bps。
+ * @method integer getMetaVideoSpeed() 获取metadata 中的视频码率，单位: bps。
+ * @method void setMetaVideoSpeed(integer $MetaVideoSpeed) 设置metadata 中的视频码率，单位: bps。
  * @method integer getMetaFps() 获取metadata 中的帧率。
  * @method void setMetaFps(integer $MetaFps) 设置metadata 中的帧率。
  */
@@ -134,12 +134,12 @@ class PushDataInfo extends AbstractModel
     public $AsampleRate;
 
     /**
-     * @var integer metadata 中的音频码率，单位: Kbps。
+     * @var integer metadata 中的音频码率，单位: bps。
      */
     public $MetaAudioSpeed;
 
     /**
-     * @var integer metadata 中的视频码率，单位: Kbps。
+     * @var integer metadata 中的视频码率，单位: bps。
      */
     public $MetaVideoSpeed;
 
@@ -165,8 +165,8 @@ class PushDataInfo extends AbstractModel
 例："H264"。
      * @param string $Resolution 分辨率。
      * @param integer $AsampleRate 采样率。
-     * @param integer $MetaAudioSpeed metadata 中的音频码率，单位: Kbps。
-     * @param integer $MetaVideoSpeed metadata 中的视频码率，单位: Kbps。
+     * @param integer $MetaAudioSpeed metadata 中的音频码率，单位: bps。
+     * @param integer $MetaVideoSpeed metadata 中的视频码率，单位: bps。
      * @param integer $MetaFps metadata 中的帧率。
      */
     function __construct()

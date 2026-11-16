@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,106 +20,103 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeAlarmNotices请求参数结构体
  *
- * @method array getFilters() 获取<br><li> name
-
-按照【告警通知模板名称】进行过滤。
+ * @method array getFilters() 获取name
+按照【通知渠道组名称】进行过滤。
 类型：String
-
+示例："Filters":[{"Key":"name","Values":["test-notice"]}]
 必选：否
-
-<br><li> alarmNoticeId
-
-按照【告警通知模板ID】进行过滤。
+alarmNoticeId
+按照【通知渠道组ID】进行过滤。
 类型：String
-
+示例："Filters": [{Key: "alarmNoticeId", Values: ["notice-5281f1d2-6275-4e56-9ec3-a1eb19d8bc2f"]}]
 必选：否
-
-<br><li> uid
-
+uid
 按照【接收用户ID】进行过滤。
-
 类型：String
-
+示例："Filters": [{Key: "uid", Values: ["1137546"]}]
+必选：否
+groupId
+按照【接收用户组ID】进行过滤。
+类型：String
+示例："Filters": [{Key: "groupId", Values: ["344098"]}]
 必选：否
 
-<br><li> groupId
-
-按照【用户组ID】进行过滤。
-
+deliverFlag
+按照【投递状态】进行过滤。
 类型：String
-
 必选：否
-
+可选值： "1":未启用,  "2": 已启用, "3":投递异常
+示例："Filters":[{"Key":"deliverFlag","Values":["2"]}]
 每次请求的Filters的上限为10，Filter.Values的上限为5。
- * @method void setFilters(array $Filters) 设置<br><li> name
-
-按照【告警通知模板名称】进行过滤。
+ * @method void setFilters(array $Filters) 设置name
+按照【通知渠道组名称】进行过滤。
 类型：String
-
+示例："Filters":[{"Key":"name","Values":["test-notice"]}]
 必选：否
-
-<br><li> alarmNoticeId
-
-按照【告警通知模板ID】进行过滤。
+alarmNoticeId
+按照【通知渠道组ID】进行过滤。
 类型：String
-
+示例："Filters": [{Key: "alarmNoticeId", Values: ["notice-5281f1d2-6275-4e56-9ec3-a1eb19d8bc2f"]}]
 必选：否
-
-<br><li> uid
-
+uid
 按照【接收用户ID】进行过滤。
-
 类型：String
-
+示例："Filters": [{Key: "uid", Values: ["1137546"]}]
+必选：否
+groupId
+按照【接收用户组ID】进行过滤。
+类型：String
+示例："Filters": [{Key: "groupId", Values: ["344098"]}]
 必选：否
 
-<br><li> groupId
-
-按照【用户组ID】进行过滤。
-
+deliverFlag
+按照【投递状态】进行过滤。
 类型：String
-
 必选：否
-
+可选值： "1":未启用,  "2": 已启用, "3":投递异常
+示例："Filters":[{"Key":"deliverFlag","Values":["2"]}]
 每次请求的Filters的上限为10，Filter.Values的上限为5。
  * @method integer getOffset() 获取分页的偏移量，默认值为0。
  * @method void setOffset(integer $Offset) 设置分页的偏移量，默认值为0。
  * @method integer getLimit() 获取分页单页限制数目，默认值为20，最大值100。
  * @method void setLimit(integer $Limit) 设置分页单页限制数目，默认值为20，最大值100。
+ * @method boolean getHasAlarmShieldCount() 获取是否需要返回通知渠道组配置的告警屏蔽统计状态数量信息。
+- true：需要返回；
+- false：不返回（默认false）。
+ * @method void setHasAlarmShieldCount(boolean $HasAlarmShieldCount) 设置是否需要返回通知渠道组配置的告警屏蔽统计状态数量信息。
+- true：需要返回；
+- false：不返回（默认false）。
  */
 class DescribeAlarmNoticesRequest extends AbstractModel
 {
     /**
-     * @var array <br><li> name
-
-按照【告警通知模板名称】进行过滤。
+     * @var array name
+按照【通知渠道组名称】进行过滤。
 类型：String
-
+示例："Filters":[{"Key":"name","Values":["test-notice"]}]
 必选：否
-
-<br><li> alarmNoticeId
-
-按照【告警通知模板ID】进行过滤。
+alarmNoticeId
+按照【通知渠道组ID】进行过滤。
 类型：String
-
+示例："Filters": [{Key: "alarmNoticeId", Values: ["notice-5281f1d2-6275-4e56-9ec3-a1eb19d8bc2f"]}]
 必选：否
-
-<br><li> uid
-
+uid
 按照【接收用户ID】进行过滤。
-
 类型：String
-
+示例："Filters": [{Key: "uid", Values: ["1137546"]}]
+必选：否
+groupId
+按照【接收用户组ID】进行过滤。
+类型：String
+示例："Filters": [{Key: "groupId", Values: ["344098"]}]
 必选：否
 
-<br><li> groupId
-
-按照【用户组ID】进行过滤。
-
+deliverFlag
+按照【投递状态】进行过滤。
 类型：String
-
 必选：否
-
+可选值： "1":未启用,  "2": 已启用, "3":投递异常
+示例："Filters":[{"Key":"deliverFlag","Values":["2"]}]
 每次请求的Filters的上限为10，Filter.Values的上限为5。
      */
     public $Filters;
@@ -135,39 +132,46 @@ class DescribeAlarmNoticesRequest extends AbstractModel
     public $Limit;
 
     /**
-     * @param array $Filters <br><li> name
+     * @var boolean 是否需要返回通知渠道组配置的告警屏蔽统计状态数量信息。
+- true：需要返回；
+- false：不返回（默认false）。
+     */
+    public $HasAlarmShieldCount;
 
-按照【告警通知模板名称】进行过滤。
+    /**
+     * @param array $Filters name
+按照【通知渠道组名称】进行过滤。
 类型：String
-
+示例："Filters":[{"Key":"name","Values":["test-notice"]}]
 必选：否
-
-<br><li> alarmNoticeId
-
-按照【告警通知模板ID】进行过滤。
+alarmNoticeId
+按照【通知渠道组ID】进行过滤。
 类型：String
-
+示例："Filters": [{Key: "alarmNoticeId", Values: ["notice-5281f1d2-6275-4e56-9ec3-a1eb19d8bc2f"]}]
 必选：否
-
-<br><li> uid
-
+uid
 按照【接收用户ID】进行过滤。
-
 类型：String
-
+示例："Filters": [{Key: "uid", Values: ["1137546"]}]
+必选：否
+groupId
+按照【接收用户组ID】进行过滤。
+类型：String
+示例："Filters": [{Key: "groupId", Values: ["344098"]}]
 必选：否
 
-<br><li> groupId
-
-按照【用户组ID】进行过滤。
-
+deliverFlag
+按照【投递状态】进行过滤。
 类型：String
-
 必选：否
-
+可选值： "1":未启用,  "2": 已启用, "3":投递异常
+示例："Filters":[{"Key":"deliverFlag","Values":["2"]}]
 每次请求的Filters的上限为10，Filter.Values的上限为5。
      * @param integer $Offset 分页的偏移量，默认值为0。
      * @param integer $Limit 分页单页限制数目，默认值为20，最大值100。
+     * @param boolean $HasAlarmShieldCount 是否需要返回通知渠道组配置的告警屏蔽统计状态数量信息。
+- true：需要返回；
+- false：不返回（默认false）。
      */
     function __construct()
     {
@@ -197,6 +201,10 @@ class DescribeAlarmNoticesRequest extends AbstractModel
 
         if (array_key_exists("Limit",$param) and $param["Limit"] !== null) {
             $this->Limit = $param["Limit"];
+        }
+
+        if (array_key_exists("HasAlarmShieldCount",$param) and $param["HasAlarmShieldCount"] !== null) {
+            $this->HasAlarmShieldCount = $param["HasAlarmShieldCount"];
         }
     }
 }

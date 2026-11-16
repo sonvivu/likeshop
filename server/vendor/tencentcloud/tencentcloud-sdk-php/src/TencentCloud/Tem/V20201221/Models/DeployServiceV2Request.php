@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -88,6 +88,18 @@ use TencentCloud\Common\AbstractModel;
  * @method void setSettingConfs(array $SettingConfs) 设置挂载配置信息
  * @method EksService getEksService() 获取eks 访问设置
  * @method void setEksService(EksService $EksService) 设置eks 访问设置
+ * @method string getVersionId() 获取要回滚到的历史版本id
+ * @method void setVersionId(string $VersionId) 设置要回滚到的历史版本id
+ * @method string getPostStart() 获取启动后执行的脚本
+ * @method void setPostStart(string $PostStart) 设置启动后执行的脚本
+ * @method string getPreStop() 获取停止前执行的脚本
+ * @method void setPreStop(string $PreStop) 设置停止前执行的脚本
+ * @method DeployStrategyConf getDeployStrategyConf() 获取分批发布策略配置
+ * @method void setDeployStrategyConf(DeployStrategyConf $DeployStrategyConf) 设置分批发布策略配置
+ * @method HealthCheckConfig getLiveness() 获取存活探针配置
+ * @method void setLiveness(HealthCheckConfig $Liveness) 设置存活探针配置
+ * @method HealthCheckConfig getReadiness() 获取就绪探针配置
+ * @method void setReadiness(HealthCheckConfig $Readiness) 设置就绪探针配置
  */
 class DeployServiceV2Request extends AbstractModel
 {
@@ -238,6 +250,36 @@ class DeployServiceV2Request extends AbstractModel
     public $EksService;
 
     /**
+     * @var string 要回滚到的历史版本id
+     */
+    public $VersionId;
+
+    /**
+     * @var string 启动后执行的脚本
+     */
+    public $PostStart;
+
+    /**
+     * @var string 停止前执行的脚本
+     */
+    public $PreStop;
+
+    /**
+     * @var DeployStrategyConf 分批发布策略配置
+     */
+    public $DeployStrategyConf;
+
+    /**
+     * @var HealthCheckConfig 存活探针配置
+     */
+    public $Liveness;
+
+    /**
+     * @var HealthCheckConfig 就绪探针配置
+     */
+    public $Readiness;
+
+    /**
      * @param string $ServiceId 服务ID
      * @param integer $ContainerPort 容器端口
      * @param integer $InitPodNum 初始化 pod 数
@@ -272,6 +314,12 @@ class DeployServiceV2Request extends AbstractModel
      * @param boolean $UseRegistryDefaultConfig 是否添加默认注册中心配置
      * @param array $SettingConfs 挂载配置信息
      * @param EksService $EksService eks 访问设置
+     * @param string $VersionId 要回滚到的历史版本id
+     * @param string $PostStart 启动后执行的脚本
+     * @param string $PreStop 停止前执行的脚本
+     * @param DeployStrategyConf $DeployStrategyConf 分批发布策略配置
+     * @param HealthCheckConfig $Liveness 存活探针配置
+     * @param HealthCheckConfig $Readiness 就绪探针配置
      */
     function __construct()
     {
@@ -424,6 +472,33 @@ class DeployServiceV2Request extends AbstractModel
         if (array_key_exists("EksService",$param) and $param["EksService"] !== null) {
             $this->EksService = new EksService();
             $this->EksService->deserialize($param["EksService"]);
+        }
+
+        if (array_key_exists("VersionId",$param) and $param["VersionId"] !== null) {
+            $this->VersionId = $param["VersionId"];
+        }
+
+        if (array_key_exists("PostStart",$param) and $param["PostStart"] !== null) {
+            $this->PostStart = $param["PostStart"];
+        }
+
+        if (array_key_exists("PreStop",$param) and $param["PreStop"] !== null) {
+            $this->PreStop = $param["PreStop"];
+        }
+
+        if (array_key_exists("DeployStrategyConf",$param) and $param["DeployStrategyConf"] !== null) {
+            $this->DeployStrategyConf = new DeployStrategyConf();
+            $this->DeployStrategyConf->deserialize($param["DeployStrategyConf"]);
+        }
+
+        if (array_key_exists("Liveness",$param) and $param["Liveness"] !== null) {
+            $this->Liveness = new HealthCheckConfig();
+            $this->Liveness->deserialize($param["Liveness"]);
+        }
+
+        if (array_key_exists("Readiness",$param) and $param["Readiness"] !== null) {
+            $this->Readiness = new HealthCheckConfig();
+            $this->Readiness->deserialize($param["Readiness"]);
         }
     }
 }

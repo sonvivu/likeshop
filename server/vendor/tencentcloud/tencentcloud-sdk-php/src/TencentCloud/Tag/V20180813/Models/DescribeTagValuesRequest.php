@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,42 +20,50 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeTagValues请求参数结构体
  *
- * @method array getTagKeys() 获取标签键列表
- * @method void setTagKeys(array $TagKeys) 设置标签键列表
- * @method integer getCreateUin() 获取创建者用户 Uin，不传或为空只将 Uin 作为条件查询
- * @method void setCreateUin(integer $CreateUin) 设置创建者用户 Uin，不传或为空只将 Uin 作为条件查询
- * @method integer getOffset() 获取数据偏移量，默认为 0, 必须为Limit参数的整数倍
- * @method void setOffset(integer $Offset) 设置数据偏移量，默认为 0, 必须为Limit参数的整数倍
- * @method integer getLimit() 获取每页大小，默认为 15
- * @method void setLimit(integer $Limit) 设置每页大小，默认为 15
+ * @method array getTagKeys() 获取<p>标签键列表</p>
+ * @method void setTagKeys(array $TagKeys) 设置<p>标签键列表</p>
+ * @method integer getCreateUin() 获取<p>创建者用户 Uin，不传或为空只将 Uin 作为条件查询</p>
+ * @method void setCreateUin(integer $CreateUin) 设置<p>创建者用户 Uin，不传或为空只将 Uin 作为条件查询</p>
+ * @method integer getOffset() 获取<p>数据偏移量，默认为 0, 必须为Limit参数的整数倍</p>
+ * @method void setOffset(integer $Offset) 设置<p>数据偏移量，默认为 0, 必须为Limit参数的整数倍</p>
+ * @method integer getLimit() 获取<p>每页大小，默认为 15，最大1000</p>
+ * @method void setLimit(integer $Limit) 设置<p>每页大小，默认为 15，最大1000</p>
+ * @method string getCategory() 获取<p>标签类型。取值： Custom：自定义标签。 System：系统标签。 All：全部标签。 默认值：All。</p>
+ * @method void setCategory(string $Category) 设置<p>标签类型。取值： Custom：自定义标签。 System：系统标签。 All：全部标签。 默认值：All。</p>
  */
 class DescribeTagValuesRequest extends AbstractModel
 {
     /**
-     * @var array 标签键列表
+     * @var array <p>标签键列表</p>
      */
     public $TagKeys;
 
     /**
-     * @var integer 创建者用户 Uin，不传或为空只将 Uin 作为条件查询
+     * @var integer <p>创建者用户 Uin，不传或为空只将 Uin 作为条件查询</p>
      */
     public $CreateUin;
 
     /**
-     * @var integer 数据偏移量，默认为 0, 必须为Limit参数的整数倍
+     * @var integer <p>数据偏移量，默认为 0, 必须为Limit参数的整数倍</p>
      */
     public $Offset;
 
     /**
-     * @var integer 每页大小，默认为 15
+     * @var integer <p>每页大小，默认为 15，最大1000</p>
      */
     public $Limit;
 
     /**
-     * @param array $TagKeys 标签键列表
-     * @param integer $CreateUin 创建者用户 Uin，不传或为空只将 Uin 作为条件查询
-     * @param integer $Offset 数据偏移量，默认为 0, 必须为Limit参数的整数倍
-     * @param integer $Limit 每页大小，默认为 15
+     * @var string <p>标签类型。取值： Custom：自定义标签。 System：系统标签。 All：全部标签。 默认值：All。</p>
+     */
+    public $Category;
+
+    /**
+     * @param array $TagKeys <p>标签键列表</p>
+     * @param integer $CreateUin <p>创建者用户 Uin，不传或为空只将 Uin 作为条件查询</p>
+     * @param integer $Offset <p>数据偏移量，默认为 0, 必须为Limit参数的整数倍</p>
+     * @param integer $Limit <p>每页大小，默认为 15，最大1000</p>
+     * @param string $Category <p>标签类型。取值： Custom：自定义标签。 System：系统标签。 All：全部标签。 默认值：All。</p>
      */
     function __construct()
     {
@@ -84,6 +92,10 @@ class DescribeTagValuesRequest extends AbstractModel
 
         if (array_key_exists("Limit",$param) and $param["Limit"] !== null) {
             $this->Limit = $param["Limit"];
+        }
+
+        if (array_key_exists("Category",$param) and $param["Category"] !== null) {
+            $this->Category = $param["Category"];
         }
     }
 }

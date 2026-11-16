@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,12 +18,14 @@ namespace TencentCloud\Ses\V20201002\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * 邮箱黑名单结构，包含被拉黑的邮箱地址和被拉黑时间
+ * 邮箱黑名单结构，包含被拉黑的邮箱地址和被拉黑时间，以及被拉黑的理由
  *
  * @method string getBounceTime() 获取邮箱被拉黑时间
  * @method void setBounceTime(string $BounceTime) 设置邮箱被拉黑时间
  * @method string getEmailAddress() 获取被拉黑的邮箱地址
  * @method void setEmailAddress(string $EmailAddress) 设置被拉黑的邮箱地址
+ * @method string getIspDesc() 获取被拉黑的理由
+ * @method void setIspDesc(string $IspDesc) 设置被拉黑的理由
  */
 class BlackEmailAddress extends AbstractModel
 {
@@ -38,8 +40,14 @@ class BlackEmailAddress extends AbstractModel
     public $EmailAddress;
 
     /**
+     * @var string 被拉黑的理由
+     */
+    public $IspDesc;
+
+    /**
      * @param string $BounceTime 邮箱被拉黑时间
      * @param string $EmailAddress 被拉黑的邮箱地址
+     * @param string $IspDesc 被拉黑的理由
      */
     function __construct()
     {
@@ -60,6 +68,10 @@ class BlackEmailAddress extends AbstractModel
 
         if (array_key_exists("EmailAddress",$param) and $param["EmailAddress"] !== null) {
             $this->EmailAddress = $param["EmailAddress"];
+        }
+
+        if (array_key_exists("IspDesc",$param) and $param["IspDesc"] !== null) {
+            $this->IspDesc = $param["IspDesc"];
         }
     }
 }

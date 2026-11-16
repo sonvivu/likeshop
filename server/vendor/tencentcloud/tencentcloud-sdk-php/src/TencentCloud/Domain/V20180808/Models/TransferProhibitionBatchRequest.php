@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,33 +21,37 @@ use TencentCloud\Common\AbstractModel;
  * TransferProhibitionBatch请求参数结构体
  *
  * @method array getDomains() 获取批量操作的域名。
+一次提交不大于4000个
  * @method void setDomains(array $Domains) 设置批量操作的域名。
+一次提交不大于4000个
  * @method boolean getStatus() 获取是否开启禁止域名转移。
-True: 开启禁止域名转移状态。
-False：关闭禁止域名转移状态。
+true: 开启禁止域名转移状态。
+false：关闭禁止域名转移状态。
  * @method void setStatus(boolean $Status) 设置是否开启禁止域名转移。
-True: 开启禁止域名转移状态。
-False：关闭禁止域名转移状态。
+true: 开启禁止域名转移状态。
+false：关闭禁止域名转移状态。
  */
 class TransferProhibitionBatchRequest extends AbstractModel
 {
     /**
      * @var array 批量操作的域名。
+一次提交不大于4000个
      */
     public $Domains;
 
     /**
      * @var boolean 是否开启禁止域名转移。
-True: 开启禁止域名转移状态。
-False：关闭禁止域名转移状态。
+true: 开启禁止域名转移状态。
+false：关闭禁止域名转移状态。
      */
     public $Status;
 
     /**
      * @param array $Domains 批量操作的域名。
+一次提交不大于4000个
      * @param boolean $Status 是否开启禁止域名转移。
-True: 开启禁止域名转移状态。
-False：关闭禁止域名转移状态。
+true: 开启禁止域名转移状态。
+false：关闭禁止域名转移状态。
      */
     function __construct()
     {

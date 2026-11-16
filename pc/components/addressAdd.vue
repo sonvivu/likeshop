@@ -2,7 +2,7 @@
   <div class="address-add">
     <el-dialog
       :title="aid ? $t('修改地址') : $t('添加地址')"
-      :visible.sync="showDialog"
+      v-model="showDialog"
       width="900px"
       @closed="onClosed"
     >
@@ -48,10 +48,12 @@
         </div>
       </el-form>
 
-      <div slot="footer" class="dialog-footer">
-        <el-button type="primary" @click="submitForm">{{ $t('保存地址') }}</el-button>
-        <el-button @click="showDialog = false">{{ $t('取消') }}</el-button>
-      </div>
+      <template #footer>
+        <div class="dialog-footer">
+          <el-button type="primary" @click="submitForm">{{ $t('保存地址') }}</el-button>
+          <el-button @click="showDialog = false">{{ $t('取消') }}</el-button>
+        </div>
+      </template>
     </el-dialog>
   </div>
 </template>
@@ -63,7 +65,7 @@ import regionData from "~/utils/area";
 export default {
   components: {},
   props: {
-    value: {
+    modelValue: {
       type: Boolean,
       default: false,
     },
@@ -156,7 +158,7 @@ export default {
     },
   },
   watch: {
-    value(val) {
+    modelValue(val) {
       this.showDialog = val;
     },
     showDialog(val) {
@@ -165,7 +167,7 @@ export default {
           this.getOneAddress();
         }
       }
-      this.$emit("input", val);
+      this.$emit("update:modelValue", val);
     },
     aid(val) {
       if (val) {

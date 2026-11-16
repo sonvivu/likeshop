@@ -22,7 +22,7 @@ use app\common\model\Ad;
 use app\common\model\GoodsBrand;
 use app\common\server\ConfigServer;
 use app\common\server\UrlServer;
-use think\Db;
+use think\facade\Db;
 
 class PcLogic{
     /**
@@ -58,7 +58,7 @@ class PcLogic{
             ->limit(10)
             ->select();
 
-        $ad_list = Db::name('ad a')
+        $ad_list = Db::name('ad')->alias('a')
             ->join('ad_position ap', 'a.pid = ap.id')
             ->where(['pid' =>[18,19,20,21],'a.status' => 1,'a.del' => 0,'ap.status' => 1,'ap.del' => 0])
             ->order('a.id desc')

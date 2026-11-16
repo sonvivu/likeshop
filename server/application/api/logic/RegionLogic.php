@@ -21,7 +21,7 @@
 namespace app\api\logic;
 
 
-use think\Db;
+use think\facade\Db;
 use think\facade\Cache;
 
 class RegionLogic

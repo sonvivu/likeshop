@@ -79,7 +79,7 @@ class PasswordCryptoService
         }
 
         $privateKey = Cache::get(self::CACHE_PREFIX . $keyId);
-        Cache::rm(self::CACHE_PREFIX . $keyId);
+        Cache::delete(self::CACHE_PREFIX . $keyId);
         if (!$privateKey) {
             throw new \RuntimeException(lang('密码加密密钥已失效，请刷新后重试'));
         }

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,25 +33,15 @@ use TencentCloud\Common\AbstractModel;
 <li>FrameTag：智能按帧标签</li>
 <li>Highlight：智能精彩集锦</li>
  * @method AiAnalysisTaskClassificationResult getClassificationTask() 获取视频内容分析智能分类任务的查询结果，当任务类型为 Classification 时有效。
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setClassificationTask(AiAnalysisTaskClassificationResult $ClassificationTask) 设置视频内容分析智能分类任务的查询结果，当任务类型为 Classification 时有效。
-注意：此字段可能返回 null，表示取不到有效值。
  * @method AiAnalysisTaskCoverResult getCoverTask() 获取视频内容分析智能封面任务的查询结果，当任务类型为 Cover 时有效。
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setCoverTask(AiAnalysisTaskCoverResult $CoverTask) 设置视频内容分析智能封面任务的查询结果，当任务类型为 Cover 时有效。
-注意：此字段可能返回 null，表示取不到有效值。
  * @method AiAnalysisTaskTagResult getTagTask() 获取视频内容分析智能标签任务的查询结果，当任务类型为 Tag 时有效。
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setTagTask(AiAnalysisTaskTagResult $TagTask) 设置视频内容分析智能标签任务的查询结果，当任务类型为 Tag 时有效。
-注意：此字段可能返回 null，表示取不到有效值。
  * @method AiAnalysisTaskFrameTagResult getFrameTagTask() 获取视频内容分析智能按帧标签任务的查询结果，当任务类型为 FrameTag 时有效。
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setFrameTagTask(AiAnalysisTaskFrameTagResult $FrameTagTask) 设置视频内容分析智能按帧标签任务的查询结果，当任务类型为 FrameTag 时有效。
-注意：此字段可能返回 null，表示取不到有效值。
  * @method AiAnalysisTaskHighlightResult getHighlightTask() 获取视频内容分析智能精彩集锦任务的查询结果，当任务类型为 Highlight 时有效。
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setHighlightTask(AiAnalysisTaskHighlightResult $HighlightTask) 设置视频内容分析智能精彩集锦任务的查询结果，当任务类型为 Highlight 时有效。
-注意：此字段可能返回 null，表示取不到有效值。
  */
 class AiAnalysisResult extends AbstractModel
 {
@@ -67,31 +57,26 @@ class AiAnalysisResult extends AbstractModel
 
     /**
      * @var AiAnalysisTaskClassificationResult 视频内容分析智能分类任务的查询结果，当任务类型为 Classification 时有效。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $ClassificationTask;
 
     /**
      * @var AiAnalysisTaskCoverResult 视频内容分析智能封面任务的查询结果，当任务类型为 Cover 时有效。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $CoverTask;
 
     /**
      * @var AiAnalysisTaskTagResult 视频内容分析智能标签任务的查询结果，当任务类型为 Tag 时有效。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $TagTask;
 
     /**
      * @var AiAnalysisTaskFrameTagResult 视频内容分析智能按帧标签任务的查询结果，当任务类型为 FrameTag 时有效。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $FrameTagTask;
 
     /**
      * @var AiAnalysisTaskHighlightResult 视频内容分析智能精彩集锦任务的查询结果，当任务类型为 Highlight 时有效。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $HighlightTask;
 
@@ -103,15 +88,10 @@ class AiAnalysisResult extends AbstractModel
 <li>FrameTag：智能按帧标签</li>
 <li>Highlight：智能精彩集锦</li>
      * @param AiAnalysisTaskClassificationResult $ClassificationTask 视频内容分析智能分类任务的查询结果，当任务类型为 Classification 时有效。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AiAnalysisTaskCoverResult $CoverTask 视频内容分析智能封面任务的查询结果，当任务类型为 Cover 时有效。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AiAnalysisTaskTagResult $TagTask 视频内容分析智能标签任务的查询结果，当任务类型为 Tag 时有效。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AiAnalysisTaskFrameTagResult $FrameTagTask 视频内容分析智能按帧标签任务的查询结果，当任务类型为 FrameTag 时有效。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AiAnalysisTaskHighlightResult $HighlightTask 视频内容分析智能精彩集锦任务的查询结果，当任务类型为 Highlight 时有效。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
     {

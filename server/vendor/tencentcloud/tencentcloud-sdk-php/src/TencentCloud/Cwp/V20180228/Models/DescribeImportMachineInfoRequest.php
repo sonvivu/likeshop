@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,17 +20,19 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeImportMachineInfo请求参数结构体
  *
- * @method array getMachineList() 获取服务器内网IP（默认）/ 服务器名称 / 服务器ID 数组
- * @method void setMachineList(array $MachineList) 设置服务器内网IP（默认）/ 服务器名称 / 服务器ID 数组
+ * @method array getMachineList() 获取服务器内网IP（默认）/ 服务器名称 / 服务器ID 数组 (最大 1000条)
+ * @method void setMachineList(array $MachineList) 设置服务器内网IP（默认）/ 服务器名称 / 服务器ID 数组 (最大 1000条)
  * @method string getImportType() 获取批量导入的数据类型：Ip、Name、Id 三选一
  * @method void setImportType(string $ImportType) 设置批量导入的数据类型：Ip、Name、Id 三选一
- * @method boolean getIsQueryProMachine() 获取是否仅支持专业版机器的查询（true：仅专业版   false：专业版+基础版）
- * @method void setIsQueryProMachine(boolean $IsQueryProMachine) 设置是否仅支持专业版机器的查询（true：仅专业版   false：专业版+基础版）
+ * @method boolean getIsQueryProMachine() 获取该参数已作废.
+ * @method void setIsQueryProMachine(boolean $IsQueryProMachine) 设置该参数已作废.
+ * @method array getFilters() 获取过滤条件：<li>Version - String  是否必填：否 - 当前防护版本（ PRO_VERSION：专业版 | BASIC_VERSION：基础版 | Flagship：旗舰版 | ProtectedMachines：专业版+旗舰版） | BASIC_PROPOST_GENERAL_DISCOUNT：轻量版+专业版按量计费+基础版主机 | UnFlagship：专业版预付费+专业版后付费+基础版+轻量版</li>
+ * @method void setFilters(array $Filters) 设置过滤条件：<li>Version - String  是否必填：否 - 当前防护版本（ PRO_VERSION：专业版 | BASIC_VERSION：基础版 | Flagship：旗舰版 | ProtectedMachines：专业版+旗舰版） | BASIC_PROPOST_GENERAL_DISCOUNT：轻量版+专业版按量计费+基础版主机 | UnFlagship：专业版预付费+专业版后付费+基础版+轻量版</li>
  */
 class DescribeImportMachineInfoRequest extends AbstractModel
 {
     /**
-     * @var array 服务器内网IP（默认）/ 服务器名称 / 服务器ID 数组
+     * @var array 服务器内网IP（默认）/ 服务器名称 / 服务器ID 数组 (最大 1000条)
      */
     public $MachineList;
 
@@ -40,14 +42,20 @@ class DescribeImportMachineInfoRequest extends AbstractModel
     public $ImportType;
 
     /**
-     * @var boolean 是否仅支持专业版机器的查询（true：仅专业版   false：专业版+基础版）
+     * @var boolean 该参数已作废.
      */
     public $IsQueryProMachine;
 
     /**
-     * @param array $MachineList 服务器内网IP（默认）/ 服务器名称 / 服务器ID 数组
+     * @var array 过滤条件：<li>Version - String  是否必填：否 - 当前防护版本（ PRO_VERSION：专业版 | BASIC_VERSION：基础版 | Flagship：旗舰版 | ProtectedMachines：专业版+旗舰版） | BASIC_PROPOST_GENERAL_DISCOUNT：轻量版+专业版按量计费+基础版主机 | UnFlagship：专业版预付费+专业版后付费+基础版+轻量版</li>
+     */
+    public $Filters;
+
+    /**
+     * @param array $MachineList 服务器内网IP（默认）/ 服务器名称 / 服务器ID 数组 (最大 1000条)
      * @param string $ImportType 批量导入的数据类型：Ip、Name、Id 三选一
-     * @param boolean $IsQueryProMachine 是否仅支持专业版机器的查询（true：仅专业版   false：专业版+基础版）
+     * @param boolean $IsQueryProMachine 该参数已作废.
+     * @param array $Filters 过滤条件：<li>Version - String  是否必填：否 - 当前防护版本（ PRO_VERSION：专业版 | BASIC_VERSION：基础版 | Flagship：旗舰版 | ProtectedMachines：专业版+旗舰版） | BASIC_PROPOST_GENERAL_DISCOUNT：轻量版+专业版按量计费+基础版主机 | UnFlagship：专业版预付费+专业版后付费+基础版+轻量版</li>
      */
     function __construct()
     {
@@ -72,6 +80,15 @@ class DescribeImportMachineInfoRequest extends AbstractModel
 
         if (array_key_exists("IsQueryProMachine",$param) and $param["IsQueryProMachine"] !== null) {
             $this->IsQueryProMachine = $param["IsQueryProMachine"];
+        }
+
+        if (array_key_exists("Filters",$param) and $param["Filters"] !== null) {
+            $this->Filters = [];
+            foreach ($param["Filters"] as $key => $value){
+                $obj = new Filters();
+                $obj->deserialize($value);
+                array_push($this->Filters, $obj);
+            }
         }
     }
 }

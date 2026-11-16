@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,26 +40,36 @@ use TencentCloud\Common\AbstractModel;
 相关协议文档：[事件消息通知](/document/product/267/32744)。
  * @method void setStreamEndNotifyUrl(string $StreamEndNotifyUrl) 设置断流回调 URL，
 相关协议文档：[事件消息通知](/document/product/267/32744)。
- * @method string getRecordNotifyUrl() 获取录制回调 URL，
+ * @method string getRecordNotifyUrl() 获取录制文件回调 URL，
 相关协议文档：[事件消息通知](/document/product/267/32744)。
- * @method void setRecordNotifyUrl(string $RecordNotifyUrl) 设置录制回调 URL，
+ * @method void setRecordNotifyUrl(string $RecordNotifyUrl) 设置录制文件回调 URL，
+相关协议文档：[事件消息通知](/document/product/267/32744)。
+ * @method string getRecordStatusNotifyUrl() 获取录制状态回调 URL ，
+相关协议文档：[事件消息通知](/document/product/267/32744)。
+ * @method void setRecordStatusNotifyUrl(string $RecordStatusNotifyUrl) 设置录制状态回调 URL ，
 相关协议文档：[事件消息通知](/document/product/267/32744)。
  * @method string getSnapshotNotifyUrl() 获取截图回调 URL，
 相关协议文档：[事件消息通知](/document/product/267/32744)。
  * @method void setSnapshotNotifyUrl(string $SnapshotNotifyUrl) 设置截图回调 URL，
 相关协议文档：[事件消息通知](/document/product/267/32744)。
- * @method string getPornCensorshipNotifyUrl() 获取鉴黄回调 URL，
+ * @method string getPornCensorshipNotifyUrl() 获取鉴黄回调 URL ，
 相关协议文档：[事件消息通知](/document/product/267/32741)。
- * @method void setPornCensorshipNotifyUrl(string $PornCensorshipNotifyUrl) 设置鉴黄回调 URL，
+ * @method void setPornCensorshipNotifyUrl(string $PornCensorshipNotifyUrl) 设置鉴黄回调 URL ，
 相关协议文档：[事件消息通知](/document/product/267/32741)。
  * @method string getCallbackKey() 获取回调 Key，回调 URL 公用，回调签名详见事件消息通知文档。
 [事件消息通知](/document/product/267/32744)。
  * @method void setCallbackKey(string $CallbackKey) 设置回调 Key，回调 URL 公用，回调签名详见事件消息通知文档。
 [事件消息通知](/document/product/267/32744)。
- * @method string getStreamMixNotifyUrl() 获取混流回调 URL，
-相关协议文档：[事件消息通知](/document/product/267/32744)。
- * @method void setStreamMixNotifyUrl(string $StreamMixNotifyUrl) 设置混流回调 URL，
-相关协议文档：[事件消息通知](/document/product/267/32744)。
+ * @method string getStreamMixNotifyUrl() 获取参数已弃用。
+ * @method void setStreamMixNotifyUrl(string $StreamMixNotifyUrl) 设置参数已弃用。
+ * @method string getPushExceptionNotifyUrl() 获取推流异常回调 URL。
+ * @method void setPushExceptionNotifyUrl(string $PushExceptionNotifyUrl) 设置推流异常回调 URL。
+ * @method string getAudioAuditNotifyUrl() 获取音频审核回调 URL。
+ * @method void setAudioAuditNotifyUrl(string $AudioAuditNotifyUrl) 设置音频审核回调 URL。
+ * @method string getRecordExceptionNotifyUrl() 获取录制异常回调 URL。
+ * @method void setRecordExceptionNotifyUrl(string $RecordExceptionNotifyUrl) 设置录制异常回调 URL。
+ * @method array getRecordExceptionLevels() 获取录制异常回调级别，可选择：error、warning、info。
+ * @method void setRecordExceptionLevels(array $RecordExceptionLevels) 设置录制异常回调级别，可选择：error、warning、info。
  */
 class CreateLiveCallbackTemplateRequest extends AbstractModel
 {
@@ -90,10 +100,16 @@ class CreateLiveCallbackTemplateRequest extends AbstractModel
     public $StreamEndNotifyUrl;
 
     /**
-     * @var string 录制回调 URL，
+     * @var string 录制文件回调 URL，
 相关协议文档：[事件消息通知](/document/product/267/32744)。
      */
     public $RecordNotifyUrl;
+
+    /**
+     * @var string 录制状态回调 URL ，
+相关协议文档：[事件消息通知](/document/product/267/32744)。
+     */
+    public $RecordStatusNotifyUrl;
 
     /**
      * @var string 截图回调 URL，
@@ -102,7 +118,7 @@ class CreateLiveCallbackTemplateRequest extends AbstractModel
     public $SnapshotNotifyUrl;
 
     /**
-     * @var string 鉴黄回调 URL，
+     * @var string 鉴黄回调 URL ，
 相关协议文档：[事件消息通知](/document/product/267/32741)。
      */
     public $PornCensorshipNotifyUrl;
@@ -114,10 +130,29 @@ class CreateLiveCallbackTemplateRequest extends AbstractModel
     public $CallbackKey;
 
     /**
-     * @var string 混流回调 URL，
-相关协议文档：[事件消息通知](/document/product/267/32744)。
+     * @var string 参数已弃用。
      */
     public $StreamMixNotifyUrl;
+
+    /**
+     * @var string 推流异常回调 URL。
+     */
+    public $PushExceptionNotifyUrl;
+
+    /**
+     * @var string 音频审核回调 URL。
+     */
+    public $AudioAuditNotifyUrl;
+
+    /**
+     * @var string 录制异常回调 URL。
+     */
+    public $RecordExceptionNotifyUrl;
+
+    /**
+     * @var array 录制异常回调级别，可选择：error、warning、info。
+     */
+    public $RecordExceptionLevels;
 
     /**
      * @param string $TemplateName 模板名称。
@@ -130,16 +165,21 @@ class CreateLiveCallbackTemplateRequest extends AbstractModel
 相关协议文档：[事件消息通知](/document/product/267/32744)。
      * @param string $StreamEndNotifyUrl 断流回调 URL，
 相关协议文档：[事件消息通知](/document/product/267/32744)。
-     * @param string $RecordNotifyUrl 录制回调 URL，
+     * @param string $RecordNotifyUrl 录制文件回调 URL，
+相关协议文档：[事件消息通知](/document/product/267/32744)。
+     * @param string $RecordStatusNotifyUrl 录制状态回调 URL ，
 相关协议文档：[事件消息通知](/document/product/267/32744)。
      * @param string $SnapshotNotifyUrl 截图回调 URL，
 相关协议文档：[事件消息通知](/document/product/267/32744)。
-     * @param string $PornCensorshipNotifyUrl 鉴黄回调 URL，
+     * @param string $PornCensorshipNotifyUrl 鉴黄回调 URL ，
 相关协议文档：[事件消息通知](/document/product/267/32741)。
      * @param string $CallbackKey 回调 Key，回调 URL 公用，回调签名详见事件消息通知文档。
 [事件消息通知](/document/product/267/32744)。
-     * @param string $StreamMixNotifyUrl 混流回调 URL，
-相关协议文档：[事件消息通知](/document/product/267/32744)。
+     * @param string $StreamMixNotifyUrl 参数已弃用。
+     * @param string $PushExceptionNotifyUrl 推流异常回调 URL。
+     * @param string $AudioAuditNotifyUrl 音频审核回调 URL。
+     * @param string $RecordExceptionNotifyUrl 录制异常回调 URL。
+     * @param array $RecordExceptionLevels 录制异常回调级别，可选择：error、warning、info。
      */
     function __construct()
     {
@@ -174,6 +214,10 @@ class CreateLiveCallbackTemplateRequest extends AbstractModel
             $this->RecordNotifyUrl = $param["RecordNotifyUrl"];
         }
 
+        if (array_key_exists("RecordStatusNotifyUrl",$param) and $param["RecordStatusNotifyUrl"] !== null) {
+            $this->RecordStatusNotifyUrl = $param["RecordStatusNotifyUrl"];
+        }
+
         if (array_key_exists("SnapshotNotifyUrl",$param) and $param["SnapshotNotifyUrl"] !== null) {
             $this->SnapshotNotifyUrl = $param["SnapshotNotifyUrl"];
         }
@@ -188,6 +232,22 @@ class CreateLiveCallbackTemplateRequest extends AbstractModel
 
         if (array_key_exists("StreamMixNotifyUrl",$param) and $param["StreamMixNotifyUrl"] !== null) {
             $this->StreamMixNotifyUrl = $param["StreamMixNotifyUrl"];
+        }
+
+        if (array_key_exists("PushExceptionNotifyUrl",$param) and $param["PushExceptionNotifyUrl"] !== null) {
+            $this->PushExceptionNotifyUrl = $param["PushExceptionNotifyUrl"];
+        }
+
+        if (array_key_exists("AudioAuditNotifyUrl",$param) and $param["AudioAuditNotifyUrl"] !== null) {
+            $this->AudioAuditNotifyUrl = $param["AudioAuditNotifyUrl"];
+        }
+
+        if (array_key_exists("RecordExceptionNotifyUrl",$param) and $param["RecordExceptionNotifyUrl"] !== null) {
+            $this->RecordExceptionNotifyUrl = $param["RecordExceptionNotifyUrl"];
+        }
+
+        if (array_key_exists("RecordExceptionLevels",$param) and $param["RecordExceptionLevels"] !== null) {
+            $this->RecordExceptionLevels = $param["RecordExceptionLevels"];
         }
     }
 }

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,12 +29,10 @@ use TencentCloud\Common\AbstractModel;
 10195   互动直播-边缘机房
 
 cdn业务：
-10180：CDN静态加速流量(国内)
-10181：CDN静态加速带宽(国内)
-10182：CDN静态加速普通流量
-10183：CDN静态加速普通带宽
-10231：CDN静态加速流量(海外)
-10232：CDN静态加速带宽(海外)
+102383：CDN静态加速流量(国内)
+102384：CDN静态加速带宽(国内)
+102385：CDN静态加速流量(海外)
+102386：CDN静态加速带宽(海外)
 
 100967：弹性公网IP-按流量计费
 101065：公网负载均衡-按流量计费
@@ -44,17 +42,17 @@ cdn业务：
 10227 视频直播带宽(国内)
 100763 视频直播流量(海外)
 100762 视频直播宽带(海外)
+
+仅支持以上产品
  * @method void setProductCode(string $ProductCode) 设置互动直播：
 10194   互动直播-核心机房           :
 10195   互动直播-边缘机房
 
 cdn业务：
-10180：CDN静态加速流量(国内)
-10181：CDN静态加速带宽(国内)
-10182：CDN静态加速普通流量
-10183：CDN静态加速普通带宽
-10231：CDN静态加速流量(海外)
-10232：CDN静态加速带宽(海外)
+102383：CDN静态加速流量(国内)
+102384：CDN静态加速带宽(国内)
+102385：CDN静态加速流量(海外)
+102386：CDN静态加速带宽(海外)
 
 100967：弹性公网IP-按流量计费
 101065：公网负载均衡-按流量计费
@@ -64,14 +62,18 @@ cdn业务：
 10227 视频直播带宽(国内)
 100763 视频直播流量(海外)
 100762 视频直播宽带(海外)
+
+仅支持以上产品
  * @method string getDomain() 获取查询域名 例如 www.qq.com
-非CDN业务查询时值为空
+非CDN业务查询时传入空字符串，返回的值为空
  * @method void setDomain(string $Domain) 设置查询域名 例如 www.qq.com
-非CDN业务查询时值为空
+非CDN业务查询时传入空字符串，返回的值为空
  * @method string getInstanceID() 获取1、如果为空，则返回EIP或CLB所有实例的明细；
 2、如果传入实例名，则返回该实例明细
  * @method void setInstanceID(string $InstanceID) 设置1、如果为空，则返回EIP或CLB所有实例的明细；
 2、如果传入实例名，则返回该实例明细
+ * @method string getPayerUin() 获取支付者的账号 ID（账号 ID 是用户在腾讯云的唯一账号标识），默认查询本账号账单，如集团管理账号需查询成员账号自付的账单，该字段需入参成员账号UIN
+ * @method void setPayerUin(string $PayerUin) 设置支付者的账号 ID（账号 ID 是用户在腾讯云的唯一账号标识），默认查询本账号账单，如集团管理账号需查询成员账号自付的账单，该字段需入参成员账号UIN
  */
 class DescribeDosageDetailByDateRequest extends AbstractModel
 {
@@ -91,12 +93,10 @@ class DescribeDosageDetailByDateRequest extends AbstractModel
 10195   互动直播-边缘机房
 
 cdn业务：
-10180：CDN静态加速流量(国内)
-10181：CDN静态加速带宽(国内)
-10182：CDN静态加速普通流量
-10183：CDN静态加速普通带宽
-10231：CDN静态加速流量(海外)
-10232：CDN静态加速带宽(海外)
+102383：CDN静态加速流量(国内)
+102384：CDN静态加速带宽(国内)
+102385：CDN静态加速流量(海外)
+102386：CDN静态加速带宽(海外)
 
 100967：弹性公网IP-按流量计费
 101065：公网负载均衡-按流量计费
@@ -106,12 +106,14 @@ cdn业务：
 10227 视频直播带宽(国内)
 100763 视频直播流量(海外)
 100762 视频直播宽带(海外)
+
+仅支持以上产品
      */
     public $ProductCode;
 
     /**
      * @var string 查询域名 例如 www.qq.com
-非CDN业务查询时值为空
+非CDN业务查询时传入空字符串，返回的值为空
      */
     public $Domain;
 
@@ -122,6 +124,11 @@ cdn业务：
     public $InstanceID;
 
     /**
+     * @var string 支付者的账号 ID（账号 ID 是用户在腾讯云的唯一账号标识），默认查询本账号账单，如集团管理账号需查询成员账号自付的账单，该字段需入参成员账号UIN
+     */
+    public $PayerUin;
+
+    /**
      * @param string $StartDate 查询账单开始日期，如 2019-01-01
      * @param string $EndDate 查询账单结束日期，如 2019-01-01， 时间跨度不超过7天
      * @param string $ProductCode 互动直播：
@@ -129,12 +136,10 @@ cdn业务：
 10195   互动直播-边缘机房
 
 cdn业务：
-10180：CDN静态加速流量(国内)
-10181：CDN静态加速带宽(国内)
-10182：CDN静态加速普通流量
-10183：CDN静态加速普通带宽
-10231：CDN静态加速流量(海外)
-10232：CDN静态加速带宽(海外)
+102383：CDN静态加速流量(国内)
+102384：CDN静态加速带宽(国内)
+102385：CDN静态加速流量(海外)
+102386：CDN静态加速带宽(海外)
 
 100967：弹性公网IP-按流量计费
 101065：公网负载均衡-按流量计费
@@ -144,10 +149,13 @@ cdn业务：
 10227 视频直播带宽(国内)
 100763 视频直播流量(海外)
 100762 视频直播宽带(海外)
+
+仅支持以上产品
      * @param string $Domain 查询域名 例如 www.qq.com
-非CDN业务查询时值为空
+非CDN业务查询时传入空字符串，返回的值为空
      * @param string $InstanceID 1、如果为空，则返回EIP或CLB所有实例的明细；
 2、如果传入实例名，则返回该实例明细
+     * @param string $PayerUin 支付者的账号 ID（账号 ID 是用户在腾讯云的唯一账号标识），默认查询本账号账单，如集团管理账号需查询成员账号自付的账单，该字段需入参成员账号UIN
      */
     function __construct()
     {
@@ -180,6 +188,10 @@ cdn业务：
 
         if (array_key_exists("InstanceID",$param) and $param["InstanceID"] !== null) {
             $this->InstanceID = $param["InstanceID"];
+        }
+
+        if (array_key_exists("PayerUin",$param) and $param["PayerUin"] !== null) {
+            $this->PayerUin = $param["PayerUin"];
         }
     }
 }

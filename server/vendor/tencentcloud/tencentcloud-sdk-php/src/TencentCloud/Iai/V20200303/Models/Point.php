@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,26 +20,26 @@ use TencentCloud\Common\AbstractModel;
 /**
  * 坐标
  *
- * @method integer getX() 获取x坐标
- * @method void setX(integer $X) 设置x坐标
- * @method integer getY() 获取Y坐标
- * @method void setY(integer $Y) 设置Y坐标
+ * @method integer getX() 获取x坐标。
+ * @method void setX(integer $X) 设置x坐标。
+ * @method integer getY() 获取Y坐标。
+ * @method void setY(integer $Y) 设置Y坐标。
  */
 class Point extends AbstractModel
 {
     /**
-     * @var integer x坐标
+     * @var integer x坐标。
      */
     public $X;
 
     /**
-     * @var integer Y坐标
+     * @var integer Y坐标。
      */
     public $Y;
 
     /**
-     * @param integer $X x坐标
-     * @param integer $Y Y坐标
+     * @param integer $X x坐标。
+     * @param integer $Y Y坐标。
      */
     function __construct()
     {

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,106 +20,98 @@ use TencentCloud\Common\AbstractModel;
 /**
  * 企业安全组关联实例信息
  *
- * @method string getInstanceId() 获取实例ID
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setInstanceId(string $InstanceId) 设置实例ID
-注意：此字段可能返回 null，表示取不到有效值。
- * @method string getInstanceName() 获取实例名称
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setInstanceName(string $InstanceName) 设置实例名称
-注意：此字段可能返回 null，表示取不到有效值。
- * @method integer getType() 获取实例类型，3是cvm实例,4是clb实例,5是eni实例,6是云数据库
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setType(integer $Type) 设置实例类型，3是cvm实例,4是clb实例,5是eni实例,6是云数据库
-注意：此字段可能返回 null，表示取不到有效值。
- * @method string getVpcId() 获取私有网络ID
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setVpcId(string $VpcId) 设置私有网络ID
-注意：此字段可能返回 null，表示取不到有效值。
- * @method string getVpcName() 获取私有网络名称
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setVpcName(string $VpcName) 设置私有网络名称
-注意：此字段可能返回 null，表示取不到有效值。
- * @method string getPublicIp() 获取公网IP
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setPublicIp(string $PublicIp) 设置公网IP
-注意：此字段可能返回 null，表示取不到有效值。
- * @method string getIp() 获取内网IP
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setIp(string $Ip) 设置内网IP
-注意：此字段可能返回 null，表示取不到有效值。
- * @method integer getSecurityGroupCount() 获取关联安全组数量
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setSecurityGroupCount(integer $SecurityGroupCount) 设置关联安全组数量
-注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getInstanceId() 获取<p>实例ID</p>
+ * @method void setInstanceId(string $InstanceId) 设置<p>实例ID</p>
+ * @method string getInstanceName() 获取<p>实例名称</p>
+ * @method void setInstanceName(string $InstanceName) 设置<p>实例名称</p>
+ * @method integer getType() 获取<p>实例类型，3是cvm实例,4是clb实例,5是eni实例,6是云数据库</p>
+ * @method void setType(integer $Type) 设置<p>实例类型，3是cvm实例,4是clb实例,5是eni实例,6是云数据库</p>
+ * @method string getVpcId() 获取<p>私有网络ID</p>
+ * @method void setVpcId(string $VpcId) 设置<p>私有网络ID</p>
+ * @method string getVpcName() 获取<p>私有网络名称</p>
+ * @method void setVpcName(string $VpcName) 设置<p>私有网络名称</p>
+ * @method string getPublicIp() 获取<p>公网IP</p>
+ * @method void setPublicIp(string $PublicIp) 设置<p>公网IP</p>
+ * @method string getIp() 获取<p>内网IP</p>
+ * @method void setIp(string $Ip) 设置<p>内网IP</p>
+ * @method integer getSecurityGroupCount() 获取<p>关联安全组数量</p>
+ * @method void setSecurityGroupCount(integer $SecurityGroupCount) 设置<p>关联安全组数量</p>
+ * @method integer getSecurityGroupRuleCount() 获取<p>关联安全组规则数量</p>
+ * @method void setSecurityGroupRuleCount(integer $SecurityGroupRuleCount) 设置<p>关联安全组规则数量</p>
+ * @method string getCdbId() 获取<p>关联数据库代理Id</p>
+ * @method void setCdbId(string $CdbId) 设置<p>关联数据库代理Id</p>
+ * @method string getTkeClusterId() 获取<p>容器服务集群ID</p>
+ * @method void setTkeClusterId(string $TkeClusterId) 设置<p>容器服务集群ID</p>
  */
 class AssociatedInstanceInfo extends AbstractModel
 {
     /**
-     * @var string 实例ID
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string <p>实例ID</p>
      */
     public $InstanceId;
 
     /**
-     * @var string 实例名称
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string <p>实例名称</p>
      */
     public $InstanceName;
 
     /**
-     * @var integer 实例类型，3是cvm实例,4是clb实例,5是eni实例,6是云数据库
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var integer <p>实例类型，3是cvm实例,4是clb实例,5是eni实例,6是云数据库</p>
      */
     public $Type;
 
     /**
-     * @var string 私有网络ID
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string <p>私有网络ID</p>
      */
     public $VpcId;
 
     /**
-     * @var string 私有网络名称
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string <p>私有网络名称</p>
      */
     public $VpcName;
 
     /**
-     * @var string 公网IP
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string <p>公网IP</p>
      */
     public $PublicIp;
 
     /**
-     * @var string 内网IP
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string <p>内网IP</p>
      */
     public $Ip;
 
     /**
-     * @var integer 关联安全组数量
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var integer <p>关联安全组数量</p>
      */
     public $SecurityGroupCount;
 
     /**
-     * @param string $InstanceId 实例ID
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $InstanceName 实例名称
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param integer $Type 实例类型，3是cvm实例,4是clb实例,5是eni实例,6是云数据库
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $VpcId 私有网络ID
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $VpcName 私有网络名称
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $PublicIp 公网IP
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $Ip 内网IP
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param integer $SecurityGroupCount 关联安全组数量
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var integer <p>关联安全组规则数量</p>
+     */
+    public $SecurityGroupRuleCount;
+
+    /**
+     * @var string <p>关联数据库代理Id</p>
+     */
+    public $CdbId;
+
+    /**
+     * @var string <p>容器服务集群ID</p>
+     */
+    public $TkeClusterId;
+
+    /**
+     * @param string $InstanceId <p>实例ID</p>
+     * @param string $InstanceName <p>实例名称</p>
+     * @param integer $Type <p>实例类型，3是cvm实例,4是clb实例,5是eni实例,6是云数据库</p>
+     * @param string $VpcId <p>私有网络ID</p>
+     * @param string $VpcName <p>私有网络名称</p>
+     * @param string $PublicIp <p>公网IP</p>
+     * @param string $Ip <p>内网IP</p>
+     * @param integer $SecurityGroupCount <p>关联安全组数量</p>
+     * @param integer $SecurityGroupRuleCount <p>关联安全组规则数量</p>
+     * @param string $CdbId <p>关联数据库代理Id</p>
+     * @param string $TkeClusterId <p>容器服务集群ID</p>
      */
     function __construct()
     {
@@ -164,6 +156,18 @@ class AssociatedInstanceInfo extends AbstractModel
 
         if (array_key_exists("SecurityGroupCount",$param) and $param["SecurityGroupCount"] !== null) {
             $this->SecurityGroupCount = $param["SecurityGroupCount"];
+        }
+
+        if (array_key_exists("SecurityGroupRuleCount",$param) and $param["SecurityGroupRuleCount"] !== null) {
+            $this->SecurityGroupRuleCount = $param["SecurityGroupRuleCount"];
+        }
+
+        if (array_key_exists("CdbId",$param) and $param["CdbId"] !== null) {
+            $this->CdbId = $param["CdbId"];
+        }
+
+        if (array_key_exists("TkeClusterId",$param) and $param["TkeClusterId"] !== null) {
+            $this->TkeClusterId = $param["TkeClusterId"];
         }
     }
 }

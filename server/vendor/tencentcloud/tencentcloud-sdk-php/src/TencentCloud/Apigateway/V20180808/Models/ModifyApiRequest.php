@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,8 +40,8 @@ use TencentCloud\Common\AbstractModel;
  * @method void setAuthRequired(boolean $AuthRequired) 设置是否需要签名认证，True 表示需要，False 表示不需要。待废弃。
  * @method integer getServiceTimeout() 获取API 的后端服务超时时间，单位是秒。
  * @method void setServiceTimeout(integer $ServiceTimeout) 设置API 的后端服务超时时间，单位是秒。
- * @method string getProtocol() 获取API 的前端请求类型，如 HTTP 或 HTTPS 或者 HTTP 和 HTTPS。
- * @method void setProtocol(string $Protocol) 设置API 的前端请求类型，如 HTTP 或 HTTPS 或者 HTTP 和 HTTPS。
+ * @method string getProtocol() 获取API 的前端请求类型，如 HTTP 或 HTTPS 或者 HTTP 和 HTTPS。修改api时推荐必填
+ * @method void setProtocol(string $Protocol) 设置API 的前端请求类型，如 HTTP 或 HTTPS 或者 HTTP 和 HTTPS。修改api时推荐必填
  * @method boolean getEnableCORS() 获取是否需要开启跨域，Ture 表示需要，False 表示不需要。
  * @method void setEnableCORS(boolean $EnableCORS) 设置是否需要开启跨域，Ture 表示需要，False 表示不需要。
  * @method array getConstantParameters() 获取常量参数。
@@ -52,8 +52,8 @@ use TencentCloud\Common\AbstractModel;
  * @method void setApiBusinessType(string $ApiBusinessType) 设置当AuthType 为 OAUTH时，该字段有效， NORMAL：业务api   OAUTH：授权API。
  * @method string getServiceMockReturnMessage() 获取API 的后端 Mock 返回信息。如果 ServiceType 是 Mock，则此参数必传。
  * @method void setServiceMockReturnMessage(string $ServiceMockReturnMessage) 设置API 的后端 Mock 返回信息。如果 ServiceType 是 Mock，则此参数必传。
- * @method array getMicroServices() 获取API绑定微服务服务列表。
- * @method void setMicroServices(array $MicroServices) 设置API绑定微服务服务列表。
+ * @method array getMicroServices() 获取API绑定微服务列表。
+ * @method void setMicroServices(array $MicroServices) 设置API绑定微服务列表。
  * @method TsfLoadBalanceConfResp getServiceTsfLoadBalanceConf() 获取微服务的负载均衡配置。
  * @method void setServiceTsfLoadBalanceConf(TsfLoadBalanceConfResp $ServiceTsfLoadBalanceConf) 设置微服务的负载均衡配置。
  * @method HealthCheckConf getServiceTsfHealthCheckConf() 获取微服务的健康检查配置。
@@ -116,6 +116,20 @@ use TencentCloud\Common\AbstractModel;
  * @method void setIsBase64Trigger(boolean $IsBase64Trigger) 设置是否开启Base64编码的header触发，只有后端为scf时才会生效。
  * @method array getBase64EncodedTriggerRules() 获取Header触发规则，总规则数不能超过10。
  * @method void setBase64EncodedTriggerRules(array $Base64EncodedTriggerRules) 设置Header触发规则，总规则数不能超过10。
+ * @method string getEventBusId() 获取事件总线ID。
+ * @method void setEventBusId(string $EventBusId) 设置事件总线ID。
+ * @method string getServiceScfFunctionType() 获取scf函数类型。当后端类型是SCF时生效。支持事件触发(EVENT)，http直通云函数(HTTP)。
+ * @method void setServiceScfFunctionType(string $ServiceScfFunctionType) 设置scf函数类型。当后端类型是SCF时生效。支持事件触发(EVENT)，http直通云函数(HTTP)。
+ * @method boolean getServiceScfEventIsAsyncCall() 获取是否开启SCF Event异步调用。
+ * @method void setServiceScfEventIsAsyncCall(boolean $ServiceScfEventIsAsyncCall) 设置是否开启SCF Event异步调用。
+ * @method string getEIAMAppType() 获取EIAM应用类型。
+ * @method void setEIAMAppType(string $EIAMAppType) 设置EIAM应用类型。
+ * @method string getEIAMAuthType() 获取EIAM应用认证类型，支持仅认证（AuthenticationOnly）、认证和鉴权（Authorization）。
+ * @method void setEIAMAuthType(string $EIAMAuthType) 设置EIAM应用认证类型，支持仅认证（AuthenticationOnly）、认证和鉴权（Authorization）。
+ * @method string getEIAMAppId() 获取EIAM应用Token 有效时间，单位为秒，默认为7200秒。
+ * @method void setEIAMAppId(string $EIAMAppId) 设置EIAM应用Token 有效时间，单位为秒，默认为7200秒。
+ * @method integer getTokenTimeout() 获取EIAM应用ID。
+ * @method void setTokenTimeout(integer $TokenTimeout) 设置EIAM应用ID。
  */
 class ModifyApiRequest extends AbstractModel
 {
@@ -170,7 +184,7 @@ class ModifyApiRequest extends AbstractModel
     public $ServiceTimeout;
 
     /**
-     * @var string API 的前端请求类型，如 HTTP 或 HTTPS 或者 HTTP 和 HTTPS。
+     * @var string API 的前端请求类型，如 HTTP 或 HTTPS 或者 HTTP 和 HTTPS。修改api时推荐必填
      */
     public $Protocol;
 
@@ -200,7 +214,7 @@ class ModifyApiRequest extends AbstractModel
     public $ServiceMockReturnMessage;
 
     /**
-     * @var array API绑定微服务服务列表。
+     * @var array API绑定微服务列表。
      */
     public $MicroServices;
 
@@ -360,6 +374,41 @@ class ModifyApiRequest extends AbstractModel
     public $Base64EncodedTriggerRules;
 
     /**
+     * @var string 事件总线ID。
+     */
+    public $EventBusId;
+
+    /**
+     * @var string scf函数类型。当后端类型是SCF时生效。支持事件触发(EVENT)，http直通云函数(HTTP)。
+     */
+    public $ServiceScfFunctionType;
+
+    /**
+     * @var boolean 是否开启SCF Event异步调用。
+     */
+    public $ServiceScfEventIsAsyncCall;
+
+    /**
+     * @var string EIAM应用类型。
+     */
+    public $EIAMAppType;
+
+    /**
+     * @var string EIAM应用认证类型，支持仅认证（AuthenticationOnly）、认证和鉴权（Authorization）。
+     */
+    public $EIAMAuthType;
+
+    /**
+     * @var string EIAM应用Token 有效时间，单位为秒，默认为7200秒。
+     */
+    public $EIAMAppId;
+
+    /**
+     * @var integer EIAM应用ID。
+     */
+    public $TokenTimeout;
+
+    /**
      * @param string $ServiceId API 所在的服务唯一 ID。
      * @param string $ServiceType API 的后端服务类型。支持HTTP、MOCK、TSF、CLB、SCF、WEBSOCKET、TARGET（内测）。
      * @param RequestConfig $RequestConfig 请求的前端配置。
@@ -370,13 +419,13 @@ class ModifyApiRequest extends AbstractModel
      * @param string $AuthType API 鉴权类型。支持SECRET、NONE、OAUTH、APP。默认为NONE。
      * @param boolean $AuthRequired 是否需要签名认证，True 表示需要，False 表示不需要。待废弃。
      * @param integer $ServiceTimeout API 的后端服务超时时间，单位是秒。
-     * @param string $Protocol API 的前端请求类型，如 HTTP 或 HTTPS 或者 HTTP 和 HTTPS。
+     * @param string $Protocol API 的前端请求类型，如 HTTP 或 HTTPS 或者 HTTP 和 HTTPS。修改api时推荐必填
      * @param boolean $EnableCORS 是否需要开启跨域，Ture 表示需要，False 表示不需要。
      * @param array $ConstantParameters 常量参数。
      * @param array $RequestParameters 前端请求参数。
      * @param string $ApiBusinessType 当AuthType 为 OAUTH时，该字段有效， NORMAL：业务api   OAUTH：授权API。
      * @param string $ServiceMockReturnMessage API 的后端 Mock 返回信息。如果 ServiceType 是 Mock，则此参数必传。
-     * @param array $MicroServices API绑定微服务服务列表。
+     * @param array $MicroServices API绑定微服务列表。
      * @param TsfLoadBalanceConfResp $ServiceTsfLoadBalanceConf 微服务的负载均衡配置。
      * @param HealthCheckConf $ServiceTsfHealthCheckConf 微服务的健康检查配置。
      * @param integer $TargetServicesLoadBalanceConf target类型负载均衡配置。（内测阶段）
@@ -408,6 +457,13 @@ class ModifyApiRequest extends AbstractModel
      * @param boolean $IsBase64Encoded 是否开启Base64编码，只有后端为scf时才会生效。
      * @param boolean $IsBase64Trigger 是否开启Base64编码的header触发，只有后端为scf时才会生效。
      * @param array $Base64EncodedTriggerRules Header触发规则，总规则数不能超过10。
+     * @param string $EventBusId 事件总线ID。
+     * @param string $ServiceScfFunctionType scf函数类型。当后端类型是SCF时生效。支持事件触发(EVENT)，http直通云函数(HTTP)。
+     * @param boolean $ServiceScfEventIsAsyncCall 是否开启SCF Event异步调用。
+     * @param string $EIAMAppType EIAM应用类型。
+     * @param string $EIAMAuthType EIAM应用认证类型，支持仅认证（AuthenticationOnly）、认证和鉴权（Authorization）。
+     * @param string $EIAMAppId EIAM应用Token 有效时间，单位为秒，默认为7200秒。
+     * @param integer $TokenTimeout EIAM应用ID。
      */
     function __construct()
     {
@@ -649,6 +705,34 @@ class ModifyApiRequest extends AbstractModel
                 $obj->deserialize($value);
                 array_push($this->Base64EncodedTriggerRules, $obj);
             }
+        }
+
+        if (array_key_exists("EventBusId",$param) and $param["EventBusId"] !== null) {
+            $this->EventBusId = $param["EventBusId"];
+        }
+
+        if (array_key_exists("ServiceScfFunctionType",$param) and $param["ServiceScfFunctionType"] !== null) {
+            $this->ServiceScfFunctionType = $param["ServiceScfFunctionType"];
+        }
+
+        if (array_key_exists("ServiceScfEventIsAsyncCall",$param) and $param["ServiceScfEventIsAsyncCall"] !== null) {
+            $this->ServiceScfEventIsAsyncCall = $param["ServiceScfEventIsAsyncCall"];
+        }
+
+        if (array_key_exists("EIAMAppType",$param) and $param["EIAMAppType"] !== null) {
+            $this->EIAMAppType = $param["EIAMAppType"];
+        }
+
+        if (array_key_exists("EIAMAuthType",$param) and $param["EIAMAuthType"] !== null) {
+            $this->EIAMAuthType = $param["EIAMAuthType"];
+        }
+
+        if (array_key_exists("EIAMAppId",$param) and $param["EIAMAppId"] !== null) {
+            $this->EIAMAppId = $param["EIAMAppId"];
+        }
+
+        if (array_key_exists("TokenTimeout",$param) and $param["TokenTimeout"] !== null) {
+            $this->TokenTimeout = $param["TokenTimeout"];
         }
     }
 }

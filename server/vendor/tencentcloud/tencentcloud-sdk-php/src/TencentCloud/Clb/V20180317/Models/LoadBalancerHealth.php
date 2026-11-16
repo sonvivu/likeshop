@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,13 +23,9 @@ use TencentCloud\Common\AbstractModel;
  * @method string getLoadBalancerId() 获取负载均衡实例ID
  * @method void setLoadBalancerId(string $LoadBalancerId) 设置负载均衡实例ID
  * @method string getLoadBalancerName() 获取负载均衡实例名称
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setLoadBalancerName(string $LoadBalancerName) 设置负载均衡实例名称
-注意：此字段可能返回 null，表示取不到有效值。
  * @method array getListeners() 获取监听器列表
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setListeners(array $Listeners) 设置监听器列表
-注意：此字段可能返回 null，表示取不到有效值。
  */
 class LoadBalancerHealth extends AbstractModel
 {
@@ -40,22 +36,18 @@ class LoadBalancerHealth extends AbstractModel
 
     /**
      * @var string 负载均衡实例名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $LoadBalancerName;
 
     /**
      * @var array 监听器列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Listeners;
 
     /**
      * @param string $LoadBalancerId 负载均衡实例ID
      * @param string $LoadBalancerName 负载均衡实例名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param array $Listeners 监听器列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
     {

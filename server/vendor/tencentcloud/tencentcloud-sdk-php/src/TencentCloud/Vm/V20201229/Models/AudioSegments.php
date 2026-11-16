@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,44 +18,36 @@ namespace TencentCloud\Vm\V20201229\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * 声音段信息
+ * 用于返回音频片段的审核结果
  *
- * @method string getOffsetTime() 获取截帧时间。
-点播文件：该值为相对于视频偏移时间，单位为秒，例如：0，5，10
-直播流：该值为时间戳，例如：1594650717
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setOffsetTime(string $OffsetTime) 设置截帧时间。
-点播文件：该值为相对于视频偏移时间，单位为秒，例如：0，5，10
-直播流：该值为时间戳，例如：1594650717
-注意：此字段可能返回 null，表示取不到有效值。
- * @method AudioResult getResult() 获取结果集
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setResult(AudioResult $Result) 设置结果集
-注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getOffsetTime() 获取该字段用于返回音频片段的开始时间，单位为秒。对于点播文件，该参数代表对应音频相对于完整音轨的偏移时间，如0（代表不偏移），5（音轨开始后5秒），10（音轨开始后10秒）；对于直播文件，该参数则返回对应音频片段开始时的Unix时间戳，如：1594650717。
+ * @method void setOffsetTime(string $OffsetTime) 设置该字段用于返回音频片段的开始时间，单位为秒。对于点播文件，该参数代表对应音频相对于完整音轨的偏移时间，如0（代表不偏移），5（音轨开始后5秒），10（音轨开始后10秒）；对于直播文件，该参数则返回对应音频片段开始时的Unix时间戳，如：1594650717。
+ * @method AudioResult getResult() 获取该字段用于返回音频片段的具体审核结果，详细内容敬请参考AudioResult数据结构的描述。
+ * @method void setResult(AudioResult $Result) 设置该字段用于返回音频片段的具体审核结果，详细内容敬请参考AudioResult数据结构的描述。
+ * @method string getCreatedAt() 获取创建时间
+ * @method void setCreatedAt(string $CreatedAt) 设置创建时间
  */
 class AudioSegments extends AbstractModel
 {
     /**
-     * @var string 截帧时间。
-点播文件：该值为相对于视频偏移时间，单位为秒，例如：0，5，10
-直播流：该值为时间戳，例如：1594650717
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string 该字段用于返回音频片段的开始时间，单位为秒。对于点播文件，该参数代表对应音频相对于完整音轨的偏移时间，如0（代表不偏移），5（音轨开始后5秒），10（音轨开始后10秒）；对于直播文件，该参数则返回对应音频片段开始时的Unix时间戳，如：1594650717。
      */
     public $OffsetTime;
 
     /**
-     * @var AudioResult 结果集
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var AudioResult 该字段用于返回音频片段的具体审核结果，详细内容敬请参考AudioResult数据结构的描述。
      */
     public $Result;
 
     /**
-     * @param string $OffsetTime 截帧时间。
-点播文件：该值为相对于视频偏移时间，单位为秒，例如：0，5，10
-直播流：该值为时间戳，例如：1594650717
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param AudioResult $Result 结果集
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string 创建时间
+     */
+    public $CreatedAt;
+
+    /**
+     * @param string $OffsetTime 该字段用于返回音频片段的开始时间，单位为秒。对于点播文件，该参数代表对应音频相对于完整音轨的偏移时间，如0（代表不偏移），5（音轨开始后5秒），10（音轨开始后10秒）；对于直播文件，该参数则返回对应音频片段开始时的Unix时间戳，如：1594650717。
+     * @param AudioResult $Result 该字段用于返回音频片段的具体审核结果，详细内容敬请参考AudioResult数据结构的描述。
+     * @param string $CreatedAt 创建时间
      */
     function __construct()
     {
@@ -77,6 +69,10 @@ class AudioSegments extends AbstractModel
         if (array_key_exists("Result",$param) and $param["Result"] !== null) {
             $this->Result = new AudioResult();
             $this->Result->deserialize($param["Result"]);
+        }
+
+        if (array_key_exists("CreatedAt",$param) and $param["CreatedAt"] !== null) {
+            $this->CreatedAt = $param["CreatedAt"];
         }
     }
 }

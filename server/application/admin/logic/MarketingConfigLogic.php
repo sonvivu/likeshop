@@ -18,7 +18,7 @@
 // +----------------------------------------------------------------------
 namespace app\admin\logic;
 use app\common\server\ConfigServer;
-use think\Db;
+use think\facade\Db;
 
 class MarketingConfigLogic{
     public static function getConfig($config_list){

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -54,8 +54,14 @@ use TencentCloud\Common\AbstractModel;
 -9114:银行卡翻拍件
 （告警码可以同时存在多个）
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
- * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method integer getQualityValue() 获取图片质量分数，请求EnableQualityValue时返回（取值范围：0-100，分数越低越模糊，建议阈值≥50）。
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setQualityValue(integer $QualityValue) 设置图片质量分数，请求EnableQualityValue时返回（取值范围：0-100，分数越低越模糊，建议阈值≥50）。
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getCardCategory() 获取卡类别， 如： 标准实体银行卡、电子银行卡信息截图
+ * @method void setCardCategory(string $CardCategory) 设置卡类别， 如： 标准实体银行卡、电子银行卡信息截图
+ * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+ * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
 class BankCardOCRResponse extends AbstractModel
 {
@@ -109,7 +115,18 @@ class BankCardOCRResponse extends AbstractModel
     public $WarningCode;
 
     /**
-     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @var integer 图片质量分数，请求EnableQualityValue时返回（取值范围：0-100，分数越低越模糊，建议阈值≥50）。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $QualityValue;
+
+    /**
+     * @var string 卡类别， 如： 标准实体银行卡、电子银行卡信息截图
+     */
+    public $CardCategory;
+
+    /**
+     * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public $RequestId;
 
@@ -131,7 +148,10 @@ class BankCardOCRResponse extends AbstractModel
 -9114:银行卡翻拍件
 （告警码可以同时存在多个）
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @param integer $QualityValue 图片质量分数，请求EnableQualityValue时返回（取值范围：0-100，分数越低越模糊，建议阈值≥50）。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $CardCategory 卡类别， 如： 标准实体银行卡、电子银行卡信息截图
+     * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
     {
@@ -176,6 +196,14 @@ class BankCardOCRResponse extends AbstractModel
 
         if (array_key_exists("WarningCode",$param) and $param["WarningCode"] !== null) {
             $this->WarningCode = $param["WarningCode"];
+        }
+
+        if (array_key_exists("QualityValue",$param) and $param["QualityValue"] !== null) {
+            $this->QualityValue = $param["QualityValue"];
+        }
+
+        if (array_key_exists("CardCategory",$param) and $param["CardCategory"] !== null) {
+            $this->CardCategory = $param["CardCategory"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

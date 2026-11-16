@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,15 +20,23 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeProvinceIspPlayInfoList请求参数结构体
  *
- * @method string getStartTime() 获取起始时间点，当前使用北京时间，
-例：2019-02-21 10:00:00。
- * @method void setStartTime(string $StartTime) 设置起始时间点，当前使用北京时间，
-例：2019-02-21 10:00:00。
- * @method string getEndTime() 获取结束时间点，当前使用北京时间，
-例：2019-02-21 12:00:00。
+ * @method string getStartTime() 获取起始时间点，
+使用UTC格式时间，
+例如：2019-01-08T10:00:00Z。
+注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/267/38543#:~:text=I-,ISO,-%E6%97%A5%E6%9C%9F%E6%A0%BC%E5%BC%8F)。
+ * @method void setStartTime(string $StartTime) 设置起始时间点，
+使用UTC格式时间，
+例如：2019-01-08T10:00:00Z。
+注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/267/38543#:~:text=I-,ISO,-%E6%97%A5%E6%9C%9F%E6%A0%BC%E5%BC%8F)。
+ * @method string getEndTime() 获取结束时间点，
+使用UTC格式时间，
+例如：2019-01-08T10:00:00Z。
+注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/267/38543#:~:text=I-,ISO,-%E6%97%A5%E6%9C%9F%E6%A0%BC%E5%BC%8F)。
 注：EndTime 和 StartTime 只支持最近1天的数据查询。
- * @method void setEndTime(string $EndTime) 设置结束时间点，当前使用北京时间，
-例：2019-02-21 12:00:00。
+ * @method void setEndTime(string $EndTime) 设置结束时间点，
+使用UTC格式时间，
+例如：2019-01-08T10:00:00Z。
+注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/267/38543#:~:text=I-,ISO,-%E6%97%A5%E6%9C%9F%E6%A0%BC%E5%BC%8F)。
 注：EndTime 和 StartTime 只支持最近1天的数据查询。
  * @method integer getGranularity() 获取支持如下粒度：
 1：1分钟粒度（跨度不支持超过1天）
@@ -39,13 +47,11 @@ use TencentCloud\Common\AbstractModel;
 “FluxPerSecond”：平均流量
 “Flux”：流量
 “Request”：请求数
-“Online”：并发连接数
  * @method void setStatType(string $StatType) 设置统计指标类型：
 “Bandwidth”：带宽
 “FluxPerSecond”：平均流量
 “Flux”：流量
 “Request”：请求数
-“Online”：并发连接数
  * @method array getPlayDomains() 获取播放域名列表。
  * @method void setPlayDomains(array $PlayDomains) 设置播放域名列表。
  * @method array getProvinceNames() 获取要查询的省份（地区）英文名称列表，如 Beijing。
@@ -64,14 +70,18 @@ use TencentCloud\Common\AbstractModel;
 class DescribeProvinceIspPlayInfoListRequest extends AbstractModel
 {
     /**
-     * @var string 起始时间点，当前使用北京时间，
-例：2019-02-21 10:00:00。
+     * @var string 起始时间点，
+使用UTC格式时间，
+例如：2019-01-08T10:00:00Z。
+注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/267/38543#:~:text=I-,ISO,-%E6%97%A5%E6%9C%9F%E6%A0%BC%E5%BC%8F)。
      */
     public $StartTime;
 
     /**
-     * @var string 结束时间点，当前使用北京时间，
-例：2019-02-21 12:00:00。
+     * @var string 结束时间点，
+使用UTC格式时间，
+例如：2019-01-08T10:00:00Z。
+注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/267/38543#:~:text=I-,ISO,-%E6%97%A5%E6%9C%9F%E6%A0%BC%E5%BC%8F)。
 注：EndTime 和 StartTime 只支持最近1天的数据查询。
      */
     public $EndTime;
@@ -88,7 +98,6 @@ class DescribeProvinceIspPlayInfoListRequest extends AbstractModel
 “FluxPerSecond”：平均流量
 “Flux”：流量
 “Request”：请求数
-“Online”：并发连接数
      */
     public $StatType;
 
@@ -120,10 +129,14 @@ class DescribeProvinceIspPlayInfoListRequest extends AbstractModel
     public $IpType;
 
     /**
-     * @param string $StartTime 起始时间点，当前使用北京时间，
-例：2019-02-21 10:00:00。
-     * @param string $EndTime 结束时间点，当前使用北京时间，
-例：2019-02-21 12:00:00。
+     * @param string $StartTime 起始时间点，
+使用UTC格式时间，
+例如：2019-01-08T10:00:00Z。
+注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/267/38543#:~:text=I-,ISO,-%E6%97%A5%E6%9C%9F%E6%A0%BC%E5%BC%8F)。
+     * @param string $EndTime 结束时间点，
+使用UTC格式时间，
+例如：2019-01-08T10:00:00Z。
+注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/267/38543#:~:text=I-,ISO,-%E6%97%A5%E6%9C%9F%E6%A0%BC%E5%BC%8F)。
 注：EndTime 和 StartTime 只支持最近1天的数据查询。
      * @param integer $Granularity 支持如下粒度：
 1：1分钟粒度（跨度不支持超过1天）
@@ -132,7 +145,6 @@ class DescribeProvinceIspPlayInfoListRequest extends AbstractModel
 “FluxPerSecond”：平均流量
 “Flux”：流量
 “Request”：请求数
-“Online”：并发连接数
      * @param array $PlayDomains 播放域名列表。
      * @param array $ProvinceNames 要查询的省份（地区）英文名称列表，如 Beijing。
      * @param array $IspNames 要查询的运营商英文名称列表，如 China Mobile ，如果为空，查询所有运营商的数据。

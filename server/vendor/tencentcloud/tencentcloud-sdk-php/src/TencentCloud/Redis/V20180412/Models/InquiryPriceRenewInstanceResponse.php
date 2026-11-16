@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,30 +20,66 @@ use TencentCloud\Common\AbstractModel;
 /**
  * InquiryPriceRenewInstance返回参数结构体
  *
- * @method float getPrice() 获取价格，单位：分
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setPrice(float $Price) 设置价格，单位：分
-注意：此字段可能返回 null，表示取不到有效值。
- * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
- * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method float getPrice() 获取<p>折扣后价格</p>
+ * @method void setPrice(float $Price) 设置<p>折扣后价格</p>
+ * @method float getHighPrecisionPrice() 获取<p>高精度折扣后价格</p>
+ * @method void setHighPrecisionPrice(float $HighPrecisionPrice) 设置<p>高精度折扣后价格</p>
+ * @method float getOriginalPrice() 获取<p>原价</p>
+ * @method void setOriginalPrice(float $OriginalPrice) 设置<p>原价</p>
+ * @method float getHighPrecisionOriginalPrice() 获取<p>高精度原价</p>
+ * @method void setHighPrecisionOriginalPrice(float $HighPrecisionOriginalPrice) 设置<p>高精度原价</p>
+ * @method string getCurrency() 获取<p>币种</p>
+ * @method void setCurrency(string $Currency) 设置<p>币种</p>
+ * @method string getAmountUnit() 获取<p>价格金额单位</p><ul><li>pent: 分</li><li>microPent: 微分</li></ul>
+ * @method void setAmountUnit(string $AmountUnit) 设置<p>价格金额单位</p><ul><li>pent: 分</li><li>microPent: 微分</li></ul>
+ * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+ * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
 class InquiryPriceRenewInstanceResponse extends AbstractModel
 {
     /**
-     * @var float 价格，单位：分
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var float <p>折扣后价格</p>
      */
     public $Price;
 
     /**
-     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @var float <p>高精度折扣后价格</p>
+     */
+    public $HighPrecisionPrice;
+
+    /**
+     * @var float <p>原价</p>
+     */
+    public $OriginalPrice;
+
+    /**
+     * @var float <p>高精度原价</p>
+     */
+    public $HighPrecisionOriginalPrice;
+
+    /**
+     * @var string <p>币种</p>
+     */
+    public $Currency;
+
+    /**
+     * @var string <p>价格金额单位</p><ul><li>pent: 分</li><li>microPent: 微分</li></ul>
+     */
+    public $AmountUnit;
+
+    /**
+     * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public $RequestId;
 
     /**
-     * @param float $Price 价格，单位：分
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @param float $Price <p>折扣后价格</p>
+     * @param float $HighPrecisionPrice <p>高精度折扣后价格</p>
+     * @param float $OriginalPrice <p>原价</p>
+     * @param float $HighPrecisionOriginalPrice <p>高精度原价</p>
+     * @param string $Currency <p>币种</p>
+     * @param string $AmountUnit <p>价格金额单位</p><ul><li>pent: 分</li><li>microPent: 微分</li></ul>
+     * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
     {
@@ -60,6 +96,26 @@ class InquiryPriceRenewInstanceResponse extends AbstractModel
         }
         if (array_key_exists("Price",$param) and $param["Price"] !== null) {
             $this->Price = $param["Price"];
+        }
+
+        if (array_key_exists("HighPrecisionPrice",$param) and $param["HighPrecisionPrice"] !== null) {
+            $this->HighPrecisionPrice = $param["HighPrecisionPrice"];
+        }
+
+        if (array_key_exists("OriginalPrice",$param) and $param["OriginalPrice"] !== null) {
+            $this->OriginalPrice = $param["OriginalPrice"];
+        }
+
+        if (array_key_exists("HighPrecisionOriginalPrice",$param) and $param["HighPrecisionOriginalPrice"] !== null) {
+            $this->HighPrecisionOriginalPrice = $param["HighPrecisionOriginalPrice"];
+        }
+
+        if (array_key_exists("Currency",$param) and $param["Currency"] !== null) {
+            $this->Currency = $param["Currency"];
+        }
+
+        if (array_key_exists("AmountUnit",$param) and $param["AmountUnit"] !== null) {
+            $this->AmountUnit = $param["AmountUnit"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,42 +20,70 @@ use TencentCloud\Common\AbstractModel;
 /**
  * 人脸图片和待被融合的素材模板图的人脸位置信息。
  *
- * @method string getImage() 获取输入图片base64
- * @method void setImage(string $Image) 设置输入图片base64
- * @method string getUrl() 获取输入图片url
- * @method void setUrl(string $Url) 设置输入图片url
- * @method FaceRect getInputImageFaceRect() 获取上传的图片人脸位置信息（人脸框）
- * @method void setInputImageFaceRect(FaceRect $InputImageFaceRect) 设置上传的图片人脸位置信息（人脸框）
- * @method string getTemplateFaceID() 获取控制台上传的素材人脸ID
- * @method void setTemplateFaceID(string $TemplateFaceID) 设置控制台上传的素材人脸ID
+ * @method string getImage() 获取输入图片base64。
+●base64 和 url 必须提供一个，如果都提供以 url 为准。
+●素材图片限制：图片中面部尺寸大于34 * 34；图片尺寸大于64 * 64。（图片编码之后可能会大30%左右，建议合理控制图片大小）。
+●支持图片格式：支持jpg或png。
+ * @method void setImage(string $Image) 设置输入图片base64。
+●base64 和 url 必须提供一个，如果都提供以 url 为准。
+●素材图片限制：图片中面部尺寸大于34 * 34；图片尺寸大于64 * 64。（图片编码之后可能会大30%左右，建议合理控制图片大小）。
+●支持图片格式：支持jpg或png。
+ * @method string getUrl() 获取输入图片url。
+●base64 和 url 必须提供一个，如果都提供以 url 为准。
+●素材图片限制：图片中面部尺寸大于34 * 34；图片尺寸大于64 * 64。（图片编码之后可能会大30%左右，建议合理控制图片大小）。
+●支持图片格式：支持jpg或png。
+ * @method void setUrl(string $Url) 设置输入图片url。
+●base64 和 url 必须提供一个，如果都提供以 url 为准。
+●素材图片限制：图片中面部尺寸大于34 * 34；图片尺寸大于64 * 64。（图片编码之后可能会大30%左右，建议合理控制图片大小）。
+●支持图片格式：支持jpg或png。
+ * @method FaceRect getInputImageFaceRect() 获取输入图片人脸位置信息（人脸框）。不填默认取输入图中最大人脸。
+Width、Height >= 30。
+ * @method void setInputImageFaceRect(FaceRect $InputImageFaceRect) 设置输入图片人脸位置信息（人脸框）。不填默认取输入图中最大人脸。
+Width、Height >= 30。
+ * @method string getTemplateFaceID() 获取素材人脸ID，不填默认取素材中最大人脸。
+ * @method void setTemplateFaceID(string $TemplateFaceID) 设置素材人脸ID，不填默认取素材中最大人脸。
  */
 class MergeInfo extends AbstractModel
 {
     /**
-     * @var string 输入图片base64
+     * @var string 输入图片base64。
+●base64 和 url 必须提供一个，如果都提供以 url 为准。
+●素材图片限制：图片中面部尺寸大于34 * 34；图片尺寸大于64 * 64。（图片编码之后可能会大30%左右，建议合理控制图片大小）。
+●支持图片格式：支持jpg或png。
      */
     public $Image;
 
     /**
-     * @var string 输入图片url
+     * @var string 输入图片url。
+●base64 和 url 必须提供一个，如果都提供以 url 为准。
+●素材图片限制：图片中面部尺寸大于34 * 34；图片尺寸大于64 * 64。（图片编码之后可能会大30%左右，建议合理控制图片大小）。
+●支持图片格式：支持jpg或png。
      */
     public $Url;
 
     /**
-     * @var FaceRect 上传的图片人脸位置信息（人脸框）
+     * @var FaceRect 输入图片人脸位置信息（人脸框）。不填默认取输入图中最大人脸。
+Width、Height >= 30。
      */
     public $InputImageFaceRect;
 
     /**
-     * @var string 控制台上传的素材人脸ID
+     * @var string 素材人脸ID，不填默认取素材中最大人脸。
      */
     public $TemplateFaceID;
 
     /**
-     * @param string $Image 输入图片base64
-     * @param string $Url 输入图片url
-     * @param FaceRect $InputImageFaceRect 上传的图片人脸位置信息（人脸框）
-     * @param string $TemplateFaceID 控制台上传的素材人脸ID
+     * @param string $Image 输入图片base64。
+●base64 和 url 必须提供一个，如果都提供以 url 为准。
+●素材图片限制：图片中面部尺寸大于34 * 34；图片尺寸大于64 * 64。（图片编码之后可能会大30%左右，建议合理控制图片大小）。
+●支持图片格式：支持jpg或png。
+     * @param string $Url 输入图片url。
+●base64 和 url 必须提供一个，如果都提供以 url 为准。
+●素材图片限制：图片中面部尺寸大于34 * 34；图片尺寸大于64 * 64。（图片编码之后可能会大30%左右，建议合理控制图片大小）。
+●支持图片格式：支持jpg或png。
+     * @param FaceRect $InputImageFaceRect 输入图片人脸位置信息（人脸框）。不填默认取输入图中最大人脸。
+Width、Height >= 30。
+     * @param string $TemplateFaceID 素材人脸ID，不填默认取素材中最大人脸。
      */
     function __construct()
     {

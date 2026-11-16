@@ -63,7 +63,7 @@
     </div>
     <el-dialog
       :title="$t('微信支付')"
-      :visible.sync="showWxpay"
+      v-model="showWxpay"
       width="700px"
       center
       @close="clearTimer"
@@ -90,29 +90,31 @@
 <script>
 import CountDown from "~/components/public/countDown";
 import { client } from "@/utils/type";
+import { useAppStore } from "~/stores/app";
 export default {
-  head() {
-    return {
-      title: this.$store.getters.headTitle,
+  async setup() {
+    const store = useAppStore();
+    const route = useRoute();
+    const { $get } = useNuxtApp();
+    useHead({
+      title: computed(() => store.headTitle),
       link: [
         {
           rel: "icon",
           type: "image/x-icon",
-          href: this.$store.getters.favicon,
+          href: computed(() => store.favicon),
         },
       ],
-    };
-  },
-  components: {
-    CountDown,
-  },
-  async asyncData({ query, $get }) {
+    });
     const { data } = await $get("order/detail", {
       params: {
-        id: query.id,
+        id: route.query.id,
       },
     });
     return { order: data };
+  },
+  components: {
+    CountDown,
   },
   data() {
     return {
@@ -128,7 +130,7 @@ export default {
     this.id = this.$route.query.id;
     this.getPayway()
   },
-  beforeDestroy() {
+  beforeUnmount() {
     clearInterval(this.timer);
   },
   methods: {

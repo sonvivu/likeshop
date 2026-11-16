@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,112 +20,82 @@ use TencentCloud\Common\AbstractModel;
 /**
  * 描述代理商代付的订单信息
  *
- * @method string getDealId() 获取订单自增 ID
- * @method void setDealId(string $DealId) 设置订单自增 ID
- * @method string getDealName() 获取订单号
- * @method void setDealName(string $DealName) 设置订单号
+ * @method string getDealId() 获取 ID【请勿依赖该字段作为唯一标识】
+ * @method void setDealId(string $DealId) 设置 ID【请勿依赖该字段作为唯一标识】
+ * @method string getDealName() 获取订单号【订单唯一键】
+ * @method void setDealName(string $DealName) 设置订单号【订单唯一键】
  * @method string getGoodsCategoryId() 获取商品类型 ID
  * @method void setGoodsCategoryId(string $GoodsCategoryId) 设置商品类型 ID
  * @method string getOwnerUin() 获取订单所有者
  * @method void setOwnerUin(string $OwnerUin) 设置订单所有者
  * @method string getAppId() 获取订单所有者对应 appId
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setAppId(string $AppId) 设置订单所有者对应 appId
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getGoodsNum() 获取商品数量
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setGoodsNum(string $GoodsNum) 设置商品数量
-注意：此字段可能返回 null，表示取不到有效值。
  * @method DealGoodsPriceNewElem getGoodsPrice() 获取价格详情
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setGoodsPrice(DealGoodsPriceNewElem $GoodsPrice) 设置价格详情
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getCreater() 获取下单人
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setCreater(string $Creater) 设置下单人
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getCreatTime() 获取下单时间
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setCreatTime(string $CreatTime) 设置下单时间
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getPayEndTime() 获取支付结束时间
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setPayEndTime(string $PayEndTime) 设置支付结束时间
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getBillId() 获取扣费流水号
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setBillId(string $BillId) 设置扣费流水号
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getPayer() 获取支付人
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setPayer(string $Payer) 设置支付人
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getDealStatus() 获取订单状态，中文描述
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setDealStatus(string $DealStatus) 设置订单状态，中文描述
-注意：此字段可能返回 null，表示取不到有效值。
- * @method string getStatus() 获取订单的状态(1：未支付;2：已支付;3：发货中;4：已发货;5：发货失败;6：已退款;7：已关单;8：订单过期;9：订单已失效;10：产品已失效;11：代付拒绝;12：支付中)
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setStatus(string $Status) 设置订单的状态(1：未支付;2：已支付;3：发货中;4：已发货;5：发货失败;6：已退款;7：已关单;8：订单过期;9：订单已失效;10：产品已失效;11：代付拒绝;12：支付中)
-注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getStatus() 获取子订单状态(1-待支付,2-已支付,3-发货中,4-已发货,5-发货失败,6-已退款,7-已取消,8-已过期,9-已失效,12-支付中,13-退款中,30-处理中)
+
+控制台订单状态为大订单状态，是以上状态的聚合：未支付(1) 处理中(2,3,5,12,13,30) 已取消(7) 交易成功(4) 已过期(8) 已退款(6) 订单错误(9)
+ * @method void setStatus(string $Status) 设置子订单状态(1-待支付,2-已支付,3-发货中,4-已发货,5-发货失败,6-已退款,7-已取消,8-已过期,9-已失效,12-支付中,13-退款中,30-处理中)
+
+控制台订单状态为大订单状态，是以上状态的聚合：未支付(1) 处理中(2,3,5,12,13,30) 已取消(7) 交易成功(4) 已过期(8) 已退款(6) 订单错误(9)
  * @method string getGoodsName() 获取产品名称
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setGoodsName(string $GoodsName) 设置产品名称
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getClientRemark() 获取客户备注
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setClientRemark(string $ClientRemark) 设置客户备注
-注意：此字段可能返回 null，表示取不到有效值。
- * @method string getActionType() 获取订单操作类型，purchase（新购），renew（续费），modify（配置变更）
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setActionType(string $ActionType) 设置订单操作类型，purchase（新购），renew（续费），modify（配置变更）
-注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getActionType() 获取订单操作类型，"purchase":"新购","upgrade":"升配","upConvertExpire":"升配","downgrade":"降配","downConvertExpire":"降配","renew":"续费","refund":"退货","modifyNetworkMode":"调整带宽模式","modifyNetworkSize":"调整带宽大小","preMoveOut":"资源迁出","preMoveIn":"资源迁入","preToPost":"包年包月转按量","modify":"变配","postMoveOut":"资源迁出","postMoveIn":"资源迁入","recoverRefundForward":"调账补偿","recoverPayReserve":"调账补偿","recoverPayForward":"调账扣费","recoverRefundReserve":"调账扣费"
+ * @method void setActionType(string $ActionType) 设置订单操作类型，"purchase":"新购","upgrade":"升配","upConvertExpire":"升配","downgrade":"降配","downConvertExpire":"降配","renew":"续费","refund":"退货","modifyNetworkMode":"调整带宽模式","modifyNetworkSize":"调整带宽大小","preMoveOut":"资源迁出","preMoveIn":"资源迁入","preToPost":"包年包月转按量","modify":"变配","postMoveOut":"资源迁出","postMoveIn":"资源迁入","recoverRefundForward":"调账补偿","recoverPayReserve":"调账补偿","recoverPayForward":"调账扣费","recoverRefundReserve":"调账扣费"
  * @method string getVoucherDecline() 获取代金券抵扣金额，单位分
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setVoucherDecline(string $VoucherDecline) 设置代金券抵扣金额，单位分
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getBigDealId() 获取大订单号
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setBigDealId(string $BigDealId) 设置大订单号
-注意：此字段可能返回 null，表示取不到有效值。
- * @method string getClientType() 获取客户类型（new：新拓；old：存量；assign：指派）
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setClientType(string $ClientType) 设置客户类型（new：新拓；old：存量；assign：指派）
-注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getClientType() 获取客户类型（new：自拓；old：官网；assign：指派；direct：直销；direct_newopp：直销(新商机)）
+ * @method void setClientType(string $ClientType) 设置客户类型（new：自拓；old：官网；assign：指派；direct：直销；direct_newopp：直销(新商机)）
  * @method string getProjectType() 获取项目类型（self：自拓；repeat：直销；platform：官网合作）
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setProjectType(string $ProjectType) 设置项目类型（self：自拓；repeat：直销；platform：官网合作）
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getSalesUin() 获取业务员账号ID
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setSalesUin(string $SalesUin) 设置业务员账号ID
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getPayerMode() 获取支付方式，0：自付；1：代付
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setPayerMode(string $PayerMode) 设置支付方式，0：自付；1：代付
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getActivityId() 获取活动ID
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setActivityId(string $ActivityId) 设置活动ID
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getOverdueTime() 获取订单过期时间
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setOverdueTime(string $OverdueTime) 设置订单过期时间
-注意：此字段可能返回 null，表示取不到有效值。
  * @method array getProductInfo() 获取产品详情
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setProductInfo(array $ProductInfo) 设置产品详情
-注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getPaymentMethod() 获取付款方式
+ * @method void setPaymentMethod(string $PaymentMethod) 设置付款方式
+ * @method string getUpdateTime() 获取订单更新时间
+ * @method void setUpdateTime(string $UpdateTime) 设置订单更新时间
+ * @method array getResourceIds() 获取资源id
+ * @method void setResourceIds(array $ResourceIds) 设置资源id
+ * @method array getRefundMap() 获取退款单的原订单信息。当前仅 DescribeClientDealsByCache 接口会返回该字段
+ * @method void setRefundMap(array $RefundMap) 设置退款单的原订单信息。当前仅 DescribeClientDealsByCache 接口会返回该字段
+ * @method string getSubGoodsName() 获取子产品名称
+ * @method void setSubGoodsName(string $SubGoodsName) 设置子产品名称
  */
 class AgentDealNewElem extends AbstractModel
 {
     /**
-     * @var string 订单自增 ID
+     * @var string  ID【请勿依赖该字段作为唯一标识】
      */
     public $DealId;
 
     /**
-     * @var string 订单号
+     * @var string 订单号【订单唯一键】
      */
     public $DealName;
 
@@ -141,185 +111,175 @@ class AgentDealNewElem extends AbstractModel
 
     /**
      * @var string 订单所有者对应 appId
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $AppId;
 
     /**
      * @var string 商品数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $GoodsNum;
 
     /**
      * @var DealGoodsPriceNewElem 价格详情
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $GoodsPrice;
 
     /**
      * @var string 下单人
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Creater;
 
     /**
      * @var string 下单时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $CreatTime;
 
     /**
      * @var string 支付结束时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $PayEndTime;
 
     /**
      * @var string 扣费流水号
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $BillId;
 
     /**
      * @var string 支付人
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Payer;
 
     /**
      * @var string 订单状态，中文描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $DealStatus;
 
     /**
-     * @var string 订单的状态(1：未支付;2：已支付;3：发货中;4：已发货;5：发货失败;6：已退款;7：已关单;8：订单过期;9：订单已失效;10：产品已失效;11：代付拒绝;12：支付中)
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string 子订单状态(1-待支付,2-已支付,3-发货中,4-已发货,5-发货失败,6-已退款,7-已取消,8-已过期,9-已失效,12-支付中,13-退款中,30-处理中)
+
+控制台订单状态为大订单状态，是以上状态的聚合：未支付(1) 处理中(2,3,5,12,13,30) 已取消(7) 交易成功(4) 已过期(8) 已退款(6) 订单错误(9)
      */
     public $Status;
 
     /**
      * @var string 产品名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $GoodsName;
 
     /**
      * @var string 客户备注
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $ClientRemark;
 
     /**
-     * @var string 订单操作类型，purchase（新购），renew（续费），modify（配置变更）
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string 订单操作类型，"purchase":"新购","upgrade":"升配","upConvertExpire":"升配","downgrade":"降配","downConvertExpire":"降配","renew":"续费","refund":"退货","modifyNetworkMode":"调整带宽模式","modifyNetworkSize":"调整带宽大小","preMoveOut":"资源迁出","preMoveIn":"资源迁入","preToPost":"包年包月转按量","modify":"变配","postMoveOut":"资源迁出","postMoveIn":"资源迁入","recoverRefundForward":"调账补偿","recoverPayReserve":"调账补偿","recoverPayForward":"调账扣费","recoverRefundReserve":"调账扣费"
      */
     public $ActionType;
 
     /**
      * @var string 代金券抵扣金额，单位分
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $VoucherDecline;
 
     /**
      * @var string 大订单号
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $BigDealId;
 
     /**
-     * @var string 客户类型（new：新拓；old：存量；assign：指派）
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string 客户类型（new：自拓；old：官网；assign：指派；direct：直销；direct_newopp：直销(新商机)）
      */
     public $ClientType;
 
     /**
      * @var string 项目类型（self：自拓；repeat：直销；platform：官网合作）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $ProjectType;
 
     /**
      * @var string 业务员账号ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $SalesUin;
 
     /**
      * @var string 支付方式，0：自付；1：代付
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $PayerMode;
 
     /**
      * @var string 活动ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $ActivityId;
 
     /**
      * @var string 订单过期时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $OverdueTime;
 
     /**
      * @var array 产品详情
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $ProductInfo;
 
     /**
-     * @param string $DealId 订单自增 ID
-     * @param string $DealName 订单号
+     * @var string 付款方式
+     */
+    public $PaymentMethod;
+
+    /**
+     * @var string 订单更新时间
+     */
+    public $UpdateTime;
+
+    /**
+     * @var array 资源id
+     */
+    public $ResourceIds;
+
+    /**
+     * @var array 退款单的原订单信息。当前仅 DescribeClientDealsByCache 接口会返回该字段
+     */
+    public $RefundMap;
+
+    /**
+     * @var string 子产品名称
+     */
+    public $SubGoodsName;
+
+    /**
+     * @param string $DealId  ID【请勿依赖该字段作为唯一标识】
+     * @param string $DealName 订单号【订单唯一键】
      * @param string $GoodsCategoryId 商品类型 ID
      * @param string $OwnerUin 订单所有者
      * @param string $AppId 订单所有者对应 appId
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $GoodsNum 商品数量
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DealGoodsPriceNewElem $GoodsPrice 价格详情
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $Creater 下单人
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $CreatTime 下单时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $PayEndTime 支付结束时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $BillId 扣费流水号
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $Payer 支付人
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $DealStatus 订单状态，中文描述
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $Status 订单的状态(1：未支付;2：已支付;3：发货中;4：已发货;5：发货失败;6：已退款;7：已关单;8：订单过期;9：订单已失效;10：产品已失效;11：代付拒绝;12：支付中)
-注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $Status 子订单状态(1-待支付,2-已支付,3-发货中,4-已发货,5-发货失败,6-已退款,7-已取消,8-已过期,9-已失效,12-支付中,13-退款中,30-处理中)
+
+控制台订单状态为大订单状态，是以上状态的聚合：未支付(1) 处理中(2,3,5,12,13,30) 已取消(7) 交易成功(4) 已过期(8) 已退款(6) 订单错误(9)
      * @param string $GoodsName 产品名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $ClientRemark 客户备注
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $ActionType 订单操作类型，purchase（新购），renew（续费），modify（配置变更）
-注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $ActionType 订单操作类型，"purchase":"新购","upgrade":"升配","upConvertExpire":"升配","downgrade":"降配","downConvertExpire":"降配","renew":"续费","refund":"退货","modifyNetworkMode":"调整带宽模式","modifyNetworkSize":"调整带宽大小","preMoveOut":"资源迁出","preMoveIn":"资源迁入","preToPost":"包年包月转按量","modify":"变配","postMoveOut":"资源迁出","postMoveIn":"资源迁入","recoverRefundForward":"调账补偿","recoverPayReserve":"调账补偿","recoverPayForward":"调账扣费","recoverRefundReserve":"调账扣费"
      * @param string $VoucherDecline 代金券抵扣金额，单位分
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $BigDealId 大订单号
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $ClientType 客户类型（new：新拓；old：存量；assign：指派）
-注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $ClientType 客户类型（new：自拓；old：官网；assign：指派；direct：直销；direct_newopp：直销(新商机)）
      * @param string $ProjectType 项目类型（self：自拓；repeat：直销；platform：官网合作）
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $SalesUin 业务员账号ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $PayerMode 支付方式，0：自付；1：代付
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $ActivityId 活动ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $OverdueTime 订单过期时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param array $ProductInfo 产品详情
-注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $PaymentMethod 付款方式
+     * @param string $UpdateTime 订单更新时间
+     * @param array $ResourceIds 资源id
+     * @param array $RefundMap 退款单的原订单信息。当前仅 DescribeClientDealsByCache 接口会返回该字段
+     * @param string $SubGoodsName 子产品名称
      */
     function __construct()
     {
@@ -442,6 +402,31 @@ class AgentDealNewElem extends AbstractModel
                 $obj->deserialize($value);
                 array_push($this->ProductInfo, $obj);
             }
+        }
+
+        if (array_key_exists("PaymentMethod",$param) and $param["PaymentMethod"] !== null) {
+            $this->PaymentMethod = $param["PaymentMethod"];
+        }
+
+        if (array_key_exists("UpdateTime",$param) and $param["UpdateTime"] !== null) {
+            $this->UpdateTime = $param["UpdateTime"];
+        }
+
+        if (array_key_exists("ResourceIds",$param) and $param["ResourceIds"] !== null) {
+            $this->ResourceIds = $param["ResourceIds"];
+        }
+
+        if (array_key_exists("RefundMap",$param) and $param["RefundMap"] !== null) {
+            $this->RefundMap = [];
+            foreach ($param["RefundMap"] as $key => $value){
+                $obj = new RefundMap();
+                $obj->deserialize($value);
+                array_push($this->RefundMap, $obj);
+            }
+        }
+
+        if (array_key_exists("SubGoodsName",$param) and $param["SubGoodsName"] !== null) {
+            $this->SubGoodsName = $param["SubGoodsName"];
         }
     }
 }

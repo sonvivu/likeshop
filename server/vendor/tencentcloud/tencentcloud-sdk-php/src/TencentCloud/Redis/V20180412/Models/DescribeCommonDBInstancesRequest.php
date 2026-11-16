@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,14 +20,14 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeCommonDBInstances请求参数结构体
  *
- * @method array getVpcIds() 获取实例Vip信息列表
- * @method void setVpcIds(array $VpcIds) 设置实例Vip信息列表
- * @method array getSubnetIds() 获取子网id信息列表
- * @method void setSubnetIds(array $SubnetIds) 设置子网id信息列表
+ * @method array getVpcIds() 获取vpc网络ID信息列表
+ * @method void setVpcIds(array $VpcIds) 设置vpc网络ID信息列表
+ * @method array getSubnetIds() 获取子网ID信息列表
+ * @method void setSubnetIds(array $SubnetIds) 设置子网ID信息列表
  * @method integer getPayMode() 获取计费类型过滤列表；0表示包年包月，1表示按量计费
  * @method void setPayMode(integer $PayMode) 设置计费类型过滤列表；0表示包年包月，1表示按量计费
- * @method array getInstanceIds() 获取实例id过滤信息列表
- * @method void setInstanceIds(array $InstanceIds) 设置实例id过滤信息列表
+ * @method array getInstanceIds() 获取实例ID过滤信息列表，数组最大长度限制为100
+ * @method void setInstanceIds(array $InstanceIds) 设置实例ID过滤信息列表，数组最大长度限制为100
  * @method array getInstanceNames() 获取实例名称过滤信息列表
  * @method void setInstanceNames(array $InstanceNames) 设置实例名称过滤信息列表
  * @method array getStatus() 获取实例状态信息过滤列表
@@ -38,10 +38,10 @@ use TencentCloud\Common\AbstractModel;
  * @method void setOrderByType(string $OrderByType) 设置排序方式
  * @method array getVips() 获取实例vip信息列表
  * @method void setVips(array $Vips) 设置实例vip信息列表
- * @method array getUniqVpcIds() 获取vpc网络统一Id列表
- * @method void setUniqVpcIds(array $UniqVpcIds) 设置vpc网络统一Id列表
- * @method array getUniqSubnetIds() 获取子网统一id列表
- * @method void setUniqSubnetIds(array $UniqSubnetIds) 设置子网统一id列表
+ * @method array getUniqVpcIds() 获取vpc网络ID信息列表
+ * @method void setUniqVpcIds(array $UniqVpcIds) 设置vpc网络ID信息列表
+ * @method array getUniqSubnetIds() 获取子网统一ID列表
+ * @method void setUniqSubnetIds(array $UniqSubnetIds) 设置子网统一ID列表
  * @method integer getLimit() 获取数量限制，默认推荐100
  * @method void setLimit(integer $Limit) 设置数量限制，默认推荐100
  * @method integer getOffset() 获取偏移量，默认0
@@ -50,12 +50,12 @@ use TencentCloud\Common\AbstractModel;
 class DescribeCommonDBInstancesRequest extends AbstractModel
 {
     /**
-     * @var array 实例Vip信息列表
+     * @var array vpc网络ID信息列表
      */
     public $VpcIds;
 
     /**
-     * @var array 子网id信息列表
+     * @var array 子网ID信息列表
      */
     public $SubnetIds;
 
@@ -65,7 +65,7 @@ class DescribeCommonDBInstancesRequest extends AbstractModel
     public $PayMode;
 
     /**
-     * @var array 实例id过滤信息列表
+     * @var array 实例ID过滤信息列表，数组最大长度限制为100
      */
     public $InstanceIds;
 
@@ -95,12 +95,12 @@ class DescribeCommonDBInstancesRequest extends AbstractModel
     public $Vips;
 
     /**
-     * @var array vpc网络统一Id列表
+     * @var array vpc网络ID信息列表
      */
     public $UniqVpcIds;
 
     /**
-     * @var array 子网统一id列表
+     * @var array 子网统一ID列表
      */
     public $UniqSubnetIds;
 
@@ -115,17 +115,17 @@ class DescribeCommonDBInstancesRequest extends AbstractModel
     public $Offset;
 
     /**
-     * @param array $VpcIds 实例Vip信息列表
-     * @param array $SubnetIds 子网id信息列表
+     * @param array $VpcIds vpc网络ID信息列表
+     * @param array $SubnetIds 子网ID信息列表
      * @param integer $PayMode 计费类型过滤列表；0表示包年包月，1表示按量计费
-     * @param array $InstanceIds 实例id过滤信息列表
+     * @param array $InstanceIds 实例ID过滤信息列表，数组最大长度限制为100
      * @param array $InstanceNames 实例名称过滤信息列表
      * @param array $Status 实例状态信息过滤列表
      * @param string $OrderBy 排序字段
      * @param string $OrderByType 排序方式
      * @param array $Vips 实例vip信息列表
-     * @param array $UniqVpcIds vpc网络统一Id列表
-     * @param array $UniqSubnetIds 子网统一id列表
+     * @param array $UniqVpcIds vpc网络ID信息列表
+     * @param array $UniqSubnetIds 子网统一ID列表
      * @param integer $Limit 数量限制，默认推荐100
      * @param integer $Offset 偏移量，默认0
      */

@@ -74,7 +74,7 @@ class HelpCategory extends Validate
 
     protected function CheckHelp($value, $rule, $data)
     {
-        if (\app\admin\model\Help::get(['cid' => $value, 'del' => 0])) {
+        if (\app\admin\model\Help::find(['cid' => $value, 'del' => 0])) {
             return lang('该分类下有文章，不可删除');
         }
         return true;

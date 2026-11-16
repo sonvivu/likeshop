@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,90 +20,138 @@ use TencentCloud\Common\AbstractModel;
 /**
  * CreateClusterNodePool请求参数结构体
  *
- * @method string getClusterId() 获取cluster id
- * @method void setClusterId(string $ClusterId) 设置cluster id
- * @method string getAutoScalingGroupPara() 获取AutoScalingGroupPara AS组参数
- * @method void setAutoScalingGroupPara(string $AutoScalingGroupPara) 设置AutoScalingGroupPara AS组参数
- * @method string getLaunchConfigurePara() 获取LaunchConfigurePara 运行参数
- * @method void setLaunchConfigurePara(string $LaunchConfigurePara) 设置LaunchConfigurePara 运行参数
- * @method InstanceAdvancedSettings getInstanceAdvancedSettings() 获取InstanceAdvancedSettings 示例参数
- * @method void setInstanceAdvancedSettings(InstanceAdvancedSettings $InstanceAdvancedSettings) 设置InstanceAdvancedSettings 示例参数
- * @method boolean getEnableAutoscale() 获取是否启用自动伸缩
- * @method void setEnableAutoscale(boolean $EnableAutoscale) 设置是否启用自动伸缩
- * @method string getName() 获取节点池名称
- * @method void setName(string $Name) 设置节点池名称
- * @method array getLabels() 获取Labels标签
- * @method void setLabels(array $Labels) 设置Labels标签
- * @method array getTaints() 获取Taints互斥
- * @method void setTaints(array $Taints) 设置Taints互斥
- * @method string getNodePoolOs() 获取节点池os
- * @method void setNodePoolOs(string $NodePoolOs) 设置节点池os
- * @method string getOsCustomizeType() 获取容器的镜像版本，"DOCKER_CUSTOMIZE"(容器定制版),"GENERAL"(普通版本，默认值)
- * @method void setOsCustomizeType(string $OsCustomizeType) 设置容器的镜像版本，"DOCKER_CUSTOMIZE"(容器定制版),"GENERAL"(普通版本，默认值)
+ * @method string getClusterId() 获取<p>cluster id</p>
+ * @method void setClusterId(string $ClusterId) 设置<p>cluster id</p>
+ * @method string getAutoScalingGroupPara() 获取<p>AutoScalingGroupPara AS组参数，参考 https://cloud.tencent.com/document/product/377/20440</p>
+ * @method void setAutoScalingGroupPara(string $AutoScalingGroupPara) 设置<p>AutoScalingGroupPara AS组参数，参考 https://cloud.tencent.com/document/product/377/20440</p>
+ * @method string getLaunchConfigurePara() 获取<p>LaunchConfigurePara 运行参数，参考 https://cloud.tencent.com/document/product/377/20447</p>
+ * @method void setLaunchConfigurePara(string $LaunchConfigurePara) 设置<p>LaunchConfigurePara 运行参数，参考 https://cloud.tencent.com/document/product/377/20447</p>
+ * @method InstanceAdvancedSettings getInstanceAdvancedSettings() 获取<p>InstanceAdvancedSettings</p>
+ * @method void setInstanceAdvancedSettings(InstanceAdvancedSettings $InstanceAdvancedSettings) 设置<p>InstanceAdvancedSettings</p>
+ * @method boolean getEnableAutoscale() 获取<p>是否启用自动伸缩</p>
+ * @method void setEnableAutoscale(boolean $EnableAutoscale) 设置<p>是否启用自动伸缩</p>
+ * @method string getName() 获取<p>节点池名称</p>
+ * @method void setName(string $Name) 设置<p>节点池名称</p>
+ * @method array getLabels() 获取<p>Labels标签</p>
+ * @method void setLabels(array $Labels) 设置<p>Labels标签</p>
+ * @method array getTaints() 获取<p>Taints互斥</p>
+ * @method void setTaints(array $Taints) 设置<p>Taints互斥</p>
+ * @method array getAnnotations() 获取<p>节点Annotation 列表</p>
+ * @method void setAnnotations(array $Annotations) 设置<p>节点Annotation 列表</p>
+ * @method string getContainerRuntime() 获取<p>节点池纬度运行时类型及版本</p>
+ * @method void setContainerRuntime(string $ContainerRuntime) 设置<p>节点池纬度运行时类型及版本</p>
+ * @method string getRuntimeVersion() 获取<p>运行时版本</p>
+ * @method void setRuntimeVersion(string $RuntimeVersion) 设置<p>运行时版本</p>
+ * @method string getNodePoolOs() 获取<p>节点池os，当为自定义镜像时，传镜像id；否则为公共镜像的osName</p>
+ * @method void setNodePoolOs(string $NodePoolOs) 设置<p>节点池os，当为自定义镜像时，传镜像id；否则为公共镜像的osName</p>
+ * @method string getOsCustomizeType() 获取<p>容器的镜像版本，&quot;DOCKER_CUSTOMIZE&quot;(容器定制版),&quot;GENERAL&quot;(普通版本，默认值)</p>
+ * @method void setOsCustomizeType(string $OsCustomizeType) 设置<p>容器的镜像版本，&quot;DOCKER_CUSTOMIZE&quot;(容器定制版),&quot;GENERAL&quot;(普通版本，默认值)</p>
+ * @method array getTags() 获取<p>资源标签</p>
+ * @method void setTags(array $Tags) 设置<p>资源标签</p>
+ * @method boolean getDeletionProtection() 获取<p>删除保护开关</p>
+ * @method void setDeletionProtection(boolean $DeletionProtection) 设置<p>删除保护开关</p>
+ * @method array getSkipValidateOptions() 获取<p>跳过校验选项，目前支持 &quot;VpcDnsCheck&quot;</p>
+ * @method void setSkipValidateOptions(array $SkipValidateOptions) 设置<p>跳过校验选项，目前支持 &quot;VpcDnsCheck&quot;</p>
  */
 class CreateClusterNodePoolRequest extends AbstractModel
 {
     /**
-     * @var string cluster id
+     * @var string <p>cluster id</p>
      */
     public $ClusterId;
 
     /**
-     * @var string AutoScalingGroupPara AS组参数
+     * @var string <p>AutoScalingGroupPara AS组参数，参考 https://cloud.tencent.com/document/product/377/20440</p>
      */
     public $AutoScalingGroupPara;
 
     /**
-     * @var string LaunchConfigurePara 运行参数
+     * @var string <p>LaunchConfigurePara 运行参数，参考 https://cloud.tencent.com/document/product/377/20447</p>
      */
     public $LaunchConfigurePara;
 
     /**
-     * @var InstanceAdvancedSettings InstanceAdvancedSettings 示例参数
+     * @var InstanceAdvancedSettings <p>InstanceAdvancedSettings</p>
      */
     public $InstanceAdvancedSettings;
 
     /**
-     * @var boolean 是否启用自动伸缩
+     * @var boolean <p>是否启用自动伸缩</p>
      */
     public $EnableAutoscale;
 
     /**
-     * @var string 节点池名称
+     * @var string <p>节点池名称</p>
      */
     public $Name;
 
     /**
-     * @var array Labels标签
+     * @var array <p>Labels标签</p>
      */
     public $Labels;
 
     /**
-     * @var array Taints互斥
+     * @var array <p>Taints互斥</p>
      */
     public $Taints;
 
     /**
-     * @var string 节点池os
+     * @var array <p>节点Annotation 列表</p>
+     */
+    public $Annotations;
+
+    /**
+     * @var string <p>节点池纬度运行时类型及版本</p>
+     */
+    public $ContainerRuntime;
+
+    /**
+     * @var string <p>运行时版本</p>
+     */
+    public $RuntimeVersion;
+
+    /**
+     * @var string <p>节点池os，当为自定义镜像时，传镜像id；否则为公共镜像的osName</p>
      */
     public $NodePoolOs;
 
     /**
-     * @var string 容器的镜像版本，"DOCKER_CUSTOMIZE"(容器定制版),"GENERAL"(普通版本，默认值)
+     * @var string <p>容器的镜像版本，&quot;DOCKER_CUSTOMIZE&quot;(容器定制版),&quot;GENERAL&quot;(普通版本，默认值)</p>
      */
     public $OsCustomizeType;
 
     /**
-     * @param string $ClusterId cluster id
-     * @param string $AutoScalingGroupPara AutoScalingGroupPara AS组参数
-     * @param string $LaunchConfigurePara LaunchConfigurePara 运行参数
-     * @param InstanceAdvancedSettings $InstanceAdvancedSettings InstanceAdvancedSettings 示例参数
-     * @param boolean $EnableAutoscale 是否启用自动伸缩
-     * @param string $Name 节点池名称
-     * @param array $Labels Labels标签
-     * @param array $Taints Taints互斥
-     * @param string $NodePoolOs 节点池os
-     * @param string $OsCustomizeType 容器的镜像版本，"DOCKER_CUSTOMIZE"(容器定制版),"GENERAL"(普通版本，默认值)
+     * @var array <p>资源标签</p>
+     */
+    public $Tags;
+
+    /**
+     * @var boolean <p>删除保护开关</p>
+     */
+    public $DeletionProtection;
+
+    /**
+     * @var array <p>跳过校验选项，目前支持 &quot;VpcDnsCheck&quot;</p>
+     */
+    public $SkipValidateOptions;
+
+    /**
+     * @param string $ClusterId <p>cluster id</p>
+     * @param string $AutoScalingGroupPara <p>AutoScalingGroupPara AS组参数，参考 https://cloud.tencent.com/document/product/377/20440</p>
+     * @param string $LaunchConfigurePara <p>LaunchConfigurePara 运行参数，参考 https://cloud.tencent.com/document/product/377/20447</p>
+     * @param InstanceAdvancedSettings $InstanceAdvancedSettings <p>InstanceAdvancedSettings</p>
+     * @param boolean $EnableAutoscale <p>是否启用自动伸缩</p>
+     * @param string $Name <p>节点池名称</p>
+     * @param array $Labels <p>Labels标签</p>
+     * @param array $Taints <p>Taints互斥</p>
+     * @param array $Annotations <p>节点Annotation 列表</p>
+     * @param string $ContainerRuntime <p>节点池纬度运行时类型及版本</p>
+     * @param string $RuntimeVersion <p>运行时版本</p>
+     * @param string $NodePoolOs <p>节点池os，当为自定义镜像时，传镜像id；否则为公共镜像的osName</p>
+     * @param string $OsCustomizeType <p>容器的镜像版本，&quot;DOCKER_CUSTOMIZE&quot;(容器定制版),&quot;GENERAL&quot;(普通版本，默认值)</p>
+     * @param array $Tags <p>资源标签</p>
+     * @param boolean $DeletionProtection <p>删除保护开关</p>
+     * @param array $SkipValidateOptions <p>跳过校验选项，目前支持 &quot;VpcDnsCheck&quot;</p>
      */
     function __construct()
     {
@@ -161,12 +209,46 @@ class CreateClusterNodePoolRequest extends AbstractModel
             }
         }
 
+        if (array_key_exists("Annotations",$param) and $param["Annotations"] !== null) {
+            $this->Annotations = [];
+            foreach ($param["Annotations"] as $key => $value){
+                $obj = new AnnotationValue();
+                $obj->deserialize($value);
+                array_push($this->Annotations, $obj);
+            }
+        }
+
+        if (array_key_exists("ContainerRuntime",$param) and $param["ContainerRuntime"] !== null) {
+            $this->ContainerRuntime = $param["ContainerRuntime"];
+        }
+
+        if (array_key_exists("RuntimeVersion",$param) and $param["RuntimeVersion"] !== null) {
+            $this->RuntimeVersion = $param["RuntimeVersion"];
+        }
+
         if (array_key_exists("NodePoolOs",$param) and $param["NodePoolOs"] !== null) {
             $this->NodePoolOs = $param["NodePoolOs"];
         }
 
         if (array_key_exists("OsCustomizeType",$param) and $param["OsCustomizeType"] !== null) {
             $this->OsCustomizeType = $param["OsCustomizeType"];
+        }
+
+        if (array_key_exists("Tags",$param) and $param["Tags"] !== null) {
+            $this->Tags = [];
+            foreach ($param["Tags"] as $key => $value){
+                $obj = new Tag();
+                $obj->deserialize($value);
+                array_push($this->Tags, $obj);
+            }
+        }
+
+        if (array_key_exists("DeletionProtection",$param) and $param["DeletionProtection"] !== null) {
+            $this->DeletionProtection = $param["DeletionProtection"];
+        }
+
+        if (array_key_exists("SkipValidateOptions",$param) and $param["SkipValidateOptions"] !== null) {
+            $this->SkipValidateOptions = $param["SkipValidateOptions"];
         }
     }
 }

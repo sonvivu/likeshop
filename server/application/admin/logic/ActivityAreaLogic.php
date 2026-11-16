@@ -18,7 +18,7 @@
 // +----------------------------------------------------------------------
 namespace app\admin\logic;
 use app\common\server\UrlServer;
-use think\Db;
+use think\facade\Db;
 
 class ActivityAreaLogic{
     /**
@@ -34,6 +34,7 @@ class ActivityAreaLogic{
                 ->where(['del'=>0])
                 ->page($get['page'], $get['limit'])
                 ->select();
+        $lists = $lists->toArray(); // ThinkPHP 6：select() 返回 Collection，TP5 返回数组；直接写 $lists[$k]['x'] 或 foreach(&$item) 改值会丢/报错，先转数组。
         foreach ($lists as &$item){
             $item['status_desc'] = lang('下架');
             $item['status'] && $item['status_desc'] = lang('上架');
@@ -72,6 +73,7 @@ class ActivityAreaLogic{
                 ->page($get['page'], $get['limit'])
                 ->order('AG.id desc')
                 ->select();
+        $lists = $lists->toArray(); // ThinkPHP 6：select() 返回 Collection，TP5 返回数组；直接写 $lists[$k]['x'] 或 foreach(&$item) 改值会丢/报错，先转数组。
         $activity_lisst = Db::name('activity_area')
                     ->where(['del'=>0])
                     ->column('name,status','id');
@@ -202,6 +204,7 @@ class ActivityAreaLogic{
                 ->where(['activity_id'=>$activity_id,'AG.goods_id'=>$goods_id])
                 ->field('AG.*,GI.price,GI.spec_value_str,GI.image,GI.price')
                 ->select();
+        $activity_list = $activity_list->toArray(); // ThinkPHP 6：select() 返回 Collection，TP5 返回数组；直接写 $activity_list[$k]['x'] 或 foreach(&$item) 改值会丢/报错，先转数组。
 
         $goods_id = $activity_list[0]['goods_id'];
         $goods = Db::name('goods')->where(['del'=>0,'id'=>$goods_id])->field('image,name')->find();

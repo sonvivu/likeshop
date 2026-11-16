@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,26 +20,26 @@ use TencentCloud\Common\AbstractModel;
 /**
  * API购买实例绑定标签
  *
- * @method string getTagKey() 获取标签key
- * @method void setTagKey(string $TagKey) 设置标签key
- * @method string getTagValue() 获取标签value
- * @method void setTagValue(string $TagValue) 设置标签value
+ * @method string getTagKey() 获取标签Key。
+ * @method void setTagKey(string $TagKey) 设置标签Key。
+ * @method string getTagValue() 获取标签 Key 对应的 Value。
+ * @method void setTagValue(string $TagValue) 设置标签 Key 对应的 Value。
  */
 class ResourceTag extends AbstractModel
 {
     /**
-     * @var string 标签key
+     * @var string 标签Key。
      */
     public $TagKey;
 
     /**
-     * @var string 标签value
+     * @var string 标签 Key 对应的 Value。
      */
     public $TagValue;
 
     /**
-     * @param string $TagKey 标签key
-     * @param string $TagValue 标签value
+     * @param string $TagKey 标签Key。
+     * @param string $TagValue 标签 Key 对应的 Value。
      */
     function __construct()
     {

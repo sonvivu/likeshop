@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,33 +20,33 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeProductEventList返回的Events里的GroupInfo
  *
- * @method integer getGroupId() 获取策略ID
+ * @method integer getGroupId() 获取<p>策略ID</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setGroupId(integer $GroupId) 设置策略ID
+ * @method void setGroupId(integer $GroupId) 设置<p>策略ID</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getGroupName() 获取策略名
+ * @method string getGroupName() 获取<p>策略名</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setGroupName(string $GroupName) 设置策略名
+ * @method void setGroupName(string $GroupName) 设置<p>策略名</p>
 注意：此字段可能返回 null，表示取不到有效值。
  */
 class DescribeProductEventListEventsGroupInfo extends AbstractModel
 {
     /**
-     * @var integer 策略ID
+     * @var integer <p>策略ID</p>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $GroupId;
 
     /**
-     * @var string 策略名
+     * @var string <p>策略名</p>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $GroupName;
 
     /**
-     * @param integer $GroupId 策略ID
+     * @param integer $GroupId <p>策略ID</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $GroupName 策略名
+     * @param string $GroupName <p>策略名</p>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()

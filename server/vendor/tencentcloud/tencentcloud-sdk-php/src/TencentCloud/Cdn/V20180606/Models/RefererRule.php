@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,14 +46,14 @@ blacklist：黑名单
  * @method void setRefererType(string $RefererType) 设置referer 配置类型
 whitelist：白名单
 blacklist：黑名单
- * @method array getReferers() 获取referer 内容列表列表
- * @method void setReferers(array $Referers) 设置referer 内容列表列表
+ * @method array getReferers() 获取referer 内容列表
+ * @method void setReferers(array $Referers) 设置referer 内容列表
  * @method boolean getAllowEmpty() 获取是否允许空 referer
-true：允许空 referer
-false：不允许空 referer
+防盗链类型为白名单时，true表示允许空 referer，false表示不允许空 referer；
+防盗链类型为黑名单时，true表示拒绝空referer，false表示不拒绝空referer；
  * @method void setAllowEmpty(boolean $AllowEmpty) 设置是否允许空 referer
-true：允许空 referer
-false：不允许空 referer
+防盗链类型为白名单时，true表示允许空 referer，false表示不允许空 referer；
+防盗链类型为黑名单时，true表示拒绝空referer，false表示不拒绝空referer；
  */
 class RefererRule extends AbstractModel
 {
@@ -83,14 +83,14 @@ blacklist：黑名单
     public $RefererType;
 
     /**
-     * @var array referer 内容列表列表
+     * @var array referer 内容列表
      */
     public $Referers;
 
     /**
      * @var boolean 是否允许空 referer
-true：允许空 referer
-false：不允许空 referer
+防盗链类型为白名单时，true表示允许空 referer，false表示不允许空 referer；
+防盗链类型为黑名单时，true表示拒绝空referer，false表示不拒绝空referer；
      */
     public $AllowEmpty;
 
@@ -108,10 +108,10 @@ path 时填充绝对路径，如 /xxx/test.html
      * @param string $RefererType referer 配置类型
 whitelist：白名单
 blacklist：黑名单
-     * @param array $Referers referer 内容列表列表
+     * @param array $Referers referer 内容列表
      * @param boolean $AllowEmpty 是否允许空 referer
-true：允许空 referer
-false：不允许空 referer
+防盗链类型为白名单时，true表示允许空 referer，false表示不允许空 referer；
+防盗链类型为黑名单时，true表示拒绝空referer，false表示不拒绝空referer；
      */
     function __construct()
     {

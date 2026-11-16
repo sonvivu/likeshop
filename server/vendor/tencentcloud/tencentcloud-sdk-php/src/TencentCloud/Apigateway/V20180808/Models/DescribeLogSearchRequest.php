@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -113,6 +113,7 @@ req_t：”>=“ 、 ”<=“
 
 说明：
 “:”表示包含，“!=”表示不等于，字段含义见输出参数的LogSet说明
+     * @deprecated
      */
     public $LogQuerys;
 

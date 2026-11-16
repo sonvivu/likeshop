@@ -26,7 +26,7 @@
 namespace app\admin\validate;
 
 
-use think\Db;
+use think\facade\Db;
 use think\Validate;
 
 class GoodsBrand extends Validate
@@ -69,6 +69,6 @@ class GoodsBrand extends Validate
     public function sceneAdd()
     {
 
-        $this->remove('id');
+        $this->remove('id', true);
     }
 }

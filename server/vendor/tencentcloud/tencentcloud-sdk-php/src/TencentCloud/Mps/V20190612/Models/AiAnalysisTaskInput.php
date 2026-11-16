@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,6 +22,20 @@ use TencentCloud\Common\AbstractModel;
  *
  * @method integer getDefinition() 获取视频内容分析模板 ID。
  * @method void setDefinition(integer $Definition) 设置视频内容分析模板 ID。
+ * @method string getExtendedParameter() 获取扩展参数，其值为序列化的 json字符串。
+注意：此参数为定制需求参数，参考如下：
+[智能檫除](https://cloud.tencent.com/document/product/862/101530)
+[智能拆条](https://cloud.tencent.com/document/product/862/112098)
+[高光集锦](https://cloud.tencent.com/document/product/862/107280)
+[智能横转竖](https://cloud.tencent.com/document/product/862/112112)
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setExtendedParameter(string $ExtendedParameter) 设置扩展参数，其值为序列化的 json字符串。
+注意：此参数为定制需求参数，参考如下：
+[智能檫除](https://cloud.tencent.com/document/product/862/101530)
+[智能拆条](https://cloud.tencent.com/document/product/862/112098)
+[高光集锦](https://cloud.tencent.com/document/product/862/107280)
+[智能横转竖](https://cloud.tencent.com/document/product/862/112112)
+注意：此字段可能返回 null，表示取不到有效值。
  */
 class AiAnalysisTaskInput extends AbstractModel
 {
@@ -31,7 +45,25 @@ class AiAnalysisTaskInput extends AbstractModel
     public $Definition;
 
     /**
+     * @var string 扩展参数，其值为序列化的 json字符串。
+注意：此参数为定制需求参数，参考如下：
+[智能檫除](https://cloud.tencent.com/document/product/862/101530)
+[智能拆条](https://cloud.tencent.com/document/product/862/112098)
+[高光集锦](https://cloud.tencent.com/document/product/862/107280)
+[智能横转竖](https://cloud.tencent.com/document/product/862/112112)
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $ExtendedParameter;
+
+    /**
      * @param integer $Definition 视频内容分析模板 ID。
+     * @param string $ExtendedParameter 扩展参数，其值为序列化的 json字符串。
+注意：此参数为定制需求参数，参考如下：
+[智能檫除](https://cloud.tencent.com/document/product/862/101530)
+[智能拆条](https://cloud.tencent.com/document/product/862/112098)
+[高光集锦](https://cloud.tencent.com/document/product/862/107280)
+[智能横转竖](https://cloud.tencent.com/document/product/862/112112)
+注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
     {
@@ -48,6 +80,10 @@ class AiAnalysisTaskInput extends AbstractModel
         }
         if (array_key_exists("Definition",$param) and $param["Definition"] !== null) {
             $this->Definition = $param["Definition"];
+        }
+
+        if (array_key_exists("ExtendedParameter",$param) and $param["ExtendedParameter"] !== null) {
+            $this->ExtendedParameter = $param["ExtendedParameter"];
         }
     }
 }

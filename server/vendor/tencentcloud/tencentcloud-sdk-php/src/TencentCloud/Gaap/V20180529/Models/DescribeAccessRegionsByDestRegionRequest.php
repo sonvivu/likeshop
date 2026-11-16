@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,6 +22,10 @@ use TencentCloud\Common\AbstractModel;
  *
  * @method string getDestRegion() 获取源站区域：接口DescribeDestRegions返回DestRegionSet中的RegionId字段值
  * @method void setDestRegion(string $DestRegion) 设置源站区域：接口DescribeDestRegions返回DestRegionSet中的RegionId字段值
+ * @method string getIPAddressVersion() 获取IP版本，可取值：IPv4、IPv6，默认值IPv4
+ * @method void setIPAddressVersion(string $IPAddressVersion) 设置IP版本，可取值：IPv4、IPv6，默认值IPv4
+ * @method string getPackageType() 获取通道套餐类型，Thunder表示标准通道组，Accelerator表示游戏加速器通道，CrossBorder表示跨境通道。
+ * @method void setPackageType(string $PackageType) 设置通道套餐类型，Thunder表示标准通道组，Accelerator表示游戏加速器通道，CrossBorder表示跨境通道。
  */
 class DescribeAccessRegionsByDestRegionRequest extends AbstractModel
 {
@@ -31,7 +35,19 @@ class DescribeAccessRegionsByDestRegionRequest extends AbstractModel
     public $DestRegion;
 
     /**
+     * @var string IP版本，可取值：IPv4、IPv6，默认值IPv4
+     */
+    public $IPAddressVersion;
+
+    /**
+     * @var string 通道套餐类型，Thunder表示标准通道组，Accelerator表示游戏加速器通道，CrossBorder表示跨境通道。
+     */
+    public $PackageType;
+
+    /**
      * @param string $DestRegion 源站区域：接口DescribeDestRegions返回DestRegionSet中的RegionId字段值
+     * @param string $IPAddressVersion IP版本，可取值：IPv4、IPv6，默认值IPv4
+     * @param string $PackageType 通道套餐类型，Thunder表示标准通道组，Accelerator表示游戏加速器通道，CrossBorder表示跨境通道。
      */
     function __construct()
     {
@@ -48,6 +64,14 @@ class DescribeAccessRegionsByDestRegionRequest extends AbstractModel
         }
         if (array_key_exists("DestRegion",$param) and $param["DestRegion"] !== null) {
             $this->DestRegion = $param["DestRegion"];
+        }
+
+        if (array_key_exists("IPAddressVersion",$param) and $param["IPAddressVersion"] !== null) {
+            $this->IPAddressVersion = $param["IPAddressVersion"];
+        }
+
+        if (array_key_exists("PackageType",$param) and $param["PackageType"] !== null) {
+            $this->PackageType = $param["PackageType"];
         }
     }
 }

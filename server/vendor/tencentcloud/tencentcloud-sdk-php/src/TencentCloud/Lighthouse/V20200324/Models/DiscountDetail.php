@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,58 +20,58 @@ use TencentCloud\Common\AbstractModel;
 /**
  * 套餐折扣详情（仅用于控制台调用询价相关接口返回）。
  *
- * @method integer getTimeSpan() 获取计费时长。
- * @method void setTimeSpan(integer $TimeSpan) 设置计费时长。
- * @method string getTimeUnit() 获取计费单元。
- * @method void setTimeUnit(string $TimeUnit) 设置计费单元。
- * @method float getTotalCost() 获取总价。
- * @method void setTotalCost(float $TotalCost) 设置总价。
- * @method float getRealTotalCost() 获取折后总价。
- * @method void setRealTotalCost(float $RealTotalCost) 设置折后总价。
- * @method integer getDiscount() 获取折扣。
- * @method void setDiscount(integer $Discount) 设置折扣。
- * @method PolicyDetail getPolicyDetail() 获取具体折扣详情。
- * @method void setPolicyDetail(PolicyDetail $PolicyDetail) 设置具体折扣详情。
+ * @method integer getTimeSpan() 获取<p>计费时长。</p>
+ * @method void setTimeSpan(integer $TimeSpan) 设置<p>计费时长。</p>
+ * @method string getTimeUnit() 获取<p>时间单位。<br>取值为：</p><ul><li>m - 月</li><li>d - 日</li></ul>
+ * @method void setTimeUnit(string $TimeUnit) 设置<p>时间单位。<br>取值为：</p><ul><li>m - 月</li><li>d - 日</li></ul>
+ * @method float getTotalCost() 获取<p>总价。</p><p>单位：元</p>
+ * @method void setTotalCost(float $TotalCost) 设置<p>总价。</p><p>单位：元</p>
+ * @method float getRealTotalCost() 获取<p>折后总价。</p><p>单位：元</p>
+ * @method void setRealTotalCost(float $RealTotalCost) 设置<p>折后总价。</p><p>单位：元</p>
+ * @method float getDiscount() 获取<p>折扣。</p>
+ * @method void setDiscount(float $Discount) 设置<p>折扣。</p>
+ * @method PolicyDetail getPolicyDetail() 获取<p>具体折扣详情。</p>
+ * @method void setPolicyDetail(PolicyDetail $PolicyDetail) 设置<p>具体折扣详情。</p>
  */
 class DiscountDetail extends AbstractModel
 {
     /**
-     * @var integer 计费时长。
+     * @var integer <p>计费时长。</p>
      */
     public $TimeSpan;
 
     /**
-     * @var string 计费单元。
+     * @var string <p>时间单位。<br>取值为：</p><ul><li>m - 月</li><li>d - 日</li></ul>
      */
     public $TimeUnit;
 
     /**
-     * @var float 总价。
+     * @var float <p>总价。</p><p>单位：元</p>
      */
     public $TotalCost;
 
     /**
-     * @var float 折后总价。
+     * @var float <p>折后总价。</p><p>单位：元</p>
      */
     public $RealTotalCost;
 
     /**
-     * @var integer 折扣。
+     * @var float <p>折扣。</p>
      */
     public $Discount;
 
     /**
-     * @var PolicyDetail 具体折扣详情。
+     * @var PolicyDetail <p>具体折扣详情。</p>
      */
     public $PolicyDetail;
 
     /**
-     * @param integer $TimeSpan 计费时长。
-     * @param string $TimeUnit 计费单元。
-     * @param float $TotalCost 总价。
-     * @param float $RealTotalCost 折后总价。
-     * @param integer $Discount 折扣。
-     * @param PolicyDetail $PolicyDetail 具体折扣详情。
+     * @param integer $TimeSpan <p>计费时长。</p>
+     * @param string $TimeUnit <p>时间单位。<br>取值为：</p><ul><li>m - 月</li><li>d - 日</li></ul>
+     * @param float $TotalCost <p>总价。</p><p>单位：元</p>
+     * @param float $RealTotalCost <p>折后总价。</p><p>单位：元</p>
+     * @param float $Discount <p>折扣。</p>
+     * @param PolicyDetail $PolicyDetail <p>具体折扣详情。</p>
      */
     function __construct()
     {

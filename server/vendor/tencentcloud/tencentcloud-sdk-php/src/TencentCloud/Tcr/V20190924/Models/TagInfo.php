@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,126 +20,130 @@ use TencentCloud\Common\AbstractModel;
 /**
  * 镜像tag信息
  *
- * @method string getTagName() 获取Tag名称
- * @method void setTagName(string $TagName) 设置Tag名称
- * @method string getTagId() 获取镜像Id
- * @method void setTagId(string $TagId) 设置镜像Id
- * @method string getImageId() 获取docker image 可以看到的id
- * @method void setImageId(string $ImageId) 设置docker image 可以看到的id
- * @method string getSize() 获取大小
- * @method void setSize(string $Size) 设置大小
- * @method string getCreationTime() 获取镜像的创建时间
- * @method void setCreationTime(string $CreationTime) 设置镜像的创建时间
- * @method string getDurationDays() 获取镜像创建至今时间长度
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setDurationDays(string $DurationDays) 设置镜像创建至今时间长度
-注意：此字段可能返回 null，表示取不到有效值。
- * @method string getAuthor() 获取镜像的作者
- * @method void setAuthor(string $Author) 设置镜像的作者
- * @method string getArchitecture() 获取次镜像建议运行的系统架构
- * @method void setArchitecture(string $Architecture) 设置次镜像建议运行的系统架构
- * @method string getDockerVersion() 获取创建此镜像的docker版本
- * @method void setDockerVersion(string $DockerVersion) 设置创建此镜像的docker版本
- * @method string getOS() 获取此镜像建议运行系统
- * @method void setOS(string $OS) 设置此镜像建议运行系统
- * @method integer getSizeByte() 获取SizeByte
- * @method void setSizeByte(integer $SizeByte) 设置SizeByte
- * @method integer getId() 获取Id
- * @method void setId(integer $Id) 设置Id
- * @method string getUpdateTime() 获取数据更新时间
- * @method void setUpdateTime(string $UpdateTime) 设置数据更新时间
- * @method string getPushTime() 获取镜像更新时间
- * @method void setPushTime(string $PushTime) 设置镜像更新时间
+ * @method string getTagName() 获取<p>Tag名称</p>
+ * @method void setTagName(string $TagName) 设置<p>Tag名称</p>
+ * @method string getTagId() 获取<p>制品的 ID</p>
+ * @method void setTagId(string $TagId) 设置<p>制品的 ID</p>
+ * @method string getImageId() 获取<p>docker image 可以看到的id</p>
+ * @method void setImageId(string $ImageId) 设置<p>docker image 可以看到的id</p>
+ * @method string getSize() 获取<p>大小</p>
+ * @method void setSize(string $Size) 设置<p>大小</p>
+ * @method string getCreationTime() 获取<p>制品的创建时间</p>
+ * @method void setCreationTime(string $CreationTime) 设置<p>制品的创建时间</p>
+ * @method string getDurationDays() 获取<p>制品创建至今时间长度</p>
+ * @method void setDurationDays(string $DurationDays) 设置<p>制品创建至今时间长度</p>
+ * @method string getAuthor() 获取<p>标注的制品作者</p>
+ * @method void setAuthor(string $Author) 设置<p>标注的制品作者</p>
+ * @method string getArchitecture() 获取<p>标注的制品平台</p>
+ * @method void setArchitecture(string $Architecture) 设置<p>标注的制品平台</p>
+ * @method string getDockerVersion() 获取<p>创建制品的 Docker 版本</p>
+ * @method void setDockerVersion(string $DockerVersion) 设置<p>创建制品的 Docker 版本</p>
+ * @method string getOS() 获取<p>标注的制品操作系统</p>
+ * @method void setOS(string $OS) 设置<p>标注的制品操作系统</p>
+ * @method integer getSizeByte() 获取<p>制品大小，单位：Byte</p>
+ * @method void setSizeByte(integer $SizeByte) 设置<p>制品大小，单位：Byte</p>
+ * @method integer getId() 获取<p>序号</p>
+ * @method void setId(integer $Id) 设置<p>序号</p>
+ * @method string getUpdateTime() 获取<p>数据更新时间</p>
+ * @method void setUpdateTime(string $UpdateTime) 设置<p>数据更新时间</p>
+ * @method string getPushTime() 获取<p>制品更新时间</p>
+ * @method void setPushTime(string $PushTime) 设置<p>制品更新时间</p>
+ * @method string getKind() 获取<p>制品类型</p>
+ * @method void setKind(string $Kind) 设置<p>制品类型</p>
  */
 class TagInfo extends AbstractModel
 {
     /**
-     * @var string Tag名称
+     * @var string <p>Tag名称</p>
      */
     public $TagName;
 
     /**
-     * @var string 镜像Id
+     * @var string <p>制品的 ID</p>
      */
     public $TagId;
 
     /**
-     * @var string docker image 可以看到的id
+     * @var string <p>docker image 可以看到的id</p>
      */
     public $ImageId;
 
     /**
-     * @var string 大小
+     * @var string <p>大小</p>
      */
     public $Size;
 
     /**
-     * @var string 镜像的创建时间
+     * @var string <p>制品的创建时间</p>
      */
     public $CreationTime;
 
     /**
-     * @var string 镜像创建至今时间长度
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string <p>制品创建至今时间长度</p>
      */
     public $DurationDays;
 
     /**
-     * @var string 镜像的作者
+     * @var string <p>标注的制品作者</p>
      */
     public $Author;
 
     /**
-     * @var string 次镜像建议运行的系统架构
+     * @var string <p>标注的制品平台</p>
      */
     public $Architecture;
 
     /**
-     * @var string 创建此镜像的docker版本
+     * @var string <p>创建制品的 Docker 版本</p>
      */
     public $DockerVersion;
 
     /**
-     * @var string 此镜像建议运行系统
+     * @var string <p>标注的制品操作系统</p>
      */
     public $OS;
 
     /**
-     * @var integer SizeByte
+     * @var integer <p>制品大小，单位：Byte</p>
      */
     public $SizeByte;
 
     /**
-     * @var integer Id
+     * @var integer <p>序号</p>
      */
     public $Id;
 
     /**
-     * @var string 数据更新时间
+     * @var string <p>数据更新时间</p>
      */
     public $UpdateTime;
 
     /**
-     * @var string 镜像更新时间
+     * @var string <p>制品更新时间</p>
      */
     public $PushTime;
 
     /**
-     * @param string $TagName Tag名称
-     * @param string $TagId 镜像Id
-     * @param string $ImageId docker image 可以看到的id
-     * @param string $Size 大小
-     * @param string $CreationTime 镜像的创建时间
-     * @param string $DurationDays 镜像创建至今时间长度
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $Author 镜像的作者
-     * @param string $Architecture 次镜像建议运行的系统架构
-     * @param string $DockerVersion 创建此镜像的docker版本
-     * @param string $OS 此镜像建议运行系统
-     * @param integer $SizeByte SizeByte
-     * @param integer $Id Id
-     * @param string $UpdateTime 数据更新时间
-     * @param string $PushTime 镜像更新时间
+     * @var string <p>制品类型</p>
+     */
+    public $Kind;
+
+    /**
+     * @param string $TagName <p>Tag名称</p>
+     * @param string $TagId <p>制品的 ID</p>
+     * @param string $ImageId <p>docker image 可以看到的id</p>
+     * @param string $Size <p>大小</p>
+     * @param string $CreationTime <p>制品的创建时间</p>
+     * @param string $DurationDays <p>制品创建至今时间长度</p>
+     * @param string $Author <p>标注的制品作者</p>
+     * @param string $Architecture <p>标注的制品平台</p>
+     * @param string $DockerVersion <p>创建制品的 Docker 版本</p>
+     * @param string $OS <p>标注的制品操作系统</p>
+     * @param integer $SizeByte <p>制品大小，单位：Byte</p>
+     * @param integer $Id <p>序号</p>
+     * @param string $UpdateTime <p>数据更新时间</p>
+     * @param string $PushTime <p>制品更新时间</p>
+     * @param string $Kind <p>制品类型</p>
      */
     function __construct()
     {
@@ -208,6 +212,10 @@ class TagInfo extends AbstractModel
 
         if (array_key_exists("PushTime",$param) and $param["PushTime"] !== null) {
             $this->PushTime = $param["PushTime"];
+        }
+
+        if (array_key_exists("Kind",$param) and $param["Kind"] !== null) {
+            $this->Kind = $param["Kind"];
         }
     }
 }

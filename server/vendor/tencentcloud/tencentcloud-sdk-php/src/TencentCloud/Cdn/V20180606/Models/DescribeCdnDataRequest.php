@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,7 +34,11 @@ use TencentCloud\Common\AbstractModel;
 起始时间与结束时间间隔小于等于 90 天
  * @method string getMetric() 获取指定查询指标，支持的类型有：
 flux：流量，单位为 byte
+fluxIn：上行流量，单位为 byte，该指标仅ecdn支持查询
+fluxOut：下行流量，单位为 byte，该指标仅ecdn支持查询
 bandwidth：带宽，单位为 bps
+bandwidthIn：上行带宽，单位为 bps，该指标仅ecdn支持查询
+bandwidthOut：下行带宽，单位为 bps，该指标仅ecdn支持查询
 request：请求数，单位为 次
 hitRequest：命中请求数，单位为 次
 requestHitRate：请求命中率，单位为 %，保留小数点后两位
@@ -48,7 +52,11 @@ statusCode：状态码，返回 2xx、3xx、4xx、5xx 汇总数据，单位为 �
 支持指定具体状态码查询，若未产生过，则返回为空
  * @method void setMetric(string $Metric) 设置指定查询指标，支持的类型有：
 flux：流量，单位为 byte
+fluxIn：上行流量，单位为 byte，该指标仅ecdn支持查询
+fluxOut：下行流量，单位为 byte，该指标仅ecdn支持查询
 bandwidth：带宽，单位为 bps
+bandwidthIn：上行带宽，单位为 bps，该指标仅ecdn支持查询
+bandwidthOut：下行带宽，单位为 bps，该指标仅ecdn支持查询
 request：请求数，单位为 次
 hitRequest：命中请求数，单位为 次
 requestHitRate：请求命中率，单位为 %，保留小数点后两位
@@ -61,9 +69,13 @@ statusCode：状态码，返回 2xx、3xx、4xx、5xx 汇总数据，单位为 �
 5xx：返回 5xx 状态码汇总及各 5 开头状态码数据，单位为 个
 支持指定具体状态码查询，若未产生过，则返回为空
  * @method array getDomains() 获取指定查询域名列表
-最多可一次性查询 30 个加速域名明细
+查询单域名：指定单个域名
+查询多个域名：指定多个域名，最多可一次性查询 30 个
+查询账号下所有域名：不传参，默认查询账号维度
  * @method void setDomains(array $Domains) 设置指定查询域名列表
-最多可一次性查询 30 个加速域名明细
+查询单域名：指定单个域名
+查询多个域名：指定多个域名，最多可一次性查询 30 个
+查询账号下所有域名：不传参，默认查询账号维度
  * @method integer getProject() 获取指定要查询的项目 ID，[前往查看项目 ID](https://console.cloud.tencent.com/project)
 未填充域名情况下，指定项目查询，若填充了具体域名信息，以域名为主
  * @method void setProject(integer $Project) 设置指定要查询的项目 ID，[前往查看项目 ID](https://console.cloud.tencent.com/project)
@@ -79,9 +91,9 @@ min：1 分钟粒度，指定查询区间 24 小时内（含 24 小时），可�
 hour：1 小时粒度，指定查询区间 31 天内（含 31 天），可返回 1 小时粒度明细数据
 day：天粒度，指定查询区间大于 31 天，可返回天粒度明细数据
  * @method boolean getDetail() 获取多域名查询时，默认（false)返回多个域名的汇总数据
-可按需指定为 true，返回每一个 Domain 的明细数据（statusCode 指标暂不支持）
+可按需指定为 true，返回每一个 Domain 的明细数据（statusCode、2xx、3xx、4xx、5xx 指标暂不支持）
  * @method void setDetail(boolean $Detail) 设置多域名查询时，默认（false)返回多个域名的汇总数据
-可按需指定为 true，返回每一个 Domain 的明细数据（statusCode 指标暂不支持）
+可按需指定为 true，返回每一个 Domain 的明细数据（statusCode、2xx、3xx、4xx、5xx 指标暂不支持）
  * @method integer getIsp() 获取查询中国境内CDN数据时，指定运营商查询，不填充表示查询所有运营商
 运营商编码可以查看 [运营商编码映射](https://cloud.tencent.com/document/product/228/6316#.E5.8C.BA.E5.9F.9F-.2F-.E8.BF.90.E8.90.A5.E5.95.86.E6.98.A0.E5.B0.84.E8.A1.A8)
 指定运营商查询时，不可同时指定省份、IP协议查询
@@ -100,12 +112,16 @@ day：天粒度，指定查询区间大于 31 天，可返回天粒度明细数�
 all：所有协议
 http：指定查询 HTTP 对应指标
 https：指定查询 HTTPS 对应指标
+quic：指定查询 QUIC 对应指标
  * @method void setProtocol(string $Protocol) 设置指定协议查询，不填充表示查询所有协议
 all：所有协议
 http：指定查询 HTTP 对应指标
 https：指定查询 HTTPS 对应指标
- * @method string getDataSource() 获取指定数据源查询，白名单功能
- * @method void setDataSource(string $DataSource) 设置指定数据源查询，白名单功能
+quic：指定查询 QUIC 对应指标
+ * @method string getDataSource() 获取指定数据源查询
+monitor：监控数据
+ * @method void setDataSource(string $DataSource) 设置指定数据源查询
+monitor：监控数据
  * @method string getIpProtocol() 获取指定IP协议查询，不填充表示查询所有协议
 all：所有协议
 ipv4：指定查询 ipv4 对应指标
@@ -130,6 +146,10 @@ client：指定查询客户端地区（用户请求终端所在地区）数据
  * @method void setAreaType(string $AreaType) 设置查询中国境外CDN数据时，可指定地区类型查询，不填充表示查询服务地区数据（仅在 Area 为 overseas 时可用）
 server：指定查询服务地区（腾讯云 CDN 节点服务器所在地区）数据
 client：指定查询客户端地区（用户请求终端所在地区）数据
+ * @method string getProduct() 获取指定查询的产品数据，可选为cdn或者ecdn，默认为cdn
+ * @method void setProduct(string $Product) 设置指定查询的产品数据，可选为cdn或者ecdn，默认为cdn
+ * @method string getTimeZone() 获取指定查询时间的时区，默认UTC+08:00
+ * @method void setTimeZone(string $TimeZone) 设置指定查询时间的时区，默认UTC+08:00
  */
 class DescribeCdnDataRequest extends AbstractModel
 {
@@ -150,7 +170,11 @@ class DescribeCdnDataRequest extends AbstractModel
     /**
      * @var string 指定查询指标，支持的类型有：
 flux：流量，单位为 byte
+fluxIn：上行流量，单位为 byte，该指标仅ecdn支持查询
+fluxOut：下行流量，单位为 byte，该指标仅ecdn支持查询
 bandwidth：带宽，单位为 bps
+bandwidthIn：上行带宽，单位为 bps，该指标仅ecdn支持查询
+bandwidthOut：下行带宽，单位为 bps，该指标仅ecdn支持查询
 request：请求数，单位为 次
 hitRequest：命中请求数，单位为 次
 requestHitRate：请求命中率，单位为 %，保留小数点后两位
@@ -167,7 +191,9 @@ statusCode：状态码，返回 2xx、3xx、4xx、5xx 汇总数据，单位为 �
 
     /**
      * @var array 指定查询域名列表
-最多可一次性查询 30 个加速域名明细
+查询单域名：指定单个域名
+查询多个域名：指定多个域名，最多可一次性查询 30 个
+查询账号下所有域名：不传参，默认查询账号维度
      */
     public $Domains;
 
@@ -188,7 +214,7 @@ day：天粒度，指定查询区间大于 31 天，可返回天粒度明细数�
 
     /**
      * @var boolean 多域名查询时，默认（false)返回多个域名的汇总数据
-可按需指定为 true，返回每一个 Domain 的明细数据（statusCode 指标暂不支持）
+可按需指定为 true，返回每一个 Domain 的明细数据（statusCode、2xx、3xx、4xx、5xx 指标暂不支持）
      */
     public $Detail;
 
@@ -212,11 +238,13 @@ day：天粒度，指定查询区间大于 31 天，可返回天粒度明细数�
 all：所有协议
 http：指定查询 HTTP 对应指标
 https：指定查询 HTTPS 对应指标
+quic：指定查询 QUIC 对应指标
      */
     public $Protocol;
 
     /**
-     * @var string 指定数据源查询，白名单功能
+     * @var string 指定数据源查询
+monitor：监控数据
      */
     public $DataSource;
 
@@ -245,6 +273,16 @@ client：指定查询客户端地区（用户请求终端所在地区）数据
     public $AreaType;
 
     /**
+     * @var string 指定查询的产品数据，可选为cdn或者ecdn，默认为cdn
+     */
+    public $Product;
+
+    /**
+     * @var string 指定查询时间的时区，默认UTC+08:00
+     */
+    public $TimeZone;
+
+    /**
      * @param string $StartTime 查询起始时间，如：2018-09-04 10:40:00，返回结果大于等于指定时间
 根据指定时间粒度不同，会进行向前归整，如 2018-09-04 10:40:00 在按 1 小时的时间粒度查询时，返回的第一个数据对应时间点为 2018-09-04 10:00:00
 起始时间与结束时间间隔小于等于 90 天
@@ -253,7 +291,11 @@ client：指定查询客户端地区（用户请求终端所在地区）数据
 起始时间与结束时间间隔小于等于 90 天
      * @param string $Metric 指定查询指标，支持的类型有：
 flux：流量，单位为 byte
+fluxIn：上行流量，单位为 byte，该指标仅ecdn支持查询
+fluxOut：下行流量，单位为 byte，该指标仅ecdn支持查询
 bandwidth：带宽，单位为 bps
+bandwidthIn：上行带宽，单位为 bps，该指标仅ecdn支持查询
+bandwidthOut：下行带宽，单位为 bps，该指标仅ecdn支持查询
 request：请求数，单位为 次
 hitRequest：命中请求数，单位为 次
 requestHitRate：请求命中率，单位为 %，保留小数点后两位
@@ -266,7 +308,9 @@ statusCode：状态码，返回 2xx、3xx、4xx、5xx 汇总数据，单位为 �
 5xx：返回 5xx 状态码汇总及各 5 开头状态码数据，单位为 个
 支持指定具体状态码查询，若未产生过，则返回为空
      * @param array $Domains 指定查询域名列表
-最多可一次性查询 30 个加速域名明细
+查询单域名：指定单个域名
+查询多个域名：指定多个域名，最多可一次性查询 30 个
+查询账号下所有域名：不传参，默认查询账号维度
      * @param integer $Project 指定要查询的项目 ID，[前往查看项目 ID](https://console.cloud.tencent.com/project)
 未填充域名情况下，指定项目查询，若填充了具体域名信息，以域名为主
      * @param string $Interval 时间粒度，支持以下几种模式：
@@ -275,7 +319,7 @@ min：1 分钟粒度，指定查询区间 24 小时内（含 24 小时），可�
 hour：1 小时粒度，指定查询区间 31 天内（含 31 天），可返回 1 小时粒度明细数据
 day：天粒度，指定查询区间大于 31 天，可返回天粒度明细数据
      * @param boolean $Detail 多域名查询时，默认（false)返回多个域名的汇总数据
-可按需指定为 true，返回每一个 Domain 的明细数据（statusCode 指标暂不支持）
+可按需指定为 true，返回每一个 Domain 的明细数据（statusCode、2xx、3xx、4xx、5xx 指标暂不支持）
      * @param integer $Isp 查询中国境内CDN数据时，指定运营商查询，不填充表示查询所有运营商
 运营商编码可以查看 [运营商编码映射](https://cloud.tencent.com/document/product/228/6316#.E5.8C.BA.E5.9F.9F-.2F-.E8.BF.90.E8.90.A5.E5.95.86.E6.98.A0.E5.B0.84.E8.A1.A8)
 指定运营商查询时，不可同时指定省份、IP协议查询
@@ -287,7 +331,9 @@ day：天粒度，指定查询区间大于 31 天，可返回天粒度明细数�
 all：所有协议
 http：指定查询 HTTP 对应指标
 https：指定查询 HTTPS 对应指标
-     * @param string $DataSource 指定数据源查询，白名单功能
+quic：指定查询 QUIC 对应指标
+     * @param string $DataSource 指定数据源查询
+monitor：监控数据
      * @param string $IpProtocol 指定IP协议查询，不填充表示查询所有协议
 all：所有协议
 ipv4：指定查询 ipv4 对应指标
@@ -300,6 +346,8 @@ overseas：指定查询中国境外 CDN 数据
      * @param string $AreaType 查询中国境外CDN数据时，可指定地区类型查询，不填充表示查询服务地区数据（仅在 Area 为 overseas 时可用）
 server：指定查询服务地区（腾讯云 CDN 节点服务器所在地区）数据
 client：指定查询客户端地区（用户请求终端所在地区）数据
+     * @param string $Product 指定查询的产品数据，可选为cdn或者ecdn，默认为cdn
+     * @param string $TimeZone 指定查询时间的时区，默认UTC+08:00
      */
     function __construct()
     {
@@ -368,6 +416,14 @@ client：指定查询客户端地区（用户请求终端所在地区）数据
 
         if (array_key_exists("AreaType",$param) and $param["AreaType"] !== null) {
             $this->AreaType = $param["AreaType"];
+        }
+
+        if (array_key_exists("Product",$param) and $param["Product"] !== null) {
+            $this->Product = $param["Product"];
+        }
+
+        if (array_key_exists("TimeZone",$param) and $param["TimeZone"] !== null) {
+            $this->TimeZone = $param["TimeZone"];
         }
     }
 }

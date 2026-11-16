@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -42,8 +42,8 @@ use TencentCloud\Common\AbstractModel;
  * @method void setFollowRedirect(FollowRedirect $FollowRedirect) 设置301/302 回源跟随配置
  * @method ErrorPage getErrorPage() 获取错误码重定向配置（功能灰度中，尚未全量）
  * @method void setErrorPage(ErrorPage $ErrorPage) 设置错误码重定向配置（功能灰度中，尚未全量）
- * @method RequestHeader getRequestHeader() 获取请求头部配置
- * @method void setRequestHeader(RequestHeader $RequestHeader) 设置请求头部配置
+ * @method RequestHeader getRequestHeader() 获取回源请求头部配置
+ * @method void setRequestHeader(RequestHeader $RequestHeader) 设置回源请求头部配置
  * @method ResponseHeader getResponseHeader() 获取响应头部配置
  * @method void setResponseHeader(ResponseHeader $ResponseHeader) 设置响应头部配置
  * @method DownstreamCapping getDownstreamCapping() 获取下载速度配置
@@ -56,8 +56,8 @@ use TencentCloud\Common\AbstractModel;
  * @method void setVideoSeek(VideoSeek $VideoSeek) 设置视频拖拽配置
  * @method Cache getCache() 获取缓存过期时间配置
  * @method void setCache(Cache $Cache) 设置缓存过期时间配置
- * @method OriginPullOptimization getOriginPullOptimization() 获取跨国链路优化配置
- * @method void setOriginPullOptimization(OriginPullOptimization $OriginPullOptimization) 设置跨国链路优化配置
+ * @method OriginPullOptimization getOriginPullOptimization() 获取跨国链路优化配置（已下线）
+ * @method void setOriginPullOptimization(OriginPullOptimization $OriginPullOptimization) 设置跨国链路优化配置（已下线）
  * @method Https getHttps() 获取Https 加速配置
  * @method void setHttps(Https $Https) 设置Https 加速配置
  * @method Authentication getAuthentication() 获取时间戳防盗链配置
@@ -70,6 +70,10 @@ use TencentCloud\Common\AbstractModel;
  * @method void setReferer(Referer $Referer) 设置Referer 防盗链配置
  * @method MaxAge getMaxAge() 获取浏览器缓存配置（功能灰度中，尚未全量）
  * @method void setMaxAge(MaxAge $MaxAge) 设置浏览器缓存配置（功能灰度中，尚未全量）
+ * @method SpecificConfig getSpecificConfig() 获取地域属性特殊配置
+适用于域名境内加速、境外加速配置不一致场景
+ * @method void setSpecificConfig(SpecificConfig $SpecificConfig) 设置地域属性特殊配置
+适用于域名境内加速、境外加速配置不一致场景
  * @method string getServiceType() 获取域名业务类型
 web：静态加速
 download：下载加速
@@ -78,18 +82,16 @@ media：流媒体点播加速
 web：静态加速
 download：下载加速
 media：流媒体点播加速
- * @method SpecificConfig getSpecificConfig() 获取地域属性特殊配置
-适用于域名境内加速、境外加速配置不一致场景
- * @method void setSpecificConfig(SpecificConfig $SpecificConfig) 设置地域属性特殊配置
-适用于域名境内加速、境外加速配置不一致场景
  * @method string getArea() 获取域名加速区域
 mainland：中国境内加速
 overseas：中国境外加速
 global：全球加速
+从mainland/overseas修改至global时，域名的配置将被同步至overseas/mainland。若域名含有后端特殊配置，此类配置的同步过程有一定延时，请耐心等待
  * @method void setArea(string $Area) 设置域名加速区域
 mainland：中国境内加速
 overseas：中国境外加速
 global：全球加速
+从mainland/overseas修改至global时，域名的配置将被同步至overseas/mainland。若域名含有后端特殊配置，此类配置的同步过程有一定延时，请耐心等待
  * @method OriginPullTimeout getOriginPullTimeout() 获取回源超时配置
  * @method void setOriginPullTimeout(OriginPullTimeout $OriginPullTimeout) 设置回源超时配置
  * @method AwsPrivateAccess getAwsPrivateAccess() 获取回源S3私有鉴权
@@ -98,8 +100,8 @@ global：全球加速
  * @method void setUserAgentFilter(UserAgentFilter $UserAgentFilter) 设置UA黑白名单配置
  * @method AccessControl getAccessControl() 获取访问控制
  * @method void setAccessControl(AccessControl $AccessControl) 设置访问控制
- * @method UrlRedirect getUrlRedirect() 获取URL重定向配置
- * @method void setUrlRedirect(UrlRedirect $UrlRedirect) 设置URL重定向配置
+ * @method UrlRedirect getUrlRedirect() 获取访问URL重写配置
+ * @method void setUrlRedirect(UrlRedirect $UrlRedirect) 设置访问URL重写配置
  * @method array getAccessPort() 获取访问端口配置
  * @method void setAccessPort(array $AccessPort) 设置访问端口配置
  * @method AdvancedAuthentication getAdvancedAuthentication() 获取时间戳防盗链高级版配置，白名单功能
@@ -112,8 +114,32 @@ global：全球加速
  * @method void setOfflineCache(OfflineCache $OfflineCache) 设置离线缓存
  * @method OriginCombine getOriginCombine() 获取合并回源
  * @method void setOriginCombine(OriginCombine $OriginCombine) 设置合并回源
- * @method Quic getQuic() 获取QUIC正在内测中，请先提交内测申请，详情请前往QUIC产品文档。
- * @method void setQuic(Quic $Quic) 设置QUIC正在内测中，请先提交内测申请，详情请前往QUIC产品文档。
+ * @method PostSize getPostMaxSize() 获取POST请求传输配置
+ * @method void setPostMaxSize(PostSize $PostMaxSize) 设置POST请求传输配置
+ * @method Quic getQuic() 获取Quic访问（收费服务，详见计费说明和产品文档）
+ * @method void setQuic(Quic $Quic) 设置Quic访问（收费服务，详见计费说明和产品文档）
+ * @method OssPrivateAccess getOssPrivateAccess() 获取回源OSS私有鉴权
+ * @method void setOssPrivateAccess(OssPrivateAccess $OssPrivateAccess) 设置回源OSS私有鉴权
+ * @method WebSocket getWebSocket() 获取WebSocket配置
+ * @method void setWebSocket(WebSocket $WebSocket) 设置WebSocket配置
+ * @method RemoteAuthentication getRemoteAuthentication() 获取远程鉴权配置
+ * @method void setRemoteAuthentication(RemoteAuthentication $RemoteAuthentication) 设置远程鉴权配置
+ * @method ShareCname getShareCname() 获取共享CNAME配置，白名单功能
+ * @method void setShareCname(ShareCname $ShareCname) 设置共享CNAME配置，白名单功能
+ * @method HwPrivateAccess getHwPrivateAccess() 获取华为云对象存储回源鉴权
+ * @method void setHwPrivateAccess(HwPrivateAccess $HwPrivateAccess) 设置华为云对象存储回源鉴权
+ * @method QnPrivateAccess getQnPrivateAccess() 获取七牛云对象存储回源鉴权
+ * @method void setQnPrivateAccess(QnPrivateAccess $QnPrivateAccess) 设置七牛云对象存储回源鉴权
+ * @method OthersPrivateAccess getOthersPrivateAccess() 获取其他厂商对象存储回源鉴权
+ * @method void setOthersPrivateAccess(OthersPrivateAccess $OthersPrivateAccess) 设置其他厂商对象存储回源鉴权
+ * @method HttpsBilling getHttpsBilling() 获取HTTPS服务（收费服务，详见计费说明和产品文档）
+ * @method void setHttpsBilling(HttpsBilling $HttpsBilling) 设置HTTPS服务（收费服务，详见计费说明和产品文档）
+ * @method ParamFilter getParamFilter() 获取参数黑名单
+ * @method void setParamFilter(ParamFilter $ParamFilter) 设置参数黑名单
+ * @method AutoGuard getAutoGuard() 获取流量防盗刷配置
+ * @method void setAutoGuard(AutoGuard $AutoGuard) 设置流量防盗刷配置
+ * @method GeoBlocker getGeoBlocker() 获取区域访问控制配置
+ * @method void setGeoBlocker(GeoBlocker $GeoBlocker) 设置区域访问控制配置
  */
 class UpdateDomainConfigRequest extends AbstractModel
 {
@@ -173,7 +199,7 @@ class UpdateDomainConfigRequest extends AbstractModel
     public $ErrorPage;
 
     /**
-     * @var RequestHeader 请求头部配置
+     * @var RequestHeader 回源请求头部配置
      */
     public $RequestHeader;
 
@@ -208,7 +234,7 @@ class UpdateDomainConfigRequest extends AbstractModel
     public $Cache;
 
     /**
-     * @var OriginPullOptimization 跨国链路优化配置
+     * @var OriginPullOptimization 跨国链路优化配置（已下线）
      */
     public $OriginPullOptimization;
 
@@ -243,6 +269,12 @@ class UpdateDomainConfigRequest extends AbstractModel
     public $MaxAge;
 
     /**
+     * @var SpecificConfig 地域属性特殊配置
+适用于域名境内加速、境外加速配置不一致场景
+     */
+    public $SpecificConfig;
+
+    /**
      * @var string 域名业务类型
 web：静态加速
 download：下载加速
@@ -251,16 +283,11 @@ media：流媒体点播加速
     public $ServiceType;
 
     /**
-     * @var SpecificConfig 地域属性特殊配置
-适用于域名境内加速、境外加速配置不一致场景
-     */
-    public $SpecificConfig;
-
-    /**
      * @var string 域名加速区域
 mainland：中国境内加速
 overseas：中国境外加速
 global：全球加速
+从mainland/overseas修改至global时，域名的配置将被同步至overseas/mainland。若域名含有后端特殊配置，此类配置的同步过程有一定延时，请耐心等待
      */
     public $Area;
 
@@ -285,7 +312,7 @@ global：全球加速
     public $AccessControl;
 
     /**
-     * @var UrlRedirect URL重定向配置
+     * @var UrlRedirect 访问URL重写配置
      */
     public $UrlRedirect;
 
@@ -320,9 +347,69 @@ global：全球加速
     public $OriginCombine;
 
     /**
-     * @var Quic QUIC正在内测中，请先提交内测申请，详情请前往QUIC产品文档。
+     * @var PostSize POST请求传输配置
+     */
+    public $PostMaxSize;
+
+    /**
+     * @var Quic Quic访问（收费服务，详见计费说明和产品文档）
      */
     public $Quic;
+
+    /**
+     * @var OssPrivateAccess 回源OSS私有鉴权
+     */
+    public $OssPrivateAccess;
+
+    /**
+     * @var WebSocket WebSocket配置
+     */
+    public $WebSocket;
+
+    /**
+     * @var RemoteAuthentication 远程鉴权配置
+     */
+    public $RemoteAuthentication;
+
+    /**
+     * @var ShareCname 共享CNAME配置，白名单功能
+     */
+    public $ShareCname;
+
+    /**
+     * @var HwPrivateAccess 华为云对象存储回源鉴权
+     */
+    public $HwPrivateAccess;
+
+    /**
+     * @var QnPrivateAccess 七牛云对象存储回源鉴权
+     */
+    public $QnPrivateAccess;
+
+    /**
+     * @var OthersPrivateAccess 其他厂商对象存储回源鉴权
+     */
+    public $OthersPrivateAccess;
+
+    /**
+     * @var HttpsBilling HTTPS服务（收费服务，详见计费说明和产品文档）
+     */
+    public $HttpsBilling;
+
+    /**
+     * @var ParamFilter 参数黑名单
+     */
+    public $ParamFilter;
+
+    /**
+     * @var AutoGuard 流量防盗刷配置
+     */
+    public $AutoGuard;
+
+    /**
+     * @var GeoBlocker 区域访问控制配置
+     */
+    public $GeoBlocker;
 
     /**
      * @param string $Domain 域名
@@ -336,42 +423,55 @@ global：全球加速
      * @param RangeOriginPull $RangeOriginPull Range 回源配置
      * @param FollowRedirect $FollowRedirect 301/302 回源跟随配置
      * @param ErrorPage $ErrorPage 错误码重定向配置（功能灰度中，尚未全量）
-     * @param RequestHeader $RequestHeader 请求头部配置
+     * @param RequestHeader $RequestHeader 回源请求头部配置
      * @param ResponseHeader $ResponseHeader 响应头部配置
      * @param DownstreamCapping $DownstreamCapping 下载速度配置
      * @param CacheKey $CacheKey 节点缓存键配置
      * @param ResponseHeaderCache $ResponseHeaderCache 头部缓存配置
      * @param VideoSeek $VideoSeek 视频拖拽配置
      * @param Cache $Cache 缓存过期时间配置
-     * @param OriginPullOptimization $OriginPullOptimization 跨国链路优化配置
+     * @param OriginPullOptimization $OriginPullOptimization 跨国链路优化配置（已下线）
      * @param Https $Https Https 加速配置
      * @param Authentication $Authentication 时间戳防盗链配置
      * @param Seo $Seo SEO 优化配置
      * @param ForceRedirect $ForceRedirect 访问协议强制跳转配置
      * @param Referer $Referer Referer 防盗链配置
      * @param MaxAge $MaxAge 浏览器缓存配置（功能灰度中，尚未全量）
+     * @param SpecificConfig $SpecificConfig 地域属性特殊配置
+适用于域名境内加速、境外加速配置不一致场景
      * @param string $ServiceType 域名业务类型
 web：静态加速
 download：下载加速
 media：流媒体点播加速
-     * @param SpecificConfig $SpecificConfig 地域属性特殊配置
-适用于域名境内加速、境外加速配置不一致场景
      * @param string $Area 域名加速区域
 mainland：中国境内加速
 overseas：中国境外加速
 global：全球加速
+从mainland/overseas修改至global时，域名的配置将被同步至overseas/mainland。若域名含有后端特殊配置，此类配置的同步过程有一定延时，请耐心等待
      * @param OriginPullTimeout $OriginPullTimeout 回源超时配置
      * @param AwsPrivateAccess $AwsPrivateAccess 回源S3私有鉴权
      * @param UserAgentFilter $UserAgentFilter UA黑白名单配置
      * @param AccessControl $AccessControl 访问控制
-     * @param UrlRedirect $UrlRedirect URL重定向配置
+     * @param UrlRedirect $UrlRedirect 访问URL重写配置
      * @param array $AccessPort 访问端口配置
      * @param AdvancedAuthentication $AdvancedAuthentication 时间戳防盗链高级版配置，白名单功能
      * @param OriginAuthentication $OriginAuthentication 回源鉴权高级版配置，白名单功能
      * @param Ipv6Access $Ipv6Access Ipv6 访问配置
      * @param OfflineCache $OfflineCache 离线缓存
      * @param OriginCombine $OriginCombine 合并回源
-     * @param Quic $Quic QUIC正在内测中，请先提交内测申请，详情请前往QUIC产品文档。
+     * @param PostSize $PostMaxSize POST请求传输配置
+     * @param Quic $Quic Quic访问（收费服务，详见计费说明和产品文档）
+     * @param OssPrivateAccess $OssPrivateAccess 回源OSS私有鉴权
+     * @param WebSocket $WebSocket WebSocket配置
+     * @param RemoteAuthentication $RemoteAuthentication 远程鉴权配置
+     * @param ShareCname $ShareCname 共享CNAME配置，白名单功能
+     * @param HwPrivateAccess $HwPrivateAccess 华为云对象存储回源鉴权
+     * @param QnPrivateAccess $QnPrivateAccess 七牛云对象存储回源鉴权
+     * @param OthersPrivateAccess $OthersPrivateAccess 其他厂商对象存储回源鉴权
+     * @param HttpsBilling $HttpsBilling HTTPS服务（收费服务，详见计费说明和产品文档）
+     * @param ParamFilter $ParamFilter 参数黑名单
+     * @param AutoGuard $AutoGuard 流量防盗刷配置
+     * @param GeoBlocker $GeoBlocker 区域访问控制配置
      */
     function __construct()
     {
@@ -509,13 +609,13 @@ global：全球加速
             $this->MaxAge->deserialize($param["MaxAge"]);
         }
 
-        if (array_key_exists("ServiceType",$param) and $param["ServiceType"] !== null) {
-            $this->ServiceType = $param["ServiceType"];
-        }
-
         if (array_key_exists("SpecificConfig",$param) and $param["SpecificConfig"] !== null) {
             $this->SpecificConfig = new SpecificConfig();
             $this->SpecificConfig->deserialize($param["SpecificConfig"]);
+        }
+
+        if (array_key_exists("ServiceType",$param) and $param["ServiceType"] !== null) {
+            $this->ServiceType = $param["ServiceType"];
         }
 
         if (array_key_exists("Area",$param) and $param["Area"] !== null) {
@@ -576,9 +676,69 @@ global：全球加速
             $this->OriginCombine->deserialize($param["OriginCombine"]);
         }
 
+        if (array_key_exists("PostMaxSize",$param) and $param["PostMaxSize"] !== null) {
+            $this->PostMaxSize = new PostSize();
+            $this->PostMaxSize->deserialize($param["PostMaxSize"]);
+        }
+
         if (array_key_exists("Quic",$param) and $param["Quic"] !== null) {
             $this->Quic = new Quic();
             $this->Quic->deserialize($param["Quic"]);
+        }
+
+        if (array_key_exists("OssPrivateAccess",$param) and $param["OssPrivateAccess"] !== null) {
+            $this->OssPrivateAccess = new OssPrivateAccess();
+            $this->OssPrivateAccess->deserialize($param["OssPrivateAccess"]);
+        }
+
+        if (array_key_exists("WebSocket",$param) and $param["WebSocket"] !== null) {
+            $this->WebSocket = new WebSocket();
+            $this->WebSocket->deserialize($param["WebSocket"]);
+        }
+
+        if (array_key_exists("RemoteAuthentication",$param) and $param["RemoteAuthentication"] !== null) {
+            $this->RemoteAuthentication = new RemoteAuthentication();
+            $this->RemoteAuthentication->deserialize($param["RemoteAuthentication"]);
+        }
+
+        if (array_key_exists("ShareCname",$param) and $param["ShareCname"] !== null) {
+            $this->ShareCname = new ShareCname();
+            $this->ShareCname->deserialize($param["ShareCname"]);
+        }
+
+        if (array_key_exists("HwPrivateAccess",$param) and $param["HwPrivateAccess"] !== null) {
+            $this->HwPrivateAccess = new HwPrivateAccess();
+            $this->HwPrivateAccess->deserialize($param["HwPrivateAccess"]);
+        }
+
+        if (array_key_exists("QnPrivateAccess",$param) and $param["QnPrivateAccess"] !== null) {
+            $this->QnPrivateAccess = new QnPrivateAccess();
+            $this->QnPrivateAccess->deserialize($param["QnPrivateAccess"]);
+        }
+
+        if (array_key_exists("OthersPrivateAccess",$param) and $param["OthersPrivateAccess"] !== null) {
+            $this->OthersPrivateAccess = new OthersPrivateAccess();
+            $this->OthersPrivateAccess->deserialize($param["OthersPrivateAccess"]);
+        }
+
+        if (array_key_exists("HttpsBilling",$param) and $param["HttpsBilling"] !== null) {
+            $this->HttpsBilling = new HttpsBilling();
+            $this->HttpsBilling->deserialize($param["HttpsBilling"]);
+        }
+
+        if (array_key_exists("ParamFilter",$param) and $param["ParamFilter"] !== null) {
+            $this->ParamFilter = new ParamFilter();
+            $this->ParamFilter->deserialize($param["ParamFilter"]);
+        }
+
+        if (array_key_exists("AutoGuard",$param) and $param["AutoGuard"] !== null) {
+            $this->AutoGuard = new AutoGuard();
+            $this->AutoGuard->deserialize($param["AutoGuard"]);
+        }
+
+        if (array_key_exists("GeoBlocker",$param) and $param["GeoBlocker"] !== null) {
+            $this->GeoBlocker = new GeoBlocker();
+            $this->GeoBlocker->deserialize($param["GeoBlocker"]);
         }
     }
 }

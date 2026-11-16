@@ -26,7 +26,6 @@ use app\admin\validate\Login;
 use app\common\server\CaptchaService;
 use app\common\server\PasswordCryptoService;
 use Exception;
-use think\facade\Url;
 
 class Account extends AdminBase
 {
@@ -75,7 +74,7 @@ class Account extends AdminBase
     public function logout()
     {
         LoginLogic::logout(session('admin_info.id'));
-        $url = Url::build('account/login');
+        $url = url('account/login');
         $this->redirect($url);
     }
 }

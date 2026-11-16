@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -42,6 +42,8 @@ use TencentCloud\Common\AbstractModel;
  * @method void setCm(integer $Cm) 设置Cm触发器数量
  * @method integer getVod() 获取Vod触发器数量
  * @method void setVod(integer $Vod) 设置Vod触发器数量
+ * @method integer getEb() 获取Eb触发器数量
+ * @method void setEb(integer $Eb) 设置Eb触发器数量
  */
 class TriggerCount extends AbstractModel
 {
@@ -101,6 +103,11 @@ class TriggerCount extends AbstractModel
     public $Vod;
 
     /**
+     * @var integer Eb触发器数量
+     */
+    public $Eb;
+
+    /**
      * @param integer $Cos Cos触发器数量
      * @param integer $Timer Timer触发器数量
      * @param integer $Cmq Cmq触发器数量
@@ -112,6 +119,7 @@ class TriggerCount extends AbstractModel
      * @param integer $Mps Mps触发器数量
      * @param integer $Cm Cm触发器数量
      * @param integer $Vod Vod触发器数量
+     * @param integer $Eb Eb触发器数量
      */
     function __construct()
     {
@@ -168,6 +176,10 @@ class TriggerCount extends AbstractModel
 
         if (array_key_exists("Vod",$param) and $param["Vod"] !== null) {
             $this->Vod = $param["Vod"];
+        }
+
+        if (array_key_exists("Eb",$param) and $param["Eb"] !== null) {
+            $this->Eb = $param["Eb"];
         }
     }
 }

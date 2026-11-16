@@ -53,7 +53,7 @@ function issue(loginToken) {
                         resolve('')
                         return
                     }
-                    reject(new Error(result.msg || i18n.t('消费票据签发失败')))
+                    reject(new Error(result.msg || i18n.global.t('消费票据签发失败')))
                     return
                 }
                 if (Cache.get(TOKEN) !== loginToken) {

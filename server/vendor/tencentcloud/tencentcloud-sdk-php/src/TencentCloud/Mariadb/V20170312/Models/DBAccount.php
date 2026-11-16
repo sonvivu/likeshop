@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,10 +32,12 @@ use TencentCloud\Common\AbstractModel;
  * @method void setUpdateTime(string $UpdateTime) 设置最后更新时间
  * @method integer getReadOnly() 获取只读标记，0：否， 1：该账号的sql请求优先选择备机执行，备机不可用时选择主机执行，2：优先选择备机执行，备机不可用时操作失败。
  * @method void setReadOnly(integer $ReadOnly) 设置只读标记，0：否， 1：该账号的sql请求优先选择备机执行，备机不可用时选择主机执行，2：优先选择备机执行，备机不可用时操作失败。
- * @method integer getDelayThresh() 获取该字段对只读帐号有意义，表示选择主备延迟小于该值的备机
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setDelayThresh(integer $DelayThresh) 设置该字段对只读帐号有意义，表示选择主备延迟小于该值的备机
-注意：此字段可能返回 null，表示取不到有效值。
+ * @method integer getDelayThresh() 获取该字段对只读账号有意义，表示选择主备延迟小于该值的备机
+ * @method void setDelayThresh(integer $DelayThresh) 设置该字段对只读账号有意义，表示选择主备延迟小于该值的备机
+ * @method integer getSlaveConst() 获取针对只读账号，设置策略是否固定备机，0：不固定备机，即备机不满足条件与客户端不断开连接，Proxy选择其他可用备机，1：备机不满足条件断开连接，确保一个连接固定备机。
+ * @method void setSlaveConst(integer $SlaveConst) 设置针对只读账号，设置策略是否固定备机，0：不固定备机，即备机不满足条件与客户端不断开连接，Proxy选择其他可用备机，1：备机不满足条件断开连接，确保一个连接固定备机。
+ * @method integer getMaxUserConnections() 获取用户最大连接数，0代表无限制
+ * @method void setMaxUserConnections(integer $MaxUserConnections) 设置用户最大连接数，0代表无限制
  */
 class DBAccount extends AbstractModel
 {
@@ -70,10 +72,19 @@ class DBAccount extends AbstractModel
     public $ReadOnly;
 
     /**
-     * @var integer 该字段对只读帐号有意义，表示选择主备延迟小于该值的备机
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var integer 该字段对只读账号有意义，表示选择主备延迟小于该值的备机
      */
     public $DelayThresh;
+
+    /**
+     * @var integer 针对只读账号，设置策略是否固定备机，0：不固定备机，即备机不满足条件与客户端不断开连接，Proxy选择其他可用备机，1：备机不满足条件断开连接，确保一个连接固定备机。
+     */
+    public $SlaveConst;
+
+    /**
+     * @var integer 用户最大连接数，0代表无限制
+     */
+    public $MaxUserConnections;
 
     /**
      * @param string $UserName 用户名
@@ -82,8 +93,9 @@ class DBAccount extends AbstractModel
      * @param string $CreateTime 创建时间
      * @param string $UpdateTime 最后更新时间
      * @param integer $ReadOnly 只读标记，0：否， 1：该账号的sql请求优先选择备机执行，备机不可用时选择主机执行，2：优先选择备机执行，备机不可用时操作失败。
-     * @param integer $DelayThresh 该字段对只读帐号有意义，表示选择主备延迟小于该值的备机
-注意：此字段可能返回 null，表示取不到有效值。
+     * @param integer $DelayThresh 该字段对只读账号有意义，表示选择主备延迟小于该值的备机
+     * @param integer $SlaveConst 针对只读账号，设置策略是否固定备机，0：不固定备机，即备机不满足条件与客户端不断开连接，Proxy选择其他可用备机，1：备机不满足条件断开连接，确保一个连接固定备机。
+     * @param integer $MaxUserConnections 用户最大连接数，0代表无限制
      */
     function __construct()
     {
@@ -124,6 +136,14 @@ class DBAccount extends AbstractModel
 
         if (array_key_exists("DelayThresh",$param) and $param["DelayThresh"] !== null) {
             $this->DelayThresh = $param["DelayThresh"];
+        }
+
+        if (array_key_exists("SlaveConst",$param) and $param["SlaveConst"] !== null) {
+            $this->SlaveConst = $param["SlaveConst"];
+        }
+
+        if (array_key_exists("MaxUserConnections",$param) and $param["MaxUserConnections"] !== null) {
+            $this->MaxUserConnections = $param["MaxUserConnections"];
         }
     }
 }

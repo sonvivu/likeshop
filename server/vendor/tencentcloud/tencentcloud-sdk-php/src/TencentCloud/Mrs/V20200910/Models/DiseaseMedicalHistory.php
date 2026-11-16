@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,69 +21,57 @@ use TencentCloud\Common\AbstractModel;
  * 疾病史
  *
  * @method string getMainDiseaseHistory() 获取主病史
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setMainDiseaseHistory(string $MainDiseaseHistory) 设置主病史
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getAllergyHistory() 获取过敏史
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setAllergyHistory(string $AllergyHistory) 设置过敏史
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getInfectHistory() 获取传染疾病史
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setInfectHistory(string $InfectHistory) 设置传染疾病史
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getOperationHistory() 获取手术史
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setOperationHistory(string $OperationHistory) 设置手术史
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getTransfusionHistory() 获取输血史
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setTransfusionHistory(string $TransfusionHistory) 设置输血史
-注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getDiseasePresent() 获取现病史
+ * @method void setDiseasePresent(string $DiseasePresent) 设置现病史
  */
 class DiseaseMedicalHistory extends AbstractModel
 {
     /**
      * @var string 主病史
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $MainDiseaseHistory;
 
     /**
      * @var string 过敏史
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $AllergyHistory;
 
     /**
      * @var string 传染疾病史
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $InfectHistory;
 
     /**
      * @var string 手术史
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $OperationHistory;
 
     /**
      * @var string 输血史
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $TransfusionHistory;
 
     /**
+     * @var string 现病史
+     */
+    public $DiseasePresent;
+
+    /**
      * @param string $MainDiseaseHistory 主病史
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $AllergyHistory 过敏史
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $InfectHistory 传染疾病史
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $OperationHistory 手术史
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $TransfusionHistory 输血史
-注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $DiseasePresent 现病史
      */
     function __construct()
     {
@@ -116,6 +104,10 @@ class DiseaseMedicalHistory extends AbstractModel
 
         if (array_key_exists("TransfusionHistory",$param) and $param["TransfusionHistory"] !== null) {
             $this->TransfusionHistory = $param["TransfusionHistory"];
+        }
+
+        if (array_key_exists("DiseasePresent",$param) and $param["DiseasePresent"] !== null) {
+            $this->DiseasePresent = $param["DiseasePresent"];
         }
     }
 }

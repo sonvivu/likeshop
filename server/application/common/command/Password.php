@@ -9,7 +9,7 @@ use think\console\Command;
 use think\console\Input;
 use think\console\input\Argument;
 use think\console\Output;
-use think\Db;
+use think\facade\Db;
 
 class Password extends Command
 {

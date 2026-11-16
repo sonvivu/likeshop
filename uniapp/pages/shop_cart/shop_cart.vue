@@ -123,11 +123,10 @@
       >
     </view>
     <u-modal
-      v-model="delPopup"
+      v-model:show="delPopup"
       :showCancelButton="true"
       :comfirm-text="$t('狠心删除')"
       confirm-color="#FF2C3C"
-      :show-title="false"
       @confirm="goodsDelete"
       @cancel="changeDelPopup"
     >

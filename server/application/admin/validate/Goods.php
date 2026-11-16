@@ -18,7 +18,7 @@
 // +----------------------------------------------------------------------
 namespace app\admin\validate;
 use app\admin\logic\GoodsLogic;
-use think\Db;
+use think\facade\Db;
 use think\Validate;
 
 class Goods extends Validate
@@ -99,7 +99,7 @@ class Goods extends Validate
      */
     public function sceneAdd()
     {
-        $this->remove('goods_id');
+        $this->remove('goods_id', true);
 
     }
 

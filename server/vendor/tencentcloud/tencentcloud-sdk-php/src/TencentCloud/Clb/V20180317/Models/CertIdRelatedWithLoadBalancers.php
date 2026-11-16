@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,9 +23,7 @@ use TencentCloud\Common\AbstractModel;
  * @method string getCertId() 获取证书ID
  * @method void setCertId(string $CertId) 设置证书ID
  * @method array getLoadBalancers() 获取与证书关联的负载均衡实例列表
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setLoadBalancers(array $LoadBalancers) 设置与证书关联的负载均衡实例列表
-注意：此字段可能返回 null，表示取不到有效值。
  */
 class CertIdRelatedWithLoadBalancers extends AbstractModel
 {
@@ -36,14 +34,12 @@ class CertIdRelatedWithLoadBalancers extends AbstractModel
 
     /**
      * @var array 与证书关联的负载均衡实例列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $LoadBalancers;
 
     /**
      * @param string $CertId 证书ID
      * @param array $LoadBalancers 与证书关联的负载均衡实例列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
     {

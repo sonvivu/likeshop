@@ -22,7 +22,7 @@ namespace app\api\cache;
 
 
 use app\common\cache\CacheBase;
-use think\Db;
+use think\facade\Db;
 use think\facade\Config;
 
 class TokenCache extends CacheBase
@@ -47,7 +47,7 @@ class TokenCache extends CacheBase
             ->update(['update_time' => $time, 'expire_time' => $expire_time]);
 
         //返回用户信息
-        $user_info = Db::name('user u')
+        $user_info = Db::name('user')->alias('u')
             ->join('session s', 'u.id=s.user_id')
             ->where(['s.token' => $this->extend['token']])
             ->field('u.*,s.token,s.client')

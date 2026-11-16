@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,33 +21,25 @@ use TencentCloud\Common\AbstractModel;
  * Tsf命名空间分页对象
  *
  * @method integer getTotalCount() 获取命名空间总条数
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setTotalCount(integer $TotalCount) 设置命名空间总条数
-注意：此字段可能返回 null，表示取不到有效值。
  * @method array getContent() 获取命名空间列表
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setContent(array $Content) 设置命名空间列表
-注意：此字段可能返回 null，表示取不到有效值。
  */
 class TsfPageNamespace extends AbstractModel
 {
     /**
      * @var integer 命名空间总条数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $TotalCount;
 
     /**
      * @var array 命名空间列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Content;
 
     /**
      * @param integer $TotalCount 命名空间总条数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param array $Content 命名空间列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
     {
@@ -69,7 +61,7 @@ class TsfPageNamespace extends AbstractModel
         if (array_key_exists("Content",$param) and $param["Content"] !== null) {
             $this->Content = [];
             foreach ($param["Content"] as $key => $value){
-                $obj = new Namespace();
+                $obj = new NamespaceInfo();
                 $obj->deserialize($value);
                 array_push($this->Content, $obj);
             }

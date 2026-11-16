@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,318 +20,435 @@ use TencentCloud\Common\AbstractModel;
 /**
  * 描述实例的信息
  *
- * @method Placement getPlacement() 获取实例所在的位置。
- * @method void setPlacement(Placement $Placement) 设置实例所在的位置。
- * @method string getInstanceId() 获取实例`ID`。
- * @method void setInstanceId(string $InstanceId) 设置实例`ID`。
- * @method string getInstanceType() 获取实例机型。
- * @method void setInstanceType(string $InstanceType) 设置实例机型。
- * @method integer getCPU() 获取实例的CPU核数，单位：核。
- * @method void setCPU(integer $CPU) 设置实例的CPU核数，单位：核。
- * @method integer getMemory() 获取实例内存容量，单位：`GB`。
- * @method void setMemory(integer $Memory) 设置实例内存容量，单位：`GB`。
- * @method string getRestrictState() 获取实例业务状态。取值范围：<br><li>NORMAL：表示正常状态的实例<br><li>EXPIRED：表示过期的实例<br><li>PROTECTIVELY_ISOLATED：表示被安全隔离的实例。
- * @method void setRestrictState(string $RestrictState) 设置实例业务状态。取值范围：<br><li>NORMAL：表示正常状态的实例<br><li>EXPIRED：表示过期的实例<br><li>PROTECTIVELY_ISOLATED：表示被安全隔离的实例。
- * @method string getInstanceName() 获取实例名称。
- * @method void setInstanceName(string $InstanceName) 设置实例名称。
- * @method string getInstanceChargeType() 获取实例计费模式。取值范围：<br><li>`PREPAID`：表示预付费，即包年包月<br><li>`POSTPAID_BY_HOUR`：表示后付费，即按量计费<br><li>`CDHPAID`：`CDH`付费，即只对`CDH`计费，不对`CDH`上的实例计费。<br><li>`SPOTPAID`：表示竞价实例付费。
- * @method void setInstanceChargeType(string $InstanceChargeType) 设置实例计费模式。取值范围：<br><li>`PREPAID`：表示预付费，即包年包月<br><li>`POSTPAID_BY_HOUR`：表示后付费，即按量计费<br><li>`CDHPAID`：`CDH`付费，即只对`CDH`计费，不对`CDH`上的实例计费。<br><li>`SPOTPAID`：表示竞价实例付费。
- * @method SystemDisk getSystemDisk() 获取实例系统盘信息。
- * @method void setSystemDisk(SystemDisk $SystemDisk) 设置实例系统盘信息。
- * @method array getDataDisks() 获取实例数据盘信息。只包含随实例购买的数据盘。
- * @method void setDataDisks(array $DataDisks) 设置实例数据盘信息。只包含随实例购买的数据盘。
- * @method array getPrivateIpAddresses() 获取实例主网卡的内网`IP`列表。
- * @method void setPrivateIpAddresses(array $PrivateIpAddresses) 设置实例主网卡的内网`IP`列表。
- * @method array getPublicIpAddresses() 获取实例主网卡的公网`IP`列表。
+ * @method Placement getPlacement() 获取<p>实例所在的位置。</p>
+ * @method void setPlacement(Placement $Placement) 设置<p>实例所在的位置。</p>
+ * @method string getInstanceId() 获取<p>实例<code>ID</code>。</p>
+ * @method void setInstanceId(string $InstanceId) 设置<p>实例<code>ID</code>。</p>
+ * @method string getInstanceType() 获取<p>实例机型。</p>
+ * @method void setInstanceType(string $InstanceType) 设置<p>实例机型。</p>
+ * @method integer getCPU() 获取<p>实例的CPU核数，单位：核。</p>
+ * @method void setCPU(integer $CPU) 设置<p>实例的CPU核数，单位：核。</p>
+ * @method integer getMemory() 获取<p>实例内存容量，单位：<code>GiB</code>。</p>
+ * @method void setMemory(integer $Memory) 设置<p>实例内存容量，单位：<code>GiB</code>。</p>
+ * @method string getRestrictState() 获取<p>实例业务状态。取值范围：<br><li>NORMAL：表示正常状态的实例</li><li>EXPIRED：表示过期的实例</li><li>PROTECTIVELY_ISOLATED：表示被安全隔离的实例。</li></p>
+ * @method void setRestrictState(string $RestrictState) 设置<p>实例业务状态。取值范围：<br><li>NORMAL：表示正常状态的实例</li><li>EXPIRED：表示过期的实例</li><li>PROTECTIVELY_ISOLATED：表示被安全隔离的实例。</li></p>
+ * @method string getInstanceName() 获取<p>实例名称。</p>
+ * @method void setInstanceName(string $InstanceName) 设置<p>实例名称。</p>
+ * @method string getInstanceChargeType() 获取<p>实例<a href="https://cloud.tencent.com/document/product/213/2180">计费类型</a>。取值范围：<br><li>PREPAID：预付费，即包年包月</li><br><li>POSTPAID_BY_HOUR：按小时后付费</li><br><li>CDHPAID：独享子机（基于专用宿主机创建，宿主机部分的资源不收费）</li><br><li>SPOTPAID：竞价付费</li><br><li>CDCPAID：专用集群付费</li></p>
+ * @method void setInstanceChargeType(string $InstanceChargeType) 设置<p>实例<a href="https://cloud.tencent.com/document/product/213/2180">计费类型</a>。取值范围：<br><li>PREPAID：预付费，即包年包月</li><br><li>POSTPAID_BY_HOUR：按小时后付费</li><br><li>CDHPAID：独享子机（基于专用宿主机创建，宿主机部分的资源不收费）</li><br><li>SPOTPAID：竞价付费</li><br><li>CDCPAID：专用集群付费</li></p>
+ * @method SystemDisk getSystemDisk() 获取<p>实例系统盘信息。</p>
+ * @method void setSystemDisk(SystemDisk $SystemDisk) 设置<p>实例系统盘信息。</p>
+ * @method array getDataDisks() 获取<p>实例数据盘信息。</p>
+ * @method void setDataDisks(array $DataDisks) 设置<p>实例数据盘信息。</p>
+ * @method array getPrivateIpAddresses() 获取<p>实例主网卡的内网<code>IP</code>列表。</p>
+ * @method void setPrivateIpAddresses(array $PrivateIpAddresses) 设置<p>实例主网卡的内网<code>IP</code>列表。</p>
+ * @method array getPublicIpAddresses() 获取<p>实例主网卡的公网<code>IP</code>列表。</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setPublicIpAddresses(array $PublicIpAddresses) 设置实例主网卡的公网`IP`列表。
+ * @method void setPublicIpAddresses(array $PublicIpAddresses) 设置<p>实例主网卡的公网<code>IP</code>列表。</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method InternetAccessible getInternetAccessible() 获取实例带宽信息。
- * @method void setInternetAccessible(InternetAccessible $InternetAccessible) 设置实例带宽信息。
- * @method VirtualPrivateCloud getVirtualPrivateCloud() 获取实例所属虚拟私有网络信息。
- * @method void setVirtualPrivateCloud(VirtualPrivateCloud $VirtualPrivateCloud) 设置实例所属虚拟私有网络信息。
- * @method string getImageId() 获取生产实例所使用的镜像`ID`。
- * @method void setImageId(string $ImageId) 设置生产实例所使用的镜像`ID`。
- * @method string getRenewFlag() 获取自动续费标识。取值范围：<br><li>`NOTIFY_AND_MANUAL_RENEW`：表示通知即将过期，但不自动续费<br><li>`NOTIFY_AND_AUTO_RENEW`：表示通知即将过期，而且自动续费<br><li>`DISABLE_NOTIFY_AND_MANUAL_RENEW`：表示不通知即将过期，也不自动续费。
-<br><li>注意：后付费模式本项为null
- * @method void setRenewFlag(string $RenewFlag) 设置自动续费标识。取值范围：<br><li>`NOTIFY_AND_MANUAL_RENEW`：表示通知即将过期，但不自动续费<br><li>`NOTIFY_AND_AUTO_RENEW`：表示通知即将过期，而且自动续费<br><li>`DISABLE_NOTIFY_AND_MANUAL_RENEW`：表示不通知即将过期，也不自动续费。
-<br><li>注意：后付费模式本项为null
- * @method string getCreatedTime() 获取创建时间。按照`ISO8601`标准表示，并且使用`UTC`时间。格式为：`YYYY-MM-DDThh:mm:ssZ`。
- * @method void setCreatedTime(string $CreatedTime) 设置创建时间。按照`ISO8601`标准表示，并且使用`UTC`时间。格式为：`YYYY-MM-DDThh:mm:ssZ`。
- * @method string getExpiredTime() 获取到期时间。按照`ISO8601`标准表示，并且使用`UTC`时间。格式为：`YYYY-MM-DDThh:mm:ssZ`。注意：后付费模式本项为null
- * @method void setExpiredTime(string $ExpiredTime) 设置到期时间。按照`ISO8601`标准表示，并且使用`UTC`时间。格式为：`YYYY-MM-DDThh:mm:ssZ`。注意：后付费模式本项为null
- * @method string getOsName() 获取操作系统名称。
- * @method void setOsName(string $OsName) 设置操作系统名称。
- * @method array getSecurityGroupIds() 获取实例所属安全组。该参数可以通过调用 [DescribeSecurityGroups](https://cloud.tencent.com/document/api/215/15808) 的返回值中的sgId字段来获取。
- * @method void setSecurityGroupIds(array $SecurityGroupIds) 设置实例所属安全组。该参数可以通过调用 [DescribeSecurityGroups](https://cloud.tencent.com/document/api/215/15808) 的返回值中的sgId字段来获取。
- * @method LoginSettings getLoginSettings() 获取实例登录设置。目前只返回实例所关联的密钥。
- * @method void setLoginSettings(LoginSettings $LoginSettings) 设置实例登录设置。目前只返回实例所关联的密钥。
- * @method string getInstanceState() 获取实例状态。取值范围：<br><li>PENDING：表示创建中<br></li><li>LAUNCH_FAILED：表示创建失败<br></li><li>RUNNING：表示运行中<br></li><li>STOPPED：表示关机<br></li><li>STARTING：表示开机中<br></li><li>STOPPING：表示关机中<br></li><li>REBOOTING：表示重启中<br></li><li>SHUTDOWN：表示停止待销毁<br></li><li>TERMINATING：表示销毁中。<br></li>
- * @method void setInstanceState(string $InstanceState) 设置实例状态。取值范围：<br><li>PENDING：表示创建中<br></li><li>LAUNCH_FAILED：表示创建失败<br></li><li>RUNNING：表示运行中<br></li><li>STOPPED：表示关机<br></li><li>STARTING：表示开机中<br></li><li>STOPPING：表示关机中<br></li><li>REBOOTING：表示重启中<br></li><li>SHUTDOWN：表示停止待销毁<br></li><li>TERMINATING：表示销毁中。<br></li>
- * @method array getTags() 获取实例关联的标签列表。
- * @method void setTags(array $Tags) 设置实例关联的标签列表。
- * @method string getStopChargingMode() 获取实例的关机计费模式。
-取值范围：<br><li>KEEP_CHARGING：关机继续收费<br><li>STOP_CHARGING：关机停止收费<li>NOT_APPLICABLE：实例处于非关机状态或者不适用关机停止计费的条件<br>
- * @method void setStopChargingMode(string $StopChargingMode) 设置实例的关机计费模式。
-取值范围：<br><li>KEEP_CHARGING：关机继续收费<br><li>STOP_CHARGING：关机停止收费<li>NOT_APPLICABLE：实例处于非关机状态或者不适用关机停止计费的条件<br>
- * @method string getUuid() 获取实例全局唯一ID
- * @method void setUuid(string $Uuid) 设置实例全局唯一ID
- * @method string getLatestOperation() 获取实例的最新操作。例：StopInstances、ResetInstance。
+ * @method InternetAccessible getInternetAccessible() 获取<p>实例带宽信息。</p>
+ * @method void setInternetAccessible(InternetAccessible $InternetAccessible) 设置<p>实例带宽信息。</p>
+ * @method VirtualPrivateCloud getVirtualPrivateCloud() 获取<p>实例所属虚拟私有网络信息。</p>
+ * @method void setVirtualPrivateCloud(VirtualPrivateCloud $VirtualPrivateCloud) 设置<p>实例所属虚拟私有网络信息。</p>
+ * @method string getImageId() 获取<p>生产实例所使用的镜像<code>ID</code>。</p>
+ * @method void setImageId(string $ImageId) 设置<p>生产实例所使用的镜像<code>ID</code>。</p>
+ * @method string getRenewFlag() 获取<p>自动续费标识。取值范围：<br><li><code>NOTIFY_AND_MANUAL_RENEW</code>：表示通知即将过期，但不自动续费</li><li><code>NOTIFY_AND_AUTO_RENEW</code>：表示通知即将过期，而且自动续费</li><li><code>DISABLE_NOTIFY_AND_MANUAL_RENEW</code>：表示不通知即将过期，也不自动续费。</p></li><li>注意：后付费模式本项为null</li>
+ * @method void setRenewFlag(string $RenewFlag) 设置<p>自动续费标识。取值范围：<br><li><code>NOTIFY_AND_MANUAL_RENEW</code>：表示通知即将过期，但不自动续费</li><li><code>NOTIFY_AND_AUTO_RENEW</code>：表示通知即将过期，而且自动续费</li><li><code>DISABLE_NOTIFY_AND_MANUAL_RENEW</code>：表示不通知即将过期，也不自动续费。</p></li><li>注意：后付费模式本项为null</li>
+ * @method string getCreatedTime() 获取<p>创建时间。按照<code>ISO8601</code>标准表示，并且使用<code>UTC</code>时间。格式为：<code>YYYY-MM-DDThh:mm:ssZ</code>。</p>
+ * @method void setCreatedTime(string $CreatedTime) 设置<p>创建时间。按照<code>ISO8601</code>标准表示，并且使用<code>UTC</code>时间。格式为：<code>YYYY-MM-DDThh:mm:ssZ</code>。</p>
+ * @method string getExpiredTime() 获取<p>到期时间。按照<code>ISO8601</code>标准表示，并且使用<code>UTC</code>时间。格式为：<code>YYYY-MM-DDThh:mm:ssZ</code>。注意：后付费模式本项为null</p>
+ * @method void setExpiredTime(string $ExpiredTime) 设置<p>到期时间。按照<code>ISO8601</code>标准表示，并且使用<code>UTC</code>时间。格式为：<code>YYYY-MM-DDThh:mm:ssZ</code>。注意：后付费模式本项为null</p>
+ * @method string getOsName() 获取<p>操作系统名称。</p>
+ * @method void setOsName(string $OsName) 设置<p>操作系统名称。</p>
+ * @method array getSecurityGroupIds() 获取<p>实例所属安全组。该参数可以通过调用 <a href="https://cloud.tencent.com/document/api/215/15808">DescribeSecurityGroups</a> 的返回值中的sgId字段来获取。</p>
+ * @method void setSecurityGroupIds(array $SecurityGroupIds) 设置<p>实例所属安全组。该参数可以通过调用 <a href="https://cloud.tencent.com/document/api/215/15808">DescribeSecurityGroups</a> 的返回值中的sgId字段来获取。</p>
+ * @method LoginSettings getLoginSettings() 获取<p>实例登录设置。目前只返回实例所关联的密钥。</p>
+ * @method void setLoginSettings(LoginSettings $LoginSettings) 设置<p>实例登录设置。目前只返回实例所关联的密钥。</p>
+ * @method string getInstanceState() 获取<p>实例状态。状态类型详见<a href="https://cloud.tencent.com/document/api/213/15753#InstanceStatus">实例状态表</a></p>
+ * @method void setInstanceState(string $InstanceState) 设置<p>实例状态。状态类型详见<a href="https://cloud.tencent.com/document/api/213/15753#InstanceStatus">实例状态表</a></p>
+ * @method array getTags() 获取<p>实例关联的标签列表。</p>
+ * @method void setTags(array $Tags) 设置<p>实例关联的标签列表。</p>
+ * @method string getStopChargingMode() 获取<p>实例的关机计费模式。<br>取值范围：<br><li>KEEP_CHARGING：关机继续收费</li><li>STOP_CHARGING：关机停止收费</li><li>NOT_APPLICABLE：实例处于非关机状态或者不适用关机停止计费的条件</li></p>
+ * @method void setStopChargingMode(string $StopChargingMode) 设置<p>实例的关机计费模式。<br>取值范围：<br><li>KEEP_CHARGING：关机继续收费</li><li>STOP_CHARGING：关机停止收费</li><li>NOT_APPLICABLE：实例处于非关机状态或者不适用关机停止计费的条件</li></p>
+ * @method string getUuid() 获取<p>实例全局唯一ID</p>
+ * @method void setUuid(string $Uuid) 设置<p>实例全局唯一ID</p>
+ * @method string getLatestOperation() 获取<p>实例的最新操作。例：StopInstances、ResetInstance。</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setLatestOperation(string $LatestOperation) 设置实例的最新操作。例：StopInstances、ResetInstance。
+ * @method void setLatestOperation(string $LatestOperation) 设置<p>实例的最新操作。例：StopInstances、ResetInstance。</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getLatestOperationState() 获取实例的最新操作状态。取值范围：<br><li>SUCCESS：表示操作成功<br><li>OPERATING：表示操作执行中<br><li>FAILED：表示操作失败
+ * @method string getLatestOperationState() 获取<p>实例的最新操作状态。取值范围：<br><li>SUCCESS：表示操作成功</li><li>OPERATING：表示操作执行中</li><li>FAILED：表示操作失败</li></p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setLatestOperationState(string $LatestOperationState) 设置实例的最新操作状态。取值范围：<br><li>SUCCESS：表示操作成功<br><li>OPERATING：表示操作执行中<br><li>FAILED：表示操作失败
+ * @method void setLatestOperationState(string $LatestOperationState) 设置<p>实例的最新操作状态。取值范围：<br><li>SUCCESS：表示操作成功</li><li>OPERATING：表示操作执行中</li><li>FAILED：表示操作失败</li></p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getLatestOperationRequestId() 获取实例最新操作的唯一请求 ID。
+ * @method string getLatestOperationRequestId() 获取<p>实例最新操作的唯一请求 ID。</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setLatestOperationRequestId(string $LatestOperationRequestId) 设置实例最新操作的唯一请求 ID。
+ * @method void setLatestOperationRequestId(string $LatestOperationRequestId) 设置<p>实例最新操作的唯一请求 ID。</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getDisasterRecoverGroupId() 获取分散置放群组ID。
+ * @method string getDisasterRecoverGroupId() 获取<p>分散置放群组ID。</p>
+ * @method void setDisasterRecoverGroupId(string $DisasterRecoverGroupId) 设置<p>分散置放群组ID。</p>
+ * @method array getIPv6Addresses() 获取<p>实例的IPv6地址。</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setDisasterRecoverGroupId(string $DisasterRecoverGroupId) 设置分散置放群组ID。
+ * @method void setIPv6Addresses(array $IPv6Addresses) 设置<p>实例的IPv6地址。</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method array getIPv6Addresses() 获取实例的IPv6地址。
+ * @method string getCamRoleName() 获取<p>CAM角色名。</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setIPv6Addresses(array $IPv6Addresses) 设置实例的IPv6地址。
+ * @method void setCamRoleName(string $CamRoleName) 设置<p>CAM角色名。</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getCamRoleName() 获取CAM角色名。
+ * @method string getHpcClusterId() 获取<p>高性能计算集群<code>ID</code>。</p>
+ * @method void setHpcClusterId(string $HpcClusterId) 设置<p>高性能计算集群<code>ID</code>。</p>
+ * @method array getRdmaIpAddresses() 获取<p>高性能计算集群<code>IP</code>列表。</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setCamRoleName(string $CamRoleName) 设置CAM角色名。
+ * @method void setRdmaIpAddresses(array $RdmaIpAddresses) 设置<p>高性能计算集群<code>IP</code>列表。</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getHpcClusterId() 获取高性能计算集群`ID`。
+ * @method string getDedicatedClusterId() 获取<p>实例所在的专用集群<code>ID</code>。</p>
+ * @method void setDedicatedClusterId(string $DedicatedClusterId) 设置<p>实例所在的专用集群<code>ID</code>。</p>
+ * @method string getIsolatedSource() 获取<p>实例隔离类型。取值范围：<br><li>ARREAR：表示欠费隔离<br></li><li>EXPIRE：表示到期隔离<br></li><li>MANMADE：表示主动退还隔离<br></li><li>NOTISOLATED：表示未隔离<br></li></p>
+ * @method void setIsolatedSource(string $IsolatedSource) 设置<p>实例隔离类型。取值范围：<br><li>ARREAR：表示欠费隔离<br></li><li>EXPIRE：表示到期隔离<br></li><li>MANMADE：表示主动退还隔离<br></li><li>NOTISOLATED：表示未隔离<br></li></p>
+ * @method array getDisasterRecoverGroupIds() 获取<p>置放群组列表(目前仅支持一个)</p>
+ * @method void setDisasterRecoverGroupIds(array $DisasterRecoverGroupIds) 设置<p>置放群组列表(目前仅支持一个)</p>
+ * @method GPUInfo getGPUInfo() 获取<p>GPU信息。如果是gpu类型子机，该值会返回GPU信息，如果是其他类型子机则不返回。</p>
+ * @method void setGPUInfo(GPUInfo $GPUInfo) 设置<p>GPU信息。如果是gpu类型子机，该值会返回GPU信息，如果是其他类型子机则不返回。</p>
+ * @method string getLicenseType() 获取<p>实例的操作系统许可类型，默认为TencentCloud</p>
+ * @method void setLicenseType(string $LicenseType) 设置<p>实例的操作系统许可类型，默认为TencentCloud</p>
+ * @method boolean getDisableApiTermination() 获取<p>实例销毁保护标志，表示是否允许通过api接口删除实例。取值范围：<br><li>true：表示开启实例保护，不允许通过api接口删除实例</li><li>false：表示关闭实例保护，允许通过api接口删除实例</li><br>默认取值：false。</p>
+ * @method void setDisableApiTermination(boolean $DisableApiTermination) 设置<p>实例销毁保护标志，表示是否允许通过api接口删除实例。取值范围：<br><li>true：表示开启实例保护，不允许通过api接口删除实例</li><li>false：表示关闭实例保护，允许通过api接口删除实例</li><br>默认取值：false。</p>
+ * @method string getHostName() 获取<p>实例主机名。</p>
+ * @method void setHostName(string $HostName) 设置<p>实例主机名。</p>
+ * @method string getDefaultLoginUser() 获取<p>默认登录用户。</p>
+ * @method void setDefaultLoginUser(string $DefaultLoginUser) 设置<p>默认登录用户。</p>
+ * @method integer getDefaultLoginPort() 获取<p>默认登录端口。</p>
+ * @method void setDefaultLoginPort(integer $DefaultLoginPort) 设置<p>默认登录端口。</p>
+ * @method string getLatestOperationErrorMsg() 获取<p>实例的最新操作错误信息。</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setHpcClusterId(string $HpcClusterId) 设置高性能计算集群`ID`。
+ * @method void setLatestOperationErrorMsg(string $LatestOperationErrorMsg) 设置<p>实例的最新操作错误信息。</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method array getRdmaIpAddresses() 获取高性能计算集群`IP`列表。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setRdmaIpAddresses(array $RdmaIpAddresses) 设置高性能计算集群`IP`列表。
-注意：此字段可能返回 null，表示取不到有效值。
+ * @method boolean getEnableJumboFrame() 获取<p>实例是否开启巨型帧</p>
+ * @method void setEnableJumboFrame(boolean $EnableJumboFrame) 设置<p>实例是否开启巨型帧</p>
+ * @method Metadata getMetadata() 获取<p>自定义metadata，本参数对应创建 CVM时指定的Metadata 信息。<strong>注：内测中</strong>。</p>
+ * @method void setMetadata(Metadata $Metadata) 设置<p>自定义metadata，本参数对应创建 CVM时指定的Metadata 信息。<strong>注：内测中</strong>。</p>
+ * @method array getPublicIPv6Addresses() 获取<p>实例绑定的公网IPv6地址。</p>
+ * @method void setPublicIPv6Addresses(array $PublicIPv6Addresses) 设置<p>实例绑定的公网IPv6地址。</p>
+ * @method CpuTopology getCpuTopology() 获取<p>描述了实例CPU拓扑结构的相关信息。</p>
+ * @method void setCpuTopology(CpuTopology $CpuTopology) 设置<p>描述了实例CPU拓扑结构的相关信息。</p>
+ * @method integer getPartitionNumber() 获取<p>分区置放群组的分区号，具体取决于所选置放群组的分区数量(功能灰度中)</p>
+ * @method void setPartitionNumber(integer $PartitionNumber) 设置<p>分区置放群组的分区号，具体取决于所选置放群组的分区数量(功能灰度中)</p>
+ * @method string getSuperNodeId() 获取<p>逻辑超节点标识</p>
+ * @method void setSuperNodeId(string $SuperNodeId) 设置<p>逻辑超节点标识</p>
  */
 class Instance extends AbstractModel
 {
     /**
-     * @var Placement 实例所在的位置。
+     * @var Placement <p>实例所在的位置。</p>
      */
     public $Placement;
 
     /**
-     * @var string 实例`ID`。
+     * @var string <p>实例<code>ID</code>。</p>
      */
     public $InstanceId;
 
     /**
-     * @var string 实例机型。
+     * @var string <p>实例机型。</p>
      */
     public $InstanceType;
 
     /**
-     * @var integer 实例的CPU核数，单位：核。
+     * @var integer <p>实例的CPU核数，单位：核。</p>
      */
     public $CPU;
 
     /**
-     * @var integer 实例内存容量，单位：`GB`。
+     * @var integer <p>实例内存容量，单位：<code>GiB</code>。</p>
      */
     public $Memory;
 
     /**
-     * @var string 实例业务状态。取值范围：<br><li>NORMAL：表示正常状态的实例<br><li>EXPIRED：表示过期的实例<br><li>PROTECTIVELY_ISOLATED：表示被安全隔离的实例。
+     * @var string <p>实例业务状态。取值范围：<br><li>NORMAL：表示正常状态的实例</li><li>EXPIRED：表示过期的实例</li><li>PROTECTIVELY_ISOLATED：表示被安全隔离的实例。</li></p>
      */
     public $RestrictState;
 
     /**
-     * @var string 实例名称。
+     * @var string <p>实例名称。</p>
      */
     public $InstanceName;
 
     /**
-     * @var string 实例计费模式。取值范围：<br><li>`PREPAID`：表示预付费，即包年包月<br><li>`POSTPAID_BY_HOUR`：表示后付费，即按量计费<br><li>`CDHPAID`：`CDH`付费，即只对`CDH`计费，不对`CDH`上的实例计费。<br><li>`SPOTPAID`：表示竞价实例付费。
+     * @var string <p>实例<a href="https://cloud.tencent.com/document/product/213/2180">计费类型</a>。取值范围：<br><li>PREPAID：预付费，即包年包月</li><br><li>POSTPAID_BY_HOUR：按小时后付费</li><br><li>CDHPAID：独享子机（基于专用宿主机创建，宿主机部分的资源不收费）</li><br><li>SPOTPAID：竞价付费</li><br><li>CDCPAID：专用集群付费</li></p>
      */
     public $InstanceChargeType;
 
     /**
-     * @var SystemDisk 实例系统盘信息。
+     * @var SystemDisk <p>实例系统盘信息。</p>
      */
     public $SystemDisk;
 
     /**
-     * @var array 实例数据盘信息。只包含随实例购买的数据盘。
+     * @var array <p>实例数据盘信息。</p>
      */
     public $DataDisks;
 
     /**
-     * @var array 实例主网卡的内网`IP`列表。
+     * @var array <p>实例主网卡的内网<code>IP</code>列表。</p>
      */
     public $PrivateIpAddresses;
 
     /**
-     * @var array 实例主网卡的公网`IP`列表。
+     * @var array <p>实例主网卡的公网<code>IP</code>列表。</p>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $PublicIpAddresses;
 
     /**
-     * @var InternetAccessible 实例带宽信息。
+     * @var InternetAccessible <p>实例带宽信息。</p>
      */
     public $InternetAccessible;
 
     /**
-     * @var VirtualPrivateCloud 实例所属虚拟私有网络信息。
+     * @var VirtualPrivateCloud <p>实例所属虚拟私有网络信息。</p>
      */
     public $VirtualPrivateCloud;
 
     /**
-     * @var string 生产实例所使用的镜像`ID`。
+     * @var string <p>生产实例所使用的镜像<code>ID</code>。</p>
      */
     public $ImageId;
 
     /**
-     * @var string 自动续费标识。取值范围：<br><li>`NOTIFY_AND_MANUAL_RENEW`：表示通知即将过期，但不自动续费<br><li>`NOTIFY_AND_AUTO_RENEW`：表示通知即将过期，而且自动续费<br><li>`DISABLE_NOTIFY_AND_MANUAL_RENEW`：表示不通知即将过期，也不自动续费。
-<br><li>注意：后付费模式本项为null
+     * @var string <p>自动续费标识。取值范围：<br><li><code>NOTIFY_AND_MANUAL_RENEW</code>：表示通知即将过期，但不自动续费</li><li><code>NOTIFY_AND_AUTO_RENEW</code>：表示通知即将过期，而且自动续费</li><li><code>DISABLE_NOTIFY_AND_MANUAL_RENEW</code>：表示不通知即将过期，也不自动续费。</p></li><li>注意：后付费模式本项为null</li>
      */
     public $RenewFlag;
 
     /**
-     * @var string 创建时间。按照`ISO8601`标准表示，并且使用`UTC`时间。格式为：`YYYY-MM-DDThh:mm:ssZ`。
+     * @var string <p>创建时间。按照<code>ISO8601</code>标准表示，并且使用<code>UTC</code>时间。格式为：<code>YYYY-MM-DDThh:mm:ssZ</code>。</p>
      */
     public $CreatedTime;
 
     /**
-     * @var string 到期时间。按照`ISO8601`标准表示，并且使用`UTC`时间。格式为：`YYYY-MM-DDThh:mm:ssZ`。注意：后付费模式本项为null
+     * @var string <p>到期时间。按照<code>ISO8601</code>标准表示，并且使用<code>UTC</code>时间。格式为：<code>YYYY-MM-DDThh:mm:ssZ</code>。注意：后付费模式本项为null</p>
      */
     public $ExpiredTime;
 
     /**
-     * @var string 操作系统名称。
+     * @var string <p>操作系统名称。</p>
      */
     public $OsName;
 
     /**
-     * @var array 实例所属安全组。该参数可以通过调用 [DescribeSecurityGroups](https://cloud.tencent.com/document/api/215/15808) 的返回值中的sgId字段来获取。
+     * @var array <p>实例所属安全组。该参数可以通过调用 <a href="https://cloud.tencent.com/document/api/215/15808">DescribeSecurityGroups</a> 的返回值中的sgId字段来获取。</p>
      */
     public $SecurityGroupIds;
 
     /**
-     * @var LoginSettings 实例登录设置。目前只返回实例所关联的密钥。
+     * @var LoginSettings <p>实例登录设置。目前只返回实例所关联的密钥。</p>
      */
     public $LoginSettings;
 
     /**
-     * @var string 实例状态。取值范围：<br><li>PENDING：表示创建中<br></li><li>LAUNCH_FAILED：表示创建失败<br></li><li>RUNNING：表示运行中<br></li><li>STOPPED：表示关机<br></li><li>STARTING：表示开机中<br></li><li>STOPPING：表示关机中<br></li><li>REBOOTING：表示重启中<br></li><li>SHUTDOWN：表示停止待销毁<br></li><li>TERMINATING：表示销毁中。<br></li>
+     * @var string <p>实例状态。状态类型详见<a href="https://cloud.tencent.com/document/api/213/15753#InstanceStatus">实例状态表</a></p>
      */
     public $InstanceState;
 
     /**
-     * @var array 实例关联的标签列表。
+     * @var array <p>实例关联的标签列表。</p>
      */
     public $Tags;
 
     /**
-     * @var string 实例的关机计费模式。
-取值范围：<br><li>KEEP_CHARGING：关机继续收费<br><li>STOP_CHARGING：关机停止收费<li>NOT_APPLICABLE：实例处于非关机状态或者不适用关机停止计费的条件<br>
+     * @var string <p>实例的关机计费模式。<br>取值范围：<br><li>KEEP_CHARGING：关机继续收费</li><li>STOP_CHARGING：关机停止收费</li><li>NOT_APPLICABLE：实例处于非关机状态或者不适用关机停止计费的条件</li></p>
      */
     public $StopChargingMode;
 
     /**
-     * @var string 实例全局唯一ID
+     * @var string <p>实例全局唯一ID</p>
      */
     public $Uuid;
 
     /**
-     * @var string 实例的最新操作。例：StopInstances、ResetInstance。
+     * @var string <p>实例的最新操作。例：StopInstances、ResetInstance。</p>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $LatestOperation;
 
     /**
-     * @var string 实例的最新操作状态。取值范围：<br><li>SUCCESS：表示操作成功<br><li>OPERATING：表示操作执行中<br><li>FAILED：表示操作失败
+     * @var string <p>实例的最新操作状态。取值范围：<br><li>SUCCESS：表示操作成功</li><li>OPERATING：表示操作执行中</li><li>FAILED：表示操作失败</li></p>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $LatestOperationState;
 
     /**
-     * @var string 实例最新操作的唯一请求 ID。
+     * @var string <p>实例最新操作的唯一请求 ID。</p>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $LatestOperationRequestId;
 
     /**
-     * @var string 分散置放群组ID。
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string <p>分散置放群组ID。</p>
+     * @deprecated
      */
     public $DisasterRecoverGroupId;
 
     /**
-     * @var array 实例的IPv6地址。
+     * @var array <p>实例的IPv6地址。</p>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $IPv6Addresses;
 
     /**
-     * @var string CAM角色名。
+     * @var string <p>CAM角色名。</p>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $CamRoleName;
 
     /**
-     * @var string 高性能计算集群`ID`。
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string <p>高性能计算集群<code>ID</code>。</p>
      */
     public $HpcClusterId;
 
     /**
-     * @var array 高性能计算集群`IP`列表。
+     * @var array <p>高性能计算集群<code>IP</code>列表。</p>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $RdmaIpAddresses;
 
     /**
-     * @param Placement $Placement 实例所在的位置。
-     * @param string $InstanceId 实例`ID`。
-     * @param string $InstanceType 实例机型。
-     * @param integer $CPU 实例的CPU核数，单位：核。
-     * @param integer $Memory 实例内存容量，单位：`GB`。
-     * @param string $RestrictState 实例业务状态。取值范围：<br><li>NORMAL：表示正常状态的实例<br><li>EXPIRED：表示过期的实例<br><li>PROTECTIVELY_ISOLATED：表示被安全隔离的实例。
-     * @param string $InstanceName 实例名称。
-     * @param string $InstanceChargeType 实例计费模式。取值范围：<br><li>`PREPAID`：表示预付费，即包年包月<br><li>`POSTPAID_BY_HOUR`：表示后付费，即按量计费<br><li>`CDHPAID`：`CDH`付费，即只对`CDH`计费，不对`CDH`上的实例计费。<br><li>`SPOTPAID`：表示竞价实例付费。
-     * @param SystemDisk $SystemDisk 实例系统盘信息。
-     * @param array $DataDisks 实例数据盘信息。只包含随实例购买的数据盘。
-     * @param array $PrivateIpAddresses 实例主网卡的内网`IP`列表。
-     * @param array $PublicIpAddresses 实例主网卡的公网`IP`列表。
+     * @var string <p>实例所在的专用集群<code>ID</code>。</p>
+     */
+    public $DedicatedClusterId;
+
+    /**
+     * @var string <p>实例隔离类型。取值范围：<br><li>ARREAR：表示欠费隔离<br></li><li>EXPIRE：表示到期隔离<br></li><li>MANMADE：表示主动退还隔离<br></li><li>NOTISOLATED：表示未隔离<br></li></p>
+     */
+    public $IsolatedSource;
+
+    /**
+     * @var array <p>置放群组列表(目前仅支持一个)</p>
+     */
+    public $DisasterRecoverGroupIds;
+
+    /**
+     * @var GPUInfo <p>GPU信息。如果是gpu类型子机，该值会返回GPU信息，如果是其他类型子机则不返回。</p>
+     */
+    public $GPUInfo;
+
+    /**
+     * @var string <p>实例的操作系统许可类型，默认为TencentCloud</p>
+     */
+    public $LicenseType;
+
+    /**
+     * @var boolean <p>实例销毁保护标志，表示是否允许通过api接口删除实例。取值范围：<br><li>true：表示开启实例保护，不允许通过api接口删除实例</li><li>false：表示关闭实例保护，允许通过api接口删除实例</li><br>默认取值：false。</p>
+     */
+    public $DisableApiTermination;
+
+    /**
+     * @var string <p>实例主机名。</p>
+     */
+    public $HostName;
+
+    /**
+     * @var string <p>默认登录用户。</p>
+     */
+    public $DefaultLoginUser;
+
+    /**
+     * @var integer <p>默认登录端口。</p>
+     */
+    public $DefaultLoginPort;
+
+    /**
+     * @var string <p>实例的最新操作错误信息。</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param InternetAccessible $InternetAccessible 实例带宽信息。
-     * @param VirtualPrivateCloud $VirtualPrivateCloud 实例所属虚拟私有网络信息。
-     * @param string $ImageId 生产实例所使用的镜像`ID`。
-     * @param string $RenewFlag 自动续费标识。取值范围：<br><li>`NOTIFY_AND_MANUAL_RENEW`：表示通知即将过期，但不自动续费<br><li>`NOTIFY_AND_AUTO_RENEW`：表示通知即将过期，而且自动续费<br><li>`DISABLE_NOTIFY_AND_MANUAL_RENEW`：表示不通知即将过期，也不自动续费。
-<br><li>注意：后付费模式本项为null
-     * @param string $CreatedTime 创建时间。按照`ISO8601`标准表示，并且使用`UTC`时间。格式为：`YYYY-MM-DDThh:mm:ssZ`。
-     * @param string $ExpiredTime 到期时间。按照`ISO8601`标准表示，并且使用`UTC`时间。格式为：`YYYY-MM-DDThh:mm:ssZ`。注意：后付费模式本项为null
-     * @param string $OsName 操作系统名称。
-     * @param array $SecurityGroupIds 实例所属安全组。该参数可以通过调用 [DescribeSecurityGroups](https://cloud.tencent.com/document/api/215/15808) 的返回值中的sgId字段来获取。
-     * @param LoginSettings $LoginSettings 实例登录设置。目前只返回实例所关联的密钥。
-     * @param string $InstanceState 实例状态。取值范围：<br><li>PENDING：表示创建中<br></li><li>LAUNCH_FAILED：表示创建失败<br></li><li>RUNNING：表示运行中<br></li><li>STOPPED：表示关机<br></li><li>STARTING：表示开机中<br></li><li>STOPPING：表示关机中<br></li><li>REBOOTING：表示重启中<br></li><li>SHUTDOWN：表示停止待销毁<br></li><li>TERMINATING：表示销毁中。<br></li>
-     * @param array $Tags 实例关联的标签列表。
-     * @param string $StopChargingMode 实例的关机计费模式。
-取值范围：<br><li>KEEP_CHARGING：关机继续收费<br><li>STOP_CHARGING：关机停止收费<li>NOT_APPLICABLE：实例处于非关机状态或者不适用关机停止计费的条件<br>
-     * @param string $Uuid 实例全局唯一ID
-     * @param string $LatestOperation 实例的最新操作。例：StopInstances、ResetInstance。
+     */
+    public $LatestOperationErrorMsg;
+
+    /**
+     * @var boolean <p>实例是否开启巨型帧</p>
+     */
+    public $EnableJumboFrame;
+
+    /**
+     * @var Metadata <p>自定义metadata，本参数对应创建 CVM时指定的Metadata 信息。<strong>注：内测中</strong>。</p>
+     */
+    public $Metadata;
+
+    /**
+     * @var array <p>实例绑定的公网IPv6地址。</p>
+     */
+    public $PublicIPv6Addresses;
+
+    /**
+     * @var CpuTopology <p>描述了实例CPU拓扑结构的相关信息。</p>
+     */
+    public $CpuTopology;
+
+    /**
+     * @var integer <p>分区置放群组的分区号，具体取决于所选置放群组的分区数量(功能灰度中)</p>
+     */
+    public $PartitionNumber;
+
+    /**
+     * @var string <p>逻辑超节点标识</p>
+     */
+    public $SuperNodeId;
+
+    /**
+     * @param Placement $Placement <p>实例所在的位置。</p>
+     * @param string $InstanceId <p>实例<code>ID</code>。</p>
+     * @param string $InstanceType <p>实例机型。</p>
+     * @param integer $CPU <p>实例的CPU核数，单位：核。</p>
+     * @param integer $Memory <p>实例内存容量，单位：<code>GiB</code>。</p>
+     * @param string $RestrictState <p>实例业务状态。取值范围：<br><li>NORMAL：表示正常状态的实例</li><li>EXPIRED：表示过期的实例</li><li>PROTECTIVELY_ISOLATED：表示被安全隔离的实例。</li></p>
+     * @param string $InstanceName <p>实例名称。</p>
+     * @param string $InstanceChargeType <p>实例<a href="https://cloud.tencent.com/document/product/213/2180">计费类型</a>。取值范围：<br><li>PREPAID：预付费，即包年包月</li><br><li>POSTPAID_BY_HOUR：按小时后付费</li><br><li>CDHPAID：独享子机（基于专用宿主机创建，宿主机部分的资源不收费）</li><br><li>SPOTPAID：竞价付费</li><br><li>CDCPAID：专用集群付费</li></p>
+     * @param SystemDisk $SystemDisk <p>实例系统盘信息。</p>
+     * @param array $DataDisks <p>实例数据盘信息。</p>
+     * @param array $PrivateIpAddresses <p>实例主网卡的内网<code>IP</code>列表。</p>
+     * @param array $PublicIpAddresses <p>实例主网卡的公网<code>IP</code>列表。</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $LatestOperationState 实例的最新操作状态。取值范围：<br><li>SUCCESS：表示操作成功<br><li>OPERATING：表示操作执行中<br><li>FAILED：表示操作失败
+     * @param InternetAccessible $InternetAccessible <p>实例带宽信息。</p>
+     * @param VirtualPrivateCloud $VirtualPrivateCloud <p>实例所属虚拟私有网络信息。</p>
+     * @param string $ImageId <p>生产实例所使用的镜像<code>ID</code>。</p>
+     * @param string $RenewFlag <p>自动续费标识。取值范围：<br><li><code>NOTIFY_AND_MANUAL_RENEW</code>：表示通知即将过期，但不自动续费</li><li><code>NOTIFY_AND_AUTO_RENEW</code>：表示通知即将过期，而且自动续费</li><li><code>DISABLE_NOTIFY_AND_MANUAL_RENEW</code>：表示不通知即将过期，也不自动续费。</p></li><li>注意：后付费模式本项为null</li>
+     * @param string $CreatedTime <p>创建时间。按照<code>ISO8601</code>标准表示，并且使用<code>UTC</code>时间。格式为：<code>YYYY-MM-DDThh:mm:ssZ</code>。</p>
+     * @param string $ExpiredTime <p>到期时间。按照<code>ISO8601</code>标准表示，并且使用<code>UTC</code>时间。格式为：<code>YYYY-MM-DDThh:mm:ssZ</code>。注意：后付费模式本项为null</p>
+     * @param string $OsName <p>操作系统名称。</p>
+     * @param array $SecurityGroupIds <p>实例所属安全组。该参数可以通过调用 <a href="https://cloud.tencent.com/document/api/215/15808">DescribeSecurityGroups</a> 的返回值中的sgId字段来获取。</p>
+     * @param LoginSettings $LoginSettings <p>实例登录设置。目前只返回实例所关联的密钥。</p>
+     * @param string $InstanceState <p>实例状态。状态类型详见<a href="https://cloud.tencent.com/document/api/213/15753#InstanceStatus">实例状态表</a></p>
+     * @param array $Tags <p>实例关联的标签列表。</p>
+     * @param string $StopChargingMode <p>实例的关机计费模式。<br>取值范围：<br><li>KEEP_CHARGING：关机继续收费</li><li>STOP_CHARGING：关机停止收费</li><li>NOT_APPLICABLE：实例处于非关机状态或者不适用关机停止计费的条件</li></p>
+     * @param string $Uuid <p>实例全局唯一ID</p>
+     * @param string $LatestOperation <p>实例的最新操作。例：StopInstances、ResetInstance。</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $LatestOperationRequestId 实例最新操作的唯一请求 ID。
+     * @param string $LatestOperationState <p>实例的最新操作状态。取值范围：<br><li>SUCCESS：表示操作成功</li><li>OPERATING：表示操作执行中</li><li>FAILED：表示操作失败</li></p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $DisasterRecoverGroupId 分散置放群组ID。
+     * @param string $LatestOperationRequestId <p>实例最新操作的唯一请求 ID。</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param array $IPv6Addresses 实例的IPv6地址。
+     * @param string $DisasterRecoverGroupId <p>分散置放群组ID。</p>
+     * @param array $IPv6Addresses <p>实例的IPv6地址。</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $CamRoleName CAM角色名。
+     * @param string $CamRoleName <p>CAM角色名。</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $HpcClusterId 高性能计算集群`ID`。
+     * @param string $HpcClusterId <p>高性能计算集群<code>ID</code>。</p>
+     * @param array $RdmaIpAddresses <p>高性能计算集群<code>IP</code>列表。</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param array $RdmaIpAddresses 高性能计算集群`IP`列表。
+     * @param string $DedicatedClusterId <p>实例所在的专用集群<code>ID</code>。</p>
+     * @param string $IsolatedSource <p>实例隔离类型。取值范围：<br><li>ARREAR：表示欠费隔离<br></li><li>EXPIRE：表示到期隔离<br></li><li>MANMADE：表示主动退还隔离<br></li><li>NOTISOLATED：表示未隔离<br></li></p>
+     * @param array $DisasterRecoverGroupIds <p>置放群组列表(目前仅支持一个)</p>
+     * @param GPUInfo $GPUInfo <p>GPU信息。如果是gpu类型子机，该值会返回GPU信息，如果是其他类型子机则不返回。</p>
+     * @param string $LicenseType <p>实例的操作系统许可类型，默认为TencentCloud</p>
+     * @param boolean $DisableApiTermination <p>实例销毁保护标志，表示是否允许通过api接口删除实例。取值范围：<br><li>true：表示开启实例保护，不允许通过api接口删除实例</li><li>false：表示关闭实例保护，允许通过api接口删除实例</li><br>默认取值：false。</p>
+     * @param string $HostName <p>实例主机名。</p>
+     * @param string $DefaultLoginUser <p>默认登录用户。</p>
+     * @param integer $DefaultLoginPort <p>默认登录端口。</p>
+     * @param string $LatestOperationErrorMsg <p>实例的最新操作错误信息。</p>
 注意：此字段可能返回 null，表示取不到有效值。
+     * @param boolean $EnableJumboFrame <p>实例是否开启巨型帧</p>
+     * @param Metadata $Metadata <p>自定义metadata，本参数对应创建 CVM时指定的Metadata 信息。<strong>注：内测中</strong>。</p>
+     * @param array $PublicIPv6Addresses <p>实例绑定的公网IPv6地址。</p>
+     * @param CpuTopology $CpuTopology <p>描述了实例CPU拓扑结构的相关信息。</p>
+     * @param integer $PartitionNumber <p>分区置放群组的分区号，具体取决于所选置放群组的分区数量(功能灰度中)</p>
+     * @param string $SuperNodeId <p>逻辑超节点标识</p>
      */
     function __construct()
     {
@@ -491,6 +608,73 @@ class Instance extends AbstractModel
 
         if (array_key_exists("RdmaIpAddresses",$param) and $param["RdmaIpAddresses"] !== null) {
             $this->RdmaIpAddresses = $param["RdmaIpAddresses"];
+        }
+
+        if (array_key_exists("DedicatedClusterId",$param) and $param["DedicatedClusterId"] !== null) {
+            $this->DedicatedClusterId = $param["DedicatedClusterId"];
+        }
+
+        if (array_key_exists("IsolatedSource",$param) and $param["IsolatedSource"] !== null) {
+            $this->IsolatedSource = $param["IsolatedSource"];
+        }
+
+        if (array_key_exists("DisasterRecoverGroupIds",$param) and $param["DisasterRecoverGroupIds"] !== null) {
+            $this->DisasterRecoverGroupIds = $param["DisasterRecoverGroupIds"];
+        }
+
+        if (array_key_exists("GPUInfo",$param) and $param["GPUInfo"] !== null) {
+            $this->GPUInfo = new GPUInfo();
+            $this->GPUInfo->deserialize($param["GPUInfo"]);
+        }
+
+        if (array_key_exists("LicenseType",$param) and $param["LicenseType"] !== null) {
+            $this->LicenseType = $param["LicenseType"];
+        }
+
+        if (array_key_exists("DisableApiTermination",$param) and $param["DisableApiTermination"] !== null) {
+            $this->DisableApiTermination = $param["DisableApiTermination"];
+        }
+
+        if (array_key_exists("HostName",$param) and $param["HostName"] !== null) {
+            $this->HostName = $param["HostName"];
+        }
+
+        if (array_key_exists("DefaultLoginUser",$param) and $param["DefaultLoginUser"] !== null) {
+            $this->DefaultLoginUser = $param["DefaultLoginUser"];
+        }
+
+        if (array_key_exists("DefaultLoginPort",$param) and $param["DefaultLoginPort"] !== null) {
+            $this->DefaultLoginPort = $param["DefaultLoginPort"];
+        }
+
+        if (array_key_exists("LatestOperationErrorMsg",$param) and $param["LatestOperationErrorMsg"] !== null) {
+            $this->LatestOperationErrorMsg = $param["LatestOperationErrorMsg"];
+        }
+
+        if (array_key_exists("EnableJumboFrame",$param) and $param["EnableJumboFrame"] !== null) {
+            $this->EnableJumboFrame = $param["EnableJumboFrame"];
+        }
+
+        if (array_key_exists("Metadata",$param) and $param["Metadata"] !== null) {
+            $this->Metadata = new Metadata();
+            $this->Metadata->deserialize($param["Metadata"]);
+        }
+
+        if (array_key_exists("PublicIPv6Addresses",$param) and $param["PublicIPv6Addresses"] !== null) {
+            $this->PublicIPv6Addresses = $param["PublicIPv6Addresses"];
+        }
+
+        if (array_key_exists("CpuTopology",$param) and $param["CpuTopology"] !== null) {
+            $this->CpuTopology = new CpuTopology();
+            $this->CpuTopology->deserialize($param["CpuTopology"]);
+        }
+
+        if (array_key_exists("PartitionNumber",$param) and $param["PartitionNumber"] !== null) {
+            $this->PartitionNumber = $param["PartitionNumber"];
+        }
+
+        if (array_key_exists("SuperNodeId",$param) and $param["SuperNodeId"] !== null) {
+            $this->SuperNodeId = $param["SuperNodeId"];
         }
     }
 }

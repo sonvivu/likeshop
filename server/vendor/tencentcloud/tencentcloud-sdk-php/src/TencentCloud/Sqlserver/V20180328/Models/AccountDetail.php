@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@ namespace TencentCloud\Sqlserver\V20180328\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * 账户信息详情
+ * 账号信息详情
  *
  * @method string getName() 获取账户名
  * @method void setName(string $Name) 设置账户名
@@ -38,6 +38,14 @@ use TencentCloud\Common\AbstractModel;
  * @method void setDbs(array $Dbs) 设置该账户对相关db的读写权限信息
  * @method boolean getIsAdmin() 获取是否为管理员账户
  * @method void setIsAdmin(boolean $IsAdmin) 设置是否为管理员账户
+ * @method boolean getIsCam() 获取是否为cam托管账户
+ * @method void setIsCam(boolean $IsCam) 设置是否为cam托管账户
+ * @method string getAuthentication() 获取win-windows鉴权,sql-sqlserver鉴权
+ * @method void setAuthentication(string $Authentication) 设置win-windows鉴权,sql-sqlserver鉴权
+ * @method string getHost() 获取win-windows鉴权账户需要host
+ * @method void setHost(string $Host) 设置win-windows鉴权账户需要host
+ * @method string getAccountType() 获取账号类型。L0-超级权限(基础版独有),L1-高级权限,L2-特殊权限,L3-普通权限
+ * @method void setAccountType(string $AccountType) 设置账号类型。L0-超级权限(基础版独有),L1-高级权限,L2-特殊权限,L3-普通权限
  */
 class AccountDetail extends AbstractModel
 {
@@ -87,6 +95,26 @@ class AccountDetail extends AbstractModel
     public $IsAdmin;
 
     /**
+     * @var boolean 是否为cam托管账户
+     */
+    public $IsCam;
+
+    /**
+     * @var string win-windows鉴权,sql-sqlserver鉴权
+     */
+    public $Authentication;
+
+    /**
+     * @var string win-windows鉴权账户需要host
+     */
+    public $Host;
+
+    /**
+     * @var string 账号类型。L0-超级权限(基础版独有),L1-高级权限,L2-特殊权限,L3-普通权限
+     */
+    public $AccountType;
+
+    /**
      * @param string $Name 账户名
      * @param string $Remark 账户备注
      * @param string $CreateTime 账户创建时间
@@ -96,6 +124,10 @@ class AccountDetail extends AbstractModel
      * @param string $InternalStatus 账户内部状态，正常为enable
      * @param array $Dbs 该账户对相关db的读写权限信息
      * @param boolean $IsAdmin 是否为管理员账户
+     * @param boolean $IsCam 是否为cam托管账户
+     * @param string $Authentication win-windows鉴权,sql-sqlserver鉴权
+     * @param string $Host win-windows鉴权账户需要host
+     * @param string $AccountType 账号类型。L0-超级权限(基础版独有),L1-高级权限,L2-特殊权限,L3-普通权限
      */
     function __construct()
     {
@@ -149,6 +181,22 @@ class AccountDetail extends AbstractModel
 
         if (array_key_exists("IsAdmin",$param) and $param["IsAdmin"] !== null) {
             $this->IsAdmin = $param["IsAdmin"];
+        }
+
+        if (array_key_exists("IsCam",$param) and $param["IsCam"] !== null) {
+            $this->IsCam = $param["IsCam"];
+        }
+
+        if (array_key_exists("Authentication",$param) and $param["Authentication"] !== null) {
+            $this->Authentication = $param["Authentication"];
+        }
+
+        if (array_key_exists("Host",$param) and $param["Host"] !== null) {
+            $this->Host = $param["Host"];
+        }
+
+        if (array_key_exists("AccountType",$param) and $param["AccountType"] !== null) {
+            $this->AccountType = $param["AccountType"];
         }
     }
 }

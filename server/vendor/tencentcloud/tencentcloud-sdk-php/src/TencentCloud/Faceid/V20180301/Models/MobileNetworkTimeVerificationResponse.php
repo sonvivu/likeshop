@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,74 +20,42 @@ use TencentCloud\Common\AbstractModel;
 /**
  * MobileNetworkTimeVerification返回参数结构体
  *
- * @method string getResult() 获取认证结果码，收费情况如下。
-收费结果码：
-0: 成功
--2: 手机号不存在
--3: 手机号存在，但无法查询到在网时长
-不收费结果码：
--1: 手机号格式不正确
--4: 验证中心服务繁忙
- * @method void setResult(string $Result) 设置认证结果码，收费情况如下。
-收费结果码：
-0: 成功
--2: 手机号不存在
--3: 手机号存在，但无法查询到在网时长
-不收费结果码：
--1: 手机号格式不正确
--4: 验证中心服务繁忙
- * @method string getDescription() 获取业务结果描述。
- * @method void setDescription(string $Description) 设置业务结果描述。
- * @method string getRange() 获取在网时长区间。
-格式为(a,b]，表示在网时长在a个月以上，b个月以下。若b为+时表示没有上限。
- * @method void setRange(string $Range) 设置在网时长区间。
-格式为(a,b]，表示在网时长在a个月以上，b个月以下。若b为+时表示没有上限。
- * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
- * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method string getResult() 获取<p>认证结果码，收费情况如下。</p><ul><li><p>收费结果码：<br>-0: 成功。<br>-2: 手机号不存在<br>-3: 手机号存在，但无法查询到在网时长。</p></li><li><p>不收费结果码：<br>-1: 手机号格式不正确。<br>-4: 验证中心服务繁忙。<br>-5：认证次数超过当日限制，请次日重试。<br>-13：该号段不支持验证</p></li></ul>
+ * @method void setResult(string $Result) 设置<p>认证结果码，收费情况如下。</p><ul><li><p>收费结果码：<br>-0: 成功。<br>-2: 手机号不存在<br>-3: 手机号存在，但无法查询到在网时长。</p></li><li><p>不收费结果码：<br>-1: 手机号格式不正确。<br>-4: 验证中心服务繁忙。<br>-5：认证次数超过当日限制，请次日重试。<br>-13：该号段不支持验证</p></li></ul>
+ * @method string getDescription() 获取<p>业务结果描述。</p>
+ * @method void setDescription(string $Description) 设置<p>业务结果描述。</p>
+ * @method string getRange() 获取<p>在网时长区间。</p><ul><li>格式为[a,b)，表示在网时长在a个月以上，b个月以下。</li><li>若b为+时表示没有上限。</li></ul>
+ * @method void setRange(string $Range) 设置<p>在网时长区间。</p><ul><li>格式为[a,b)，表示在网时长在a个月以上，b个月以下。</li><li>若b为+时表示没有上限。</li></ul>
+ * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+ * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
 class MobileNetworkTimeVerificationResponse extends AbstractModel
 {
     /**
-     * @var string 认证结果码，收费情况如下。
-收费结果码：
-0: 成功
--2: 手机号不存在
--3: 手机号存在，但无法查询到在网时长
-不收费结果码：
--1: 手机号格式不正确
--4: 验证中心服务繁忙
+     * @var string <p>认证结果码，收费情况如下。</p><ul><li><p>收费结果码：<br>-0: 成功。<br>-2: 手机号不存在<br>-3: 手机号存在，但无法查询到在网时长。</p></li><li><p>不收费结果码：<br>-1: 手机号格式不正确。<br>-4: 验证中心服务繁忙。<br>-5：认证次数超过当日限制，请次日重试。<br>-13：该号段不支持验证</p></li></ul>
      */
     public $Result;
 
     /**
-     * @var string 业务结果描述。
+     * @var string <p>业务结果描述。</p>
      */
     public $Description;
 
     /**
-     * @var string 在网时长区间。
-格式为(a,b]，表示在网时长在a个月以上，b个月以下。若b为+时表示没有上限。
+     * @var string <p>在网时长区间。</p><ul><li>格式为[a,b)，表示在网时长在a个月以上，b个月以下。</li><li>若b为+时表示没有上限。</li></ul>
      */
     public $Range;
 
     /**
-     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public $RequestId;
 
     /**
-     * @param string $Result 认证结果码，收费情况如下。
-收费结果码：
-0: 成功
--2: 手机号不存在
--3: 手机号存在，但无法查询到在网时长
-不收费结果码：
--1: 手机号格式不正确
--4: 验证中心服务繁忙
-     * @param string $Description 业务结果描述。
-     * @param string $Range 在网时长区间。
-格式为(a,b]，表示在网时长在a个月以上，b个月以下。若b为+时表示没有上限。
-     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @param string $Result <p>认证结果码，收费情况如下。</p><ul><li><p>收费结果码：<br>-0: 成功。<br>-2: 手机号不存在<br>-3: 手机号存在，但无法查询到在网时长。</p></li><li><p>不收费结果码：<br>-1: 手机号格式不正确。<br>-4: 验证中心服务繁忙。<br>-5：认证次数超过当日限制，请次日重试。<br>-13：该号段不支持验证</p></li></ul>
+     * @param string $Description <p>业务结果描述。</p>
+     * @param string $Range <p>在网时长区间。</p><ul><li>格式为[a,b)，表示在网时长在a个月以上，b个月以下。</li><li>若b为+时表示没有上限。</li></ul>
+     * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
     {

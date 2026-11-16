@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,18 +20,26 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DeleteMaliciousRequests请求参数结构体
  *
- * @method array getIds() 获取恶意请求记录ID数组，最大100条。
- * @method void setIds(array $Ids) 设置恶意请求记录ID数组，最大100条。
+ * @method array getIds() 获取恶意请求记录ID数组，(最大100条)
+ * @method void setIds(array $Ids) 设置恶意请求记录ID数组，(最大100条)
+ * @method boolean getAll() 获取是否删除全部
+ * @method void setAll(boolean $All) 设置是否删除全部
  */
 class DeleteMaliciousRequestsRequest extends AbstractModel
 {
     /**
-     * @var array 恶意请求记录ID数组，最大100条。
+     * @var array 恶意请求记录ID数组，(最大100条)
      */
     public $Ids;
 
     /**
-     * @param array $Ids 恶意请求记录ID数组，最大100条。
+     * @var boolean 是否删除全部
+     */
+    public $All;
+
+    /**
+     * @param array $Ids 恶意请求记录ID数组，(最大100条)
+     * @param boolean $All 是否删除全部
      */
     function __construct()
     {
@@ -48,6 +56,10 @@ class DeleteMaliciousRequestsRequest extends AbstractModel
         }
         if (array_key_exists("Ids",$param) and $param["Ids"] !== null) {
             $this->Ids = $param["Ids"];
+        }
+
+        if (array_key_exists("All",$param) and $param["All"] !== null) {
+            $this->All = $param["All"];
         }
     }
 }

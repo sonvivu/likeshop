@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,68 +18,96 @@ namespace TencentCloud\Cvm\V20170312\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * cdh实例的资源信息
+ * 专用宿主机实例的资源信息
  *
- * @method integer getCpuTotal() 获取cdh实例总cpu核数
- * @method void setCpuTotal(integer $CpuTotal) 设置cdh实例总cpu核数
- * @method integer getCpuAvailable() 获取cdh实例可用cpu核数
- * @method void setCpuAvailable(integer $CpuAvailable) 设置cdh实例可用cpu核数
- * @method float getMemTotal() 获取cdh实例总内存大小（单位为:GiB）
- * @method void setMemTotal(float $MemTotal) 设置cdh实例总内存大小（单位为:GiB）
- * @method float getMemAvailable() 获取cdh实例可用内存大小（单位为:GiB）
- * @method void setMemAvailable(float $MemAvailable) 设置cdh实例可用内存大小（单位为:GiB）
- * @method integer getDiskTotal() 获取cdh实例总磁盘大小（单位为:GiB）
- * @method void setDiskTotal(integer $DiskTotal) 设置cdh实例总磁盘大小（单位为:GiB）
- * @method integer getDiskAvailable() 获取cdh实例可用磁盘大小（单位为:GiB）
- * @method void setDiskAvailable(integer $DiskAvailable) 设置cdh实例可用磁盘大小（单位为:GiB）
- * @method string getDiskType() 获取cdh实例磁盘类型
- * @method void setDiskType(string $DiskType) 设置cdh实例磁盘类型
+ * @method integer getCpuTotal() 获取专用宿主机实例总CPU核数
+ * @method void setCpuTotal(integer $CpuTotal) 设置专用宿主机实例总CPU核数
+ * @method integer getCpuAvailable() 获取专用宿主机实例可用CPU核数
+ * @method void setCpuAvailable(integer $CpuAvailable) 设置专用宿主机实例可用CPU核数
+ * @method float getMemTotal() 获取专用宿主机实例总内存大小（单位为:GiB）
+ * @method void setMemTotal(float $MemTotal) 设置专用宿主机实例总内存大小（单位为:GiB）
+ * @method float getMemAvailable() 获取专用宿主机实例可用内存大小（单位为:GiB）
+ * @method void setMemAvailable(float $MemAvailable) 设置专用宿主机实例可用内存大小（单位为:GiB）
+ * @method integer getDiskTotal() 获取专用宿主机实例总磁盘大小（单位为:GiB）
+ * @method void setDiskTotal(integer $DiskTotal) 设置专用宿主机实例总磁盘大小（单位为:GiB）
+ * @method integer getDiskAvailable() 获取专用宿主机实例可用磁盘大小（单位为:GiB）
+ * @method void setDiskAvailable(integer $DiskAvailable) 设置专用宿主机实例可用磁盘大小（单位为:GiB）
+ * @method string getDiskType() 获取专用宿主机实例磁盘类型
+ * @method void setDiskType(string $DiskType) 设置专用宿主机实例磁盘类型
+ * @method integer getGpuTotal() 获取专用宿主机实例总GPU卡数
+ * @method void setGpuTotal(integer $GpuTotal) 设置专用宿主机实例总GPU卡数
+ * @method integer getGpuAvailable() 获取专用宿主机实例可用GPU卡数
+ * @method void setGpuAvailable(integer $GpuAvailable) 设置专用宿主机实例可用GPU卡数
+ * @method string getExclusiveOwner() 获取CDH 拥有者
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setExclusiveOwner(string $ExclusiveOwner) 设置CDH 拥有者
+注意：此字段可能返回 null，表示取不到有效值。
  */
 class HostResource extends AbstractModel
 {
     /**
-     * @var integer cdh实例总cpu核数
+     * @var integer 专用宿主机实例总CPU核数
      */
     public $CpuTotal;
 
     /**
-     * @var integer cdh实例可用cpu核数
+     * @var integer 专用宿主机实例可用CPU核数
      */
     public $CpuAvailable;
 
     /**
-     * @var float cdh实例总内存大小（单位为:GiB）
+     * @var float 专用宿主机实例总内存大小（单位为:GiB）
      */
     public $MemTotal;
 
     /**
-     * @var float cdh实例可用内存大小（单位为:GiB）
+     * @var float 专用宿主机实例可用内存大小（单位为:GiB）
      */
     public $MemAvailable;
 
     /**
-     * @var integer cdh实例总磁盘大小（单位为:GiB）
+     * @var integer 专用宿主机实例总磁盘大小（单位为:GiB）
      */
     public $DiskTotal;
 
     /**
-     * @var integer cdh实例可用磁盘大小（单位为:GiB）
+     * @var integer 专用宿主机实例可用磁盘大小（单位为:GiB）
      */
     public $DiskAvailable;
 
     /**
-     * @var string cdh实例磁盘类型
+     * @var string 专用宿主机实例磁盘类型
      */
     public $DiskType;
 
     /**
-     * @param integer $CpuTotal cdh实例总cpu核数
-     * @param integer $CpuAvailable cdh实例可用cpu核数
-     * @param float $MemTotal cdh实例总内存大小（单位为:GiB）
-     * @param float $MemAvailable cdh实例可用内存大小（单位为:GiB）
-     * @param integer $DiskTotal cdh实例总磁盘大小（单位为:GiB）
-     * @param integer $DiskAvailable cdh实例可用磁盘大小（单位为:GiB）
-     * @param string $DiskType cdh实例磁盘类型
+     * @var integer 专用宿主机实例总GPU卡数
+     */
+    public $GpuTotal;
+
+    /**
+     * @var integer 专用宿主机实例可用GPU卡数
+     */
+    public $GpuAvailable;
+
+    /**
+     * @var string CDH 拥有者
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $ExclusiveOwner;
+
+    /**
+     * @param integer $CpuTotal 专用宿主机实例总CPU核数
+     * @param integer $CpuAvailable 专用宿主机实例可用CPU核数
+     * @param float $MemTotal 专用宿主机实例总内存大小（单位为:GiB）
+     * @param float $MemAvailable 专用宿主机实例可用内存大小（单位为:GiB）
+     * @param integer $DiskTotal 专用宿主机实例总磁盘大小（单位为:GiB）
+     * @param integer $DiskAvailable 专用宿主机实例可用磁盘大小（单位为:GiB）
+     * @param string $DiskType 专用宿主机实例磁盘类型
+     * @param integer $GpuTotal 专用宿主机实例总GPU卡数
+     * @param integer $GpuAvailable 专用宿主机实例可用GPU卡数
+     * @param string $ExclusiveOwner CDH 拥有者
+注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
     {
@@ -120,6 +148,18 @@ class HostResource extends AbstractModel
 
         if (array_key_exists("DiskType",$param) and $param["DiskType"] !== null) {
             $this->DiskType = $param["DiskType"];
+        }
+
+        if (array_key_exists("GpuTotal",$param) and $param["GpuTotal"] !== null) {
+            $this->GpuTotal = $param["GpuTotal"];
+        }
+
+        if (array_key_exists("GpuAvailable",$param) and $param["GpuAvailable"] !== null) {
+            $this->GpuAvailable = $param["GpuAvailable"];
+        }
+
+        if (array_key_exists("ExclusiveOwner",$param) and $param["ExclusiveOwner"] !== null) {
+            $this->ExclusiveOwner = $param["ExclusiveOwner"];
         }
     }
 }

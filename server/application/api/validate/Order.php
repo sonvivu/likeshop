@@ -27,7 +27,7 @@ use app\common\model\SelffetchShop;
 use app\common\model\SelffetchVerifier;
 use app\common\model\Team;
 use app\common\server\ConfigServer;
-use think\Db;
+use think\facade\Db;
 use think\Validate;
 use app\common\model\AfterSale as CommonAfterSale;
 
@@ -99,7 +99,7 @@ class Order extends Validate
     //验证优惠券
     protected function checkCoupon($value,$rule,$data){
         if($value){
-            $coupon = Db::name('coupon c')
+            $coupon = Db::name('coupon')->alias('c')
                     ->join('coupon_list cl','c.id = cl.coupon_id')
                     ->where(['cl.id '=>$value, 'c.del'=>0,'cl.del'=>0,'cl.status'=>0])
                     ->field('c.*,cl.create_time as get_coupon_time')
@@ -133,7 +133,7 @@ class Order extends Validate
 
             //会员折扣价格
             $user_id = $data['user_id'] ?? 0;
-            $level_discount = Db::name('user u')
+            $level_discount = Db::name('user')->alias('u')
                 ->join('user_level l', 'u.level = l.id')
                 ->where('u.id', $user_id)
                 ->value('discount');
@@ -226,6 +226,9 @@ class Order extends Validate
             return $tips;
         }
 
+        // 未选择优惠券时不校验（TP6 下自定义规则返回 null 会被当成校验失败，
+        // 导致 validate() 返回 null 而不是 true）。
+        return true;
     }
 
 

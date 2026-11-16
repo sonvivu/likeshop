@@ -24,9 +24,8 @@ use app\common\model\{AfterSale, AfterSaleLog, Goods, NoticeSetting, Order, Orde
 use app\common\server\AreaServer;
 use app\common\server\ConfigServer;
 use app\common\server\UrlServer;
-use think\Db;
+use think\facade\Db;
 use think\Exception;
-use think\facade\Hook;
 
 /**
  * 售后
@@ -121,7 +120,7 @@ class AfterSaleLogic extends LogicBase
 
         $field = 'g.order_id,g.goods_id,g.item_id,g.goods_num,g.goods_price,g.goods_info,a.status,a.refund_type,a.id as after_sale_id,a.create_time,a.refund_price';
 
-        $count = Db::name('order_goods g')
+        $count = Db::name('order_goods')->alias('g')
             ->field($field)
             ->join('order o', 'g.order_id = o.id')
             ->join('after_sale a', 'a.order_goods_id = g.id', 'left')
@@ -129,7 +128,7 @@ class AfterSaleLogic extends LogicBase
             ->group('g.id')
             ->count();
 
-        $lists = Db::name('order_goods g')
+        $lists = Db::name('order_goods')->alias('g')
             ->field($field)
             ->join('order o', 'g.order_id = o.id')
             ->join('after_sale a', 'a.order_goods_id = g.id', 'left')
@@ -187,7 +186,7 @@ class AfterSaleLogic extends LogicBase
         Db::startTrans();
         try {
             //1,增加售后记录
-            $order_goods = Db::name('order_goods g')
+            $order_goods = Db::name('order_goods')->alias('g')
                 ->field('g.id,g.goods_num,g.total_pay_price,g.order_id,g.refund_status,g.goods_id')
                 ->join('order o', 'o.id = g.order_id')
                 ->where(['order_id' => $post['order_id'], 'g.item_id' => $post['item_id']])
@@ -229,7 +228,7 @@ class AfterSaleLogic extends LogicBase
             $order_contact_mobile = ConfigServer::get('order_message', 'order_contact_mobile' );
             //平台短信通知
             if($order_contact_mobile){
-                Hook::listen('sms_send',[
+                event('sms_send',[
                     'key'       => NoticeSetting::AFTER_SALE_NOTICE_PLATFORM,
                     'mobile'    => $order_contact_mobile,
                     'params'    => [
@@ -273,7 +272,7 @@ class AfterSaleLogic extends LogicBase
     public static function express($user_id, $post)
     {
         $id = $post['id'];
-        $after_sale = AfterSale::get($id);
+        $after_sale = AfterSale::find($id);
 
         $after_sale->express_name = $post['express_name'];
         $after_sale->invoice_no = $post['invoice_no'];
@@ -299,14 +298,14 @@ class AfterSaleLogic extends LogicBase
     public static function cancel($user_id, $post)
     {
         $id = $post['id'];
-        $after_sale = AfterSale::get($id);
+        $after_sale = AfterSale::find($id);
         $after_sale->del = 1;
         $after_sale->update_time = time();
         $after_sale->save();
 
 
         //2,更改订单商品,退款状态为申请退款
-        $order_goods = OrderGoods::get(['id' => $after_sale['order_goods_id']]);
+        $order_goods = OrderGoods::find(['id' => $after_sale['order_goods_id']]);
         $order_goods->refund_status = OrderGoods::REFUND_STATUS_NO;
         $order_goods->save();
 
@@ -374,7 +373,7 @@ class AfterSaleLogic extends LogicBase
         Db::startTrans();
         try {
             $id = $post['id'];
-            $after_sale = AfterSale::get($id);
+            $after_sale = AfterSale::find($id);
 
             $after_sale->refund_type = $post['refund_type'];
             $after_sale->refund_reason = trim($post['reason']);
@@ -384,7 +383,7 @@ class AfterSaleLogic extends LogicBase
             $after_sale->save();
 
             //2,更改订单商品,退款状态为申请退款
-            $order_goods = OrderGoods::get(['id' => $after_sale['order_goods_id']]);
+            $order_goods = OrderGoods::find(['id' => $after_sale['order_goods_id']]);
             $order_goods->refund_status = OrderGoods::REFUND_STATUS_APPLY;
             $order_goods->save();
 

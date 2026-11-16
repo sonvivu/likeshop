@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,34 +20,34 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeDBErrlogs返回参数结构体
  *
- * @method integer getTotalCount() 获取本次调用返回了多少条数据
- * @method void setTotalCount(integer $TotalCount) 设置本次调用返回了多少条数据
- * @method array getDetails() 获取错误日志列表
- * @method void setDetails(array $Details) 设置错误日志列表
- * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
- * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method integer getTotalCount() 获取<p>查询到的日志数量，最大值为10000条。</p>
+ * @method void setTotalCount(integer $TotalCount) 设置<p>查询到的日志数量，最大值为10000条。</p>
+ * @method array getDetails() 获取<p>错误日志详细信息集合。</p>
+ * @method void setDetails(array $Details) 设置<p>错误日志详细信息集合。</p>
+ * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+ * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
 class DescribeDBErrlogsResponse extends AbstractModel
 {
     /**
-     * @var integer 本次调用返回了多少条数据
+     * @var integer <p>查询到的日志数量，最大值为10000条。</p>
      */
     public $TotalCount;
 
     /**
-     * @var array 错误日志列表
+     * @var array <p>错误日志详细信息集合。</p>
      */
     public $Details;
 
     /**
-     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public $RequestId;
 
     /**
-     * @param integer $TotalCount 本次调用返回了多少条数据
-     * @param array $Details 错误日志列表
-     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @param integer $TotalCount <p>查询到的日志数量，最大值为10000条。</p>
+     * @param array $Details <p>错误日志详细信息集合。</p>
+     * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
     {

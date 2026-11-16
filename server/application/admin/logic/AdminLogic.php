@@ -22,7 +22,7 @@ namespace app\admin\logic;
 
 
 use app\admin\server\LoginServer;
-use think\Db;
+use think\facade\Db;
 
 class AdminLogic
 {
@@ -57,6 +57,7 @@ class AdminLogic
             ->where($where)
             ->field(['id', 'root', 'name', 'account', 'role_id', 'create_time', 'login_time', 'login_ip', 'disable'])
             ->select();
+        $admin_lists = $admin_lists->toArray(); // ThinkPHP 6：select() 返回 Collection，TP5 返回数组；直接写 $admin_lists[$k]['x'] 或 foreach(&$item) 改值会丢/报错，先转数组。
         foreach ($admin_lists as $k => $v) {
             if ($v['root'] == 1) {
                 $admin_lists[$k]['role'] = lang('超级管理员');

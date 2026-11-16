@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,12 +22,10 @@ use TencentCloud\Common\AbstractModel;
  *
  * @method string getTopicId() 获取主题 ID
  * @method void setTopicId(string $TopicId) 设置主题 ID
- * @method integer getCreateTime() 获取创建时间
- * @method void setCreateTime(integer $CreateTime) 设置创建时间
+ * @method integer getCreateTime() 获取创建时间的秒级时间戳
+ * @method void setCreateTime(integer $CreateTime) 设置创建时间的秒级时间戳
  * @method string getNote() 获取主题备注
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setNote(string $Note) 设置主题备注
-注意：此字段可能返回 null，表示取不到有效值。
  * @method integer getPartitionNum() 获取分区个数
  * @method void setPartitionNum(integer $PartitionNum) 设置分区个数
  * @method integer getEnableWhiteList() 获取IP 白名单开关，1：打开； 0：关闭
@@ -38,6 +36,14 @@ use TencentCloud\Common\AbstractModel;
  * @method void setConfig(Config $Config) 设置topic 配置数组
  * @method array getPartitions() 获取分区详情
  * @method void setPartitions(array $Partitions) 设置分区详情
+ * @method integer getEnableAclRule() 获取ACL预设策略开关，1：打开； 0：关闭
+ * @method void setEnableAclRule(integer $EnableAclRule) 设置ACL预设策略开关，1：打开； 0：关闭
+ * @method array getAclRuleList() 获取预设策略列表
+ * @method void setAclRuleList(array $AclRuleList) 设置预设策略列表
+ * @method InstanceQuotaConfigResp getQuotaConfig() 获取topic 限流策略
+ * @method void setQuotaConfig(InstanceQuotaConfigResp $QuotaConfig) 设置topic 限流策略
+ * @method integer getReplicaNum() 获取副本数
+ * @method void setReplicaNum(integer $ReplicaNum) 设置副本数
  */
 class TopicAttributesResponse extends AbstractModel
 {
@@ -47,13 +53,12 @@ class TopicAttributesResponse extends AbstractModel
     public $TopicId;
 
     /**
-     * @var integer 创建时间
+     * @var integer 创建时间的秒级时间戳
      */
     public $CreateTime;
 
     /**
      * @var string 主题备注
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Note;
 
@@ -83,15 +88,38 @@ class TopicAttributesResponse extends AbstractModel
     public $Partitions;
 
     /**
+     * @var integer ACL预设策略开关，1：打开； 0：关闭
+     */
+    public $EnableAclRule;
+
+    /**
+     * @var array 预设策略列表
+     */
+    public $AclRuleList;
+
+    /**
+     * @var InstanceQuotaConfigResp topic 限流策略
+     */
+    public $QuotaConfig;
+
+    /**
+     * @var integer 副本数
+     */
+    public $ReplicaNum;
+
+    /**
      * @param string $TopicId 主题 ID
-     * @param integer $CreateTime 创建时间
+     * @param integer $CreateTime 创建时间的秒级时间戳
      * @param string $Note 主题备注
-注意：此字段可能返回 null，表示取不到有效值。
      * @param integer $PartitionNum 分区个数
      * @param integer $EnableWhiteList IP 白名单开关，1：打开； 0：关闭
      * @param array $IpWhiteList IP 白名单列表
      * @param Config $Config topic 配置数组
      * @param array $Partitions 分区详情
+     * @param integer $EnableAclRule ACL预设策略开关，1：打开； 0：关闭
+     * @param array $AclRuleList 预设策略列表
+     * @param InstanceQuotaConfigResp $QuotaConfig topic 限流策略
+     * @param integer $ReplicaNum 副本数
      */
     function __construct()
     {
@@ -142,6 +170,28 @@ class TopicAttributesResponse extends AbstractModel
                 $obj->deserialize($value);
                 array_push($this->Partitions, $obj);
             }
+        }
+
+        if (array_key_exists("EnableAclRule",$param) and $param["EnableAclRule"] !== null) {
+            $this->EnableAclRule = $param["EnableAclRule"];
+        }
+
+        if (array_key_exists("AclRuleList",$param) and $param["AclRuleList"] !== null) {
+            $this->AclRuleList = [];
+            foreach ($param["AclRuleList"] as $key => $value){
+                $obj = new AclRule();
+                $obj->deserialize($value);
+                array_push($this->AclRuleList, $obj);
+            }
+        }
+
+        if (array_key_exists("QuotaConfig",$param) and $param["QuotaConfig"] !== null) {
+            $this->QuotaConfig = new InstanceQuotaConfigResp();
+            $this->QuotaConfig->deserialize($param["QuotaConfig"]);
+        }
+
+        if (array_key_exists("ReplicaNum",$param) and $param["ReplicaNum"] !== null) {
+            $this->ReplicaNum = $param["ReplicaNum"];
         }
     }
 }

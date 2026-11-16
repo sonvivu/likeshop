@@ -17,12 +17,12 @@
 // | author: likeshop.cn.team
 // +----------------------------------------------------------------------
 namespace app\admin\logic;
-use think\Db;
+use think\facade\Db;
 
 class MessageLogic{
 
     public static function config(){
-        $list = Db::name('dev_message m')
+        $list = Db::name('dev_message')->alias('m')
                   ->join('dev_message_extend e','m.id = e.message_id')
                   ->where(['m.del'=>0])
                   ->field('m.*,e.status')
@@ -48,7 +48,7 @@ class MessageLogic{
     }
 
     public static function getMessage($id){
-        $config = Db::name('dev_message_extend e')
+        $config = Db::name('dev_message_extend')->alias('e')
                     ->join('dev_message d','e.message_id = d.id')
                     ->where(['e.id'=>$id])
                     ->field('d.name,e.*')

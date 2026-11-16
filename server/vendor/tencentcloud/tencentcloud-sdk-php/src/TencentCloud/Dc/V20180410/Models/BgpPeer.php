@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,17 +18,24 @@ namespace TencentCloud\Dc\V20180410\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * bgp参数，包括Asn，AuthKey
+ * bgp参数，包括CloudAsn，Asn，AuthKey
  *
- * @method integer getAsn() 获取用户侧，BGP Asn
- * @method void setAsn(integer $Asn) 设置用户侧，BGP Asn
+ * @method integer getCloudAsn() 获取腾讯侧BGP ASN
+ * @method void setCloudAsn(integer $CloudAsn) 设置腾讯侧BGP ASN
+ * @method integer getAsn() 获取用户侧BGP ASN
+ * @method void setAsn(integer $Asn) 设置用户侧BGP ASN
  * @method string getAuthKey() 获取用户侧BGP密钥
  * @method void setAuthKey(string $AuthKey) 设置用户侧BGP密钥
  */
 class BgpPeer extends AbstractModel
 {
     /**
-     * @var integer 用户侧，BGP Asn
+     * @var integer 腾讯侧BGP ASN
+     */
+    public $CloudAsn;
+
+    /**
+     * @var integer 用户侧BGP ASN
      */
     public $Asn;
 
@@ -38,7 +45,8 @@ class BgpPeer extends AbstractModel
     public $AuthKey;
 
     /**
-     * @param integer $Asn 用户侧，BGP Asn
+     * @param integer $CloudAsn 腾讯侧BGP ASN
+     * @param integer $Asn 用户侧BGP ASN
      * @param string $AuthKey 用户侧BGP密钥
      */
     function __construct()
@@ -54,6 +62,10 @@ class BgpPeer extends AbstractModel
         if ($param === null) {
             return;
         }
+        if (array_key_exists("CloudAsn",$param) and $param["CloudAsn"] !== null) {
+            $this->CloudAsn = $param["CloudAsn"];
+        }
+
         if (array_key_exists("Asn",$param) and $param["Asn"] !== null) {
             $this->Asn = $param["Asn"];
         }

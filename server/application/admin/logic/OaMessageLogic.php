@@ -24,7 +24,7 @@ use app\common\logic\LogicBase;
 use app\common\model\MessageScene_;
 use app\common\server\WeChatServer;
 use EasyWeChat\Factory;
-use think\Db;
+use think\facade\Db;
 
 class OaMessageLogic extends LogicBase
 {
@@ -45,6 +45,7 @@ class OaMessageLogic extends LogicBase
             ->where($where)
             ->page($get['page'],$get['limit'])
             ->select();
+        $lists = $lists->toArray(); // ThinkPHP 6：select() 返回 Collection，TP5 返回数组；直接写 $lists[$k]['x'] 或 foreach(&$item) 改值会丢/报错，先转数组。
 
         $scene = (new MessageScene_());
         foreach ($lists as &$item) {

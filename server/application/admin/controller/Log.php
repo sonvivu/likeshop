@@ -21,7 +21,7 @@
 namespace app\admin\controller;
 
 use app\admin\logic\LogLogic;
-use think\helper\Time;
+use app\common\helper\Time;
 
 class Log extends AdminBase
 {

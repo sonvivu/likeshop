@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,21 +20,27 @@ use TencentCloud\Common\AbstractModel;
 /**
  * GetDeviceList请求参数结构体
  *
- * @method string getProductId() 获取需要查看设备列表的产品 ID
- * @method void setProductId(string $ProductId) 设置需要查看设备列表的产品 ID
+ * @method string getProductId() 获取需要查看设备列表的产品ID, -1代表ProjectId来筛选
+ * @method void setProductId(string $ProductId) 设置需要查看设备列表的产品ID, -1代表ProjectId来筛选
  * @method integer getOffset() 获取分页偏移
  * @method void setOffset(integer $Offset) 设置分页偏移
  * @method integer getLimit() 获取分页的大小，数值范围 10-100
  * @method void setLimit(integer $Limit) 设置分页的大小，数值范围 10-100
  * @method string getFirmwareVersion() 获取设备固件版本号，若不带此参数会返回所有固件版本的设备。传"None-FirmwareVersion"查询无版本号的设备
  * @method void setFirmwareVersion(string $FirmwareVersion) 设置设备固件版本号，若不带此参数会返回所有固件版本的设备。传"None-FirmwareVersion"查询无版本号的设备
+ * @method string getFwType() 获取固件类型
+ * @method void setFwType(string $FwType) 设置固件类型
  * @method string getDeviceName() 获取需要过滤的设备名称
  * @method void setDeviceName(string $DeviceName) 设置需要过滤的设备名称
+ * @method string getProjectId() 获取项目ID。产品 ID 为 -1 时，该参数必填
+ * @method void setProjectId(string $ProjectId) 设置项目ID。产品 ID 为 -1 时，该参数必填
+ * @method array getFilters() 获取每次请求的Filters的上限为10，Filter.Values的上限为1。
+ * @method void setFilters(array $Filters) 设置每次请求的Filters的上限为10，Filter.Values的上限为1。
  */
 class GetDeviceListRequest extends AbstractModel
 {
     /**
-     * @var string 需要查看设备列表的产品 ID
+     * @var string 需要查看设备列表的产品ID, -1代表ProjectId来筛选
      */
     public $ProductId;
 
@@ -54,16 +60,34 @@ class GetDeviceListRequest extends AbstractModel
     public $FirmwareVersion;
 
     /**
+     * @var string 固件类型
+     */
+    public $FwType;
+
+    /**
      * @var string 需要过滤的设备名称
      */
     public $DeviceName;
 
     /**
-     * @param string $ProductId 需要查看设备列表的产品 ID
+     * @var string 项目ID。产品 ID 为 -1 时，该参数必填
+     */
+    public $ProjectId;
+
+    /**
+     * @var array 每次请求的Filters的上限为10，Filter.Values的上限为1。
+     */
+    public $Filters;
+
+    /**
+     * @param string $ProductId 需要查看设备列表的产品ID, -1代表ProjectId来筛选
      * @param integer $Offset 分页偏移
      * @param integer $Limit 分页的大小，数值范围 10-100
      * @param string $FirmwareVersion 设备固件版本号，若不带此参数会返回所有固件版本的设备。传"None-FirmwareVersion"查询无版本号的设备
+     * @param string $FwType 固件类型
      * @param string $DeviceName 需要过滤的设备名称
+     * @param string $ProjectId 项目ID。产品 ID 为 -1 时，该参数必填
+     * @param array $Filters 每次请求的Filters的上限为10，Filter.Values的上限为1。
      */
     function __construct()
     {
@@ -94,8 +118,25 @@ class GetDeviceListRequest extends AbstractModel
             $this->FirmwareVersion = $param["FirmwareVersion"];
         }
 
+        if (array_key_exists("FwType",$param) and $param["FwType"] !== null) {
+            $this->FwType = $param["FwType"];
+        }
+
         if (array_key_exists("DeviceName",$param) and $param["DeviceName"] !== null) {
             $this->DeviceName = $param["DeviceName"];
+        }
+
+        if (array_key_exists("ProjectId",$param) and $param["ProjectId"] !== null) {
+            $this->ProjectId = $param["ProjectId"];
+        }
+
+        if (array_key_exists("Filters",$param) and $param["Filters"] !== null) {
+            $this->Filters = [];
+            foreach ($param["Filters"] as $key => $value){
+                $obj = new Filter();
+                $obj->deserialize($value);
+                array_push($this->Filters, $obj);
+            }
         }
     }
 }

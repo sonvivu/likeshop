@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -66,12 +66,18 @@ use TencentCloud\Common\AbstractModel;
  * @method void setInstanceNameSet(array $InstanceNameSet) 设置实例名称列表，模糊查询
  * @method array getVersionSet() 获取实例版本代号列表，格式如：2008R2，2012SP3等
  * @method void setVersionSet(array $VersionSet) 设置实例版本代号列表，格式如：2008R2，2012SP3等
- * @method string getZone() 获取实例可用区，格式如：ap-guangzhou-2
- * @method void setZone(string $Zone) 设置实例可用区，格式如：ap-guangzhou-2
+ * @method string getZone() 获取实例可用区
+ * @method void setZone(string $Zone) 设置实例可用区
  * @method array getTagKeys() 获取实例标签列表
  * @method void setTagKeys(array $TagKeys) 设置实例标签列表
  * @method string getSearchKey() 获取模糊查询关键字，支持实例id、实例名、内网ip
  * @method void setSearchKey(string $SearchKey) 设置模糊查询关键字，支持实例id、实例名、内网ip
+ * @method array getUidSet() 获取实例唯一Uid列表
+ * @method void setUidSet(array $UidSet) 设置实例唯一Uid列表
+ * @method string getInstanceType() 获取实例类型 HA-高可用 RO-只读实例 SI-基础版 BI-商业智能服务,cvmHA-云盘双机高可用，cvmRO-云盘只读副本,MultiHA-多节点,cvmMultiHA-云盘多节点
+ * @method void setInstanceType(string $InstanceType) 设置实例类型 HA-高可用 RO-只读实例 SI-基础版 BI-商业智能服务,cvmHA-云盘双机高可用，cvmRO-云盘只读副本,MultiHA-多节点,cvmMultiHA-云盘多节点
+ * @method string getPaginationType() 获取分页查询方式 offset-按照偏移量分页查询，pageNumber-按照页数分页查询，默认取值pageNumber
+ * @method void setPaginationType(string $PaginationType) 设置分页查询方式 offset-按照偏移量分页查询，pageNumber-按照页数分页查询，默认取值pageNumber
  */
 class DescribeDBInstancesRequest extends AbstractModel
 {
@@ -143,7 +149,7 @@ class DescribeDBInstancesRequest extends AbstractModel
     public $VersionSet;
 
     /**
-     * @var string 实例可用区，格式如：ap-guangzhou-2
+     * @var string 实例可用区
      */
     public $Zone;
 
@@ -156,6 +162,21 @@ class DescribeDBInstancesRequest extends AbstractModel
      * @var string 模糊查询关键字，支持实例id、实例名、内网ip
      */
     public $SearchKey;
+
+    /**
+     * @var array 实例唯一Uid列表
+     */
+    public $UidSet;
+
+    /**
+     * @var string 实例类型 HA-高可用 RO-只读实例 SI-基础版 BI-商业智能服务,cvmHA-云盘双机高可用，cvmRO-云盘只读副本,MultiHA-多节点,cvmMultiHA-云盘多节点
+     */
+    public $InstanceType;
+
+    /**
+     * @var string 分页查询方式 offset-按照偏移量分页查询，pageNumber-按照页数分页查询，默认取值pageNumber
+     */
+    public $PaginationType;
 
     /**
      * @param integer $ProjectId 项目ID
@@ -181,9 +202,12 @@ class DescribeDBInstancesRequest extends AbstractModel
      * @param array $VipSet 实例内网地址列表，格式如：172.1.0.12
      * @param array $InstanceNameSet 实例名称列表，模糊查询
      * @param array $VersionSet 实例版本代号列表，格式如：2008R2，2012SP3等
-     * @param string $Zone 实例可用区，格式如：ap-guangzhou-2
+     * @param string $Zone 实例可用区
      * @param array $TagKeys 实例标签列表
      * @param string $SearchKey 模糊查询关键字，支持实例id、实例名、内网ip
+     * @param array $UidSet 实例唯一Uid列表
+     * @param string $InstanceType 实例类型 HA-高可用 RO-只读实例 SI-基础版 BI-商业智能服务,cvmHA-云盘双机高可用，cvmRO-云盘只读副本,MultiHA-多节点,cvmMultiHA-云盘多节点
+     * @param string $PaginationType 分页查询方式 offset-按照偏移量分页查询，pageNumber-按照页数分页查询，默认取值pageNumber
      */
     function __construct()
     {
@@ -252,6 +276,18 @@ class DescribeDBInstancesRequest extends AbstractModel
 
         if (array_key_exists("SearchKey",$param) and $param["SearchKey"] !== null) {
             $this->SearchKey = $param["SearchKey"];
+        }
+
+        if (array_key_exists("UidSet",$param) and $param["UidSet"] !== null) {
+            $this->UidSet = $param["UidSet"];
+        }
+
+        if (array_key_exists("InstanceType",$param) and $param["InstanceType"] !== null) {
+            $this->InstanceType = $param["InstanceType"];
+        }
+
+        if (array_key_exists("PaginationType",$param) and $param["PaginationType"] !== null) {
+            $this->PaginationType = $param["PaginationType"];
         }
     }
 }

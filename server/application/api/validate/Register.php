@@ -20,7 +20,7 @@
 
 namespace app\api\validate;
 
-use think\Db;
+use think\facade\Db;
 use think\Validate;
 use app\common\logic\SmsLogic;
 

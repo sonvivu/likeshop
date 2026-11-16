@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,22 +20,24 @@ use TencentCloud\Common\AbstractModel;
 /**
  * CreatePolicy请求参数结构体
  *
- * @method string getPolicyName() 获取策略名
- * @method void setPolicyName(string $PolicyName) 设置策略名
- * @method string getPolicyDocument() 获取策略文档，示例：{"version":"2.0","statement":[{"action":"name/sts:AssumeRole","effect":"allow","principal":{"service":["cloudaudit.cloud.tencent.com","cls.cloud.tencent.com"]}}]}，principal用于指定角色的授权对象。获取该参数可参阅 获取角色详情（https://cloud.tencent.com/document/product/598/36221） 输出参数RoleInfo
- * @method void setPolicyDocument(string $PolicyDocument) 设置策略文档，示例：{"version":"2.0","statement":[{"action":"name/sts:AssumeRole","effect":"allow","principal":{"service":["cloudaudit.cloud.tencent.com","cls.cloud.tencent.com"]}}]}，principal用于指定角色的授权对象。获取该参数可参阅 获取角色详情（https://cloud.tencent.com/document/product/598/36221） 输出参数RoleInfo
+ * @method string getPolicyName() 获取策略名称。长度为1~128个字符，可包含英文字母、数字和+=,.@-_。
+ * @method void setPolicyName(string $PolicyName) 设置策略名称。长度为1~128个字符，可包含英文字母、数字和+=,.@-_。
+ * @method string getPolicyDocument() 获取策略文档
+ * @method void setPolicyDocument(string $PolicyDocument) 设置策略文档
  * @method string getDescription() 获取策略描述
  * @method void setDescription(string $Description) 设置策略描述
+ * @method array getTags() 获取策略关联的标签列表
+ * @method void setTags(array $Tags) 设置策略关联的标签列表
  */
 class CreatePolicyRequest extends AbstractModel
 {
     /**
-     * @var string 策略名
+     * @var string 策略名称。长度为1~128个字符，可包含英文字母、数字和+=,.@-_。
      */
     public $PolicyName;
 
     /**
-     * @var string 策略文档，示例：{"version":"2.0","statement":[{"action":"name/sts:AssumeRole","effect":"allow","principal":{"service":["cloudaudit.cloud.tencent.com","cls.cloud.tencent.com"]}}]}，principal用于指定角色的授权对象。获取该参数可参阅 获取角色详情（https://cloud.tencent.com/document/product/598/36221） 输出参数RoleInfo
+     * @var string 策略文档
      */
     public $PolicyDocument;
 
@@ -45,9 +47,15 @@ class CreatePolicyRequest extends AbstractModel
     public $Description;
 
     /**
-     * @param string $PolicyName 策略名
-     * @param string $PolicyDocument 策略文档，示例：{"version":"2.0","statement":[{"action":"name/sts:AssumeRole","effect":"allow","principal":{"service":["cloudaudit.cloud.tencent.com","cls.cloud.tencent.com"]}}]}，principal用于指定角色的授权对象。获取该参数可参阅 获取角色详情（https://cloud.tencent.com/document/product/598/36221） 输出参数RoleInfo
+     * @var array 策略关联的标签列表
+     */
+    public $Tags;
+
+    /**
+     * @param string $PolicyName 策略名称。长度为1~128个字符，可包含英文字母、数字和+=,.@-_。
+     * @param string $PolicyDocument 策略文档
      * @param string $Description 策略描述
+     * @param array $Tags 策略关联的标签列表
      */
     function __construct()
     {
@@ -72,6 +80,15 @@ class CreatePolicyRequest extends AbstractModel
 
         if (array_key_exists("Description",$param) and $param["Description"] !== null) {
             $this->Description = $param["Description"];
+        }
+
+        if (array_key_exists("Tags",$param) and $param["Tags"] !== null) {
+            $this->Tags = [];
+            foreach ($param["Tags"] as $key => $value){
+                $obj = new Tag();
+                $obj->deserialize($value);
+                array_push($this->Tags, $obj);
+            }
         }
     }
 }

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,18 +20,18 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeTaskStatus请求参数结构体
  *
- * @method integer getTaskId() 获取从CreateRecTask接口获取的TaskId，用于获取任务状态与结果。
- * @method void setTaskId(integer $TaskId) 设置从CreateRecTask接口获取的TaskId，用于获取任务状态与结果。
+ * @method integer getTaskId() 获取<p>从CreateRecTask接口获取的TaskId，用于获取任务状态与结果。<br><strong>注意：TaskId有效期为24小时，超过24小时的TaskId请不要再查询。</strong></p>
+ * @method void setTaskId(integer $TaskId) 设置<p>从CreateRecTask接口获取的TaskId，用于获取任务状态与结果。<br><strong>注意：TaskId有效期为24小时，超过24小时的TaskId请不要再查询。</strong></p>
  */
 class DescribeTaskStatusRequest extends AbstractModel
 {
     /**
-     * @var integer 从CreateRecTask接口获取的TaskId，用于获取任务状态与结果。
+     * @var integer <p>从CreateRecTask接口获取的TaskId，用于获取任务状态与结果。<br><strong>注意：TaskId有效期为24小时，超过24小时的TaskId请不要再查询。</strong></p>
      */
     public $TaskId;
 
     /**
-     * @param integer $TaskId 从CreateRecTask接口获取的TaskId，用于获取任务状态与结果。
+     * @param integer $TaskId <p>从CreateRecTask接口获取的TaskId，用于获取任务状态与结果。<br><strong>注意：TaskId有效期为24小时，超过24小时的TaskId请不要再查询。</strong></p>
      */
     function __construct()
     {

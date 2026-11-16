@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,18 +20,18 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DeleteReverseShellRules请求参数结构体
  *
- * @method array getIds() 获取ID数组，最大100条。
- * @method void setIds(array $Ids) 设置ID数组，最大100条。
+ * @method array getIds() 获取ID数组. (最大100条)
+ * @method void setIds(array $Ids) 设置ID数组. (最大100条)
  */
 class DeleteReverseShellRulesRequest extends AbstractModel
 {
     /**
-     * @var array ID数组，最大100条。
+     * @var array ID数组. (最大100条)
      */
     public $Ids;
 
     /**
-     * @param array $Ids ID数组，最大100条。
+     * @param array $Ids ID数组. (最大100条)
      */
     function __construct()
     {

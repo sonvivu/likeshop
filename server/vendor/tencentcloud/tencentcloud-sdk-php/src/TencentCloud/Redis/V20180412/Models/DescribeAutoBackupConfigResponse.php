@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,42 +20,58 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeAutoBackupConfig返回参数结构体
  *
- * @method integer getAutoBackupType() 获取备份类型。自动备份类型： 1 “定时回档”
- * @method void setAutoBackupType(integer $AutoBackupType) 设置备份类型。自动备份类型： 1 “定时回档”
- * @method array getWeekDays() 获取Monday，Tuesday，Wednesday，Thursday，Friday，Saturday，Sunday。
- * @method void setWeekDays(array $WeekDays) 设置Monday，Tuesday，Wednesday，Thursday，Friday，Saturday，Sunday。
- * @method string getTimePeriod() 获取时间段。
- * @method void setTimePeriod(string $TimePeriod) 设置时间段。
- * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
- * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method integer getAutoBackupType() 获取<p>该参数因兼容性问题暂时保留，请忽略。</p>
+ * @method void setAutoBackupType(integer $AutoBackupType) 设置<p>该参数因兼容性问题暂时保留，请忽略。</p>
+ * @method array getWeekDays() 获取<p>备份周期，默认为每天自动备份，Monday，Tuesday，Wednesday，Thursday，Friday，Saturday，Sunday。</p>
+ * @method void setWeekDays(array $WeekDays) 设置<p>备份周期，默认为每天自动备份，Monday，Tuesday，Wednesday，Thursday，Friday，Saturday，Sunday。</p>
+ * @method string getTimePeriod() 获取<p>备份任务发起时间段。</p>
+ * @method void setTimePeriod(string $TimePeriod) 设置<p>备份任务发起时间段。</p>
+ * @method integer getBackupStorageDays() 获取<p>全量备份文件保存天数。默认为7天。如需保存更多天数，请<a href="https://console.cloud.tencent.com/workorder/category">提交工单</a>申请。</p>
+ * @method void setBackupStorageDays(integer $BackupStorageDays) 设置<p>全量备份文件保存天数。默认为7天。如需保存更多天数，请<a href="https://console.cloud.tencent.com/workorder/category">提交工单</a>申请。</p>
+ * @method integer getBinlogStorageDays() 获取<p>该参数不再使用，请忽略。</p>
+ * @method void setBinlogStorageDays(integer $BinlogStorageDays) 设置<p>该参数不再使用，请忽略。</p>
+ * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+ * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
 class DescribeAutoBackupConfigResponse extends AbstractModel
 {
     /**
-     * @var integer 备份类型。自动备份类型： 1 “定时回档”
+     * @var integer <p>该参数因兼容性问题暂时保留，请忽略。</p>
      */
     public $AutoBackupType;
 
     /**
-     * @var array Monday，Tuesday，Wednesday，Thursday，Friday，Saturday，Sunday。
+     * @var array <p>备份周期，默认为每天自动备份，Monday，Tuesday，Wednesday，Thursday，Friday，Saturday，Sunday。</p>
      */
     public $WeekDays;
 
     /**
-     * @var string 时间段。
+     * @var string <p>备份任务发起时间段。</p>
      */
     public $TimePeriod;
 
     /**
-     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @var integer <p>全量备份文件保存天数。默认为7天。如需保存更多天数，请<a href="https://console.cloud.tencent.com/workorder/category">提交工单</a>申请。</p>
+     */
+    public $BackupStorageDays;
+
+    /**
+     * @var integer <p>该参数不再使用，请忽略。</p>
+     */
+    public $BinlogStorageDays;
+
+    /**
+     * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public $RequestId;
 
     /**
-     * @param integer $AutoBackupType 备份类型。自动备份类型： 1 “定时回档”
-     * @param array $WeekDays Monday，Tuesday，Wednesday，Thursday，Friday，Saturday，Sunday。
-     * @param string $TimePeriod 时间段。
-     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @param integer $AutoBackupType <p>该参数因兼容性问题暂时保留，请忽略。</p>
+     * @param array $WeekDays <p>备份周期，默认为每天自动备份，Monday，Tuesday，Wednesday，Thursday，Friday，Saturday，Sunday。</p>
+     * @param string $TimePeriod <p>备份任务发起时间段。</p>
+     * @param integer $BackupStorageDays <p>全量备份文件保存天数。默认为7天。如需保存更多天数，请<a href="https://console.cloud.tencent.com/workorder/category">提交工单</a>申请。</p>
+     * @param integer $BinlogStorageDays <p>该参数不再使用，请忽略。</p>
+     * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
     {
@@ -80,6 +96,14 @@ class DescribeAutoBackupConfigResponse extends AbstractModel
 
         if (array_key_exists("TimePeriod",$param) and $param["TimePeriod"] !== null) {
             $this->TimePeriod = $param["TimePeriod"];
+        }
+
+        if (array_key_exists("BackupStorageDays",$param) and $param["BackupStorageDays"] !== null) {
+            $this->BackupStorageDays = $param["BackupStorageDays"];
+        }
+
+        if (array_key_exists("BinlogStorageDays",$param) and $param["BinlogStorageDays"] !== null) {
+            $this->BinlogStorageDays = $param["BinlogStorageDays"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

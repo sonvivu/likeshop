@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,26 +20,34 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeInstanceShards请求参数结构体
  *
- * @method string getInstanceId() 获取实例id
- * @method void setInstanceId(string $InstanceId) 设置实例id
- * @method boolean getFilterSlave() 获取是否过滤掉从节信息
- * @method void setFilterSlave(boolean $FilterSlave) 设置是否过滤掉从节信息
+ * @method string getInstanceId() 获取指定实例 ID。例如：crs-xjhsdj****。请登录[Redis控制台](https://console.cloud.tencent.com/redis)在实例列表复制实例 ID。
+ * @method void setInstanceId(string $InstanceId) 设置指定实例 ID。例如：crs-xjhsdj****。请登录[Redis控制台](https://console.cloud.tencent.com/redis)在实例列表复制实例 ID。
+ * @method boolean getFilterSlave() 获取指定是否过滤掉从节信息。
+- true；过滤从节点。
+- false：不过滤。默认为 false。
+ * @method void setFilterSlave(boolean $FilterSlave) 设置指定是否过滤掉从节信息。
+- true；过滤从节点。
+- false：不过滤。默认为 false。
  */
 class DescribeInstanceShardsRequest extends AbstractModel
 {
     /**
-     * @var string 实例id
+     * @var string 指定实例 ID。例如：crs-xjhsdj****。请登录[Redis控制台](https://console.cloud.tencent.com/redis)在实例列表复制实例 ID。
      */
     public $InstanceId;
 
     /**
-     * @var boolean 是否过滤掉从节信息
+     * @var boolean 指定是否过滤掉从节信息。
+- true；过滤从节点。
+- false：不过滤。默认为 false。
      */
     public $FilterSlave;
 
     /**
-     * @param string $InstanceId 实例id
-     * @param boolean $FilterSlave 是否过滤掉从节信息
+     * @param string $InstanceId 指定实例 ID。例如：crs-xjhsdj****。请登录[Redis控制台](https://console.cloud.tencent.com/redis)在实例列表复制实例 ID。
+     * @param boolean $FilterSlave 指定是否过滤掉从节信息。
+- true；过滤从节点。
+- false：不过滤。默认为 false。
      */
     function __construct()
     {

@@ -31,7 +31,7 @@ use app\common\model\TeamActivity as TeamActivityModel;
 use app\common\model\TeamFollow as TeamFollowModel;
 use app\common\model\TeamFound as TeamFoundModel;
 use app\common\server\UrlServer;
-use think\Db;
+use think\facade\Db;
 use think\Exception;
 
 class TeamFoundLogic

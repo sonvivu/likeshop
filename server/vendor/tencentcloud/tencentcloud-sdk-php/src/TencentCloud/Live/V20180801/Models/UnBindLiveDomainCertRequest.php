@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,6 +22,16 @@ use TencentCloud\Common\AbstractModel;
  *
  * @method string getDomainName() 获取播放域名。
  * @method void setDomainName(string $DomainName) 设置播放域名。
+ * @method string getType() 获取枚举值：
+gray: 解绑灰度规则
+formal(默认): 解绑正式规则
+
+不传则为formal
+ * @method void setType(string $Type) 设置枚举值：
+gray: 解绑灰度规则
+formal(默认): 解绑正式规则
+
+不传则为formal
  */
 class UnBindLiveDomainCertRequest extends AbstractModel
 {
@@ -31,7 +41,21 @@ class UnBindLiveDomainCertRequest extends AbstractModel
     public $DomainName;
 
     /**
+     * @var string 枚举值：
+gray: 解绑灰度规则
+formal(默认): 解绑正式规则
+
+不传则为formal
+     */
+    public $Type;
+
+    /**
      * @param string $DomainName 播放域名。
+     * @param string $Type 枚举值：
+gray: 解绑灰度规则
+formal(默认): 解绑正式规则
+
+不传则为formal
      */
     function __construct()
     {
@@ -48,6 +72,10 @@ class UnBindLiveDomainCertRequest extends AbstractModel
         }
         if (array_key_exists("DomainName",$param) and $param["DomainName"] !== null) {
             $this->DomainName = $param["DomainName"];
+        }
+
+        if (array_key_exists("Type",$param) and $param["Type"] !== null) {
+            $this->Type = $param["Type"];
         }
     }
 }

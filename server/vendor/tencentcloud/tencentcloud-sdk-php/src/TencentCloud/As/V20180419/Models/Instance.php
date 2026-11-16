@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,50 +28,80 @@ use TencentCloud\Common\AbstractModel;
  * @method void setLaunchConfigurationId(string $LaunchConfigurationId) 设置启动配置ID
  * @method string getLaunchConfigurationName() 获取启动配置名称
  * @method void setLaunchConfigurationName(string $LaunchConfigurationName) 设置启动配置名称
- * @method string getLifeCycleState() 获取生命周期状态，取值如下：<br>
-<li>IN_SERVICE：运行中
-<li>CREATING：创建中
-<li>CREATION_FAILED：创建失败
-<li>TERMINATING：中止中
-<li>TERMINATION_FAILED：中止失败
-<li>ATTACHING：绑定中
-<li>DETACHING：解绑中
-<li>ATTACHING_LB：绑定LB中<li>DETACHING_LB：解绑LB中
-<li>STARTING：开机中
-<li>START_FAILED：开机失败
-<li>STOPPING：关机中
-<li>STOP_FAILED：关机失败
-<li>STOPPED：已关机
- * @method void setLifeCycleState(string $LifeCycleState) 设置生命周期状态，取值如下：<br>
-<li>IN_SERVICE：运行中
-<li>CREATING：创建中
-<li>CREATION_FAILED：创建失败
-<li>TERMINATING：中止中
-<li>TERMINATION_FAILED：中止失败
-<li>ATTACHING：绑定中
-<li>DETACHING：解绑中
-<li>ATTACHING_LB：绑定LB中<li>DETACHING_LB：解绑LB中
-<li>STARTING：开机中
-<li>START_FAILED：开机失败
-<li>STOPPING：关机中
-<li>STOP_FAILED：关机失败
-<li>STOPPED：已关机
- * @method string getHealthStatus() 获取健康状态，取值包括HEALTHY和UNHEALTHY
- * @method void setHealthStatus(string $HealthStatus) 设置健康状态，取值包括HEALTHY和UNHEALTHY
+ * @method string getLifeCycleState() 获取生命周期状态，取值如下：
+<li>IN_SERVICE：运行中</li>
+<li>CREATING：创建中</li>
+<li>CREATION_FAILED：创建失败</li>
+<li>TERMINATING：中止中</li>
+<li>TERMINATION_FAILED：中止失败</li>
+<li>ATTACHING：绑定中</li>
+<li>ATTACH_FAILED：绑定失败</li>
+<li>DETACHING：解绑中</li>
+<li>DETACH_FAILED：解绑失败</li>
+<li>ATTACHING_LB：绑定LB中</li>
+<li>DETACHING_LB：解绑LB中</li>
+<li>MODIFYING_LB：修改LB中</li>
+<li>STARTING：开机中</li>
+<li>START_FAILED：开机失败</li>
+<li>STOPPING：关机中</li>
+<li>STOP_FAILED：关机失败</li>
+<li>STOPPED：已关机</li>
+<li>IN_LAUNCHING_HOOK：扩容生命周期挂钩中</li>
+<li>IN_TERMINATING_HOOK：缩容生命周期挂钩中</li>
+ * @method void setLifeCycleState(string $LifeCycleState) 设置生命周期状态，取值如下：
+<li>IN_SERVICE：运行中</li>
+<li>CREATING：创建中</li>
+<li>CREATION_FAILED：创建失败</li>
+<li>TERMINATING：中止中</li>
+<li>TERMINATION_FAILED：中止失败</li>
+<li>ATTACHING：绑定中</li>
+<li>ATTACH_FAILED：绑定失败</li>
+<li>DETACHING：解绑中</li>
+<li>DETACH_FAILED：解绑失败</li>
+<li>ATTACHING_LB：绑定LB中</li>
+<li>DETACHING_LB：解绑LB中</li>
+<li>MODIFYING_LB：修改LB中</li>
+<li>STARTING：开机中</li>
+<li>START_FAILED：开机失败</li>
+<li>STOPPING：关机中</li>
+<li>STOP_FAILED：关机失败</li>
+<li>STOPPED：已关机</li>
+<li>IN_LAUNCHING_HOOK：扩容生命周期挂钩中</li>
+<li>IN_TERMINATING_HOOK：缩容生命周期挂钩中</li>
+ * @method string getHealthStatus() 获取健康状态，取值范围如下：
+<li>HEALTHY：实例处于健康状态</li>
+<li>UNHEALTHY：实例 ping 不可达</li>
+<li>CLB_UNHEALTHY：CLB 监听的实例端口不健康</li>
+ * @method void setHealthStatus(string $HealthStatus) 设置健康状态，取值范围如下：
+<li>HEALTHY：实例处于健康状态</li>
+<li>UNHEALTHY：实例 ping 不可达</li>
+<li>CLB_UNHEALTHY：CLB 监听的实例端口不健康</li>
  * @method boolean getProtectedFromScaleIn() 获取是否加入缩容保护
  * @method void setProtectedFromScaleIn(boolean $ProtectedFromScaleIn) 设置是否加入缩容保护
  * @method string getZone() 获取可用区
  * @method void setZone(string $Zone) 设置可用区
  * @method string getCreationType() 获取创建类型，取值包括AUTO_CREATION, MANUAL_ATTACHING。
  * @method void setCreationType(string $CreationType) 设置创建类型，取值包括AUTO_CREATION, MANUAL_ATTACHING。
- * @method string getAddTime() 获取实例加入时间
- * @method void setAddTime(string $AddTime) 设置实例加入时间
+ * @method string getAddTime() 获取实例加入时间，按照ISO8601标准表示，并且使用UTC时间。
+ * @method void setAddTime(string $AddTime) 设置实例加入时间，按照ISO8601标准表示，并且使用UTC时间。
  * @method string getInstanceType() 获取实例类型
  * @method void setInstanceType(string $InstanceType) 设置实例类型
  * @method integer getVersionNumber() 获取版本号
  * @method void setVersionNumber(integer $VersionNumber) 设置版本号
  * @method string getAutoScalingGroupName() 获取伸缩组名称
  * @method void setAutoScalingGroupName(string $AutoScalingGroupName) 设置伸缩组名称
+ * @method string getWarmupStatus() 获取预热状态，取值如下：
+<li>WAITING_ENTER_WARMUP：等待进入预热</li>
+<li>NO_NEED_WARMUP：无需预热</li>
+<li>IN_WARMUP：预热中</li>
+<li>AFTER_WARMUP：完成预热</li>
+ * @method void setWarmupStatus(string $WarmupStatus) 设置预热状态，取值如下：
+<li>WAITING_ENTER_WARMUP：等待进入预热</li>
+<li>NO_NEED_WARMUP：无需预热</li>
+<li>IN_WARMUP：预热中</li>
+<li>AFTER_WARMUP：完成预热</li>
+ * @method array getDisasterRecoverGroupIds() 获取置放群组id，仅支持指定一个。
+ * @method void setDisasterRecoverGroupIds(array $DisasterRecoverGroupIds) 设置置放群组id，仅支持指定一个。
  */
 class Instance extends AbstractModel
 {
@@ -96,25 +126,34 @@ class Instance extends AbstractModel
     public $LaunchConfigurationName;
 
     /**
-     * @var string 生命周期状态，取值如下：<br>
-<li>IN_SERVICE：运行中
-<li>CREATING：创建中
-<li>CREATION_FAILED：创建失败
-<li>TERMINATING：中止中
-<li>TERMINATION_FAILED：中止失败
-<li>ATTACHING：绑定中
-<li>DETACHING：解绑中
-<li>ATTACHING_LB：绑定LB中<li>DETACHING_LB：解绑LB中
-<li>STARTING：开机中
-<li>START_FAILED：开机失败
-<li>STOPPING：关机中
-<li>STOP_FAILED：关机失败
-<li>STOPPED：已关机
+     * @var string 生命周期状态，取值如下：
+<li>IN_SERVICE：运行中</li>
+<li>CREATING：创建中</li>
+<li>CREATION_FAILED：创建失败</li>
+<li>TERMINATING：中止中</li>
+<li>TERMINATION_FAILED：中止失败</li>
+<li>ATTACHING：绑定中</li>
+<li>ATTACH_FAILED：绑定失败</li>
+<li>DETACHING：解绑中</li>
+<li>DETACH_FAILED：解绑失败</li>
+<li>ATTACHING_LB：绑定LB中</li>
+<li>DETACHING_LB：解绑LB中</li>
+<li>MODIFYING_LB：修改LB中</li>
+<li>STARTING：开机中</li>
+<li>START_FAILED：开机失败</li>
+<li>STOPPING：关机中</li>
+<li>STOP_FAILED：关机失败</li>
+<li>STOPPED：已关机</li>
+<li>IN_LAUNCHING_HOOK：扩容生命周期挂钩中</li>
+<li>IN_TERMINATING_HOOK：缩容生命周期挂钩中</li>
      */
     public $LifeCycleState;
 
     /**
-     * @var string 健康状态，取值包括HEALTHY和UNHEALTHY
+     * @var string 健康状态，取值范围如下：
+<li>HEALTHY：实例处于健康状态</li>
+<li>UNHEALTHY：实例 ping 不可达</li>
+<li>CLB_UNHEALTHY：CLB 监听的实例端口不健康</li>
      */
     public $HealthStatus;
 
@@ -134,7 +173,7 @@ class Instance extends AbstractModel
     public $CreationType;
 
     /**
-     * @var string 实例加入时间
+     * @var string 实例加入时间，按照ISO8601标准表示，并且使用UTC时间。
      */
     public $AddTime;
 
@@ -154,32 +193,61 @@ class Instance extends AbstractModel
     public $AutoScalingGroupName;
 
     /**
+     * @var string 预热状态，取值如下：
+<li>WAITING_ENTER_WARMUP：等待进入预热</li>
+<li>NO_NEED_WARMUP：无需预热</li>
+<li>IN_WARMUP：预热中</li>
+<li>AFTER_WARMUP：完成预热</li>
+     */
+    public $WarmupStatus;
+
+    /**
+     * @var array 置放群组id，仅支持指定一个。
+     */
+    public $DisasterRecoverGroupIds;
+
+    /**
      * @param string $InstanceId 实例ID
      * @param string $AutoScalingGroupId 伸缩组ID
      * @param string $LaunchConfigurationId 启动配置ID
      * @param string $LaunchConfigurationName 启动配置名称
-     * @param string $LifeCycleState 生命周期状态，取值如下：<br>
-<li>IN_SERVICE：运行中
-<li>CREATING：创建中
-<li>CREATION_FAILED：创建失败
-<li>TERMINATING：中止中
-<li>TERMINATION_FAILED：中止失败
-<li>ATTACHING：绑定中
-<li>DETACHING：解绑中
-<li>ATTACHING_LB：绑定LB中<li>DETACHING_LB：解绑LB中
-<li>STARTING：开机中
-<li>START_FAILED：开机失败
-<li>STOPPING：关机中
-<li>STOP_FAILED：关机失败
-<li>STOPPED：已关机
-     * @param string $HealthStatus 健康状态，取值包括HEALTHY和UNHEALTHY
+     * @param string $LifeCycleState 生命周期状态，取值如下：
+<li>IN_SERVICE：运行中</li>
+<li>CREATING：创建中</li>
+<li>CREATION_FAILED：创建失败</li>
+<li>TERMINATING：中止中</li>
+<li>TERMINATION_FAILED：中止失败</li>
+<li>ATTACHING：绑定中</li>
+<li>ATTACH_FAILED：绑定失败</li>
+<li>DETACHING：解绑中</li>
+<li>DETACH_FAILED：解绑失败</li>
+<li>ATTACHING_LB：绑定LB中</li>
+<li>DETACHING_LB：解绑LB中</li>
+<li>MODIFYING_LB：修改LB中</li>
+<li>STARTING：开机中</li>
+<li>START_FAILED：开机失败</li>
+<li>STOPPING：关机中</li>
+<li>STOP_FAILED：关机失败</li>
+<li>STOPPED：已关机</li>
+<li>IN_LAUNCHING_HOOK：扩容生命周期挂钩中</li>
+<li>IN_TERMINATING_HOOK：缩容生命周期挂钩中</li>
+     * @param string $HealthStatus 健康状态，取值范围如下：
+<li>HEALTHY：实例处于健康状态</li>
+<li>UNHEALTHY：实例 ping 不可达</li>
+<li>CLB_UNHEALTHY：CLB 监听的实例端口不健康</li>
      * @param boolean $ProtectedFromScaleIn 是否加入缩容保护
      * @param string $Zone 可用区
      * @param string $CreationType 创建类型，取值包括AUTO_CREATION, MANUAL_ATTACHING。
-     * @param string $AddTime 实例加入时间
+     * @param string $AddTime 实例加入时间，按照ISO8601标准表示，并且使用UTC时间。
      * @param string $InstanceType 实例类型
      * @param integer $VersionNumber 版本号
      * @param string $AutoScalingGroupName 伸缩组名称
+     * @param string $WarmupStatus 预热状态，取值如下：
+<li>WAITING_ENTER_WARMUP：等待进入预热</li>
+<li>NO_NEED_WARMUP：无需预热</li>
+<li>IN_WARMUP：预热中</li>
+<li>AFTER_WARMUP：完成预热</li>
+     * @param array $DisasterRecoverGroupIds 置放群组id，仅支持指定一个。
      */
     function __construct()
     {
@@ -244,6 +312,14 @@ class Instance extends AbstractModel
 
         if (array_key_exists("AutoScalingGroupName",$param) and $param["AutoScalingGroupName"] !== null) {
             $this->AutoScalingGroupName = $param["AutoScalingGroupName"];
+        }
+
+        if (array_key_exists("WarmupStatus",$param) and $param["WarmupStatus"] !== null) {
+            $this->WarmupStatus = $param["WarmupStatus"];
+        }
+
+        if (array_key_exists("DisasterRecoverGroupIds",$param) and $param["DisasterRecoverGroupIds"] !== null) {
+            $this->DisasterRecoverGroupIds = $param["DisasterRecoverGroupIds"];
         }
     }
 }

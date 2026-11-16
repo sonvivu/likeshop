@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,18 +20,18 @@ use TencentCloud\Common\AbstractModel;
 /**
  * GetEmailIdentity请求参数结构体
  *
- * @method string getEmailIdentity() 获取发信域名
- * @method void setEmailIdentity(string $EmailIdentity) 设置发信域名
+ * @method string getEmailIdentity() 获取<p>发信域名</p>
+ * @method void setEmailIdentity(string $EmailIdentity) 设置<p>发信域名</p>
  */
 class GetEmailIdentityRequest extends AbstractModel
 {
     /**
-     * @var string 发信域名
+     * @var string <p>发信域名</p>
      */
     public $EmailIdentity;
 
     /**
-     * @param string $EmailIdentity 发信域名
+     * @param string $EmailIdentity <p>发信域名</p>
      */
     function __construct()
     {

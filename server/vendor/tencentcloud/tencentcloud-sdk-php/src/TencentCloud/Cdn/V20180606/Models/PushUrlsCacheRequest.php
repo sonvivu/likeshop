@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,8 +36,10 @@ mainland：预热至境内节点
 overseas：预热至境外节点
 global：预热全球节点
 不填充情况下，默认为 mainland， URL 中域名必须在对应区域启用了加速服务才能提交对应区域的预热任务
- * @method string getLayer() 获取填写"middle"或不填充时预热至中间层节点
- * @method void setLayer(string $Layer) 设置填写"middle"或不填充时预热至中间层节点
+ * @method string getLayer() 获取中国境内区域默认预热至中间层节点，中国境外区域默认预热至边缘节点。预热至边缘产生的边缘层流量会计入计费流量。
+填写"middle"或不填充时，可指定预热至中间层节点。
+ * @method void setLayer(string $Layer) 设置中国境内区域默认预热至中间层节点，中国境外区域默认预热至边缘节点。预热至边缘产生的边缘层流量会计入计费流量。
+填写"middle"或不填充时，可指定预热至中间层节点。
  * @method boolean getParseM3U8() 获取是否递归解析m3u8文件中的ts分片预热
 注意事项：
 1. 该功能要求m3u8索引文件能直接请求获取
@@ -48,6 +50,16 @@ global：预热全球节点
 1. 该功能要求m3u8索引文件能直接请求获取
 2. 当前只支持递归解析一级索引和子索引中的ts分片，递归深度不超过3层
 3. 解析获取的ts分片会正常累加每日预热用量，当用量超出配额时，会静默处理，不再执行预热
+ * @method boolean getDisableRange() 获取是否关闭Range回源
+注意事项：
+此功能灰度发布中，敬请期待
+ * @method void setDisableRange(boolean $DisableRange) 设置是否关闭Range回源
+注意事项：
+此功能灰度发布中，敬请期待
+ * @method array getHeaders() 获取自定义 HTTP 请求头。最多定义 20 个，Name 长度不超过 128 字节，Value 长度不超过 1024 字节
+ * @method void setHeaders(array $Headers) 设置自定义 HTTP 请求头。最多定义 20 个，Name 长度不超过 128 字节，Value 长度不超过 1024 字节
+ * @method boolean getUrlEncode() 获取是否对URL进行编码
+ * @method void setUrlEncode(boolean $UrlEncode) 设置是否对URL进行编码
  */
 class PushUrlsCacheRequest extends AbstractModel
 {
@@ -72,7 +84,8 @@ global：预热全球节点
     public $Area;
 
     /**
-     * @var string 填写"middle"或不填充时预热至中间层节点
+     * @var string 中国境内区域默认预热至中间层节点，中国境外区域默认预热至边缘节点。预热至边缘产生的边缘层流量会计入计费流量。
+填写"middle"或不填充时，可指定预热至中间层节点。
      */
     public $Layer;
 
@@ -86,6 +99,23 @@ global：预热全球节点
     public $ParseM3U8;
 
     /**
+     * @var boolean 是否关闭Range回源
+注意事项：
+此功能灰度发布中，敬请期待
+     */
+    public $DisableRange;
+
+    /**
+     * @var array 自定义 HTTP 请求头。最多定义 20 个，Name 长度不超过 128 字节，Value 长度不超过 1024 字节
+     */
+    public $Headers;
+
+    /**
+     * @var boolean 是否对URL进行编码
+     */
+    public $UrlEncode;
+
+    /**
      * @param array $Urls URL 列表，需要包含协议头部 http:// 或 https://
      * @param string $UserAgent 指定预热请求回源时 HTTP 请求的 User-Agent 头部
 默认为 TencentCdn
@@ -94,12 +124,18 @@ mainland：预热至境内节点
 overseas：预热至境外节点
 global：预热全球节点
 不填充情况下，默认为 mainland， URL 中域名必须在对应区域启用了加速服务才能提交对应区域的预热任务
-     * @param string $Layer 填写"middle"或不填充时预热至中间层节点
+     * @param string $Layer 中国境内区域默认预热至中间层节点，中国境外区域默认预热至边缘节点。预热至边缘产生的边缘层流量会计入计费流量。
+填写"middle"或不填充时，可指定预热至中间层节点。
      * @param boolean $ParseM3U8 是否递归解析m3u8文件中的ts分片预热
 注意事项：
 1. 该功能要求m3u8索引文件能直接请求获取
 2. 当前只支持递归解析一级索引和子索引中的ts分片，递归深度不超过3层
 3. 解析获取的ts分片会正常累加每日预热用量，当用量超出配额时，会静默处理，不再执行预热
+     * @param boolean $DisableRange 是否关闭Range回源
+注意事项：
+此功能灰度发布中，敬请期待
+     * @param array $Headers 自定义 HTTP 请求头。最多定义 20 个，Name 长度不超过 128 字节，Value 长度不超过 1024 字节
+     * @param boolean $UrlEncode 是否对URL进行编码
      */
     function __construct()
     {
@@ -132,6 +168,23 @@ global：预热全球节点
 
         if (array_key_exists("ParseM3U8",$param) and $param["ParseM3U8"] !== null) {
             $this->ParseM3U8 = $param["ParseM3U8"];
+        }
+
+        if (array_key_exists("DisableRange",$param) and $param["DisableRange"] !== null) {
+            $this->DisableRange = $param["DisableRange"];
+        }
+
+        if (array_key_exists("Headers",$param) and $param["Headers"] !== null) {
+            $this->Headers = [];
+            foreach ($param["Headers"] as $key => $value){
+                $obj = new HTTPHeader();
+                $obj->deserialize($value);
+                array_push($this->Headers, $obj);
+            }
+        }
+
+        if (array_key_exists("UrlEncode",$param) and $param["UrlEncode"] !== null) {
+            $this->UrlEncode = $param["UrlEncode"];
         }
     }
 }

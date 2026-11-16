@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,28 +20,28 @@ use TencentCloud\Common\AbstractModel;
 /**
  * GetPersonGroupInfo返回参数结构体
  *
- * @method array getPersonGroupInfos() 获取包含此人员的人员库及描述字段内容列表
- * @method void setPersonGroupInfos(array $PersonGroupInfos) 设置包含此人员的人员库及描述字段内容列表
- * @method integer getGroupNum() 获取人员库总数量
+ * @method array getPersonGroupInfos() 获取包含此人员的人员库及描述字段内容列表。
+ * @method void setPersonGroupInfos(array $PersonGroupInfos) 设置包含此人员的人员库及描述字段内容列表。
+ * @method integer getGroupNum() 获取人员库总数量。
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setGroupNum(integer $GroupNum) 设置人员库总数量
+ * @method void setGroupNum(integer $GroupNum) 设置人员库总数量。
 注意：此字段可能返回 null，表示取不到有效值。
  * @method string getFaceModelVersion() 获取人脸识别服务所用的算法模型版本。
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setFaceModelVersion(string $FaceModelVersion) 设置人脸识别服务所用的算法模型版本。
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
- * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+ * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
 class GetPersonGroupInfoResponse extends AbstractModel
 {
     /**
-     * @var array 包含此人员的人员库及描述字段内容列表
+     * @var array 包含此人员的人员库及描述字段内容列表。
      */
     public $PersonGroupInfos;
 
     /**
-     * @var integer 人员库总数量
+     * @var integer 人员库总数量。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $GroupNum;
@@ -53,17 +53,17 @@ class GetPersonGroupInfoResponse extends AbstractModel
     public $FaceModelVersion;
 
     /**
-     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public $RequestId;
 
     /**
-     * @param array $PersonGroupInfos 包含此人员的人员库及描述字段内容列表
-     * @param integer $GroupNum 人员库总数量
+     * @param array $PersonGroupInfos 包含此人员的人员库及描述字段内容列表。
+     * @param integer $GroupNum 人员库总数量。
 注意：此字段可能返回 null，表示取不到有效值。
      * @param string $FaceModelVersion 人脸识别服务所用的算法模型版本。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
     {

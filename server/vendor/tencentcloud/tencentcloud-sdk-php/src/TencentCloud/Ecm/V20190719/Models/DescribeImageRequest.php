@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,15 +23,19 @@ use TencentCloud\Common\AbstractModel;
  * @method array getFilters() 获取过滤条件，每次请求的Filters的上限为10，详细的过滤条件如下：
 image-id - String - 是否必填： 否 - （过滤条件）按照镜像ID进行过滤
 image-type - String - 是否必填： 否 - （过滤条件）按照镜像类型进行过滤。取值范围：
-PRIVATE_IMAGE: 私有镜像 (本帐户创建的镜像) 
+PRIVATE_IMAGE: 私有镜像 (本账户创建的镜像) 
 PUBLIC_IMAGE: 公共镜像 (腾讯云官方镜像)
 instance-type -String - 是否必填: 否 - (过滤条件) 按机型过滤支持的镜像
+image-name - String - 是否必填：否 - (过滤条件) 按镜像的名称模糊匹配，只能提供一个值
+image-os - String - 是否必填：否 - (过滤条件) 按镜像系统的名称模糊匹配，只能提供一个值
  * @method void setFilters(array $Filters) 设置过滤条件，每次请求的Filters的上限为10，详细的过滤条件如下：
 image-id - String - 是否必填： 否 - （过滤条件）按照镜像ID进行过滤
 image-type - String - 是否必填： 否 - （过滤条件）按照镜像类型进行过滤。取值范围：
-PRIVATE_IMAGE: 私有镜像 (本帐户创建的镜像) 
+PRIVATE_IMAGE: 私有镜像 (本账户创建的镜像) 
 PUBLIC_IMAGE: 公共镜像 (腾讯云官方镜像)
 instance-type -String - 是否必填: 否 - (过滤条件) 按机型过滤支持的镜像
+image-name - String - 是否必填：否 - (过滤条件) 按镜像的名称模糊匹配，只能提供一个值
+image-os - String - 是否必填：否 - (过滤条件) 按镜像系统的名称模糊匹配，只能提供一个值
  * @method integer getOffset() 获取偏移量，默认为0。关于Offset的更进一步介绍请参考 API 简介中的相关小节。
  * @method void setOffset(integer $Offset) 设置偏移量，默认为0。关于Offset的更进一步介绍请参考 API 简介中的相关小节。
  * @method integer getLimit() 获取返回数量，默认为20，最大值为100。关于Limit的更进一步介绍请参考 API 简介中的相关小节。
@@ -43,9 +47,11 @@ class DescribeImageRequest extends AbstractModel
      * @var array 过滤条件，每次请求的Filters的上限为10，详细的过滤条件如下：
 image-id - String - 是否必填： 否 - （过滤条件）按照镜像ID进行过滤
 image-type - String - 是否必填： 否 - （过滤条件）按照镜像类型进行过滤。取值范围：
-PRIVATE_IMAGE: 私有镜像 (本帐户创建的镜像) 
+PRIVATE_IMAGE: 私有镜像 (本账户创建的镜像) 
 PUBLIC_IMAGE: 公共镜像 (腾讯云官方镜像)
 instance-type -String - 是否必填: 否 - (过滤条件) 按机型过滤支持的镜像
+image-name - String - 是否必填：否 - (过滤条件) 按镜像的名称模糊匹配，只能提供一个值
+image-os - String - 是否必填：否 - (过滤条件) 按镜像系统的名称模糊匹配，只能提供一个值
      */
     public $Filters;
 
@@ -63,9 +69,11 @@ instance-type -String - 是否必填: 否 - (过滤条件) 按机型过滤支持
      * @param array $Filters 过滤条件，每次请求的Filters的上限为10，详细的过滤条件如下：
 image-id - String - 是否必填： 否 - （过滤条件）按照镜像ID进行过滤
 image-type - String - 是否必填： 否 - （过滤条件）按照镜像类型进行过滤。取值范围：
-PRIVATE_IMAGE: 私有镜像 (本帐户创建的镜像) 
+PRIVATE_IMAGE: 私有镜像 (本账户创建的镜像) 
 PUBLIC_IMAGE: 公共镜像 (腾讯云官方镜像)
 instance-type -String - 是否必填: 否 - (过滤条件) 按机型过滤支持的镜像
+image-name - String - 是否必填：否 - (过滤条件) 按镜像的名称模糊匹配，只能提供一个值
+image-os - String - 是否必填：否 - (过滤条件) 按镜像系统的名称模糊匹配，只能提供一个值
      * @param integer $Offset 偏移量，默认为0。关于Offset的更进一步介绍请参考 API 简介中的相关小节。
      * @param integer $Limit 返回数量，默认为20，最大值为100。关于Limit的更进一步介绍请参考 API 简介中的相关小节。
      */

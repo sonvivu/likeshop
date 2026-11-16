@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,11 +34,11 @@ TaskId 和起始时间必须指定一项
  * @method void setOffset(integer $Offset) 设置分页查询偏移量，默认为 0
  * @method integer getLimit() 获取分页查询限制数目，默认为 20
  * @method void setLimit(integer $Limit) 设置分页查询限制数目，默认为 20
- * @method string getArea() 获取指定地区查询预热纪录
+ * @method string getArea() 获取指定地区查询预热记录
 mainland：境内
 overseas：境外
 global：全球
- * @method void setArea(string $Area) 设置指定地区查询预热纪录
+ * @method void setArea(string $Area) 设置指定地区查询预热记录
 mainland：境内
 overseas：境外
 global：全球
@@ -46,10 +46,12 @@ global：全球
 fail：预热失败
 done：预热成功
 process：预热中
+invalid: 预热无效(源站返回4xx或5xx状态码)
  * @method void setStatus(string $Status) 设置指定任务状态查询
 fail：预热失败
 done：预热成功
 process：预热中
+invalid: 预热无效(源站返回4xx或5xx状态码)
  */
 class DescribePushTasksRequest extends AbstractModel
 {
@@ -85,7 +87,7 @@ TaskId 和起始时间必须指定一项
     public $Limit;
 
     /**
-     * @var string 指定地区查询预热纪录
+     * @var string 指定地区查询预热记录
 mainland：境内
 overseas：境外
 global：全球
@@ -97,6 +99,7 @@ global：全球
 fail：预热失败
 done：预热成功
 process：预热中
+invalid: 预热无效(源站返回4xx或5xx状态码)
      */
     public $Status;
 
@@ -108,7 +111,7 @@ TaskId 和起始时间必须指定一项
      * @param string $Keyword 查询关键字，请输入域名或 http(s):// 开头完整 URL
      * @param integer $Offset 分页查询偏移量，默认为 0
      * @param integer $Limit 分页查询限制数目，默认为 20
-     * @param string $Area 指定地区查询预热纪录
+     * @param string $Area 指定地区查询预热记录
 mainland：境内
 overseas：境外
 global：全球
@@ -116,6 +119,7 @@ global：全球
 fail：预热失败
 done：预热成功
 process：预热中
+invalid: 预热无效(源站返回4xx或5xx状态码)
      */
     function __construct()
     {

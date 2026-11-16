@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,16 +45,20 @@ path：指定绝对路径生效
 index：首页
 注意：此字段可能返回 null，表示取不到有效值。
  * @method string getFullUrlCache() 获取是否开启全路径缓存
-on：开启全路径缓存（即关闭参数过滤）
-off：关闭全路径缓存（即开启参数过滤）
+on：开启全路径缓存（即关闭参数忽略）
+off：关闭全路径缓存（即开启参数忽略）
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setFullUrlCache(string $FullUrlCache) 设置是否开启全路径缓存
-on：开启全路径缓存（即关闭参数过滤）
-off：关闭全路径缓存（即开启参数过滤）
+on：开启全路径缓存（即关闭参数忽略）
+off：关闭全路径缓存（即开启参数忽略）
 注意：此字段可能返回 null，表示取不到有效值。
  * @method string getIgnoreCase() 获取是否忽略大小写缓存
+on：开启
+off：关闭
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setIgnoreCase(string $IgnoreCase) 设置是否忽略大小写缓存
+on：开启
+off：关闭
 注意：此字段可能返回 null，表示取不到有效值。
  * @method RuleQueryString getQueryString() 获取CacheKey中包含请求参数
 注意：此字段可能返回 null，表示取不到有效值。
@@ -89,14 +93,16 @@ index：首页
 
     /**
      * @var string 是否开启全路径缓存
-on：开启全路径缓存（即关闭参数过滤）
-off：关闭全路径缓存（即开启参数过滤）
+on：开启全路径缓存（即关闭参数忽略）
+off：关闭全路径缓存（即开启参数忽略）
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $FullUrlCache;
 
     /**
      * @var string 是否忽略大小写缓存
+on：开启
+off：关闭
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $IgnoreCase;
@@ -127,10 +133,12 @@ path：指定绝对路径生效
 index：首页
 注意：此字段可能返回 null，表示取不到有效值。
      * @param string $FullUrlCache 是否开启全路径缓存
-on：开启全路径缓存（即关闭参数过滤）
-off：关闭全路径缓存（即开启参数过滤）
+on：开启全路径缓存（即关闭参数忽略）
+off：关闭全路径缓存（即开启参数忽略）
 注意：此字段可能返回 null，表示取不到有效值。
      * @param string $IgnoreCase 是否忽略大小写缓存
+on：开启
+off：关闭
 注意：此字段可能返回 null，表示取不到有效值。
      * @param RuleQueryString $QueryString CacheKey中包含请求参数
 注意：此字段可能返回 null，表示取不到有效值。

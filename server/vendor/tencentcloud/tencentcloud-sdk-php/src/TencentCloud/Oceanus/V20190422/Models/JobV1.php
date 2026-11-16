@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,334 +20,614 @@ use TencentCloud\Common\AbstractModel;
 /**
  * Job详细信息
  *
- * @method string getJobId() 获取作业ID
+ * @method string getJobId() 获取<p>作业ID</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setJobId(string $JobId) 设置作业ID
+ * @method void setJobId(string $JobId) 设置<p>作业ID</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getRegion() 获取地域
+ * @method string getRegion() 获取<p>地域</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setRegion(string $Region) 设置地域
+ * @method void setRegion(string $Region) 设置<p>地域</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getZone() 获取可用区
+ * @method string getZone() 获取<p>可用区</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setZone(string $Zone) 设置可用区
+ * @method void setZone(string $Zone) 设置<p>可用区</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method integer getAppId() 获取用户AppId
+ * @method integer getAppId() 获取<p>用户AppId</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setAppId(integer $AppId) 设置用户AppId
+ * @method void setAppId(integer $AppId) 设置<p>用户AppId</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getOwnerUin() 获取用户UIN
+ * @method string getOwnerUin() 获取<p>用户UIN</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setOwnerUin(string $OwnerUin) 设置用户UIN
+ * @method void setOwnerUin(string $OwnerUin) 设置<p>用户UIN</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getCreatorUin() 获取创建者UIN
+ * @method string getCreatorUin() 获取<p>创建者UIN</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setCreatorUin(string $CreatorUin) 设置创建者UIN
+ * @method void setCreatorUin(string $CreatorUin) 设置<p>创建者UIN</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getName() 获取作业名字
+ * @method string getName() 获取<p>作业名字</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setName(string $Name) 设置作业名字
+ * @method void setName(string $Name) 设置<p>作业名字</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method integer getJobType() 获取作业类型
+ * @method integer getJobType() 获取<p>作业类型，1：sql作业，2：Jar作业</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setJobType(integer $JobType) 设置作业类型
+ * @method void setJobType(integer $JobType) 设置<p>作业类型，1：sql作业，2：Jar作业</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method integer getStatus() 获取作业状态，1：未初始化，2：未发布，3：操作中，4：运行中，5：停止，6：暂停，-1：故障
+ * @method integer getStatus() 获取<p>作业状态，1：未初始化，2：未发布，3：操作中，4：运行中，5：停止，6：暂停，-1：故障</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setStatus(integer $Status) 设置作业状态，1：未初始化，2：未发布，3：操作中，4：运行中，5：停止，6：暂停，-1：故障
+ * @method void setStatus(integer $Status) 设置<p>作业状态，1：未初始化，2：未发布，3：操作中，4：运行中，5：停止，6：暂停，-1：故障</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getCreateTime() 获取作业创建时间
+ * @method string getCreateTime() 获取<p>作业创建时间</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setCreateTime(string $CreateTime) 设置作业创建时间
+ * @method void setCreateTime(string $CreateTime) 设置<p>作业创建时间</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getStartTime() 获取作业启动时间
+ * @method string getStartTime() 获取<p>作业启动时间</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setStartTime(string $StartTime) 设置作业启动时间
+ * @method void setStartTime(string $StartTime) 设置<p>作业启动时间</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getStopTime() 获取作业停止时间
+ * @method string getStopTime() 获取<p>作业停止时间</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setStopTime(string $StopTime) 设置作业停止时间
+ * @method void setStopTime(string $StopTime) 设置<p>作业停止时间</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getUpdateTime() 获取作业更新时间
+ * @method string getUpdateTime() 获取<p>作业更新时间</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setUpdateTime(string $UpdateTime) 设置作业更新时间
+ * @method void setUpdateTime(string $UpdateTime) 设置<p>作业更新时间</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method integer getTotalRunMillis() 获取作业累计运行时间
+ * @method integer getTotalRunMillis() 获取<p>作业累计运行时间</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setTotalRunMillis(integer $TotalRunMillis) 设置作业累计运行时间
+ * @method void setTotalRunMillis(integer $TotalRunMillis) 设置<p>作业累计运行时间</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getRemark() 获取备注信息
+ * @method string getRemark() 获取<p>备注信息</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setRemark(string $Remark) 设置备注信息
+ * @method void setRemark(string $Remark) 设置<p>备注信息</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getLastOpResult() 获取操作错误提示信息
+ * @method string getLastOpResult() 获取<p>操作错误提示信息</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setLastOpResult(string $LastOpResult) 设置操作错误提示信息
+ * @method void setLastOpResult(string $LastOpResult) 设置<p>操作错误提示信息</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getClusterName() 获取集群名字
+ * @method string getClusterName() 获取<p>集群名字</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setClusterName(string $ClusterName) 设置集群名字
+ * @method void setClusterName(string $ClusterName) 设置<p>集群名字</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method integer getLatestJobConfigVersion() 获取最新配置版本号
+ * @method integer getLatestJobConfigVersion() 获取<p>最新配置版本号，包括已经删除的版本</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setLatestJobConfigVersion(integer $LatestJobConfigVersion) 设置最新配置版本号
+ * @method void setLatestJobConfigVersion(integer $LatestJobConfigVersion) 设置<p>最新配置版本号，包括已经删除的版本</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method integer getPublishedJobConfigVersion() 获取已发布的配置版本
+ * @method integer getLatestValidJobConfigVersion() 获取<p>最新的版本号，不包括已经删除的版本号</p>
+ * @method void setLatestValidJobConfigVersion(integer $LatestValidJobConfigVersion) 设置<p>最新的版本号，不包括已经删除的版本号</p>
+ * @method integer getPublishedJobConfigVersion() 获取<p>已发布的配置版本</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setPublishedJobConfigVersion(integer $PublishedJobConfigVersion) 设置已发布的配置版本
+ * @method void setPublishedJobConfigVersion(integer $PublishedJobConfigVersion) 设置<p>已发布的配置版本</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method integer getRunningCuNum() 获取运行的CU数量
+ * @method integer getRunningCuNum() 获取<p>运行的CU数量</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setRunningCuNum(integer $RunningCuNum) 设置运行的CU数量
+ * @method void setRunningCuNum(integer $RunningCuNum) 设置<p>运行的CU数量</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method integer getCuMem() 获取作业内存规格
+ * @method integer getCuMem() 获取<p>作业内存规格</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setCuMem(integer $CuMem) 设置作业内存规格
+ * @method void setCuMem(integer $CuMem) 设置<p>作业内存规格</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getStatusDesc() 获取作业状态描述
+ * @method string getStatusDesc() 获取<p>作业状态描述</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setStatusDesc(string $StatusDesc) 设置作业状态描述
+ * @method void setStatusDesc(string $StatusDesc) 设置<p>作业状态描述</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method integer getCurrentRunMillis() 获取运行状态时表示单次运行时间
+ * @method integer getCurrentRunMillis() 获取<p>运行状态时表示单次运行时间</p><p>单位：毫秒</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setCurrentRunMillis(integer $CurrentRunMillis) 设置运行状态时表示单次运行时间
+ * @method void setCurrentRunMillis(integer $CurrentRunMillis) 设置<p>运行状态时表示单次运行时间</p><p>单位：毫秒</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getClusterId() 获取作业所在的集群ID
+ * @method string getClusterId() 获取<p>作业所在的集群ID</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setClusterId(string $ClusterId) 设置作业所在的集群ID
+ * @method void setClusterId(string $ClusterId) 设置<p>作业所在的集群ID</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getWebUIUrl() 获取作业管理WEB UI 入口
+ * @method string getWebUIUrl() 获取<p>作业管理WEB UI 入口</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setWebUIUrl(string $WebUIUrl) 设置作业管理WEB UI 入口
+ * @method void setWebUIUrl(string $WebUIUrl) 设置<p>作业管理WEB UI 入口</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method integer getSchedulerType() 获取作业所在集群类型
+ * @method integer getSchedulerType() 获取<p>作业所在集群类型</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setSchedulerType(integer $SchedulerType) 设置作业所在集群类型
+ * @method void setSchedulerType(integer $SchedulerType) 设置<p>作业所在集群类型</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method integer getClusterStatus() 获取作业所在集群状态
+ * @method integer getClusterStatus() 获取<p>作业所在集群状态</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setClusterStatus(integer $ClusterStatus) 设置作业所在集群状态
+ * @method void setClusterStatus(integer $ClusterStatus) 设置<p>作业所在集群状态</p>
 注意：此字段可能返回 null，表示取不到有效值。
+ * @method float getRunningCu() 获取<p>细粒度下的运行的CU数量</p>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setRunningCu(float $RunningCu) 设置<p>细粒度下的运行的CU数量</p>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getFlinkVersion() 获取<p>作业运行的 Flink 版本</p>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setFlinkVersion(string $FlinkVersion) 设置<p>作业运行的 Flink 版本</p>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getWorkSpaceId() 获取<p>工作空间 SerialId</p>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setWorkSpaceId(string $WorkSpaceId) 设置<p>工作空间 SerialId</p>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getWorkSpaceName() 获取<p>工作空间名称</p>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setWorkSpaceName(string $WorkSpaceName) 设置<p>工作空间名称</p>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method array getTags() 获取<p>作业标签</p>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setTags(array $Tags) 设置<p>作业标签</p>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method JobEventInfo getEventInfo() 获取<p>作业异常事件信息</p>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setEventInfo(JobEventInfo $EventInfo) 设置<p>作业异常事件信息</p>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getDescription() 获取<p>描述信息</p>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setDescription(string $Description) 设置<p>描述信息</p>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method integer getScalingType() 获取<p>0:代表没开启调优任务，1:开启智能调优，2:代表定时调优</p>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setScalingType(integer $ScalingType) 设置<p>0:代表没开启调优任务，1:开启智能调优，2:代表定时调优</p>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method float getRunningCpu() 获取<p>使用CPU数目</p>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setRunningCpu(float $RunningCpu) 设置<p>使用CPU数目</p>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method float getRunningMem() 获取<p>使用内存数量</p>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setRunningMem(float $RunningMem) 设置<p>使用内存数量</p>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method integer getOpenJobDefaultAlarm() 获取<p>是否开了默认告警</p>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setOpenJobDefaultAlarm(integer $OpenJobDefaultAlarm) 设置<p>是否开了默认告警</p>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getProgressDesc() 获取<p>操作中描述</p>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setProgressDesc(string $ProgressDesc) 设置<p>操作中描述</p>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method integer getContinueAlarm() 获取<p>停止持续告警</p>
+ * @method void setContinueAlarm(integer $ContinueAlarm) 设置<p>停止持续告警</p>
+ * @method integer getRestartCount() 获取<p>作业重启次数</p>
+ * @method void setRestartCount(integer $RestartCount) 设置<p>作业重启次数</p>
+ * @method integer getExpectJobDefaultAlarmStatus() 获取<p>期望是开启默认告警</p>
+ * @method void setExpectJobDefaultAlarmStatus(integer $ExpectJobDefaultAlarmStatus) 设置<p>期望是开启默认告警</p>
+ * @method string getJdkVersion() 获取<p>jdk版本</p>
+ * @method void setJdkVersion(string $JdkVersion) 设置<p>jdk版本</p>
+ * @method string getStateCOSBucket() 获取<p>状态桶名字</p>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setStateCOSBucket(string $StateCOSBucket) 设置<p>状态桶名字</p>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getNewStateCOSBucket() 获取<p>新的状态桶名字</p>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setNewStateCOSBucket(string $NewStateCOSBucket) 设置<p>新的状态桶名字</p>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method integer getStateCOSBucketType() 获取<p>同类型</p><p>枚举值：</p><ul><li>0： 普通桶</li><li>1： 加速桶</li></ul>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setStateCOSBucketType(integer $StateCOSBucketType) 设置<p>同类型</p><p>枚举值：</p><ul><li>0： 普通桶</li><li>1： 加速桶</li></ul>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method integer getNewStateCOSBucketType() 获取<p>新的桶类型</p><p>枚举值：</p><ul><li>0： 普通桶</li><li>1： 加速桶</li></ul>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setNewStateCOSBucketType(integer $NewStateCOSBucketType) 设置<p>新的桶类型</p><p>枚举值：</p><ul><li>0： 普通桶</li><li>1： 加速桶</li></ul>
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method integer getHealthScore() 获取<p>健康分数</p>
+ * @method void setHealthScore(integer $HealthScore) 设置<p>健康分数</p>
+ * @method string getLastDiagnoseTime() 获取<p>最新诊断时间</p><p>参数格式：RFC3339</p>
+ * @method void setLastDiagnoseTime(string $LastDiagnoseTime) 设置<p>最新诊断时间</p><p>参数格式：RFC3339</p>
+ * @method string getManagerUin() 获取<p>负责人Uin</p>
+ * @method void setManagerUin(string $ManagerUin) 设置<p>负责人Uin</p>
+ * @method string getStartupPoint() 获取<p>启动位点</p>
+ * @method void setStartupPoint(string $StartupPoint) 设置<p>启动位点</p>
+ * @method boolean getIsEvent() 获取<p>是否有事件</p>
+ * @method void setIsEvent(boolean $IsEvent) 设置<p>是否有事件</p>
+ * @method boolean getIsAlarm() 获取<p>是否告警</p>
+ * @method void setIsAlarm(boolean $IsAlarm) 设置<p>是否告警</p>
  */
 class JobV1 extends AbstractModel
 {
     /**
-     * @var string 作业ID
+     * @var string <p>作业ID</p>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $JobId;
 
     /**
-     * @var string 地域
+     * @var string <p>地域</p>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Region;
 
     /**
-     * @var string 可用区
+     * @var string <p>可用区</p>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Zone;
 
     /**
-     * @var integer 用户AppId
+     * @var integer <p>用户AppId</p>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $AppId;
 
     /**
-     * @var string 用户UIN
+     * @var string <p>用户UIN</p>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $OwnerUin;
 
     /**
-     * @var string 创建者UIN
+     * @var string <p>创建者UIN</p>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $CreatorUin;
 
     /**
-     * @var string 作业名字
+     * @var string <p>作业名字</p>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Name;
 
     /**
-     * @var integer 作业类型
+     * @var integer <p>作业类型，1：sql作业，2：Jar作业</p>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $JobType;
 
     /**
-     * @var integer 作业状态，1：未初始化，2：未发布，3：操作中，4：运行中，5：停止，6：暂停，-1：故障
+     * @var integer <p>作业状态，1：未初始化，2：未发布，3：操作中，4：运行中，5：停止，6：暂停，-1：故障</p>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Status;
 
     /**
-     * @var string 作业创建时间
+     * @var string <p>作业创建时间</p>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $CreateTime;
 
     /**
-     * @var string 作业启动时间
+     * @var string <p>作业启动时间</p>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $StartTime;
 
     /**
-     * @var string 作业停止时间
+     * @var string <p>作业停止时间</p>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $StopTime;
 
     /**
-     * @var string 作业更新时间
+     * @var string <p>作业更新时间</p>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $UpdateTime;
 
     /**
-     * @var integer 作业累计运行时间
+     * @var integer <p>作业累计运行时间</p>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $TotalRunMillis;
 
     /**
-     * @var string 备注信息
+     * @var string <p>备注信息</p>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Remark;
 
     /**
-     * @var string 操作错误提示信息
+     * @var string <p>操作错误提示信息</p>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $LastOpResult;
 
     /**
-     * @var string 集群名字
+     * @var string <p>集群名字</p>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $ClusterName;
 
     /**
-     * @var integer 最新配置版本号
+     * @var integer <p>最新配置版本号，包括已经删除的版本</p>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $LatestJobConfigVersion;
 
     /**
-     * @var integer 已发布的配置版本
+     * @var integer <p>最新的版本号，不包括已经删除的版本号</p>
+     */
+    public $LatestValidJobConfigVersion;
+
+    /**
+     * @var integer <p>已发布的配置版本</p>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $PublishedJobConfigVersion;
 
     /**
-     * @var integer 运行的CU数量
+     * @var integer <p>运行的CU数量</p>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $RunningCuNum;
 
     /**
-     * @var integer 作业内存规格
+     * @var integer <p>作业内存规格</p>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $CuMem;
 
     /**
-     * @var string 作业状态描述
+     * @var string <p>作业状态描述</p>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $StatusDesc;
 
     /**
-     * @var integer 运行状态时表示单次运行时间
+     * @var integer <p>运行状态时表示单次运行时间</p><p>单位：毫秒</p>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $CurrentRunMillis;
 
     /**
-     * @var string 作业所在的集群ID
+     * @var string <p>作业所在的集群ID</p>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $ClusterId;
 
     /**
-     * @var string 作业管理WEB UI 入口
+     * @var string <p>作业管理WEB UI 入口</p>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $WebUIUrl;
 
     /**
-     * @var integer 作业所在集群类型
+     * @var integer <p>作业所在集群类型</p>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $SchedulerType;
 
     /**
-     * @var integer 作业所在集群状态
+     * @var integer <p>作业所在集群状态</p>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $ClusterStatus;
 
     /**
-     * @param string $JobId 作业ID
+     * @var float <p>细粒度下的运行的CU数量</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $Region 地域
+     */
+    public $RunningCu;
+
+    /**
+     * @var string <p>作业运行的 Flink 版本</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $Zone 可用区
+     */
+    public $FlinkVersion;
+
+    /**
+     * @var string <p>工作空间 SerialId</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param integer $AppId 用户AppId
+     */
+    public $WorkSpaceId;
+
+    /**
+     * @var string <p>工作空间名称</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $OwnerUin 用户UIN
+     */
+    public $WorkSpaceName;
+
+    /**
+     * @var array <p>作业标签</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $CreatorUin 创建者UIN
+     */
+    public $Tags;
+
+    /**
+     * @var JobEventInfo <p>作业异常事件信息</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $Name 作业名字
+     */
+    public $EventInfo;
+
+    /**
+     * @var string <p>描述信息</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param integer $JobType 作业类型
+     */
+    public $Description;
+
+    /**
+     * @var integer <p>0:代表没开启调优任务，1:开启智能调优，2:代表定时调优</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param integer $Status 作业状态，1：未初始化，2：未发布，3：操作中，4：运行中，5：停止，6：暂停，-1：故障
+     */
+    public $ScalingType;
+
+    /**
+     * @var float <p>使用CPU数目</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $CreateTime 作业创建时间
+     */
+    public $RunningCpu;
+
+    /**
+     * @var float <p>使用内存数量</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $StartTime 作业启动时间
+     */
+    public $RunningMem;
+
+    /**
+     * @var integer <p>是否开了默认告警</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $StopTime 作业停止时间
+     */
+    public $OpenJobDefaultAlarm;
+
+    /**
+     * @var string <p>操作中描述</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $UpdateTime 作业更新时间
+     */
+    public $ProgressDesc;
+
+    /**
+     * @var integer <p>停止持续告警</p>
+     */
+    public $ContinueAlarm;
+
+    /**
+     * @var integer <p>作业重启次数</p>
+     */
+    public $RestartCount;
+
+    /**
+     * @var integer <p>期望是开启默认告警</p>
+     */
+    public $ExpectJobDefaultAlarmStatus;
+
+    /**
+     * @var string <p>jdk版本</p>
+     */
+    public $JdkVersion;
+
+    /**
+     * @var string <p>状态桶名字</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param integer $TotalRunMillis 作业累计运行时间
+     */
+    public $StateCOSBucket;
+
+    /**
+     * @var string <p>新的状态桶名字</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $Remark 备注信息
+     */
+    public $NewStateCOSBucket;
+
+    /**
+     * @var integer <p>同类型</p><p>枚举值：</p><ul><li>0： 普通桶</li><li>1： 加速桶</li></ul>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $LastOpResult 操作错误提示信息
+     */
+    public $StateCOSBucketType;
+
+    /**
+     * @var integer <p>新的桶类型</p><p>枚举值：</p><ul><li>0： 普通桶</li><li>1： 加速桶</li></ul>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $ClusterName 集群名字
+     */
+    public $NewStateCOSBucketType;
+
+    /**
+     * @var integer <p>健康分数</p>
+     */
+    public $HealthScore;
+
+    /**
+     * @var string <p>最新诊断时间</p><p>参数格式：RFC3339</p>
+     */
+    public $LastDiagnoseTime;
+
+    /**
+     * @var string <p>负责人Uin</p>
+     */
+    public $ManagerUin;
+
+    /**
+     * @var string <p>启动位点</p>
+     */
+    public $StartupPoint;
+
+    /**
+     * @var boolean <p>是否有事件</p>
+     */
+    public $IsEvent;
+
+    /**
+     * @var boolean <p>是否告警</p>
+     */
+    public $IsAlarm;
+
+    /**
+     * @param string $JobId <p>作业ID</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param integer $LatestJobConfigVersion 最新配置版本号
+     * @param string $Region <p>地域</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param integer $PublishedJobConfigVersion 已发布的配置版本
+     * @param string $Zone <p>可用区</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param integer $RunningCuNum 运行的CU数量
+     * @param integer $AppId <p>用户AppId</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param integer $CuMem 作业内存规格
+     * @param string $OwnerUin <p>用户UIN</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $StatusDesc 作业状态描述
+     * @param string $CreatorUin <p>创建者UIN</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param integer $CurrentRunMillis 运行状态时表示单次运行时间
+     * @param string $Name <p>作业名字</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $ClusterId 作业所在的集群ID
+     * @param integer $JobType <p>作业类型，1：sql作业，2：Jar作业</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $WebUIUrl 作业管理WEB UI 入口
+     * @param integer $Status <p>作业状态，1：未初始化，2：未发布，3：操作中，4：运行中，5：停止，6：暂停，-1：故障</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param integer $SchedulerType 作业所在集群类型
+     * @param string $CreateTime <p>作业创建时间</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param integer $ClusterStatus 作业所在集群状态
+     * @param string $StartTime <p>作业启动时间</p>
 注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $StopTime <p>作业停止时间</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $UpdateTime <p>作业更新时间</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param integer $TotalRunMillis <p>作业累计运行时间</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $Remark <p>备注信息</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $LastOpResult <p>操作错误提示信息</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $ClusterName <p>集群名字</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param integer $LatestJobConfigVersion <p>最新配置版本号，包括已经删除的版本</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param integer $LatestValidJobConfigVersion <p>最新的版本号，不包括已经删除的版本号</p>
+     * @param integer $PublishedJobConfigVersion <p>已发布的配置版本</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param integer $RunningCuNum <p>运行的CU数量</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param integer $CuMem <p>作业内存规格</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $StatusDesc <p>作业状态描述</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param integer $CurrentRunMillis <p>运行状态时表示单次运行时间</p><p>单位：毫秒</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $ClusterId <p>作业所在的集群ID</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $WebUIUrl <p>作业管理WEB UI 入口</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param integer $SchedulerType <p>作业所在集群类型</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param integer $ClusterStatus <p>作业所在集群状态</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param float $RunningCu <p>细粒度下的运行的CU数量</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $FlinkVersion <p>作业运行的 Flink 版本</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $WorkSpaceId <p>工作空间 SerialId</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $WorkSpaceName <p>工作空间名称</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param array $Tags <p>作业标签</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param JobEventInfo $EventInfo <p>作业异常事件信息</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $Description <p>描述信息</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param integer $ScalingType <p>0:代表没开启调优任务，1:开启智能调优，2:代表定时调优</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param float $RunningCpu <p>使用CPU数目</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param float $RunningMem <p>使用内存数量</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param integer $OpenJobDefaultAlarm <p>是否开了默认告警</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $ProgressDesc <p>操作中描述</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param integer $ContinueAlarm <p>停止持续告警</p>
+     * @param integer $RestartCount <p>作业重启次数</p>
+     * @param integer $ExpectJobDefaultAlarmStatus <p>期望是开启默认告警</p>
+     * @param string $JdkVersion <p>jdk版本</p>
+     * @param string $StateCOSBucket <p>状态桶名字</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $NewStateCOSBucket <p>新的状态桶名字</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param integer $StateCOSBucketType <p>同类型</p><p>枚举值：</p><ul><li>0： 普通桶</li><li>1： 加速桶</li></ul>
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param integer $NewStateCOSBucketType <p>新的桶类型</p><p>枚举值：</p><ul><li>0： 普通桶</li><li>1： 加速桶</li></ul>
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param integer $HealthScore <p>健康分数</p>
+     * @param string $LastDiagnoseTime <p>最新诊断时间</p><p>参数格式：RFC3339</p>
+     * @param string $ManagerUin <p>负责人Uin</p>
+     * @param string $StartupPoint <p>启动位点</p>
+     * @param boolean $IsEvent <p>是否有事件</p>
+     * @param boolean $IsAlarm <p>是否告警</p>
      */
     function __construct()
     {
@@ -434,6 +714,10 @@ class JobV1 extends AbstractModel
             $this->LatestJobConfigVersion = $param["LatestJobConfigVersion"];
         }
 
+        if (array_key_exists("LatestValidJobConfigVersion",$param) and $param["LatestValidJobConfigVersion"] !== null) {
+            $this->LatestValidJobConfigVersion = $param["LatestValidJobConfigVersion"];
+        }
+
         if (array_key_exists("PublishedJobConfigVersion",$param) and $param["PublishedJobConfigVersion"] !== null) {
             $this->PublishedJobConfigVersion = $param["PublishedJobConfigVersion"];
         }
@@ -468,6 +752,116 @@ class JobV1 extends AbstractModel
 
         if (array_key_exists("ClusterStatus",$param) and $param["ClusterStatus"] !== null) {
             $this->ClusterStatus = $param["ClusterStatus"];
+        }
+
+        if (array_key_exists("RunningCu",$param) and $param["RunningCu"] !== null) {
+            $this->RunningCu = $param["RunningCu"];
+        }
+
+        if (array_key_exists("FlinkVersion",$param) and $param["FlinkVersion"] !== null) {
+            $this->FlinkVersion = $param["FlinkVersion"];
+        }
+
+        if (array_key_exists("WorkSpaceId",$param) and $param["WorkSpaceId"] !== null) {
+            $this->WorkSpaceId = $param["WorkSpaceId"];
+        }
+
+        if (array_key_exists("WorkSpaceName",$param) and $param["WorkSpaceName"] !== null) {
+            $this->WorkSpaceName = $param["WorkSpaceName"];
+        }
+
+        if (array_key_exists("Tags",$param) and $param["Tags"] !== null) {
+            $this->Tags = [];
+            foreach ($param["Tags"] as $key => $value){
+                $obj = new Tag();
+                $obj->deserialize($value);
+                array_push($this->Tags, $obj);
+            }
+        }
+
+        if (array_key_exists("EventInfo",$param) and $param["EventInfo"] !== null) {
+            $this->EventInfo = new JobEventInfo();
+            $this->EventInfo->deserialize($param["EventInfo"]);
+        }
+
+        if (array_key_exists("Description",$param) and $param["Description"] !== null) {
+            $this->Description = $param["Description"];
+        }
+
+        if (array_key_exists("ScalingType",$param) and $param["ScalingType"] !== null) {
+            $this->ScalingType = $param["ScalingType"];
+        }
+
+        if (array_key_exists("RunningCpu",$param) and $param["RunningCpu"] !== null) {
+            $this->RunningCpu = $param["RunningCpu"];
+        }
+
+        if (array_key_exists("RunningMem",$param) and $param["RunningMem"] !== null) {
+            $this->RunningMem = $param["RunningMem"];
+        }
+
+        if (array_key_exists("OpenJobDefaultAlarm",$param) and $param["OpenJobDefaultAlarm"] !== null) {
+            $this->OpenJobDefaultAlarm = $param["OpenJobDefaultAlarm"];
+        }
+
+        if (array_key_exists("ProgressDesc",$param) and $param["ProgressDesc"] !== null) {
+            $this->ProgressDesc = $param["ProgressDesc"];
+        }
+
+        if (array_key_exists("ContinueAlarm",$param) and $param["ContinueAlarm"] !== null) {
+            $this->ContinueAlarm = $param["ContinueAlarm"];
+        }
+
+        if (array_key_exists("RestartCount",$param) and $param["RestartCount"] !== null) {
+            $this->RestartCount = $param["RestartCount"];
+        }
+
+        if (array_key_exists("ExpectJobDefaultAlarmStatus",$param) and $param["ExpectJobDefaultAlarmStatus"] !== null) {
+            $this->ExpectJobDefaultAlarmStatus = $param["ExpectJobDefaultAlarmStatus"];
+        }
+
+        if (array_key_exists("JdkVersion",$param) and $param["JdkVersion"] !== null) {
+            $this->JdkVersion = $param["JdkVersion"];
+        }
+
+        if (array_key_exists("StateCOSBucket",$param) and $param["StateCOSBucket"] !== null) {
+            $this->StateCOSBucket = $param["StateCOSBucket"];
+        }
+
+        if (array_key_exists("NewStateCOSBucket",$param) and $param["NewStateCOSBucket"] !== null) {
+            $this->NewStateCOSBucket = $param["NewStateCOSBucket"];
+        }
+
+        if (array_key_exists("StateCOSBucketType",$param) and $param["StateCOSBucketType"] !== null) {
+            $this->StateCOSBucketType = $param["StateCOSBucketType"];
+        }
+
+        if (array_key_exists("NewStateCOSBucketType",$param) and $param["NewStateCOSBucketType"] !== null) {
+            $this->NewStateCOSBucketType = $param["NewStateCOSBucketType"];
+        }
+
+        if (array_key_exists("HealthScore",$param) and $param["HealthScore"] !== null) {
+            $this->HealthScore = $param["HealthScore"];
+        }
+
+        if (array_key_exists("LastDiagnoseTime",$param) and $param["LastDiagnoseTime"] !== null) {
+            $this->LastDiagnoseTime = $param["LastDiagnoseTime"];
+        }
+
+        if (array_key_exists("ManagerUin",$param) and $param["ManagerUin"] !== null) {
+            $this->ManagerUin = $param["ManagerUin"];
+        }
+
+        if (array_key_exists("StartupPoint",$param) and $param["StartupPoint"] !== null) {
+            $this->StartupPoint = $param["StartupPoint"];
+        }
+
+        if (array_key_exists("IsEvent",$param) and $param["IsEvent"] !== null) {
+            $this->IsEvent = $param["IsEvent"];
+        }
+
+        if (array_key_exists("IsAlarm",$param) and $param["IsAlarm"] !== null) {
+            $this->IsAlarm = $param["IsAlarm"];
         }
     }
 }

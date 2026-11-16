@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,40 +18,28 @@ namespace TencentCloud\Ckafka\V20190819\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * 创建预付费实例返回结构
+ * CreateInstancePre返回参数结构体
  *
- * @method string getReturnCode() 获取返回的code，0为正常，非0为错误
- * @method void setReturnCode(string $ReturnCode) 设置返回的code，0为正常，非0为错误
- * @method string getReturnMessage() 获取成功消息
- * @method void setReturnMessage(string $ReturnMessage) 设置成功消息
- * @method CreateInstancePreData getData() 获取操作型返回的Data数据
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setData(CreateInstancePreData $Data) 设置操作型返回的Data数据
-注意：此字段可能返回 null，表示取不到有效值。
+ * @method CreateInstancePreResp getResult() 获取<p>返回结果</p>
+ * @method void setResult(CreateInstancePreResp $Result) 设置<p>返回结果</p>
+ * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+ * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
 class CreateInstancePreResponse extends AbstractModel
 {
     /**
-     * @var string 返回的code，0为正常，非0为错误
+     * @var CreateInstancePreResp <p>返回结果</p>
      */
-    public $ReturnCode;
+    public $Result;
 
     /**
-     * @var string 成功消息
+     * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
-    public $ReturnMessage;
+    public $RequestId;
 
     /**
-     * @var CreateInstancePreData 操作型返回的Data数据
-注意：此字段可能返回 null，表示取不到有效值。
-     */
-    public $Data;
-
-    /**
-     * @param string $ReturnCode 返回的code，0为正常，非0为错误
-     * @param string $ReturnMessage 成功消息
-     * @param CreateInstancePreData $Data 操作型返回的Data数据
-注意：此字段可能返回 null，表示取不到有效值。
+     * @param CreateInstancePreResp $Result <p>返回结果</p>
+     * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
     {
@@ -66,17 +54,13 @@ class CreateInstancePreResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("ReturnCode",$param) and $param["ReturnCode"] !== null) {
-            $this->ReturnCode = $param["ReturnCode"];
+        if (array_key_exists("Result",$param) and $param["Result"] !== null) {
+            $this->Result = new CreateInstancePreResp();
+            $this->Result->deserialize($param["Result"]);
         }
 
-        if (array_key_exists("ReturnMessage",$param) and $param["ReturnMessage"] !== null) {
-            $this->ReturnMessage = $param["ReturnMessage"];
-        }
-
-        if (array_key_exists("Data",$param) and $param["Data"] !== null) {
-            $this->Data = new CreateInstancePreData();
-            $this->Data->deserialize($param["Data"]);
+        if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
+            $this->RequestId = $param["RequestId"];
         }
     }
 }

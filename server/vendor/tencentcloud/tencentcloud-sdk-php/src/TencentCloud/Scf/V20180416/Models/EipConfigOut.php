@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,9 +23,7 @@ use TencentCloud\Common\AbstractModel;
  * @method string getEipStatus() 获取是否是固定IP，["ENABLE","DISABLE"]
  * @method void setEipStatus(string $EipStatus) 设置是否是固定IP，["ENABLE","DISABLE"]
  * @method array getEipAddress() 获取IP列表
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setEipAddress(array $EipAddress) 设置IP列表
-注意：此字段可能返回 null，表示取不到有效值。
  */
 class EipConfigOut extends AbstractModel
 {
@@ -36,14 +34,12 @@ class EipConfigOut extends AbstractModel
 
     /**
      * @var array IP列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $EipAddress;
 
     /**
      * @param string $EipStatus 是否是固定IP，["ENABLE","DISABLE"]
      * @param array $EipAddress IP列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
     {

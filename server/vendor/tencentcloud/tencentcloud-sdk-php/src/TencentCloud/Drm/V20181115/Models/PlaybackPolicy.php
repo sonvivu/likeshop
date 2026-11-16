@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,26 +20,34 @@ use TencentCloud\Common\AbstractModel;
 /**
  * 播放控制参数
  *
- * @method integer getLicenseDurationSeconds() 获取播放许可证的有效期
- * @method void setLicenseDurationSeconds(integer $LicenseDurationSeconds) 设置播放许可证的有效期
- * @method integer getPlaybackDurationSeconds() 获取开始播放后，允许最长播放时间
- * @method void setPlaybackDurationSeconds(integer $PlaybackDurationSeconds) 设置开始播放后，允许最长播放时间
+ * @method integer getLicenseDurationSeconds() 获取<p>播放许可证的有效期</p><p>单位：秒</p>
+ * @method void setLicenseDurationSeconds(integer $LicenseDurationSeconds) 设置<p>播放许可证的有效期</p><p>单位：秒</p>
+ * @method integer getPlaybackDurationSeconds() 获取<p>开始播放后，允许最长播放时间</p><p>单位：秒</p>
+ * @method void setPlaybackDurationSeconds(integer $PlaybackDurationSeconds) 设置<p>开始播放后，允许最长播放时间</p><p>单位：秒</p>
+ * @method boolean getCanPersistent() 获取<p>是否允许下发离线license</p><p>默认值：false</p><p>widevine方案，<br>当CanPersistent为true时，根据license request中请求的是online还是offline license自动匹配下发。<br>当CanPersistent为false时，只下发online license。</p><p>fairplay方案。<br>当CanPersistent为true时，只下发offline license。<br>当CanPersistent为false时，只下发online license。</p>
+ * @method void setCanPersistent(boolean $CanPersistent) 设置<p>是否允许下发离线license</p><p>默认值：false</p><p>widevine方案，<br>当CanPersistent为true时，根据license request中请求的是online还是offline license自动匹配下发。<br>当CanPersistent为false时，只下发online license。</p><p>fairplay方案。<br>当CanPersistent为true时，只下发offline license。<br>当CanPersistent为false时，只下发online license。</p>
  */
 class PlaybackPolicy extends AbstractModel
 {
     /**
-     * @var integer 播放许可证的有效期
+     * @var integer <p>播放许可证的有效期</p><p>单位：秒</p>
      */
     public $LicenseDurationSeconds;
 
     /**
-     * @var integer 开始播放后，允许最长播放时间
+     * @var integer <p>开始播放后，允许最长播放时间</p><p>单位：秒</p>
      */
     public $PlaybackDurationSeconds;
 
     /**
-     * @param integer $LicenseDurationSeconds 播放许可证的有效期
-     * @param integer $PlaybackDurationSeconds 开始播放后，允许最长播放时间
+     * @var boolean <p>是否允许下发离线license</p><p>默认值：false</p><p>widevine方案，<br>当CanPersistent为true时，根据license request中请求的是online还是offline license自动匹配下发。<br>当CanPersistent为false时，只下发online license。</p><p>fairplay方案。<br>当CanPersistent为true时，只下发offline license。<br>当CanPersistent为false时，只下发online license。</p>
+     */
+    public $CanPersistent;
+
+    /**
+     * @param integer $LicenseDurationSeconds <p>播放许可证的有效期</p><p>单位：秒</p>
+     * @param integer $PlaybackDurationSeconds <p>开始播放后，允许最长播放时间</p><p>单位：秒</p>
+     * @param boolean $CanPersistent <p>是否允许下发离线license</p><p>默认值：false</p><p>widevine方案，<br>当CanPersistent为true时，根据license request中请求的是online还是offline license自动匹配下发。<br>当CanPersistent为false时，只下发online license。</p><p>fairplay方案。<br>当CanPersistent为true时，只下发offline license。<br>当CanPersistent为false时，只下发online license。</p>
      */
     function __construct()
     {
@@ -60,6 +68,10 @@ class PlaybackPolicy extends AbstractModel
 
         if (array_key_exists("PlaybackDurationSeconds",$param) and $param["PlaybackDurationSeconds"] !== null) {
             $this->PlaybackDurationSeconds = $param["PlaybackDurationSeconds"];
+        }
+
+        if (array_key_exists("CanPersistent",$param) and $param["CanPersistent"] !== null) {
+            $this->CanPersistent = $param["CanPersistent"];
         }
     }
 }

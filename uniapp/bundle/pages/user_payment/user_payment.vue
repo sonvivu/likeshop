@@ -37,7 +37,7 @@
 				</view>
 			</view>
 		</view>
-		<u-popup class="pay-popup" v-model="showPopup" closeable round mode="center">
+		<u-popup class="pay-popup" v-model:show="showPopup" closeable round mode="center">
 			<view class="content bg-white">
 				<image class="img-icon" src="../../static/images/recharge_success.png"></image>
 				<view class="xxl bold mt10">{{ $t('充值成功') }}</view>

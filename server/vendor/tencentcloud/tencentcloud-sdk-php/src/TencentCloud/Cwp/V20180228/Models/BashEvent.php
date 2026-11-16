@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,10 +20,10 @@ use TencentCloud\Common\AbstractModel;
 /**
  * 高危命令数据
  *
- * @method integer getId() 获取ID
- * @method void setId(integer $Id) 设置ID
- * @method string getUuid() 获取云镜ID
- * @method void setUuid(string $Uuid) 设置云镜ID
+ * @method integer getId() 获取数据ID
+ * @method void setId(integer $Id) 设置数据ID
+ * @method string getUuid() 获取主机安全ID
+ * @method void setUuid(string $Uuid) 设置主机安全ID
  * @method string getQuuid() 获取主机ID
  * @method void setQuuid(string $Quuid) 设置主机ID
  * @method string getHostip() 获取主机内网IP
@@ -38,24 +38,38 @@ use TencentCloud\Common\AbstractModel;
  * @method void setRuleId(integer $RuleId) 设置规则ID
  * @method string getRuleName() 获取规则名称
  * @method void setRuleName(string $RuleName) 设置规则名称
- * @method integer getRuleLevel() 获取规则等级
- * @method void setRuleLevel(integer $RuleLevel) 设置规则等级
- * @method integer getStatus() 获取处理状态
- * @method void setStatus(integer $Status) 设置处理状态
+ * @method integer getRuleLevel() 获取规则等级：1-高 2-中 3-低
+ * @method void setRuleLevel(integer $RuleLevel) 设置规则等级：1-高 2-中 3-低
+ * @method integer getStatus() 获取处理状态： 0 = 待处理 1= 已处理, 2 = 已加白， 3 = 已忽略
+ * @method void setStatus(integer $Status) 设置处理状态： 0 = 待处理 1= 已处理, 2 = 已加白， 3 = 已忽略
  * @method string getCreateTime() 获取发生时间
  * @method void setCreateTime(string $CreateTime) 设置发生时间
  * @method string getMachineName() 获取主机名
  * @method void setMachineName(string $MachineName) 设置主机名
+ * @method integer getDetectBy() 获取0: bash日志 1: 实时监控(雷霆版)
+ * @method void setDetectBy(integer $DetectBy) 设置0: bash日志 1: 实时监控(雷霆版)
+ * @method string getPid() 获取进程id
+ * @method void setPid(string $Pid) 设置进程id
+ * @method string getExe() 获取进程名称
+ * @method void setExe(string $Exe) 设置进程名称
+ * @method string getModifyTime() 获取处理时间
+ * @method void setModifyTime(string $ModifyTime) 设置处理时间
+ * @method integer getRuleCategory() 获取规则类别  0=系统规则，1=用户规则
+ * @method void setRuleCategory(integer $RuleCategory) 设置规则类别  0=系统规则，1=用户规则
+ * @method string getRegexBashCmd() 获取自动生成的正则表达式
+ * @method void setRegexBashCmd(string $RegexBashCmd) 设置自动生成的正则表达式
+ * @method string getHostName() 获取主机HostName
+ * @method void setHostName(string $HostName) 设置主机HostName
  */
 class BashEvent extends AbstractModel
 {
     /**
-     * @var integer ID
+     * @var integer 数据ID
      */
     public $Id;
 
     /**
-     * @var string 云镜ID
+     * @var string 主机安全ID
      */
     public $Uuid;
 
@@ -95,12 +109,12 @@ class BashEvent extends AbstractModel
     public $RuleName;
 
     /**
-     * @var integer 规则等级
+     * @var integer 规则等级：1-高 2-中 3-低
      */
     public $RuleLevel;
 
     /**
-     * @var integer 处理状态
+     * @var integer 处理状态： 0 = 待处理 1= 已处理, 2 = 已加白， 3 = 已忽略
      */
     public $Status;
 
@@ -115,8 +129,43 @@ class BashEvent extends AbstractModel
     public $MachineName;
 
     /**
-     * @param integer $Id ID
-     * @param string $Uuid 云镜ID
+     * @var integer 0: bash日志 1: 实时监控(雷霆版)
+     */
+    public $DetectBy;
+
+    /**
+     * @var string 进程id
+     */
+    public $Pid;
+
+    /**
+     * @var string 进程名称
+     */
+    public $Exe;
+
+    /**
+     * @var string 处理时间
+     */
+    public $ModifyTime;
+
+    /**
+     * @var integer 规则类别  0=系统规则，1=用户规则
+     */
+    public $RuleCategory;
+
+    /**
+     * @var string 自动生成的正则表达式
+     */
+    public $RegexBashCmd;
+
+    /**
+     * @var string 主机HostName
+     */
+    public $HostName;
+
+    /**
+     * @param integer $Id 数据ID
+     * @param string $Uuid 主机安全ID
      * @param string $Quuid 主机ID
      * @param string $Hostip 主机内网IP
      * @param string $User 执行用户名
@@ -124,10 +173,17 @@ class BashEvent extends AbstractModel
      * @param string $BashCmd 执行命令
      * @param integer $RuleId 规则ID
      * @param string $RuleName 规则名称
-     * @param integer $RuleLevel 规则等级
-     * @param integer $Status 处理状态
+     * @param integer $RuleLevel 规则等级：1-高 2-中 3-低
+     * @param integer $Status 处理状态： 0 = 待处理 1= 已处理, 2 = 已加白， 3 = 已忽略
      * @param string $CreateTime 发生时间
      * @param string $MachineName 主机名
+     * @param integer $DetectBy 0: bash日志 1: 实时监控(雷霆版)
+     * @param string $Pid 进程id
+     * @param string $Exe 进程名称
+     * @param string $ModifyTime 处理时间
+     * @param integer $RuleCategory 规则类别  0=系统规则，1=用户规则
+     * @param string $RegexBashCmd 自动生成的正则表达式
+     * @param string $HostName 主机HostName
      */
     function __construct()
     {
@@ -192,6 +248,34 @@ class BashEvent extends AbstractModel
 
         if (array_key_exists("MachineName",$param) and $param["MachineName"] !== null) {
             $this->MachineName = $param["MachineName"];
+        }
+
+        if (array_key_exists("DetectBy",$param) and $param["DetectBy"] !== null) {
+            $this->DetectBy = $param["DetectBy"];
+        }
+
+        if (array_key_exists("Pid",$param) and $param["Pid"] !== null) {
+            $this->Pid = $param["Pid"];
+        }
+
+        if (array_key_exists("Exe",$param) and $param["Exe"] !== null) {
+            $this->Exe = $param["Exe"];
+        }
+
+        if (array_key_exists("ModifyTime",$param) and $param["ModifyTime"] !== null) {
+            $this->ModifyTime = $param["ModifyTime"];
+        }
+
+        if (array_key_exists("RuleCategory",$param) and $param["RuleCategory"] !== null) {
+            $this->RuleCategory = $param["RuleCategory"];
+        }
+
+        if (array_key_exists("RegexBashCmd",$param) and $param["RegexBashCmd"] !== null) {
+            $this->RegexBashCmd = $param["RegexBashCmd"];
+        }
+
+        if (array_key_exists("HostName",$param) and $param["HostName"] !== null) {
+            $this->HostName = $param["HostName"];
         }
     }
 }

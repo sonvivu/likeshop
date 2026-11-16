@@ -22,8 +22,8 @@ use app\api\model\Order;
 use app\api\model\OrderGoods;
 use app\common\model\AccountLog;
 use app\common\model\DistributionOrder;
-use think\Db;
-use think\helper\Time;
+use think\facade\Db;
+use app\common\helper\Time;
 
 class AccountLogLogic
 {
@@ -73,6 +73,7 @@ class AccountLogLogic
                 ->order('a.id desc')
                 ->field('a.*,nickname,sn,mobile')
                 ->select();
+        $list = $list->toArray(); // ThinkPHP 6：select() 返回 Collection，TP5 返回数组；直接写 $list[$k]['x'] 或 foreach(&$item) 改值会丢/报错，先转数组。
 
         foreach ($list as &$item){
             $item['source_type_desc'] = AccountLog::getAcccountDesc($item['source_type']);

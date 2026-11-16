@@ -1,10 +1,9 @@
 <template>
   <div class="coupons-list row">
-    <template v-for="(item, index) in couponsList">
+    <template v-for="(item, index) in couponsList" :key="index">
       <div
         v-show="item.isShow"
         class="item"
-        :key="index"
         @click.capture="onHandle(item.id)"
       >
         <div
@@ -31,11 +30,7 @@
         <div class="tips row-between" @click.stop="onShowTips(index)">
           <div class="muted xs">{{ item.coupon_type }}</div>
           <div v-if="item.tips">
-            <i
-              :class="
-                showTips[index] ? 'el-icon-arrow-up' : 'el-icon-arrow-down'
-              "
-            ></i>
+            <el-icon><ArrowUp v-if="showTips[index]" /><ArrowDown v-else /></el-icon>
             <div
               class="tips-con xs lighter"
               v-if="item.tips && showTips[index]"
@@ -59,14 +54,20 @@
 
     <div class="more muted" v-if="showMore && list.length > 4" @click="changeShow">
       {{ isMore ? $t('收起') :  $t('更多') }}
-      <i :class="isMore ? 'el-icon-arrow-up' : 'el-icon-arrow-down'"></i>
+      <el-icon><ArrowUp v-if="isMore" /><ArrowDown v-else /></el-icon>
     </div>
   </div>
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { ArrowUp, ArrowDown } from "@element-plus/icons-vue";
+import { mapActions } from "pinia";
+import { useAppStore } from "~/stores/app";
 export default {
+  components: {
+    ArrowUp,
+    ArrowDown,
+  },
   props: {
     list: {
       type: Array,
@@ -89,7 +90,7 @@ export default {
     };
   },
   methods: {
-    ...mapActions(["getPublicData"]),
+    ...mapActions(useAppStore, ["getPublicData"]),
     onHandle(id) {
       this.id = id;
       const { type } = this;

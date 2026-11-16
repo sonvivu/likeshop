@@ -3,7 +3,7 @@ import { mapMutations, mapActions, mapGetters } from 'vuex'
 import { inputInviteCode, userLogout } from '@/api/user'
 import { userShare, getConfig } from '@/api/app'
 import Cache from '@/utils/cache'
-import { strToParams, showModal, setTabbar } from '@/utils/tools'
+import { strToParams, setTabbar } from '@/utils/tools'
 export default {
     globalData: {
         navHeight: ''
@@ -127,5 +127,5 @@ export default {
 <style lang="scss">
 @import 'styles/base.scss';
 /*每个页面公共css */
-@import 'components/uview-ui/index.scss';
+@import 'uview-plus/index.scss';
 </style>

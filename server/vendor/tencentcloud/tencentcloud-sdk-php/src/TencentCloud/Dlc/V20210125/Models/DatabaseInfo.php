@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,26 +20,28 @@ use TencentCloud\Common\AbstractModel;
 /**
  * 数据库对象
  *
- * @method string getDatabaseName() 获取数据库名称。
- * @method void setDatabaseName(string $DatabaseName) 设置数据库名称。
- * @method string getComment() 获取数据库描述信息，长度 0~256。
+ * @method string getDatabaseName() 获取数据库名称，长度0~128，支持数字、字母下划线，不允许数字大头，统一转换为小写。
+ * @method void setDatabaseName(string $DatabaseName) 设置数据库名称，长度0~128，支持数字、字母下划线，不允许数字大头，统一转换为小写。
+ * @method string getComment() 获取数据库描述信息，长度 0~500。
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setComment(string $Comment) 设置数据库描述信息，长度 0~256。
+ * @method void setComment(string $Comment) 设置数据库描述信息，长度 0~500。
 注意：此字段可能返回 null，表示取不到有效值。
  * @method array getProperties() 获取数据库属性列表。
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setProperties(array $Properties) 设置数据库属性列表。
 注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getLocation() 获取数据库cos路径
+ * @method void setLocation(string $Location) 设置数据库cos路径
  */
 class DatabaseInfo extends AbstractModel
 {
     /**
-     * @var string 数据库名称。
+     * @var string 数据库名称，长度0~128，支持数字、字母下划线，不允许数字大头，统一转换为小写。
      */
     public $DatabaseName;
 
     /**
-     * @var string 数据库描述信息，长度 0~256。
+     * @var string 数据库描述信息，长度 0~500。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Comment;
@@ -51,11 +53,17 @@ class DatabaseInfo extends AbstractModel
     public $Properties;
 
     /**
-     * @param string $DatabaseName 数据库名称。
-     * @param string $Comment 数据库描述信息，长度 0~256。
+     * @var string 数据库cos路径
+     */
+    public $Location;
+
+    /**
+     * @param string $DatabaseName 数据库名称，长度0~128，支持数字、字母下划线，不允许数字大头，统一转换为小写。
+     * @param string $Comment 数据库描述信息，长度 0~500。
 注意：此字段可能返回 null，表示取不到有效值。
      * @param array $Properties 数据库属性列表。
 注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $Location 数据库cos路径
      */
     function __construct()
     {
@@ -85,6 +93,10 @@ class DatabaseInfo extends AbstractModel
                 $obj->deserialize($value);
                 array_push($this->Properties, $obj);
             }
+        }
+
+        if (array_key_exists("Location",$param) and $param["Location"] !== null) {
+            $this->Location = $param["Location"];
         }
     }
 }

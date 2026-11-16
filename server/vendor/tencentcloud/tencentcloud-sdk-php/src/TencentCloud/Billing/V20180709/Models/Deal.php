@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,8 +22,8 @@ use TencentCloud\Common\AbstractModel;
  *
  * @method string getOrderId() 获取订单号
  * @method void setOrderId(string $OrderId) 设置订单号
- * @method integer getStatus() 获取订单状态
- * @method void setStatus(integer $Status) 设置订单状态
+ * @method integer getStatus() 获取订单的状态 1：未支付 2：已支付3：发货中 4：已发货 5：发货失败 6：已退款 7：已关单 8：订单过期 9：订单已失效 10：产品已失效 11：代付拒绝 12：支付中
+ * @method void setStatus(integer $Status) 设置订单的状态 1：未支付 2：已支付3：发货中 4：已发货 5：发货失败 6：已退款 7：已关单 8：订单过期 9：订单已失效 10：产品已失效 11：代付拒绝 12：支付中
  * @method string getPayer() 获取支付者
  * @method void setPayer(string $Payer) 设置支付者
  * @method string getCreateTime() 获取创建时间
@@ -53,23 +53,53 @@ use TencentCloud\Common\AbstractModel;
  * @method float getTotalCost() 获取原价（分）
  * @method void setTotalCost(float $TotalCost) 设置原价（分）
  * @method string getProductCode() 获取产品编码
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setProductCode(string $ProductCode) 设置产品编码
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getSubProductCode() 获取子产品编码
  * @method void setSubProductCode(string $SubProductCode) 设置子产品编码
  * @method string getBigDealId() 获取大订单号
  * @method void setBigDealId(string $BigDealId) 设置大订单号
  * @method string getFormula() 获取退费公式
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setFormula(string $Formula) 设置退费公式
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getRefReturnDeals() 获取退费涉及订单信息
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setRefReturnDeals(string $RefReturnDeals) 设置退费涉及订单信息
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getPayMode() 获取付费模式：prePay 预付费 postPay后付费 riPay预留实例
  * @method void setPayMode(string $PayMode) 设置付费模式：prePay 预付费 postPay后付费 riPay预留实例
+ * @method string getAction() 获取交易类型
+modifyNetworkMode 调整带宽模式
+modifyNetworkSize 调整带宽大小
+refund 退款
+downgrade 降配
+upgrade 升配
+renew 续费
+purchase 购买
+preMoveOut 包年包月迁出资源
+preMoveIn 包年包月迁入资源
+preToPost 预付费转后付费
+postMoveOut 按量计费迁出资源
+postMoveIn 按量计费迁入资源
+ * @method void setAction(string $Action) 设置交易类型
+modifyNetworkMode 调整带宽模式
+modifyNetworkSize 调整带宽大小
+refund 退款
+downgrade 降配
+upgrade 升配
+renew 续费
+purchase 购买
+preMoveOut 包年包月迁出资源
+preMoveIn 包年包月迁入资源
+preToPost 预付费转后付费
+postMoveOut 按量计费迁出资源
+postMoveIn 按量计费迁入资源
+ * @method string getProductName() 获取产品编码中文名称
+ * @method void setProductName(string $ProductName) 设置产品编码中文名称
+ * @method string getSubProductName() 获取子产品编码中文名称
+ * @method void setSubProductName(string $SubProductName) 设置子产品编码中文名称
+ * @method array getResourceId() 获取订单对应的资源id, 查询参数Limit超过200，将返回null
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setResourceId(array $ResourceId) 设置订单对应的资源id, 查询参数Limit超过200，将返回null
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getZoneCode() 获取订单对应的可用区Id
+ * @method void setZoneCode(string $ZoneCode) 设置订单对应的可用区Id
  */
 class Deal extends AbstractModel
 {
@@ -79,7 +109,7 @@ class Deal extends AbstractModel
     public $OrderId;
 
     /**
-     * @var integer 订单状态
+     * @var integer 订单的状态 1：未支付 2：已支付3：发货中 4：已发货 5：发货失败 6：已退款 7：已关单 8：订单过期 9：订单已失效 10：产品已失效 11：代付拒绝 12：支付中
      */
     public $Status;
 
@@ -155,7 +185,6 @@ class Deal extends AbstractModel
 
     /**
      * @var string 产品编码
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $ProductCode;
 
@@ -171,13 +200,11 @@ class Deal extends AbstractModel
 
     /**
      * @var string 退费公式
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Formula;
 
     /**
      * @var string 退费涉及订单信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $RefReturnDeals;
 
@@ -187,8 +214,46 @@ class Deal extends AbstractModel
     public $PayMode;
 
     /**
+     * @var string 交易类型
+modifyNetworkMode 调整带宽模式
+modifyNetworkSize 调整带宽大小
+refund 退款
+downgrade 降配
+upgrade 升配
+renew 续费
+purchase 购买
+preMoveOut 包年包月迁出资源
+preMoveIn 包年包月迁入资源
+preToPost 预付费转后付费
+postMoveOut 按量计费迁出资源
+postMoveIn 按量计费迁入资源
+     */
+    public $Action;
+
+    /**
+     * @var string 产品编码中文名称
+     */
+    public $ProductName;
+
+    /**
+     * @var string 子产品编码中文名称
+     */
+    public $SubProductName;
+
+    /**
+     * @var array 订单对应的资源id, 查询参数Limit超过200，将返回null
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $ResourceId;
+
+    /**
+     * @var string 订单对应的可用区Id
+     */
+    public $ZoneCode;
+
+    /**
      * @param string $OrderId 订单号
-     * @param integer $Status 订单状态
+     * @param integer $Status 订单的状态 1：未支付 2：已支付3：发货中 4：已发货 5：发货失败 6：已退款 7：已关单 8：订单过期 9：订单已失效 10：产品已失效 11：代付拒绝 12：支付中
      * @param string $Payer 支付者
      * @param string $CreateTime 创建时间
      * @param string $Creator 创建人
@@ -204,14 +269,29 @@ class Deal extends AbstractModel
      * @param float $Price 单价（分）
      * @param float $TotalCost 原价（分）
      * @param string $ProductCode 产品编码
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $SubProductCode 子产品编码
      * @param string $BigDealId 大订单号
      * @param string $Formula 退费公式
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $RefReturnDeals 退费涉及订单信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $PayMode 付费模式：prePay 预付费 postPay后付费 riPay预留实例
+     * @param string $Action 交易类型
+modifyNetworkMode 调整带宽模式
+modifyNetworkSize 调整带宽大小
+refund 退款
+downgrade 降配
+upgrade 升配
+renew 续费
+purchase 购买
+preMoveOut 包年包月迁出资源
+preMoveIn 包年包月迁入资源
+preToPost 预付费转后付费
+postMoveOut 按量计费迁出资源
+postMoveIn 按量计费迁入资源
+     * @param string $ProductName 产品编码中文名称
+     * @param string $SubProductName 子产品编码中文名称
+     * @param array $ResourceId 订单对应的资源id, 查询参数Limit超过200，将返回null
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $ZoneCode 订单对应的可用区Id
      */
     function __construct()
     {
@@ -317,6 +397,26 @@ class Deal extends AbstractModel
 
         if (array_key_exists("PayMode",$param) and $param["PayMode"] !== null) {
             $this->PayMode = $param["PayMode"];
+        }
+
+        if (array_key_exists("Action",$param) and $param["Action"] !== null) {
+            $this->Action = $param["Action"];
+        }
+
+        if (array_key_exists("ProductName",$param) and $param["ProductName"] !== null) {
+            $this->ProductName = $param["ProductName"];
+        }
+
+        if (array_key_exists("SubProductName",$param) and $param["SubProductName"] !== null) {
+            $this->SubProductName = $param["SubProductName"];
+        }
+
+        if (array_key_exists("ResourceId",$param) and $param["ResourceId"] !== null) {
+            $this->ResourceId = $param["ResourceId"];
+        }
+
+        if (array_key_exists("ZoneCode",$param) and $param["ZoneCode"] !== null) {
+            $this->ZoneCode = $param["ZoneCode"];
         }
     }
 }

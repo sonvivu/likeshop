@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,34 +20,34 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeAlarmNotices返回参数结构体
  *
- * @method integer getTotalCount() 获取告警通知模板总数
- * @method void setTotalCount(integer $TotalCount) 设置告警通知模板总数
- * @method array getNotices() 获取告警通知模板列表
- * @method void setNotices(array $Notices) 设置告警通知模板列表
- * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
- * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method integer getTotalCount() 获取<p>告警通知模板总数</p>
+ * @method void setTotalCount(integer $TotalCount) 设置<p>告警通知模板总数</p>
+ * @method array getNotices() 获取<p>告警通知模板列表</p>
+ * @method void setNotices(array $Notices) 设置<p>告警通知模板列表</p>
+ * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+ * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
 class DescribeAlarmNoticesResponse extends AbstractModel
 {
     /**
-     * @var integer 告警通知模板总数
+     * @var integer <p>告警通知模板总数</p>
      */
     public $TotalCount;
 
     /**
-     * @var array 告警通知模板列表
+     * @var array <p>告警通知模板列表</p>
      */
     public $Notices;
 
     /**
-     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public $RequestId;
 
     /**
-     * @param integer $TotalCount 告警通知模板总数
-     * @param array $Notices 告警通知模板列表
-     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @param integer $TotalCount <p>告警通知模板总数</p>
+     * @param array $Notices <p>告警通知模板列表</p>
+     * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
     {

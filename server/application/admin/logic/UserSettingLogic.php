@@ -22,7 +22,7 @@ use app\common\logic\LogicBase;
 use app\common\model\UserLevel;
 use app\common\server\ConfigServer;
 use app\common\server\UrlServer;
-use think\Db;
+use think\facade\Db;
 
 /**
  * 用户设置逻辑层

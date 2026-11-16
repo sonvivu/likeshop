@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,10 +25,10 @@ use TencentCloud\Common\AbstractModel;
  * @method string getLoadBalancerName() 获取负载均衡实例的名称。
  * @method void setLoadBalancerName(string $LoadBalancerName) 设置负载均衡实例的名称。
  * @method string getLoadBalancerType() 获取负载均衡实例的网络类型：
-Public：公网属性， Private：内网属性。
+Public：公网属性，Private：内网属性；对于内网属性的负载均衡，可通过绑定EIP出公网，具体可参考EIP文档。
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setLoadBalancerType(string $LoadBalancerType) 设置负载均衡实例的网络类型：
-Public：公网属性， Private：内网属性。
+Public：公网属性，Private：内网属性；对于内网属性的负载均衡，可通过绑定EIP出公网，具体可参考EIP文档。
 注意：此字段可能返回 null，表示取不到有效值。
  * @method integer getStatus() 获取负载均衡实例的状态，包括
 0：创建中，1：正常运行。
@@ -56,9 +56,9 @@ Public：公网属性， Private：内网属性。
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setZone(string $Zone) 设置负载均衡实例所在可用区。
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getAddressIsp() 获取负载均衡实例IP地址所属的ISP。
+ * @method string getAddressIsp() 获取负载均衡实例IP地址所属的ISP。取值范围：BGP（多线）、CMCC（中国移动）、CUCC（中国联通）、CTCC（中国电信）、INTERNAL（内网）。
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setAddressIsp(string $AddressIsp) 设置负载均衡实例IP地址所属的ISP。
+ * @method void setAddressIsp(string $AddressIsp) 设置负载均衡实例IP地址所属的ISP。取值范围：BGP（多线）、CMCC（中国移动）、CUCC（中国联通）、CTCC（中国电信）、INTERNAL（内网）。
 注意：此字段可能返回 null，表示取不到有效值。
  * @method string getVpcId() 获取负载均衡实例所属私有网络的 ID。
 注意：此字段可能返回 null，表示取不到有效值。
@@ -72,9 +72,9 @@ Public：公网属性， Private：内网属性。
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setCreateTime(string $CreateTime) 设置负载均衡实例的创建时间。
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getChargeType() 获取负载均衡实例的计费类型。
+ * @method string getChargeType() 获取负载均衡实例的计费类型。取值范围：PREPAID预付费、POSTPAID_BY_HOUR按量付费。
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setChargeType(string $ChargeType) 设置负载均衡实例的计费类型。
+ * @method void setChargeType(string $ChargeType) 设置负载均衡实例的计费类型。取值范围：PREPAID预付费、POSTPAID_BY_HOUR按量付费。
 注意：此字段可能返回 null，表示取不到有效值。
  * @method InternetAccessible getNetworkAttributes() 获取负载均衡实例的网络属性。
 注意：此字段可能返回 null，表示取不到有效值。
@@ -88,9 +88,9 @@ Public：公网属性， Private：内网属性。
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setExtraInfo(ExtraInfo $ExtraInfo) 设置暂做保留，一般用户无需关注。
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getConfigId() 获取负载均衡维度的个性化配置ID。
+ * @method string getConfigId() 获取负载均衡维度的个性化配置ID，多个配置用逗号隔开。
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setConfigId(string $ConfigId) 设置负载均衡维度的个性化配置ID。
+ * @method void setConfigId(string $ConfigId) 设置负载均衡维度的个性化配置ID，多个配置用逗号隔开。
 注意：此字段可能返回 null，表示取不到有效值。
  * @method array getTags() 获取负载均衡实例的标签信息。
 注意：此字段可能返回 null，表示取不到有效值。
@@ -144,9 +144,51 @@ Public：公网属性， Private：内网属性。
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setSecurityGroup(array $SecurityGroup) 设置负载均衡绑定的安全组列表。
 注意：此字段可能返回 null，表示取不到有效值。
- * @method integer getLoadBalancerPassToTarget() 获取负载均衡安全组上移特性是否开启标识。
+ * @method integer getLoadBalancerPassToTarget() 获取负载均衡安全组上移特性是否开启标识。取值范围：1表示开启、0表示未开启。
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setLoadBalancerPassToTarget(integer $LoadBalancerPassToTarget) 设置负载均衡安全组上移特性是否开启标识。
+ * @method void setLoadBalancerPassToTarget(integer $LoadBalancerPassToTarget) 设置负载均衡安全组上移特性是否开启标识。取值范围：1表示开启、0表示未开启。
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getTargetHealth() 获取后端目标健康状态。
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setTargetHealth(string $TargetHealth) 设置后端目标健康状态。
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getDomains() 获取转发规则的域名列表。
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setDomains(string $Domains) 设置转发规则的域名列表。
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method array getSlaveZone() 获取多可用区负载均衡实例所选备区
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setSlaveZone(array $SlaveZone) 设置多可用区负载均衡实例所选备区
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method array getZones() 获取内网负载均衡实例所在可用区，由白名单CLB_Internal_Zone控制
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setZones(array $Zones) 设置内网负载均衡实例所在可用区，由白名单CLB_Internal_Zone控制
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method integer getSniSwitch() 获取是否开启SNI特性，1：表示开启，0：表示不开启（本参数仅对于HTTPS监听器有意义）。
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setSniSwitch(integer $SniSwitch) 设置是否开启SNI特性，1：表示开启，0：表示不开启（本参数仅对于HTTPS监听器有意义）。
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getLoadBalancerDomain() 获取负载均衡实例的域名。
+ * @method void setLoadBalancerDomain(string $LoadBalancerDomain) 设置负载均衡实例的域名。
+ * @method string getEgress() 获取网络出口
+ * @method void setEgress(string $Egress) 设置网络出口
+ * @method array getAttributeFlags() 获取负载均衡的属性
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setAttributeFlags(array $AttributeFlags) 设置负载均衡的属性
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getSlaType() 获取负载均衡实例的规格类型信息<ul><li> clb.c1.small：简约型规格 </li><li>clb.c2.medium：标准型规格 </li><li> clb.c3.small：高阶型1规格 </li><li> clb.c3.medium：高阶型2规格 </li><li> clb.c4.small：超强型1规格 </li><li> clb.c4.medium：超强型2规格 </li><li> clb.c4.large：超强型3规格 </li><li> clb.c4.xlarge：超强型4规格 </li><li>""：非性能容量型实例</li></ul>
+
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setSlaType(string $SlaType) 设置负载均衡实例的规格类型信息<ul><li> clb.c1.small：简约型规格 </li><li>clb.c2.medium：标准型规格 </li><li> clb.c3.small：高阶型1规格 </li><li> clb.c3.medium：高阶型2规格 </li><li> clb.c4.small：超强型1规格 </li><li> clb.c4.medium：超强型2规格 </li><li> clb.c4.large：超强型3规格 </li><li> clb.c4.xlarge：超强型4规格 </li><li>""：非性能容量型实例</li></ul>
+
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method integer getExclusive() 获取0：表示非独占型实例，1：表示独占型态实例。
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setExclusive(integer $Exclusive) 设置0：表示非独占型实例，1：表示独占型态实例。
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method AvailableZoneAffinityInfo getAvailableZoneAffinityInfo() 获取可用区转发亲和信息
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setAvailableZoneAffinityInfo(AvailableZoneAffinityInfo $AvailableZoneAffinityInfo) 设置可用区转发亲和信息
 注意：此字段可能返回 null，表示取不到有效值。
  */
 class LoadBalancerDetail extends AbstractModel
@@ -163,7 +205,7 @@ class LoadBalancerDetail extends AbstractModel
 
     /**
      * @var string 负载均衡实例的网络类型：
-Public：公网属性， Private：内网属性。
+Public：公网属性，Private：内网属性；对于内网属性的负载均衡，可通过绑定EIP出公网，具体可参考EIP文档。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $LoadBalancerType;
@@ -206,7 +248,7 @@ Public：公网属性， Private：内网属性。
     public $Zone;
 
     /**
-     * @var string 负载均衡实例IP地址所属的ISP。
+     * @var string 负载均衡实例IP地址所属的ISP。取值范围：BGP（多线）、CMCC（中国移动）、CUCC（中国联通）、CTCC（中国电信）、INTERNAL（内网）。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $AddressIsp;
@@ -230,7 +272,7 @@ Public：公网属性， Private：内网属性。
     public $CreateTime;
 
     /**
-     * @var string 负载均衡实例的计费类型。
+     * @var string 负载均衡实例的计费类型。取值范围：PREPAID预付费、POSTPAID_BY_HOUR按量付费。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $ChargeType;
@@ -254,7 +296,7 @@ Public：公网属性， Private：内网属性。
     public $ExtraInfo;
 
     /**
-     * @var string 负载均衡维度的个性化配置ID。
+     * @var string 负载均衡维度的个性化配置ID，多个配置用逗号隔开。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $ConfigId;
@@ -338,16 +380,81 @@ Public：公网属性， Private：内网属性。
     public $SecurityGroup;
 
     /**
-     * @var integer 负载均衡安全组上移特性是否开启标识。
+     * @var integer 负载均衡安全组上移特性是否开启标识。取值范围：1表示开启、0表示未开启。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $LoadBalancerPassToTarget;
 
     /**
+     * @var string 后端目标健康状态。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $TargetHealth;
+
+    /**
+     * @var string 转发规则的域名列表。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $Domains;
+
+    /**
+     * @var array 多可用区负载均衡实例所选备区
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $SlaveZone;
+
+    /**
+     * @var array 内网负载均衡实例所在可用区，由白名单CLB_Internal_Zone控制
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $Zones;
+
+    /**
+     * @var integer 是否开启SNI特性，1：表示开启，0：表示不开启（本参数仅对于HTTPS监听器有意义）。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $SniSwitch;
+
+    /**
+     * @var string 负载均衡实例的域名。
+     */
+    public $LoadBalancerDomain;
+
+    /**
+     * @var string 网络出口
+     */
+    public $Egress;
+
+    /**
+     * @var array 负载均衡的属性
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $AttributeFlags;
+
+    /**
+     * @var string 负载均衡实例的规格类型信息<ul><li> clb.c1.small：简约型规格 </li><li>clb.c2.medium：标准型规格 </li><li> clb.c3.small：高阶型1规格 </li><li> clb.c3.medium：高阶型2规格 </li><li> clb.c4.small：超强型1规格 </li><li> clb.c4.medium：超强型2规格 </li><li> clb.c4.large：超强型3规格 </li><li> clb.c4.xlarge：超强型4规格 </li><li>""：非性能容量型实例</li></ul>
+
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $SlaType;
+
+    /**
+     * @var integer 0：表示非独占型实例，1：表示独占型态实例。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $Exclusive;
+
+    /**
+     * @var AvailableZoneAffinityInfo 可用区转发亲和信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $AvailableZoneAffinityInfo;
+
+    /**
      * @param string $LoadBalancerId 负载均衡实例 ID。
      * @param string $LoadBalancerName 负载均衡实例的名称。
      * @param string $LoadBalancerType 负载均衡实例的网络类型：
-Public：公网属性， Private：内网属性。
+Public：公网属性，Private：内网属性；对于内网属性的负载均衡，可通过绑定EIP出公网，具体可参考EIP文档。
 注意：此字段可能返回 null，表示取不到有效值。
      * @param integer $Status 负载均衡实例的状态，包括
 0：创建中，1：正常运行。
@@ -362,7 +469,7 @@ Public：公网属性， Private：内网属性。
 注意：此字段可能返回 null，表示取不到有效值。
      * @param string $Zone 负载均衡实例所在可用区。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $AddressIsp 负载均衡实例IP地址所属的ISP。
+     * @param string $AddressIsp 负载均衡实例IP地址所属的ISP。取值范围：BGP（多线）、CMCC（中国移动）、CUCC（中国联通）、CTCC（中国电信）、INTERNAL（内网）。
 注意：此字段可能返回 null，表示取不到有效值。
      * @param string $VpcId 负载均衡实例所属私有网络的 ID。
 注意：此字段可能返回 null，表示取不到有效值。
@@ -370,7 +477,7 @@ Public：公网属性， Private：内网属性。
 注意：此字段可能返回 null，表示取不到有效值。
      * @param string $CreateTime 负载均衡实例的创建时间。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $ChargeType 负载均衡实例的计费类型。
+     * @param string $ChargeType 负载均衡实例的计费类型。取值范围：PREPAID预付费、POSTPAID_BY_HOUR按量付费。
 注意：此字段可能返回 null，表示取不到有效值。
      * @param InternetAccessible $NetworkAttributes 负载均衡实例的网络属性。
 注意：此字段可能返回 null，表示取不到有效值。
@@ -378,7 +485,7 @@ Public：公网属性， Private：内网属性。
 注意：此字段可能返回 null，表示取不到有效值。
      * @param ExtraInfo $ExtraInfo 暂做保留，一般用户无需关注。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $ConfigId 负载均衡维度的个性化配置ID。
+     * @param string $ConfigId 负载均衡维度的个性化配置ID，多个配置用逗号隔开。
 注意：此字段可能返回 null，表示取不到有效值。
      * @param array $Tags 负载均衡实例的标签信息。
 注意：此字段可能返回 null，表示取不到有效值。
@@ -406,7 +513,28 @@ Public：公网属性， Private：内网属性。
 注意：此字段可能返回 null，表示取不到有效值。
      * @param array $SecurityGroup 负载均衡绑定的安全组列表。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param integer $LoadBalancerPassToTarget 负载均衡安全组上移特性是否开启标识。
+     * @param integer $LoadBalancerPassToTarget 负载均衡安全组上移特性是否开启标识。取值范围：1表示开启、0表示未开启。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $TargetHealth 后端目标健康状态。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $Domains 转发规则的域名列表。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param array $SlaveZone 多可用区负载均衡实例所选备区
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param array $Zones 内网负载均衡实例所在可用区，由白名单CLB_Internal_Zone控制
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param integer $SniSwitch 是否开启SNI特性，1：表示开启，0：表示不开启（本参数仅对于HTTPS监听器有意义）。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $LoadBalancerDomain 负载均衡实例的域名。
+     * @param string $Egress 网络出口
+     * @param array $AttributeFlags 负载均衡的属性
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $SlaType 负载均衡实例的规格类型信息<ul><li> clb.c1.small：简约型规格 </li><li>clb.c2.medium：标准型规格 </li><li> clb.c3.small：高阶型1规格 </li><li> clb.c3.medium：高阶型2规格 </li><li> clb.c4.small：超强型1规格 </li><li> clb.c4.medium：超强型2规格 </li><li> clb.c4.large：超强型3规格 </li><li> clb.c4.xlarge：超强型4规格 </li><li>""：非性能容量型实例</li></ul>
+
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param integer $Exclusive 0：表示非独占型实例，1：表示独占型态实例。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AvailableZoneAffinityInfo $AvailableZoneAffinityInfo 可用区转发亲和信息
 注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
@@ -556,6 +684,51 @@ Public：公网属性， Private：内网属性。
 
         if (array_key_exists("LoadBalancerPassToTarget",$param) and $param["LoadBalancerPassToTarget"] !== null) {
             $this->LoadBalancerPassToTarget = $param["LoadBalancerPassToTarget"];
+        }
+
+        if (array_key_exists("TargetHealth",$param) and $param["TargetHealth"] !== null) {
+            $this->TargetHealth = $param["TargetHealth"];
+        }
+
+        if (array_key_exists("Domains",$param) and $param["Domains"] !== null) {
+            $this->Domains = $param["Domains"];
+        }
+
+        if (array_key_exists("SlaveZone",$param) and $param["SlaveZone"] !== null) {
+            $this->SlaveZone = $param["SlaveZone"];
+        }
+
+        if (array_key_exists("Zones",$param) and $param["Zones"] !== null) {
+            $this->Zones = $param["Zones"];
+        }
+
+        if (array_key_exists("SniSwitch",$param) and $param["SniSwitch"] !== null) {
+            $this->SniSwitch = $param["SniSwitch"];
+        }
+
+        if (array_key_exists("LoadBalancerDomain",$param) and $param["LoadBalancerDomain"] !== null) {
+            $this->LoadBalancerDomain = $param["LoadBalancerDomain"];
+        }
+
+        if (array_key_exists("Egress",$param) and $param["Egress"] !== null) {
+            $this->Egress = $param["Egress"];
+        }
+
+        if (array_key_exists("AttributeFlags",$param) and $param["AttributeFlags"] !== null) {
+            $this->AttributeFlags = $param["AttributeFlags"];
+        }
+
+        if (array_key_exists("SlaType",$param) and $param["SlaType"] !== null) {
+            $this->SlaType = $param["SlaType"];
+        }
+
+        if (array_key_exists("Exclusive",$param) and $param["Exclusive"] !== null) {
+            $this->Exclusive = $param["Exclusive"];
+        }
+
+        if (array_key_exists("AvailableZoneAffinityInfo",$param) and $param["AvailableZoneAffinityInfo"] !== null) {
+            $this->AvailableZoneAffinityInfo = new AvailableZoneAffinityInfo();
+            $this->AvailableZoneAffinityInfo->deserialize($param["AvailableZoneAffinityInfo"]);
         }
     }
 }

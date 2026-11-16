@@ -219,17 +219,16 @@
         </navigator>
       </view>
       <loading-footer :status="loadingStatus" slotEmpty>
-        <view class="data-null column-center" slot="empty">
+                <template #empty><view class="data-null column-center">
           <image class="img-null" src="/static/images/order_null.png"></image>
           <text class="nr muted">{{ $t('暂无售后数据～') }}</text>
-        </view>
+        </view></template>
       </loading-footer>
     </view>
     <u-modal
-      v-model="confirmDialog"
+      v-model:show="confirmDialog"
       :confirm-text="$t('确定')"
       :showCancelButton="true"
-      :show-title="false"
       confirm-color="#FF2C3C"
       @confirm="cancelApplyFun"
       @cancel="hideDialog"

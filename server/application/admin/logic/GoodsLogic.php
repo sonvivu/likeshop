@@ -21,9 +21,8 @@ namespace app\admin\logic;
 use app\common\model\DistributionGoods;
 use app\common\model\GoodsItem;
 use app\common\server\UrlServer;
-use think\Db;
+use think\facade\Db;
 use think\Exception;
-use think\facade\Hook;
 
 class GoodsLogic
 {
@@ -125,6 +124,7 @@ class GoodsLogic
                 ->field('*,virtual_sales_sum+sales_sum as total_sales_sum')
                 ->order('id desc')
                 ->select();
+        $goods_list = $goods_list->toArray(); // ThinkPHP 6：select() 返回 Collection，TP5 返回数组；直接写 $goods_list[$k]['x'] 或 foreach(&$item) 改值会丢/报错，先转数组。
 
 
         $goods_category_list = Db::name('goods_category')->where(['del'=>0])->column('name','id');
@@ -136,9 +136,9 @@ class GoodsLogic
             if($item['is_commission']){
                 $item['commission_status'] = lang('开启');
             }
-            $item['price'] = '￥'.$item['min_price'];
+            $item['price'] = config('currency.symbol').$item['min_price'];
             if($item['spec_type'] == 2 && $item['max_price'] !== $item['min_price']){
-                $item['price'] = '￥'.$item['min_price'].'~'.'￥'.$item['max_price'];
+                $item['price'] = config('currency.symbol').$item['min_price'].'~'.config('currency.symbol').$item['max_price'];
             }
             $item['create_time_desc'] = date('Y-m-d H:i:s',$item['create_time']);
             $item['first_ratio_desc'] = 0;
@@ -244,7 +244,7 @@ class GoodsLogic
             Db::name('goods')->where(['del' => 0, 'id' => $id])->update($data);
 
             // 下架或删除商品，更新商品收藏
-            Hook::listen('update_collect', ['goods_id' => $id]);
+            event('update_collect', ['goods_id' => $id]);
 
             return true;
 
@@ -540,7 +540,7 @@ class GoodsLogic
 
             // 下架或删除商品，更新商品收藏
             if ($data['status'] != 1) {
-                Hook::listen('update_collect', ['goods_id' => $post['goods_id']]);
+                event('update_collect', ['goods_id' => $post['goods_id']]);
             }
 
             //重新更新图片表
@@ -837,7 +837,7 @@ class GoodsLogic
             ]);
 
             // 下架或删除商品，更新商品收藏
-            Hook::listen('update_collect', ['goods_id' => $ids]);
+            event('update_collect', ['goods_id' => $ids]);
 
             return $result ? true : lang('上架失败');
         } catch (\Exception $e) {

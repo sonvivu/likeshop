@@ -44,7 +44,11 @@ class AfterSale extends ApiBase
         if (true !== $check) {
             $this->_error($check);
         }
-        return AfterSaleLogic::add($post, $this->user_id);
+        $result = AfterSaleLogic::add($post, $this->user_id);
+        if ($result['code'] == 1) {
+            $this->_success($result['msg'], $result['data']);
+        }
+        $this->_error($result['msg']);
     }
 
 

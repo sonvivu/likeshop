@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,26 +20,42 @@ use TencentCloud\Common\AbstractModel;
 /**
  * ClearInstance请求参数结构体
  *
- * @method string getInstanceId() 获取实例ID
- * @method void setInstanceId(string $InstanceId) 设置实例ID
- * @method string getPassword() 获取redis的实例密码（免密实例不需要传密码，非免密实例必传）
- * @method void setPassword(string $Password) 设置redis的实例密码（免密实例不需要传密码，非免密实例必传）
+ * @method string getInstanceId() 获取实例 ID，请登录[Redis控制台](https://console.cloud.tencent.com/redis)在实例列表复制实例 ID。
+ * @method void setInstanceId(string $InstanceId) 设置实例 ID，请登录[Redis控制台](https://console.cloud.tencent.com/redis)在实例列表复制实例 ID。
+ * @method string getPassword() 获取实例访问密码。
+- 免密访问：无需配置。
+- 密码认证：必须配置。字符个数为[8,64]，至少包含小写字母、大写字母、数字和字符 ()`~!@#$%^&*-+=_|{}[]:;<>,.?/ 中的2种，不能以"/"开头。
+ * @method void setPassword(string $Password) 设置实例访问密码。
+- 免密访问：无需配置。
+- 密码认证：必须配置。字符个数为[8,64]，至少包含小写字母、大写字母、数字和字符 ()`~!@#$%^&*-+=_|{}[]:;<>,.?/ 中的2种，不能以"/"开头。
+ * @method boolean getEncryptPassword() 获取是否加密密码
+ * @method void setEncryptPassword(boolean $EncryptPassword) 设置是否加密密码
  */
 class ClearInstanceRequest extends AbstractModel
 {
     /**
-     * @var string 实例ID
+     * @var string 实例 ID，请登录[Redis控制台](https://console.cloud.tencent.com/redis)在实例列表复制实例 ID。
      */
     public $InstanceId;
 
     /**
-     * @var string redis的实例密码（免密实例不需要传密码，非免密实例必传）
+     * @var string 实例访问密码。
+- 免密访问：无需配置。
+- 密码认证：必须配置。字符个数为[8,64]，至少包含小写字母、大写字母、数字和字符 ()`~!@#$%^&*-+=_|{}[]:;<>,.?/ 中的2种，不能以"/"开头。
      */
     public $Password;
 
     /**
-     * @param string $InstanceId 实例ID
-     * @param string $Password redis的实例密码（免密实例不需要传密码，非免密实例必传）
+     * @var boolean 是否加密密码
+     */
+    public $EncryptPassword;
+
+    /**
+     * @param string $InstanceId 实例 ID，请登录[Redis控制台](https://console.cloud.tencent.com/redis)在实例列表复制实例 ID。
+     * @param string $Password 实例访问密码。
+- 免密访问：无需配置。
+- 密码认证：必须配置。字符个数为[8,64]，至少包含小写字母、大写字母、数字和字符 ()`~!@#$%^&*-+=_|{}[]:;<>,.?/ 中的2种，不能以"/"开头。
+     * @param boolean $EncryptPassword 是否加密密码
      */
     function __construct()
     {
@@ -60,6 +76,10 @@ class ClearInstanceRequest extends AbstractModel
 
         if (array_key_exists("Password",$param) and $param["Password"] !== null) {
             $this->Password = $param["Password"];
+        }
+
+        if (array_key_exists("EncryptPassword",$param) and $param["EncryptPassword"] !== null) {
+            $this->EncryptPassword = $param["EncryptPassword"];
         }
     }
 }

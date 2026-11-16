@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,177 +21,185 @@ use TencentCloud\Common\AbstractModel;
  * 部署组实例列表
  *
  * @method string getPodName() 获取实例名称(对应到kubernetes的pod名称)
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setPodName(string $PodName) 设置实例名称(对应到kubernetes的pod名称)
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getPodId() 获取实例ID(对应到kubernetes的pod id)
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setPodId(string $PodId) 设置实例ID(对应到kubernetes的pod id)
-注意：此字段可能返回 null，表示取不到有效值。
- * @method string getStatus() 获取实例状态，请参考后面的实例以及容器的状态定义
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setStatus(string $Status) 设置实例状态，请参考后面的实例以及容器的状态定义
-注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getStatus() 获取实例状态，请参考后面的实例以及容器的状态定义。启动中（pod 未 ready）：Starting；运行中：Running；异常：Abnormal；停止：Stopped；
+ * @method void setStatus(string $Status) 设置实例状态，请参考后面的实例以及容器的状态定义。启动中（pod 未 ready）：Starting；运行中：Running；异常：Abnormal；停止：Stopped；
  * @method string getReason() 获取实例处于当前状态的原因，例如容器下载镜像失败
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setReason(string $Reason) 设置实例处于当前状态的原因，例如容器下载镜像失败
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getNodeIp() 获取主机IP
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setNodeIp(string $NodeIp) 设置主机IP
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getIp() 获取实例IP
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setIp(string $Ip) 设置实例IP
-注意：此字段可能返回 null，表示取不到有效值。
  * @method integer getRestartCount() 获取实例中容器的重启次数
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setRestartCount(integer $RestartCount) 设置实例中容器的重启次数
-注意：此字段可能返回 null，表示取不到有效值。
  * @method integer getReadyCount() 获取实例中已就绪容器的个数
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setReadyCount(integer $ReadyCount) 设置实例中已就绪容器的个数
-注意：此字段可能返回 null，表示取不到有效值。
- * @method string getRuntime() 获取运行时长
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setRuntime(string $Runtime) 设置运行时长
-注意：此字段可能返回 null，表示取不到有效值。
- * @method string getCreatedAt() 获取实例启动时间
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setCreatedAt(string $CreatedAt) 设置实例启动时间
-注意：此字段可能返回 null，表示取不到有效值。
- * @method string getServiceInstanceStatus() 获取服务实例状态
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setServiceInstanceStatus(string $ServiceInstanceStatus) 设置服务实例状态
-注意：此字段可能返回 null，表示取不到有效值。
- * @method string getInstanceAvailableStatus() 获取机器实例可使用状态
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setInstanceAvailableStatus(string $InstanceAvailableStatus) 设置机器实例可使用状态
-注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getRuntime() 获取运行时长，单位秒
+ * @method void setRuntime(string $Runtime) 设置运行时长，单位秒
+ * @method string getCreatedAt() 获取实例启动时的时间戳，单位秒
+ * @method void setCreatedAt(string $CreatedAt) 设置实例启动时的时间戳，单位秒
+ * @method string getServiceInstanceStatus() 获取服务实例状态，枚举值为：
+- `Starting`：启动中
+- `Running`：运行中
+- `Stopping`：停止中
+- `Stopped`: 已停止
+- `StopFailed`: 停止失败
+- `Abnormal`: 异常
+- `Unknown`: 未知
+ * @method void setServiceInstanceStatus(string $ServiceInstanceStatus) 设置服务实例状态，枚举值为：
+- `Starting`：启动中
+- `Running`：运行中
+- `Stopping`：停止中
+- `Stopped`: 已停止
+- `StopFailed`: 停止失败
+- `Abnormal`: 异常
+- `Unknown`: 未知
+ * @method string getInstanceAvailableStatus() 获取机器实例可使用状态，枚举值为：
+- `Starting`：启动中
+- `Running`：运行中
+- `Stopping`：停止中
+- `Stopped`: 已停止
+- `StopFailed`: 停止失败
+- `Abnormal`: 异常
+- `Unknown`: 未知
+ * @method void setInstanceAvailableStatus(string $InstanceAvailableStatus) 设置机器实例可使用状态，枚举值为：
+- `Starting`：启动中
+- `Running`：运行中
+- `Stopping`：停止中
+- `Stopped`: 已停止
+- `StopFailed`: 停止失败
+- `Abnormal`: 异常
+- `Unknown`: 未知
  * @method string getInstanceStatus() 获取机器实例状态
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setInstanceStatus(string $InstanceStatus) 设置机器实例状态
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getNodeInstanceId() 获取节点实例id
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setNodeInstanceId(string $NodeInstanceId) 设置节点实例id
-注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getSpecTotalCount() 获取预期副本数
+ * @method void setSpecTotalCount(string $SpecTotalCount) 设置预期副本数
  */
 class GroupPod extends AbstractModel
 {
     /**
      * @var string 实例名称(对应到kubernetes的pod名称)
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $PodName;
 
     /**
      * @var string 实例ID(对应到kubernetes的pod id)
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $PodId;
 
     /**
-     * @var string 实例状态，请参考后面的实例以及容器的状态定义
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string 实例状态，请参考后面的实例以及容器的状态定义。启动中（pod 未 ready）：Starting；运行中：Running；异常：Abnormal；停止：Stopped；
      */
     public $Status;
 
     /**
      * @var string 实例处于当前状态的原因，例如容器下载镜像失败
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Reason;
 
     /**
      * @var string 主机IP
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $NodeIp;
 
     /**
      * @var string 实例IP
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Ip;
 
     /**
      * @var integer 实例中容器的重启次数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $RestartCount;
 
     /**
      * @var integer 实例中已就绪容器的个数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $ReadyCount;
 
     /**
-     * @var string 运行时长
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string 运行时长，单位秒
      */
     public $Runtime;
 
     /**
-     * @var string 实例启动时间
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string 实例启动时的时间戳，单位秒
      */
     public $CreatedAt;
 
     /**
-     * @var string 服务实例状态
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string 服务实例状态，枚举值为：
+- `Starting`：启动中
+- `Running`：运行中
+- `Stopping`：停止中
+- `Stopped`: 已停止
+- `StopFailed`: 停止失败
+- `Abnormal`: 异常
+- `Unknown`: 未知
      */
     public $ServiceInstanceStatus;
 
     /**
-     * @var string 机器实例可使用状态
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string 机器实例可使用状态，枚举值为：
+- `Starting`：启动中
+- `Running`：运行中
+- `Stopping`：停止中
+- `Stopped`: 已停止
+- `StopFailed`: 停止失败
+- `Abnormal`: 异常
+- `Unknown`: 未知
      */
     public $InstanceAvailableStatus;
 
     /**
      * @var string 机器实例状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $InstanceStatus;
 
     /**
      * @var string 节点实例id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $NodeInstanceId;
 
     /**
+     * @var string 预期副本数
+     */
+    public $SpecTotalCount;
+
+    /**
      * @param string $PodName 实例名称(对应到kubernetes的pod名称)
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $PodId 实例ID(对应到kubernetes的pod id)
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $Status 实例状态，请参考后面的实例以及容器的状态定义
-注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $Status 实例状态，请参考后面的实例以及容器的状态定义。启动中（pod 未 ready）：Starting；运行中：Running；异常：Abnormal；停止：Stopped；
      * @param string $Reason 实例处于当前状态的原因，例如容器下载镜像失败
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $NodeIp 主机IP
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $Ip 实例IP
-注意：此字段可能返回 null，表示取不到有效值。
      * @param integer $RestartCount 实例中容器的重启次数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param integer $ReadyCount 实例中已就绪容器的个数
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $Runtime 运行时长
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $CreatedAt 实例启动时间
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $ServiceInstanceStatus 服务实例状态
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $InstanceAvailableStatus 机器实例可使用状态
-注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $Runtime 运行时长，单位秒
+     * @param string $CreatedAt 实例启动时的时间戳，单位秒
+     * @param string $ServiceInstanceStatus 服务实例状态，枚举值为：
+- `Starting`：启动中
+- `Running`：运行中
+- `Stopping`：停止中
+- `Stopped`: 已停止
+- `StopFailed`: 停止失败
+- `Abnormal`: 异常
+- `Unknown`: 未知
+     * @param string $InstanceAvailableStatus 机器实例可使用状态，枚举值为：
+- `Starting`：启动中
+- `Running`：运行中
+- `Stopping`：停止中
+- `Stopped`: 已停止
+- `StopFailed`: 停止失败
+- `Abnormal`: 异常
+- `Unknown`: 未知
      * @param string $InstanceStatus 机器实例状态
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $NodeInstanceId 节点实例id
-注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $SpecTotalCount 预期副本数
      */
     function __construct()
     {
@@ -260,6 +268,10 @@ class GroupPod extends AbstractModel
 
         if (array_key_exists("NodeInstanceId",$param) and $param["NodeInstanceId"] !== null) {
             $this->NodeInstanceId = $param["NodeInstanceId"];
+        }
+
+        if (array_key_exists("SpecTotalCount",$param) and $param["SpecTotalCount"] !== null) {
+            $this->SpecTotalCount = $param["SpecTotalCount"];
         }
     }
 }

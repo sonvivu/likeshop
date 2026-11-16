@@ -20,7 +20,7 @@
 
 namespace app\admin\logic;
 use app\common\server\UrlServer;
-use think\Db;
+use think\facade\Db;
 use app\admin\model\GoodsCategory;
 use think\facade\Cache;
 
@@ -51,8 +51,8 @@ class GoodsCategoryLogic
             'update_time'       => time(),
         ];
 
-        Cache::rm('goods_category_1');
-        Cache::rm('goods_category_2');
+        Cache::delete('goods_category_1');
+        Cache::delete('goods_category_2');
         return Db::name('goods_category')->insert($data);
     }
 
@@ -80,8 +80,8 @@ class GoodsCategoryLogic
             'update_time'       => time(),
         ];
 
-        Cache::rm('goods_category_1');
-        Cache::rm('goods_category_2');
+        Cache::delete('goods_category_1');
+        Cache::delete('goods_category_2');
         return Db::name('goods_category')->where(['id'=>$post['id']])->update($data);
     }
 
@@ -97,8 +97,8 @@ class GoodsCategoryLogic
             'update_time' => time(),
         ];
 
-        Cache::rm('goods_category_1');
-        Cache::rm('goods_category_2');
+        Cache::delete('goods_category_1');
+        Cache::delete('goods_category_2');
         return Db::name('goods_category')->where(['del' => 0, 'id' => $id])->update($data);
     }
 
@@ -227,7 +227,7 @@ class GoodsCategoryLogic
      */
     public static function getCategory($id)
     {
-        $detail = GoodsCategory::get(['id' => $id, 'del' => 0]);
+        $detail = GoodsCategory::find(['id' => $id, 'del' => 0]);
         $detail['abs_image'] = UrlServer::getFileUrl($detail['image']);
         return $detail;
     }
@@ -310,8 +310,8 @@ class GoodsCategoryLogic
             'update_time'   => time(),
         ];
 
-        Cache::rm('goods_category_1');
-        Cache::rm('goods_category_2');
+        Cache::delete('goods_category_1');
+        Cache::delete('goods_category_2');
         return Db::name('goods_category')->where(['del' =>0,'id' =>$data['id']])->update($update_data);
     }
 

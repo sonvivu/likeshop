@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,150 +20,90 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeCaptchaResult返回参数结构体
  *
- * @method integer getCaptchaCode() 获取1 OK 验证通过
-6 user code len error 验证码长度不匹配，请检查请求是否带Randstr参数，Randstr参数大小写是否有误
-7 captcha no match 验证码答案不匹配/Randstr参数不匹配，请重新生成Randstr、Ticket进行校验
-8 verify timeout 验证码签名超时，票据已过期，请重新生成Randstr、Ticket票进行校验
-9 Sequnce repeat 验证码签名重放，票据重复使用，请重新生成Randstr、Ticket进行校验
-10 Sequnce invalid 验证码签名序列
-11 Cookie invalid 验证码cookie信息不合法，非法请求，可能存在不规范接入
-12 sig len error 签名长度错误
-13 verify ip no match ip不匹配，非法请求，可能存在不规范接入
-15 decrypt fail 验证码签名解密失败，票据校验失败，请检查Ticket票据是否与前端返回Ticket一致
-16 appid no match 验证码强校验appid错误，请检查CaptchaAppId是否为控制台基础配置界面系统分配的APPID
-17 cmd no much 验证码系统命令不匹配
-18 uin no match 号码不匹配
-19 seq redirect 重定向验证
-20 opt no vcode 操作使用pt免验证码校验错误
-21 diff 差别，验证错误
-22 captcha type not match 验证码类型与拉取时不一致
-23 verify type error 验证类型错误
-24 invalid pkg 非法请求包
-25 bad visitor 策略拦截
-26 system busy 系统内部错误
-100 param err appsecretkey 参数校验错误，请检查AppSecretKey是否与控制台基础配置界面系统分配的APPID、AppSecretKey相对应
-104 Ticket Reuse 票据重复使用，同个票据验证多次，请重新生成Randstr、Ticket进行校验
- * @method void setCaptchaCode(integer $CaptchaCode) 设置1 OK 验证通过
-6 user code len error 验证码长度不匹配，请检查请求是否带Randstr参数，Randstr参数大小写是否有误
-7 captcha no match 验证码答案不匹配/Randstr参数不匹配，请重新生成Randstr、Ticket进行校验
-8 verify timeout 验证码签名超时，票据已过期，请重新生成Randstr、Ticket票进行校验
-9 Sequnce repeat 验证码签名重放，票据重复使用，请重新生成Randstr、Ticket进行校验
-10 Sequnce invalid 验证码签名序列
-11 Cookie invalid 验证码cookie信息不合法，非法请求，可能存在不规范接入
-12 sig len error 签名长度错误
-13 verify ip no match ip不匹配，非法请求，可能存在不规范接入
-15 decrypt fail 验证码签名解密失败，票据校验失败，请检查Ticket票据是否与前端返回Ticket一致
-16 appid no match 验证码强校验appid错误，请检查CaptchaAppId是否为控制台基础配置界面系统分配的APPID
-17 cmd no much 验证码系统命令不匹配
-18 uin no match 号码不匹配
-19 seq redirect 重定向验证
-20 opt no vcode 操作使用pt免验证码校验错误
-21 diff 差别，验证错误
-22 captcha type not match 验证码类型与拉取时不一致
-23 verify type error 验证类型错误
-24 invalid pkg 非法请求包
-25 bad visitor 策略拦截
-26 system busy 系统内部错误
-100 param err appsecretkey 参数校验错误，请检查AppSecretKey是否与控制台基础配置界面系统分配的APPID、AppSecretKey相对应
-104 Ticket Reuse 票据重复使用，同个票据验证多次，请重新生成Randstr、Ticket进行校验
- * @method string getCaptchaMsg() 获取状态描述及验证错误信息
+ * @method integer getCaptchaCode() 获取<p>1 OK 验证通过<br>7 captcha no match 传入的Randstr不合法，请检查Randstr是否与前端返回的Randstr一致<br>8 ticket expired 传入的Ticket已过期（Ticket有效期5分钟），请重新生成Ticket、Randstr进行校验<br>9 ticket reused 传入的Ticket被重复使用，请重新生成Ticket、Randstr进行校验<br>15 decrypt fail 传入的Ticket不合法，请检查Ticket是否与前端返回的Ticket一致<br>16 appid-ticket mismatch 传入的CaptchaAppId错误，请检查CaptchaAppId是否与前端传入的CaptchaAppId一致，并且保障CaptchaAppId是从验证码控制台【验证管理】-&gt;【基础配置】中获取<br>21 diff 票据校验异常，可能的原因是（1）若Ticket包含trerror前缀，一般是由于用户网络较差，导致前端自动容灾，而生成了容灾票据，业务侧可根据需要进行跳过或二次处理。（2）若Ticket不包含trerror前缀，则是由于验证码风控系统发现请求有安全风险，业务侧可根据需要进行拦截。<br>100 appid-secretkey-ticket mismatch 参数校验错误，（1）请检查CaptchaAppId与AppSecretKey是否正确，CaptchaAppId、AppSecretKey需要在验证码控制台【验证管理】&gt;【基础配置】中获取（2）请检查传入的Ticket是否由传入的CaptchaAppId生成</p>
+ * @method void setCaptchaCode(integer $CaptchaCode) 设置<p>1 OK 验证通过<br>7 captcha no match 传入的Randstr不合法，请检查Randstr是否与前端返回的Randstr一致<br>8 ticket expired 传入的Ticket已过期（Ticket有效期5分钟），请重新生成Ticket、Randstr进行校验<br>9 ticket reused 传入的Ticket被重复使用，请重新生成Ticket、Randstr进行校验<br>15 decrypt fail 传入的Ticket不合法，请检查Ticket是否与前端返回的Ticket一致<br>16 appid-ticket mismatch 传入的CaptchaAppId错误，请检查CaptchaAppId是否与前端传入的CaptchaAppId一致，并且保障CaptchaAppId是从验证码控制台【验证管理】-&gt;【基础配置】中获取<br>21 diff 票据校验异常，可能的原因是（1）若Ticket包含trerror前缀，一般是由于用户网络较差，导致前端自动容灾，而生成了容灾票据，业务侧可根据需要进行跳过或二次处理。（2）若Ticket不包含trerror前缀，则是由于验证码风控系统发现请求有安全风险，业务侧可根据需要进行拦截。<br>100 appid-secretkey-ticket mismatch 参数校验错误，（1）请检查CaptchaAppId与AppSecretKey是否正确，CaptchaAppId、AppSecretKey需要在验证码控制台【验证管理】&gt;【基础配置】中获取（2）请检查传入的Ticket是否由传入的CaptchaAppId生成</p>
+ * @method string getCaptchaMsg() 获取<p>状态描述及验证错误信息</p>
+ * @method void setCaptchaMsg(string $CaptchaMsg) 设置<p>状态描述及验证错误信息</p>
+ * @method integer getEvilLevel() 获取<p>无感验证模式下，该参数返回验证结果：<br>EvilLevel=0 请求无恶意<br>EvilLevel=100 请求有恶意</p>
+ * @method void setEvilLevel(integer $EvilLevel) 设置<p>无感验证模式下，该参数返回验证结果：<br>EvilLevel=0 请求无恶意<br>EvilLevel=100 请求有恶意</p>
+ * @method integer getGetCaptchaTime() 获取<p>前端获取验证码时间，时间戳格式</p>
+ * @method void setGetCaptchaTime(integer $GetCaptchaTime) 设置<p>前端获取验证码时间，时间戳格式</p>
+ * @method integer getEvilBitmap() 获取<p>拦截类型</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setCaptchaMsg(string $CaptchaMsg) 设置状态描述及验证错误信息
+ * @method void setEvilBitmap(integer $EvilBitmap) 设置<p>拦截类型</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method integer getEvilLevel() 获取[0,100]，恶意等级
+ * @method integer getSubmitCaptchaTime() 获取<p>提交验证码时间</p>
+ * @method void setSubmitCaptchaTime(integer $SubmitCaptchaTime) 设置<p>提交验证码时间</p>
+ * @method string getDeviceRiskCategory() 获取<p>设备风险大类</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setEvilLevel(integer $EvilLevel) 设置[0,100]，恶意等级
+ * @method void setDeviceRiskCategory(string $DeviceRiskCategory) 设置<p>设备风险大类</p>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method integer getGetCaptchaTime() 获取前端获取验证码时间，时间戳格式
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setGetCaptchaTime(integer $GetCaptchaTime) 设置前端获取验证码时间，时间戳格式
-注意：此字段可能返回 null，表示取不到有效值。
- * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
- * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method integer getScore() 获取<p>验证码评分</p><p>取值0-100，分值越高，风险越大</p>
+ * @method void setScore(integer $Score) 设置<p>验证码评分</p><p>取值0-100，分值越高，风险越大</p>
+ * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+ * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
 class DescribeCaptchaResultResponse extends AbstractModel
 {
     /**
-     * @var integer 1 OK 验证通过
-6 user code len error 验证码长度不匹配，请检查请求是否带Randstr参数，Randstr参数大小写是否有误
-7 captcha no match 验证码答案不匹配/Randstr参数不匹配，请重新生成Randstr、Ticket进行校验
-8 verify timeout 验证码签名超时，票据已过期，请重新生成Randstr、Ticket票进行校验
-9 Sequnce repeat 验证码签名重放，票据重复使用，请重新生成Randstr、Ticket进行校验
-10 Sequnce invalid 验证码签名序列
-11 Cookie invalid 验证码cookie信息不合法，非法请求，可能存在不规范接入
-12 sig len error 签名长度错误
-13 verify ip no match ip不匹配，非法请求，可能存在不规范接入
-15 decrypt fail 验证码签名解密失败，票据校验失败，请检查Ticket票据是否与前端返回Ticket一致
-16 appid no match 验证码强校验appid错误，请检查CaptchaAppId是否为控制台基础配置界面系统分配的APPID
-17 cmd no much 验证码系统命令不匹配
-18 uin no match 号码不匹配
-19 seq redirect 重定向验证
-20 opt no vcode 操作使用pt免验证码校验错误
-21 diff 差别，验证错误
-22 captcha type not match 验证码类型与拉取时不一致
-23 verify type error 验证类型错误
-24 invalid pkg 非法请求包
-25 bad visitor 策略拦截
-26 system busy 系统内部错误
-100 param err appsecretkey 参数校验错误，请检查AppSecretKey是否与控制台基础配置界面系统分配的APPID、AppSecretKey相对应
-104 Ticket Reuse 票据重复使用，同个票据验证多次，请重新生成Randstr、Ticket进行校验
+     * @var integer <p>1 OK 验证通过<br>7 captcha no match 传入的Randstr不合法，请检查Randstr是否与前端返回的Randstr一致<br>8 ticket expired 传入的Ticket已过期（Ticket有效期5分钟），请重新生成Ticket、Randstr进行校验<br>9 ticket reused 传入的Ticket被重复使用，请重新生成Ticket、Randstr进行校验<br>15 decrypt fail 传入的Ticket不合法，请检查Ticket是否与前端返回的Ticket一致<br>16 appid-ticket mismatch 传入的CaptchaAppId错误，请检查CaptchaAppId是否与前端传入的CaptchaAppId一致，并且保障CaptchaAppId是从验证码控制台【验证管理】-&gt;【基础配置】中获取<br>21 diff 票据校验异常，可能的原因是（1）若Ticket包含trerror前缀，一般是由于用户网络较差，导致前端自动容灾，而生成了容灾票据，业务侧可根据需要进行跳过或二次处理。（2）若Ticket不包含trerror前缀，则是由于验证码风控系统发现请求有安全风险，业务侧可根据需要进行拦截。<br>100 appid-secretkey-ticket mismatch 参数校验错误，（1）请检查CaptchaAppId与AppSecretKey是否正确，CaptchaAppId、AppSecretKey需要在验证码控制台【验证管理】&gt;【基础配置】中获取（2）请检查传入的Ticket是否由传入的CaptchaAppId生成</p>
      */
     public $CaptchaCode;
 
     /**
-     * @var string 状态描述及验证错误信息
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string <p>状态描述及验证错误信息</p>
      */
     public $CaptchaMsg;
 
     /**
-     * @var integer [0,100]，恶意等级
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var integer <p>无感验证模式下，该参数返回验证结果：<br>EvilLevel=0 请求无恶意<br>EvilLevel=100 请求有恶意</p>
      */
     public $EvilLevel;
 
     /**
-     * @var integer 前端获取验证码时间，时间戳格式
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var integer <p>前端获取验证码时间，时间戳格式</p>
      */
     public $GetCaptchaTime;
 
     /**
-     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @var integer <p>拦截类型</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $EvilBitmap;
+
+    /**
+     * @var integer <p>提交验证码时间</p>
+     */
+    public $SubmitCaptchaTime;
+
+    /**
+     * @var string <p>设备风险大类</p>
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $DeviceRiskCategory;
+
+    /**
+     * @var integer <p>验证码评分</p><p>取值0-100，分值越高，风险越大</p>
+     */
+    public $Score;
+
+    /**
+     * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public $RequestId;
 
     /**
-     * @param integer $CaptchaCode 1 OK 验证通过
-6 user code len error 验证码长度不匹配，请检查请求是否带Randstr参数，Randstr参数大小写是否有误
-7 captcha no match 验证码答案不匹配/Randstr参数不匹配，请重新生成Randstr、Ticket进行校验
-8 verify timeout 验证码签名超时，票据已过期，请重新生成Randstr、Ticket票进行校验
-9 Sequnce repeat 验证码签名重放，票据重复使用，请重新生成Randstr、Ticket进行校验
-10 Sequnce invalid 验证码签名序列
-11 Cookie invalid 验证码cookie信息不合法，非法请求，可能存在不规范接入
-12 sig len error 签名长度错误
-13 verify ip no match ip不匹配，非法请求，可能存在不规范接入
-15 decrypt fail 验证码签名解密失败，票据校验失败，请检查Ticket票据是否与前端返回Ticket一致
-16 appid no match 验证码强校验appid错误，请检查CaptchaAppId是否为控制台基础配置界面系统分配的APPID
-17 cmd no much 验证码系统命令不匹配
-18 uin no match 号码不匹配
-19 seq redirect 重定向验证
-20 opt no vcode 操作使用pt免验证码校验错误
-21 diff 差别，验证错误
-22 captcha type not match 验证码类型与拉取时不一致
-23 verify type error 验证类型错误
-24 invalid pkg 非法请求包
-25 bad visitor 策略拦截
-26 system busy 系统内部错误
-100 param err appsecretkey 参数校验错误，请检查AppSecretKey是否与控制台基础配置界面系统分配的APPID、AppSecretKey相对应
-104 Ticket Reuse 票据重复使用，同个票据验证多次，请重新生成Randstr、Ticket进行校验
-     * @param string $CaptchaMsg 状态描述及验证错误信息
+     * @param integer $CaptchaCode <p>1 OK 验证通过<br>7 captcha no match 传入的Randstr不合法，请检查Randstr是否与前端返回的Randstr一致<br>8 ticket expired 传入的Ticket已过期（Ticket有效期5分钟），请重新生成Ticket、Randstr进行校验<br>9 ticket reused 传入的Ticket被重复使用，请重新生成Ticket、Randstr进行校验<br>15 decrypt fail 传入的Ticket不合法，请检查Ticket是否与前端返回的Ticket一致<br>16 appid-ticket mismatch 传入的CaptchaAppId错误，请检查CaptchaAppId是否与前端传入的CaptchaAppId一致，并且保障CaptchaAppId是从验证码控制台【验证管理】-&gt;【基础配置】中获取<br>21 diff 票据校验异常，可能的原因是（1）若Ticket包含trerror前缀，一般是由于用户网络较差，导致前端自动容灾，而生成了容灾票据，业务侧可根据需要进行跳过或二次处理。（2）若Ticket不包含trerror前缀，则是由于验证码风控系统发现请求有安全风险，业务侧可根据需要进行拦截。<br>100 appid-secretkey-ticket mismatch 参数校验错误，（1）请检查CaptchaAppId与AppSecretKey是否正确，CaptchaAppId、AppSecretKey需要在验证码控制台【验证管理】&gt;【基础配置】中获取（2）请检查传入的Ticket是否由传入的CaptchaAppId生成</p>
+     * @param string $CaptchaMsg <p>状态描述及验证错误信息</p>
+     * @param integer $EvilLevel <p>无感验证模式下，该参数返回验证结果：<br>EvilLevel=0 请求无恶意<br>EvilLevel=100 请求有恶意</p>
+     * @param integer $GetCaptchaTime <p>前端获取验证码时间，时间戳格式</p>
+     * @param integer $EvilBitmap <p>拦截类型</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param integer $EvilLevel [0,100]，恶意等级
+     * @param integer $SubmitCaptchaTime <p>提交验证码时间</p>
+     * @param string $DeviceRiskCategory <p>设备风险大类</p>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param integer $GetCaptchaTime 前端获取验证码时间，时间戳格式
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @param integer $Score <p>验证码评分</p><p>取值0-100，分值越高，风险越大</p>
+     * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
     {
@@ -192,6 +132,22 @@ class DescribeCaptchaResultResponse extends AbstractModel
 
         if (array_key_exists("GetCaptchaTime",$param) and $param["GetCaptchaTime"] !== null) {
             $this->GetCaptchaTime = $param["GetCaptchaTime"];
+        }
+
+        if (array_key_exists("EvilBitmap",$param) and $param["EvilBitmap"] !== null) {
+            $this->EvilBitmap = $param["EvilBitmap"];
+        }
+
+        if (array_key_exists("SubmitCaptchaTime",$param) and $param["SubmitCaptchaTime"] !== null) {
+            $this->SubmitCaptchaTime = $param["SubmitCaptchaTime"];
+        }
+
+        if (array_key_exists("DeviceRiskCategory",$param) and $param["DeviceRiskCategory"] !== null) {
+            $this->DeviceRiskCategory = $param["DeviceRiskCategory"];
+        }
+
+        if (array_key_exists("Score",$param) and $param["Score"] !== null) {
+            $this->Score = $param["Score"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

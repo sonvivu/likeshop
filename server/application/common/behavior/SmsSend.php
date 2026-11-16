@@ -38,7 +38,7 @@ class SmsSend
 
     protected $notice_id = null; //通知记录id
 
-    public function run($params)
+    public function handle($params)
     {
         try{
             // 设置短信参数
@@ -97,7 +97,11 @@ class SmsSend
 
             throw new Exception(lang('短信渠道不存在'));
         } catch (\Exception $e) {
-            $this->updateSmsLog(SmsLog::send_fail, $e->getMessage());
+            // PHP 8 下给字符串属性赋值是致命 Error；getSmsConfig 阶段抛错时
+            // sms_log 尚未创建，必须先判断，避免掩盖原始异常。
+            if ($this->sms_log instanceof SmsLog) {
+                $this->updateSmsLog(SmsLog::send_fail, $e->getMessage());
+            }
             NoticeLogic::updateNotice($this->notice_id,  $e->getMessage());
         }
     }
@@ -111,7 +115,10 @@ class SmsSend
     {
         // 短信是否开启
         $able_send    = config('project.sms');
-        $this->config = SmsConfig::get(['status' => 1]);
+        // ThinkPHP 5.1/6 的 find(数组) 都是按主键 IN (值) 解析，
+        // find(['status' => 1]) 实际查的是 id = 1 而非 status = 1。
+        // 无启用配置时应直接返回（短信未开启），不能误取 id=1 的停用配置。
+        $this->config = SmsConfig::where(['status' => 1])->find();
         if (!$this->config || true != $able_send) {
             return lang('短信功能未开启');
         }

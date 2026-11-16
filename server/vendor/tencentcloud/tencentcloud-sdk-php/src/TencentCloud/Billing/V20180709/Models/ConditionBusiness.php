@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,15 +20,15 @@ use TencentCloud\Common\AbstractModel;
 /**
  * 产品过滤条件
  *
- * @method string getBusinessCode() 获取产品码
- * @method void setBusinessCode(string $BusinessCode) 设置产品码
+ * @method string getBusinessCode() 获取产品名称代码
+ * @method void setBusinessCode(string $BusinessCode) 设置产品名称代码
  * @method string getBusinessCodeName() 获取产品名称
  * @method void setBusinessCodeName(string $BusinessCodeName) 设置产品名称
  */
 class ConditionBusiness extends AbstractModel
 {
     /**
-     * @var string 产品码
+     * @var string 产品名称代码
      */
     public $BusinessCode;
 
@@ -38,7 +38,7 @@ class ConditionBusiness extends AbstractModel
     public $BusinessCodeName;
 
     /**
-     * @param string $BusinessCode 产品码
+     * @param string $BusinessCode 产品名称代码
      * @param string $BusinessCodeName 产品名称
      */
     function __construct()

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,9 +25,7 @@ use TencentCloud\Common\AbstractModel;
  * @method array getDetailPoints() 获取使用数据明细
  * @method void setDetailPoints(array $DetailPoints) 设置使用数据明细
  * @method string getInstanceID() 获取实例ID
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setInstanceID(string $InstanceID) 设置实例ID
-注意：此字段可能返回 null，表示取不到有效值。
  */
 class DetailSet extends AbstractModel
 {
@@ -43,7 +41,6 @@ class DetailSet extends AbstractModel
 
     /**
      * @var string 实例ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $InstanceID;
 
@@ -51,7 +48,6 @@ class DetailSet extends AbstractModel
      * @param string $Domain 域名
      * @param array $DetailPoints 使用数据明细
      * @param string $InstanceID 实例ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
     {

@@ -24,7 +24,7 @@ use app\common\logic\AccountLogLogic;
 use app\common\model\AccountLog;
 use app\common\model\Order;
 use Exception;
-use think\Db;
+use think\facade\Db;
 use think\facade\Log;
 
 class GiveReward
@@ -35,7 +35,7 @@ class GiveReward
      * @param $params
      * @return bool
      */
-    public function run($params)
+    public function handle($params)
     {
         try {
             $order_id = $params['order_id']; //(订单ID)

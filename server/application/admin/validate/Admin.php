@@ -20,7 +20,7 @@
 namespace app\admin\validate;
 
 use think\captcha\Captcha;
-use think\Db;
+use think\facade\Db;
 use think\facade\Cache;
 use think\Validate;
 

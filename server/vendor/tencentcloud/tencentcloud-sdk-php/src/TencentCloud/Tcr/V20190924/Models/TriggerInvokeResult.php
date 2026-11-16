@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,33 +21,25 @@ use TencentCloud\Common\AbstractModel;
  * 触发器触发结果
  *
  * @method integer getReturnCode() 获取请求TKE返回值
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setReturnCode(integer $ReturnCode) 设置请求TKE返回值
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getReturnMsg() 获取请求TKE返回信息
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setReturnMsg(string $ReturnMsg) 设置请求TKE返回信息
-注意：此字段可能返回 null，表示取不到有效值。
  */
 class TriggerInvokeResult extends AbstractModel
 {
     /**
      * @var integer 请求TKE返回值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $ReturnCode;
 
     /**
      * @var string 请求TKE返回信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $ReturnMsg;
 
     /**
      * @param integer $ReturnCode 请求TKE返回值
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $ReturnMsg 请求TKE返回信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
     {

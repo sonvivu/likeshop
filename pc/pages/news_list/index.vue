@@ -2,15 +2,15 @@
   <div class="help-center-container">
     <div class="help-center-banner">
        <client-only>
-        <swiper ref="mySwiper" :options="swiperOptions">
-          <swiper-slide
+        <Swiper :width="1180">
+          <SwiperSlide
             class="swiper-item"
             v-for="(item, index) in bannerList"
             :key="index"
           >
             <ad-item :item="item"></ad-item>
-          </swiper-slide>
-        </swiper>
+          </SwiperSlide>
+        </Swiper>
       </client-only>
     </div>
     <div class="help-center-box">
@@ -30,7 +30,7 @@
                 <div class="row" style="margin-top: 56px;">
                   <div class="sm muted">{{ $t('发布时间：') }}{{item.create_time}}</div>
                   <div class="row ml16">
-                    <i class="el-icon-view muted"></i>
+                    <el-icon class="muted"><View /></el-icon>
                     <div class="muted" style="margin-left: 3px;">{{item.visit}} {{ $t('人浏览') }}</div>
                   </div>
                 </div>
@@ -67,14 +67,17 @@
 </template>
 
 <script>
+import { Swiper, SwiperSlide } from "swiper/vue";
+import { View } from "@element-plus/icons-vue";
+import { useAppStore } from "~/stores/app";
 export default {
-  head() {
-    return {
-      title: this.$store.getters.headTitle,
-      link: [{ rel: "icon", type: "image/x-icon", href: this.$store.getters.favicon}],
-    };
-  },
-  async asyncData({$get, $post}) {
+  async setup() {
+    const store = useAppStore();
+    const { $get } = useNuxtApp();
+    useHead({
+      title: computed(() => store.headTitle),
+      link: [{ rel: "icon", type: "image/x-icon", href: computed(() => store.favicon) }],
+    });
     let categoryList = [];
     let currentId = 0;
     let articleList = [];
@@ -107,16 +110,10 @@ export default {
       dataNull,
     }
   },
-  data() {
-    return {
-      categoryList: [],
-      articleList: [],
-      currentId: -1,
-      count: 0,
-      swiperOptions: {
-        width: 1180,
-      }
-    }
+  components: {
+    Swiper,
+    SwiperSlide,
+    View
   },
   mounted() {
     console.log(this.articleList, 'articleList')
@@ -127,10 +124,10 @@ export default {
       if(res.code == 1) {
         this.articleList = res.data.list;
         if(this.articleList.length <= 0) {
-          dataNull = true;
+          this.dataNull = true;
         }
         else {
-          dataNull = false
+          this.dataNull = false
         }
       }
     },

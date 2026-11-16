@@ -19,7 +19,7 @@
 namespace app\api\logic;
 use app\common\model\Pay;
 use app\common\server\ConfigServer;
-use think\Db;
+use think\facade\Db;
 
 class RechargeLogic{
     public static function getTemplate(){
@@ -28,6 +28,7 @@ class RechargeLogic{
                 ->order('sort desc')
                 ->field('id,money,give_money,is_recommend')
                 ->select();
+        $list = $list->toArray(); // ThinkPHP 6：select() 返回 Collection，TP5 返回数组；直接写 $list[$k]['x'] 或 foreach(&$item) 改值会丢/报错，先转数组。
 
         foreach ($list as &$item){
             $item['tips'] = '';
@@ -108,6 +109,7 @@ class RechargeLogic{
         ->order('create_time', 'desc')
         ->page($get['page_no'], $get['page_size'])
         ->select();
+      $list = $list->toArray(); // ThinkPHP 6：select() 返回 Collection，TP5 返回数组；直接写 $list[$k]['x'] 或 foreach(&$item) 改值会丢/报错，先转数组。
 
       $count = Db::name('recharge_order')
       ->where([

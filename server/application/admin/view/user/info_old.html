@@ -231,15 +231,15 @@
                         ,{field: 'delivery_address', title: '{:lang('收货地址')}',width: 460,toolbar: '#address'}
                         ,{field: 'total_num', title: '{:lang('商品数量')}',align: 'center',width: 100}
                         ,{field: 'total_amount', title: '{:lang('订单总额')}',width: 120, templet: function(d){
-                               return '￥'+ d.total_amount +'</span>'
+                               return '{:config('currency.symbol')}'+ d.total_amount +'</span>'
                             }
                         }
                         ,{field: 'discount_amount', title: '{:lang('优惠金额')}',width: 120,templet: function(d){
-                                return '￥'+ d.discount_amount +'</span>'
+                                return '{:config('currency.symbol')}'+ d.discount_amount +'</span>'
                             }
                         }
                         ,{field: 'order_amount', title: '{:lang('实付金额')}',width: 160,templet: function(d){
-                                return '￥'+ d.order_amount +'</span>'
+                                return '{:config('currency.symbol')}'+ d.order_amount +'</span>'
                             }
                         }
                         ,{field: 'pay_time',title:'{:lang('订单支付时间')}' ,width: 160}

@@ -26,7 +26,7 @@
 namespace app\admin\validate;
 
 
-use think\Db;
+use think\facade\Db;
 use think\Validate;
 
 class SignDaily extends Validate
@@ -74,21 +74,21 @@ class SignDaily extends Validate
     public function sceneAdd()
     {
         $this->only(['integral','days','growth'])
-            ->remove('instructions');
+            ->remove('instructions', true);
 
     }
 
     public function sceneEdit()
     {
         $this->only(['integral','days','growth'])
-            ->remove('instructions');
+            ->remove('instructions', true);
 
     }
 
     public function sceneSign()
     {
         $this->only(['integral','growth','instructions'])
-        ->remove('days');
+        ->remove('days', true);
     }
 
 

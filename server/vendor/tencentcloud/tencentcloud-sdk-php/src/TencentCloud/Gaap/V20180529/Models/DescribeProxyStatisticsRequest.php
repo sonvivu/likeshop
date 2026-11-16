@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,8 +26,30 @@ use TencentCloud\Common\AbstractModel;
  * @method void setStartTime(string $StartTime) 设置起始时间(2019-03-25 12:00:00)
  * @method string getEndTime() 获取结束时间(2019-03-25 12:00:00)
  * @method void setEndTime(string $EndTime) 设置结束时间(2019-03-25 12:00:00)
- * @method array getMetricNames() 获取统计指标名称列表，支持: 入带宽:InBandwidth, 出带宽:OutBandwidth, 并发:Concurrent, 入包量:InPackets, 出包量:OutPackets, 丢包率:PacketLoss, 延迟:Latency，http请求量：HttpQPS, Https请求量：HttpsQPS
- * @method void setMetricNames(array $MetricNames) 设置统计指标名称列表，支持: 入带宽:InBandwidth, 出带宽:OutBandwidth, 并发:Concurrent, 入包量:InPackets, 出包量:OutPackets, 丢包率:PacketLoss, 延迟:Latency，http请求量：HttpQPS, Https请求量：HttpsQPS
+ * @method array getMetricNames() 获取统计指标名称列表，支持: 
+入带宽:InBandwidth, 
+出带宽:OutBandwidth, 
+并发:Concurrent, 
+入包量:InPackets, 
+出包量:OutPackets, 
+丢包率:PacketLoss, 
+延迟:Latency，
+HTTP请求量：HttpQPS, 
+HTTP请求量利用率：HttpQPSPercent,
+HTTPS请求量：HttpsQPS,
+HTTPS请求量利用率：HttpsQPSPercent
+ * @method void setMetricNames(array $MetricNames) 设置统计指标名称列表，支持: 
+入带宽:InBandwidth, 
+出带宽:OutBandwidth, 
+并发:Concurrent, 
+入包量:InPackets, 
+出包量:OutPackets, 
+丢包率:PacketLoss, 
+延迟:Latency，
+HTTP请求量：HttpQPS, 
+HTTP请求量利用率：HttpQPSPercent,
+HTTPS请求量：HttpsQPS,
+HTTPS请求量利用率：HttpsQPSPercent
  * @method integer getGranularity() 获取监控粒度，目前支持60，300，3600，86400，单位：秒。
 当时间范围不超过3天，支持最小粒度60秒；
 当时间范围不超过7天，支持最小粒度300秒；
@@ -36,6 +58,8 @@ use TencentCloud\Common\AbstractModel;
 当时间范围不超过3天，支持最小粒度60秒；
 当时间范围不超过7天，支持最小粒度300秒；
 当时间范围不超过30天，支持最小粒度3600秒。
+ * @method string getIsp() 获取运营商（通道为三网通道时有效），支持CMCC，CUCC，CTCC，传空值或不传则合并三个运营商数据
+ * @method void setIsp(string $Isp) 设置运营商（通道为三网通道时有效），支持CMCC，CUCC，CTCC，传空值或不传则合并三个运营商数据
  */
 class DescribeProxyStatisticsRequest extends AbstractModel
 {
@@ -55,7 +79,18 @@ class DescribeProxyStatisticsRequest extends AbstractModel
     public $EndTime;
 
     /**
-     * @var array 统计指标名称列表，支持: 入带宽:InBandwidth, 出带宽:OutBandwidth, 并发:Concurrent, 入包量:InPackets, 出包量:OutPackets, 丢包率:PacketLoss, 延迟:Latency，http请求量：HttpQPS, Https请求量：HttpsQPS
+     * @var array 统计指标名称列表，支持: 
+入带宽:InBandwidth, 
+出带宽:OutBandwidth, 
+并发:Concurrent, 
+入包量:InPackets, 
+出包量:OutPackets, 
+丢包率:PacketLoss, 
+延迟:Latency，
+HTTP请求量：HttpQPS, 
+HTTP请求量利用率：HttpQPSPercent,
+HTTPS请求量：HttpsQPS,
+HTTPS请求量利用率：HttpsQPSPercent
      */
     public $MetricNames;
 
@@ -68,14 +103,31 @@ class DescribeProxyStatisticsRequest extends AbstractModel
     public $Granularity;
 
     /**
+     * @var string 运营商（通道为三网通道时有效），支持CMCC，CUCC，CTCC，传空值或不传则合并三个运营商数据
+     */
+    public $Isp;
+
+    /**
      * @param string $ProxyId 通道ID
      * @param string $StartTime 起始时间(2019-03-25 12:00:00)
      * @param string $EndTime 结束时间(2019-03-25 12:00:00)
-     * @param array $MetricNames 统计指标名称列表，支持: 入带宽:InBandwidth, 出带宽:OutBandwidth, 并发:Concurrent, 入包量:InPackets, 出包量:OutPackets, 丢包率:PacketLoss, 延迟:Latency，http请求量：HttpQPS, Https请求量：HttpsQPS
+     * @param array $MetricNames 统计指标名称列表，支持: 
+入带宽:InBandwidth, 
+出带宽:OutBandwidth, 
+并发:Concurrent, 
+入包量:InPackets, 
+出包量:OutPackets, 
+丢包率:PacketLoss, 
+延迟:Latency，
+HTTP请求量：HttpQPS, 
+HTTP请求量利用率：HttpQPSPercent,
+HTTPS请求量：HttpsQPS,
+HTTPS请求量利用率：HttpsQPSPercent
      * @param integer $Granularity 监控粒度，目前支持60，300，3600，86400，单位：秒。
 当时间范围不超过3天，支持最小粒度60秒；
 当时间范围不超过7天，支持最小粒度300秒；
 当时间范围不超过30天，支持最小粒度3600秒。
+     * @param string $Isp 运营商（通道为三网通道时有效），支持CMCC，CUCC，CTCC，传空值或不传则合并三个运营商数据
      */
     function __construct()
     {
@@ -108,6 +160,10 @@ class DescribeProxyStatisticsRequest extends AbstractModel
 
         if (array_key_exists("Granularity",$param) and $param["Granularity"] !== null) {
             $this->Granularity = $param["Granularity"];
+        }
+
+        if (array_key_exists("Isp",$param) and $param["Isp"] !== null) {
+            $this->Isp = $param["Isp"];
         }
     }
 }

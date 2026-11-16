@@ -25,7 +25,7 @@ export function getWxCode() {
 export function getUserProfile() {
     return new Promise((resolve, reject) => {
         uni.getUserProfile({
-            desc: i18n.t('获取用户信息，完善用户资料'),
+            desc: i18n.global.t('获取用户信息，完善用户资料'),
             success: (res) => {
                 resolve(res)
             },

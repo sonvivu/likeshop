@@ -17,10 +17,10 @@
                 </view>
             </view>
             <loading-footer :status="loadingStatus" slotEmpty>
-                <view class="data-null column-center" slot="empty">
+                                <template #empty><view class="data-null column-center">
                     <image class="img-null" src="/static/images/order_null.png" />
                     <text class="nr muted">{{ $t('暂无记录～') }}</text>
-                </view>
+                </view></template>
             </loading-footer>
         </tab>
         <tab :title="$t('支出')">
@@ -39,10 +39,10 @@
                 </view>
             </view>
             <loading-footer :status="loadingStatus" slotEmpty>
-                <view class="data-null column-center" slot="empty">
+                                <template #empty><view class="data-null column-center">
                     <image class="img-null" src="/static/images/order_null.png" />
                     <text class="nr muted">{{ $t('暂无支出记录～') }}</text>
-                </view>
+                </view></template>
             </loading-footer>
         </tab>
         <tab :title="$t('收入')">
@@ -60,10 +60,10 @@
                 </view>
             </view>
             <loading-footer :status="loadingStatus" slotEmpty>
-                <view class="data-null column-center" slot="empty">
+                                <template #empty><view class="data-null column-center">
                     <image class="img-null" src="/static/images/order_null.png"></image>
                     <text class="nr muted">{{ $t('暂无收入记录～') }}</text>
-                </view>
+                </view></template>
             </loading-footer>
         </tab>
     </tabs>

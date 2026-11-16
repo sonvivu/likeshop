@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,6 +26,8 @@ use TencentCloud\Common\AbstractModel;
  * @method void setEgress(array $Egress) 设置出站规则。
  * @method array getIngress() 获取入站规则。
  * @method void setIngress(array $Ingress) 设置入站规则。
+ * @method PolicyStatistics getPolicyStatistics() 获取安全组策略条目统计。只用于出参。
+ * @method void setPolicyStatistics(PolicyStatistics $PolicyStatistics) 设置安全组策略条目统计。只用于出参。
  */
 class SecurityGroupPolicySet extends AbstractModel
 {
@@ -45,9 +47,15 @@ class SecurityGroupPolicySet extends AbstractModel
     public $Ingress;
 
     /**
+     * @var PolicyStatistics 安全组策略条目统计。只用于出参。
+     */
+    public $PolicyStatistics;
+
+    /**
      * @param string $Version 安全组规则当前版本。用户每次更新安全规则版本会自动加1，防止更新的路由规则已过期，不填不考虑冲突。
      * @param array $Egress 出站规则。
      * @param array $Ingress 入站规则。
+     * @param PolicyStatistics $PolicyStatistics 安全组策略条目统计。只用于出参。
      */
     function __construct()
     {
@@ -82,6 +90,11 @@ class SecurityGroupPolicySet extends AbstractModel
                 $obj->deserialize($value);
                 array_push($this->Ingress, $obj);
             }
+        }
+
+        if (array_key_exists("PolicyStatistics",$param) and $param["PolicyStatistics"] !== null) {
+            $this->PolicyStatistics = new PolicyStatistics();
+            $this->PolicyStatistics->deserialize($param["PolicyStatistics"]);
         }
     }
 }

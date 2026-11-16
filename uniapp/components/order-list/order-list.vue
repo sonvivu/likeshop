@@ -80,17 +80,9 @@ likeshop.cn.team // +-----------------------------------------------------------
                             class="primary sm row"
                             style="line-height: 26rpx"
                             v-if="getCancelTime(item.order_cancel_time) > 0"
-                            ><u-count-down
-                                separator="zh"
-                                :timestamp="getCancelTime(item.order_cancel_time)"
-                                separator-color="#FF2C3C"
-                                color="#FF2C3C"
-                                :separator-size="26"
-                                :font-size="26"
-                                bg-color="transparent"
-                                @end="reflesh"
-                            ></u-count-down
-                        ></view>
+                            ><u-count-down :time="getCancelTime(item.order_cancel_time) * 1000" format="HH时mm分ss秒" @finish="reflesh">
+    <template #default="{days, hours, minutes, seconds}"><text style="color:#FF2C3C">{{ String(hours).padStart(2, '0') }}时{{ String(minutes).padStart(2, '0') }}分{{ String(seconds).padStart(2, '0') }}秒</text></template>
+</u-count-down></view>
                     </view>
                     <view v-if="item.cancel_btn">
                         <button
@@ -154,10 +146,10 @@ likeshop.cn.team // +-----------------------------------------------------------
                 </view>
             </navigator>
             <loading-footer :status="status" :slot-empty="true" @refresh="reload">
-                <view slot="empty" class="column-center" style="padding-top: 200rpx">
+                                <template #empty><view class="column-center" style="padding-top: 200rpx">
                     <image class="img-null" src="/static/images/goods_null.png"></image>
                     <text class="lighter">{{ $t('暂无订单') }}</text>
-                </view>
+                </view></template>
             </loading-footer>
         </view>
         <order-dialog

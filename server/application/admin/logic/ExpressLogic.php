@@ -23,7 +23,7 @@ namespace app\admin\logic;
 use app\common\server\ConfigServer;
 
 use app\common\server\UrlServer;
-use think\Db;
+use think\facade\Db;
 use think\Exception;
 
 class ExpressLogic
@@ -53,6 +53,7 @@ class ExpressLogic
             ->where($where)
             ->page($get['page'], $get['limit'])
             ->select();
+        $lists = $lists->toArray(); // ThinkPHP 6：select() 返回 Collection，TP5 返回数组；直接写 $lists[$k]['x'] 或 foreach(&$item) 改值会丢/报错，先转数组。
 
         foreach ($lists as &$item) {
             $item['icon'] = UrlServer::getFileUrl($item['icon']);

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,22 +22,24 @@ use TencentCloud\Common\AbstractModel;
  *
  * @method string getProductName() 获取产品名称
  * @method void setProductName(string $ProductName) 设置产品名称
- * @method integer getDeviceType() 获取产品设备类型
- * @method void setDeviceType(integer $DeviceType) 设置产品设备类型
+ * @method integer getDeviceType() 获取产品设备类型 1.普通设备 2.NVR设备
+ * @method void setDeviceType(integer $DeviceType) 设置产品设备类型 1.普通设备 2.NVR设备
  * @method integer getProductVaildYears() 获取产品有效期
  * @method void setProductVaildYears(integer $ProductVaildYears) 设置产品有效期
- * @method array getFeatures() 获取设备功能码
- * @method void setFeatures(array $Features) 设置设备功能码
- * @method string getChipOs() 获取设备操作系统
- * @method void setChipOs(string $ChipOs) 设置设备操作系统
- * @method string getChipManufactureId() 获取芯片厂商id
- * @method void setChipManufactureId(string $ChipManufactureId) 设置芯片厂商id
- * @method string getChipId() 获取芯片id
- * @method void setChipId(string $ChipId) 设置芯片id
+ * @method array getFeatures() 获取设备功能码 ypsxth音频双向通话 spdxth视频单向通话
+ * @method void setFeatures(array $Features) 设置设备功能码 ypsxth音频双向通话 spdxth视频单向通话
+ * @method string getChipOs() 获取设备操作系统，通用设备填default
+ * @method void setChipOs(string $ChipOs) 设置设备操作系统，通用设备填default
+ * @method string getChipManufactureId() 获取芯片厂商id，通用设备填default
+ * @method void setChipManufactureId(string $ChipManufactureId) 设置芯片厂商id，通用设备填default
+ * @method string getChipId() 获取芯片id，通用设备填default
+ * @method void setChipId(string $ChipId) 设置芯片id，通用设备填default
  * @method string getProductDescription() 获取产品描述信息
  * @method void setProductDescription(string $ProductDescription) 设置产品描述信息
- * @method integer getEncryptionType() 获取认证方式。2 PSK
- * @method void setEncryptionType(integer $EncryptionType) 设置认证方式。2 PSK
+ * @method integer getEncryptionType() 获取认证方式 只支持取值为2 psk认证
+ * @method void setEncryptionType(integer $EncryptionType) 设置认证方式 只支持取值为2 psk认证
+ * @method string getNetType() 获取连接类型，wifi表示WIFI连接，cellular表示4G连接
+ * @method void setNetType(string $NetType) 设置连接类型，wifi表示WIFI连接，cellular表示4G连接
  */
 class CreateProductRequest extends AbstractModel
 {
@@ -47,7 +49,7 @@ class CreateProductRequest extends AbstractModel
     public $ProductName;
 
     /**
-     * @var integer 产品设备类型
+     * @var integer 产品设备类型 1.普通设备 2.NVR设备
      */
     public $DeviceType;
 
@@ -57,22 +59,22 @@ class CreateProductRequest extends AbstractModel
     public $ProductVaildYears;
 
     /**
-     * @var array 设备功能码
+     * @var array 设备功能码 ypsxth音频双向通话 spdxth视频单向通话
      */
     public $Features;
 
     /**
-     * @var string 设备操作系统
+     * @var string 设备操作系统，通用设备填default
      */
     public $ChipOs;
 
     /**
-     * @var string 芯片厂商id
+     * @var string 芯片厂商id，通用设备填default
      */
     public $ChipManufactureId;
 
     /**
-     * @var string 芯片id
+     * @var string 芯片id，通用设备填default
      */
     public $ChipId;
 
@@ -82,20 +84,26 @@ class CreateProductRequest extends AbstractModel
     public $ProductDescription;
 
     /**
-     * @var integer 认证方式。2 PSK
+     * @var integer 认证方式 只支持取值为2 psk认证
      */
     public $EncryptionType;
 
     /**
+     * @var string 连接类型，wifi表示WIFI连接，cellular表示4G连接
+     */
+    public $NetType;
+
+    /**
      * @param string $ProductName 产品名称
-     * @param integer $DeviceType 产品设备类型
+     * @param integer $DeviceType 产品设备类型 1.普通设备 2.NVR设备
      * @param integer $ProductVaildYears 产品有效期
-     * @param array $Features 设备功能码
-     * @param string $ChipOs 设备操作系统
-     * @param string $ChipManufactureId 芯片厂商id
-     * @param string $ChipId 芯片id
+     * @param array $Features 设备功能码 ypsxth音频双向通话 spdxth视频单向通话
+     * @param string $ChipOs 设备操作系统，通用设备填default
+     * @param string $ChipManufactureId 芯片厂商id，通用设备填default
+     * @param string $ChipId 芯片id，通用设备填default
      * @param string $ProductDescription 产品描述信息
-     * @param integer $EncryptionType 认证方式。2 PSK
+     * @param integer $EncryptionType 认证方式 只支持取值为2 psk认证
+     * @param string $NetType 连接类型，wifi表示WIFI连接，cellular表示4G连接
      */
     function __construct()
     {
@@ -144,6 +152,10 @@ class CreateProductRequest extends AbstractModel
 
         if (array_key_exists("EncryptionType",$param) and $param["EncryptionType"] !== null) {
             $this->EncryptionType = $param["EncryptionType"];
+        }
+
+        if (array_key_exists("NetType",$param) and $param["NetType"] !== null) {
+            $this->NetType = $param["NetType"];
         }
     }
 }

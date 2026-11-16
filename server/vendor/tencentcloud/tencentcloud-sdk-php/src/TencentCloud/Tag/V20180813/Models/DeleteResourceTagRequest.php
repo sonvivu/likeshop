@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,8 +22,8 @@ use TencentCloud\Common\AbstractModel;
  *
  * @method string getTagKey() 获取标签键
  * @method void setTagKey(string $TagKey) 设置标签键
- * @method string getResource() 获取[ 资源六段式描述 ](https://cloud.tencent.com/document/product/598/10606)
- * @method void setResource(string $Resource) 设置[ 资源六段式描述 ](https://cloud.tencent.com/document/product/598/10606)
+ * @method string getResource() 获取资源六段式。示例：qcs::ckafka:ap-shanghai:uin/123456789:ckafkaId/ckafka-o85jq584
+ * @method void setResource(string $Resource) 设置资源六段式。示例：qcs::ckafka:ap-shanghai:uin/123456789:ckafkaId/ckafka-o85jq584
  */
 class DeleteResourceTagRequest extends AbstractModel
 {
@@ -33,13 +33,13 @@ class DeleteResourceTagRequest extends AbstractModel
     public $TagKey;
 
     /**
-     * @var string [ 资源六段式描述 ](https://cloud.tencent.com/document/product/598/10606)
+     * @var string 资源六段式。示例：qcs::ckafka:ap-shanghai:uin/123456789:ckafkaId/ckafka-o85jq584
      */
     public $Resource;
 
     /**
      * @param string $TagKey 标签键
-     * @param string $Resource [ 资源六段式描述 ](https://cloud.tencent.com/document/product/598/10606)
+     * @param string $Resource 资源六段式。示例：qcs::ckafka:ap-shanghai:uin/123456789:ckafkaId/ckafka-o85jq584
      */
     function __construct()
     {

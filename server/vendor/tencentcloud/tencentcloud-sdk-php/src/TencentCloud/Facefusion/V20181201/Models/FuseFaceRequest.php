@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,8 +24,8 @@ use TencentCloud\Common\AbstractModel;
  * @method void setProjectId(string $ProjectId) 设置活动 ID，请在人脸融合控制台查看。
  * @method string getModelId() 获取素材 ID，请在人脸融合控制台查看。
  * @method void setModelId(string $ModelId) 设置素材 ID，请在人脸融合控制台查看。
- * @method string getRspImgType() 获取返回图像方式（url 或 base64) ，二选一。url有效期为30天。
- * @method void setRspImgType(string $RspImgType) 设置返回图像方式（url 或 base64) ，二选一。url有效期为30天。
+ * @method string getRspImgType() 获取返回图像方式（url 或 base64) ，二选一。url有效期为7天。
+ * @method void setRspImgType(string $RspImgType) 设置返回图像方式（url 或 base64) ，二选一。url有效期为7天。
  * @method array getMergeInfos() 获取用户人脸图片、素材模板图的人脸位置信息。
  * @method void setMergeInfos(array $MergeInfos) 设置用户人脸图片、素材模板图的人脸位置信息。
  * @method integer getFuseProfileDegree() 获取脸型融合比例，数值越高，融合后的脸型越像素材人物。取值范围[0,100] 
@@ -40,6 +40,8 @@ use TencentCloud\Common\AbstractModel;
 请注意，不适宜内容识别服务开启后，您需要根据返回结果自行判断是否调整您的业务逻辑。例如提示您的用户图片非法，请更换图片。
  * @method void setCelebrityIdentify(integer $CelebrityIdentify) 设置0表示不需要不适宜内容识别，1表示需要不适宜内容识别。默认值为0。
 请注意，不适宜内容识别服务开启后，您需要根据返回结果自行判断是否调整您的业务逻辑。例如提示您的用户图片非法，请更换图片。
+ * @method FuseParam getFuseParam() 获取融合参数
+ * @method void setFuseParam(FuseParam $FuseParam) 设置融合参数
  */
 class FuseFaceRequest extends AbstractModel
 {
@@ -54,7 +56,7 @@ class FuseFaceRequest extends AbstractModel
     public $ModelId;
 
     /**
-     * @var string 返回图像方式（url 或 base64) ，二选一。url有效期为30天。
+     * @var string 返回图像方式（url 或 base64) ，二选一。url有效期为7天。
      */
     public $RspImgType;
 
@@ -82,9 +84,14 @@ class FuseFaceRequest extends AbstractModel
     public $CelebrityIdentify;
 
     /**
+     * @var FuseParam 融合参数
+     */
+    public $FuseParam;
+
+    /**
      * @param string $ProjectId 活动 ID，请在人脸融合控制台查看。
      * @param string $ModelId 素材 ID，请在人脸融合控制台查看。
-     * @param string $RspImgType 返回图像方式（url 或 base64) ，二选一。url有效期为30天。
+     * @param string $RspImgType 返回图像方式（url 或 base64) ，二选一。url有效期为7天。
      * @param array $MergeInfos 用户人脸图片、素材模板图的人脸位置信息。
      * @param integer $FuseProfileDegree 脸型融合比例，数值越高，融合后的脸型越像素材人物。取值范围[0,100] 
 若此参数不填写，则使用人脸融合控制台中脸型参数数值。（换脸版算法暂不支持此参数调整）
@@ -92,6 +99,7 @@ class FuseFaceRequest extends AbstractModel
 若此参数不填写，则使用人脸融合控制台中五官参数数值。（换脸版算法暂不支持此参数调整）
      * @param integer $CelebrityIdentify 0表示不需要不适宜内容识别，1表示需要不适宜内容识别。默认值为0。
 请注意，不适宜内容识别服务开启后，您需要根据返回结果自行判断是否调整您的业务逻辑。例如提示您的用户图片非法，请更换图片。
+     * @param FuseParam $FuseParam 融合参数
      */
     function __construct()
     {
@@ -137,6 +145,11 @@ class FuseFaceRequest extends AbstractModel
 
         if (array_key_exists("CelebrityIdentify",$param) and $param["CelebrityIdentify"] !== null) {
             $this->CelebrityIdentify = $param["CelebrityIdentify"];
+        }
+
+        if (array_key_exists("FuseParam",$param) and $param["FuseParam"] !== null) {
+            $this->FuseParam = new FuseParam();
+            $this->FuseParam->deserialize($param["FuseParam"]);
         }
     }
 }

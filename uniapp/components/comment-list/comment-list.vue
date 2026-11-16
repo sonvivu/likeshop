@@ -73,10 +73,10 @@
             </view>
         </view>
         <loading-footer :status="status" slotEmpty>
-            <view class="data-null column-center" slot="empty">
+                        <template #empty><view class="data-null column-center">
                 <image class="img-null" src="/static/images/news_null.png"></image>
                 <text class="sm muted">{{ $t('暂无其他评价～') }}</text>
-            </view>
+            </view></template>
         </loading-footer>
     </view>
 </template>

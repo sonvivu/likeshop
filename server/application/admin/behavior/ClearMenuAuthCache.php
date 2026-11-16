@@ -29,8 +29,9 @@ class ClearMenuAuthCache
 
     /**
      * 清除菜单权限缓存
+     * ThinkPHP 6：事件监听器方法名由 run 改为 handle。
      */
-    public function run()
+    public function handle($params = null)
     {
         (new RoleMenuCache())->delAll();
         (new RoleNoneAuthCacheUris())->delAll();

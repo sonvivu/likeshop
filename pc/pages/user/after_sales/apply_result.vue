@@ -34,17 +34,19 @@
 </template>
 
 <script>
+import { useAppStore } from "~/stores/app";
 export default {
-    head() {
-        return {
-        title: this.$store.getters.headTitle,
-        link: [{ rel: "icon", type: "image/x-icon", href: this.$store.getters.favicon}],
-        };
-    },
-    layout: "user_lauout",
-    async asyncData({$get, query}) {
+    async setup() {
+      setPageLayout('user_lauout')
+        const route = useRoute();
+        const store = useAppStore();
+        const { $get } = useNuxtApp();
+        useHead({
+            title: computed(() => store.headTitle),
+            link: [{ rel: "icon", type: "image/x-icon", href: computed(() => store.favicon) }],
+        });
         const data = {
-            id: query.afterSaleId
+            id: route.query.afterSaleId
         };
         let lists = {}
         let res = await $get("after_sale/detail", {params: data});

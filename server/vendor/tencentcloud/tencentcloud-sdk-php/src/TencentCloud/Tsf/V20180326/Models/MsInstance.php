@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -119,6 +119,10 @@ use TencentCloud\Common\AbstractModel;
  * @method string getHiddenStatus() 获取屏蔽状态，hidden 为屏蔽，unhidden 为未屏蔽
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setHiddenStatus(string $HiddenStatus) 设置屏蔽状态，hidden 为屏蔽，unhidden 为未屏蔽
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getMetaJson() 获取json格式的 meta 信息
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setMetaJson(string $MetaJson) 设置json格式的 meta 信息
 注意：此字段可能返回 null，表示取不到有效值。
  */
 class MsInstance extends AbstractModel
@@ -274,6 +278,12 @@ class MsInstance extends AbstractModel
     public $HiddenStatus;
 
     /**
+     * @var string json格式的 meta 信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $MetaJson;
+
+    /**
      * @param string $InstanceId 机器实例ID信息
 注意：此字段可能返回 null，表示取不到有效值。
      * @param string $InstanceName 机器实例名称信息
@@ -323,6 +333,8 @@ class MsInstance extends AbstractModel
      * @param string $RegistrationId 实例注册id
 注意：此字段可能返回 null，表示取不到有效值。
      * @param string $HiddenStatus 屏蔽状态，hidden 为屏蔽，unhidden 为未屏蔽
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $MetaJson json格式的 meta 信息
 注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
@@ -436,6 +448,10 @@ class MsInstance extends AbstractModel
 
         if (array_key_exists("HiddenStatus",$param) and $param["HiddenStatus"] !== null) {
             $this->HiddenStatus = $param["HiddenStatus"];
+        }
+
+        if (array_key_exists("MetaJson",$param) and $param["MetaJson"] !== null) {
+            $this->MetaJson = $param["MetaJson"];
         }
     }
 }

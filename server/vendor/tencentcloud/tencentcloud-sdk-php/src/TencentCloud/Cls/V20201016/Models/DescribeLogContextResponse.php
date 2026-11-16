@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,42 +20,42 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeLogContext返回参数结构体
  *
- * @method array getLogContextInfos() 获取日志上下文信息集合
- * @method void setLogContextInfos(array $LogContextInfos) 设置日志上下文信息集合
- * @method boolean getPrevOver() 获取上文日志是否已经返回
- * @method void setPrevOver(boolean $PrevOver) 设置上文日志是否已经返回
- * @method boolean getNextOver() 获取下文日志是否已经返回
- * @method void setNextOver(boolean $NextOver) 设置下文日志是否已经返回
- * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
- * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method array getLogContextInfos() 获取<p>日志上下文信息集合</p>
+ * @method void setLogContextInfos(array $LogContextInfos) 设置<p>日志上下文信息集合</p>
+ * @method boolean getPrevOver() 获取<p>上文日志是否已经返回完成（当PrevOver为false，表示有上文日志还未全部返回）。</p>
+ * @method void setPrevOver(boolean $PrevOver) 设置<p>上文日志是否已经返回完成（当PrevOver为false，表示有上文日志还未全部返回）。</p>
+ * @method boolean getNextOver() 获取<p>下文日志是否已经返回完成（当NextOver为false，表示有下文日志还未全部返回）。</p>
+ * @method void setNextOver(boolean $NextOver) 设置<p>下文日志是否已经返回完成（当NextOver为false，表示有下文日志还未全部返回）。</p>
+ * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+ * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
 class DescribeLogContextResponse extends AbstractModel
 {
     /**
-     * @var array 日志上下文信息集合
+     * @var array <p>日志上下文信息集合</p>
      */
     public $LogContextInfos;
 
     /**
-     * @var boolean 上文日志是否已经返回
+     * @var boolean <p>上文日志是否已经返回完成（当PrevOver为false，表示有上文日志还未全部返回）。</p>
      */
     public $PrevOver;
 
     /**
-     * @var boolean 下文日志是否已经返回
+     * @var boolean <p>下文日志是否已经返回完成（当NextOver为false，表示有下文日志还未全部返回）。</p>
      */
     public $NextOver;
 
     /**
-     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public $RequestId;
 
     /**
-     * @param array $LogContextInfos 日志上下文信息集合
-     * @param boolean $PrevOver 上文日志是否已经返回
-     * @param boolean $NextOver 下文日志是否已经返回
-     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @param array $LogContextInfos <p>日志上下文信息集合</p>
+     * @param boolean $PrevOver <p>上文日志是否已经返回完成（当PrevOver为false，表示有上文日志还未全部返回）。</p>
+     * @param boolean $NextOver <p>下文日志是否已经返回完成（当NextOver为false，表示有下文日志还未全部返回）。</p>
+     * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
     {

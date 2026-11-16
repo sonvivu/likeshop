@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,33 +21,41 @@ use TencentCloud\Common\AbstractModel;
  * 检查报告单
  *
  * @method Desc getDesc() 获取描述
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setDesc(Desc $Desc) 设置描述
-注意：此字段可能返回 null，表示取不到有效值。
  * @method Summary getSummary() 获取结论
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setSummary(Summary $Summary) 设置结论
-注意：此字段可能返回 null，表示取不到有效值。
+ * @method array getBlockTitle() 获取检查报告块标题
+ * @method void setBlockTitle(array $BlockTitle) 设置检查报告块标题
+ * @method integer getPage() 获取数据在原PDF文件中的第几页
+ * @method void setPage(integer $Page) 设置数据在原PDF文件中的第几页
  */
 class Check extends AbstractModel
 {
     /**
      * @var Desc 描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Desc;
 
     /**
      * @var Summary 结论
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Summary;
 
     /**
+     * @var array 检查报告块标题
+     */
+    public $BlockTitle;
+
+    /**
+     * @var integer 数据在原PDF文件中的第几页
+     */
+    public $Page;
+
+    /**
      * @param Desc $Desc 描述
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Summary $Summary 结论
-注意：此字段可能返回 null，表示取不到有效值。
+     * @param array $BlockTitle 检查报告块标题
+     * @param integer $Page 数据在原PDF文件中的第几页
      */
     function __construct()
     {
@@ -70,6 +78,19 @@ class Check extends AbstractModel
         if (array_key_exists("Summary",$param) and $param["Summary"] !== null) {
             $this->Summary = new Summary();
             $this->Summary->deserialize($param["Summary"]);
+        }
+
+        if (array_key_exists("BlockTitle",$param) and $param["BlockTitle"] !== null) {
+            $this->BlockTitle = [];
+            foreach ($param["BlockTitle"] as $key => $value){
+                $obj = new BlockTitle();
+                $obj->deserialize($value);
+                array_push($this->BlockTitle, $obj);
+            }
+        }
+
+        if (array_key_exists("Page",$param) and $param["Page"] !== null) {
+            $this->Page = $param["Page"];
         }
     }
 }

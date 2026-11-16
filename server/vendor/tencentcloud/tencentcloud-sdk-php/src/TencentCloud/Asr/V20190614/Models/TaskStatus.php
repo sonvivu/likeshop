@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,10 +18,10 @@ namespace TencentCloud\Asr\V20190614\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * 获取录音识别结果结果的返回参数
+ * [获取录音识别结果的返回参数](https://cloud.tencent.com/document/product/1093/37822#3.-.E8.BE.93.E5.87.BA.E5.8F.82.E6.95.B0)
  *
- * @method integer getTaskId() 获取任务标识。
- * @method void setTaskId(integer $TaskId) 设置任务标识。
+ * @method integer getTaskId() 获取任务标识。注意：TaskId数据类型为uint64。
+ * @method void setTaskId(integer $TaskId) 设置任务标识。注意：TaskId数据类型为uint64。
  * @method integer getStatus() 获取任务状态码，0：任务等待，1：任务执行中，2：任务成功，3：任务失败。
  * @method void setStatus(integer $Status) 设置任务状态码，0：任务等待，1：任务执行中，2：任务成功，3：任务失败。
  * @method string getStatusStr() 获取任务状态，waiting：任务等待，doing：任务执行中，success：任务成功，failed：任务失败。
@@ -34,11 +34,17 @@ use TencentCloud\Common\AbstractModel;
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setResultDetail(array $ResultDetail) 设置识别结果详情，包含每个句子中的词时间偏移，一般用于生成字幕的场景。(录音识别请求中ResTextFormat=1时该字段不为空)
 注意：此字段可能返回 null，表示取不到有效值。
+ * @method float getAudioDuration() 获取音频时长(秒)。
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setAudioDuration(float $AudioDuration) 设置音频时长(秒)。
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method array getLlmResults() 获取大模型后处理结果
+ * @method void setLlmResults(array $LlmResults) 设置大模型后处理结果
  */
 class TaskStatus extends AbstractModel
 {
     /**
-     * @var integer 任务标识。
+     * @var integer 任务标识。注意：TaskId数据类型为uint64。
      */
     public $TaskId;
 
@@ -69,13 +75,27 @@ class TaskStatus extends AbstractModel
     public $ResultDetail;
 
     /**
-     * @param integer $TaskId 任务标识。
+     * @var float 音频时长(秒)。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $AudioDuration;
+
+    /**
+     * @var array 大模型后处理结果
+     */
+    public $LlmResults;
+
+    /**
+     * @param integer $TaskId 任务标识。注意：TaskId数据类型为uint64。
      * @param integer $Status 任务状态码，0：任务等待，1：任务执行中，2：任务成功，3：任务失败。
      * @param string $StatusStr 任务状态，waiting：任务等待，doing：任务执行中，success：任务成功，failed：任务失败。
      * @param string $Result 识别结果。
      * @param string $ErrorMsg 失败原因说明。
      * @param array $ResultDetail 识别结果详情，包含每个句子中的词时间偏移，一般用于生成字幕的场景。(录音识别请求中ResTextFormat=1时该字段不为空)
 注意：此字段可能返回 null，表示取不到有效值。
+     * @param float $AudioDuration 音频时长(秒)。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param array $LlmResults 大模型后处理结果
      */
     function __construct()
     {
@@ -116,6 +136,19 @@ class TaskStatus extends AbstractModel
                 $obj = new SentenceDetail();
                 $obj->deserialize($value);
                 array_push($this->ResultDetail, $obj);
+            }
+        }
+
+        if (array_key_exists("AudioDuration",$param) and $param["AudioDuration"] !== null) {
+            $this->AudioDuration = $param["AudioDuration"];
+        }
+
+        if (array_key_exists("LlmResults",$param) and $param["LlmResults"] !== null) {
+            $this->LlmResults = [];
+            foreach ($param["LlmResults"] as $key => $value){
+                $obj = new LlmResult();
+                $obj->deserialize($value);
+                array_push($this->LlmResults, $obj);
             }
         }
     }

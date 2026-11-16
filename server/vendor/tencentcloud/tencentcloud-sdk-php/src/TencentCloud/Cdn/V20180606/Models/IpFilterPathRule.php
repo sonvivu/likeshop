@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,12 +29,12 @@ whitelist：白名单
 blacklist：黑名单
 注意：此字段可能返回 null，表示取不到有效值。
  * @method array getFilters() 获取IP 黑白名单列表
-支持 X.X.X.X 形式 IP，或 /8、 /16、/24 形式网段
-最多可填充 50 个白名单或 50 个黑名单
+支持 X.X.X.X 格式IPV4地址 或X:X:X:X:X:X:X:X 格式IPV6地址， 或网段格式/X（IPV4:1≤X≤32；IPV6:1≤X≤128）
+最多可填充 500 个白名单或 200 个黑名单；
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setFilters(array $Filters) 设置IP 黑白名单列表
-支持 X.X.X.X 形式 IP，或 /8、 /16、/24 形式网段
-最多可填充 50 个白名单或 50 个黑名单
+支持 X.X.X.X 格式IPV4地址 或X:X:X:X:X:X:X:X 格式IPV6地址， 或网段格式/X（IPV4:1≤X≤32；IPV6:1≤X≤128）
+最多可填充 500 个白名单或 200 个黑名单；
 注意：此字段可能返回 null，表示取不到有效值。
  * @method string getRuleType() 获取规则类型：
 all：所有文件生效
@@ -60,6 +60,8 @@ file 时填充后缀名，如 jpg、txt
 directory 时填充路径，如 /xxx/test/
 path 时填充绝对路径，如 /xxx/test.html
 注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getRemark() 获取备注信息, 最多支持50个字符
+ * @method void setRemark(string $Remark) 设置备注信息, 最多支持50个字符
  */
 class IpFilterPathRule extends AbstractModel
 {
@@ -73,8 +75,8 @@ blacklist：黑名单
 
     /**
      * @var array IP 黑白名单列表
-支持 X.X.X.X 形式 IP，或 /8、 /16、/24 形式网段
-最多可填充 50 个白名单或 50 个黑名单
+支持 X.X.X.X 格式IPV4地址 或X:X:X:X:X:X:X:X 格式IPV6地址， 或网段格式/X（IPV4:1≤X≤32；IPV6:1≤X≤128）
+最多可填充 500 个白名单或 200 个黑名单；
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Filters;
@@ -100,13 +102,18 @@ path 时填充绝对路径，如 /xxx/test.html
     public $RulePaths;
 
     /**
+     * @var string 备注信息, 最多支持50个字符
+     */
+    public $Remark;
+
+    /**
      * @param string $FilterType IP 黑白名单类型
 whitelist：白名单
 blacklist：黑名单
 注意：此字段可能返回 null，表示取不到有效值。
      * @param array $Filters IP 黑白名单列表
-支持 X.X.X.X 形式 IP，或 /8、 /16、/24 形式网段
-最多可填充 50 个白名单或 50 个黑名单
+支持 X.X.X.X 格式IPV4地址 或X:X:X:X:X:X:X:X 格式IPV6地址， 或网段格式/X（IPV4:1≤X≤32；IPV6:1≤X≤128）
+最多可填充 500 个白名单或 200 个黑名单；
 注意：此字段可能返回 null，表示取不到有效值。
      * @param string $RuleType 规则类型：
 all：所有文件生效
@@ -120,6 +127,7 @@ file 时填充后缀名，如 jpg、txt
 directory 时填充路径，如 /xxx/test/
 path 时填充绝对路径，如 /xxx/test.html
 注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $Remark 备注信息, 最多支持50个字符
      */
     function __construct()
     {
@@ -148,6 +156,10 @@ path 时填充绝对路径，如 /xxx/test.html
 
         if (array_key_exists("RulePaths",$param) and $param["RulePaths"] !== null) {
             $this->RulePaths = $param["RulePaths"];
+        }
+
+        if (array_key_exists("Remark",$param) and $param["Remark"] !== null) {
+            $this->Remark = $param["Remark"];
         }
     }
 }

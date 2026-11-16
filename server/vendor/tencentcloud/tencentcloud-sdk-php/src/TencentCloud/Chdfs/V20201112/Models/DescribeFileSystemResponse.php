@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,16 +22,20 @@ use TencentCloud\Common\AbstractModel;
  *
  * @method FileSystem getFileSystem() 获取文件系统
  * @method void setFileSystem(FileSystem $FileSystem) 设置文件系统
- * @method integer getCapacityUsed() 获取已使用容量（byte），包括标准和归档存储
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setCapacityUsed(integer $CapacityUsed) 设置已使用容量（byte），包括标准和归档存储
-注意：此字段可能返回 null，表示取不到有效值。
- * @method integer getArchiveCapacityUsed() 获取已使用归档存储容量（byte）
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setArchiveCapacityUsed(integer $ArchiveCapacityUsed) 设置已使用归档存储容量（byte）
-注意：此字段可能返回 null，表示取不到有效值。
- * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
- * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method integer getCapacityUsed() 获取文件系统已使用容量（byte）
+ * @method void setCapacityUsed(integer $CapacityUsed) 设置文件系统已使用容量（byte）
+ * @method integer getArchiveCapacityUsed() 获取已使用COS归档存储容量（byte）
+ * @method void setArchiveCapacityUsed(integer $ArchiveCapacityUsed) 设置已使用COS归档存储容量（byte）
+ * @method integer getStandardCapacityUsed() 获取已使用COS标准存储容量（byte）
+ * @method void setStandardCapacityUsed(integer $StandardCapacityUsed) 设置已使用COS标准存储容量（byte）
+ * @method integer getDegradeCapacityUsed() 获取已使用COS低频存储容量（byte）
+ * @method void setDegradeCapacityUsed(integer $DegradeCapacityUsed) 设置已使用COS低频存储容量（byte）
+ * @method integer getDeepArchiveCapacityUsed() 获取已使用COS深度归档存储容量（byte）
+ * @method void setDeepArchiveCapacityUsed(integer $DeepArchiveCapacityUsed) 设置已使用COS深度归档存储容量（byte）
+ * @method integer getIntelligentCapacityUsed() 获取已使用COS智能分层存储容量（byte）
+ * @method void setIntelligentCapacityUsed(integer $IntelligentCapacityUsed) 设置已使用COS智能分层存储容量（byte）
+ * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+ * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
 class DescribeFileSystemResponse extends AbstractModel
 {
@@ -41,29 +45,49 @@ class DescribeFileSystemResponse extends AbstractModel
     public $FileSystem;
 
     /**
-     * @var integer 已使用容量（byte），包括标准和归档存储
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var integer 文件系统已使用容量（byte）
      */
     public $CapacityUsed;
 
     /**
-     * @var integer 已使用归档存储容量（byte）
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var integer 已使用COS归档存储容量（byte）
      */
     public $ArchiveCapacityUsed;
 
     /**
-     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @var integer 已使用COS标准存储容量（byte）
+     */
+    public $StandardCapacityUsed;
+
+    /**
+     * @var integer 已使用COS低频存储容量（byte）
+     */
+    public $DegradeCapacityUsed;
+
+    /**
+     * @var integer 已使用COS深度归档存储容量（byte）
+     */
+    public $DeepArchiveCapacityUsed;
+
+    /**
+     * @var integer 已使用COS智能分层存储容量（byte）
+     */
+    public $IntelligentCapacityUsed;
+
+    /**
+     * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public $RequestId;
 
     /**
      * @param FileSystem $FileSystem 文件系统
-     * @param integer $CapacityUsed 已使用容量（byte），包括标准和归档存储
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param integer $ArchiveCapacityUsed 已使用归档存储容量（byte）
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @param integer $CapacityUsed 文件系统已使用容量（byte）
+     * @param integer $ArchiveCapacityUsed 已使用COS归档存储容量（byte）
+     * @param integer $StandardCapacityUsed 已使用COS标准存储容量（byte）
+     * @param integer $DegradeCapacityUsed 已使用COS低频存储容量（byte）
+     * @param integer $DeepArchiveCapacityUsed 已使用COS深度归档存储容量（byte）
+     * @param integer $IntelligentCapacityUsed 已使用COS智能分层存储容量（byte）
+     * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
     {
@@ -89,6 +113,22 @@ class DescribeFileSystemResponse extends AbstractModel
 
         if (array_key_exists("ArchiveCapacityUsed",$param) and $param["ArchiveCapacityUsed"] !== null) {
             $this->ArchiveCapacityUsed = $param["ArchiveCapacityUsed"];
+        }
+
+        if (array_key_exists("StandardCapacityUsed",$param) and $param["StandardCapacityUsed"] !== null) {
+            $this->StandardCapacityUsed = $param["StandardCapacityUsed"];
+        }
+
+        if (array_key_exists("DegradeCapacityUsed",$param) and $param["DegradeCapacityUsed"] !== null) {
+            $this->DegradeCapacityUsed = $param["DegradeCapacityUsed"];
+        }
+
+        if (array_key_exists("DeepArchiveCapacityUsed",$param) and $param["DeepArchiveCapacityUsed"] !== null) {
+            $this->DeepArchiveCapacityUsed = $param["DeepArchiveCapacityUsed"];
+        }
+
+        if (array_key_exists("IntelligentCapacityUsed",$param) and $param["IntelligentCapacityUsed"] !== null) {
+            $this->IntelligentCapacityUsed = $param["IntelligentCapacityUsed"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

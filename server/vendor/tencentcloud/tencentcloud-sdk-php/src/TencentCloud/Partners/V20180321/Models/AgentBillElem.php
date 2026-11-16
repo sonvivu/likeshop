@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,18 +40,12 @@ use TencentCloud\Common\AbstractModel;
  * @method void setAmt(integer $Amt) 设置支付金额，单位分
  * @method string getPayerMode() 获取agentpay：代付；selfpay：自付
  * @method void setPayerMode(string $PayerMode) 设置agentpay：代付；selfpay：自付
- * @method string getClientType() 获取客户类型：可以为new(新拓)/assign(指定)/old(存量)/空
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setClientType(string $ClientType) 设置客户类型：可以为new(新拓)/assign(指定)/old(存量)/空
-注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getClientType() 获取客户类型：可以为new(自拓)/assign(指定)/old(官网)/direct(直销)/direct_newopp(直销(新商机))/空
+ * @method void setClientType(string $ClientType) 设置客户类型：可以为new(自拓)/assign(指定)/old(官网)/direct(直销)/direct_newopp(直销(新商机))/空
  * @method string getProjectType() 获取项目类型：可以为self(自拓项目)/platform(合作项目)/repeat(复算项目  )/空
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setProjectType(string $ProjectType) 设置项目类型：可以为self(自拓项目)/platform(合作项目)/repeat(复算项目  )/空
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getActivityId() 获取活动ID
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setActivityId(string $ActivityId) 设置活动ID
-注意：此字段可能返回 null，表示取不到有效值。
  */
 class AgentBillElem extends AbstractModel
 {
@@ -106,20 +100,17 @@ class AgentBillElem extends AbstractModel
     public $PayerMode;
 
     /**
-     * @var string 客户类型：可以为new(新拓)/assign(指定)/old(存量)/空
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string 客户类型：可以为new(自拓)/assign(指定)/old(官网)/direct(直销)/direct_newopp(直销(新商机))/空
      */
     public $ClientType;
 
     /**
      * @var string 项目类型：可以为self(自拓项目)/platform(合作项目)/repeat(复算项目  )/空
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $ProjectType;
 
     /**
      * @var string 活动ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $ActivityId;
 
@@ -134,12 +125,9 @@ class AgentBillElem extends AbstractModel
      * @param string $SettleMonth 支付月份
      * @param integer $Amt 支付金额，单位分
      * @param string $PayerMode agentpay：代付；selfpay：自付
-     * @param string $ClientType 客户类型：可以为new(新拓)/assign(指定)/old(存量)/空
-注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $ClientType 客户类型：可以为new(自拓)/assign(指定)/old(官网)/direct(直销)/direct_newopp(直销(新商机))/空
      * @param string $ProjectType 项目类型：可以为self(自拓项目)/platform(合作项目)/repeat(复算项目  )/空
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $ActivityId 活动ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
     {

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,20 +18,20 @@ namespace TencentCloud\Mps\V20190612\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * 内容审核鉴政任务输入参数类型
+ * 内容审核敏感任务输入参数类型
  *
- * @method integer getDefinition() 获取鉴政模板 ID。
- * @method void setDefinition(integer $Definition) 设置鉴政模板 ID。
+ * @method integer getDefinition() 获取模板 ID。
+ * @method void setDefinition(integer $Definition) 设置模板 ID。
  */
 class AiReviewPoliticalTaskInput extends AbstractModel
 {
     /**
-     * @var integer 鉴政模板 ID。
+     * @var integer 模板 ID。
      */
     public $Definition;
 
     /**
-     * @param integer $Definition 鉴政模板 ID。
+     * @param integer $Definition 模板 ID。
      */
     function __construct()
     {

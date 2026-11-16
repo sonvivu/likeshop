@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,42 +20,50 @@ use TencentCloud\Common\AbstractModel;
 /**
  * ModifyFlowLogAttribute请求参数结构体
  *
- * @method string getVpcId() 获取私用网络ID或者统一ID，建议使用统一ID
- * @method void setVpcId(string $VpcId) 设置私用网络ID或者统一ID，建议使用统一ID
- * @method string getFlowLogId() 获取流日志唯一ID
- * @method void setFlowLogId(string $FlowLogId) 设置流日志唯一ID
- * @method string getFlowLogName() 获取流日志实例名字
- * @method void setFlowLogName(string $FlowLogName) 设置流日志实例名字
- * @method string getFlowLogDescription() 获取流日志实例描述
- * @method void setFlowLogDescription(string $FlowLogDescription) 设置流日志实例描述
+ * @method string getFlowLogId() 获取流日志唯一ID。可通过[CreateFlowLog](https://cloud.tencent.com/document/product/215/35015)接口创建；可通过[DescribeFlowLogs](https://cloud.tencent.com/document/product/215/35012)接口获取。
+ * @method void setFlowLogId(string $FlowLogId) 设置流日志唯一ID。可通过[CreateFlowLog](https://cloud.tencent.com/document/product/215/35015)接口创建；可通过[DescribeFlowLogs](https://cloud.tencent.com/document/product/215/35012)接口获取。
+ * @method string getVpcId() 获取私用网络唯一ID。修改云联网流日志属性时可不填，其他流日志类型必填。
+ * @method void setVpcId(string $VpcId) 设置私用网络唯一ID。修改云联网流日志属性时可不填，其他流日志类型必填。
+ * @method string getFlowLogName() 获取流日志实例名称。长度为不超过60字符。
+ * @method void setFlowLogName(string $FlowLogName) 设置流日志实例名称。长度为不超过60字符。
+ * @method string getFlowLogDescription() 获取流日志实例描述。长度为不超过512个字符。
+ * @method void setFlowLogDescription(string $FlowLogDescription) 设置流日志实例描述。长度为不超过512个字符。
+ * @method integer getPeriod() 获取流日志采集周期，只支持CCN类型流日志。 取值范围（单位s）：60， 300， 600。
+ * @method void setPeriod(integer $Period) 设置流日志采集周期，只支持CCN类型流日志。 取值范围（单位s）：60， 300， 600。
  */
 class ModifyFlowLogAttributeRequest extends AbstractModel
 {
     /**
-     * @var string 私用网络ID或者统一ID，建议使用统一ID
-     */
-    public $VpcId;
-
-    /**
-     * @var string 流日志唯一ID
+     * @var string 流日志唯一ID。可通过[CreateFlowLog](https://cloud.tencent.com/document/product/215/35015)接口创建；可通过[DescribeFlowLogs](https://cloud.tencent.com/document/product/215/35012)接口获取。
      */
     public $FlowLogId;
 
     /**
-     * @var string 流日志实例名字
+     * @var string 私用网络唯一ID。修改云联网流日志属性时可不填，其他流日志类型必填。
+     */
+    public $VpcId;
+
+    /**
+     * @var string 流日志实例名称。长度为不超过60字符。
      */
     public $FlowLogName;
 
     /**
-     * @var string 流日志实例描述
+     * @var string 流日志实例描述。长度为不超过512个字符。
      */
     public $FlowLogDescription;
 
     /**
-     * @param string $VpcId 私用网络ID或者统一ID，建议使用统一ID
-     * @param string $FlowLogId 流日志唯一ID
-     * @param string $FlowLogName 流日志实例名字
-     * @param string $FlowLogDescription 流日志实例描述
+     * @var integer 流日志采集周期，只支持CCN类型流日志。 取值范围（单位s）：60， 300， 600。
+     */
+    public $Period;
+
+    /**
+     * @param string $FlowLogId 流日志唯一ID。可通过[CreateFlowLog](https://cloud.tencent.com/document/product/215/35015)接口创建；可通过[DescribeFlowLogs](https://cloud.tencent.com/document/product/215/35012)接口获取。
+     * @param string $VpcId 私用网络唯一ID。修改云联网流日志属性时可不填，其他流日志类型必填。
+     * @param string $FlowLogName 流日志实例名称。长度为不超过60字符。
+     * @param string $FlowLogDescription 流日志实例描述。长度为不超过512个字符。
+     * @param integer $Period 流日志采集周期，只支持CCN类型流日志。 取值范围（单位s）：60， 300， 600。
      */
     function __construct()
     {
@@ -70,12 +78,12 @@ class ModifyFlowLogAttributeRequest extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("VpcId",$param) and $param["VpcId"] !== null) {
-            $this->VpcId = $param["VpcId"];
-        }
-
         if (array_key_exists("FlowLogId",$param) and $param["FlowLogId"] !== null) {
             $this->FlowLogId = $param["FlowLogId"];
+        }
+
+        if (array_key_exists("VpcId",$param) and $param["VpcId"] !== null) {
+            $this->VpcId = $param["VpcId"];
         }
 
         if (array_key_exists("FlowLogName",$param) and $param["FlowLogName"] !== null) {
@@ -84,6 +92,10 @@ class ModifyFlowLogAttributeRequest extends AbstractModel
 
         if (array_key_exists("FlowLogDescription",$param) and $param["FlowLogDescription"] !== null) {
             $this->FlowLogDescription = $param["FlowLogDescription"];
+        }
+
+        if (array_key_exists("Period",$param) and $param["Period"] !== null) {
+            $this->Period = $param["Period"];
         }
     }
 }

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,9 +25,7 @@ use TencentCloud\Common\AbstractModel;
  * @method void setQueueId(string $QueueId) 设置消息队列ID。
 注意：此字段可能返回 null，表示取不到有效值。
  * @method string getQueueName() 获取消息队列名字。
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setQueueName(string $QueueName) 设置消息队列名字。
-注意：此字段可能返回 null，表示取不到有效值。
  */
 class CmqDeadLetterSource extends AbstractModel
 {
@@ -39,7 +37,6 @@ class CmqDeadLetterSource extends AbstractModel
 
     /**
      * @var string 消息队列名字。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $QueueName;
 
@@ -47,7 +44,6 @@ class CmqDeadLetterSource extends AbstractModel
      * @param string $QueueId 消息队列ID。
 注意：此字段可能返回 null，表示取不到有效值。
      * @param string $QueueName 消息队列名字。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
     {

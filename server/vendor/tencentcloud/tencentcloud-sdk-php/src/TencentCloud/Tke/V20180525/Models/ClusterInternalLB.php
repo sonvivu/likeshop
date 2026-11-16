@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,7 +23,9 @@ use TencentCloud\Common\AbstractModel;
  * @method boolean getEnabled() 获取是否开启内网访问LB
  * @method void setEnabled(boolean $Enabled) 设置是否开启内网访问LB
  * @method string getSubnetId() 获取内网访问LB关联的子网Id
+注意：此字段可能返回 null，表示取不到有效值。
  * @method void setSubnetId(string $SubnetId) 设置内网访问LB关联的子网Id
+注意：此字段可能返回 null，表示取不到有效值。
  */
 class ClusterInternalLB extends AbstractModel
 {
@@ -34,12 +36,14 @@ class ClusterInternalLB extends AbstractModel
 
     /**
      * @var string 内网访问LB关联的子网Id
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public $SubnetId;
 
     /**
      * @param boolean $Enabled 是否开启内网访问LB
      * @param string $SubnetId 内网访问LB关联的子网Id
+注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
     {

@@ -17,7 +17,7 @@
 // | author: likeshop.cn.team
 // +----------------------------------------------------------------------
 namespace app\admin\validate;
-use think\Db;
+use think\facade\Db;
 use think\Validate;
 
 class UserLevel extends Validate{
@@ -60,14 +60,14 @@ class UserLevel extends Validate{
         'discount.between'              => '请填写0~10的折扣',
     ];
     protected function sceneAdd(){
-        $this->remove(['id']);
+        $this->remove('id', true);
     }
     protected function sceneDel(){
         $this->only(['id'])->append('id','checkUser');
     }
 
     public function checkUser($value,$rule,$data){
-        if(\app\admin\model\User::get(['level'=>$value,'del'=>0])){
+        if(\app\admin\model\User::find(['level'=>$value,'del'=>0])){
             return lang('该等级被使用，不允许删除');
         }
         return true;

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -67,6 +67,50 @@ use TencentCloud\Common\AbstractModel;
  * @method array getMetricsInfo() 获取指标信息
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setMetricsInfo(array $MetricsInfo) 设置指标信息
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getDimensions() 获取告警实例的维度信息
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setDimensions(string $Dimensions) 设置告警实例的维度信息
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getAlarmLevel() 获取告警等级
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setAlarmLevel(string $AlarmLevel) 设置告警等级
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method integer getShieldFlag() 获取是否有配置告警屏蔽规则
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setShieldFlag(integer $ShieldFlag) 设置是否有配置告警屏蔽规则
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getAlarmShieldingType() 获取屏蔽类型（英文）
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setAlarmShieldingType(string $AlarmShieldingType) 设置屏蔽类型（英文）
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getAlarmShieldingTime() 获取屏蔽时间（英文）
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setAlarmShieldingTime(string $AlarmShieldingTime) 设置屏蔽时间（英文）
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getAlarmShieldingShowType() 获取屏蔽类型（中文）
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setAlarmShieldingShowType(string $AlarmShieldingShowType) 设置屏蔽类型（中文）
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getAlarmShieldingShowTime() 获取屏蔽时间（中文）
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setAlarmShieldingShowTime(string $AlarmShieldingShowTime) 设置屏蔽时间（中文）
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getAlarmShieldReason() 获取屏蔽原因
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setAlarmShieldReason(string $AlarmShieldReason) 设置屏蔽原因
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getInternalDimensions() 获取告警实例的维度信息
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setInternalDimensions(string $InternalDimensions) 设置告警实例的维度信息
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getMetricName() 获取指标名称
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setMetricName(string $MetricName) 设置指标名称
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method integer getPolicyPermissions() 获取策略是否有权限
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setPolicyPermissions(integer $PolicyPermissions) 设置策略是否有权限
 注意：此字段可能返回 null，表示取不到有效值。
  */
 class AlarmHistory extends AbstractModel
@@ -188,6 +232,72 @@ class AlarmHistory extends AbstractModel
     public $MetricsInfo;
 
     /**
+     * @var string 告警实例的维度信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $Dimensions;
+
+    /**
+     * @var string 告警等级
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $AlarmLevel;
+
+    /**
+     * @var integer 是否有配置告警屏蔽规则
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $ShieldFlag;
+
+    /**
+     * @var string 屏蔽类型（英文）
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $AlarmShieldingType;
+
+    /**
+     * @var string 屏蔽时间（英文）
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $AlarmShieldingTime;
+
+    /**
+     * @var string 屏蔽类型（中文）
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $AlarmShieldingShowType;
+
+    /**
+     * @var string 屏蔽时间（中文）
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $AlarmShieldingShowTime;
+
+    /**
+     * @var string 屏蔽原因
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $AlarmShieldReason;
+
+    /**
+     * @var string 告警实例的维度信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $InternalDimensions;
+
+    /**
+     * @var string 指标名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $MetricName;
+
+    /**
+     * @var integer 策略是否有权限
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $PolicyPermissions;
+
+    /**
      * @param string $AlarmId 告警历史Id
      * @param string $MonitorType 监控类型
      * @param string $Namespace 策略类型
@@ -211,6 +321,28 @@ class AlarmHistory extends AbstractModel
      * @param string $Region 地域
      * @param integer $PolicyExists 策略是否存在 0=不存在 1=存在
      * @param array $MetricsInfo 指标信息
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $Dimensions 告警实例的维度信息
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $AlarmLevel 告警等级
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param integer $ShieldFlag 是否有配置告警屏蔽规则
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $AlarmShieldingType 屏蔽类型（英文）
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $AlarmShieldingTime 屏蔽时间（英文）
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $AlarmShieldingShowType 屏蔽类型（中文）
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $AlarmShieldingShowTime 屏蔽时间（中文）
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $AlarmShieldReason 屏蔽原因
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $InternalDimensions 告警实例的维度信息
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $MetricName 指标名称
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param integer $PolicyPermissions 策略是否有权限
 注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
@@ -326,6 +458,50 @@ class AlarmHistory extends AbstractModel
                 $obj->deserialize($value);
                 array_push($this->MetricsInfo, $obj);
             }
+        }
+
+        if (array_key_exists("Dimensions",$param) and $param["Dimensions"] !== null) {
+            $this->Dimensions = $param["Dimensions"];
+        }
+
+        if (array_key_exists("AlarmLevel",$param) and $param["AlarmLevel"] !== null) {
+            $this->AlarmLevel = $param["AlarmLevel"];
+        }
+
+        if (array_key_exists("ShieldFlag",$param) and $param["ShieldFlag"] !== null) {
+            $this->ShieldFlag = $param["ShieldFlag"];
+        }
+
+        if (array_key_exists("AlarmShieldingType",$param) and $param["AlarmShieldingType"] !== null) {
+            $this->AlarmShieldingType = $param["AlarmShieldingType"];
+        }
+
+        if (array_key_exists("AlarmShieldingTime",$param) and $param["AlarmShieldingTime"] !== null) {
+            $this->AlarmShieldingTime = $param["AlarmShieldingTime"];
+        }
+
+        if (array_key_exists("AlarmShieldingShowType",$param) and $param["AlarmShieldingShowType"] !== null) {
+            $this->AlarmShieldingShowType = $param["AlarmShieldingShowType"];
+        }
+
+        if (array_key_exists("AlarmShieldingShowTime",$param) and $param["AlarmShieldingShowTime"] !== null) {
+            $this->AlarmShieldingShowTime = $param["AlarmShieldingShowTime"];
+        }
+
+        if (array_key_exists("AlarmShieldReason",$param) and $param["AlarmShieldReason"] !== null) {
+            $this->AlarmShieldReason = $param["AlarmShieldReason"];
+        }
+
+        if (array_key_exists("InternalDimensions",$param) and $param["InternalDimensions"] !== null) {
+            $this->InternalDimensions = $param["InternalDimensions"];
+        }
+
+        if (array_key_exists("MetricName",$param) and $param["MetricName"] !== null) {
+            $this->MetricName = $param["MetricName"];
+        }
+
+        if (array_key_exists("PolicyPermissions",$param) and $param["PolicyPermissions"] !== null) {
+            $this->PolicyPermissions = $param["PolicyPermissions"];
         }
     }
 }

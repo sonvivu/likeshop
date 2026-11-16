@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,8 +22,14 @@ use TencentCloud\Common\AbstractModel;
  *
  * @method Blueprint getBlueprintInfo() 获取镜像详细信息
  * @method void setBlueprintInfo(Blueprint $BlueprintInfo) 设置镜像详细信息
- * @method boolean getIsResettable() 获取实例镜像是否可重置为目标镜像
- * @method void setIsResettable(boolean $IsResettable) 设置实例镜像是否可重置为目标镜像
+ * @method boolean getIsResettable() 获取实例镜像是否可重置为目标镜像。
+取值：
+true（允许）
+false（不允许）
+ * @method void setIsResettable(boolean $IsResettable) 设置实例镜像是否可重置为目标镜像。
+取值：
+true（允许）
+false（不允许）
  * @method string getNonResettableMessage() 获取不可重置信息.当镜像可重置时为""
  * @method void setNonResettableMessage(string $NonResettableMessage) 设置不可重置信息.当镜像可重置时为""
  */
@@ -35,7 +41,10 @@ class ResetInstanceBlueprint extends AbstractModel
     public $BlueprintInfo;
 
     /**
-     * @var boolean 实例镜像是否可重置为目标镜像
+     * @var boolean 实例镜像是否可重置为目标镜像。
+取值：
+true（允许）
+false（不允许）
      */
     public $IsResettable;
 
@@ -46,7 +55,10 @@ class ResetInstanceBlueprint extends AbstractModel
 
     /**
      * @param Blueprint $BlueprintInfo 镜像详细信息
-     * @param boolean $IsResettable 实例镜像是否可重置为目标镜像
+     * @param boolean $IsResettable 实例镜像是否可重置为目标镜像。
+取值：
+true（允许）
+false（不允许）
      * @param string $NonResettableMessage 不可重置信息.当镜像可重置时为""
      */
     function __construct()
